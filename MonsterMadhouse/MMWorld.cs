@@ -192,6 +192,11 @@ namespace FargowiltasSouls
             }
         }
 
+        public override bool PreNPCLoot(NPC npc)
+        {
+            return false;
+        }
+
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
             bool monsterMadhouse = MMWorld.MMArmy;
