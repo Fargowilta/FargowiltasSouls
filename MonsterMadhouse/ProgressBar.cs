@@ -22,7 +22,7 @@ namespace FargowiltasSouls.MonsterMadhouse
             int height = (int)(46f * scmp);
             Rectangle waveBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 23f), new Vector2(width, height));
             Utils.DrawInvBG(spriteBatch, waveBackground, new Color(63, 65, 151, 255) * 0.785f);
-            float cleared = MMWorld.MMPoints / 200f;
+            float cleared = MMWorld.MMPoints / MMWorld.MMWaveThreshhold;
             string waveText = "Cleared " + Math.Round(100 * cleared) + "%";
             Utils.DrawBorderString(spriteBatch, waveText, new Vector2(waveBackground.X + waveBackground.Width / 2, waveBackground.Y + 5), Color.White, scmp * 0.8f, 0.5f, -0.1f);
             Rectangle waveProgressBar = Utils.CenteredRectangle(new Vector2(waveBackground.X + waveBackground.Width * 0.5f, waveBackground.Y + waveBackground.Height * 0.75f), new Vector2(progressColor.Width, progressColor.Height));

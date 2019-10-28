@@ -6811,7 +6811,7 @@ namespace FargowiltasSouls.NPCs
                     case NPCID.PigronCrimson:
                     case NPCID.PigronHallow:
                         target.AddBuff(mod.BuffType("SqueakyToy"), Main.rand.Next(180));
-                        target.GetModPlayer<FargoPlayer>(mod).MaxLifeReduction += 50;
+                        target.GetModPlayer<FargoPlayer>().MaxLifeReduction += 50;
                         target.AddBuff(mod.BuffType("OceanicMaul"), Main.rand.Next(1800, 3600));
                         break;
 
@@ -6959,7 +6959,7 @@ namespace FargowiltasSouls.NPCs
                         target.AddBuff(BuffID.BrokenArmor, Main.rand.Next(600, 900));
                         target.AddBuff(BuffID.WitheredArmor, Main.rand.Next(600, 900));
                         target.AddBuff(BuffID.Rabies, Main.rand.Next(3600, 7200));
-                        target.GetModPlayer<FargoPlayer>(mod).MaxLifeReduction += (npc.whoAmI == fishBossEX) ? 150 : 100;
+                        target.GetModPlayer<FargoPlayer>().MaxLifeReduction += (npc.whoAmI == fishBossEX) ? 150 : 100;
                         target.AddBuff(mod.BuffType("OceanicMaul"), Main.rand.Next(3600, 7200));
                         break;
 
@@ -6970,7 +6970,7 @@ namespace FargowiltasSouls.NPCs
                         target.AddBuff(BuffID.Rabies, Main.rand.Next(3600, 7200));
                         if (BossIsAlive(ref fishBossEX, NPCID.DukeFishron))
                         {
-                            target.GetModPlayer<FargoPlayer>(mod).MaxLifeReduction += 100;
+                            target.GetModPlayer<FargoPlayer>().MaxLifeReduction += 100;
                             target.AddBuff(mod.BuffType("OceanicMaul"), Main.rand.Next(1800, 3600));
                         }
                         break;
@@ -6980,7 +6980,7 @@ namespace FargowiltasSouls.NPCs
                         if (BossIsAlive(ref fishBossEX, NPCID.DukeFishron))
                         {
                             target.AddBuff(mod.BuffType("Defenseless"), Main.rand.Next(600, 900));
-                            target.GetModPlayer<FargoPlayer>(mod).MaxLifeReduction += 50;
+                            target.GetModPlayer<FargoPlayer>().MaxLifeReduction += 50;
                             target.AddBuff(mod.BuffType("OceanicMaul"), Main.rand.Next(1800, 3600));
                         }
                         break;
@@ -7638,7 +7638,7 @@ namespace FargowiltasSouls.NPCs
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
             Player player = Main.player[Main.myPlayer];
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
             int dmg;
 
             if (FargoSoulsWorld.MasochistMode)
@@ -7844,7 +7844,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (FargoSoulsWorld.MasochistMode)
             {
@@ -7920,7 +7920,6 @@ namespace FargowiltasSouls.NPCs
             bool solarEclipse = surface && day && Main.eclipse;
             bool martianMadness = Main.invasionType == 4;
             bool lunarEvents = NPC.LunarApocalypseIsUp && (nebulaTower || vortexTower || stardustTower || solarTower);
-            bool monsterMadhouse = MMWorld.MMArmy;
 
             //no work?
             //is lava on screen
@@ -8414,51 +8413,6 @@ namespace FargowiltasSouls.NPCs
                     pool[NPCID.CultistDragonHead] = .5f;
                 }
             }
-
-            if (monsterMadhouse)
-            {
-                pool.Clear();
-                if (MMWorld.MMPoints >= 0) //Goblin Army
-                {
-
-                }
-                if (MMWorld.MMPoints >= 90 && MMWorld.MMPoints < 270) //OOA 1
-                {
-
-                }
-                if (MMWorld.MMPoints >= 180) //Pirates
-                {
-
-                }
-                if (MMWorld.MMPoints >= 270 && MMWorld.MMPoints < 630) //OOA2
-                {
-
-                }
-                if (MMWorld.MMPoints >= 360) //Eclipse
-                {
-
-                }
-                if (MMWorld.MMPoints >= 450) //Pumpkin Moon
-                {
-
-                }
-                if (MMWorld.MMPoints >= 540) //Frost Moon
-                {
-
-                }
-                if (MMWorld.MMPoints >= 540) //Martians
-                {
-
-                }
-                if (MMWorld.MMPoints >= 630) //OOA3
-                {
-
-                }
-                if (MMWorld.MMPoints >= 720) //Lunar Events
-                {
-
-                }
-            }
         }
 
         private bool firstLoot = true;
@@ -8466,7 +8420,7 @@ namespace FargowiltasSouls.NPCs
         public override void NPCLoot(NPC npc)
         {
             Player player = Main.player[Main.myPlayer];
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (modPlayer.PlatinumEnchant && !npc.boss && firstLoot)
             {
@@ -8848,7 +8802,7 @@ namespace FargowiltasSouls.NPCs
         public override bool CheckDead(NPC npc)
         {
             Player player = Main.player[Main.myPlayer];
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (TimeFrozen)
             {
@@ -9991,7 +9945,7 @@ namespace FargowiltasSouls.NPCs
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             Player player = Main.player[projectile.owner];
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (modPlayer.CactusEnchant)
                 Needles = true;
@@ -10268,7 +10222,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
         {
-            FargoPlayer modPlayer = target.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = target.GetModPlayer<FargoPlayer>();
 
             if (target.HasBuff(mod.BuffType("ShellHide")))
                 damage *= 2;
@@ -10311,7 +10265,7 @@ namespace FargowiltasSouls.NPCs
             bool retValue = true;
 
             Player player = Main.player[Main.myPlayer];
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (FargoSoulsWorld.MasochistMode)
             {
@@ -10375,7 +10329,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
         {
-            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
             if (modPlayer.ValhallaEnchant && Soulcheck.GetValue("Valhalla Knockback")
                 && !npc.GetGlobalNPC<FargoSoulsGlobalNPC>().SpecialEnchantImmune && npc.knockBackResist < 1)
@@ -10388,7 +10342,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
         {
-            FargoPlayer modPlayer = Main.player[projectile.owner].GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = Main.player[projectile.owner].GetModPlayer<FargoPlayer>();
 
             //spears
             if (modPlayer.ValhallaEnchant && Soulcheck.GetValue("Valhalla Knockback") && (projectile.aiStyle == 19 || modPlayer.WillForce)
@@ -10409,7 +10363,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void OnHitNPC(NPC npc, NPC target, int damage, float knockback, bool crit)
         {
-            FargoPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<FargoPlayer>(mod);
+            FargoPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<FargoPlayer>();
 
             if (modPlayer.KnightEnchant && !npc.friendly && target.townNPC)
             {
