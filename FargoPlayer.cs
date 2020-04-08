@@ -156,6 +156,8 @@ namespace FargowiltasSouls
         public int MonkDashing = 0;
         private int monkTimer;
         public bool EskimoEnchant;
+        
+        public bool EchEnchant;
 
         public bool CosmoForce;
         public bool EarthForce;
@@ -635,6 +637,8 @@ namespace FargowiltasSouls
             HuntressEnchant = false;
             MonkEnchant = false;
             EskimoEnchant = false;
+            
+            EchEnchant = false;
 
             CosmoForce = false;
             EarthForce = false;
