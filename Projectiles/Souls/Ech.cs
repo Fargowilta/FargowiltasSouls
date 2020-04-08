@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Projectiles.Souls
 
 		public override void SetDefaults()
 		{
-			projectile.width = 50;
-			projectile.height = 50;
+			projectile.width = 32;
+			projectile.height = 32;
 			projectile.friendly = true;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
