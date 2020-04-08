@@ -2957,6 +2957,16 @@ namespace FargowiltasSouls
                 target.AddBuff(ModContent.BuffType<ClippedWings>(), 240);
                 target.netUpdate = true;
             }
+            
+            if (EchEnchant /* && player.HeldItem.type != ModContent.ItemType<HalibutCan>() */)
+            {
+                float speedEchs = Main.rand.Next(-100, 101);
+                float speedWhy = Main.rand.Next(-100, 101);
+                if (Main.rand.Next(20) == 0)
+                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs*2, speedWhy*2), ProjectileID.EchBegone, damage * 3, 0, player.whoAmI, target.whoAmI);
+                else
+                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs, speedWhy), ProjectileID.Ech, damage / 2, 0, player.whoAmI, target.whoAmI);
+            }
         }
 
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
@@ -3064,16 +3074,6 @@ namespace FargowiltasSouls
                 Projectile.NewProjectile(spawn, vel, ModContent.ProjectileType<Shadowfrostfireball>(), dam, 6f, player.whoAmI, target.whoAmI);
             }
             
-            if (EchEnchant)
-            {
-                float speedEchs = Main.rand.Next(-100, 101);
-                float speedWhy = Main.rand.Next(-100, 101);
-                if (Main.rand.Next(20) == 0)
-                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs*2, speedWhy*2), ProjectileID.EchBegone, damage / 4, 0, player.whoAmI, target.whoAmI);
-                else
-                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs, speedWhy), ProjectileID.Ech, damage / 4, 0, player.whoAmI, target.whoAmI);
-            }
-
             if (Fargowiltas.Instance.ThoriumLoaded) ThoriumHitNPC(target, item, crit);
         }
 
