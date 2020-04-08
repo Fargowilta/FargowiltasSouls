@@ -3063,6 +3063,16 @@ namespace FargowiltasSouls
                 int dam = (int)(40 * player.magicDamage);
                 Projectile.NewProjectile(spawn, vel, ModContent.ProjectileType<Shadowfrostfireball>(), dam, 6f, player.whoAmI, target.whoAmI);
             }
+            
+            if (EchEnchant)
+            {
+                float speedEchs = Main.rand.Next(-100, 101);
+                float speedWhy = Main.rand.Next(-100, 101);
+                if (Main.rand.Next(20) == 0)
+                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs*2, speedWhy*2), ProjectileID.EchBegone, damage / 4, 0, player.whoAmI, target.whoAmI);
+                else
+                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs, speedWhy), ProjectileID.Ech, damage / 4, 0, player.whoAmI, target.whoAmI);
+            }
 
             if (Fargowiltas.Instance.ThoriumLoaded) ThoriumHitNPC(target, item, crit);
         }
