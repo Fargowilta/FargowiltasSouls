@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (target)
             {
                 AdjustMagnitude(ref move);
-                projectile.velocity = (10 * projectile.velocity + move) / 11f;
+                projectile.velocity = (15 * projectile.velocity + move) / 11f;
                 AdjustMagnitude(ref projectile.velocity);
             }
         }
