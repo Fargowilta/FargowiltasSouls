@@ -2958,12 +2958,12 @@ namespace FargowiltasSouls
                 target.netUpdate = true;
             }
             
-            if (EchEnchant /* && player.HeldItem.type != ModContent.ItemType<HalibutCan>() */)
+            if (EchEnchant /* && player.HeldItem.type != ModContent.ItemType<HalibutCannon>() */)
             {
-                float speedEchs = Main.rand.Next(-100, 101);
-                float speedWhy = Main.rand.Next(-100, 101);
+                float speedEchs = Main.rand.Next(-50, 51);
+                float speedWhy = Main.rand.Next(-50, 51);
                 if (Main.rand.Next(20) == 0)
-                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs*2, speedWhy*2), ProjectileID.EchBegone, damage * 3, 0, player.whoAmI, target.whoAmI);
+                    FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs*3, speedWhy*3), ProjectileID.EchBegone, damage * 3, 60, player.whoAmI, target.whoAmI);
                 else
                     FargoGlobalProjectile.NewProjectileDirectSafe(target.position, new Vector2(speedEchs, speedWhy), ProjectileID.Ech, damage / 2, 0, player.whoAmI, target.whoAmI);
             }
