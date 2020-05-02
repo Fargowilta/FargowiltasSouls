@@ -6,6 +6,9 @@ namespace FargowiltasSouls.Items.Debug
 {
 	public class MutantP1Reset : ModItem
 	{
+	
+	public override string Texture => "FargowiltasSouls/Items/Placeholder";
+	
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Mutant P1 Reset");
