@@ -83,7 +83,7 @@ Pressing the 'Special Ability' key will unleash an echo of Slag Fury's power");
             recipe.AddIngredient(ModContent.ItemType<DevilDagger>());
             recipe.AddIngredient(ModContent.ItemType<MortarStaff>());
             recipe.AddIngredient(ModContent.ItemType<AncientFlame>());
-            recipe.AddIngredient(ModContent.ItemType<MoltenBanner>());
+            //recipe.AddIngredient(ModContent.ItemType<MoltenBanner>());
             recipe.AddIngredient(ModContent.ItemType<AlmanacofDespair>());
 
             recipe.AddTile(TileID.LunarCraftingStation);
