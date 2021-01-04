@@ -21,8 +21,9 @@ Summons a pet Truffle
 'Made with real shrooms!'";
             string tooltip_ch =
 @"'真的是用蘑菇做的!'
+所有的攻击都会产生蘑菇轨迹
 站立不动时潜行
-潜行时, 暴击造成3倍伤害
+潜行时, 蘑菇产生量增加
 召唤一个小蘑菇人";
 
             Tooltip.SetDefault(tooltip);
