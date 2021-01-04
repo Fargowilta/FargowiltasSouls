@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Misc
             DisplayName.SetDefault("Lunar Crystal");
             Tooltip.SetDefault("A fragment of the moon's power");
             DisplayName.AddTranslation(GameCulture.Chinese, "月之水晶");
-            Tooltip.AddTranslation(GameCulture.Chinese, "月球能量的碎片");
+            Tooltip.AddTranslation(GameCulture.Chinese, "月球能量的碎片\n宇宙英灵掉落");
         }
 
         public override void SetDefaults()
