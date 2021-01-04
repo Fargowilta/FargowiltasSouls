@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 using System.IO;
 
 namespace FargowiltasSouls.NPCs.Champions
@@ -12,6 +13,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadow Orb");
+            DisplayName.AddTranslation(GameCulture.Chinese, "暗影珠");
         }
 
         public override void SetDefaults()
