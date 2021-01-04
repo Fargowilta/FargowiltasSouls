@@ -21,8 +21,8 @@ Enlarged swords and projectiles deal 15% more damage on crits
             string tooltip_ch =
 @"'大就是好'
 增加150%剑的尺寸
-增加100%抛射物尺寸
-减少10%移动速度和近战速度
+每隔0.5秒让一个抛射物尺寸翻倍
+变大的剑和抛射物暴击时会造成15%的额外伤害
 抛射物仍然具有同样的砖块碰撞箱";
 
             Tooltip.SetDefault(tooltip);
