@@ -22,7 +22,8 @@ Summons a pet Dragon
             DisplayName.AddTranslation(GameCulture.Chinese, "瓦尔哈拉骑士魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"'瓦尔哈拉的呼唤'
-剑和矛将慢慢地移除敌人的击退免疫
+持续攻击敌人会给予你瓦尔哈拉之力buff
+持续时间内大幅削减敌人无敌帧
 大大提高弩车能力
 拥有闪耀石的效果
 召唤一只宠物小龙");
