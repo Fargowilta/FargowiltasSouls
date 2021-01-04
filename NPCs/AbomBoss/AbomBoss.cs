@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using System.IO;
 using FargowiltasSouls.Projectiles.AbomBoss;
@@ -21,6 +22,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶");
             Main.npcFrameCount[npc.type] = 4;
         }
 
