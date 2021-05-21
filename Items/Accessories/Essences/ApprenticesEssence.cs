@@ -19,10 +19,10 @@ Increases your maximum mana by 50
 'This is only the beginning..'");
             DisplayName.AddTranslation(GameCulture.Chinese, "学徒精华");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"'这才刚刚开始..'
-增加18%魔法伤害
+@"增加18%魔法伤害
 增加5%魔法暴击率
-增加50最大法力值");
+增加50点最大法力值
+'这仅仅是个开始..'");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
