@@ -18,7 +18,7 @@ Your attacks summon Frostfireballs to attack your enemies
             DisplayName.AddTranslation(GameCulture.Chinese, "寒玉");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫霜冻减益
 攻击会释放霜火球来攻击你的敌人
-'一片远古魔法冰晶的碎块'");
+'一块远古魔法冰晶的碎片'");
         }
 
         public override void SetDefaults()
