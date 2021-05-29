@@ -23,14 +23,15 @@ Endurance recovers when you reach full life again
 'Seems like something's missing'");
             //Upgrades Cute Fishron to Cute Fishron EX");
             DisplayName.AddTranslation(GameCulture.Chinese, "憎恶手杖");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫憎恶毒牙
-擦弹增加暴击伤害的上限增加20%
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫憎恶毒牙减益
+增加闪光之崇擦弹所增加的暴击值上限
+减半闪光之崇召唤伤害性心的周期
 暴击时显现幽灵憎恶
-幽灵憎恶会造成突变啃啄,阻止敌人再生
-受到致命伤害时，保留1血不死
-该效果发动时，10秒钟内禁止回复血量
-该效果在回复到满血时才能够下一次发动
-'看起来像是什么遗失了的东西'");
+幽灵憎恶会造成突变啃啄减益
+受到致死伤害时会为你保留1点生命值而非死亡
+在免死效果触发后，在10秒内无法回复生命值
+在免死效果触发后，在你的生命值回复至满之前，免死效果不会再次触发
+'似乎少了点什么'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 14));
         }
 
