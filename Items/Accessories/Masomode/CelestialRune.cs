@@ -17,10 +17,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\n'A fallen enemy's spells, repurposed'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "天界符文");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'堕落的敌人的咒语,被改换用途'" +
-                "\n免疫死亡标记" +
-                "\n根据武器类型定期发动额外的攻击" +
-                "\n受伤时创造一个友好的远古幻象来攻击敌人");
+            Tooltip.AddTranslation(GameCulture.Chinese, "使你免疫死亡标记减益" +
+                "\n根据手持武器的类型定期发动额外攻击" +
+                "\n受到伤害时创造一个友好的远古幻象来攻击敌人" +
+                "\n'一位堕落的敌人的咒语，被改换用途'");
         }
 
         public override void SetDefaults()
