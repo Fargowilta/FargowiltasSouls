@@ -19,7 +19,7 @@ You spawn mini eaters to seek out enemies every few attacks
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫腐败减益
 增加10%移动速度
 每攻击几次便释放迷你吞噬者来搜寻并攻击敌人
-'就连苍蝇也不想靠近这玩意'");
+'就连苍蝇都不想靠近这玩意'");
         }
 
         public override void SetDefaults()
