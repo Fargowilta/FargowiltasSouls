@@ -16,10 +16,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 You spawn mini eaters to seek out enemies every few attacks
 'Flies refuse to approach it'");
             DisplayName.AddTranslation(GameCulture.Chinese, "腐化之心");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'苍蝇都不想接近它'
-免疫腐败
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫腐败减益
 增加10%移动速度
-每隔几次攻击就会产生一个迷你噬魂者追踪敌人");
+每攻击几次便释放迷你吞噬者来搜寻并攻击敌人
+'就连苍蝇也不想靠近这玩意'");
         }
 
         public override void SetDefaults()
