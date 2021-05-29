@@ -19,7 +19,7 @@ Collect the bones to heal for 15 HP each
 'Beyond a forgotten age'");
             DisplayName.AddTranslation(GameCulture.Chinese, "化石魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"受到致死伤害时会以1生命值重生并爆出几根骨头
+@"受到致死伤害时会使你回复1点生命值并爆出几根骨头而非死亡
 你攻击敌人时也会扔出骨头
 每根骨头会回复15点生命值
 '被遗忘已久的记忆'");
