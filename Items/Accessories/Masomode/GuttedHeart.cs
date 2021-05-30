@@ -18,11 +18,12 @@ A new Creeper appears every 15 seconds, and 5 can exist at once
 Creeper respawn speed increases when not moving
 'Once beating in the mind of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "破碎的心");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'曾经还在敌人的脑中跳动着'
-免疫嗜血
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫嗜血减益
 增加10%最大生命值
-爬行者徘徊周围来阻挡伤害
-每15秒生成一个新的爬行者,最多同时存在5个");
+飞眼怪徘徊在你周围并阻挡一部分伤害
+每过15秒便生成一只新的飞眼怪，至多存在5只飞眼怪
+站定不动时增加飞眼怪的生成速度
+'曾经还在敌人的脑中跳动着'");
         }
 
         public override void SetDefaults()
