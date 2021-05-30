@@ -26,18 +26,18 @@ Press the Fireball Dash key to perform a short invincible dash
 Grants effects of Wet debuff while riding Cute Fishron and gravity control
 Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 'Warm, beating, and no body needed'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "永恒者之心");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'大多数情况下已经不用受苦了'
-免疫人形废土,冻结,渗入,枯萎武器和枯萎盔甲
-免疫野性咬噬,突变啃啄,翻转,不稳定,扭曲和混沌
-免疫潮湿,带电,月之血蛭,无效诅咒和由水造成的Debuff
-增加10%伤害,暴击率伤害减免
-增加100%飞行时间
-根据武器类型定期发动额外的攻击
-暴击造成贝特希的诅咒
-按下火球冲刺按键来进行一次短程的无敌冲刺
-骑乘猪鲨坐骑时获得潮湿状态,能够控制重力
-召唤一个友善的超级圣诞雪灵,迷你飞碟和真·克苏鲁之眼");
+            DisplayName.AddTranslation(GameCulture.Chinese, "永恒之心");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫人形废土、冰冻、低温、分泌物、枯萎武器和枯萎盔甲减益
+使你免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益
+使你免疫潮湿、带电、海洋重击、月蛭凝块、无效诅咒减益和浸没在水中时获得的减益
+增加5%伤害、暴击率和伤害减免
+延长100%飞行时间
+Y根据手持武器的类型定期发动额外攻击
+攻击会造成腐败和双足翼龙诅咒减益
+按下'火球冲刺'键后会进行短距离无敌冲刺
+骑着可爱猪龙鱼坐骑或翻转重力时使你获得潮湿减益的效果
+召唤一只超级圣诞雪灵、一个迷你飞碟和真·克苏鲁之眼
+'一颗温暖的，跳动的心脏，无需躯壳承载'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 5));
         }
 
