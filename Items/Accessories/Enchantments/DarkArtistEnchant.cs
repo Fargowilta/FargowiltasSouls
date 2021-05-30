@@ -28,7 +28,7 @@ Greatly enhances Flameburst effectiveness
 @"召唤一个爆炸烈焰哨兵，在充能完毕后会移动至光标位置
 然后将其算作一个哨兵
 持续攻击两秒后你将被火焰包裹
-切换武器后使下次攻击的伤害增加50%
+切换武器后使下次攻击的伤害增加50%并且释放一团狱火
 大幅强化爆炸烈焰哨兵的效果
 '阴影蕴含之物远超目之所及'";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
