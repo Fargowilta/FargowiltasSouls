@@ -15,10 +15,11 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 You respawn with more life
 Your attacks occasionally produce hearts
 'The scent is somewhat overpowering'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "染血女神的香水");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'气味有点太浓了'
-免疫热恋和恶臭
-攻击偶尔会生成心");
+            DisplayName.AddTranslation(GameCulture.Chinese, "宁芙的香水");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫热恋、恶臭和邪咒减益
+你在重生时以更多生命重生
+攻击有几率生成红心
+'气味有点太浓了'");
         }
 
         public override void SetDefaults()
