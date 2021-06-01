@@ -23,7 +23,7 @@ Press the Mutant Bomb key to unleash a wave of spheres and destroy most hostile 
 Mutant Bomb has a 60 second cooldown
 'Only a little suspicious'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变之眼");
-            Tooltip.AddTranslation(GameCulture.Chinese,@"使你免疫突变毒牙减益
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫突变毒牙减益
 擦弹所增加的暴击值上限增加25%
 将闪光之崇的伤害性心升级为爱之射线
 擦弹时获得的暴击率增加
