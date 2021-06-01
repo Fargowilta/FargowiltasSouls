@@ -22,14 +22,16 @@ Reduces Abominable Rebirth duration
 Press the Mutant Bomb key to unleash a wave of spheres and destroy most hostile projectiles
 Mutant Bomb has a 60 second cooldown
 'Only a little suspicious'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "突变者之眼");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'有点可疑'
-擦弹增加暴击伤害的上限增加50%
-每次擦弹增加暴击伤害的数值增加
-增加幽灵憎恶的重生频率和伤害
-减少憎恶手杖复活效果禁止回血的时间
-按下Mutant Bomb快捷键释放一波球并破坏多数敌对抛射物
-Mutant Bomb有60秒的冷却");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变之眼");
+            Tooltip.AddTranslation(GameCulture.Chinese,@"使你免疫突变毒牙减益
+擦弹所增加的暴击值上限增加25%
+将闪光之崇的伤害性心升级为爱之射线
+擦弹时获得的暴击率增加
+增加幽灵憎恶显现的频率和伤害
+缩短憎恶手杖触发免死效果后无法回复生命值的时间
+按下'突变炸弹'后会释放一波球体并摧毁大多数来犯的敌对弹幕
+突变炸弹有60秒冷却时间
+'有点可疑'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 18));
         }
 
