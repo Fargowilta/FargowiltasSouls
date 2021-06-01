@@ -9,6 +9,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Puff in a Bottle");
             Tooltip.SetDefault(@"Allows the holder to double jump");
+            DisplayName.AddTranslation(GameCulture.Chinese, "瓶中气体");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你获得二段跳能力");
         }
 
         public override void SetDefaults()
