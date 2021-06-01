@@ -17,11 +17,11 @@ Grants effects of Wet debuff while riding Cute Fishron
 Increases damage by 20%
 'Healthy drug recommended by 0 out of 10 doctors'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变抗体");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'推荐健康药物指数: 0/10'
-免疫潮湿,野性咬噬和突变啃啄和海洋重击
-免疫大部分由水造成的Debuff
-骑乘猪鲨坐骑时获得潮湿状态
-增加20%伤害");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫潮湿、野性咬噬、突变啃啄和海洋重击减益
+使你免疫大多数浸没在水中时获得的减益
+骑着可爱猪龙鱼坐骑时使你获得潮湿减益的效果
+增加20%伤害
+'10位医生中有0位推荐的健康药物'");
         }
 
         public override void SetDefaults()
