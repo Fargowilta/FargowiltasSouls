@@ -26,7 +26,7 @@ Makes armed and magic skeletons less hostile outside the Dungeon
 增加16%召唤伤害但微幅降低防御
 +2最大召唤栏
 +2最大哨兵栏
-你在攻击时尖刻眼球会充能并发射激光
+你在攻击时苦痛眼球会充能并发射激光
 减少敌人以你为攻击目标的几率
 在地牢外减少武装和魔法骷髅对你的敌意
 '它在生长'");
