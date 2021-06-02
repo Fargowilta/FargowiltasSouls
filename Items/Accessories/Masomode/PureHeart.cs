@@ -21,13 +21,14 @@ A new Creeper appears every 15 seconds, and 5 can exist at once
 Creeper respawn speed increases when not moving
 'It pulses with vitality'");
             DisplayName.AddTranslation(GameCulture.Chinese, "纯净之心");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"它充满活力地跳动着'
-免疫腐败和嗜血
-免疫地形Debuff
-增加20%移动速度和最大生命值
-每隔几次攻击就会产生一个迷你噬魂者追踪敌人
-爬行者徘徊在周围来阻挡伤害
-每15秒生成一个新的爬行者,最多同时存在5个");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫腐败和嗜血减益
+使你免疫环境减益
+增加20%移动速度和20%最大生命值
+每攻击几次便释放迷你吞噬者来搜寻并攻击敌人
+飞眼怪徘徊在你周围并阻挡一部分伤害
+每过15秒便生成一只新的飞眼怪，至多存在5只飞眼怪
+站定不动时增加飞眼怪的生成速度
+'它充满活力的跳动着'");
         }
 
         public override void SetDefaults()
