@@ -22,12 +22,11 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\n'Ripped right off of a defeated foe'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "女王的毒刺");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'从一个被打败的敌人身上撕下来'" +
-                "\n免疫感染" +
+            Tooltip.AddTranslation(GameCulture.Chinese, "使你免疫感染减益" +
                 "\n增加10点护甲穿透" +
-                "\n攻击造成中毒效果" +
-                "\n永久蜂蜜Buff效果" +
-                "\n蜜蜂和虚弱黄蜂变得友好");
+                "\n攻击会造成中毒减益并喷出会增加你的生命恢复速度的蜂蜜" +
+                "\n使蜜蜂和弱小的黄蜂变得友好" +
+                "\n'从一位被打败的敌人的身上撕下来的'");
         }
 
         public override void SetDefaults()
