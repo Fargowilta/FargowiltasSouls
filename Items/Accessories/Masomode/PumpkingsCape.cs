@@ -19,11 +19,11 @@ Your critical strikes inflict Rotting
 You may periodically fire additional attacks depending on weapon type
 'Somehow, it's the right size'");
             DisplayName.AddTranslation(GameCulture.Chinese, "南瓜王的披肩");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'不知怎么的,它的尺寸正好合适'
-免疫人形废土
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫人型废土减益
 增加5%伤害和暴击率
-暴击造成腐败
-根据武器类型定期发动额外的攻击");
+攻击造成暴击时会造成腐败减益
+根据手持武器的类型定期发动额外攻击
+'不知为何，它的大小对你来说正好合适'");
         }
 
         public override void SetDefaults()
