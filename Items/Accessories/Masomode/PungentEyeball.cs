@@ -15,11 +15,11 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Increases your max number of minions by 2
 Increases your max number of sentries by 2
 'It's fermenting'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "辛辣的眼球");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'它在发酵'
-免疫致盲和阻塞
+            DisplayName.AddTranslation(GameCulture.Chinese, "苦痛眼球");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫黑视和遮蔽减益
 +2最大召唤栏
-+2最大哨兵栏");
++2最大哨兵栏
+'它在发酵'");
         }
 
         public override void SetDefaults()
