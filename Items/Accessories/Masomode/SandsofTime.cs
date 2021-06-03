@@ -18,11 +18,11 @@ You respawn twice as fast when no boss is alive
 Use to teleport to your last death point
 'Whatever you do, don't drop it'");
             DisplayName.AddTranslation(GameCulture.Chinese, "时之沙");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'无论你做什么,都不要丢下它'
-放在物品栏中即可生效
-免疫强风和仙人掌伤害
-当没有Boss存活时,重生速度加倍
-按下快捷键传送到上次死亡地点");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"放置在背包中即可生效
+使你免疫强风减益和仙人掌刺伤
+非Boss战期间会使你的重生速度翻倍
+使用此饰品后会将你传送至上一次死亡时的地点
+'无论你做什么都不要丢下这个东西'");
         }
 
         public override void SetDefaults()
