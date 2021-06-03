@@ -16,9 +16,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Summons a friendly Mini Saucer
 'Just keep it in airplane mode'");
             DisplayName.AddTranslation(GameCulture.Chinese, "飞碟控制台");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'保持在飞行模式'
-免疫带电
-召唤一个友善的迷你飞碟");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫带电减益
+召唤一个迷你飞碟
+'请保持在飞行模式'");
         }
 
         public override void SetDefaults()
