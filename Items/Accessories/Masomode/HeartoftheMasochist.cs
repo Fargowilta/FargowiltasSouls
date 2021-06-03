@@ -36,7 +36,7 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 攻击会造成腐败和双足翼龙诅咒减益
 按下'火球冲刺'键后会进行短距离无敌冲刺
 骑着可爱猪龙鱼坐骑或翻转重力时使你获得潮湿减益的效果
-召唤一只超级圣诞雪灵、一个迷你飞碟和真·克苏鲁之眼
+召唤一只超级圣诞雪灵、一架迷你飞碟和真·克苏鲁之眼
 '一颗温暖的，跳动的心脏，无需躯壳承载'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 5));
         }
