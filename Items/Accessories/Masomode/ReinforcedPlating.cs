@@ -15,9 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Reduces damage taken by 5%
 'The sturdiest piece of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "强化钢板");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'被打败的敌人最坚强的一面'
-免疫毫无防御,昏迷和击退
-减少10%所受伤害");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫毫无防御和纳米注射减益以及击退
+减少5%所受伤害
+'一位被打败的敌人的坚固碎块'");
         }
 
         public override void SetDefaults()
