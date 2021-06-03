@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.AddTranslation(GameCulture.Chinese, "生态集群");
             Tooltip.AddTranslation(GameCulture.Chinese, "使你免疫霜冻、暗影焰、吱吱作响的玩具、愧疚、强风和窒息减益" +
                 "\n使你免疫宇宙之火、剪除羽翼、残废、被网住和净化减益" +
-                "\n使你免热恋、恶臭、迈达斯、邪咒减益，同时免疫仙人掌刺伤和敌人的偷取物品效果" +
+                "\n使你免热恋、恶臭、迈达斯、邪咒减益以及仙人掌刺伤和敌人偷取物品的效果" +
                 "\n攻击会造成剪除羽翼减益并生成霜火球和红心" +
                 "\n允许所有武器自动挥舞、增强夜视效果并在非Boss战期间加快你的重生速度" +
                 "\n在需要时自动使用魔力药水\r\n你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点" +
