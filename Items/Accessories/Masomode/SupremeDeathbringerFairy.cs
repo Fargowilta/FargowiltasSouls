@@ -24,16 +24,15 @@ Bees and weak Hornets become friendly
 Summons 2 Skeletron arms to whack enemies
 'Supremacy not necessarily guaranteed'");
             DisplayName.AddTranslation(GameCulture.Chinese, "至高告死精灵");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'霸权不一定能得到保证'
-免疫黏糊, 狂暴, 昏昏欲睡和感染
-增加10%伤害, 增加10点护甲穿透
-增加15%掉落速度
-跳跃落地后, 在光标处落下史莱姆
-冲刺或快速奔跑时发射一串血镰
-攻击造成毒液效果
-蜜蜂和虚弱黄蜂变得友好
-永久蜂蜜Buff效果
-召唤2个骷髅王手臂重击敌人");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫史莱姆、狂暴、昏昏欲睡和感染减益
+增加10%伤害和10点护甲穿透
+增加15%下落速度
+跳跃落地后，一些史莱姆球会从天而降至你的光标处
+冲刺或奔跑时会在身后留下一串恶魔镰刀
+攻击会造成酸性毒液减益并喷出会增加你的生命恢复速度的蜂蜜
+使蜜蜂和弱小的黄蜂变得友好
+召唤两条骷髅手臂重击敌人
+'至高无上的地位不一定意味着安全无虞'");
         }
 
         public override void SetDefaults()
