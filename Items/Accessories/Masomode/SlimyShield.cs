@@ -19,10 +19,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 When you land after a jump, slime will fall from the sky over your cursor
 'Torn from the innards of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "粘液盾");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'从被打败的敌人的内脏中撕裂而来'
-免疫黏糊
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫史莱姆减益
 增加15%下落速度
-跳跃落地后,在光标处落下史莱姆");
+跳跃落地后，一些史莱姆球会从天而降至你的光标处
+'从一位被打败的敌人的内脏中撕裂而来'");
         }
 
         public override void SetDefaults()
