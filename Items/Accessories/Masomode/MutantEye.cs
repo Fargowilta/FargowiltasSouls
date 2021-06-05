@@ -25,7 +25,7 @@ Mutant Bomb has a 60 second cooldown
             DisplayName.AddTranslation(GameCulture.Chinese, "突变之眼");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫突变毒牙减益
 擦弹所增加的暴击伤害上限增加25%
-将闪光之崇的伤害性心升级为爱之射线
+将闪光之崇的窃命之心升级为爱之射线
 擦弹获得的暴击伤害增加
 增加幽灵憎恶显现的频率和伤害
 缩短憎恶手杖触发免死效果后无法回复生命值的时间
