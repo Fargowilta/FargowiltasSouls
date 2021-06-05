@@ -21,6 +21,7 @@ namespace FargowiltasSouls.Projectiles
 
         public float colorlerp;
         public bool playedsound = false;
+        public float startSpeed;
         public override void SetDefaults()
         {
             projectile.width = 20;
@@ -50,6 +51,7 @@ namespace FargowiltasSouls.Projectiles
             {
                 Main.PlaySound(SoundID.Item, (int)projectile.Center.X, (int)projectile.Center.Y, 122, 0.5f, -0.5f);
                 playedsound = true;
+                startSpeed = projectile.velocity.Length();
             }
 
             if (projectile.velocity == Vector2.Zero)
@@ -129,7 +131,7 @@ namespace FargowiltasSouls.Projectiles
             label_3461:
                 if (projectile.velocity == Vector2.Zero || projectile.velocity.Length() < 4f)
                 {
-                    projectile.velocity = Vector2.UnitX.RotatedBy(projectile.ai[0]).RotatedByRandom(Math.PI / 4) * 7f;
+                    projectile.velocity = Vector2.UnitX.RotatedBy(projectile.ai[0]).RotatedByRandom(Math.PI / 4) * startSpeed;
                     projectile.ai[1] = Main.rand.Next(100);
                     return;
                 }

@@ -991,51 +991,48 @@ namespace FargowiltasSouls.NPCs
 
                 if (--Counter[0] < 0) //confusion timer
                 {
-                    Counter[0] = 600;
-                    Main.PlaySound(SoundID.Roar, (int)npc.Center.X, (int)npc.Center.Y, 0);
+                    Counter[0] = 300;
 
-                    Vector2 offset = npc.Center - Main.player[npc.target].Center;
-
-                    Vector2 spawnPos = Main.player[npc.target].Center;
-                    spawnPos.X += offset.X;
-                    spawnPos.Y += offset.Y;
-                    MakeDust(spawnPos);
-
-                    spawnPos = Main.player[npc.target].Center;
-                    spawnPos.X += offset.X;
-                    spawnPos.Y -= offset.Y;
-                    MakeDust(spawnPos);
-
-                    spawnPos = Main.player[npc.target].Center;
-                    spawnPos.X -= offset.X;
-                    spawnPos.Y += offset.Y;
-                    MakeDust(spawnPos);
-
-                    spawnPos = Main.player[npc.target].Center;
-                    spawnPos.X -= offset.X;
-                    spawnPos.Y -= offset.Y;
-                    MakeDust(spawnPos);
-                }
-                else if (Counter[0] == 540) //inflict confusion after telegraph
-                {
-                    if (npc.Distance(Main.player[Main.myPlayer].Center) < 3000)
-                        Main.player[Main.myPlayer].AddBuff(BuffID.Confused, Main.expertMode && Main.expertDebuffTime > 1 ? 150 : 300);
-
-                    LaserSpread();
-                }
-
-                int b = Main.LocalPlayer.FindBuffIndex(BuffID.Confused);
-                if (b != -1)
-                {
-                    if (Main.LocalPlayer.buffTime[b] == 60)
+                    if (Main.LocalPlayer.HasBuff(BuffID.Confused))
                     {
                         Main.PlaySound(SoundID.ForceRoar, (int)npc.Center.X, (int)npc.Center.Y, -1, 1f, 0f);
                         MakeDust(Main.LocalPlayer.Center);
                     }
-                    else if (Main.LocalPlayer.buffTime[b] == 1)
+                    else
                     {
-                        LaserSpread();
+                        Main.PlaySound(SoundID.Roar, (int)npc.Center.X, (int)npc.Center.Y, 0);
+
+                        Vector2 offset = npc.Center - Main.player[npc.target].Center;
+
+                        Vector2 spawnPos = Main.player[npc.target].Center;
+                        spawnPos.X += offset.X;
+                        spawnPos.Y += offset.Y;
+                        MakeDust(spawnPos);
+
+                        spawnPos = Main.player[npc.target].Center;
+                        spawnPos.X += offset.X;
+                        spawnPos.Y -= offset.Y;
+                        MakeDust(spawnPos);
+
+                        spawnPos = Main.player[npc.target].Center;
+                        spawnPos.X -= offset.X;
+                        spawnPos.Y += offset.Y;
+                        MakeDust(spawnPos);
+
+                        spawnPos = Main.player[npc.target].Center;
+                        spawnPos.X -= offset.X;
+                        spawnPos.Y -= offset.Y;
+                        MakeDust(spawnPos);
                     }
+                }
+                else if (Counter[0] == 240) //inflict confusion after telegraph
+                {
+                    if (npc.Distance(Main.LocalPlayer.Center) < 3000 && !Main.LocalPlayer.HasBuff(BuffID.Confused))
+                    {
+                        Main.LocalPlayer.AddBuff(BuffID.Confused, Main.expertMode && Main.expertDebuffTime > 1 ? 150 + 5 : 300 + 10);
+                    }
+
+                    LaserSpread();
                 }
 
                 if (--Counter[1] < 0)
@@ -1190,7 +1187,7 @@ namespace FargowiltasSouls.NPCs
                     Counter[0] = 0;
                     const float gravity = 0.25f;
                     float time = 60f;
-                    Vector2 distance = Main.player[npc.target].Center - npc.Center + Main.player[npc.target].velocity * 30f;
+                    Vector2 distance = Main.player[npc.target].Center - Vector2.UnitY * 16 - npc.Center + Main.player[npc.target].velocity * 30f;
                     distance.X = distance.X / time;
                     distance.Y = distance.Y / time - 0.5f * gravity * time;
                     if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -1616,7 +1613,7 @@ namespace FargowiltasSouls.NPCs
                             }
                         }*/
 
-                        if (++Counter[1] > 10)
+                        if (++Counter[1] > 8)
                         {
                             Counter[1] = 0;
                             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -1635,17 +1632,19 @@ namespace FargowiltasSouls.NPCs
                                     Projectile.NewProjectile(npc.Center, speed, ProjectileID.GoldenShowerHostile, npc.damage / 5, 0f, Main.myPlayer);
                                 }*/
 
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < 8; i++)
                                 {
                                     Vector2 target = npc.Center;
                                     target.X += Math.Sign(npc.velocity.X) * 1000f * Counter[0] / 240f; //gradually targets further and further
+                                    target.X += Main.rand.NextFloat(-100, 100);
                                     target.Y += Main.rand.NextFloat(-450, 450);
                                     const float gravity = 0.5f;
                                     float time = 60f;
                                     Vector2 distance = target - npc.Center;
                                     distance.X = distance.X / time;
                                     distance.Y = distance.Y / time - 0.5f * gravity * time;
-                                    Projectile.NewProjectile(npc.Center, distance, ModContent.ProjectileType<GoldenShowerWOF>(), npc.damage / 4, 0f, Main.myPlayer, time);
+                                    Projectile.NewProjectile(npc.Center + Vector2.UnitX * Math.Sign(npc.velocity.X) * 32f, distance, 
+                                        ModContent.ProjectileType<GoldenShowerWOF>(), npc.damage / 4, 0f, Main.myPlayer, time);
                                 }
                             }
                         }
@@ -3775,8 +3774,8 @@ namespace FargowiltasSouls.NPCs
 
                 if (--Counter[2] < 0)
                 {
-                    //explode time * (explode repetitions + 1) + spread delay * propagations
-                    Counter[2] = 150 * (4 + 1) + 25 * 8;
+                    //explode time * explode repetitions + spread delay * propagations
+                    Counter[2] = 150 * 4 + 25 * 8;
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<DicerPlantera>(), npc.damage / 4, 0f, Main.myPlayer, 0, 0);
@@ -4063,22 +4062,29 @@ namespace FargowiltasSouls.NPCs
                 masoBool[0] = true;
             }
 
-            if (++Counter[1] >= 660 && npc.velocity.Y == 0) //spray spiky balls, only when on ground
+            if (++Counter[1] >= 900) //spray spiky balls
             {
-                Counter[1] = 0;
                 if (Main.tile[(int)npc.Center.X / 16, (int)npc.Center.Y / 16] != null && //in temple
                     Main.tile[(int)npc.Center.X / 16, (int)npc.Center.Y / 16].wall == WallID.LihzahrdBrickUnsafe)
                 {
-                    /*for (int i = 0; i < 8; i++)
-                        Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
-                            Main.rand.NextFloat(-0.1f, 0.1f), Main.rand.NextFloat(-10, -6), ModContent.ProjectileType<GolemSpikyBall>(), npc.damage / 5, 0f, Main.myPlayer);*/
+                    if (npc.velocity.Y > 0) //only when falling, implicitly assume at peak of a jump
+                    {
+                        Counter[1] = 0;
+                        for (int i = 0; i < 8; i++)
+                        {
+                            Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
+                                  Main.rand.NextFloat(-0.3f, 0.3f), Main.rand.NextFloat(-10, -6), ModContent.ProjectileType<GolemSpikyBall>(), npc.damage / 5, 0f, Main.myPlayer);
+                        }
+                    }
                 }
                 else //outside temple
                 {
-                    Counter[1] = 330; //do it more often
+                    Counter[1] = 600; //do it more often
                     for (int i = 0; i < 16; i++)
+                    {
                         Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
-                            Main.rand.NextFloat(-1f, 1f), Main.rand.Next(-20, -9), ModContent.ProjectileType<GolemSpikyBall>(), npc.damage / 4, 0f, Main.myPlayer);
+                              Main.rand.NextFloat(-1f, 1f), Main.rand.Next(-20, -9), ModContent.ProjectileType<GolemSpikyBall>(), npc.damage / 4, 0f, Main.myPlayer);
+                    }
                 }
             }
 

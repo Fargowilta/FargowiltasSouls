@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Patreon.Catsounds
 
             if (projectile.damage == 0)
             {
-                projectile.damage = (int)(25 * player.minionDamage);
+                projectile.damage = (int)(15 * player.minionDamage);
                 if (player.GetModPlayer<FargoPlayer>().MasochistSoul)
                     projectile.damage *= 2;
             }
@@ -65,12 +65,14 @@ namespace FargowiltasSouls.Patreon.Catsounds
                     {
                         spikeAttackCounter = 0;
 
-                        for (int i = 0; i < 30; i++)
+                        if (projectile.owner == Main.myPlayer)
                         {
-                            int p = Projectile.NewProjectile(new Vector2(projectile.Center.X + Main.rand.Next(-5, 5), projectile.Center.Y - 15),
-                                new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)),
-                                ModContent.ProjectileType<SlimeSpikeFriendly>(), projectile.damage / 3, 0f, Main.myPlayer);
-                            Main.projectile[p].penetrate = 1;
+                            for (int i = 0; i < 25; i++)
+                            {
+                                Projectile.NewProjectile(new Vector2(projectile.Center.X + Main.rand.Next(-5, 5), projectile.Center.Y - 15),
+                                    new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)),
+                                    ModContent.ProjectileType<KingSlimeSpike>(), projectile.damage, 0f, Main.myPlayer);
+                            }
                         }
                     }
                     
@@ -88,17 +90,17 @@ namespace FargowiltasSouls.Patreon.Catsounds
 
                 NPC target = Main.npc[CheckForTarget(800)];
 
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                if (projectile.owner == Main.myPlayer)
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                        Vector2 spawn = target.Center;
+                        Vector2 spawn = target.Center + target.velocity * Main.rand.NextFloat(15f);
                         spawn.X += Main.rand.Next(-50, 51);
                         spawn.Y -= Main.rand.Next(600, 701);
                         Vector2 speed = target.Center - spawn;
                         speed.Normalize();
-                        speed.Y *= 50f;
-                        Projectile.NewProjectile(spawn, speed, ModContent.ProjectileType<SlimeBall>(), projectile.damage / 2, 0f, Main.myPlayer);
+                        speed *= Main.rand.NextFloat(10f, 20f);
+                        Projectile.NewProjectile(spawn, speed, ModContent.ProjectileType<KingSlimeBallPiercing>(), projectile.damage, 0f, Main.myPlayer);
                     }
                 }
             }

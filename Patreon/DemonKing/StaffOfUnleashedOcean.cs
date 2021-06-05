@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Staff of Unleashed Ocean");
-            Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 3 minion slots\nMinions do reduced damage when not holding a summon weapon\n'Now channel your rage against them!'");
+            Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 3 minion slots\n'Now channel your rage against them!'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 3;
         }
 

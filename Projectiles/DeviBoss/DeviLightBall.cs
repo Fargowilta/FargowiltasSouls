@@ -2,6 +2,8 @@
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
+using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.DeviBoss
 {
@@ -30,11 +32,10 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 Main.dust[index3].velocity *= 2f;
             }
 
-            if (projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient) //split
+            if (projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                for (int i = 1; i <= 6; i++)
-                    Projectile.NewProjectile(projectile.Center, Vector2.Normalize(projectile.velocity).RotatedBy(MathHelper.ToRadians(10) * i * Math.Sign(projectile.ai[1])),
-                        mod.ProjectileType("DeviLightBall"), projectile.damage, projectile.knockBack, projectile.owner, 0.03f);
+                Projectile.NewProjectile(projectile.Center, Vector2.Normalize(projectile.velocity), ModContent.ProjectileType<Deathrays.DeviLightBeam>(),
+                    projectile.damage, projectile.knockBack, projectile.owner, MathHelper.ToRadians(75f / 60) * Math.Sign(projectile.ai[1]));
             }
         }
     }

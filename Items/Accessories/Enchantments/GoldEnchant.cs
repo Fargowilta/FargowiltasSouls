@@ -68,7 +68,7 @@ Effects of Greedy Ring
             recipe.AddIngredient(ItemID.GoldHelmet);
             recipe.AddIngredient(ItemID.GoldChainmail);
             recipe.AddIngredient(ItemID.GoldGreaves);
-            //gold crown
+            recipe.AddIngredient(ItemID.GoldCrown);
             recipe.AddIngredient(ItemID.GreedyRing);
             //recipe.AddIngredient(ItemID.CoinGun);
             recipe.AddIngredient(ItemID.SquirrelGold);

@@ -516,7 +516,6 @@ namespace FargowiltasSouls.Items
                     case ItemID.PhoenixBlaster:
                     case ItemID.LastPrism:
                     case ItemID.OnyxBlaster:
-                    case ItemID.Beenade:
                     case ItemID.Handgun:
                     case ItemID.SpikyBall:
                     case ItemID.SDMG:
@@ -525,16 +524,24 @@ namespace FargowiltasSouls.Items
                     case ItemID.LaserMachinegun:
                     case ItemID.PainterPaintballGun:
                     case ItemID.MoltenFury:
-                    case ItemID.BeesKnees:
                     case ItemID.Phantasm:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
                         break;
 
                     case ItemID.StarCannon:
                     case ItemID.ElectrosphereLauncher:
-                    case ItemID.SnowmanCannon:
                     case ItemID.DaedalusStormbow:
+                    case ItemID.BeesKnees:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        break;
+
+                    case ItemID.Beenade:
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        break;
+
+                    case ItemID.BeeGun:
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
                         break;
 
                     case ItemID.Tsunami:
@@ -544,9 +551,11 @@ namespace FargowiltasSouls.Items
                     case ItemID.DartRifle:
                     case ItemID.Megashark:
                     case ItemID.BatScepter:
-                    case ItemID.XenoStaff:
                     case ItemID.ChainGun:
                     case ItemID.VortexBeater:
+                    case ItemID.SnowmanCannon:
+                    case ItemID.RavenStaff:
+                    case ItemID.XenoStaff:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
                         break;
 
@@ -557,43 +566,46 @@ namespace FargowiltasSouls.Items
                         break;
 
                     case ItemID.BlizzardStaff:
+                    case ItemID.Razorpine:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
                         break;
 
-                    case ItemID.Razorpine:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
-                        break;
-
                     case ItemID.DemonScythe:
-                        if (!NPC.downedBoss2)
+                        if (NPC.downedBoss2)
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50% until an evil boss is defeated"));
-                            tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25%"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
                         }
                         else
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50% until an evil boss is defeated"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
                         }
                         break;
 
                     case ItemID.SpaceGun:
-                        if (!NPC.downedBoss2)
+                        if (NPC.downedBoss2)
+                        {
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                        }
+                        else
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25% until an evil boss is defeated"));
-                            tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25%"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
                         }
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                        break;
+
+                    case ItemID.SlimeStaff:
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Can summon more slimes"));
                         break;
 
                     case ItemID.DD2SquireBetsySword: //flying dragon
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Increased damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Increased attack speed by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff2", "[c/00ff00:Eternity Mode:] Increased attack speed by 33%"));
                         break;
 
                     case ItemID.MonkStaffT3: //sky dragon's fury
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Increased damage by 25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 25%"));
                         break;
                 }
             }

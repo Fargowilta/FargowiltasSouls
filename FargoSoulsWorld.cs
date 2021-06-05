@@ -174,8 +174,12 @@ namespace FargowiltasSouls
 
         public override void PostUpdate()
         {
+            NPC.LunarShieldPowerExpert = 150;
+
             if (MasochistMode)
             {
+                NPC.LunarShieldPowerExpert = 50;
+
                 if (!Main.expertMode)
                     MasochistMode = false;
 

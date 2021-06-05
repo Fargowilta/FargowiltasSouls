@@ -34,10 +34,13 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Main.PlaySound(SoundID.Item8, projectile.Center);
             }
 
-            int index2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 246, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, new Color(), 2f);
-            Main.dust[index2].noGravity = true;
-            Main.dust[index2].velocity.X *= 0.3f;
-            Main.dust[index2].velocity.Y *= 0.3f;
+            if (!Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+            {
+                int index2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 246, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, new Color(), 2f);
+                Main.dust[index2].noGravity = true;
+                Main.dust[index2].velocity.X *= 0.3f;
+                Main.dust[index2].velocity.Y *= 0.3f;
+            }
 
             projectile.velocity *= 1f + Math.Abs(projectile.ai[1]);
             Vector2 acceleration = projectile.velocity.RotatedBy(Math.PI / 2);

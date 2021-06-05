@@ -23,6 +23,7 @@ Introduces new debuffs and possible debuff sources
 Increases cash from enemies and adds certain drops
 Increases spawn rates
 Cannot be used while a boss is alive
+Minions do reduced damage when used with another weapon
 [c/ff0000:NOT INTENDED FOR USE WITH OTHER CONTENT MODS OR MODDED DIFFICULTIES]");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体的礼物");
             Tooltip.AddTranslation(GameCulture.Chinese, "'用开/关受虐模式'");

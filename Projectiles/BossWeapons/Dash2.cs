@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void SetDefaults()
         {
             base.SetDefaults();
-            projectile.timeLeft *= 4;
+            projectile.timeLeft = 6 * 60 * (projectile.extraUpdates + 1);
         }
     }
 }

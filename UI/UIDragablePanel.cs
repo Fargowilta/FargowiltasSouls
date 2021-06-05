@@ -1,9 +1,11 @@
 ﻿using Terraria.GameContent.UI.Elements;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria.UI;
 using Terraria;
+using Terraria.GameInput;
 
 namespace FargowiltasSouls.UI
 {
@@ -48,7 +50,7 @@ namespace FargowiltasSouls.UI
                 Main.LocalPlayer.mouseInterface = true;
             }
 
-            if (!dragging && ContainsPoint(Main.MouseScreen) && Main.mouseLeft)
+            if (!dragging && ContainsPoint(Main.MouseScreen) && Main.mouseLeft && PlayerInput.MouseInfoOld.LeftButton == ButtonState.Released)
             {
                 bool upperMost = true;
                 if (ExtraChildren != null)

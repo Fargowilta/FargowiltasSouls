@@ -17,9 +17,6 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             if (target.defense > 0)
                 damage += target.defense / 2;
-
-            if (!Main.player[projectile.owner].HeldItem.summon)
-                damage /= 4;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

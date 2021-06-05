@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Hell Flame");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 2;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.LunarFlare];
         }
@@ -204,11 +204,18 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (projectile.velocity != Vector2.Zero && !projectile.velocity.HasNaNs())
                 value4 -= Vector2.Normalize(projectile.velocity) * 4f;
             float num165 = projectile.rotation + (Main.GlobalTime * 0.6f);
+            
+            Vector2 previousPosOffset = projectile.oldPos[2] - projectile.position;
+            float prevPosRotation = projectile.oldRot[2] + (Main.GlobalTime * 0.6f);
+            Main.spriteBatch.Draw(texture2D13, previousPosOffset + value4 - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
+                color27, prevPosRotation, origin2, scale, effects, 0f);
+            Main.spriteBatch.Draw(texture2D13, previousPosOffset + projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
+                Color.Black * projectile.Opacity, prevPosRotation, origin2, projectile.scale, effects, 0f);
+
             Main.spriteBatch.Draw(texture2D13, value4 - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                 color27, num165, origin2, scale, effects, 0f);
-
             Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
-                Color.Black * projectile.Opacity, projectile.rotation + (Main.GlobalTime * 0.6f), origin2, projectile.scale, effects, 0f);
+                Color.Black * projectile.Opacity, num165, origin2, projectile.scale, effects, 0f);
             return false;
         }
     }

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Omniscience Staff");
-            Tooltip.SetDefault("Summons the real twins to fight for you\nNeeds 4 minion slots\nMinions do reduced damage when not holding a summon weapon\n'The reward for slaughtering many...'");
+            Tooltip.SetDefault("Summons the real twins to fight for you\nNeeds 4 minion slots\n'The reward for slaughtering many...'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 4;
         }
 

@@ -89,7 +89,7 @@ There is a cooldown of 5 seconds between uses");
                 {
                     player.velocity *= 0.5f;
                     player.dashDelay = 0;
-                    dashCD = 300;
+                    dashCD = 180;
                 }
 
                 return;

@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 projectile.timeLeft = 2;
 
             if (projectile.damage == 0)
-                projectile.damage = (int)(75f * player.minionDamage);
+                projectile.damage = (int)(50f * player.minionDamage);
 
             Vector2 vector2_1 = new Vector2(0f, -85f); //movement code
             Vector2 vector2_2 = player.MountedCenter + vector2_1;
@@ -81,13 +81,13 @@ namespace FargowiltasSouls.Projectiles.Minions
                 {
                     if (projectile.owner == Main.myPlayer)
                         projectile.netUpdate = true;
-                    const int num226 = 18; //dusts indicate charged up
+                    const int num226 = 36; //dusts indicate charged up
                     for (int num227 = 0; num227 < num226; num227++)
                     {
                         Vector2 vector6 = Vector2.UnitX.RotatedBy(projectile.rotation) * 6f;
                         vector6 = vector6.RotatedBy(((num227 - (num226 / 2 - 1)) * 6.28318548f / num226), default(Vector2)) + projectile.Center;
                         Vector2 vector7 = vector6 - projectile.Center;
-                        int num228 = Dust.NewDust(vector6 + vector7, 0, 0, 27, 0f, 0f, 0, default(Color), 2f);
+                        int num228 = Dust.NewDust(vector6 + vector7, 0, 0, 27, 0f, 0f, 0, default(Color), 3f);
                         Main.dust[num228].noGravity = true;
                         Main.dust[num228].velocity = vector7;
                     }
@@ -100,17 +100,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
                 if (projectile.localAI[0] == chargeTime * 2f)
                 {
-                    if (projectile.owner == Main.myPlayer)
-                        projectile.netUpdate = true;
-                    const int num226 = 36; //dusts indicate charged up
-                    for (int num227 = 0; num227 < num226; num227++)
+                    if (projectile.owner == Main.myPlayer) //fully charged
                     {
-                        Vector2 vector6 = Vector2.UnitX.RotatedBy(projectile.rotation) * 9f;
-                        vector6 = vector6.RotatedBy(((num227 - (num226 / 2 - 1)) * 6.28318548f / num226), default(Vector2)) + projectile.Center;
-                        Vector2 vector7 = vector6 - projectile.Center;
-                        int num228 = Dust.NewDust(vector6 + vector7, 0, 0, 27, 0f, 0f, 0, default(Color), 3f);
-                        Main.dust[num228].noGravity = true;
-                        Main.dust[num228].velocity = vector7;
+                        projectile.netUpdate = true;
+                        Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -1);
                     }
                 }
                 if (projectile.localAI[0] > chargeTime * 2f)

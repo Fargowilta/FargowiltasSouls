@@ -11,12 +11,16 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         protected float maxTime;
         protected readonly string texture;
         protected readonly float transparency;
+        protected readonly float hitboxModifier;
+        //by default, real hitbox is slightly more than the "white" of a vanilla ray
+        //remember that the value passed into function is total width, i.e. on each side the distance is only half the width
 
-        protected BaseDeathray(float maxTime, string texture, float transparency = 0f)
+        protected BaseDeathray(float maxTime, string texture, float transparency = 0f, float hitboxModifier = 1f)
         {
             this.maxTime = maxTime;
             this.texture = texture;
             this.transparency = transparency;
+            this.hitboxModifier = hitboxModifier;
         }
 
         public override void SetDefaults() //MAKE SURE YOU CALL BASE.SETDEFAULTS IF OVERRIDING
@@ -116,13 +120,11 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 return true;
             }
             float num6 = 0f;
-            if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], 22f * projectile.scale, ref num6))
+            if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], 22f * projectile.scale * hitboxModifier, ref num6))
             {
                 return true;
             }
             return false;
         }
-
-
     }
 }

@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Styx Sickle");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 3;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
@@ -25,13 +25,15 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projectile.alpha = 100;
             projectile.friendly = true;
             projectile.magic = true;
-            projectile.timeLeft = 120;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.aiStyle = -1;
             projectile.penetrate = -1;
 
             projectile.hide = true;
+
+            projectile.extraUpdates = 1;
+            projectile.timeLeft = 120 * (projectile.extraUpdates + 1);
         }
 
         public override void DrawBehind(int index, List<int> drawCacheProjsBehindNPCsAndTiles, List<int> drawCacheProjsBehindNPCs, List<int> drawCacheProjsBehindProjectiles, List<int> drawCacheProjsOverWiresUI)
@@ -46,9 +48,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 projectile.localAI[0] = 1;
                 Main.PlaySound(SoundID.Item8, projectile.Center);
             }
-            projectile.rotation += 0.8f;
+            projectile.rotation += 0.8f / projectile.MaxUpdates;
 
-            for (int i = 0; i < 6; i++)
+            /*for (int i = 0; i < 6; i++)
             {
                 Vector2 offset = new Vector2(0, -20).RotatedBy(projectile.rotation);
                 offset = offset.RotatedByRandom(MathHelper.Pi / 6);
@@ -57,21 +59,23 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 float velrando = Main.rand.Next(20, 31) / 10;
                 Main.dust[d].velocity = projectile.velocity / velrando;
                 Main.dust[d].noGravity = true;
-            }
+            }*/
 
-            if (++projectile.localAI[1] == 30)
+            if (++projectile.localAI[1] == 30 * projectile.MaxUpdates)
             {
                 int foundTarget = HomeOnTarget();
                 if (foundTarget == -1)
                 {
-                    projectile.timeLeft = 30;
+                    projectile.timeLeft = 30 * projectile.MaxUpdates;
                 }
                 else
                 {
                     NPC n = Main.npc[foundTarget];
-                    projectile.velocity = projectile.DirectionTo(n.Center) * 36f;
+                    projectile.velocity = projectile.DirectionTo(n.Center + n.velocity * Main.rand.NextFloat(30)) * 36f;
                 }
             }
+
+            projectile.position -= projectile.velocity / projectile.MaxUpdates;
         }
 
         private int HomeOnTarget()
@@ -126,7 +130,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[projectile.type]; i++)
             {
-                Color color27 = color26;
+                Color color27 = color26 * 0.8f;
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type];
                 Vector2 value4 = projectile.oldPos[i];
                 float num165 = projectile.oldRot[i];

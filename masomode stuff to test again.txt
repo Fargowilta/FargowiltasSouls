@@ -262,3 +262,76 @@ aestheticus nerf to have mostly balanced stats aeugh (still probably overpowered
 smited vortex ritual recipe for now
 sparkling love right click scales up to 12 slots now (16 beams total)
 nerfed eridanus DR
+
+eater of worlds vile spit damage nerfed to 48, head damage buffed to 64
+fixed some fishron attacks not inflicting oceanic maul correctly
+buffed fishron, -10 maul attacks now inflict -25 life per hit
+penetrator boundary spear no longer has a glowing trail (denoting it cant reflect)
+better not dust-based visual for wof ichor
+fixed brain illusions map icon not being resprited
+golem drops REVERSE GRAVITY spiky balls in temple and spiky balls now fade in on spawn
+removed delay between plantera mine waves (buff)
+lump of flesh minion's charge level visuals changed
+nerfed devious aestheticus
+
+improved how aestheticus slot scaling works, scaling is up to 6 now
+aestheticus aesthetic
+nerfed aestheticus projectile duration and split amount
+aestheticus can bounce off walls now
+reworked vortex ritual, probably overpowered but it should be a pain in the ass to use too
+tin/spider synergy is better, tin can now take spider's crit chance as the multiplier base
+pumpkin ench pumpkins have a glowing flicker effect
+added check so that things like hexed on player no longer apply to hostile projs hitting town npcs
+destroyer has special resistance to nimbus rod (-50%) and life drain (-33%)
+penetrator dash has speed checks, does less damage if not at full speed (cant mash your face into a corner for obscene dps)
+improved dg debuff immune check
+fixed timestop stacking on npcs when it shouldnt (how didnt this break stardust ench????)
+
+snowman cannon nerf reduced to -15% (was -33%)
+dicer damage nerfed to 70 (was 75)
+razorpine is -50% speed, -33% damage
+raven staff, xeno staff -15% damage
+all summon weapons have -66% damage when using another class weapon
+nerfed slimy shield damage
+sand elemental has an actual cooldown on spawning dune splicers
+stardust cells no longer have buffed defense
+general abom/mutant sickle visual tweak
+penetrator dive is now 6 seconds
+
+penetrator dash no longer lets you out of bounds as much
+penetrator big deathray has bigger hitbox
+MAYBE fixed penetrator desync in mp?
+dragon demise visual improved, less gap between projs in stream
+fixed eater of souls fireballs bouncing off surfaces
+slimes from slime staff are now worth half a slot
+emode buffs have green highlight in tooltips
+monk dash fixed disabling running, nerfed speed of dash
+shinobi dash no longer works while mounted
+necro piles glow and make a sound when spawned
+refactor that is MUCH better at preventing celestial pillar cheese
+pillars now have 66% DR (effectively 60k life), BUT shields are 50 kills
+aura dust rewrite to look better, dust actually scales up and down with size of aura
+
+capped vortex ritual at 8 shots at a time
+necro graves use same flashing visual as pumpkins
+
+medallion of fallen king
+	damage nerfed
+	projectiles obey pierce iframes
+	improved mp sync
+	spikes persist longer but fewer shot at once
+	balls have mild prediction
+nerfed leash damage slightly
+bees knees nerf now -33% (was -25%)
+beenade now has -33% damage, -33% speed to reduce proj spam
+bee gun now has -33% speed to reduce proj spam
+corrected demon scythe and space gun tooltips
+fixed baby slime splitting too much in mp
+infested formula is now more aggressive, but base DOT reduced
+fixed being able to explode temple traps
+refactored boc p2 confusion/laser code, works in mp properly
+wyvern/devi light balls, king slime spike rain, no longer generate light inside tiles
+devi light balls shoot deathrays instead of splitting
+minion damage nerf doesnt apply if you're holding a pickaxe or other tool
+qb hive toss is easier to see and its spawns now spread randomly on impact (used to fly away really fast)
+buffed aestheticus proj damage by 10%

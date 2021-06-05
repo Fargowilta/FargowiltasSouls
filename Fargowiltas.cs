@@ -427,6 +427,8 @@ namespace FargowiltasSouls
 
         public override void Unload()
         {
+            NPC.LunarShieldPowerExpert = 150;
+
             if (DebuffIDs != null)
                 DebuffIDs.Clear();
 

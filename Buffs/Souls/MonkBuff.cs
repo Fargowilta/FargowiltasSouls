@@ -77,7 +77,7 @@ namespace FargowiltasSouls.Buffs.Souls
             if (!vertical)
             {
                 player.GetModPlayer<FargoPlayer>().MonkDashing = 30;
-                player.velocity.X = 18 * (float)direction;
+                player.velocity.X = 14 * (float)direction;
 
                 player.immune = true;
                 int invul = 30;
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.Buffs.Souls
                 player.velocity.Y = 35 * (float)direction;
             }
 
-            player.dashDelay = -1;
+            player.dashDelay = 20;
 
             //dash dust n stuff
             for (int num17 = 0; num17 < 20; num17++)

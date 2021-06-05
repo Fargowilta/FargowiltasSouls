@@ -219,15 +219,15 @@ namespace FargowiltasSouls
 
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
+            if (WolfDashing) //dont draw player during dash
+                while (layers.Count > 0)
+                    layers.RemoveAt(0);
+
+
             HashSet<int> layersToRemove = new HashSet<int>();
 
             for (int i = 0; i < layers.Count; i++)
             {
-                if (WolfDashing)
-                {
-                    layersToRemove.Add(i);
-                }
-
                 if (JojoTheGamer && layers[i] == PlayerLayer.Skin)
                 {
                     layersToRemove.Add(i);

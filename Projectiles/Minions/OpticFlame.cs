@@ -132,11 +132,5 @@ namespace FargowiltasSouls.Projectiles.Minions
             target.immune[projectile.owner] = 8;
             target.AddBuff(BuffID.CursedInferno, 600);
         }
-
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if (!Main.player[projectile.owner].HeldItem.summon)
-                damage /= 4;
-        }
     }
 }

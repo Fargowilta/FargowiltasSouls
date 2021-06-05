@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             projectile.width = 58;
             projectile.height = 58;
-            projectile.aiStyle = 19;
+            projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.penetrate = 1; //to not interact with piercing iframes
             projectile.tileCollide = false;
@@ -51,16 +51,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projOwner.heldProj = projectile.whoAmI;
             projOwner.itemTime = projOwner.itemAnimation;
             projectile.Center = ownerMountedCenter;
-            
-            /*if (projectile.localAI[1] == 0)
-            {
-                projectile.localAI[1] = 1;
-                if (projectile.owner == Main.myPlayer)
-                {
-                    Projectile.NewProjectile(projectile.Center, Vector2.Normalize(projectile.velocity), 
-                        ModContent.ProjectileType<HentaiSpearDeathray>(), projectile.damage, projectile.knockBack, projectile.owner);
-                }
-            }*/
 
             if (projOwner.itemAnimation == 0) projectile.Kill();
             projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + MathHelper.ToRadians(135f);
@@ -68,6 +58,21 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 projectile.rotation -= MathHelper.ToRadians(90f);
 
             scaletimer++;
+
+            if (projectile.localAI[0] == 0)
+                projectile.localAI[0] = projectile.damage;
+
+            projectile.damage = (int)projectile.localAI[0];
+            int ai0 = (int)projectile.ai[0];
+            if (ai0 > -1 && ai0 < Main.maxProjectiles && Main.projectile[ai0].active && Main.projectile[ai0].owner == projectile.owner
+                && Main.projectile[ai0].type == ModContent.ProjectileType<Dash>())
+            {
+                if (Main.projectile[ai0].localAI[0] != 0) //if dash has slowed down for some reason, do less damage
+                {
+                    projectile.damage /= 2;
+                    projectile.localAI[1] = 1;
+                }
+            }
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -76,7 +81,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (projectile.owner == Main.myPlayer)
             {
-                if (projectile.ai[1] != 0f)
+                if (projectile.ai[1] != 0f && projectile.localAI[1] == 0)
                 {
                     Projectile.NewProjectile(target.position + new Vector2(Main.rand.Next(target.width), Main.rand.Next(target.height)),
                         Vector2.Zero, ModContent.ProjectileType<PhantasmalBlast>(), projectile.damage, projectile.knockBack * 3f, projectile.owner);

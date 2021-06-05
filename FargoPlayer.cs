@@ -217,6 +217,7 @@ namespace FargowiltasSouls
         public bool FishSoul1;
         public bool FishSoul2;
         public bool TerrariaSoul;
+        public bool VoidSoul;
         public int HealTimer;
         public int HurtTimer;
         public bool Eternity;
@@ -847,6 +848,7 @@ namespace FargowiltasSouls
             FishSoul1 = false;
             FishSoul2 = false;
             TerrariaSoul = false;
+            VoidSoul = false;
             Eternity = false;
 
             //maso
@@ -1778,11 +1780,11 @@ namespace FargowiltasSouls
                             {
                                 Main.PlaySound(SoundID.Item21, player.Center);
                                 Vector2 mouse = Main.MouseWorld;
-                                int damage = 15;
+                                int damage = 8;
                                 if (SupremeDeathbringerFairy)
-                                    damage = 25;
+                                    damage = 16;
                                 if (MasochistSoul)
-                                    damage = 50;
+                                    damage = 80;
                                 damage = (int)(damage * player.meleeDamage);
                                 for (int i = 0; i < 3; i++)
                                 {
@@ -2062,6 +2064,9 @@ namespace FargowiltasSouls
 
             if (TinEnchant)
             {
+                if (SpiderEnchant && TinCritMax < SummonCrit * 2)
+                    TinCritMax = SummonCrit * 2;
+
                 AllCritEquals(TinCrit);
                 if (SpiderEnchant && !TerraForce && !WizardEnchant)
                     SummonCrit /= 2;
@@ -2432,6 +2437,16 @@ namespace FargowiltasSouls
 
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
+            if (proj.hostile)
+                return;
+
+            //reduce minion damage in emode if using a weapon that isnt a mining tool
+            if (proj.minion && FargoSoulsWorld.MasochistMode && (player.HeldItem.melee || player.HeldItem.ranged || player.HeldItem.magic
+                || player.HeldItem.pick > 0 || player.HeldItem.axe > 0 || player.HeldItem.hammer > 0))
+            {
+                damage /= 3;
+            }
+
             if (apprenticeBonusDamage)
             {
                 if (WizardEnchant || ShadowForce)
@@ -3826,14 +3841,14 @@ namespace FargowiltasSouls
             }
 
             int timeLeft = player.buffTime[buffIndex];
-            float baseVal = (float)(MaxInfestTime - timeLeft) / 120; //change the denominator to adjust max power of DOT
-            int modifier = (int)(baseVal * baseVal + 8);
+            float baseVal = (float)(MaxInfestTime - timeLeft) / 90; //change the denominator to adjust max power of DOT
+            int modifier = (int)(baseVal * baseVal + 4);
 
             InfestedDust = baseVal / 10 + 1f;
             if (InfestedDust > 5f)
                 InfestedDust = 5f;
 
-            return modifier;
+            return modifier * 2;
         }
 
         public void AllDamageUp(float dmg)
@@ -3937,11 +3952,8 @@ namespace FargowiltasSouls
             switch (type)
             {
                 case ItemID.BlizzardStaff:
-                    AttackSpeed *= 0.5f;
-                    return 2f / 3f;
-
                 case ItemID.Razorpine:
-                    AttackSpeed *= 2f / 3f;
+                    AttackSpeed *= 0.5f;
                     return 2f / 3f;
 
                 case ItemID.DemonScythe:
@@ -3954,8 +3966,12 @@ namespace FargowiltasSouls
 
                 case ItemID.StarCannon:
                 case ItemID.ElectrosphereLauncher:
-                case ItemID.SnowmanCannon:
                 case ItemID.DaedalusStormbow:
+                case ItemID.BeesKnees:
+                    return 2f / 3f;
+
+                case ItemID.Beenade:
+                    AttackSpeed *= 2f / 3f;
                     return 2f / 3f;
 
                 case ItemID.DD2BetsyBow:
@@ -3963,7 +3979,6 @@ namespace FargowiltasSouls
                 case ItemID.PhoenixBlaster:
                 case ItemID.LastPrism:
                 case ItemID.OnyxBlaster:
-                case ItemID.Beenade:
                 case ItemID.Handgun:
                 case ItemID.SpikyBall:
                 case ItemID.SDMG:
@@ -3972,7 +3987,6 @@ namespace FargowiltasSouls
                 case ItemID.LaserMachinegun:
                 case ItemID.PainterPaintballGun:
                 case ItemID.MoltenFury:
-                case ItemID.BeesKnees:
                 case ItemID.Phantasm:
                     return 0.75f;
 
@@ -3989,16 +4003,22 @@ namespace FargowiltasSouls
                     return 0.85f;
                     
                 case ItemID.Tsunami:
+                case ItemID.SnowmanCannon:
                 case ItemID.ChlorophyteShotbow:
                 case ItemID.HellwingBow:
                 case ItemID.DartPistol:
                 case ItemID.DartRifle:
                 case ItemID.Megashark:
                 case ItemID.BatScepter:
-                case ItemID.XenoStaff:
                 case ItemID.ChainGun:
                 case ItemID.VortexBeater:
+                case ItemID.RavenStaff:
+                case ItemID.XenoStaff:
                     return 0.85f;
+
+                case ItemID.BeeGun:
+                    AttackSpeed *= 2f / 3f;
+                    return 1f;
 
                 case ItemID.DD2SquireBetsySword: //flying dragon
                     AttackSpeed *= 4f / 3f;

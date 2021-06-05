@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             target.AddBuff(BuffID.Wet, 420);
             //target.AddBuff(mod.BuffType("SqueakyToy"), Main.rand.Next(60, 180));
             target.AddBuff(mod.BuffType("OceanicMaul"), 1800);
-            target.GetModPlayer<FargoPlayer>().MaxLifeReduction += EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron) ? 10 : 50;
+            target.GetModPlayer<FargoPlayer>().MaxLifeReduction += EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron) ? 100 : 25;
         }
 
         public override void Kill(int timeLeft)

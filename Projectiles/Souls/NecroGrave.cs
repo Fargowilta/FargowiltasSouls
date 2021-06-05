@@ -1,5 +1,6 @@
-﻿using FargowiltasSouls.Toggler;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using FargowiltasSouls.Toggler;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,6 +33,14 @@ namespace FargowiltasSouls.Projectiles.Souls
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
+
+            Lighting.AddLight(projectile.Center, 0.5f, 0.5f, 0.5f);
+
+            if (projectile.localAI[0] == 0)
+            {
+                projectile.localAI[0] = 1;
+                Main.PlaySound(SoundID.Item2, projectile.Center);
+            }
 
             projectile.velocity.Y = projectile.velocity.Y + 0.2f;
             if (projectile.velocity.Y > 16f)
@@ -70,6 +79,37 @@ namespace FargowiltasSouls.Projectiles.Souls
         {
             projectile.position += projectile.velocity;
             projectile.velocity = Vector2.Zero;
+            return false;
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture2D13 = Main.projectileTexture[projectile.type];
+            int num156 = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type]; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * projectile.frame; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+            Vector2 origin2 = rectangle.Size() / 2f;
+
+            Color color26 = lightColor;
+            color26 = projectile.GetAlpha(color26);
+
+            SpriteEffects effects = SpriteEffects.None;
+
+            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, effects, 0f);
+
+            bool glowRender = projectile.timeLeft % 8 < 4;
+
+            if (glowRender)
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+                Color glowColor = Color.White * projectile.Opacity;
+                Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glowColor, projectile.rotation, origin2, projectile.scale, effects, 0f);
+
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+            }
             return false;
         }
     }

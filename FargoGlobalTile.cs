@@ -232,21 +232,40 @@ namespace FargowiltasSouls
             }
         }
 
+        private bool CanBreakTileMaso(int i, int j, int type)
+        {
+            if (FargoSoulsWorld.MasochistMode)
+            {
+                if (Framing.GetTileSafely(i, j).wall == WallID.LihzahrdBrickUnsafe && (type == TileID.Traps || type == TileID.PressurePlates))
+                {
+                    int p = Player.FindClosest(new Vector2(i * 16 + 8, j * 16 + 8), 0, 0);
+                    if (p != -1)
+                    {
+                        //if player INSIDE TEMPLE, but not cursed, its ok to break
+                        Tile tile = Framing.GetTileSafely(Main.player[p].Center);
+                        if (tile.wall == WallID.LihzahrdBrickUnsafe && !Main.player[p].GetModPlayer<FargoPlayer>().LihzahrdCurse)
+                            return true;
+                    }
+                    //if player outside temple, or player in temple but is cursed, dont break
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public override bool CanExplode(int i, int j, int type)
+        {
+            if (!CanBreakTileMaso(i, j, type))
+                return false;
+
+            return true;
+        }
+
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
-            if (FargoSoulsWorld.MasochistMode
-                && Framing.GetTileSafely(i, j).wall == WallID.LihzahrdBrickUnsafe
-                && (type == TileID.Traps || type == TileID.PressurePlates))
-            {
-                int p = Player.FindClosest(new Vector2(i * 16 + 8, j * 16 + 8), 0, 0);
-                if (p != -1)
-                {
-                    Tile tile = Framing.GetTileSafely(Main.player[p].Center);
-                    if (tile.wall == WallID.LihzahrdBrickUnsafe && !Main.player[p].GetModPlayer<FargoPlayer>().LihzahrdCurse)
-                        return true;
-                }
+            if (!CanBreakTileMaso(i, j, type))
                 return false;
-            }
+
             return true;
         }
 

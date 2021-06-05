@@ -186,12 +186,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             return selectedTarget;
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if (!Main.player[projectile.owner].HeldItem.summon)
-                damage /= 4;
-        }
-
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[projectile.owner] = 8;

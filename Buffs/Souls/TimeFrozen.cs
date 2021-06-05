@@ -87,12 +87,5 @@ namespace FargowiltasSouls.Buffs.Souls
         {
             npc.GetGlobalNPC<FargoSoulsGlobalNPC>().TimeFrozen = true;
         }
-
-        public override bool ReApply(NPC npc, int time, int buffIndex)
-        {
-            npc.buffTime[buffIndex] += time;
-
-            return true;
-        }
     }
 }

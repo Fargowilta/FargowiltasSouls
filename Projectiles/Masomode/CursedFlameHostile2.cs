@@ -22,6 +22,12 @@ namespace FargowiltasSouls.Projectiles.Masomode
             aiType = ProjectileID.CursedFlameHostile;
         }
 
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            projectile.timeLeft = 0;
+            return true;
+        }
+
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(SoundID.Item10, projectile.position);

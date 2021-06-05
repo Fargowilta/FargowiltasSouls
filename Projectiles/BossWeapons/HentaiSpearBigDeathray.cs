@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     public class HentaiSpearBigDeathray : Deathrays.BaseDeathray
     {
-        public HentaiSpearBigDeathray() : base(60, "PhantasmalDeathrayML") { }
+        public HentaiSpearBigDeathray() : base(60, "PhantasmalDeathrayML", hitboxModifier: 1.5f) { }
 
         int dustTimer;
 

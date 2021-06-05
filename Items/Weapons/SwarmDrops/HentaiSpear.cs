@@ -169,9 +169,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
                         dashType = mod.ProjectileType("Dash2");
                     }
 
-                    Projectile.NewProjectile(position, Vector2.Normalize(speed) * speedModifier * item.shootSpeed,
+                    int p = Projectile.NewProjectile(position, Vector2.Normalize(speed) * speedModifier * item.shootSpeed,
                         dashType, damage, knockBack, player.whoAmI, speed.ToRotation(), dashAI);
-                    Projectile.NewProjectile(position, speed, item.shoot, damage, knockBack, item.owner, 0f, 1f);
+                    if (p != Main.maxProjectiles)
+                        Projectile.NewProjectile(position, speed, item.shoot, damage, knockBack, player.whoAmI, p, 1f);
                 }
             }
 

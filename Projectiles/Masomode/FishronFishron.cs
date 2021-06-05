@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
+using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -42,15 +43,12 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
             return true;
         }
-        public override void OnHitPlayer(Player player, int damage, bool crit)
+        public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            player.AddBuff(mod.BuffType("Defenseless"), 600);
-            //player.AddBuff(BuffID.WitheredWeapon, 600);
-            if (NPCs.EModeGlobalNPC.BossIsAlive(ref NPCs.EModeGlobalNPC.fishBossEX, NPCID.DukeFishron))
-            {
-                player.GetModPlayer<FargoPlayer>().MaxLifeReduction += 50;
-                player.AddBuff(mod.BuffType("OceanicMaul"), 1800);
-            }
+            target.AddBuff(mod.BuffType("Defenseless"), 600);
+            //target.AddBuff(BuffID.WitheredWeapon, 600);
+            target.AddBuff(mod.BuffType("OceanicMaul"), 1800);
+            target.GetModPlayer<FargoPlayer>().MaxLifeReduction += EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron) ? 100 : 25;
         }
 
         public override void Kill(int timeLeft)

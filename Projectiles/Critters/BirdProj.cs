@@ -32,6 +32,7 @@ namespace FargowiltasSouls.Projectiles.Critters
 
         public override void SetDefaults()
         {
+			projectile.minion = true;
             projectile.width = 14;
             projectile.height = 14;
             projectile.friendly = true;

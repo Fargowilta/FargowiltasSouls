@@ -17,7 +17,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void AI()
         {
             base.AI();
-            Lighting.AddLight(projectile.Center, 0f, 0f, 0.8f);
+            if (!Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+                Lighting.AddLight(projectile.Center, 0f, 0f, 0.8f);
         }
     }
 }

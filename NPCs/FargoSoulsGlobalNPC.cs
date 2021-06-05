@@ -826,6 +826,7 @@ namespace FargowiltasSouls.NPCs
 
                     case NPCID.SkeletronHead:
                         Item.NewItem(npc.Hitbox, ModContent.ItemType<BoneZone>());
+                        Item.NewItem(npc.Hitbox, ItemID.Bone, 200);
                         break;
 
                     case NPCID.WallofFlesh:
