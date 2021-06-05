@@ -17,6 +17,12 @@ Graze projectiles to gain up to 25% increased critical damage
 Critical damage bonus decreases over time and is fully lost on hit
 Your attacks periodically summon life-draining hearts
 'With all of your emotion!'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "闪光之崇");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫热恋减益和假心
+擦弹会增加暴击伤害，至多增加25%暴击伤害
+暴击伤害加成会随时间流逝而降低，你被击中时失去全部暴击伤害加成
+攻击时定期召唤窃命之心
+'用你所有的感情！'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 11));
         }
 
