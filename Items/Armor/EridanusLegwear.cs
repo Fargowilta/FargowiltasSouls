@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -14,6 +15,10 @@ namespace FargowiltasSouls.Items.Armor
             Tooltip.SetDefault(@"5% increased damage
 5% increased critical strike chance
 10% increased movement speed");
+            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙英灵裤");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"增加5%伤害
+增加5%暴击率
+增加10%移动速度");
         }
 
         public override void SetDefaults()
