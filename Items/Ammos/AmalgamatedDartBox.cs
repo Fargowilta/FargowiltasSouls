@@ -16,6 +16,8 @@ namespace FargowiltasSouls.Items.Ammos
         {
             DisplayName.SetDefault("Amalgamated Dart Box");
             Tooltip.SetDefault("");
+            DisplayName.AddTranslation(GameCulture.Chinese, "混合飞镖盒");
+            Tooltip.AddTranslation(GameCulture.Chinese, "");
         }
 
         public override void SetDefaults()
