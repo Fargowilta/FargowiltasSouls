@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -16,6 +17,11 @@ namespace FargowiltasSouls.Items.Armor
 5% increased critical strike chance
 Increases your max number of minions by 3
 Increases your max number of sentries by 2");
+            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙英灵帽");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"增加5%伤害
+增加5%暴击率
++3最大召唤栏
++2最大哨兵栏");
         }
 
         public override void SetDefaults()
