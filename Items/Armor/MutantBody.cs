@@ -19,9 +19,9 @@ Increases damage reduction by 30%
 Drastically increases life regen");
             DisplayName.AddTranslation(GameCulture.Chinese, "真·突变之躯");
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加70%伤害和30%暴击率
-增加200最大生命和法力值
-增加50%伤害抗性
-极大提升生命回复");
+增加200点最大生命值和法力值
+增加30%伤害减免
+大幅增加生命恢复速度");
         }
 
         public override void SetDefaults()
