@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -15,6 +16,10 @@ namespace FargowiltasSouls.Items.Armor
             Tooltip.SetDefault(@"10% increased damage
 5% increased critical strike chance
 Increases max number of minions and sentries by 1");
+            DisplayName.AddTranslation(GameCulture.Chinese, "大地护胫");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"增加10%伤害
+增加5%暴击率
++1最大召唤和哨兵栏");
         }
 
         public override void SetDefaults()
@@ -52,6 +57,20 @@ Increases max number of minions and sentries by 1");
 
         public override void UpdateArmorSet(Player player)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            player.setBonus = @"增加10%近战攻速
+减少10%法力消耗
+10%几率不消耗弹药
++1最大召唤和哨兵栏
+按住'上'键后双击'下'键会切换至进攻模式，进攻模式具有下列效果：  
+增加20%暴击伤害和10%暴击率
+增加10点护甲穿透
+降低20点防御
+降低20%最大生命值和伤害减免";
+            }
+            else
+            {
             player.setBonus = @"10% increased melee speed
 Reduces mana usage by 10%
 10% chance to not consume ammo
@@ -61,7 +80,7 @@ Hold up and double tap down to toggle offensive mode, which has the following ef
 Increases armor penetration by 10
 Reduces defense by 20
 Reduces max life and damage reduction by 20%";
-
+            }
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.GaiaSet = true;
 
