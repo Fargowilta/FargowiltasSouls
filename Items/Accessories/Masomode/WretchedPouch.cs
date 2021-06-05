@@ -20,8 +20,8 @@ You erupt into Shadowflame tentacles when injured
             DisplayName.AddTranslation(GameCulture.Chinese, "诅咒袋子");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"使你免疫暗影焰减益
-你受到伤害时会释放暗影焰触手
-'一位被打败的敌人的被诅咒火药袋'");
+你在受到伤害时会释放暗影焰触手
+'一位被打败的敌人的诅咒火药袋'");
         }
 
         public override void SetDefaults()
