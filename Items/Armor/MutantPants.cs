@@ -17,8 +17,7 @@ namespace FargowiltasSouls.Items.Armor
 40% increased movement and melee speed");
             DisplayName.AddTranslation(GameCulture.Chinese, "真·突变之胫");
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加50%伤害和20%暴击率
-增加40%移动和近战攻击速度
-按住'上'和'跳跃'键悬停");
+增加40%移动速度和近战攻速");
         }
 
         public override void SetDefaults()
