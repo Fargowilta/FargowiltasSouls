@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Debug
 {
@@ -15,7 +16,7 @@ Results not guaranteed in multiplayer
 You probably shouldn't be reading this...");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体1阶段重置");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使突变体遗忘你已击败过他的第一阶段
-不保证在多人游戏中使用后的后果
+不能保证在多人游戏中使用后的后果
 你也许不该读这个...");
         }
 
