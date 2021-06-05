@@ -1,5 +1,6 @@
-﻿using Terraria.ID;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Ammos
 {
