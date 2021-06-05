@@ -19,11 +19,11 @@ Enemies are less likely to target you
 Makes armed and magic skeletons less hostile outside the Dungeon
 'No longer in the zone'");
             DisplayName.AddTranslation(GameCulture.Chinese, "头骨挂坠");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'不在这个区域了'
-免疫眩晕
-增加10%所受和造成的伤害
-敌人不太可能以你为目标
-地牢外的装甲和魔法骷髅敌意减小");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫眩晕和错愕减益
+增加10%受到的和造成的伤害
+减少敌人以你为目标的几率
+在地牢外减少武装和魔法骷髅对你的敌意
+'不在这个区域了'");
         }
 
         public override void SetDefaults()
