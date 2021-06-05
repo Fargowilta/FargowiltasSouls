@@ -19,9 +19,9 @@ Increases max number of minions and sentries by 10
 25% chance not to consume ammo");
             DisplayName.AddTranslation(GameCulture.Chinese, "真·突变之颅");
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加50%伤害和20%暴击率
-增加10最大召唤栏和哨兵栏
++10最大召唤栏和哨兵栏
 减少25%法力消耗
-25%概率不消耗弹药");
+25%几率不消耗弹药");
         }
 
         public override void SetDefaults()
@@ -64,11 +64,22 @@ Increases max number of minions and sentries by 10
 
         public override void UpdateArmorSet(Player player)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            player.setBonus = @"幻影球会向附近的敌人发射幻影死亡射线
+召唤憎恶幻影协助你作战
+攻击会造成噬神者和狱火减益
+触发免死效果时你会爆发出一束巨大的死亡射线
+增加20%武器使用速度";
+            }
+            else
+            {
             player.setBonus = @"Phantasmal Spheres shoot deathrays at nearby enemies
 Abominationn's Visage fights alongside you
 Your attacks inflict God Eater and Hellfire
 You erupt into a massive deathray whenever revived
 20% increased weapon use speed";
+            }
 
             player.AddBuff(mod.BuffType("MutantPower"), 2);
 
