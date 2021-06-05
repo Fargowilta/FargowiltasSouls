@@ -13,6 +13,10 @@ namespace FargowiltasSouls.Items.Debug
             Tooltip.SetDefault(@"Makes Mutant forget you have defeated his first phase
 Results not guaranteed in multiplayer
 You probably shouldn't be reading this...");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体1阶段重置");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使突变体遗忘你已击败过他的第一阶段
+不保证在多人游戏中使用后的后果
+你也许不该读这个...");
         }
 
         public override void SetDefaults()
