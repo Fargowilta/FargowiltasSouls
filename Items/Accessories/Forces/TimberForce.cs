@@ -22,8 +22,7 @@ Projectiles may spawn a star when they hit something
 'Extremely rigid'");
             DisplayName.AddTranslation(GameCulture.Chinese, "森林之力");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"小动物在释放出去1秒后会爆炸
-50%几率不消耗弹药
+@"将某些动物转化为武器
 攻击时定期释放雪球
 所有钩爪的抛出速度、牵引速度和回收速度x2.5
 一圈暗影焰、诅咒焰和流血光环环绕着你
