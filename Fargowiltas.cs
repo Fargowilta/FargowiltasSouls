@@ -95,10 +95,10 @@ namespace FargowiltasSouls
             {
                 FreezeKey = RegisterHotKey("冻结时间", "P");
                 GoldKey = RegisterHotKey("金身", "O");
-                SmokeBombKey = RegisterHotKey("Throw Smoke Bomb", "I");
-                BetsyDashKey = RegisterHotKey("Betsy Dash", "C");
-                MutantBombKey = RegisterHotKey("Mutant Bomb", "Z");
-                SoulToggleKey = RegisterHotKey("Open Soul Toggler", ".");
+                SmokeBombKey = RegisterHotKey("投掷烟雾弹", "I");
+                BetsyDashKey = RegisterHotKey("火球冲刺", "C");
+                MutantBombKey = RegisterHotKey("突变炸弹", "Z");
+                SoulToggleKey = RegisterHotKey("打开魂的效果开关列表", ".");
             }
             else
             {
