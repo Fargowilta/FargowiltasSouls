@@ -21,7 +21,7 @@ Use to teleport to your last death point
             Tooltip.AddTranslation(GameCulture.Chinese, @"放置在背包中即可生效
 使你免疫强风减益和仙人掌刺伤
 非Boss战期间会使你的重生速度翻倍
-使用此饰品后会将你传送至上一次死亡时的地点
+手持此饰品并左键使用后会将你传送至上一次死亡时的地点
 '无论你做什么都不要丢下这个东西'");
         }
 
