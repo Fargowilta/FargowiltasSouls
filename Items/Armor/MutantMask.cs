@@ -19,7 +19,7 @@ Increases max number of minions and sentries by 10
 25% chance not to consume ammo");
             DisplayName.AddTranslation(GameCulture.Chinese, "真·突变之颅");
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加50%伤害和20%暴击率
-+10最大召唤栏和哨兵栏
++10最大召唤和哨兵栏
 减少25%法力消耗
 25%几率不消耗弹药");
         }
