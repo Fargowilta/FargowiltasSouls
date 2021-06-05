@@ -17,10 +17,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.SetDefault(@"Grants immunity to Clipped Wings and Crippled
 Your attacks have a 10% chance to inflict Clipped Wings on non-boss enemies
 'Warm to the touch'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "龙牙");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'触感温暖'
-免疫剪除羽翼和残疾
-攻击有10%概率对非Boss单位造成剪除羽翼效果");
+            DisplayName.AddTranslation(GameCulture.Chinese, "飞龙之羽");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫剪除羽翼和残废减益
+攻击有10%几率对非Boss敌人造成剪除羽翼减益
+'摸起来很温暖'");
         }
 
         public override void SetDefaults()
