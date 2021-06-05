@@ -18,11 +18,13 @@ Enemies with 2000 or less max life will drop doubled loot but zero coins
 'Most definitely not alive'");
             /*Graze projectiles to gain up to 30% increased crit damage
             Crit damage bonus decreases over time and is fully lost on hit");*/
-            DisplayName.AddTranslation(GameCulture.Chinese, "邪恶画像");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'肯定不是活着的'
-阻止受虐模式导致的Boss自然生成
-提高刷怪速率
-小于等于2000血量的敌人掉落双倍物品，但不掉落钱币");
+            DisplayName.AddTranslation(GameCulture.Chinese, "邪秽魔颅");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"永恒模式下的Boss不再自然生成
+增加刷怪率
+最大生命值小于2000的敌人死亡后掉落的战利品翻倍，但不会掉落钱币
+'绝对不是活的'");
+            /*擦弹会增加暴击伤害，至多增加30%暴击伤害
+            暴击伤害会随时间流逝而降低，你被击中时失去全部暴击伤害加成");*/
         }
 
         public override void SetDefaults()
