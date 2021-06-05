@@ -54,12 +54,22 @@ Increases your max number of sentries by 2");
 
         public override void UpdateArmorSet(Player player)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            player.setBonus = @"厄里达诺斯的祝福强化了你的攻击
+每过20秒便随机强化一种职业
+当你使用被强化的职业的武器时，厄里达诺斯会协助你作战
+被强化的职业的伤害增加50%
+增加20%武器使用速度";
+            }
+            else
+            {
             player.setBonus = @"The blessing of Eridanus empowers your attacks
 The empowered class changes every 20 seconds
 Eridanus fights alongside you when you use the empowered class
 50% increased damage for the empowered class
 20% increased weapon use speed";
-
+            }
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.EridanusEmpower = true;
 
