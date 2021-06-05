@@ -29,7 +29,7 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
             DisplayName.AddTranslation(GameCulture.Chinese, "永恒之心");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫人形废土、冰冻、低温、分泌物、枯萎武器和枯萎盔甲减益
 使你免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益
-使你免疫潮湿、带电、海洋重击、月蛭凝块、无效诅咒减益和浸没在水中时获得的减益
+使你免疫潮湿、带电、海洋重击、月噬、无效诅咒减益和浸没在水中时获得的减益
 增加5%伤害、暴击率和伤害减免
 延长100%飞行时间
 根据手持武器的类型定期发动额外攻击
