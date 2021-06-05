@@ -57,7 +57,7 @@ Increases your max number of sentries by 2");
         if (Language.ActiveCulture == GameCulture.Chinese)
             {
             player.setBonus = @"厄里达诺斯的祝福强化了你的攻击
-每过20秒便随机强化一种职业
+被强化的职业每20秒切换一次（战士、射手、法师和召唤师）
 当你使用被强化的职业的武器时，厄里达诺斯会协助你作战
 被强化的职业的伤害增加50%
 增加20%武器使用速度";
