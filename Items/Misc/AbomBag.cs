@@ -13,7 +13,6 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Treasure Bag");
             Tooltip.SetDefault("Right click to open");
-
             DisplayName.AddTranslation(GameCulture.Chinese, "宝藏袋");
             Tooltip.AddTranslation(GameCulture.Chinese, "右键打开");
         }
