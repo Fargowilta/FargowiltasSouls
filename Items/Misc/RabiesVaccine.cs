@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -10,6 +11,8 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Rabies Vaccine");
             Tooltip.SetDefault(@"Permanently grants immunity to Feral Bite");
+            DisplayName.AddTranslation(GameCulture.Chinese, "狂犬病疫苗");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你永久免疫野性噬咬减益");
         }
 
         public override void SetDefaults()
