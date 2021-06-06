@@ -14,6 +14,7 @@ namespace FargowiltasSouls.Items.Summons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn's Curse");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶诅咒");
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 10));
         }
@@ -40,7 +41,14 @@ namespace FargowiltasSouls.Items.Summons
             if (abom > -1 && Main.npc[abom].active)
             {
                 // TODO: Localization.
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                {
+                string message = "憎恶已苏醒！";
+                }
+                else
+                {
                 string message = "Abominationn has awoken!";
+                }
 
                 Main.npc[abom].Transform(ModContent.NPCType<AbomBoss>());
 
