@@ -23,15 +23,15 @@ You fire additional attacks depending on weapon type and erupt into Ancient Visi
 Summons a friendly Cultist and plant to fight at your side
 'The moon smiles'");
             DisplayName.AddTranslation(GameCulture.Chinese, "月之杯");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"月亮的微笑
-免疫毒液, 常春藤毒, 燃烧, 导火线, 低地和死亡标记
-免疫蜂群, 萎缩, 卡壳, 反魔力流和反社交
-增加生命回复
-在空中按'下'键快速下落
-在一定高度使用快速下落, 会在撞击地面时产生猛烈的火焰喷发
-根据武器类型定期发动额外的攻击
-受伤时爆发尖钉球和远古幻象攻击敌人
-召唤友善的邪教徒和植物为你而战");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫酸性毒液、常春藤毒、燃烧、导火线、低地和死亡标记减益
+使你免疫蜂群、萎缩、卡壳、反魔力流和反社交减益
+增加生命恢复速度
+在空中按'下'键会进行快速下落
+在一定高度使用快速下落后会在撞击地面时产生猛烈的火焰喷发
+跳跃落地后，你会释放一堆滚石
+根据手持武器的类型定期发动额外攻击且在受到伤害时创造一个友好的远古幻象来攻击敌人
+召唤一位邪教徒和一株植物至你身边为你而战
+'月之微笑'");
         }
 
         public override void SetDefaults()
