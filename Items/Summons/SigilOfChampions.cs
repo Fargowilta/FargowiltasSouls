@@ -20,7 +20,7 @@ Not consumed on use");
             DisplayName.AddTranslation(GameCulture.Chinese, "唤灵魔符");
             Tooltip.AddTranslation(GameCulture.Chinese, @"召唤英灵
 根据所处环境和时间召唤不同的英灵
-右键使用以查看可能召唤出来的英灵
+右键使用以查看可能召唤出的英灵
 不消耗");
         }
 
@@ -73,7 +73,7 @@ Not consumed on use");
                 if (player.altFunctionUse == 2)
                     if (Language.ActiveCulture == GameCulture.Chinese)
                     {
-                    Main.NewText("矍铄精神，振奋人心", color);
+                    Main.NewText("矍铄精神，振奋人心...", color);
                     }
                     else
                     {
@@ -87,7 +87,7 @@ Not consumed on use");
                 if (player.altFunctionUse == 2)
                     if (Language.ActiveCulture == GameCulture.Chinese)
                     {
-                    Main.NewText("星球之核，隆隆作响", color);
+                    Main.NewText("星球之核，隆隆作响...", color);
                     }
                     else
                     {
@@ -103,7 +103,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("青翠之风，骤然吹起", color);
+                        Main.NewText("青翠之风，骤然吹起...", color);
                         }
                         else
                         {
@@ -117,7 +117,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("磐石震动，四野颤抖", color);
+                        Main.NewText("磐石震动，四野颤抖...", color);
                         }
                         else
                         {
@@ -134,7 +134,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("群星连珠，命定此刻", color);
+                        Main.NewText("群星连珠，命定此刻...", color);
                         }
                         else
                         {
@@ -148,7 +148,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("金铁呜咽，回荡深渊", color);
+                        Main.NewText("金铁呜咽，回荡深渊...", color);
                         }
                         else
                         {
@@ -162,7 +162,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("温温生命，透体而过", color);
+                        Main.NewText("温温生命，透体而过...", color);
                         }
                         else
                         {
@@ -176,7 +176,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("黑夜之暗，愈深愈沉", color);
+                        Main.NewText("黑夜之暗，愈深愈沉...", color);
                         }
                         else
                         {
@@ -191,7 +191,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("林叶沙沙，环绕四周", color);
+                        Main.NewText("林叶沙沙，环绕四周...", color);
                         }
                         else
                         {
@@ -205,7 +205,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         if (Language.ActiveCulture == GameCulture.Chinese)
                         {
-                        Main.NewText("看起来没有东西回应你的召唤", color);
+                        Main.NewText("看起来没有东西回应你的召唤...", color);
                         }
                         else
                         {
