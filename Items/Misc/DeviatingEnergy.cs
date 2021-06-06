@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Deviating Energy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "心之能量");
         }
 
         public override void SetDefaults()
