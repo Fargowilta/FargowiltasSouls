@@ -16,12 +16,11 @@ Minor improvements to all stats
 Right click to increase view range while in inventory
 'Plucked from the face of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "普通的胡萝卜");
-            Tooltip.AddTranslation(GameCulture.Chinese,
-@"'从被打败的敌人的脸上拔下来的'
-提高夜视能力
-小幅提升所有属性
+            Tooltip.AddTranslation(GameCulture.Chinese,@"增强夜视效果
+所有属性小幅度增加
 1分钟持续时间
-(失落军团掉落)");
+在背包中时，按住右键以缩放视域
+'从一位被打败的敌人的脸上拔下来的'");
         }
 
         public override void SetDefaults()
