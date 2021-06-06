@@ -14,10 +14,9 @@ namespace FargowiltasSouls.Items.Misc
             DisplayName.SetDefault("Eternal Energy");
             Tooltip.SetDefault(@"Grants immunity to almost all Eternity Mode debuffs
 'Proof of having embraced eternity'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "施虐狂");
-            Tooltip.AddTranslation(GameCulture.Chinese,
-@"'受苦的证明'
-免疫几乎所有受虐模式的Debuff");
+            DisplayName.AddTranslation(GameCulture.Chinese, "永恒能量");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫近乎所有的永恒模式减益
+'与永恒相拥的证明'");
         }
 
         public override void SetDefaults()
