@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Broken Blade");
-            DisplayName.AddTranslation(GameCulture.Chinese, "碎裂的刀刃");
+            DisplayName.AddTranslation(GameCulture.Chinese, "碎裂的剑刃");
         }
 
         public override void SetDefaults()
