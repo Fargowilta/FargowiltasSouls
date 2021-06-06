@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Misc
             DisplayName.SetDefault("Mutant's Fury");
             Tooltip.SetDefault("'REALLY enrages Mutant... or doesn't'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变狂怒");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'真·正激怒突变体... 也许并不'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'真·激怒突变体...或使其冷静下来'");
         }
 
         public override void SetDefaults()
@@ -35,7 +35,14 @@ namespace FargowiltasSouls.Items.Misc
         public override bool UseItem(Player player)
         {
             FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant;
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            string text = FargoSoulsWorld.AngryMutant ? "突变体被激怒了！" : "突变体的怒火被平息了.";
+            }
+            else
+            {
             string text = FargoSoulsWorld.AngryMutant ? "Mutant is angered!" : "Mutant is calm.";
+            }
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
                 Main.NewText(text, 175, 75, 255);
