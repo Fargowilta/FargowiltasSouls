@@ -27,7 +27,7 @@ If you crit, you might also get a healing orb
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"受到致死伤害时会以1生命值重生并爆出几根骨头
+@"受到致死伤害时会为你保留50点生命值并爆出几根骨头而非死亡
 每根骨头会回复15点生命值
 双击'下'键召唤远古风暴至光标位置
 穿过远古风暴的弹幕会获得60%额外伤害
