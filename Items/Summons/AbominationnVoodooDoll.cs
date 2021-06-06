@@ -19,7 +19,8 @@ namespace FargowiltasSouls.Items.Summons
                 "\n'You are a terrible person'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "憎恶巫毒娃娃");
-            Tooltip.AddTranslation(GameCulture.Chinese, "你可真是个坏东西");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤憎恶来到你的城镇" +
+                "\n'你是个可怕的人'");
         }
 
         public override void SetDefaults()
@@ -63,8 +64,14 @@ namespace FargowiltasSouls.Items.Summons
                             if (mutant > -1 && Main.npc[mutant].active)
                             {
                                 // TODO: Localization
+                                if (Language.ActiveCulture == GameCulture.Chinese)
+                                {
+                                string message = "突变体被他弟弟的死激怒了！";
+                                }
+                                else
+                                {
                                 string message = "Mutant has been enraged by the death of his brother!";
-
+                                }
                                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
 
                                 if (Main.netMode == NetmodeID.SinglePlayer)
