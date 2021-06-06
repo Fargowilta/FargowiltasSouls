@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Summons
         {
             DisplayName.SetDefault("Mutant's Curse");
             Tooltip.SetDefault("'At least this way, you don't need that doll'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "突变体的诅咒");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体诅咒");
             Tooltip.AddTranslation(GameCulture.Chinese, "'至少不需要用娃娃了'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 11));
         }
@@ -41,9 +41,22 @@ namespace FargowiltasSouls.Items.Summons
             {
                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
                 if (Main.netMode == NetmodeID.SinglePlayer)
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                {
+                    Main.NewText("突变体已苏醒！", 175, 75, 255);
+                }
+                else
+                {
                     Main.NewText("Mutant has awoken!", 175, 75, 255);
+                }
                 else if (Main.netMode == NetmodeID.Server)
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("突变体已苏醒"), new Color(175, 75, 255));
+                }
+                else
+                {
                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("Mutant has awoken!"), new Color(175, 75, 255));
+                }
             }
             else
             {
