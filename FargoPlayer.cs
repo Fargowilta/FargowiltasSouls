@@ -2441,8 +2441,8 @@ namespace FargowiltasSouls
                 return;
 
             //reduce minion damage in emode if using a weapon that isnt a mining tool
-            if (proj.minion && FargoSoulsWorld.MasochistMode && (player.HeldItem.melee || player.HeldItem.ranged || player.HeldItem.magic
-                || player.HeldItem.pick > 0 || player.HeldItem.axe > 0 || player.HeldItem.hammer > 0))
+            if (proj.minion && FargoSoulsWorld.MasochistMode && (player.HeldItem.melee || player.HeldItem.ranged || player.HeldItem.magic)
+                && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0)
             {
                 damage /= 3;
             }

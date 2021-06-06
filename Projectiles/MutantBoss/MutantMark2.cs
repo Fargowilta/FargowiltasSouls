@@ -70,9 +70,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.Poisoned, Main.rand.Next(60, 300));
-            target.AddBuff(mod.BuffType("Infested"), Main.rand.Next(60, 300));
             if (FargoSoulsWorld.MasochistMode)
             {
+                target.AddBuff(mod.BuffType("Infested"), Main.rand.Next(60, 300));
                 target.AddBuff(mod.BuffType("IvyVenom"), Main.rand.Next(60, 300));
                 target.AddBuff(mod.BuffType("MutantFang"), 180);
             }

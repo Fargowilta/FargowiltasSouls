@@ -2,12 +2,6 @@ Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls
 Features the highly challenging Eternity Mode!
 
 NEW UPDATE - V 1.3.96.1
-
--Added the Soul of the Void
--Fixed Paradox Wolf Soul dash crash and reduced cooldown a bit
--Fixed Gold Enchant only having 5 materials
--Birds now deal summon damage correctly
--World Shaper Soul Builder Mode grants even more tile place speed. Extreme tile reach moved to Builder Mode, you still have a good amount without it
--Skeletron drops 200 Bones when he drops the Bone Zone so you can use it right away
+-Several fixes and some balance changes
 
 -See the wiki for full details!

@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             item.useAnimation = 15;
             item.useTime = 15;
             item.noMelee = true;
-            item.value = 10000;
+            item.value = Item.sellPrice(0, 8);
             item.knockBack = 1f;
             item.rare = ItemRarityID.LightRed;
             item.summon = true;

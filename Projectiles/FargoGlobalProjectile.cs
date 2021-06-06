@@ -1015,8 +1015,15 @@ namespace FargowiltasSouls.Projectiles
                             masobool = true;
 
                             int ai0 = (int)projectile.ai[0];
-                            if (ai0 > -1 && ai0 < Main.maxNPCs && Main.npc[ai0].active && projectile.Distance(Main.npc[ai0].Center) > 4000)
-                                projectile.Kill();
+                            if (ai0 > -1 && ai0 < Main.maxNPCs && Main.npc[ai0].active)
+                            {
+                                //not kill, because kill decrements shield
+                                if (projectile.Distance(Main.npc[ai0].Center) > 4000)
+                                    projectile.active = false;
+                                int p = Player.FindClosest(projectile.Center, 0, 0);
+                                if (p != -1 && !(Main.player[p].active && Main.npc[ai0].Distance(Main.player[p].Center) < 4000))
+                                    projectile.active = false;
+                            }
                         }
                     }
                     break;
@@ -1863,7 +1870,7 @@ namespace FargowiltasSouls.Projectiles
                     case ProjectileID.SeedPlantera:
                         target.AddBuff(BuffID.Poisoned, 300);
                         target.AddBuff(ModContent.BuffType<Infested>(), 180);
-                        target.AddBuff(ModContent.BuffType<IvyVenom>(), 180);
+                        target.AddBuff(ModContent.BuffType<IvyVenom>(), 240);
                         break;
 
                     case ProjectileID.DesertDjinnCurse:

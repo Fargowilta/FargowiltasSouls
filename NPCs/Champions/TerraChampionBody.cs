@@ -22,9 +22,9 @@ namespace FargowiltasSouls.NPCs.Champions
         {
             npc.width = 80;
             npc.height = 80;
-            npc.damage = 160;
+            npc.damage = 140;
             npc.defense = 80;
-            npc.lifeMax = 690000;
+            npc.lifeMax = 440000;
             npc.HitSound = SoundID.NPCHit4;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.noGravity = true;
@@ -99,7 +99,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 }
                 return;
             }
-            
+
             Vector2 offset = Main.npc[ai1].Center - npc.Center;
             npc.rotation = offset.ToRotation();
             float num1 = offset.Length();
@@ -120,6 +120,9 @@ namespace FargowiltasSouls.NPCs.Champions
                 if (npc.Distance(pivot) < 600) //make sure body doesnt coil into the circling zone
                     npc.Center = pivot + npc.DirectionFrom(pivot) * 600;
             }
+
+            npc.chaseable = npc.ai[2] == 0;
+            //npc.dontTakeDamage = Main.npc[(int)npc.ai[3]].immune[Main.myPlayer] > 0;
         }
 
         public override bool CheckActive()
@@ -129,12 +132,43 @@ namespace FargowiltasSouls.NPCs.Champions
 
         public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
-            /*damage *= 0.01;
-            return true;*/
+            int ai3 = (int)npc.ai[3];
+            if (ai3 > -1 && ai3 < Main.maxNPCs && Main.npc[ai3].active && Main.npc[ai3].type == ModContent.NPCType<TerraChampion>())
+            {
+                if (Main.npc[ai3].immune[Main.myPlayer] > 0)
+                {
+                    damage = 1;
+                    crit = false;
+                    return false;
+                }
 
-            damage = 1;
-            crit = false;
-            return false;
+                if (Main.npc[ai3].ai[3] == 1)
+                    damage /= 10;
+
+                //Main.npc[ai3].ai[3] = 1; //to prevent multiple nonpierce hitting on the same tick
+            }
+
+            return true;
+        }
+
+        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit)
+        {
+            int ai3 = (int)npc.ai[3];
+            if (ai3 > -1 && ai3 < Main.maxNPCs && Main.npc[ai3].active && Main.npc[ai3].type == ModContent.NPCType<TerraChampion>())
+            {
+                if (Main.npc[ai3].immune[Main.myPlayer] == 0)
+                    Main.npc[ai3].immune[Main.myPlayer] = npc.immune[Main.myPlayer];
+            }
+        }
+
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
+        {
+            int ai3 = (int)npc.ai[3];
+            if (ai3 > -1 && ai3 < Main.maxNPCs && Main.npc[ai3].active && Main.npc[ai3].type == ModContent.NPCType<TerraChampion>())
+            {
+                if (Main.npc[ai3].immune[Main.myPlayer] == 0)
+                    Main.npc[ai3].immune[Main.myPlayer] = npc.immune[Main.myPlayer];
+            }
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

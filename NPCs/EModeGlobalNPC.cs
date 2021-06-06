@@ -485,6 +485,9 @@ namespace FargowiltasSouls.NPCs
                     npc.lavaImmune = true;
                     masoBool[0] = BossIsAlive(ref moonBoss, NPCID.MoonLordCore);
                     break;
+                case NPCID.CultistDragonHead:
+                    npc.lifeMax *= 2;
+                    break;
 
                 case NPCID.MoonLordCore:
                     isMasoML = true;
@@ -1307,6 +1310,13 @@ namespace FargowiltasSouls.NPCs
                                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                                 }
                             }
+                            goto case NPCID.CultistDragonBody1;
+                        case NPCID.CultistDragonBody1:
+                        case NPCID.CultistDragonBody2:
+                        case NPCID.CultistDragonBody3:
+                        case NPCID.CultistDragonBody4:
+                        case NPCID.CultistDragonTail:
+                            Counter[0]++;
                             break;
 
                         case NPCID.AncientDoom:
@@ -2053,6 +2063,8 @@ namespace FargowiltasSouls.NPCs
                         case NPCID.LunarTowerNebula:
                             if (NPC.LunarApocalypseIsUp)
                             {
+                                if (NPC.ShieldStrengthTowerNebula > NPC.LunarShieldPowerExpert)
+                                    NPC.ShieldStrengthTowerNebula = NPC.LunarShieldPowerExpert;
                                 Aura(npc, 5000, ModContent.BuffType<Atrophied>(), dustid: 58);
                                 Aura(npc, 5000, ModContent.BuffType<Jammed>(), dustid: 58);
                                 Aura(npc, 5000, ModContent.BuffType<Antisocial>(), dustid: 58);
@@ -2132,6 +2144,20 @@ namespace FargowiltasSouls.NPCs
                                     }
                                 }
 
+                                if (++Counter[3] > 60)
+                                {
+                                    Counter[3] = 0;
+                                    npc.TargetClosest(false);
+                                    if (!npc.HasValidTarget || npc.Distance(Main.player[npc.target].Center) > 4000)
+                                    {
+                                        const int heal = 2000;
+                                        npc.life += heal;
+                                        if (npc.life > npc.lifeMax)
+                                            npc.life = npc.lifeMax;
+                                        CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal);
+                                    }
+                                }
+
                                 masoBool[1] = true;
                             }
                             break;
@@ -2139,6 +2165,8 @@ namespace FargowiltasSouls.NPCs
                         case NPCID.LunarTowerSolar:
                             if (NPC.LunarApocalypseIsUp)
                             {
+                                if (NPC.ShieldStrengthTowerSolar > NPC.LunarShieldPowerExpert)
+                                    NPC.ShieldStrengthTowerSolar = NPC.LunarShieldPowerExpert;
                                 Aura(npc, 5000, ModContent.BuffType<ReverseManaFlow>(), dustid: DustID.SolarFlare);
                                 Aura(npc, 5000, ModContent.BuffType<Jammed>(), dustid: DustID.SolarFlare);
                                 Aura(npc, 5000, ModContent.BuffType<Antisocial>(), dustid: DustID.SolarFlare);
@@ -2174,6 +2202,20 @@ namespace FargowiltasSouls.NPCs
                                     }
                                 }
                                 masoBool[1] = true;
+
+                                if (++Counter[3] > 60)
+                                {
+                                    Counter[3] = 0;
+                                    npc.TargetClosest(false);
+                                    if (!npc.HasValidTarget || npc.Distance(Main.player[npc.target].Center) > 4000)
+                                    {
+                                        const int heal = 2000;
+                                        npc.life += heal;
+                                        if (npc.life > npc.lifeMax)
+                                            npc.life = npc.lifeMax;
+                                        CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal);
+                                    }
+                                }
                             }
                             break;
 
@@ -2189,6 +2231,8 @@ namespace FargowiltasSouls.NPCs
 
                             if (NPC.LunarApocalypseIsUp)
                             {
+                                if (NPC.ShieldStrengthTowerStardust > NPC.LunarShieldPowerExpert)
+                                    NPC.ShieldStrengthTowerStardust = NPC.LunarShieldPowerExpert;
                                 Aura(npc, 5000, ModContent.BuffType<Atrophied>(), dustid: 20);
                                 Aura(npc, 5000, ModContent.BuffType<Jammed>(), dustid: 20);
                                 Aura(npc, 5000, ModContent.BuffType<ReverseManaFlow>(), dustid: 20);
@@ -2225,6 +2269,21 @@ namespace FargowiltasSouls.NPCs
                                         }
                                     }
                                 }
+
+                                if (++Counter[3] > 60)
+                                {
+                                    Counter[3] = 0;
+                                    npc.TargetClosest(false);
+                                    if (!npc.HasValidTarget || npc.Distance(Main.player[npc.target].Center) > 4000)
+                                    {
+                                        const int heal = 2000;
+                                        npc.life += heal;
+                                        if (npc.life > npc.lifeMax)
+                                            npc.life = npc.lifeMax;
+                                        CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal);
+                                    }
+                                }
+
                                 masoBool[1] = true;
                             }
                             break;
@@ -2241,6 +2300,8 @@ namespace FargowiltasSouls.NPCs
 
                             if (NPC.LunarApocalypseIsUp)
                             {
+                                if (NPC.ShieldStrengthTowerVortex > NPC.LunarShieldPowerExpert)
+                                    NPC.ShieldStrengthTowerVortex = NPC.LunarShieldPowerExpert;
                                 Aura(npc, 5000, ModContent.BuffType<Atrophied>(), dustid: DustID.Vortex);
                                 Aura(npc, 5000, ModContent.BuffType<ReverseManaFlow>(), dustid: DustID.Vortex);
                                 Aura(npc, 5000, ModContent.BuffType<Antisocial>(), dustid: DustID.Vortex);
@@ -2293,6 +2354,21 @@ namespace FargowiltasSouls.NPCs
                                         Projectile.NewProjectile(npc.Center, speed, ProjectileID.CultistBossLightningOrb, 30, 0f, Main.myPlayer);
                                     }
                                 }
+
+                                if (++Counter[3] > 60)
+                                {
+                                    Counter[3] = 0;
+                                    npc.TargetClosest(false);
+                                    if (!npc.HasValidTarget || npc.Distance(Main.player[npc.target].Center) > 4000)
+                                    {
+                                        const int heal = 2000;
+                                        npc.life += heal;
+                                        if (npc.life > npc.lifeMax)
+                                            npc.life = npc.lifeMax;
+                                        CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal);
+                                    }
+                                }
+
                                 masoBool[1] = true;
                             }
                             break;
@@ -3496,6 +3572,14 @@ namespace FargowiltasSouls.NPCs
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     Projectile.NewProjectile(npc.Center, speed, ModContent.ProjectileType<SkeletronBone>(), npc.damage / 4, 0f, Main.myPlayer);
                             }*/
+
+                            if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && npc.Hitbox.Intersects(Main.LocalPlayer.Hitbox))
+                            {
+                                Main.LocalPlayer.immune = false;
+                                Main.LocalPlayer.immuneTime = 0;
+                                Main.LocalPlayer.hurtCooldowns[0] = 0;
+                                Main.LocalPlayer.hurtCooldowns[1] = 0;
+                            }
 
                             if (npc.HasValidTarget && npc.ai[1] == 2f) //while actually attacking
                             {
@@ -8036,12 +8120,25 @@ namespace FargowiltasSouls.NPCs
             return null;
         }
 
-        private void ModifyHitEither(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit)
+        private void ModifyHitByEither(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit)
         {
             if (FargoSoulsWorld.MasochistMode)
             {
                 switch (npc.type)
                 {
+                    case NPCID.CultistDragonHead:
+                    case NPCID.CultistDragonBody1:
+                    case NPCID.CultistDragonBody2:
+                    case NPCID.CultistDragonBody3:
+                    case NPCID.CultistDragonBody4:
+                    case NPCID.CultistDragonTail:
+                        if (Counter[0] < 180)
+                        {
+                            damage = 0;
+                            crit = false;
+                        }
+                        break;
+
                     case NPCID.LunarTowerNebula:
                     case NPCID.LunarTowerSolar:
                     case NPCID.LunarTowerStardust:
@@ -8285,7 +8382,7 @@ namespace FargowiltasSouls.NPCs
 
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
         {
-            ModifyHitEither(npc, player, ref damage, ref knockback, ref crit);
+            ModifyHitByEither(npc, player, ref damage, ref knockback, ref crit);
 
             if (FargoSoulsWorld.MasochistMode)
             {
@@ -8317,7 +8414,7 @@ namespace FargowiltasSouls.NPCs
         {
             Player player = Main.player[projectile.owner];
 
-            ModifyHitEither(npc, player, ref damage, ref knockback, ref crit);
+            ModifyHitByEither(npc, player, ref damage, ref knockback, ref crit);
 
             if (FargoSoulsWorld.MasochistMode)
             {
