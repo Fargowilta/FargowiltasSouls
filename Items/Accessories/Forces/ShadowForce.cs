@@ -37,7 +37,7 @@ Greatly enhances Flameburst and Lightning Aura effectiveness
 冲进墙壁时会直接穿过去
 召唤一个爆炸烈焰哨兵，在充能完毕后会移动至光标位置
 持续攻击两秒后你将被火焰包裹
-切换武器后使下次攻击的伤害增加100%
+切换武器后使下次攻击的伤害增加150%
 大幅强化爆炸烈焰哨兵和闪电光环的效果
 'Dark, Darker, Yet Darker（出自Undertale）'";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
