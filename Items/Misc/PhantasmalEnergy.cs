@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -11,6 +12,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantasmal Energy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "幻影能量");
         }
 
         public override void SetDefaults()
