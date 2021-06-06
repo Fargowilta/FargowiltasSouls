@@ -165,7 +165,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
                     if (player.controlDown && !player.controlUp) //dive
                     {
                         dashAI = 2;
-                        speed = new Vector2(Math.Sign(speedX) * 0.01f, speed.Length());
+                        speed = new Vector2(Math.Sign(speedX) * 0.0001f, speed.Length());
                         dashType = mod.ProjectileType("Dash2");
                     }
 

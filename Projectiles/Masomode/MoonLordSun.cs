@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.NPCs;
+using System.IO;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -61,6 +62,18 @@ namespace FargowiltasSouls.Projectiles.Masomode
             return Math.Sqrt(dX * dX + dY * dY) <= projectile.width / 2;
         }
 
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(projectile.localAI[0]);
+            writer.Write(projectile.localAI[1]);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            projectile.localAI[0] = reader.ReadSingle();
+            projectile.localAI[1] = reader.ReadSingle();
+        }
+
         public override void AI()
         {
             for (int i = 0; i < 5; i++)
@@ -98,12 +111,19 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
             else if (projectile.localAI[0] == 120) //launch at player
             {
-                projectile.velocity = (Main.player[Main.npc[ai0].target].Center - projectile.Center) / 60;
+                //d = (v+0)*t/2
+                //v = d*2/t
+                projectile.velocity = (Main.player[Main.npc[ai0].target].Center - projectile.Center) * 2f / 60f;
+                //0 = v+a*t
+                //a = -v/t
+                projectile.localAI[1] = projectile.velocity.Length() / 60f;
+
                 projectile.timeLeft = 61;
                 projectile.netUpdate = true;
             }
             else
             {
+                projectile.velocity = Vector2.Normalize(projectile.velocity) * (projectile.velocity.Length() - projectile.localAI[1]);
                 projectile.alpha = 0;
             }
         }
@@ -172,7 +192,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             int ai0 = (int)projectile.ai[0]; //core
             int ai1 = (int)projectile.ai[1]; //socket
             if (ai1 > -1 && ai1 < Main.maxNPCs && Main.npc[ai1].active && Main.npc[ai1].type == NPCID.MoonLordHand
-                && Main.npc[ai1].ai[3] == ai0 && Main.npc[ai0].ai[0] != 2f && EModeGlobalNPC.masoStateML == 0) //valid
+                && Main.npc[ai1].ai[3] == ai0 && Main.npc[ai0].ai[0] != 2f)// && EModeGlobalNPC.masoStateML == 0) //valid
             {
                 if (!Main.dedServ && Main.LocalPlayer.active)
                     Main.LocalPlayer.GetModPlayer<FargoPlayer>().Screenshake = 30;

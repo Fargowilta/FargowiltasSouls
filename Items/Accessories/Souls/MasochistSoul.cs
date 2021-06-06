@@ -29,6 +29,7 @@ Press the Fireball Dash key to perform a short invincible dash
 Certain enemies will drop potions when defeated, 50% discount on reforges, you respawn with more life
 You respawn twice as fast, attacks spawn honey, have improved night vision, and erupt into various attacks when injured
 Prevents boss spawns, increases spawn rate, increases loot, and attacks may squeak and deal 1 damage to you
+Use to teleport to your last death point
 Summons the aid of all Eternity Mode bosses to your side
 'Embrace eternity'");
 
@@ -57,6 +58,11 @@ Summons the aid of all Eternity Mode bosses to your side
             item.rare = ItemRarityID.Purple;
             item.value = 5000000;
             item.defense = 30;
+            item.useTime = 90;
+            item.useAnimation = 90;
+            item.useStyle = ItemUseStyleID.HoldingUp;
+            item.useTurn = true;
+            item.UseSound = SoundID.Item6;
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
@@ -68,6 +74,43 @@ Summons the aid of all Eternity Mode bosses to your side
                     line2.overrideColor = new Color(Main.DiscoR, 51, 255 - (int)(Main.DiscoR * 0.4));
                 }
             }
+        }
+
+        public override bool CanUseItem(Player player) => player.lastDeathPostion != Vector2.Zero;
+
+        public override bool UseItem(Player player)
+        {
+            for (int index = 0; index < 70; ++index)
+            {
+                int d = Dust.NewDust(player.position, player.width, player.height, 87, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
+                Main.dust[d].velocity *= 4f;
+                Main.dust[d].noGravity = true;
+            }
+
+            player.grappling[0] = -1;
+            player.grapCount = 0;
+            for (int index = 0; index < 1000; ++index)
+            {
+                if (Main.projectile[index].active && Main.projectile[index].owner == player.whoAmI && Main.projectile[index].aiStyle == 7)
+                    Main.projectile[index].Kill();
+            }
+
+            if (player.whoAmI == Main.myPlayer)
+            {
+                player.Teleport(player.lastDeathPostion, 1);
+                player.velocity = Vector2.Zero;
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                    NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1);
+            }
+
+            for (int index = 0; index < 70; ++index)
+            {
+                int d = Dust.NewDust(player.position, player.width, player.height, 87, 0.0f, 0.0f, 150, new Color(), 1.5f);
+                Main.dust[d].velocity *= 4f;
+                Main.dust[d].noGravity = true;
+            }
+
+            return true;
         }
 
         public override void UpdateInventory(Player player)
@@ -196,7 +239,7 @@ Summons the aid of all Eternity Mode bosses to your side
 
             //frigid gemstone
             player.buffImmune[BuffID.Frostburn] = true;
-            if (player.GetToggleValue("MasoClipped"))
+            if (player.GetToggleValue("MasoFrigid"))
             {
                 fargoPlayer.FrigidGemstone = true;
                 if (fargoPlayer.FrigidGemstoneCD > 0)

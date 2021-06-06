@@ -120,7 +120,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 const int max = 7;
                 for (int i = 0; i < max; i++)
                 {
-                    const int ring = 64;
+                    const int ring = 128;
                     Vector2 offset = projectile.velocity * 3000 / max * (i - 0.5f);// (i + (float)dustTimer / 60);
                     for (int index1 = 0; index1 < ring; ++index1)
                     {

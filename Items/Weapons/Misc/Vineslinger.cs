@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
         {
             item.width = 30;
             item.height = 10;
-            item.value = Item.sellPrice(0, 20, 0, 0);
+            item.value = Item.sellPrice(0, 8);
             item.rare = ItemRarityID.LightRed;
             item.noMelee = true;
             item.useStyle = ItemUseStyleID.HoldingOut;

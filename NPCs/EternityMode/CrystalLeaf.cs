@@ -134,7 +134,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         {
             target.AddBuff(BuffID.Poisoned, 300);
             target.AddBuff(mod.BuffType("Infested"), 180);
-            target.AddBuff(mod.BuffType("IvyVenom"), 180);
+            target.AddBuff(mod.BuffType("IvyVenom"), 240);
         }
 
         public override void ModifyHitByItem(Player player, Item item, ref int damage, ref float knockback, ref bool crit)

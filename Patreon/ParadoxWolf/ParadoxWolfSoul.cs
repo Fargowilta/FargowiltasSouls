@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Patreon.ParadoxWolf
             DisplayName.SetDefault("Paradox Wolf Soul");
             Tooltip.SetDefault(
 @"Double tap to dash through and damage enemies
-There is a cooldown of 5 seconds between uses");
+There is a cooldown of 3 seconds between uses");
         }
 
         public override void SetDefaults()

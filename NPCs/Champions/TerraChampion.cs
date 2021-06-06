@@ -16,7 +16,6 @@ namespace FargowiltasSouls.NPCs.Champions
     public class TerraChampion : ModNPC
     {
         private bool spawned;
-        private bool resist;
 
         public override void SetStaticDefaults()
         {
@@ -30,7 +29,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npc.height = 80;
             npc.damage = 140;
             npc.defense = 80;
-            npc.lifeMax = 170000;
+            npc.lifeMax = 440000;
             npc.HitSound = SoundID.NPCHit4;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.noGravity = true;
@@ -80,7 +79,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
         public override void AI()
         {
-            resist = false;
+            npc.ai[3] = 0;
 
             if (!spawned) //just spawned
             {
@@ -98,6 +97,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         if (n != Main.maxNPCs)
                         {
                             Main.npc[n].ai[1] = prev;
+                            Main.npc[n].ai[2] = i % 4;
                             Main.npc[n].ai[3] = npc.whoAmI;
                             Main.npc[n].realLife = npc.whoAmI;
                             Main.npc[prev].ai[0] = n;
@@ -203,7 +203,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             npc.rotation = npc.velocity.ToRotation();
                             break;
                         }
-                        
+
                         float num14 = 20f;      //max speed?
                         float num15 = 0.22f;     //turn speed?
                         float num16 = 0.25f;    //acceleration?
@@ -213,7 +213,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         bool inFrontOfMe = Math.Abs(rotationDifference) < MathHelper.ToRadians(90 / 2);
                         if (num14 < comparisonSpeed && inFrontOfMe) //player is moving faster than my top speed
                         {
-                                num14 = comparisonSpeed; //outspeed them
+                            num14 = comparisonSpeed; //outspeed them
                         }
 
                         if (npc.Distance(player.Center) > 1500f) //better turning when out of range
@@ -322,7 +322,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     break;
 
                 case 1: //flee and prepare
-                    resist = true;
+                    npc.ai[3] = 1;
                     targetPos = player.Center + npc.DirectionFrom(player.Center) * 1600;
                     if (++npc.localAI[0] < 120)
                     {
@@ -450,7 +450,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         float sinModifier = (float)Math.Sin(2 * (float)Math.PI * (npc.localAI[0] / end * 3 + 0.25f));
                         npc.rotation = npc.localAI[1] + (float)Math.PI / 2 * sinModifier;
                         npc.velocity = 32f * npc.rotation.ToRotationVector2();
-                        
+
                         if (Math.Abs(sinModifier) < 0.001f) //account for rounding issues
                         {
                             Main.PlaySound(SoundID.Item12, npc.Center);
@@ -549,7 +549,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     goto case 0;
 
                 case 10: //prepare for coil
-                    resist = true;
+                    npc.ai[3] = 1;
                     targetPos = player.Center + npc.DirectionFrom(player.Center) * 600;
                     Movement(targetPos, 0.4f, 32f);
                     if (++npc.localAI[0] > 300 || npc.Distance(targetPos) < 50f)
@@ -690,10 +690,12 @@ namespace FargowiltasSouls.NPCs.Champions
 
         public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
-            if (resist)
+            if (npc.ai[3] == 1)
                 damage /= 10;
-            if (npc.life < npc.lifeMax / 10)
-                damage /= 3;
+
+            //npc.ai[3] = 1; //to resist multiple nonpierce hitting on the same tick
+
+            //if (npc.life < npc.lifeMax / 10) damage /= 3;
             return true;
         }
 

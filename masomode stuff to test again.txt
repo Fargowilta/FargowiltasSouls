@@ -332,6 +332,24 @@ fixed being able to explode temple traps
 refactored boc p2 confusion/laser code, works in mp properly
 wyvern/devi light balls, king slime spike rain, no longer generate light inside tiles
 devi light balls shoot deathrays instead of splitting
-minion damage nerf doesnt apply if you're holding a pickaxe or other tool
 qb hive toss is easier to see and its spawns now spread randomly on impact (used to fly away really fast)
 buffed aestheticus proj damage by 10%
+
+standardized jungle mimic drop prices
+soul of siblings can be used like sands of time
+minion damage nerf ACTUALLY doesnt apply if you're holding a pickaxe or other tool
+dg strips iframes guaranteed if you touch it
+skeletron drops brittle bones instead of bones, same thing but cant be used in recipes
+reduced lag and dust from mutant's nuke attack
+mutant giga ray has thicker dust rings
+buffed damage of qb's bee swarm
+prime limbs return to normal ai when prime is despawning, limbs shouldn't despawn independently of prime
+plantera buff, ivy venom on projs extended by 1sec
+pillar shields are the proper value if you exit and rejoin world
+phantasm dragon has 100% DR for 3sec on spawn
+pillars regen life if you die or are too far
+ml sun now moves differently, makes it more clear how it behaves
+
+brittle bone in mutant mod
+penetrator dash loses invul if you hit a surface
+champion of terra can now take full damage from any segment, but only 1 segment takes full damage at a time (NEEDS MP CHECK)

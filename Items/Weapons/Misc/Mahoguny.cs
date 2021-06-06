@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 5f;
-            item.value = 10000;
+            item.value = Item.sellPrice(0, 8);
             item.rare = ItemRarityID.LightRed;
             item.UseSound = SoundID.Item61;
             item.autoReuse = true;
