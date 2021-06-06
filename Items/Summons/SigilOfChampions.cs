@@ -71,7 +71,7 @@ Not consumed on use");
             if (player.ZoneUndergroundDesert)
             {
                 if (player.altFunctionUse == 2)
-                if (Language.ActiveCulture == GameCulture.Chinese)
+                    if (Language.ActiveCulture == GameCulture.Chinese)
                     {
                     Main.NewText("矍铄精神，振奋人心", color);
                     }
@@ -85,7 +85,7 @@ Not consumed on use");
             else if (player.ZoneUnderworldHeight)
             {
                 if (player.altFunctionUse == 2)
-                if (Language.ActiveCulture == GameCulture.Chinese)
+                    if (Language.ActiveCulture == GameCulture.Chinese)
                     {
                     Main.NewText("星球之核，隆隆作响", color);
                     }
@@ -101,13 +101,13 @@ Not consumed on use");
                 if (player.ZoneSnow)
                 {
                     if (player.altFunctionUse == 2)
-                    if (Language.ActiveCulture == GameCulture.Chinese)
-                    {
-                    Main.NewText("青翠之风，骤然吹起", color);
-                    }
-                    else
-                    {
-                    Main.NewText("A verdant wind is blowing...", color);
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("青翠之风，骤然吹起", color);
+                        }
+                        else
+                        {
+                        Main.NewText("A verdant wind is blowing...", color);
                     }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NatureChampion>());
