@@ -71,14 +71,28 @@ Not consumed on use");
             if (player.ZoneUndergroundDesert)
             {
                 if (player.altFunctionUse == 2)
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                    {
+                    Main.NewText("矍铄精神，振奋人心", color);
+                    }
+                    else
+                    {
                     Main.NewText("A strong spirit stirs...", color);
+                    }
                 else
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<SpiritChampion>());
             }
             else if (player.ZoneUnderworldHeight)
             {
                 if (player.altFunctionUse == 2)
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                    {
+                    Main.NewText("星球之核，隆隆作响", color);
+                    }
+                    else
+                    {
                     Main.NewText("The core of the planet rumbles...", color);
+                    }
                 else
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<EarthChampion>());
             }
@@ -87,14 +101,28 @@ Not consumed on use");
                 if (player.ZoneSnow)
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("A verdant wind is blowing...", color);
+                    if (Language.ActiveCulture == GameCulture.Chinese)
+                    {
+                    Main.NewText("青翠之风，骤然吹起", color);
+                    }
+                    else
+                    {
+                    Main.NewText("A verdant wind is blowing...", color);
+                    }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NatureChampion>());
                 }
                 else
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("磐石震动，四野颤抖", color);
+                        }
+                        else
+                        {
                         Main.NewText("The stones tremble around you...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TerraChampion>());
                 }
@@ -104,28 +132,56 @@ Not consumed on use");
                 if (player.ZoneSkyHeight)
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("群星连珠，命定此刻", color);
+                        }
+                        else
+                        {
                         Main.NewText("The stars are aligning...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<CosmosChampion>());
                 }
                 else if (player.ZoneBeach)
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("金铁呜咽，回荡深渊", color);
+                        }
+                        else
+                        {
                         Main.NewText("Metallic groans echo from the depths...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<WillChampion>());
                 }
                 else if (player.ZoneHoly && Main.dayTime)
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("温温生命，透体而过", color);
+                        }
+                        else
+                        {
                         Main.NewText("A wave of warmth passes over you...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<LifeChampion>());
                 }
                 else if ((player.ZoneCorrupt || player.ZoneCrimson) && !Main.dayTime) //night
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("黑夜之暗，愈深愈沉", color);
+                        }
+                        else
+                        {
                         Main.NewText("The darkness of the night feels deeper...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowChampion>());
                 }
@@ -133,14 +189,28 @@ Not consumed on use");
                     && !player.ZoneDesert && !player.ZoneSnow && !player.ZoneJungle && Main.dayTime) //purity day
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("林叶沙沙，环绕四周", color);
+                        }
+                        else
+                        {
                         Main.NewText("You are surrounded by the rustling of trees...", color);
+                        }
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TimberChampion>());
                 }
                 else //nothing to summon
                 {
                     if (player.altFunctionUse == 2)
+                        if (Language.ActiveCulture == GameCulture.Chinese)
+                        {
+                        Main.NewText("看起来没有东西回应你的召唤", color);
+                        }
+                        else
+                        {
                         Main.NewText("Nothing seems to answer the call...", color);
+                        }
                 }
             }
 
