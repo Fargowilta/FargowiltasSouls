@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Items.Misc
             FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant;
             if (Language.ActiveCulture == GameCulture.Chinese)
             {
-            string text = FargoSoulsWorld.AngryMutant ? "突变体被激怒了！" : "突变体的怒火被平息了.";
+            string text = FargoSoulsWorld.AngryMutant ? "突变体被激怒了！" : "突变体冷静下来了.";
             }
             else
             {
