@@ -13,10 +13,16 @@ namespace FargowiltasSouls.Items.Accessories.Souls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Soul of the Void");
+            
+            DisplayName.AddTranslation(GameCulture.Chinese, "虚空之魂");
 
             string tooltip =
 @"Summons SOMETHING";
             Tooltip.SetDefault(tooltip);
+            
+             string tooltip_ch =
+@"召唤某些东西";
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
         public override void SetDefaults()
