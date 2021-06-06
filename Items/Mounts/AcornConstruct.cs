@@ -1,5 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Mounts
 {
@@ -8,6 +9,7 @@ namespace FargowiltasSouls.Items.Mounts
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Ride the Squirrel");
+            Tooltip.AddTranslation(GameCulture.Chinese, "骑乘松鼠");
         }
 
         public override void SetDefaults()
