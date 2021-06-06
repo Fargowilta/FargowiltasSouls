@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Pets
 {
@@ -11,6 +12,8 @@ namespace FargowiltasSouls.Items.Pets
         {
             DisplayName.SetDefault("Baby Scythe");
             Tooltip.SetDefault("Summons Baby Abom\n'Don't worry, it's dull'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "小镰刀");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤宝宝憎恶\n'别担心，这一点也不好玩'");
         }
 
         public override void SetDefaults()
