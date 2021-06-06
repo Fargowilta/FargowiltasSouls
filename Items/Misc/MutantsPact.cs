@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -12,6 +13,8 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Mutant's Pact");
             Tooltip.SetDefault(@"Permanently reduces Mutant's shop prices by 30%");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体的契约");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"永久使突变体商店的价格便宜30%");
         }
 
         public override void SetDefaults()
