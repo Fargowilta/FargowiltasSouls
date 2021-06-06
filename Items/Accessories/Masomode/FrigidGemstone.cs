@@ -16,9 +16,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Your attacks summon Frostfireballs to attack your enemies
 'A shard of ancient magical ice'");
             DisplayName.AddTranslation(GameCulture.Chinese, "寒玉");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'一块古老的魔法冰碎片'
-免疫寒焰
-攻击召唤霜火球攻击敌人");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫霜冻减益
+攻击会召唤霜火球来攻击你的敌人
+'一块远古魔法冰晶的碎片'");
         }
 
         public override void SetDefaults()
