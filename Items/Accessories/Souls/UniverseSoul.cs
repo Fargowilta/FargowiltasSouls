@@ -43,7 +43,7 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
 +4最大哨兵栏
 攻击会造成宇宙之火减益
 拥有烈火手套、悠悠球袋和天界壳效果
-拥有狙击镜、 天界手铐、和魔力花效果
+拥有狙击镜、 天界手铐和魔力花效果
 '诸天也向你俯首'";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
