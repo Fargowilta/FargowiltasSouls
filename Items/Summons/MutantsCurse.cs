@@ -51,6 +51,7 @@ namespace FargowiltasSouls.Items.Summons
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 if (Language.ActiveCulture == GameCulture.Chinese)
+                {
                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("突变体已苏醒"), new Color(175, 75, 255));
                 }
                 else
