@@ -26,7 +26,7 @@ Press the Fireball Dash key to perform a short invincible dash
 Grants effects of Wet debuff while riding Cute Fishron and gravity control
 Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 'Warm, beating, and no body needed'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "永恒之心");
+            DisplayName.AddTranslation(GameCulture.Chinese, "永恒者之心");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫人形废土、冰冻、低温、分泌物、枯萎武器和枯萎盔甲减益
 使你免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益
 使你免疫潮湿、带电、海洋重击、月噬、无效诅咒减益和浸没在水中时获得的减益
