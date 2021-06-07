@@ -26,14 +26,16 @@ Effects of Flying Carpet, Shield of Cthulhu and Master Ninja Gear
 Effects of Sweetheart Necklace and Amber Horseshoe Balloon
 'I am speed'";
             string tooltip_ch =
-@"'我就是速度'
-获得超音速奔跑,飞行,以及额外的冰上移动力
-在没有装备翅膀时,允许使用者进行五段跳
-增加跳跃高度,跳跃速度,允许自动跳跃
-获得游泳能力以及极长的水下呼吸时间
-获得水/岩浆上行走能力
-免疫岩浆和坠落伤害
-拥有飞毯效果";
+@"使你获得超音速奔跑和飞行能力，在冰面上获得额外机动性
+未装备翅膀类饰品时使你获得五段跳能力
+增加跳跃高度和跳跃速度，使你获得自动跳跃能力
+你走过的草地上会生长花朵
+使你获得游泳能力并大幅延长水下呼吸时间
+使你获得在水和熔岩表面行走能力
+使你免疫熔岩和摔落伤害
+拥有飞毯、克苏鲁护盾和忍者大师装备效果
+拥有甜心项链和琥珀马掌气球效果
+'我就是速度'";
 
             Tooltip.SetDefault(tooltip);
             DisplayName.AddTranslation(GameCulture.Chinese, "超音速之魂");
