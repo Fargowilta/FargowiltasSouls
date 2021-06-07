@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             DisplayName.SetDefault("Mind Break");
             Tooltip.SetDefault("'An old foe beaten into submission..'");
             DisplayName.AddTranslation(GameCulture.Chinese, "精神崩坏");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'一个被迫屈服的老对手..'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'一位被迫屈服的老对手..'");
         }
 
         public override void SetDefaults()
