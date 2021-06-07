@@ -22,7 +22,9 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 "\n'The shattered remains of a defeated foe..'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "骸骨领域");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的残骸..'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "使用骨头作为弹药" +
+                "\n33%几率不消耗弹药" +
+                "\n'一位被打败的敌人的残骸..'");
         }
 
         public override void SetDefaults()
