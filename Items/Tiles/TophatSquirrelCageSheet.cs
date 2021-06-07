@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Tiles
 {
@@ -23,6 +24,7 @@ namespace FargowiltasSouls.Items.Tiles
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Top Hat Squirrel Cage");
             AddMapEntry(new Color(122, 217, 232), name);
+            name.AddTranslation(GameCulture.Chinese, "高顶礼帽松鼠笼");
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
