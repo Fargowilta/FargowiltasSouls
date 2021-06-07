@@ -22,7 +22,7 @@ Reduces Abominable Rebirth duration
 Press the Mutant Bomb key to unleash a wave of spheres and destroy most hostile projectiles
 Mutant Bomb has a 60 second cooldown
 'Only a little suspicious'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "突变者之眼");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体之眼");
             Tooltip.AddTranslation(GameCulture.Chinese, @"使你免疫突变毒牙减益
 擦弹所增加的暴击伤害上限增加25%
 将闪光之崇的窃命之心升级为爱之射线
