@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Alarmingly calm'");
             DisplayName.AddTranslation(GameCulture.Chinese, "棕榈木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"双击'下'键会召唤一个会向敌人扔橡子的棕榈树哨兵
+@"双击'下'键会召唤一个会向敌人扔橡实的棕榈树哨兵
 '出奇的宁静'");
         }
 
