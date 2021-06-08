@@ -36,6 +36,7 @@ namespace FargowiltasSouls.Items.Misc
         {
             FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant; 
             // TODO: Localization
+            //突变体被激怒了！/突变体冷静下来了。
             string text = FargoSoulsWorld.AngryMutant ? "Mutant is angered!" : "Mutant is calm.";
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
