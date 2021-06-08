@@ -64,34 +64,12 @@ namespace FargowiltasSouls.Items.Summons
                             if (mutant > -1 && Main.npc[mutant].active)
                             {
                                 // TODO: Localization
-                                if (Language.ActiveCulture == GameCulture.Chinese)
-                                {
-                                string message = "突变体被他弟弟的死激怒了！";
-                                }
-                                else
-                                {
                                 string message = "Mutant has been enraged by the death of his brother!";
-                                }
                                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
-
                                 if (Main.netMode == NetmodeID.SinglePlayer)
-                                if (Language.ActiveCulture == GameCulture.Chinese)
-                                {
                                     Main.NewText(message, 175, 75, 255);
-                                }
-                                else
-                                {
-                                    Main.NewText(message, 175, 75, 255);
-                                }
                                 else if (Main.netMode == NetmodeID.Server)
-                                if (Language.ActiveCulture == GameCulture.Chinese)
-                                {
                                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(message), new Color(175, 75, 255));
-                                }
-                                else
-                                {
-                                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(message), new Color(175, 75, 255));
-                                }
                             }
                         }
                     }
