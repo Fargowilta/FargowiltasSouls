@@ -41,6 +41,7 @@ namespace FargowiltasSouls.Items.Summons
             if (abom > -1 && Main.npc[abom].active)
             {
                 // TODO: Localization.
+                //憎恶已苏醒！
                 string message = "Abominationn has awoken!";
 
                 Main.npc[abom].Transform(ModContent.NPCType<AbomBoss>());
