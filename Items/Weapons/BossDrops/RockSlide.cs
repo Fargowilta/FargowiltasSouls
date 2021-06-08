@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Tooltip.SetDefault("'The crumbling remains of a defeated foe..'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "山崩");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的破碎残骸'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'一位被打败的敌人的破碎残骸'");
         }
 
         public override void SetDefaults()
