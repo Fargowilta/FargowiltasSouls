@@ -64,10 +64,11 @@ namespace FargowiltasSouls.Items.Summons
                             if (mutant > -1 && Main.npc[mutant].active)
                             {
                                 // TODO: Localization
+                                //突变体被他弟弟的死激怒了！
                                 string message = "Mutant has been enraged by the death of his brother!";
-                                
+
                                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
-                                
+
                                 if (Main.netMode == NetmodeID.SinglePlayer)
                                     Main.NewText(message, 175, 75, 255);
                                 else if (Main.netMode == NetmodeID.Server)
