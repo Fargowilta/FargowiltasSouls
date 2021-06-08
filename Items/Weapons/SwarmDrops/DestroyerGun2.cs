@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Destruction Cannon");
             Tooltip.SetDefault("Becomes longer and faster with up to 5 empty minion slots\n'The reward for slaughtering many...'");
             DisplayName.AddTranslation(GameCulture.Chinese, "毁灭者之枪 EX");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "毁灭者仆从的长度和速度随剩余召唤栏增加而增加，召唤栏剩余5格时速度和长度达到最大值'\n屠戮众多的奖励...'");
         }
 
         public override void SetDefaults()
