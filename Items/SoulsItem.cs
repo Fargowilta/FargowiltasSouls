@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items
 {
