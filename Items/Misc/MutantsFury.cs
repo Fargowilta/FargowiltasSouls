@@ -45,12 +45,27 @@ namespace FargowiltasSouls.Items.Misc
             }
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
                 Main.NewText(text, 175, 75, 255);
+            }
+            else
+            {
+                Main.NewText(text, 175, 75, 255);
+            }
             }
             else if (Main.netMode == NetmodeID.Server)
             {
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
                 NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(text), new Color(175, 75, 255));
                 NetMessage.SendData(MessageID.WorldData); //sync world
+            }
+            else
+            {
+            NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(text), new Color(175, 75, 255));
+            NetMessage.SendData(MessageID.WorldData); //sync world
+            }
             }
             Main.PlaySound(SoundID.Roar, (int)player.position.X, (int)player.position.Y, 0);
             return true;
