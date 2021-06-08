@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -18,6 +19,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
         {
             DisplayName.SetDefault("The Regurgitator");
             Tooltip.SetDefault("'The enslaved face of a defeated foe...'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "反刍");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'一位被打败的敌人的被奴役的脸...'");
         }
 
         public override void SetDefaults()
