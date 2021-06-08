@@ -16,6 +16,8 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
         {
             DisplayName.SetDefault("The Lightning Rod");
             Tooltip.SetDefault("Charges power as it is spun\nDamage decreases per hit when thrown");
+            DisplayName.AddTranslation(GameCulture.Chinese, "引雷杖");
+            Tooltip.AddTranslation(GameCulture.Chinese, "旋转时进行充能\n扔出后每次击中敌人时都会降低伤害");
         }
 
         public override void SetDefaults()
