@@ -416,17 +416,11 @@ namespace FargowiltasSouls.Items
         public override void RightClick(Item item, Player player)
         {
             int newType = -1;
-
             if (Array.IndexOf(Summon, item.type) > -1)
             {
-            if (Language.ActiveCulture == GameCulture.Chinese)
-            {
-                newType = mod.ItemType(ItemID.GetUniqueKey(item.type).Replace("Terraria ", string.Empty) + "（召唤）");
-            }
-            else
-            {
+            // TODO: Localization
+            //（召唤）
                 newType = mod.ItemType(ItemID.GetUniqueKey(item.type).Replace("Terraria ", string.Empty) + "Summon");
-            }
             }
 
             if (newType != -1)
@@ -466,16 +460,10 @@ namespace FargowiltasSouls.Items
         {
             if (Array.IndexOf(Summon, item.type) > -1)
             {
-            if (Language.ActiveCulture == GameCulture.Chinese)
-            {
-                TooltipLine helperLine = new TooltipLine(mod, "帮助", "右键转化");
-                tooltips.Add(helperLine);
-            }
-            else
-            {
+            //Can this text be translated?
+            //帮助 右键转化
                 TooltipLine helperLine = new TooltipLine(mod, "help", "Right click to convert");
                 tooltips.Add(helperLine);
-            }
             }
             // TODO: Localization
             if (FargoSoulsWorld.MasochistMode)
