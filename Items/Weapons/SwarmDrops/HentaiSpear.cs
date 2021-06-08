@@ -21,8 +21,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
                 "\n'The reward for embracing eternity...'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "洞察者");
-            Tooltip.AddTranslation(GameCulture.Chinese, "点击鼠标左或右键时有不同的攻击方式" +
-                "\n按住'上'、'下'键或同时按住时有不同的攻击方式" +
+            Tooltip.AddTranslation(GameCulture.Chinese, "根据鼠标左右键有不同的攻击方式" +
+                "\n按住'上'键，'下'键或同时按住时有不同的攻击方式" +
                 "\n'屠戮众多的奖励...'");
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 10));
