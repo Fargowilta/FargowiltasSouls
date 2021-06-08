@@ -34,15 +34,9 @@ namespace FargowiltasSouls.Items.Misc
 
         public override bool UseItem(Player player)
         {
-            FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant;
-            if (Language.ActiveCulture == GameCulture.Chinese)
-            {
-            string text = FargoSoulsWorld.AngryMutant ? "突变体被激怒了！" : "突变体冷静下来了.";
-            }
-            else
-            {
+            FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant; 
+            // TODO: Localization
             string text = FargoSoulsWorld.AngryMutant ? "Mutant is angered!" : "Mutant is calm.";
-            }
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
             if (Language.ActiveCulture == GameCulture.Chinese)
