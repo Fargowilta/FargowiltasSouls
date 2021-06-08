@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Big Brain Buster");
             Tooltip.SetDefault("Repeated summons increase the size and damage of the minion \nThis caps at 6 slots\nMinions do reduced damage when not holding a summon weapon\n'The reward for slaughtering many...'");
             DisplayName.AddTranslation(GameCulture.Chinese, "大脑破坏者");
-            Tooltip.AddTranslation(GameCulture.Chinese, "重复召唤会增加召唤物的大小和伤害而非召唤额外的召唤物 \n在占用的召唤栏超过6格后，再次召唤时所获得的大小和伤害会降低\n未手持召唤武器时会降低召唤物的伤害\n'屠戮众多的奖励...'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "重复召唤会增加大脑仆从的大小和伤害而非召唤额外的召唤物 \n在占用的召唤栏超过6格后，再次召唤时所获得的大小和伤害会降低\n未手持召唤武器时会降低大脑仆从的伤害\n'屠戮众多的奖励...'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 2;
         }
 
