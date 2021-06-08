@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.SummonVariants
 {
@@ -11,6 +12,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Summons bats to attack your enemies");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤蝙蝠攻击敌人");
             Item.staff[item.type] = true;
         }
 
@@ -65,6 +67,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Latches on to enemies for continuous damage");
+            Tooltip.AddTranslation(GameCulture.Chinese, "缠住敌人来连续造成伤害");
         }
     }
 
@@ -75,6 +78,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Summons a cloud to rain down on your foes");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤云来让敌人淋雨");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -96,6 +100,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Summons a cloud to rain blood on your foes");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤云来让敌人淋雨");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -118,6 +123,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Shoots bees that will chase your enemy");
+            Tooltip.AddTranslation(GameCulture.Chinese, "射出会追杀敌人的蜜蜂"); 
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
