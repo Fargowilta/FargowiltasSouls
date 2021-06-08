@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.SummonVariants
 {
@@ -12,7 +13,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         {
             get;
         }
-
+        //How to Localization 
         public override string Texture => $"Terraria/Item_{Type}";
 
         public override void SetDefaults()
@@ -53,7 +54,14 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+         if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "帮助", "右键转化");
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "help", "Right click to convert");
+            }
             tooltips.Add(line);
         }
     }
