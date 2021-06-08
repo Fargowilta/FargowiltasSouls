@@ -132,7 +132,14 @@ namespace FargowiltasSouls.Items
             if (item.magic && player.GetModPlayer<FargoPlayer>().ReverseManaFlow)
             {
                 int damage = (int)(item.mana / (1f - player.endurance) + player.statDefense);
+                if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+                player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " 被他自己的魔法杀死了。"), damage, 0);
+            }
+            else
+            {
                 player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was destroyed by their own magic."), damage, 0);
+            }
                 player.immune = false;
                 player.immuneTime = 0;
             }
@@ -411,7 +418,14 @@ namespace FargowiltasSouls.Items
 
             if (Array.IndexOf(Summon, item.type) > -1)
             {
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+                newType = mod.ItemType(ItemID.GetUniqueKey(item.type).Replace("Terraria ", string.Empty) + "（召唤）");
+            }
+            else
+            {
                 newType = mod.ItemType(ItemID.GetUniqueKey(item.type).Replace("Terraria ", string.Empty) + "Summon");
+            }
             }
 
             if (newType != -1)
@@ -451,8 +465,16 @@ namespace FargowiltasSouls.Items
         {
             if (Array.IndexOf(Summon, item.type) > -1)
             {
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+                TooltipLine helperLine = new TooltipLine(mod, "帮助", "右键转化");
+                tooltips.Add(helperLine);
+            }
+            else
+            {
                 TooltipLine helperLine = new TooltipLine(mod, "help", "Right click to convert");
                 tooltips.Add(helperLine);
+            }
             }
 
             if (FargoSoulsWorld.MasochistMode)
@@ -461,14 +483,17 @@ namespace FargowiltasSouls.Items
                 {
                     if (item.ammo == AmmoID.Arrow || item.ammo == AmmoID.Bullet || item.ammo == AmmoID.Dart)
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Contributes 80% less damage to weapons"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 对武器的伤害加成降低80%"));
                     else if (!(item.type >= 71 && item.type <= 74)) //dont show for coins
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Contributes 20% less damage to weapons"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 对武器的伤害加成降低20%"));
                 }
 
                 switch (item.type)
                 {
                     case ItemID.RodofDiscord:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] During boss fights, every use takes life and max life"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 在Boss战期间，每次使用时都会扣除生命值和最大生命值"));
                         break;
 
                     case ItemID.ArcheryPotion:
@@ -477,21 +502,25 @@ namespace FargowiltasSouls.Items
                     case ItemID.ShroomiteHeadgear:
                     case ItemID.ShroomiteMask:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Grants additive damage instead of multiplicative"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 伤害算法改为加算而非乘算"));
                         break;
 
                     case ItemID.CrystalBullet:
                     case ItemID.HolyArrow:
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Can only split 4 times per second"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 每秒内至多分裂4次"));
                         break;
 
                     case ItemID.ChlorophyteBullet:
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced speed and duration"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 降低速度和持续时间"));
                         break;
 
                     case ItemID.WaterBolt:
                         if (!NPC.downedBoss3)
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Cannot be used until Skeletron is defeated"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 无法使用，直至骷髅王被打败"));
                         }
                         break;
 
@@ -501,14 +530,17 @@ namespace FargowiltasSouls.Items
                     case ItemID.TitaniumBreastplate:
                     case ItemID.TitaniumLeggings:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Shadow Dodge activation will temporarily reduce your damage"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 暗影躲避增益存在时会降低你的伤害"));
                         break;
 
                     case ItemID.SpectreHood:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Healing orbs move slower and disappear quickly"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 治疗珠速度变慢且消失得更快"));
                         break;
 
                     case ItemID.FrozenTurtleShell:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Damage reduction is 15% instead of 25%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 伤害减免降至15%而不是原来的25%"));
                         break;
 
                     case ItemID.DD2BetsyBow:
@@ -526,6 +558,7 @@ namespace FargowiltasSouls.Items
                     case ItemID.MoltenFury:
                     case ItemID.Phantasm:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低25%伤害"));
                         break;
 
                     case ItemID.StarCannon:
@@ -533,15 +566,19 @@ namespace FargowiltasSouls.Items
                     case ItemID.DaedalusStormbow:
                     case ItemID.BeesKnees:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低33%伤害"));
                         break;
 
                     case ItemID.Beenade:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低33%伤害"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 降低33%攻击速度"));
                         break;
 
                     case ItemID.BeeGun:
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 降低33%攻击速度"));
                         break;
 
                     case ItemID.Tsunami:
@@ -557,29 +594,38 @@ namespace FargowiltasSouls.Items
                     case ItemID.RavenStaff:
                     case ItemID.XenoStaff:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低15%伤害"));
                         break;
 
                     case ItemID.VampireKnives:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低25%伤害"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低25%攻击速度"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced lifesteal rate when above 33% life"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:]生命值低于33%时降低生命恢复速率"));
                         break;
 
                     case ItemID.BlizzardStaff:
                     case ItemID.Razorpine:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低33%伤害"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 降低50%攻击速度"));
                         break;
 
                     case ItemID.DemonScythe:
                         if (NPC.downedBoss2)
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低33%伤害"));
                         }
                         else
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50% until an evil boss is defeated"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低50%伤害，直至任意一位邪恶Boss被打败"));
                             tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf2", "[c/ff0000:永恒模式:] 降低25%攻击速度，直至任意一位邪恶Boss被打败"));
                         }
                         break;
 
@@ -587,25 +633,32 @@ namespace FargowiltasSouls.Items
                         if (NPC.downedBoss2)
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低15%伤害"));
                         }
                         else
                         {
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25% until an evil boss is defeated"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低25%伤害，直至任意一位邪恶Boss被打败"));
                             tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
+                            tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoNerf", "[c/ff0000:永恒模式:] 降低25%攻击速度，直至任意一位邪恶Boss被打败"));
                         }
                         break;
 
                     case ItemID.SlimeStaff:
                         tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Can summon more slimes"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoBuff", "[c/00ff00:永恒模式:] 能召唤额外的史莱姆"));
                         break;
 
                     case ItemID.DD2SquireBetsySword: //flying dragon
                         tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoBuff", "[c/00ff00:永恒模式:] 增加33%伤害"));
                         tooltips.Add(new TooltipLine(mod, "masoBuff2", "[c/00ff00:Eternity Mode:] Increased attack speed by 33%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoBuff2", "[c/00ff00:永恒模式:] 增加33%攻击速度"));
                         break;
 
                     case ItemID.MonkStaffT3: //sky dragon's fury
                         tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 25%"));
+                        tooltips.AddTranslation(new TooltipLine.GameCulture.Chinese, (mod, "masoBuff", "[c/00ff00:永恒模式:] 增加25%伤害"));
                         break;
                 }
             }
