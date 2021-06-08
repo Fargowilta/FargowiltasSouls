@@ -44,23 +44,11 @@ namespace FargowiltasSouls.Items.Summons
             {
                 Main.npc[mutant].Transform(mod.NPCType("DeviBoss"));
                 if (Main.netMode == NetmodeID.SinglePlayer)
-                if (Language.ActiveCulture == GameCulture.Chinese)
-                {
-                    Main.NewText("戴维安已苏醒！", 175, 75, 255);
-                }
-                else
-                {
+                // TODO: Localization
+                //戴维安已苏醒！
                     Main.NewText("Deviantt has awoken!", 175, 75, 255);
-                }
                 else if (Main.netMode == NetmodeID.Server)
-                if (Language.ActiveCulture == GameCulture.Chinese)
-                {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("戴维安已苏醒！"), new Color(175, 75, 255));
-                }
-                else
-                {
                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("Deviantt has awoken!"), new Color(175, 75, 255));
-                }
             }
             else
             {
