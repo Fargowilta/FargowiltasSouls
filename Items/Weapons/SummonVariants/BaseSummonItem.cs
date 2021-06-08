@@ -54,14 +54,8 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-         if (Language.ActiveCulture == GameCulture.Chinese)
-            {
-            TooltipLine line = new TooltipLine(mod, "帮助", "右键转化");
-            }
-            else
-            {
+        //帮助 右键转化
             TooltipLine line = new TooltipLine(mod, "help", "Right click to convert");
-            }
             tooltips.Add(line);
         }
     }
