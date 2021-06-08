@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             DisplayName.SetDefault("Mahoguny");
             Tooltip.SetDefault("Uses acorns as ammo\n" +
             "Fires leaves and acorns");
-            DisplayName.AddTranslation(GameCulture.Chinese, "冥河凝视者");
+            DisplayName.AddTranslation(GameCulture.Chinese, "桃花心木枪");
             Tooltip.AddTranslation(GameCulture.Chinese, "使用橡实作为弹药\n" +
             "发射叶子和橡实");
         }
