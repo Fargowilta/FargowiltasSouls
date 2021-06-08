@@ -75,9 +75,23 @@ namespace FargowiltasSouls.Items.Summons
                                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
 
                                 if (Main.netMode == NetmodeID.SinglePlayer)
+                                if (Language.ActiveCulture == GameCulture.Chinese)
+                                {
                                     Main.NewText(message, 175, 75, 255);
+                                }
+                                else
+                                {
+                                    Main.NewText(message, 175, 75, 255);
+                                }
                                 else if (Main.netMode == NetmodeID.Server)
+                                if (Language.ActiveCulture == GameCulture.Chinese)
+                                {
                                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(message), new Color(175, 75, 255));
+                                }
+                                else
+                                {
+                                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(message), new Color(175, 75, 255));
+                                }
                             }
                         }
                     }
