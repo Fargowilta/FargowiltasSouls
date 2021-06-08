@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
 {
@@ -17,6 +18,9 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             DisplayName.SetDefault("Styx Gazer");
             Tooltip.SetDefault(@"Right click to wield a blade of infernal magic
 'The blazing scythe wand sword destruction ray of a defeated foe...'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "冥河凝视者");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"右键挥舞冥狱魔剑
+'一位被打败的敌人的由毁灭射线构成的冥狱魔剑与手杖改装成的炽焰魔镰组合武器...'");
         }
 
         public override void SetDefaults()
