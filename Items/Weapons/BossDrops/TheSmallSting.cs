@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -18,6 +19,11 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 "\n50% chance to not consume ammo" +
                 "\nStingers will stick to enemies, hitting the same spot again will deal extra damage" +
                 "\n'Repurposed from the abdomen of a defeated foe..'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "小蛰刺");
+            Tooltip.AddTranslation(GameCulture.Chinese, "使用飞镖作为弹药" +
+                "\n50%几率不消耗弹药" +
+                "\n蛰刺会扎在敌人身上，再次击中同样的位置会造成额外伤害" +
+                "\n'一位被打败的敌人的腹部，被重新调整用途..'");
         }
 
         public override void SetDefaults()
