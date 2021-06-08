@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
 'The blazing scythe wand sword destruction ray of a defeated foe...'");
             DisplayName.AddTranslation(GameCulture.Chinese, "冥河凝视者");
             Tooltip.AddTranslation(GameCulture.Chinese, @"右键挥舞冥狱魔剑
-'一位被打败的敌人的一柄由手杖改装成的炽焰巨镰与一把由毁灭射线构成的冥狱魔剑组合而成的武器...'");
+'一位被打败的敌人的一柄由手杖改装成的炽焰巨镰和一把由毁灭射线构成的冥狱魔剑组合而成的武器...'");
         }
 
         public override void SetDefaults()
