@@ -86,7 +86,14 @@ namespace FargowiltasSouls.Items
 
             // Add the Eternity toolip after tooltip modification in order to be displayed underneath any manual tooltips (i.e. SoE cycling).
             if (Eternity)
+            if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+                tooltips.Add(new TooltipLine(mod, $"{mod.Name}:永恒", "永恒"));
+            }
+            else
+            {
                 tooltips.Add(new TooltipLine(mod, $"{mod.Name}:Eternity", "Eternity"));
+            }
         }
     }
 }
