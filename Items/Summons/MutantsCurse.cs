@@ -41,23 +41,11 @@ namespace FargowiltasSouls.Items.Summons
             {
                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
                 if (Main.netMode == NetmodeID.SinglePlayer)
-                if (Language.ActiveCulture == GameCulture.Chinese)
-                {
-                    Main.NewText("突变体已苏醒！", 175, 75, 255);
-                }
-                else
-                {
+                // TODO: Localization
+                //突变体已苏醒！
                     Main.NewText("Mutant has awoken!", 175, 75, 255);
-                }
                 else if (Main.netMode == NetmodeID.Server)
-                if (Language.ActiveCulture == GameCulture.Chinese)
-                {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("突变体已苏醒"), new Color(175, 75, 255));
-                }
-                else
-                {
                     NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("Mutant has awoken!"), new Color(175, 75, 255));
-                }
             }
             else
             {
