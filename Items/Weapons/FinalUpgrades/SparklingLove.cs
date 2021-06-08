@@ -19,7 +19,7 @@ Right click pattern becomes denser with up to 12 empty minion slots
             DisplayName.AddTranslation(GameCulture.Chinese, "幻影克苏鲁连枷");
             Tooltip.AddTranslation(GameCulture.Chinese, @"右键召唤戴维安的灵魂
 右键的攻击的弹幕密集程度随剩余召唤栏增加而增加，召唤栏剩余12格时密集程度达到最大值
-'从一位被打败的敌人的手中夺来的爱与正义之噬魂恶魔斧'");
+'从一位被打败的敌人手中夺来的爱与正义之噬魂恶魔斧'");
         }
 
         public override void SetDefaults()
