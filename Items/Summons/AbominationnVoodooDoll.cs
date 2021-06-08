@@ -65,7 +65,9 @@ namespace FargowiltasSouls.Items.Summons
                             {
                                 // TODO: Localization
                                 string message = "Mutant has been enraged by the death of his brother!";
+                                
                                 Main.npc[mutant].Transform(mod.NPCType("MutantBoss"));
+                                
                                 if (Main.netMode == NetmodeID.SinglePlayer)
                                     Main.NewText(message, 175, 75, 255);
                                 else if (Main.netMode == NetmodeID.Server)
