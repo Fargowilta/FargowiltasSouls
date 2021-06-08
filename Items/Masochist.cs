@@ -26,7 +26,18 @@ Cannot be used while a boss is alive
 Minions do reduced damage when used with another weapon
 [c/ff0000:NOT INTENDED FOR USE WITH OTHER CONTENT MODS OR MODDED DIFFICULTIES]");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体的礼物");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'用开/关受虐模式'");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使用以开启或关闭永恒模式，永恒模式改动：
+戴维安会根据目前游戏进度提供对应的提示和帮助
+将此世界的模式改为专家模式
+更改原版和Fargo之魂Mod的Boss AI和许多敌人的AI
+英灵Boss会掉落包含独有饰品在内的额外战利品
+平衡许多武器和机制
+敌人会造成许多新的减益
+增加敌人掉落的钱币数量并添加新的掉落
+增加刷怪率
+Boss战期间无法使用此物品
+使用非召唤武器时降低召唤伤害
+[c/ff0000:不建议与其他Mod的模式一并开启]");
         }
 
         public override void SetDefaults()
