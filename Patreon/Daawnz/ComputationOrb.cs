@@ -18,7 +18,9 @@ Non-magic/summon weapons require 10 mana to use
 'Within the core, a spark of hope remains.'");
             DisplayName.AddTranslation(GameCulture.Chinese, "演算宝珠");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"非魔法攻击将额外造成25%伤害, 并消耗10法力");
+@"非魔法/召唤攻击会额外造成25%伤害，受到耐魔病影响
+非魔法/召唤攻击每次攻击时消耗10点法力值
+'深埋于核心之中，希望之火花犹在.'");
         }
 
         public override void SetDefaults()
