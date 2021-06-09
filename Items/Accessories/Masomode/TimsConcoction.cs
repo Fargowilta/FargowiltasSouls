@@ -15,8 +15,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.SetDefault(@"Certain enemies will drop potions when defeated
 'Smells funny'");
             DisplayName.AddTranslation(GameCulture.Chinese, "蒂姆的秘药");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"大多数敌人在死亡时会掉落药水
-'味道闻起来很怪'");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"某些敌人在死亡时会掉落药水
+'闻起来有股怪味'");
         }
 
         public override void SetDefaults()
