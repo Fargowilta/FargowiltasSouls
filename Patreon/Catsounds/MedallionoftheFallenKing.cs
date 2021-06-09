@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Catsounds
 {
@@ -13,6 +14,9 @@ namespace FargowiltasSouls.Patreon.Catsounds
             DisplayName.SetDefault("Medallion of the Fallen King");
             Tooltip.SetDefault(
 @"Spawns a King Slime Minion that scales with summon damage");
+            DisplayName.AddTranslation(GameCulture.Chinese, "堕落国王的勋章");
+            Tooltip..AddTranslation(GameCulture.Chinese, 
+@"召唤一只史莱姆王仆从，史莱姆王仆从的大小取决于你的召唤伤害");
         }
 
         public override void SetDefaults()
@@ -26,9 +30,18 @@ namespace FargowiltasSouls.Patreon.Catsounds
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
