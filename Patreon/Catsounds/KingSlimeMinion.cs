@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Catsounds
 {
@@ -15,6 +16,7 @@ namespace FargowiltasSouls.Patreon.Catsounds
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("King Slime");
+            DisplayName.AddTranslation(GameCulture.Chinese, "史莱姆王");
             Main.projFrames[projectile.type] = 6;
         }
 
