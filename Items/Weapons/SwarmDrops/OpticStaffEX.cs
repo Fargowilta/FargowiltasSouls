@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Omniscience Staff");
             Tooltip.SetDefault("Summons the real twins to fight for you\nNeeds 4 minion slots\n'The reward for slaughtering many...'");
             DisplayName.AddTranslation(GameCulture.Chinese, "全知法杖");
-            Tooltip.AddTranslation(GameCulture.Chinese, "召唤真·双子眼为你而战\n占用4格召唤栏\n'屠戮众多的奖励...'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤真·双子眼为你而战\n双子眼占据4格召唤栏\n'屠戮众多的奖励...'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 4;
         }
 
