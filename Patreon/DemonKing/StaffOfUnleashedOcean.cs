@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             DisplayName.SetDefault("Staff of Unleashed Ocean");
             Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 3 minion slots\n'Now channel your rage against them!'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "无羁狂洋之杖");
+            DisplayName.AddTranslation(GameCulture.Chinese, "无羁狂洋杖");
             Tooltip..AddTranslation(GameCulture.Chinese, "召唤猪鲨公爵为你而战\n占据3格召唤栏\n'今时今日，将汝之怒火倾泻在他们身上吧！'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 3;
         }
