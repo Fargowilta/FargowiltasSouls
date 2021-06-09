@@ -5,6 +5,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.DemonKing
 {
@@ -16,6 +17,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Duke Fishron");
+            DisplayName.AddTranslation(GameCulture.Chinese, "猪鲨公爵");
             Main.projFrames[projectile.type] = 8;
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
