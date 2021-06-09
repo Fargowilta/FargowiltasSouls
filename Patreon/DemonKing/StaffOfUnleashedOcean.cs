@@ -42,9 +42,18 @@ namespace FargowiltasSouls.Patreon.DemonKing
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
