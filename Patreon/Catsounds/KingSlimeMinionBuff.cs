@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Catsounds
 {
@@ -10,6 +11,8 @@ namespace FargowiltasSouls.Patreon.Catsounds
         {
             DisplayName.SetDefault("Mini King Slime");
             Description.SetDefault("This Mini King Slime will protect you");
+            DisplayName.AddTranslation(GameCulture.Chinese, "迷你史莱姆王");
+            Description.AddTranslation(GameCulture.Chinese, "迷你史莱姆王会保护你");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }
