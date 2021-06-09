@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using System.IO;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.GreatestKraken
 {
@@ -18,6 +19,7 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Vortex Ritual");
+            DisplayName.AddTranslation(GameCulture.Chinese, "星旋之仪");
             Main.projFrames[projectile.type] = 4;
         }
 
