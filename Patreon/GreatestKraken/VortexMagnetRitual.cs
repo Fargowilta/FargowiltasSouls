@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.GreatestKraken
@@ -17,6 +18,8 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
         {
             DisplayName.SetDefault("Vortex Ritual");
             Tooltip.SetDefault("'Power surges in your hand'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "星旋之仪");
+            Tooltip..AddTranslation(GameCulture.Chinese, "'力量在你的手中涌现'");
         }
 
         public override void SetDefaults()
