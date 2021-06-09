@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Patreon.Gittle
             DisplayName.SetDefault("Roomba");
             Tooltip.SetDefault("Summons a Roomba to follow you around in hopes of cleaning the whole world");
             DisplayName.AddTranslation(GameCulture.Chinese, "扫地机器人");
-            Tooltip.AddTranslation(GameCulture.Chinese, "召唤一个扫地机器人跟随你,它希望清洁整个世界");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤一个跟着你的扫地机器人，它希望清洁整个世界");
         }
 
         public override void SetDefaults()
@@ -27,9 +27,18 @@ namespace FargowiltasSouls.Patreon.Gittle
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
 
         public override void UseStyle(Player player)
