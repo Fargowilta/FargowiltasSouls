@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.DemonKing
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             DisplayName.SetDefault("Duke Fishron");
             Description.SetDefault("Duke Fishron will fight for you");
+            DisplayName.AddTranslation(GameCulture.Chinese, "猪鲨公爵");
+            Description.AddTranslation(GameCulture.Chinese, "猪鲨公爵会为你而战");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
