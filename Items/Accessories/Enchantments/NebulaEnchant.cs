@@ -18,8 +18,8 @@ Buff booster stacking capped at 2
 'The pillars of creation have shined upon you'");
             DisplayName.AddTranslation(GameCulture.Chinese, "星云魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"伤害敌人时有几率生成强化增益
-强化增益最大堆叠上限为2
+@"伤害敌人时有几率生成强化焰
+每种强化焰至多可堆叠2层
 '创生之柱照耀着你'");
         }
 
