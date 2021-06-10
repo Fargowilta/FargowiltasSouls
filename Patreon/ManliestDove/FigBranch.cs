@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Patreon.ManliestDove
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
-        {        
+        {
         if (Language.ActiveCulture == GameCulture.Chinese)
             {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
