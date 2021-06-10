@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using FargowiltasSouls.Projectiles.Minions;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -13,6 +14,7 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fish Minion");
+            DisplayName.AddTranslation(GameCulture.Chinese, "鱼");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
