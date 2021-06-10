@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.ParadoxWolf
 {
@@ -12,6 +13,7 @@ namespace FargowiltasSouls.Patreon.ParadoxWolf
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wolf Dash");
+            DisplayName.AddTranslation(GameCulture.Chinese, "猛狼冲刺");
         }
 
         public override void SetDefaults()
