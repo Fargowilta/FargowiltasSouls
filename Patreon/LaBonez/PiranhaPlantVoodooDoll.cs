@@ -16,6 +16,10 @@ namespace FargowiltasSouls.Patreon.LaBonez
             Tooltip.SetDefault(
 @"Toggle that will grant all enemies the ability to inflict random debuffs
 'In loving memory of Masochist mode EX. I always hated you.'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "食人花巫毒娃娃");
+            Tooltip..AddTranslation(GameCulture.Chinese, 
+@"使用后使所有敌人的攻击会造成随机减益，再次使用以关闭此效果
+'以敬爱的受虐EX为名，我恨你一辈子'");
         }
 
         public override void SetDefaults()
@@ -42,6 +46,8 @@ namespace FargowiltasSouls.Patreon.LaBonez
             PatreonPlayer patreonPlayer = player.GetModPlayer<PatreonPlayer>();
             patreonPlayer.PiranhaPlantMode = !patreonPlayer.PiranhaPlantMode;
 
+            // TODO: Localization
+            //苦难仍在继续. 苦难已结束.
             string text = patreonPlayer.PiranhaPlantMode ? "The suffering continues." : "The suffering wanes.";
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
