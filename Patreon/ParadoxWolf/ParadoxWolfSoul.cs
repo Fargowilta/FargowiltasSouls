@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Terraria.ID;
 using FargowiltasSouls.Items;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.ParadoxWolf
 {
@@ -19,6 +20,10 @@ namespace FargowiltasSouls.Patreon.ParadoxWolf
             Tooltip.SetDefault(
 @"Double tap to dash through and damage enemies
 There is a cooldown of 3 seconds between uses");
+            DisplayName.AddTranslation(GameCulture.Chinese, "悖论狼魂");
+            Tooltip.AddTranslation(GameCulture.Chinese, 
+@"双击方向键进行冲刺，冲刺时会穿过并伤害敌人
+冲刺有3秒冷却时间");
         }
 
         public override void SetDefaults()
@@ -32,6 +37,14 @@ There is a cooldown of 3 seconds between uses");
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
