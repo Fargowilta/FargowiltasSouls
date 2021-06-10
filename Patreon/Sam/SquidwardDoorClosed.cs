@@ -5,6 +5,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sam
 {
@@ -40,6 +41,7 @@ namespace FargowiltasSouls.Patreon.Sam
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Squidward Door");
+            name.AddTranslation(GameCulture.Chinese, "章鱼哥的门");
             AddMapEntry(new Color(200, 200, 200), name);
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.ClosedDoor };
