@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -9,6 +10,7 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Water Stream");
+            DisplayName.AddTranslation(GameCulture.Chinese, "水流");
         }
 
         public override void SetDefaults()
