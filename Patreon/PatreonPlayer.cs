@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.Localization;
 
 namespace FargowiltasSouls
 {
@@ -68,7 +69,14 @@ namespace FargowiltasSouls
         {
             if (Gittle || Sasha || ManliestDove || Cat || JojoTheGamer)
             {
+                if (Language.ActiveCulture == GameCulture.Chinese)
+                {
+                Main.NewText("你已激活" + player.name + "的特殊捐赠者效果！");
+                }
+                else
+                {
                 Main.NewText("Your special patreon effects are active " + player.name + "!");
+                }
             }
         }
 
