@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sam
 {
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Patreon.Sam
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("'After you Mr. Squidward'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'章鱼哥先生，您先请'");
         }
 
         public override void SetDefaults()
@@ -29,9 +31,18 @@ namespace FargowiltasSouls.Patreon.Sam
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
     }
 }
