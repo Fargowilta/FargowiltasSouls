@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 
 namespace FargowiltasSouls.Patreon.ManliestDove
@@ -9,7 +10,9 @@ namespace FargowiltasSouls.Patreon.ManliestDove
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Dove");
+            DisplayName.AddTranslation(GameCulture.Chinese, "和平鸽");
             Description.SetDefault("A Dove is following you");
+            Description.AddTranslation(GameCulture.Chinese, "一只和平鸽正跟着你");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
