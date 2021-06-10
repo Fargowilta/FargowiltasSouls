@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -8,7 +9,9 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Fish");
+            DisplayName.AddTranslation(GameCulture.Chinese, "鱼");
             Description.SetDefault("This fish will fight for you");
+            Description.AddTranslation(GameCulture.Chinese, "鱼会为你而战");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
