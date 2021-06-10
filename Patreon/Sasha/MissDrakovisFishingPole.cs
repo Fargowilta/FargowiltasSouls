@@ -37,9 +37,18 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
 
         public override bool AltFunctionUse(Player player)
