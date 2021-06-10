@@ -12,7 +12,9 @@ namespace FargowiltasSouls.Patreon.ManliestDove
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fig Branch");
+            DisplayName.AddTranslation(GameCulture.Chinese, "无花果枝");
             Tooltip.SetDefault("Summons a Dove companion");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤一只和平鸽");
         }
 
         public override void SetDefaults()
@@ -23,10 +25,19 @@ namespace FargowiltasSouls.Patreon.ManliestDove
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
-        {
+        {        
+        if (Language.ActiveCulture == GameCulture.Chinese)
+            {
+            TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
+            line.overrideColor = Color.Orange;
+            tooltips.Add(line);
+            }
+            else
+            {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
+            }
         }
 
         public override void UseStyle(Player player)
