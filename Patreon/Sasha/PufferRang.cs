@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -13,6 +14,7 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("PufferRang");
+            DisplayName.AddTranslation(GameCulture.Chinese, "河豚");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
