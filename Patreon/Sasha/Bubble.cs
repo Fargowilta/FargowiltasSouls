@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -12,6 +13,7 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bubble");
+            DisplayName.AddTranslation(GameCulture.Chinese, "泡泡");
         }
 
         public override void SetDefaults()
