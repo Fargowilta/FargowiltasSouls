@@ -36,7 +36,7 @@ namespace FargowiltasSouls.Patreon.LaBonez
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-                if (Language.ActiveCulture == GameCulture.Chinese)
+        if (Language.ActiveCulture == GameCulture.Chinese)
             {
             TooltipLine line = new TooltipLine(mod, "tooltip", ">> 捐赠者物品 <<");
             line.overrideColor = Color.Orange;
