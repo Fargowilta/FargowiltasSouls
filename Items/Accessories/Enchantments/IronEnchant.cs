@@ -28,7 +28,7 @@ You attract items from a larger range
 @"右键进行盾牌格挡
 如果时机正确则抵消这次伤害
 扩大你的拾取范围
-'趁热打铁'";
+“趁热打铁”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
