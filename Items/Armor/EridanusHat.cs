@@ -56,7 +56,7 @@ Eridanus fights alongside you when you use the empowered class
 50% increased damage for the empowered class
 20% increased weapon use speed";
             if(GameCulture.Chinese.Active) {
-                player.setBonus = @"宇宙英灵的护佑增强了你的攻击\n每20秒切换增强的职业\n当你使用增强的职业的武器时宇宙英灵会随你作战\n增加50%增强职业的伤害\n增加20%武器使用速度"
+                player.setBonus = @"宇宙英灵的护佑增强了你的攻击\n每20秒切换增强的职业\n当你使用增强的职业的武器时宇宙英灵会随你作战\n增加50%增强职业的伤害\n增加20%武器使用速度";
             }
 
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
