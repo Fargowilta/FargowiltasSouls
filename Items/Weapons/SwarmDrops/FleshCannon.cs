@@ -18,6 +18,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
         {
             DisplayName.SetDefault("The Regurgitator");
             Tooltip.SetDefault("'The enslaved face of a defeated foe...'");
+                        DisplayName.AddTranslation(GameCulture.Chinese, "反叛者");
+            Tooltip.AddTranslation(GameCulture.Chinese, "被击败敌人的奴役面孔...");
         }
 
         public override void SetDefaults()
