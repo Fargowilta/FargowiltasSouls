@@ -15,6 +15,8 @@ namespace FargowiltasSouls.Items.Armor
             Tooltip.SetDefault(@"10% increased damage
 5% increased critical strike chance
 Increases max number of minions and sentries by 1");
+            DisplayName.AddTranslation(GameCulture.Chinese, "盖亚头盔");
+            Tooltip.AddTranslation(GameCulture.Chinese, "增加10%伤害\n增加5%暴击几率\n增加1个召唤栏位和1个哨兵栏位");
         }
 
         public override void SetDefaults()
@@ -61,6 +63,9 @@ Hold up and double tap down to toggle offensive mode, which has the following ef
 Increases armor penetration by 10
 Reduces defense by 20
 Reduces max life and damage reduction by 20%";
+            if(GameCulture.Chinese.Active) {
+                player.setBonus = @"增加10%近战武器使用速度\n减少10%魔力花费\n增加10%几率不消耗弹药\n增加1个召唤栏位和1个哨兵栏位\n按住向上时同时双击向下键会进入进攻模式,进攻模式具有如下效果:增加20%伤害和10%暴击几率\n增加10点护甲穿透\n减少20点防御\n增加20%最大生命值和20%伤害减免";
+            }
 
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.GaiaSet = true;
