@@ -27,8 +27,8 @@ All hostile projectiles move at half speed
 @"你的周围会出现冰锥
 攻击时会将冰锥发射至光标位置
 冰锥击中敌人时会使其短暂冻结并受到25%额外伤害5秒
-敌对弹幕飞行速度减半
-'让我们给这个世界披上一层厚厚的冰衣'";
+在光标位置生成暴雪，其中的敌对弹幕飞行速度减半
+“让我们给这个世界披上一层厚厚的冰衣”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
