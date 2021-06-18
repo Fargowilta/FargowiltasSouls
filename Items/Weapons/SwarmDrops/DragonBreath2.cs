@@ -15,6 +15,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Tooltip.SetDefault(@"Uses gel for ammo
 66% chance to not consume ammo
 'The reward for slaughtering many..'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "龙之终焉");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"使用凝胶作为弹药
+有66%的几率不消耗弹药
+'屠戮众多的奖励...'");
         }
 
         public override void SetDefaults()
