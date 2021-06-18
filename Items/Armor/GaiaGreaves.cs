@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Armor
 5% increased critical strike chance
 10% increased movement speed");
             DisplayName.AddTranslation(GameCulture.Chinese, "盖亚护胫");
-            Tooltip.AddTranslation(GameCulture.Chinese, "增加5%伤害\n增加5%暴击几率\n增加3个召唤栏位\n增加2个哨兵栏位");
+            Tooltip.AddTranslation(GameCulture.Chinese, "增加10%伤害\n增加5%暴击几率\n增加10%移动速度");
         }
 
         public override void SetDefaults()
