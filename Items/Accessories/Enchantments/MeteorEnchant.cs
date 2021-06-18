@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             string tooltip_ch =
 @"攻击时每过几秒便会释放一次流星雨
-'宇宙之力构建你的毁灭力量'";
+“宇宙之力构建你的毁灭力量”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
