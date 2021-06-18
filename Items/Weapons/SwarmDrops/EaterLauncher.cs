@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Rockeater Launcher");
             Tooltip.SetDefault("Uses rockets for ammo\n50% chance to not consume ammo\nIncreased damage to enemies in the given range\n'The reward for slaughtering many..'");
             DisplayName.AddTranslation(GameCulture.Chinese, "吞噬者发射器");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "使用火箭作为弹药\n有50%的几率不消耗弹药\n提高对在光环内的敌人造成的伤害\n'屠戮众多的奖励..'");
         }
 
         public override void SetDefaults()
