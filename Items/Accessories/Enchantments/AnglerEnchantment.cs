@@ -20,9 +20,9 @@ Effects of Angler Tackle Bag
             DisplayName.AddTranslation(GameCulture.Chinese, "渔夫魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"增加渔力
-你几乎能立刻就钓到鱼
+你几乎可以立即钓到鱼
 拥有渔夫渔具袋效果
-'只要不全是鞋子, 你就可以高高兴兴地回家'");
+“只要不全是鞋子, 你就能高高兴兴地回家”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
