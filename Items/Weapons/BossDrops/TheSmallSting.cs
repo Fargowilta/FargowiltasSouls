@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 "\n50% chance to not consume ammo" +
                 "\nStingers will stick to enemies, hitting the same spot again will deal extra damage" +
                 "\n'Repurposed from the abdomen of a defeated foe..'");
-                            DisplayName.AddTranslation(GameCulture.Chinese, "小刺");
+                            DisplayName.AddTranslation(GameCulture.Chinese, "小螫刺");
             Tooltip.AddTranslation(GameCulture.Chinese, "使用飞镖作为弹药" +
                 "\n有50%的几率不消耗弹药" +
                 "\n刺会粘在敌人身上，再次命中会造成额外伤害" +
