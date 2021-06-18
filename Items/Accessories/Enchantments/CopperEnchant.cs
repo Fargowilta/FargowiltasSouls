@@ -20,8 +20,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Behold'";
             Tooltip.SetDefault(tooltip);
             string tooltip_ch =
-@"攻击有几率释放闪电击打敌人
-'凝视'";
+@"攻击有几率释放闪电攻击敌人
+“凝视”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
