@@ -27,13 +27,13 @@ Greatly enhances Lightning Aura effectiveness
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"冲进墙壁时会直接穿过去
+@"朝墙壁冲刺时会直接穿过去
 使你获得冲刺能力
-双击'左'或'右'键进行冲刺
-扔出烟雾弹后会将你传送至其落点的位置并使你获得先发制人增益
+双击“左”或“右”键进行冲刺
+若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
 使用混沌传送杖也会获得先发制人增益
 大幅强化闪电光环的效果
-'藏匿于墙中的村庄'";
+“藏匿于墙中的村庄”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }
