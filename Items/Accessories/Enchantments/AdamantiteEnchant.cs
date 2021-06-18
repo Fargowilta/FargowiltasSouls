@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.AddTranslation(GameCulture.Chinese, "精金魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, "每秒会随机使你的一个弹幕分裂成三个" +
-                "\n'一气化三清！'");
+                "\n“一气化三清！”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
