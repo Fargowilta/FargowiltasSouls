@@ -17,6 +17,9 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             DisplayName.SetDefault("Styx Gazer");
             Tooltip.SetDefault(@"Right click to wield a blade of infernal magic
 'The blazing scythe wand sword destruction ray of a defeated foe...'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "冥河凝视");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"右键挥舞冥狱魔剑
+'灼灼镰刃，破灭狱刃，合二为一，取于敌手...'");
         }
 
         public override void SetDefaults()
