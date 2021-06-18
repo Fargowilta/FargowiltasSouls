@@ -17,8 +17,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Tooltip.SetDefault("Fire different glaives depending on mouse click" +
                 "\nAlternating clicks will enhance attacks" +
                 "\n'The compressed forms of defeated foes..'");
-
-            Tooltip.AddTranslation(GameCulture.Chinese, "被打败的敌人的压缩形态..");
+            DisplayName.AddTranslation(GameCulture.Chinese, "双子旋刃");
+            Tooltip.AddTranslation(GameCulture.Chinese, "基于鼠标点击发射不同的双子回旋镖" +
+                "\n交替点鼠标左右击会增强攻击" +
+                "\n被打败的敌人的压缩形态..");
         }
 
         public override void SetDefaults()
