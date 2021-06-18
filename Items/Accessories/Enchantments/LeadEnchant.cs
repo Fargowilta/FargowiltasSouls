@@ -23,7 +23,7 @@ Lead Poisoning deals damage over time and spreads to nearby enemies
             string tooltip_ch =
 @"攻击有几率造成铅中毒减益
 铅中毒减益持续造成伤害并且会扩散至周围的敌人
-'不建议食用'";
+“不建议食用”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 
