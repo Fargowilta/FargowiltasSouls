@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Nuke Fishron");
             Tooltip.SetDefault("Uses rockets for ammo\n'The highly weaponized remains of a defeated foe...'");
             DisplayName.AddTranslation(GameCulture.Chinese, "核子猪鲨");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'高度武器化的遗骸...'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "使用火箭作为弹药\n'高度武器化的遗骸...'");
         }
 
         public override void SetDefaults()
