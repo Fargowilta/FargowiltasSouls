@@ -20,10 +20,10 @@ Bosses will drop bones every 10% of their HP lost
 'Welcome to the bone zone'");
             DisplayName.AddTranslation(GameCulture.Chinese, "死灵魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"击杀敌人时有几率爆出一堆骨头
-接触骨头时有几率生成一个友好的地牢守卫
+@"击杀敌人时有几率爆出一个骨堆
+玩家接触骨堆时会生成一个友好的地牢守卫
 地牢守卫的伤害取决于被击杀的敌人的最大生命值
-Boss每损失10%生命值便会掉落骨头
+Boss每损失10%生命值便会掉落骨堆
 “欢迎来到骸骨领域”");
         }
 
