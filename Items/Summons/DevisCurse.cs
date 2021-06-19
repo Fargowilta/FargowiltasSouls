@@ -13,6 +13,7 @@ namespace FargowiltasSouls.Items.Summons
         {
             DisplayName.SetDefault("Deviantt's Curse");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 7));
+            DisplayName.AddTranslation(GameCulture.Chinese, "戴维安的诅咒");
         }
 
         /*public override bool Autoload(ref string name)
