@@ -19,10 +19,10 @@ While in stealth, your own projectiles will not be sucked in
 'Tear into reality'");
             DisplayName.AddTranslation(GameCulture.Chinese, "星旋魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"双击'下'键切换至隐形模式，减少敌人以你为目标的几率，但大幅降低移动速度
+@"双击“下”键切换至隐形模式，减少敌人以你为目标的几率，但大幅降低移动速度
 进入隐形状态时生成一个会吸引敌人和弹幕的旋涡
 处于隐形状态时你的弹幕不会被旋涡吸引
-'撕裂现实'");
+“撕裂现实”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
