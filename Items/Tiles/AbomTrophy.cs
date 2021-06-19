@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn Trophy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶纪念章");
         }
 
         public override void SetDefaults()
