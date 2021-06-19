@@ -9,6 +9,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Recovering");
             Description.SetDefault("The Nurse cannot heal you again yet");
+            DisplayName.AddTranslation(GameCulture.Chinese, "恢复中");
+            Description.AddTranslation(GameCulture.Chinese, "护士不能再次治疗你");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = false;
             canBeCleared = false;
