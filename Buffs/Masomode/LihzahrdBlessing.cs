@@ -10,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Lihzahrd Blessing");
             Description.SetDefault("Wires enabled and reduced spawn rates in Jungle Temple");
+            DisplayName.AddTranslation(GameCulture.Chinese, "蜥蜴人的祝福");
+            Description.AddTranslation(GameCulture.Chinese, "电路可用,并减少神庙中的刷怪率");
             canBeCleared = true;
         }
 
