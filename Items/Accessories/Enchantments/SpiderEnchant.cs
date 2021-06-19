@@ -21,8 +21,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"你的仆从和哨兵现在可以造成暴击且有15%基础暴击率
-'对恐蛛症者可惩罚他们死于蜘蛛之口'";
+@"仆从和哨兵可以造成暴击，且有15%基础暴击率
+“蜘蛛恐惧者？让他死于蜘蛛作为惩罚！”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }
