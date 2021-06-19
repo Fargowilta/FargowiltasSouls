@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Pets
 {
@@ -11,6 +12,8 @@ namespace FargowiltasSouls.Items.Pets
         {
             DisplayName.SetDefault("Spawn Sack");
             Tooltip.SetDefault("Summons the spawn of Mutant\n'You think you're safe?'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "召唤物麻袋");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤迷你突变体\n'你觉得你很安全吗?'");
         }
 
         public override void SetDefaults()
