@@ -10,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Pets
         {
             DisplayName.SetDefault("Mutant Spawn");
             Description.SetDefault("Mutant Spawn");
+            DisplayName.AddTranslation(GameCulture.Chinese, "迷你突变体");
+            Description.AddTranslation(GameCulture.Chinese, "迷你突变体");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
