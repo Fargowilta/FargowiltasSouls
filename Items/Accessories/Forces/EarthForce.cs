@@ -26,14 +26,14 @@ Briefly become invulnerable after striking an enemy
             DisplayName.AddTranslation(GameCulture.Chinese, "大地之力");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"你的弹幕有25%几率爆裂成碎片
-增加20%武器使用速度
-攻击敌人后大幅增加生命恢复速度
+武器使用速度增加20%
+击中敌人后大幅增加你的生命恢复速度
 你每恢复80点生命值便会生成一个伤害性的生命能量球
-花瓣将落到被你攻击的敌人的身上以造成额外伤害
+花瓣将落到你攻击的敌人的身上，造成额外伤害
 伤害性减益造成的伤害x5
-每过3/4秒便会随机使你的一个弹幕分裂成三个
+每3/4秒会随机使你的一个弹幕分裂成三个
 攻击敌人后会使你无敌一小段时间
-'盖亚的祝福照耀着你'");
+“盖亚的祝福照耀着你”");
         }
 
         public override void SetDefaults()
