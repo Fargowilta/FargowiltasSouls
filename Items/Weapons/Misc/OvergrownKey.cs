@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using FargowiltasSouls.Projectiles.JungleMimic;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.Misc
 {
