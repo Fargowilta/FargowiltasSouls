@@ -21,7 +21,7 @@ Attacks may inflict the Solar Flare debuff
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"召唤日耀护盾，让你能冲撞敌人
 被击中时日耀护盾不会耗尽，但伤害减免效果会降低
-攻击有几率造成耀斑减益
+攻击有几率造成太阳耀斑减益
 “烫手魔石”");
         }
 
