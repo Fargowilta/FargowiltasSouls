@@ -22,15 +22,15 @@ Beetles protect you from damage
 Increases flight time by 50%
 'Rare is a living thing that dare disobey your will'";
             string tooltip_ch =
-@"你在草地上行走时会种下南瓜
+@"你在地上行走时会种下南瓜
 反弹100%接触伤害
 敌人死亡时有几率爆裂出针刺
-使友方蜜蜂或黄蜂转化为大型蜜蜂
-你的仆从和哨兵现在可以造成暴击且有30%基础暴击率
+使友方蜜蜂或黄蜂转化为超级蜜蜂
+仆从和哨兵可以造成暴击，且有30%基础暴击率
 站定不动时且不攻击时你会缩进壳里
 甲虫会保护你，减免下次受到的伤害
 延长50%飞行时间
-'罕有活物敢违背你的意愿'";
+“罕有活物敢违背你的意愿”";
 
             Tooltip.SetDefault(tooltip);
             DisplayName.AddTranslation(GameCulture.Chinese, "生命之力");
