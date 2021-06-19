@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Buffs.Souls
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Orichalcum Poison");
+            DisplayName.AddTranslation(GameCulture.Chinese, "山铜中毒");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
