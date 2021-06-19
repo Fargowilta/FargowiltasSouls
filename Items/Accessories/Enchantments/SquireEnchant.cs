@@ -19,9 +19,9 @@ Ballista pierces more targets and panics when you take damage
 'Squire, will you hurry?'");
             DisplayName.AddTranslation(GameCulture.Chinese, "侍卫魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"增加25%受治疗量
-受到伤害后使弩车可以穿透更多的敌人且会造成恐慌减益
-'侍卫？你能快点吗？'");
+@"回复生命值时，治疗量增加25%
+弩车可以刺穿更多目标，你受到伤害时会得到弩车恐慌增益
+“侍卫，你能快点吗？”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
