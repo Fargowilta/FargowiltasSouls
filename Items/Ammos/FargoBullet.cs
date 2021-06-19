@@ -24,8 +24,8 @@ namespace FargowiltasSouls.Items.Ammos
             Tooltip.AddTranslation(GameCulture.Chinese,
                                "追踪敌人\n" +
                                "弹跳多次\n" +
-                               "每次撞击都会造成魔晶碎片爆炸\n" +
-                               "造成多种Debuff");
+                               "每次击中都会造成魔晶碎片爆炸\n" +
+                               "造成多种减益");
         }
 
         public override void SetDefaults()
