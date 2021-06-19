@@ -11,6 +11,8 @@ namespace FargowiltasSouls.Buffs.Souls
         {
             DisplayName.SetDefault("Meditation");
             Description.SetDefault("Your Monk Dash is ready");
+            DisplayName.AddTranslation(GameCulture.Chinese, "静坐冥想");
+            Description.AddTranslation(GameCulture.Chinese, "你可以使用武僧冲刺");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
