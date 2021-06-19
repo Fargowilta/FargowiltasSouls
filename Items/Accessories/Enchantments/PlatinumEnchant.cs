@@ -20,8 +20,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Its value is immeasurable'";
             Tooltip.SetDefault(tooltip);
             string tooltip_ch = 
-@"敌人死亡时掉落的战利品有20%几率翻倍
-'价值无法估量'";
+@"敌人死亡时有20%的几率获得两倍的战利品
+“无价之宝”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }
