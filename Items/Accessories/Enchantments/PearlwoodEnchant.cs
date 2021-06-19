@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Too little, too late…'");
             DisplayName.AddTranslation(GameCulture.Chinese, "珍珠木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"弹幕在击中敌人或物块时有几率生成一颗星星
-'既渺小无力，又慢人一步...'");
+@"弹幕击中敌人或物块时有几率生成一颗星星
+“既渺小无力，又慢人一步……”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
