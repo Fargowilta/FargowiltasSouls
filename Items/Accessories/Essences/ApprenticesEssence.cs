@@ -21,7 +21,7 @@ Increases your maximum mana by 50
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"增加18%魔法伤害
 增加5%魔法暴击率
-增加50点最大法力值
+增加50点最大魔力值
 “这是个开始……”");
         }
 
