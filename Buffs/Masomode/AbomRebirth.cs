@@ -9,6 +9,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Abominable Rebirth");
             Description.SetDefault("You cannot heal at all and cannot die unless struck");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶重生");
+            Description.AddTranslation(GameCulture.Chinese, "你无法恢复生命值,并且只有受到直接攻击后才会死亡");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;
