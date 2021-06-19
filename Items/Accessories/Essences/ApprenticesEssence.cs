@@ -22,7 +22,7 @@ Increases your maximum mana by 50
 @"增加18%魔法伤害
 增加5%魔法暴击率
 增加50点最大法力值
-'这是个开始...'");
+“这是个开始……”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
