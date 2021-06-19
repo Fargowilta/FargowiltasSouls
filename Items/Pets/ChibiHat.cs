@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Pets
 {
@@ -11,6 +12,8 @@ namespace FargowiltasSouls.Items.Pets
         {
             DisplayName.SetDefault("Chibi Hat");
             Tooltip.SetDefault("Summons Chibi Devi\nShe follows your mouse\n'Cute! Cute! Cute!'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "小德维安帽");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤小德维安帽\n她会跟着你的嘴巴\n'你给我翻译翻译,什么tmd叫可爱!'");
         }
 
         public override void SetDefaults()
