@@ -22,14 +22,13 @@ Projectiles may spawn a star when they hit something
 'Extremely rigid'");
             DisplayName.AddTranslation(GameCulture.Chinese, "森林之力");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"小动物在释放出去1秒后会爆炸
-50%几率不消耗弹药
-攻击时定期释放雪球
+@"将某些小动物转化为武器
+攻击时定期释放几个雪球
 所有钩爪的抛出速度、牵引速度和回收速度x2.5
-一圈暗影焰、诅咒焰和流血光环环绕着你
-双击'下'键会召唤一个会向敌人扔橡子的棕榈树哨兵
+召唤一个暗影焰、诅咒焰和鲜血光环环绕着你
+双击“下”键会召唤一个会向敌人扔橡实的棕榈树哨兵
 弹幕在击中敌人或物块时有几率生成一颗星星
-'很刚'");
+“我超刚的”");
         }
 
         public override void SetDefaults()
