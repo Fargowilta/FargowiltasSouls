@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Tiles
 {
