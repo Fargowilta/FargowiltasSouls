@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'I'm a what?'");
             DisplayName.AddTranslation(GameCulture.Chinese, "巫师魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"强化其它魔石，使它们获得在合成后才能获得的效果
+@"强化其它魔石，使它们获得在合成“力”系饰品后才能获得的效果
 “我是啥？”");
         }
 
