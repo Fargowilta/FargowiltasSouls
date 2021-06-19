@@ -8,6 +8,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant Statue (Gift)");
+            DisplayName.AddTranslation(GameCulture.Chinese, "拿着礼物的突变体雕像");
         }
 
         public override void SetDefaults()
