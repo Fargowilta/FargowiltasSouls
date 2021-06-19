@@ -1,5 +1,6 @@
-﻿using FargowiltasSouls.NPCs.Critters;
+using FargowiltasSouls.NPCs.Critters;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
@@ -11,6 +12,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Top Hat Squirrel");
+            DisplayName.AddTranslation(GameCulture.Chinese, "高顶礼帽松鼠"); 
         }
 
         public override void SetDefaults()
