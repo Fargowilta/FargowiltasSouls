@@ -9,6 +9,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Abominable Cooldown");
             Description.SetDefault("Cannot endure another attack yet");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶手杖冷却");
+            Description.AddTranslation(GameCulture.Chinese, "但扛不住下一击");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
