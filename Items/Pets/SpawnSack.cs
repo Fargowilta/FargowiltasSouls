@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Pets
         {
             DisplayName.SetDefault("Spawn Sack");
             Tooltip.SetDefault("Summons the spawn of Mutant\n'You think you're safe?'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "召唤物麻袋");
+            DisplayName.AddTranslation(GameCulture.Chinese, "卵袋");
             Tooltip.AddTranslation(GameCulture.Chinese, "召唤迷你突变体\n'你觉得你很安全吗?'");
         }
 
