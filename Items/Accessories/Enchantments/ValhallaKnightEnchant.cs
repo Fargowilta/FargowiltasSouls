@@ -18,7 +18,7 @@ Greatly enhances Ballista effectiveness
 'Valhalla calls'");
             DisplayName.AddTranslation(GameCulture.Chinese, "英灵殿骑士魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"增加33%受治疗量
+@"回复生命值时，治疗量增加33%
 大幅强化弩车的效果
 “瓦尔哈拉的呼唤”");
         }
