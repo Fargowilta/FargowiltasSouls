@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "感染");
+            DisplayName.AddTranslation(GameCulture.Chinese, "感染EX");
             Description.AddTranslation(GameCulture.Chinese, "这只会变得更糟");
         }
 
