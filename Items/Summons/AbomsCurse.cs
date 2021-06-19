@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.NPCs.AbomBoss;
 using Fargowiltas.Items.Tiles;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Summons
 {
@@ -14,7 +15,7 @@ namespace FargowiltasSouls.Items.Summons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn's Curse");
-
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶的诅咒"); 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 10));
         }
         public override int NumFrames => 10;
