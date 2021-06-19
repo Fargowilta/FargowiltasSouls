@@ -18,9 +18,9 @@ Right click with them to attack
 'Humble beginnings…'");
             DisplayName.AddTranslation(GameCulture.Chinese, "木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"将某些动物转化为武器
+@"将某些小动物转化为武器
 右键进行攻击
-'卑微的开始...'");
+“卑微的开始……”");
             //Certain critters have extra effects
             //Effects of Critter guide tm
         }
