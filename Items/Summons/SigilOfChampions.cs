@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 using FargowiltasSouls.NPCs.Champions;
 
 namespace FargowiltasSouls.Items.Summons
@@ -16,6 +17,12 @@ namespace FargowiltasSouls.Items.Summons
 Summons vary depending on time and biome
 Right click to check for possible summons
 Not consumed on use");
+DisplayName.AddTranslation(GameCulture.Chinese, "唤灵魔符");
+Tooltip.AddTranslation(GameCulture.Chinese, @"召唤英灵
+根据所处环境和时间召唤不同的英灵
+右键使用以查看可能召唤出的英灵
+不消耗");
+
         }
 
         public override void SetDefaults()
