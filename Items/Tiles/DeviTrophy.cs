@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Deviantt Trophy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "戴维安纪念章"); 
         }
 
         public override void SetDefaults()
