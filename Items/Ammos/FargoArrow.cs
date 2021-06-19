@@ -21,8 +21,8 @@ namespace FargowiltasSouls.Items.Ammos
                 "Inflicts several debuffs");
             DisplayName.AddTranslation(GameCulture.Chinese, "混合箭袋");
             Tooltip.AddTranslation(GameCulture.Chinese, "弹跳多次\n" +
-                "每次撞击都会爆炸,召唤流星,发射激光箭\n" +
-                "造成多种Debuff");
+                "每次撞击都会爆炸、召唤流星、发射激光箭\n" +
+                "造成多种减益");
         }
 
         public override void SetDefaults()
