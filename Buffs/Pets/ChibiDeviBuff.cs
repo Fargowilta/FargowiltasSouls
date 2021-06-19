@@ -10,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Pets
         {
             DisplayName.SetDefault("Chibi Devi");
             Description.SetDefault("She's interested in 'you'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "小戴维安帽");
+            Description.AddTranslation(GameCulture.Chinese, "她对'你'很感兴趣");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
