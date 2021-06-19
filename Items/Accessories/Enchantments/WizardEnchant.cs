@@ -18,9 +18,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'I'm a what?'");
             DisplayName.AddTranslation(GameCulture.Chinese, "巫师魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"强化其它魔石，使它们获得在上级合成中才能获得的增强
-（上级合成指 Forces/力）
-'我是啥？'");
+@"强化其它魔石，使它们获得在合成后才能获得的效果
+“我是啥？”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
