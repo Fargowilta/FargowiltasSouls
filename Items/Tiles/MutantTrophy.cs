@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant Trophy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体纪念章");
         }
 
         public override void SetDefaults()
