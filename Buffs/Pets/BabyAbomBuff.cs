@@ -10,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Pets
         {
             DisplayName.SetDefault("Baby Abom");
             Description.SetDefault("Kickflipping on a scythe");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶之镰");
+            Description.AddTranslation(GameCulture.Chinese, "跑来跑去的小镰刀");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
