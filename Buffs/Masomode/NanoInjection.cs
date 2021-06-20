@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             DisplayName.SetDefault("Nano Injection");
             Description.SetDefault("Life regeneration and stats reduced");
             DisplayName.AddTranslation(GameCulture.Chinese, "纳米灌注");
-            Description.AddTranslation(GameCulture.Chinese, "生命恢复速度减少,各项数值减少");
+            Description.AddTranslation(GameCulture.Chinese, "生命恢复速度减少，各项属性降低");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;
