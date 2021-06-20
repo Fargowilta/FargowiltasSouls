@@ -23,13 +23,13 @@ Press the Mutant Bomb key to unleash a wave of spheres and destroy most hostile 
 Mutant Bomb has a 60 second cooldown
 'Only a little suspicious'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变者之眼");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'有点可疑'
-擦弹增加暴击伤害的上限增加50%
+            Tooltip.AddTranslation(GameCulture.Chinese, @"擦弹增加暴击伤害的上限增加50%
 每次擦弹增加暴击伤害的数值增加
 增加幽灵憎恶的重生频率和伤害
 减少憎恶手杖复活效果禁止回血的时间
 按下Mutant Bomb快捷键释放一波球并破坏多数敌对抛射物
-Mutant Bomb有60秒的冷却");
+Mutant Bomb有60秒的冷却
+'有点可疑'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 18));
         }
 
