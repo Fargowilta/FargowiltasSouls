@@ -19,10 +19,10 @@ Increases damage reduction by 5%
 Summons a friendly super Flocko
 'The royal symbol of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "冰雪女王的皇冠");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'被打败的敌人的皇家象征'
-免疫冻结
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫冻结
 增加5%伤害减免
-召唤一个友善的超级圣诞雪灵");
+召唤一个友善的超级圣诞雪灵
+'被打败的敌人的皇家象征'");
         }
 
         public override void SetDefaults()
