@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
             DisplayName.AddTranslation(GameCulture.Chinese, "吱吱响的玩具");
-            Description.AddTranslation(GameCulture.Chinese, "你的攻击如同玩具一般作响!");
+            Description.AddTranslation(GameCulture.Chinese, "你的攻击如同玩具一般作响！");
         }
 
         public override void Update(Player player, ref int buffIndex)
