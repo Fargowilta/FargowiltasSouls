@@ -33,9 +33,9 @@ Effects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell
 增加5点生命恢复速度
 使你免疫击退、一些减益和摔落伤害
 增加敌人以你为目标的几率
-拥有混乱之脑、星星面纱和蜜蜂斗篷效果
-拥有闪亮石、圣骑士护盾和冰冻海龟壳效果
-'你无人可挡'";
+拥有混乱之脑、星星面纱和蜜蜂斗篷的效果
+拥有闪亮石、圣骑士护盾和冰冻海龟壳的效果
+“无人可挡”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }
