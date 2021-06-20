@@ -17,6 +17,11 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             string tooltip =
 @"Summons SOMETHING";
             Tooltip.SetDefault(tooltip);
+
+            string tooltip_zh =
+@"召唤适量宠物";
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            DisplayName.AddTranslation(GameCulture.Chinese, "虚空之魂");
         }
 
         public override void SetDefaults()
