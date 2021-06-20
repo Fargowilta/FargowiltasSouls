@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             longerExpertDebuff = false;
             canBeCleared = false;
             DisplayName.AddTranslation(GameCulture.Chinese, "反魔力流");
-            Description.AddTranslation(GameCulture.Chinese, "魔法武器消耗生命,而不是法力");
+            Description.AddTranslation(GameCulture.Chinese, "魔法武器消耗生命，而不是法力");
         }
 
         public override void Update(Player player, ref int buffIndex)
