@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "点金手");
+            DisplayName.AddTranslation(GameCulture.Chinese, "迈达斯");
             Description.AddTranslation(GameCulture.Chinese, "被攻击时掉落钱币");
         }
 
