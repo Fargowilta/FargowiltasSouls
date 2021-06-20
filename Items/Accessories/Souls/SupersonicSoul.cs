@@ -26,14 +26,14 @@ Effects of Flying Carpet, Shield of Cthulhu and Master Ninja Gear
 Effects of Sweetheart Necklace and Amber Horseshoe Balloon
 'I am speed'";
             string tooltip_ch =
-@"获得超音速奔跑,飞行,以及额外的冰上移动力
-在没有装备翅膀时,允许使用者进行五段跳
-增加跳跃高度,跳跃速度,允许自动跳跃
+@"获得超音速奔跑、飞行，以及额外的冰上移动力
+在没有装备翅膀时，允许使用者进行五段跳
+增加跳跃高度、跳跃速度，允许自动跳跃
 获得游泳能力以及极长的水下呼吸时间
 获得水/岩浆上行走能力
 免疫岩浆和坠落伤害
-拥有飞毯效果
-'幻想风靡'";
+拥有飞毯的效果
+“幻想风靡”";
 
             Tooltip.SetDefault(tooltip);
             DisplayName.AddTranslation(GameCulture.Chinese, "超音速之魂");
