@@ -27,8 +27,7 @@ Grants effects of Wet debuff while riding Cute Fishron and gravity control
 Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 'Warm, beating, and no body needed'");
             DisplayName.AddTranslation(GameCulture.Chinese, "永恒者之心");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'大多数情况下已经不用受苦了'
-免疫人形废土,冻结,渗入,枯萎武器和枯萎盔甲
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫人形废土,冻结,渗入,枯萎武器和枯萎盔甲
 免疫野性咬噬,突变啃啄,翻转,不稳定,扭曲和混沌
 免疫潮湿,带电,月之血蛭,无效诅咒和由水造成的Debuff
 增加10%伤害,暴击率伤害减免
@@ -37,7 +36,8 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 暴击造成贝特希的诅咒
 按下火球冲刺按键来进行一次短程的无敌冲刺
 骑乘猪鲨坐骑时获得潮湿状态,能够控制重力
-召唤一个友善的超级圣诞雪灵,迷你飞碟和真·克苏鲁之眼");
+召唤一个友善的超级圣诞雪灵,迷你飞碟和真·克苏鲁之眼
+'大多数情况下已经不用受苦了'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 5));
         }
 
