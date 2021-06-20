@@ -31,8 +31,8 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             string tooltip_ch =
 @"增加30%投掷伤害
 增加20%投掷速度
-增加15%投掷暴击率和投掷力度
-'一击索命，避无可避'";
+增加15%投掷暴击率和投掷弹幕速度
+“一击索命，避无可避”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }
