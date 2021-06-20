@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "剪除羽翼");
+            DisplayName.AddTranslation(GameCulture.Chinese, "折翼");
             Description.AddTranslation(GameCulture.Chinese, "无法飞翔或使用火箭靴");
         }
 
