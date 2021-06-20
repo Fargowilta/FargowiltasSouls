@@ -13,6 +13,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Tim's Concoction");
             Tooltip.SetDefault(@"Certain enemies will drop potions when defeated
 'Smells funny'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "部分敌人被击败时会掉落药水
+            '闻起来很滑稽'");
         }
 
         public override void SetDefaults()
