@@ -18,9 +18,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 You erupt into Shadowflame tentacles when injured
 'The accursed incendiary powder of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "诅咒袋子");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'被打败的敌人的诅咒燃烧炸药'
-免疫暗影烈焰
-受伤时爆发暗影烈焰触须");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫暗影烈焰
+受伤时爆发暗影烈焰触须
+'被打败的敌人的诅咒燃烧炸药'");
         }
 
         public override void SetDefaults()
