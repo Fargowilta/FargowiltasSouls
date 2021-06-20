@@ -18,9 +18,9 @@ Grants immunity to Webbed and Purified
 Grants autofire to all weapons
 'An idol of the ancient jungle dwellers'");
             DisplayName.AddTranslation(GameCulture.Chinese, "部落挂坠");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'远古丛林居民的偶像'
-免疫织网和净化
-所有武器自动连发");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫织网和净化
+所有武器自动连发
+'远古丛林居民的偶像'");
         }
 
         public override void SetDefaults()
