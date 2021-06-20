@@ -15,11 +15,11 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 50% discount on reforges
 'Not secure against being looted off of one's corpse'");
             DisplayName.AddTranslation(GameCulture.Chinese, "安全钱包");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'无法保证在多人游戏中的效果'
-免疫点金手和偷取物品的敌人
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫点金手和偷取物品的敌人
 阻止你重铸带有特定词缀的物品
 可以在灵魂开关菜单中选择受保护的词缀
-重铸价格降低50%");
+重铸价格降低50%
+'无法保证在多人游戏中的效果'");
         }
 
         public override void SetDefaults()
