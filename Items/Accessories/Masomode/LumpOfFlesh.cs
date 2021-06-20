@@ -22,14 +22,14 @@ Enemies are less likely to target you
 Makes armed and magic skeletons less hostile outside the Dungeon
 'It's growing'");
             DisplayName.AddTranslation(GameCulture.Chinese, "肉团");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'它在增长'
-免疫致盲,阻塞和眩晕
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫致盲,阻塞和眩晕
 增加16%召唤伤害,但略微减少防御
 +2最大召唤栏
 +2最大哨兵栏
 当你攻击时,尖刻眼球会充能来发射激光
 敌人不太可能以你为目标
-地牢外的装甲和魔法骷髅敌意减小");
+地牢外的装甲和魔法骷髅敌意减小
+'它在增长'");
         }
 
         public override void SetDefaults()
