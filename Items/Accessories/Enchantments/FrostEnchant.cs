@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip =
 @"Icicles will start to appear around you
 Attacking will launch them towards the cursor
-When they hit an enemy they are breifly frozen solid and take 25% extra damage for 5 seconds
+When they hit an enemy they are frozen solid for up to 5 seconds
 All hostile projectiles move at half speed
 'Let's coat the world in a deep freeze'";
             Tooltip.SetDefault(tooltip);

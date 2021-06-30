@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Minions
 {
@@ -71,6 +72,18 @@ namespace FargowiltasSouls.Projectiles.Minions
                 NPC npc = Main.npc[(int)projectile.ai[0]];
                 if (npc.CanBeChasedBy(projectile))
                 {
+                    if (projectile.ai[1] % 2 != 0 && npc.GetGlobalNPC<EModeGlobalNPC>().isMasoML) //when attacking, check for emode ml
+                    {
+                        switch(EModeGlobalNPC.masoStateML)
+                        {
+                            case 0: projectile.ai[1] = 1; break;
+                            case 1: projectile.ai[1] = 3; break;
+                            case 2: projectile.ai[1] = 5; break;
+                            case 3: projectile.ai[1] = 7; break;
+                            default: break;
+                        }
+                    }
+
                     projectile.localAI[1] = projectile.ai[1] + 1;
                     switch ((int)projectile.ai[1])
                     {

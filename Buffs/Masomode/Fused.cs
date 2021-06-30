@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -27,14 +28,13 @@ namespace FargowiltasSouls.Buffs.Masomode
             {
                 player.immune = false;
                 player.immuneTime = 0;
-                //Projectile.NewProjectile(player.Center, Vector2.Zero, ProjectileID.Explosives, 400, 10f, Main.myPlayer);
-                int damage = (player.statLifeMax2 / 2);
-                Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("FuseBomb"), damage / 4, 4f, Main.myPlayer);
+                int damage = (int)(Math.Max(player.statLife, player.statLifeMax) * 2.0 / 3.0);
                 player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was blown to bits."), damage, 0, false, false, true);
+                Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("FusedExplosion"), damage, 12f, Main.myPlayer);
             }
         }
 
-        public override bool ReApply(Player player, int time, int buffIndex)
+        public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             return true;
         }

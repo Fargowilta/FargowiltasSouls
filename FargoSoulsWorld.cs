@@ -33,6 +33,7 @@ namespace FargowiltasSouls
 
         public static bool NoMasoBossScaling = true;
         public static bool ReceivedTerraStorage;
+        public static bool spawnedDevi;
 
         public static bool[] downedChampions = new bool[9];
 
@@ -56,6 +57,7 @@ namespace FargowiltasSouls
 
             NoMasoBossScaling = true;
             ReceivedTerraStorage = false;
+            spawnedDevi = false;
 
             for (int i = 0; i < downedChampions.Length; i++)
                 downedChampions[i] = false;
@@ -77,6 +79,7 @@ namespace FargowiltasSouls
             if (firstGoblins) downed.Add("forceMeteor");
             if (NoMasoBossScaling) downed.Add("NoMasoBossScaling");
             if (ReceivedTerraStorage) downed.Add("ReceivedTerraStorage");
+            if (spawnedDevi) downed.Add("spawnedDevi");
             
             for (int i = 0; i < downedChampions.Length; i++)
             {
@@ -105,6 +108,7 @@ namespace FargowiltasSouls
             firstGoblins = downed.Contains("forceMeteor");
             NoMasoBossScaling = downed.Contains("NoMasoBossScaling");
             ReceivedTerraStorage = downed.Contains("ReceivedTerraStorage");
+            spawnedDevi = downed.Contains("spawnedDevi");
 
             for (int i = 0; i < downedChampions.Length; i++)
             {
@@ -132,8 +136,9 @@ namespace FargowiltasSouls
             firstGoblins = flags[9];
             NoMasoBossScaling = flags[10];
             ReceivedTerraStorage = flags[11];
+            spawnedDevi = flags[12];
 
-            const int offset = 12;
+            const int offset = 13;
             for (int i = 0; i < downedChampions.Length; i++)
             {
                 downedChampions[i] = flags[i + offset];
@@ -158,15 +163,16 @@ namespace FargowiltasSouls
                 [9] = firstGoblins,
                 [10] = NoMasoBossScaling,
                 [11] = ReceivedTerraStorage,
-                [12] = downedChampions[0],
-                [13] = downedChampions[1],
-                [14] = downedChampions[2],
-                [15] = downedChampions[3],
-                [16] = downedChampions[4],
-                [17] = downedChampions[5],
-                [18] = downedChampions[6],
-                [19] = downedChampions[7],
-                [20] = downedChampions[8]
+                [12] = spawnedDevi,
+                [13] = downedChampions[0],
+                [14] = downedChampions[1],
+                [15] = downedChampions[2],
+                [16] = downedChampions[3],
+                [17] = downedChampions[4],
+                [18] = downedChampions[5],
+                [19] = downedChampions[6],
+                [20] = downedChampions[7],
+                [21] = downedChampions[8]
             };
 
             writer.Write(flags);
@@ -183,12 +189,20 @@ namespace FargowiltasSouls
                 if (!Main.expertMode)
                     MasochistMode = false;
 
-                if (!NPC.downedSlimeKing && !NPC.downedBoss1 && !Main.hardMode //pre boss, disable rain and sandstorm
+                if (!NPC.downedSlimeKing && !NPC.downedBoss1 && !Main.hardMode //pre boss, disable some events
                     && !NPC.AnyNPCs(ModLoader.GetMod("Fargowiltas").NPCType("Abominationn")))
                 {
-                    Main.raining = false;
-                    Sandstorm.Happening = false;
-                    Sandstorm.TimeLeft = 0;
+                    if (Main.raining || Sandstorm.Happening || Main.bloodMoon)
+                    {
+                        Main.raining = false;
+                        Main.rainTime = 0;
+                        Main.maxRaining = 0;
+                        Sandstorm.Happening = false;
+                        Sandstorm.TimeLeft = 0;
+                        Main.bloodMoon = false;
+                        if (Main.netMode == NetmodeID.Server)
+                            NetMessage.SendData(MessageID.WorldData);
+                    }
                 }
             }
 

@@ -413,7 +413,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[ModContent.BuffType<Flipped>()] = true;
             player.buffImmune[ModContent.BuffType<FlippedHallow>()] = true;
             player.buffImmune[ModContent.BuffType<Fused>()] = true;
-            player.buffImmune[ModContent.BuffType<GodEater>()] = true;
+            //player.buffImmune[ModContent.BuffType<GodEater>()] = true;
             player.buffImmune[ModContent.BuffType<Guilty>()] = true;
             player.buffImmune[ModContent.BuffType<Hexed>()] = true;
             player.buffImmune[ModContent.BuffType<Hypothermia>()] = true;

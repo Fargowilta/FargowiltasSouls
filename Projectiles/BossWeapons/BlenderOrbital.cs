@@ -8,7 +8,12 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     internal class BlenderOrbital : ModProjectile
     {
         public int Counter = 0;
-        
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("The Blender");
+        }
+
         public override void SetDefaults()
         {
             projectile.width = 46;

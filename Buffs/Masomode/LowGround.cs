@@ -21,6 +21,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         public override void Update(Player player, ref int buffIndex)
         {
             player.GetModPlayer<FargoPlayer>().LowGround = true;
+            if (player.mount.Active)
+                player.mount.Dismount(player);
             for (int i = -2; i <= 2; i++)
             {
                 Vector2 pos = player.Center;

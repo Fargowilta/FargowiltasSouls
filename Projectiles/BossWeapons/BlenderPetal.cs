@@ -8,6 +8,12 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     internal class BlenderPetal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("The Blender");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 2;
+        }
 
         public override void SetDefaults()
         {
@@ -19,9 +25,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projectile.penetrate = -1;
             projectile.timeLeft = 45;
             projectile.extraUpdates = 1;
-
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
         public override void AI()

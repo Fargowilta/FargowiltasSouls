@@ -187,15 +187,18 @@ namespace FargowiltasSouls.Projectiles.Champions
                 dust1.fadeIn = 0.5f;
                 dust1.customData = projectile.Center;
             }
-            
-            Dust dust3 = Main.dust[Dust.NewDust(projectile.position, projectile.width, projectile.height, 229, 0f, 0f, 0, new Color(), 1f)];
-            dust3.velocity *= 5f;
-            dust3.fadeIn = 1f;
-            dust3.scale = 1f + Main.rand.NextFloat() + Main.rand.Next(4) * 0.3f;
-            dust3.noGravity = true;
+
+            if (Main.rand.Next(2) == 0)
+            {
+                Dust dust3 = Main.dust[Dust.NewDust(projectile.position, projectile.width, projectile.height, 229, 0f, 0f, 0, new Color(), 1f)];
+                dust3.velocity *= 5f;
+                dust3.fadeIn = 1f;
+                dust3.scale = 1f + Main.rand.NextFloat() + Main.rand.Next(4) * 0.3f;
+                dust3.noGravity = true;
+            }
 
             float num1 = 0.5f;
-            for (int i = 0; i < 9; ++i)
+            for (int i = 0; i < 5; ++i)
             {
                 if (Main.rand.NextFloat() >= num1)
                 {
@@ -214,8 +217,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.Electrified, 360);
-            if (FargoSoulsWorld.MasochistMode)
-                target.AddBuff(ModContent.BuffType<Buffs.Masomode.LightningRod>(), 360);
+            //if (FargoSoulsWorld.MasochistMode) target.AddBuff(ModContent.BuffType<Buffs.Masomode.LightningRod>(), 360);
         }
 
         public override void Kill(int timeLeft)

@@ -128,10 +128,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         bool planteraAlive = NPC.plantBoss > -1 && NPC.plantBoss < Main.maxNPCs && Main.npc[NPC.plantBoss].active && Main.npc[NPC.plantBoss].type == NPCID.Plantera;
-                        Vector2 halfwayPoint = Main.npc[NPC.plantBoss].Center + (projectile.Center - Main.npc[NPC.plantBoss].Center) / 2;
-
                         //die after this many explosions, plantera is dead, or if i have no decent line of sight to plantera
-                        if (!planteraAlive || !Collision.CanHitLine(projectile.Center, 0, 0, halfwayPoint, 0, 0))
+                        if (!planteraAlive || !Collision.CanHitLine(projectile.Center, 0, 0, Main.npc[NPC.plantBoss].Center + (projectile.Center - Main.npc[NPC.plantBoss].Center) / 2, 0, 0))
                         {
                             projectile.Kill();
                             return;

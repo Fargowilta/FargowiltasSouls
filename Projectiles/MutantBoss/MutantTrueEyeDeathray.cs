@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             {
                 projectile.velocity = -Vector2.UnitY;
             }
-            int ai1 = (int)projectile.ai[1];
+            /*int ai1 = (int)projectile.ai[1];
             if (Main.projectile[ai1].active && Main.projectile[ai1].type == mod.ProjectileType("MutantTrueEyeL"))
             {
                 projectile.Center = Main.projectile[ai1].Center - Vector2.UnitY * 6f;
@@ -36,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             {
                 projectile.Kill();
                 return;
-            }
+            }*/
             if (projectile.velocity.HasNaNs() || projectile.velocity == Vector2.Zero)
             {
                 projectile.velocity = -Vector2.UnitY;
@@ -99,6 +99,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             DelegateMethods.v3_1 = new Vector3(0.3f, 0.65f, 0.7f);
             Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], (float)projectile.width * projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
+
+            projectile.position -= projectile.velocity;
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

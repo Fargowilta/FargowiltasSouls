@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
@@ -10,7 +12,6 @@ using FargowiltasSouls.Items.Accessories.Enchantments;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Champions;
-using System.IO;
 using FargowiltasSouls.Items.Misc;
 
 namespace FargowiltasSouls.NPCs.Champions
@@ -282,8 +283,12 @@ namespace FargowiltasSouls.NPCs.Champions
                             if (FargoSoulsWorld.MasochistMode)
                                 Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<CosmosRitual>(), npc.damage * 2 / 7, 0f, Main.myPlayer, 0f, npc.whoAmI);
 
-                            Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<CosmosMoon>(), npc.damage * 2 / 7, 0f, Main.myPlayer, 1, npc.whoAmI);
-                            Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<CosmosMoon>(), npc.damage * 2 / 7, 0f, Main.myPlayer, -1, npc.whoAmI);
+                            const int max = 3;
+                            float startRotation = npc.DirectionFrom(player.Center).ToRotation(); //ensure never spawn one directly at you
+                            for (int i = 0; i < max; i++)
+                            {
+                                Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<CosmosMoon>(), npc.damage / 3, 0f, Main.myPlayer, MathHelper.TwoPi / max * i + startRotation, npc.whoAmI);
+                            }
 
                             Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, -2);
                         }
@@ -444,11 +449,12 @@ namespace FargowiltasSouls.NPCs.Champions
                                         continue;
 
                                     const int gap = 20;
-                                    const int max = 7;
+                                    const int max = 15;
+                                    const int individualOffset = 6;
                                     Vector2 baseVel = npc.DirectionTo(Main.player[npc.target].Center).RotatedBy(MathHelper.ToRadians(gap) * j);
                                     for (int k = 0; k < max; k++) //a fan of blazes
                                     {
-                                        Projectile.NewProjectile(npc.Center, 7f * baseVel.RotatedBy(MathHelper.ToRadians(20) * j * k),
+                                        Projectile.NewProjectile(npc.Center, 9f * baseVel.RotatedBy(MathHelper.ToRadians(individualOffset) * j * k),
                                             ModContent.ProjectileType<CosmosNebulaBlaze>(), npc.damage * 2 / 7, 0f, Main.myPlayer, 0.009f);
                                     }
                                 }
@@ -826,13 +832,12 @@ namespace FargowiltasSouls.NPCs.Champions
                                 {
                                     Vector2 spawnPos = npc.Center + new Vector2(distance, 0f).RotatedBy(rotation * i);
                                     int p = Projectile.NewProjectile(spawnPos, Vector2.Zero, ModContent.ProjectileType<CosmosFireball>(), damage, 0f, Main.myPlayer, npc.whoAmI, rotation * i);
-                                    if (p != Main.maxProjectiles && !(FargoSoulsWorld.MasochistMode && npc.localAI[2] != 0f))
-                                        Main.projectile[p].timeLeft = 300;
+                                    //if (p != Main.maxProjectiles && !(FargoSoulsWorld.MasochistMode && npc.localAI[2] != 0f)) Main.projectile[p].timeLeft = 300;
                                 }
                             }
                         }
 
-                        int threshold = npc.localAI[2] == 0 ? 70 : 50;
+                        int threshold = 70; //npc.localAI[2] == 0 ? 70 : 50;
                         if (++npc.ai[2] <= threshold)
                         {
                             targetPos = player.Center;
@@ -880,7 +885,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             }
                         }
 
-                        if (++npc.ai[1] > (FargoSoulsWorld.MasochistMode && npc.localAI[2] != 0f ? 360 : 330))
+                        if (++npc.ai[1] > 330) //(FargoSoulsWorld.MasochistMode && npc.localAI[2] != 0f ? 360 : 330))
                         {
                             npc.TargetClosest();
                             npc.ai[0]++;
@@ -1393,7 +1398,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         for (int i = 0; i < Main.maxNPCs; i++)
                         {
                             if (Main.npc[i].active)
-                                Main.npc[i].AddBuff(ModContent.BuffType<Buffs.Souls.TimeFrozen>(), duration);
+                                Main.npc[i].AddBuff(ModContent.BuffType<Buffs.Souls.TimeFrozen>(), duration, true);
                         }
 
                         for (int i = 0; i < Main.maxProjectiles; i++)
@@ -1434,9 +1439,9 @@ namespace FargowiltasSouls.NPCs.Champions
 
                                         Vector2 spawnPos = player.Center + radius * Vector2.UnitX.RotatedBy(angle + npc.localAI[0]);
                                         Vector2 vel = speed * player.DirectionFrom(spawnPos);
-                                        float ai0 = player.Distance(spawnPos) / speed;
+                                        float ai0 = player.Distance(spawnPos) / speed + 30;
                                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                                            Projectile.NewProjectile(spawnPos, vel, ModContent.ProjectileType<CosmosInvader>(), damage, 0f, Main.myPlayer, ai0);
+                                            Projectile.NewProjectile(spawnPos, vel, ModContent.ProjectileType<CosmosInvaderTime>(), damage, 0f, Main.myPlayer, ai0, vel.ToRotation());
                                     }
                                 }
                                 else //scatter
@@ -1449,9 +1454,9 @@ namespace FargowiltasSouls.NPCs.Champions
                                         float distance = ai0 + npc.ai[3] * offset;
                                         Vector2 spawnPos = player.Center + distance * Vector2.UnitX.RotatedBy(2 * Math.PI / max * i + rotationOffset);
                                         Vector2 vel = speed * player.DirectionFrom(spawnPos);// distance * player.DirectionFrom(spawnPos) / ai0;
-                                        ai0 = distance / speed;
+                                        ai0 = distance / speed + 30;
                                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                                            Projectile.NewProjectile(spawnPos, vel, ModContent.ProjectileType<CosmosInvader>(), damage, 0f, Main.myPlayer, ai0);
+                                            Projectile.NewProjectile(spawnPos, vel, ModContent.ProjectileType<CosmosInvaderTime>(), damage, 0f, Main.myPlayer, ai0, vel.ToRotation());
                                     }
                                 }
                             }
@@ -1558,7 +1563,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                 case 3:
                     {
-                        int threshold = npc.localAI[2] == 0 ? 70 : 50;
+                        int threshold = 70; //npc.localAI[2] == 0 ? 70 : 50;
                         if (npc.ai[2] <= threshold)
                             npc.frame.Y = frameHeight * 5;
                         else
@@ -1637,7 +1642,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
             if (FargoSoulsWorld.MasochistMode)
-                damage *= 0.8;
+                damage *= 0.9;
             return true;
         }
 
@@ -1664,47 +1669,18 @@ namespace FargowiltasSouls.NPCs.Champions
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
 
-            int[] drops = {
-                ModContent.ItemType<SolarEnchant>(),
-                ModContent.ItemType<VortexEnchant>(),
-                ModContent.ItemType<NebulaEnchant>(),
-                ModContent.ItemType<StardustEnchant>(),
-                ModContent.ItemType<MeteorEnchant>(),
-            };
-            int lastDrop = -1; //don't drop same ench twice
-            for (int i = 0; i < 2; i++)
-            {
-                int thisDrop = Main.rand.Next(drops.Length);
-
-                if (lastDrop == thisDrop) //try again
-                {
-                    if (++thisDrop >= drops.Length) //drop first ench in line if looped past array
-                        thisDrop = 0;
-                }
-
-                lastDrop = thisDrop;
-                Item.NewItem(npc.position, npc.Size, drops[thisDrop]);
-            }
-
-            /*int armour;
-            switch (Main.rand.Next(3))
-            {
-                case 0: armour = ModContent.ItemType<EridanusHat>(); break;
-                case 1: armour = ModContent.ItemType<EridanusBattleplate>(); break;
-                default: armour = ModContent.ItemType<EridanusLegwear>(); break;
-            }
-            Item.NewItem(npc.position, npc.Size, armour);*/
-
-            Item.NewItem(npc.position, npc.Size, ModContent.ItemType<LunarCrystal>(), 5);
-
+            FargoSoulsGlobalNPC.DropEnches(npc, ModContent.ItemType<Items.Accessories.Forces.CosmoForce>(), true);
+            npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<LunarCrystal>(), 5);
 
             for (int i = 0; i < 10; i++)
             {
                 Vector2 spawnPos = npc.position + new Vector2(Main.rand.Next(npc.width), Main.rand.Next(npc.height));
-                int type = ModContent.ProjectileType<Projectiles.BossWeapons.PhantasmalBlast>();
+                int type = ModContent.ProjectileType<Projectiles.MutantBoss.MutantBomb>();
                 Projectile.NewProjectile(spawnPos, Vector2.Zero, type, 0, 0f, Main.myPlayer);
             }
+            Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Masomode.MoonLordMoonBlast>(), 0, 0f, Main.myPlayer, -Vector2.UnitY.ToRotation(), 32);
         }
+
        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
             spriteBatch.End();

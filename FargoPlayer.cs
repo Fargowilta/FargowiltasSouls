@@ -75,7 +75,7 @@ namespace FargowiltasSouls
         public bool BeeEnchant;
         private int beeCD = 0;
         public bool SpiderEnchant;
-        public int SummonCrit = 20;
+        public int SummonCrit;
         public bool StardustEnchant;
         public bool FreezeTime = false;
         public int freezeLength = 540; //300;
@@ -723,6 +723,8 @@ namespace FargowiltasSouls
                 player.extraAccessorySlots = 2;
             }
 
+            SummonCrit = 0;
+
             AttackSpeed = 1f;
             if (Screenshake > 0)
                 Screenshake--;
@@ -1324,7 +1326,7 @@ namespace FargowiltasSouls
             if (VortexStealth && !VortexEnchant)
                 VortexStealth = false;
 
-            if (Unstable)
+            if (Unstable && player.whoAmI == Main.myPlayer)
             {
                 if (unstableCD == 0)
                 {
@@ -1507,7 +1509,7 @@ namespace FargowiltasSouls
 
             if (SpiderEnchant)
             {
-                SummonCrit = LifeForce || WizardEnchant ? 30 : 15;
+                SummonCrit += LifeForce || WizardEnchant ? 30 : 15;
                 if (TerrariaSoul)
                 {
                     SummonCrit = Math.Max(SummonCrit, player.meleeCrit);
@@ -1717,7 +1719,7 @@ namespace FargowiltasSouls
                 actualMinions = player.maxMinions;
                 player.maxMinions = 999;
 
-                if (player.numMinions >= actualMinions)
+                if (player.slotsMinions >= actualMinions)
                     TikiMinion = true;
 
                 actualSentries = player.maxTurrets;
@@ -2064,12 +2066,13 @@ namespace FargowiltasSouls
 
             if (TinEnchant)
             {
+                TinCritMax = HighestCritChance() * 2;
                 if (SpiderEnchant && TinCritMax < SummonCrit * 2)
                     TinCritMax = SummonCrit * 2;
 
+                if (TinCrit > TinCritMax)
+                    TinCrit = TinCritMax;
                 AllCritEquals(TinCrit);
-                if (SpiderEnchant && !TerraForce && !WizardEnchant)
-                    SummonCrit /= 2;
 
                 if (Eternity)
                 {
@@ -2130,6 +2133,11 @@ namespace FargowiltasSouls
             if (ThrowSoul && item.thrown)
             {
                 AttackSpeed += .2f;
+            }
+
+            if (item.summon && TikiMinion)
+            {
+                AttackSpeed *= 2f / 3f;
             }
 
             //checks so weapons dont break
@@ -2441,7 +2449,7 @@ namespace FargowiltasSouls
                 return;
 
             //reduce minion damage in emode if using a weapon that isnt a mining tool
-            if (proj.minion && FargoSoulsWorld.MasochistMode && (player.HeldItem.melee || player.HeldItem.ranged || player.HeldItem.magic)
+            if (FargoGlobalProjectile.IsMinionDamage(proj) && FargoSoulsWorld.MasochistMode && (player.HeldItem.melee || player.HeldItem.ranged || player.HeldItem.magic)
                 && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0)
             {
                 damage /= 3;
@@ -2520,7 +2528,7 @@ namespace FargowiltasSouls
                 player.ClearBuff(ModContent.BuffType<FirstStrike>());
             }
 
-            if (proj.minion && Asocial)
+            if (Asocial && FargoGlobalProjectile.IsMinionDamage(proj))
             {
                 damage = 0;
                 knockback = 0;
@@ -2627,7 +2635,7 @@ namespace FargowiltasSouls
             OnHitNPCEither(target, damage, knockback, crit, proj.type);
 
             if (BeeEnchant && player.GetToggleValue("Bee") && beeCD == 0 && target.realLife == -1
-                && proj.type != ProjectileID.Bee && proj.type != ProjectileID.GiantBee && proj.maxPenetrate > 1 && proj.owner == Main.myPlayer)
+                && proj.type != ProjectileID.Bee && proj.type != ProjectileID.GiantBee && proj.maxPenetrate != 1 && proj.owner == Main.myPlayer)
             {
                 bool force = LifeForce || WizardEnchant;
                 if (force || Main.rand.Next(2) == 0)
@@ -2725,7 +2733,7 @@ namespace FargowiltasSouls
                         dam = (int)(dam * player.magicDamage);
                         damageType = 3;
                     }
-                    else if (proj.minion)
+                    else if (FargoGlobalProjectile.IsMinionDamage(proj))
                     {
                         dam = (int)(dam * player.minionDamage);
                         damageType = 4;
@@ -2942,9 +2950,14 @@ namespace FargowiltasSouls
                     speed.Normalize();
                     speed *= 15f;
                     int p = Projectile.NewProjectile(spawn, speed, ProjectileID.JavelinFriendly, damage / 4, 1f, Main.myPlayer);
-                    Main.projectile[p].tileCollide = false;
-                    Main.projectile[p].penetrate = 1;
-                    Main.projectile[p].extraUpdates = 2;
+                    if (p != Main.maxProjectiles)
+                    {
+                        Main.projectile[p].tileCollide = false;
+                        Main.projectile[p].penetrate = 1;
+                        Main.projectile[p].extraUpdates = 2;
+                        if (ModLoader.GetMod("Fargowiltas") != null)
+                            ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", Main.projectile[p]);
+                    }
                 }
 
                 gladCount = WillForce ? 30 : 60;
@@ -3891,7 +3904,7 @@ namespace FargowiltasSouls
 
         public override bool PreItemCheck()
         {
-            if (Berserked || (TribalCharm && player.GetToggleValue("TribalCharm") && player.HeldItem.type != ItemID.RodofDiscord && player.HeldItem.fishingPole == 0 ))
+            if (Berserked || (TribalCharm && player.GetToggleValue("TribalCharm", false) && player.HeldItem.type != ItemID.RodofDiscord && player.HeldItem.fishingPole == 0 ))
             {
                 TribalAutoFire = player.HeldItem.autoReuse;
                 player.HeldItem.autoReuse = true;
@@ -3908,7 +3921,7 @@ namespace FargowiltasSouls
 
         public override void PostItemCheck()
         {
-            if (Berserked || (TribalCharm && player.GetToggleValue("TribalCharm") && player.HeldItem.type != ItemID.RodofDiscord))
+            if (Berserked || (TribalCharm && player.GetToggleValue("TribalCharm", false) && player.HeldItem.type != ItemID.RodofDiscord))
             {
                 player.HeldItem.autoReuse = TribalAutoFire;
             }
@@ -3952,7 +3965,6 @@ namespace FargowiltasSouls
             switch (type)
             {
                 case ItemID.BlizzardStaff:
-                case ItemID.Razorpine:
                     AttackSpeed *= 0.5f;
                     return 2f / 3f;
 
@@ -3968,9 +3980,11 @@ namespace FargowiltasSouls
                 case ItemID.ElectrosphereLauncher:
                 case ItemID.DaedalusStormbow:
                 case ItemID.BeesKnees:
+                case ItemID.LaserMachinegun:
                     return 2f / 3f;
 
                 case ItemID.Beenade:
+                case ItemID.Razorpine:
                     AttackSpeed *= 2f / 3f;
                     return 2f / 3f;
 
@@ -3979,15 +3993,16 @@ namespace FargowiltasSouls
                 case ItemID.PhoenixBlaster:
                 case ItemID.LastPrism:
                 case ItemID.OnyxBlaster:
+                case ItemID.SkyFracture:
                 case ItemID.Handgun:
                 case ItemID.SpikyBall:
                 case ItemID.SDMG:
                 case ItemID.Xenopopper:
                 case ItemID.NebulaArcanum:
-                case ItemID.LaserMachinegun:
                 case ItemID.PainterPaintballGun:
                 case ItemID.MoltenFury:
                 case ItemID.Phantasm:
+                case ItemID.SnowmanCannon:
                     return 0.75f;
 
                 case ItemID.VampireKnives:
@@ -4003,7 +4018,6 @@ namespace FargowiltasSouls
                     return 0.85f;
                     
                 case ItemID.Tsunami:
-                case ItemID.SnowmanCannon:
                 case ItemID.ChlorophyteShotbow:
                 case ItemID.HellwingBow:
                 case ItemID.DartPistol:
@@ -4018,6 +4032,21 @@ namespace FargowiltasSouls
 
                 case ItemID.BeeGun:
                     AttackSpeed *= 2f / 3f;
+                    return 1f;
+
+                case ItemID.DD2BallistraTowerT1Popper:
+                case ItemID.DD2BallistraTowerT2Popper:
+                case ItemID.DD2BallistraTowerT3Popper:
+                case ItemID.DD2ExplosiveTrapT1Popper:
+                case ItemID.DD2ExplosiveTrapT2Popper:
+                case ItemID.DD2ExplosiveTrapT3Popper:
+                case ItemID.DD2FlameburstTowerT1Popper:
+                case ItemID.DD2FlameburstTowerT2Popper:
+                case ItemID.DD2FlameburstTowerT3Popper:
+                case ItemID.DD2LightningAuraT1Popper:
+                case ItemID.DD2LightningAuraT2Popper:
+                case ItemID.DD2LightningAuraT3Popper:
+                    AttackSpeed *= 0.5f;
                     return 1f;
 
                 case ItemID.DD2SquireBetsySword: //flying dragon

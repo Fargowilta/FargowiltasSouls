@@ -136,7 +136,8 @@ namespace FargowiltasSouls.Projectiles
                         float distance = projectile.Distance(Main.projectile[i].Center);
                         Projectile proj = Main.projectile[i];
 
-                        if (!proj.active || (distance > minDist) || proj.type == projectile.type || (proj.owner == projectile.owner && player.GetModPlayer<FargoPlayer>().VortexStealth))
+                        if (!proj.active || (distance > minDist) || proj.type == projectile.type || (proj.owner == projectile.owner && player.GetModPlayer<FargoPlayer>().VortexStealth)
+                            || proj.GetGlobalProjectile<FargoGlobalProjectile>().ImmuneToGuttedHeart)
                         {
                             continue;
                         }

@@ -37,13 +37,15 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 projectile.Center = Main.npc[ai1].Center;
                 projectile.alpha = Main.npc[ai1].alpha;
                 projectile.direction = projectile.spriteDirection = Main.npc[ai1].direction;
-                projectile.timeLeft = 2;
+                projectile.timeLeft = 30;
 
-                projectile.frame = (int)(Main.npc[ai1].frame.Y / (float)(Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type]));
+                if (!Main.dedServ)
+                    projectile.frame = (int)(Main.npc[ai1].frame.Y / (float)(Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type]));
             }
             else
             {
-                projectile.Kill();
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    projectile.Kill();
                 return;
             }
         }

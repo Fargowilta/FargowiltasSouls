@@ -29,30 +29,11 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             {
                 projectile.velocity = -Vector2.UnitY;
             }
-            int ai1 = (int)projectile.ai[1];
-            if (Main.projectile[ai1].active && Main.projectile[ai1].type == ModContent.ProjectileType<AbomSword>())
+            int sword = FargoGlobalProjectile.GetByUUIDReal(projectile.owner, (int)projectile.ai[1], ModContent.ProjectileType<AbomSword>());
+            if (sword != -1)
             {
-                projectile.Center = Main.projectile[ai1].Center + Main.projectile[ai1].velocity * 75;
-                projectile.velocity = Main.projectile[ai1].velocity.RotatedBy(projectile.ai[0]);
-            }
-            else
-            {
-                if (projectile.localAI[0] == 15)
-                {
-                    for (int i = 0; i < Main.maxProjectiles; i++)
-                    {
-                        if (Main.projectile[i].active && Main.projectile[i].hostile && Main.projectile[i].type == ModContent.ProjectileType<AbomSword>())
-                        {
-                            projectile.ai[1] = i;
-                            return;
-                        }
-                    }
-                }
-                else if (projectile.localAI[0] > 15 || Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    projectile.Kill();
-                }
-                return;
+                projectile.Center = Main.projectile[sword].Center + Main.projectile[sword].velocity * 75;
+                projectile.velocity = Main.projectile[sword].velocity.RotatedBy(projectile.ai[0]);
             }
             if (projectile.velocity.HasNaNs() || projectile.velocity == Vector2.Zero)
             {
@@ -60,7 +41,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             }
             if (projectile.localAI[0] == 0f)
             {
-                Main.PlaySound(SoundID.Zombie, (int)projectile.position.X, (int)projectile.position.Y, 104, 1f, 0f);
+                //Main.PlaySound(SoundID.Zombie, (int)projectile.position.X, (int)projectile.position.Y, 104, 1f, 0f);
             }
             float num801 = 1f;
             projectile.localAI[0] += 1f;

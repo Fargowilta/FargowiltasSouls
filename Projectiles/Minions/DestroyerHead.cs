@@ -99,14 +99,14 @@ namespace FargowiltasSouls.Projectiles.Minions
             {
                 projectile.localAI[0] = 1;
 
-                float minionSlotsUsed = 0;
+                /*float minionSlotsUsed = 0;
                 for (int i = 0; i < Main.maxProjectiles; i++)
                 {
                     if (Main.projectile[i].active && !Main.projectile[i].hostile && Main.projectile[i].owner == projectile.owner && Main.projectile[i].minion)
                         minionSlotsUsed += Main.projectile[i].minionSlots;
-                }
+                }*/
 
-                modifier = Main.player[projectile.owner].maxMinions - minionSlotsUsed;
+                modifier = Main.player[projectile.owner].maxMinions - Main.player[projectile.owner].slotsMinions;
                 if (modifier < 0)
                     modifier = 0;
                 if (modifier > 3)
@@ -120,10 +120,10 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                     int current = projectile.whoAmI;
                     for (int i = 0; i <= modifier * 3; i++)
-                        current = Projectile.NewProjectile(projectile.Center, projectile.velocity, mod.ProjectileType("DestroyerBody"), projectile.damage, projectile.knockBack, projectile.owner, current);
+                        current = Projectile.NewProjectile(projectile.Center, projectile.velocity, mod.ProjectileType("DestroyerBody"), projectile.damage, projectile.knockBack, projectile.owner, Main.projectile[current].identity);
                     int previous = current;
-                    current = Projectile.NewProjectile(projectile.Center, projectile.velocity, mod.ProjectileType("DestroyerTail"), projectile.damage, projectile.knockBack, projectile.owner, current);
-                    Main.projectile[previous].localAI[1] = current;
+                    current = Projectile.NewProjectile(projectile.Center, projectile.velocity, mod.ProjectileType("DestroyerTail"), projectile.damage, projectile.knockBack, projectile.owner, Main.projectile[current].identity);
+                    Main.projectile[previous].localAI[1] = Main.projectile[current].identity;
                     Main.projectile[previous].netUpdate = true;
                 }
             }

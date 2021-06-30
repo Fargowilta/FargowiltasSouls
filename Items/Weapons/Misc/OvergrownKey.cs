@@ -27,11 +27,11 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             item.width = 36;
             item.height = 16;
             item.UseSound = SoundID.Item77;
-            item.useAnimation = 15;
-            item.useTime = 15;
+            item.useAnimation = 37;
+            item.useTime = 37;
             item.noMelee = true;
             item.value = Item.sellPrice(0, 8);
-            item.knockBack = 1f;
+            item.knockBack = 2f;
             item.rare = ItemRarityID.LightRed;
             item.summon = true;
             item.shoot = ModContent.ProjectileType<JungleMimicSummon>();

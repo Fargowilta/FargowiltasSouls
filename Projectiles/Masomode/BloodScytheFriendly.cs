@@ -17,6 +17,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
             projectile.usesLocalNPCImmunity = true;
             projectile.localNPCHitCooldown = 10;
             projectile.GetGlobalProjectile<FargoGlobalProjectile>().CanSplit = false;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         /*public override Color? GetAlpha(Color lightColor)

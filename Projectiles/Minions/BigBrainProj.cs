@@ -13,6 +13,9 @@ namespace FargowiltasSouls.Projectiles.Minions
         {
             DisplayName.SetDefault("Big Brain");
             Main.projFrames[projectile.type] = 12;
+            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
+            ProjectileID.Sets.Homing[projectile.type] = true;
+            ProjectileID.Sets.MinionTargettingFeature[base.projectile.type] = true;
         }
         public override void SetDefaults()
         {
@@ -22,9 +25,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             projectile.friendly = true;
             projectile.minionSlots = 1f;
             projectile.timeLeft = 18000;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-            ProjectileID.Sets.Homing[projectile.type] = true;
-            ProjectileID.Sets.MinionTargettingFeature[base.projectile.type] = true;
             projectile.penetrate = -1;
             projectile.minion = true;
             projectile.tileCollide = false;
@@ -106,9 +106,6 @@ namespace FargowiltasSouls.Projectiles.Minions
         }
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (!Main.player[projectile.owner].HeldItem.summon)
-                damage /= 4;
-
             damage = (int) (damage * projectile.scale);
         }
 

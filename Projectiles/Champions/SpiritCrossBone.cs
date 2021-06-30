@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         {
             if (projectile.velocity.X != oldVelocity.X)
                 projectile.velocity.X = -oldVelocity.X * 0.9f;
-            if (projectile.velocity.Y != oldVelocity.Y && oldVelocity.Y > 1)
+            if (projectile.velocity.Y != oldVelocity.Y)
                 projectile.velocity.Y = -oldVelocity.Y * 0.9f;
             return false;
         }

@@ -12,6 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
+            DisplayName.SetDefault("The Blender");
             // Vanilla values range from 3f(Wood) to 16f(Chik), and defaults to -1f. Leaving as -1 will make the time infinite.
             ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = -1f;
             // Vanilla values range from 130f(Wood) to 400f(Terrarian), and defaults to 200f
@@ -94,7 +95,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 for (int i = 0; i < 8; i++)
                 {
                     Vector2 newvel = velocity.RotatedBy(i * Math.PI / 4);
-                    Projectile.NewProjectile(projectile.Center, newvel * 8, mod.ProjectileType("BlenderPetal"), projectile.damage, projectile.knockBack, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center, newvel * 8, ModContent.ProjectileType<BlenderPetal>(), projectile.damage, projectile.knockBack, projectile.owner);
                 }
             }
             if(soundtimer == 0)

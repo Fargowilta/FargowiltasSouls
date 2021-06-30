@@ -105,6 +105,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
         }
 
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.immune[projectile.owner] = 6;
+        }
+
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             if (projectile.owner == Main.myPlayer)

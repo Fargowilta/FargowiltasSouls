@@ -26,6 +26,8 @@ namespace FargowiltasSouls.Projectiles.Souls
             projectile.GetGlobalProjectile<FargoGlobalProjectile>().CanSplit = false;
 
             projectile.timeLeft = 300;
+
+            projectile.penetrate = -1;
         }
 
         public override void AI()
@@ -33,13 +35,15 @@ namespace FargowiltasSouls.Projectiles.Souls
             Player player = Main.player[projectile.owner];
             FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
 
-            projectile.timeLeft++;
-
             //destroy duplicates if they somehow spawn
             if (player.ownedProjectileCounts[projectile.type] > 1
                 || (projectile.owner == Main.myPlayer && (!player.GetToggleValue("Rain") || !modPlayer.RainEnchant)))
             {
                 projectile.Kill();
+            }
+            else
+            {
+                projectile.timeLeft = 2;
             }
 
             //follow player
@@ -63,35 +67,42 @@ namespace FargowiltasSouls.Projectiles.Souls
             }
 
             //absorb projectiles
-            for (int i = 0; i < Main.maxProjectiles; i++)
+            if (projectile.owner == Main.myPlayer)
             {
-                Projectile proj = Main.projectile[i];
-
-                if (proj.active && proj.friendly && !proj.hostile && proj.owner == player.whoAmI && proj.damage > 0 && !proj.minion
-                    && proj.type != projectile.type && proj.type != ProjectileID.RainFriendly && proj.whoAmI != Main.player[proj.owner].heldProj
-                    && Array.IndexOf(FargoGlobalProjectile.noSplit, projectile.type) <= -1 && proj.type != ModContent.ProjectileType<Chlorofuck>() && proj.Hitbox.Intersects(projectile.Hitbox))
+                for (int i = 0; i < Main.maxProjectiles; i++)
                 {
-                    if (projectile.scale < 3f)
+                    Projectile proj = Main.projectile[i];
+
+                    if (proj.active && proj.friendly && !proj.hostile && proj.owner == player.whoAmI && proj.damage > 0 && !proj.minion && proj.Hitbox.Intersects(projectile.Hitbox)
+                        && proj.type != projectile.type && proj.type != ProjectileID.RainFriendly && proj.type != ModContent.ProjectileType<LightningArc>() && proj.whoAmI != Main.player[proj.owner].heldProj
+                        && Array.IndexOf(FargoGlobalProjectile.noSplit, projectile.type) <= -1 && proj.type != ModContent.ProjectileType<Chlorofuck>())
                     {
-                        projectile.scale *= 1.1f;
+                        if (projectile.scale < 3f)
+                        {
+                            projectile.scale *= 1.1f;
+                        }
+                        else
+                        {
+                            Vector2 rotationVector2 = (proj.Center + proj.velocity * 25) - projectile.Center;
+                            rotationVector2.Normalize();
+
+                            Vector2 vector2_3 = rotationVector2 * 10f;
+                            float ai_1 = Main.rand.Next(80);
+                            int p = Projectile.NewProjectile(projectile.position.X + Main.rand.NextFloat(projectile.width), projectile.position.Y + Main.rand.NextFloat(projectile.height), vector2_3.X, vector2_3.Y,
+                                mod.ProjectileType("LightningArc"), proj.maxPenetrate == 1 ? proj.damage * 3 : proj.damage, projectile.knockBack, projectile.owner,
+                                rotationVector2.ToRotation(), ai_1);
+                            if (p != Main.maxProjectiles)
+                            {
+                                Main.projectile[p].ranged = false;
+                                Main.projectile[p].magic = true;
+                            }
+                        }
+
+                        proj.active = false;
+                        shrinkTimer = 120;
+
+                        break;
                     }
-                    else
-                    {
-                        Vector2 rotationVector2 = (proj.Center + proj.velocity * 25) - projectile.Center;
-                        rotationVector2.Normalize();
-
-                        Vector2 vector2_3 = rotationVector2 * 8f;
-                        float ai_1 = Main.rand.Next(80);
-                        Projectile.NewProjectile(projectile.Center.X + vector2_3.X * 5, projectile.Center.Y + vector2_3.Y * 5, vector2_3.X, vector2_3.Y,
-                            mod.ProjectileType("LightningArc"), proj.damage * 3, projectile.knockBack, projectile.owner,
-                            rotationVector2.ToRotation(), ai_1);
-
-                    }
-
-                    proj.active = false;
-                    shrinkTimer = 120;
-
-                    break;
                 }
             }
 
@@ -134,11 +145,17 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (projectile.localAI[1] >= 8)
             {
                 projectile.localAI[1] = 0;
-
-                int num414 = (int)(projectile.Center.X + (float)Main.rand.Next((int)(-20 * projectile.scale), (int)(20 * projectile.scale)));
-                int num415 = (int)(projectile.position.Y + (float)projectile.height + 4f);
-                int p = Projectile.NewProjectile((float)num414, (float)num415, 0f, 5f, ProjectileID.RainFriendly, projectile.damage / 4, 0f, projectile.owner, 0f, 0f);
-                Main.projectile[p].penetrate = 1;
+                if (projectile.owner == Main.myPlayer)
+                {
+                    int num414 = (int)(projectile.Center.X + (float)Main.rand.Next((int)(-20 * projectile.scale), (int)(20 * projectile.scale)));
+                    int num415 = (int)(projectile.position.Y + (float)projectile.height + 4f);
+                    int p = Projectile.NewProjectile((float)num414, (float)num415, 0f, 5f, ProjectileID.RainFriendly, projectile.damage / 4, 0f, projectile.owner, 0f, 0f);
+                    if (p != Main.maxProjectiles)
+                    {
+                        Main.projectile[p].penetrate = 1;
+                        Main.projectile[p].timeLeft = 45 * Main.projectile[p].MaxUpdates;
+                    }
+                }
             }
         }
     }

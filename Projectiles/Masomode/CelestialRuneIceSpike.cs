@@ -29,6 +29,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             projectile.usesLocalNPCImmunity = true;
             projectile.localNPCHitCooldown = 10;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         public override void AI()

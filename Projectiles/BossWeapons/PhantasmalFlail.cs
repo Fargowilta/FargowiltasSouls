@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework; 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
@@ -11,6 +12,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantasmal Flail");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
         public override void SetDefaults()
@@ -90,7 +93,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                         for (int i = 0; i < boltMax; i++)
                         {
                             Vector2 speed = 10f * Vector2.UnitX.RotatedBy(rotationOffset + MathHelper.TwoPi / boltMax * i);
-                            Projectile.NewProjectile(projectile.Center, speed, ModContent.ProjectileType<PhantasmalBolt>(), projectile.damage / 2, projectile.knockBack, projectile.owner);
+                            int p = Projectile.NewProjectile(projectile.Center, speed, ModContent.ProjectileType<PhantasmalBolt>(), projectile.damage / 2, projectile.knockBack, projectile.owner);
+                            if (p != Main.maxProjectiles)
+                                Main.projectile[p].timeLeft /= 2;
                         }
                     }
                 }
@@ -187,7 +192,38 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
 
-            return true;
+
+            Texture2D texture2D13 = Main.projectileTexture[projectile.type];
+            int num156 = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type]; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * projectile.frame; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+            Vector2 origin2 = rectangle.Size() / 2f;
+
+            Color color26 = lightColor;
+            color26 = projectile.GetAlpha(color26);
+
+            SpriteEffects effects = SpriteEffects.None;
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[projectile.type]; i += 0.5f)
+            {
+                Color color27 = Color.White * projectile.Opacity;
+                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type];
+                int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
+                if (max0 < 0)
+                    continue;
+                Vector2 value4 = Vector2.Lerp(projectile.oldPos[(int)i], projectile.oldPos[max0], 1 - i % 1);
+                float num165 = MathHelper.Lerp(projectile.oldRot[(int)i], projectile.oldRot[max0], 1 - i % 1);
+                Main.spriteBatch.Draw(texture2D13, value4 + projectile.Size / 2f - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, projectile.scale, effects, 0f);
+            }
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, effects, 0f);
+            return false;
         }
     }
 }

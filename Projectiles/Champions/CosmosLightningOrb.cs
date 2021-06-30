@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                     projectile.frame = 0;
             }
 
-            if (Main.rand.Next(3) == 0)
+            /*if (Main.rand.Next(3) == 0)
             {
                 float num11 = (float)(Main.rand.NextDouble() * 1.0 - 0.5); //vanilla dust :echbegone:
                 if ((double)num11 < -0.5)
@@ -74,14 +74,13 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Main.dust[index2].velocity = Vector2.Zero;
                 Main.dust[index2].position = projectile.Center + vector2 * projectile.scale;
                 Main.dust[index2].noGravity = true;
-            }
+            }*/
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.Electrified, 360);
-            if (FargoSoulsWorld.MasochistMode)
-                target.AddBuff(ModContent.BuffType<LightningRod>(), 360);
+            //if (FargoSoulsWorld.MasochistMode) target.AddBuff(ModContent.BuffType<LightningRod>(), 360);
         }
     }
 }

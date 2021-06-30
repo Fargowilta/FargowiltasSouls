@@ -175,7 +175,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     }
                     else //server
                     {
-                        Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.AbomBoss.AbomBoss>(), 0, 0f, Main.myPlayer, 0, npc.whoAmI);
+                        spriteProj = Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.AbomBoss.AbomBoss>(), 0, 0f, Main.myPlayer, 0, npc.whoAmI);
                     }
                 }
             }

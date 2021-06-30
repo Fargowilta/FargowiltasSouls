@@ -1367,11 +1367,17 @@ namespace FargowiltasSouls.NPCs
 
                     if (Main.netMode != NetmodeID.MultiplayerClient) //spray of baby guardian missiles
                     {
-                        for (int i = 0; i < 15; i++)
+                        const int max = 30;
+                        float modifier = 1f - (float)npc.life / npc.lifeMax;
+                        modifier *= 4f / 3f; //scaling maxes at 25% life
+                        if (modifier > 1f)
+                            modifier = 1f;
+                        int actualNumberToSpawn = (int)(max * modifier);
+                        for (int i = 0; i < actualNumberToSpawn; i++)
                         {
-                            float speed = Main.rand.NextFloat(4f, 8f);
+                            float speed = Main.rand.NextFloat(3f, 9f);
                             Vector2 velocity = speed * npc.DirectionFrom(Main.player[npc.target].Center).RotatedBy(Math.PI * (Main.rand.NextDouble() - 0.5));
-                            float ai1 = speed / Main.rand.NextFloat(60f, 90f);
+                            float ai1 = speed / (60f + Main.rand.NextFloat(actualNumberToSpawn * 2));
                             Projectile.NewProjectile(npc.Center, velocity, ModContent.ProjectileType<SkeletronGuardian>(), npc.damage / 5, 0f, Main.myPlayer, 0f, ai1);
                         }
                     }
@@ -1425,8 +1431,13 @@ namespace FargowiltasSouls.NPCs
 
                             const int gap = 40;
                             const int max = 14;
+                            float modifier = 1f - (float)npc.life / npc.lifeMax;
+                            modifier *= 4f / 3f; //scaling maxes at 25% life
+                            if (modifier > 1f)
+                                modifier = 1f;
+                            int actualNumberToSpawn = (int)(max * modifier);
                             Vector2 baseVel = npc.DirectionTo(Main.player[npc.target].Center).RotatedBy(MathHelper.ToRadians(gap) * j);
-                            for (int k = 0; k < max; k++) //a fan of skulls
+                            for (int k = 0; k < actualNumberToSpawn; k++) //a fan of skulls
                             {
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
@@ -3719,7 +3730,7 @@ namespace FargowiltasSouls.NPCs
             {
                 //Aura(npc, 700, ModContent.BuffType<IvyVenom>(), true, 188);
                 masoBool[1] = true;
-                npc.defense += 21;
+                //npc.defense += 21;
 
                 if (!masoBool[2])
                 {
@@ -3820,7 +3831,7 @@ namespace FargowiltasSouls.NPCs
 
                 if (npc.HasPlayerTarget && Main.player[npc.target].venom)
                 {
-                    npc.defense *= 2;
+                    //npc.defense *= 2;
                     //Counter[0]++;
                     SharkCount = 1;
                     npc.position -= npc.velocity * 0.1f;
@@ -4165,7 +4176,7 @@ namespace FargowiltasSouls.NPCs
             }
             masoBool[0] = npc.ai[0] != 0f;
 
-            if (npc.velocity.Length() > 10)
+            if (npc.velocity.Length() > 10 && !Fargowiltas.Instance.MasomodeEXLoaded)
                 npc.position -= Vector2.Normalize(npc.velocity) * (npc.velocity.Length() - 10);
 
             if (npc.life < npc.lifeMax / 2 && NPC.golemBoss > -1 && NPC.golemBoss < 200 && Main.npc[NPC.golemBoss].active && Main.npc[NPC.golemBoss].type == NPCID.Golem)
@@ -4216,7 +4227,7 @@ namespace FargowiltasSouls.NPCs
                         Counter[0] = 0;
                         Counter[1] = 0;
                         masoBool[0] = true;
-                        masoBool[2] = Framing.GetTileSafely(npc.Center).wall == WallID.LihzahrdBrickUnsafe;
+                        masoBool[2] = Framing.GetTileSafely(npc.Center).wall == WallID.LihzahrdBrickUnsafe; //is in temple
                         npc.netUpdate = true;
                         if (Main.netMode == NetmodeID.Server)
                             NetUpdateMaso(npc.whoAmI);
@@ -4297,9 +4308,8 @@ namespace FargowiltasSouls.NPCs
 
                     if (!masoBool[0] && Main.netMode != NetmodeID.MultiplayerClient) //spray lasers after dash
                     {
-                        bool inTemple = Framing.GetTileSafely(npc.Center).wall == WallID.LihzahrdBrickUnsafe;
-                        int max = inTemple ? 6 : 10;
-                        int speed = inTemple ? 9 : -12; //down in temple, up outside it
+                        int max = masoBool[2] ? 6 : 10;
+                        int speed = masoBool[2] ? 9 : -12; //down in temple, up outside it
                         for (int i = -max; i <= max; i++)
                         {
                             int p = Projectile.NewProjectile(npc.Center, speed * Vector2.UnitY.RotatedBy(Math.PI / 2 / max * i),

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant Sickle");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
@@ -20,31 +20,47 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         {
             projectile.width = 40;
             projectile.height = 40;
-            projectile.alpha = 100;
-            projectile.light = 0.2f;
+            projectile.alpha = 0;
             projectile.hostile = true;
-            projectile.timeLeft = 90;
+            projectile.timeLeft = 600;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.aiStyle = -1;
             cooldownSlot = 1;
+            
+            projectile.hide = true;
+        }
+
+        public override void DrawBehind(int index, List<int> drawCacheProjsBehindNPCsAndTiles, List<int> drawCacheProjsBehindNPCs, List<int> drawCacheProjsBehindProjectiles, List<int> drawCacheProjsOverWiresUI)
+        {
+            drawCacheProjsBehindProjectiles.Add(index);
         }
 
         public override void AI()
         {
-            /*NPC mutant = Main.npc[(int)projectile.ai[0]];
-            if (!mutant.active || mutant.type != mod.NPCType("MutantBoss"))
-            {
-                projectile.Kill();
-                return;
-            }*/
-            if (projectile.localAI[0] == 0)
+            /*if (projectile.localAI[0] == 0)
             {
                 projectile.localAI[0] = 1;
                 Main.PlaySound(SoundID.Item8, projectile.Center);
+            }*/
+            if (projectile.rotation == 0)
+                projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
+
+            float modifier = (180f - projectile.timeLeft + 90) / 180f;
+            if (modifier < 0)
+                modifier = 0;
+            if (modifier > 1)
+                modifier = 1;
+            projectile.rotation += 0.2f + 0.6f * modifier;
+            //projectile.alpha = (int)(127f * (1f - modifier));
+
+            if (projectile.timeLeft < 180)
+            {
+                if (projectile.velocity == Vector2.Zero)
+                    projectile.velocity = projectile.ai[1].ToRotationVector2();
+                projectile.velocity *= 1f + projectile.ai[0];
             }
-            projectile.rotation += 0.8f;
-            for (int i = 0; i < 6; i++)
+            /*for (int i = 0; i < 6; i++)
             {
                 Vector2 offset = new Vector2(0, -20).RotatedBy(projectile.rotation);
                 offset = offset.RotatedByRandom(MathHelper.Pi / 6);
@@ -53,19 +69,20 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 float velrando = Main.rand.Next(20, 31) / 10;
                 Main.dust[d].velocity = projectile.velocity / velrando;
                 Main.dust[d].noGravity = true;
-            }
+            }*/
         }
 
-        public override void Kill(int timeLeft)
+        public override void PostAI()
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-                for (int i = 0; i < 8; i++)
-                    Projectile.NewProjectile(projectile.Center, Vector2.UnitX.RotatedBy(Math.PI / 4 * i), mod.ProjectileType("MutantScythe2"), projectile.damage, 0f, projectile.owner);
+            if (projectile.GetGlobalProjectile<FargoGlobalProjectile>().GrazeCD == 6)
+                projectile.GetGlobalProjectile<FargoGlobalProjectile>().GrazeCD = 60;
+            else if (projectile.GetGlobalProjectile<FargoGlobalProjectile>().GrazeCD == 7)
+                projectile.GetGlobalProjectile<FargoGlobalProjectile>().GrazeCD = 5;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return Color.White;
+            return Color.White * projectile.Opacity;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

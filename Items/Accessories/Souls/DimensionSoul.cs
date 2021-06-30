@@ -124,6 +124,7 @@ Effects of Shield of Cthulhu and Master Ninja Gear
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
+            player.wingsLogic = 22;
             ascentWhenFalling = 1f;
             ascentWhenRising = 0.3f;
             maxCanAscendMultiplier = 1.5f;

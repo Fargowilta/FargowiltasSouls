@@ -20,6 +20,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projectile.friendly = true;
             projectile.melee = true;
             projectile.timeLeft = 180;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         public override void AI()

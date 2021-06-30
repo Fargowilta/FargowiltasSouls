@@ -46,6 +46,9 @@ namespace FargowiltasSouls.Buffs.Souls
 
             player.GetModPlayer<FargoPlayer>().MutantNibble = true; //no heal
 
+            if (player.mount.Active)
+                player.mount.Dismount(player);
+
             if (!Main.dedServ)
             {
                 if (player.buffTime[buffIndex] > 90)

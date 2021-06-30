@@ -89,7 +89,6 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[projectile.type]; i += 0.2f)
             {
-                Player player = Main.player[projectile.owner];
                 Texture2D glow = mod.GetTexture("Projectiles/BossWeapons/HentaiSpearSpinGlow");
                 Color color27 = Color.Lerp(new Color(255, 255, 0, 210), Color.Transparent, 0.4f);
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type];
@@ -99,7 +98,6 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 if (max0 < 0)
                     continue;
                 Vector2 center = Vector2.Lerp(projectile.oldPos[(int)i], projectile.oldPos[max0], 1 - i % 1);
-                float smoothtrail = i % 1 * (float)Math.PI / 6.85f;
                 /*bool withinangle = projectile.rotation > -Math.PI / 2 && projectile.rotation < Math.PI / 2;
                 if (withinangle && player.direction == 1)
                     smoothtrail *= -1;

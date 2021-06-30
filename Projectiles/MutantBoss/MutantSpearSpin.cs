@@ -36,15 +36,19 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void AI()
         {
+            if (projectile.ai[1] == 0)
+                projectile.ai[1] = Main.rand.NextBool() ? -1 : 1;
+
             NPC mutant = Main.npc[(int)projectile.ai[0]];
             if (mutant.active && mutant.type == mod.NPCType("MutantBoss") && (mutant.ai[0] == 4 || mutant.ai[0] == 13 || mutant.ai[0] == 21))
             {
-                projectile.rotation += (float)Math.PI / 6.85f * mutant.direction;
+                projectile.rotation += (float)Math.PI / 6.85f * projectile.ai[1];
                 projectile.Center = mutant.Center;
             }
             else
             {
                 projectile.Kill();
+                return;
             }
 
             if (++projectile.localAI[0] > 8)

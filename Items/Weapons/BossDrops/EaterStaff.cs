@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             int headCheck = -1;
             int tailCheck = -1;
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < Main.maxProjectiles; i++)
             {
                 Projectile proj = Main.projectile[i];
                 if (proj.active && proj.owner == player.whoAmI)
@@ -73,13 +73,13 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
 
                 for (int i = 0; i < 4; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("EaterBody"), damage, knockBack, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("EaterBody"), damage, knockBack, player.whoAmI, Main.projectile[current].identity, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("EaterTail"), damage, knockBack, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("EaterTail"), damage, knockBack, player.whoAmI, Main.projectile[current].identity, 0f);
 
-                Main.projectile[previous].localAI[1] = current;
+                Main.projectile[previous].localAI[1] = Main.projectile[current].identity;
                 Main.projectile[previous].netUpdate = true;
             }
             //spawn more body segments
@@ -90,15 +90,16 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
 
                 for (int i = 0; i < 4; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("EaterBody"), damage, knockBack, player.whoAmI,
-                        Projectile.GetByUUID(Main.myPlayer, previous), 0f);
+                    int prevUUID = Projectiles.FargoGlobalProjectile.GetByUUIDReal(player.whoAmI, Main.projectile[previous].identity);
+                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("EaterBody"),
+                        damage, knockBack, player.whoAmI, prevUUID, 0f);
 
                     previous = current;
                 }
 
-                Main.projectile[current].localAI[1] = tailCheck;
+                Main.projectile[current].localAI[1] = Main.projectile[tailCheck].identity;
 
-                Main.projectile[tailCheck].ai[0] = current;
+                Main.projectile[tailCheck].ai[0] = Projectiles.FargoGlobalProjectile.GetByUUIDReal(player.whoAmI, Main.projectile[current].identity);
                 Main.projectile[tailCheck].netUpdate = true;
                 Main.projectile[tailCheck].ai[1] = 1f;
             }

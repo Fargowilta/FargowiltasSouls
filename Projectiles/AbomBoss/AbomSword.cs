@@ -130,8 +130,8 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                 spawnedHandle = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(projectile.Center, projectile.velocity, ModContent.ProjectileType<AbomSwordHandle>(), projectile.damage, projectile.knockBack, projectile.owner, (float)Math.PI / 2, projectile.whoAmI);
-                    Projectile.NewProjectile(projectile.Center, projectile.velocity, ModContent.ProjectileType<AbomSwordHandle>(), projectile.damage, projectile.knockBack, projectile.owner, -(float)Math.PI / 2, projectile.whoAmI);
+                    Projectile.NewProjectile(projectile.Center, projectile.velocity, ModContent.ProjectileType<AbomSwordHandle>(), projectile.damage, projectile.knockBack, projectile.owner, (float)Math.PI / 2, projectile.identity);
+                    Projectile.NewProjectile(projectile.Center, projectile.velocity, ModContent.ProjectileType<AbomSwordHandle>(), projectile.damage, projectile.knockBack, projectile.owner, -(float)Math.PI / 2, projectile.identity);
                 }
             }
 

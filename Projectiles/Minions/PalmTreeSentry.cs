@@ -20,7 +20,14 @@ namespace FargowiltasSouls.Projectiles.Minions
             projectile.tileCollide = true;
             projectile.ignoreWater = true;
             projectile.penetrate = -1;
+            projectile.friendly = true;
+            projectile.minion = true;
             projectile.timeLeft = 7200;
+        }
+
+        public override bool CanDamage()
+        {
+            return false;
         }
 
         public override void AI()
@@ -70,8 +77,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                         Vector2 velocity = Vector2.Normalize(target.Center - projectile.Center) * 10;
 
                         int p = Projectile.NewProjectile(projectile.Center, velocity, ProjectileID.SeedlerNut, projectile.damage, 2, projectile.owner);
-                        Main.projectile[p].minion = true;
-                        Main.projectile[p].melee = false;
+                        if (p != Main.maxProjectiles)
+                        {
+                            Main.projectile[p].minion = true;
+                            Main.projectile[p].melee = false;
+                        }
 
                     }
                 }

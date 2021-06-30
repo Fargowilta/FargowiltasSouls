@@ -26,9 +26,9 @@ namespace FargowiltasSouls.NPCs.Champions
         {
             npc.width = 100;
             npc.height = 100;
-            npc.damage = 125;
+            npc.damage = 130;
             npc.defense = 80;
-            npc.lifeMax = 300000;
+            npc.lifeMax = 320000;
             npc.HitSound = SoundID.NPCHit41;
             npc.DeathSound = SoundID.NPCDeath44;
             npc.noGravity = true;
@@ -45,6 +45,12 @@ namespace FargowiltasSouls.NPCs.Champions
             npc.GetGlobalNPC<FargoSoulsGlobalNPC>().SpecialEnchantImmune = true;
 
             npc.trapImmune = true;
+        }
+
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            //npc.damage = (int)(npc.damage * 0.5f);
+            npc.lifeMax = (int)(npc.lifeMax * Math.Sqrt(bossLifeScale));
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

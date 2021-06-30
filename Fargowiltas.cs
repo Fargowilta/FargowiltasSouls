@@ -195,6 +195,7 @@ namespace FargowiltasSouls
             AddToggle("HallowedConfig", "Hallowed Enchanted Sword Familiar", "HallowEnchant", "968564");
             AddToggle("HallowSConfig", "Hallowed Shield", "HallowEnchant", "968564");
             AddToggle("SilverConfig", "Silver Sword Familiar", "SilverEnchant", "b4b4cc");
+            AddToggle("SilverSpeedConfig", "Silver Minion Speed", "SilverEnchant", "b4b4cc");
             AddToggle("SpectreConfig", "Spectre Orbs", "SpectreEnchant", "accdfc");
             AddToggle("TikiConfig", "Tiki Minions", "TikiEnchant", "56A52B");
 
@@ -315,6 +316,7 @@ namespace FargowiltasSouls
             AddToggle("SupersonicCarpetConfig", "Supersonic Carpet", "SupersonicSoul", "ffffff");
             AddToggle("SupersonicFlowerConfig", "Flower Boots", "SupersonicSoul", "248900");
             AddToggle("CthulhuShieldConfig", "Shield of Cthulhu", "SupersonicSoul", "ffffff");
+            AddToggle("BlackBeltConfig", "Black Belt", "SupersonicSoul", "ffffff");
             AddToggle("TrawlerConfig", "Trawler Extra Lures", "TrawlerSoul", "ffffff");
             AddToggle("TrawlerJumpConfig", "Trawler Jump", "TrawlerSoul", "ffffff");
             AddToggle("EternityConfig", "Eternity Stacking", "EternitySoul", "ffffff");
@@ -387,6 +389,7 @@ namespace FargowiltasSouls
                 Ref<Effect> gaiaRef = new Ref<Effect>(GetEffect("Effects/GaiaShader"));
                 Ref<Effect> textRef = new Ref<Effect>(GetEffect("Effects/TextShader"));
                 Ref<Effect> invertRef = new Ref<Effect>(GetEffect("Effects/Invert"));
+                Ref<Effect> shockwaveRef = new Ref<Effect>(GetEffect("Effects/ShockwaveEffect")); // The path to the compiled shader file.
 
                 //loading shaders from refs
                 GameShaders.Misc["LCWingShader"] = new MiscShaderData(lcRef, "LCWings");
@@ -403,6 +406,9 @@ namespace FargowiltasSouls
                 GameShaders.Misc["PulseCircle"] = new MiscShaderData(textRef, "PulseCircle");
 
                 Filters.Scene["FargowiltasSouls:Invert"] = new Filter(new TimeStopShader(invertRef, "Main"), EffectPriority.VeryHigh);
+
+                Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(shockwaveRef, "Shockwave"), EffectPriority.VeryHigh);
+                Filters.Scene["Shockwave"].Load();
 
                 #endregion shaders
             }
@@ -457,6 +463,11 @@ namespace FargowiltasSouls
                 switch (code)
                 {
                     case "Masomode":
+                    case "MasoMode":
+                    case "MasochistMode":
+                    case "Emode":
+                    case "EMode":
+                    case "EternityMode":
                         return FargoSoulsWorld.MasochistMode;
 
                     case "DownedMutant":
@@ -465,6 +476,10 @@ namespace FargowiltasSouls
                     case "DownedAbom":
                     case "DownedAbominationn":
                         return FargoSoulsWorld.downedAbom;
+
+                    case "DownedChamp":
+                    case "DownedChampion":
+                        return FargoSoulsWorld.downedChampions[(int)args[1]];
 
                     case "DownedEri":
                     case "DownedEridanus":
@@ -576,6 +591,7 @@ namespace FargowiltasSouls
                 Item.NewItem(player.Center, ItemID.WormholePotion, 15);
             }
             Item.NewItem(player.Center, ModContent.ItemType<DevianttsSundial>());
+            Item.NewItem(player.Center, ModContent.ItemType<EternityAdvisor>());
             Item.NewItem(player.Center, ModContent.ItemType<AutoHouse>(), 3);
             Item.NewItem(player.Center, ModContent.ItemType<EurusSock>());
             Item.NewItem(player.Center, ModContent.ItemType<PuffInABottle>());
@@ -676,7 +692,7 @@ namespace FargowiltasSouls
                 Mod bossHealthBar = ModLoader.GetMod("FKBossHealthBar");
                 if (bossHealthBar != null)
                 {
-                    bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<BabyGuardian>());
+                    //bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<BabyGuardian>());
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<TimberChampion>());
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<TimberChampionHead>());
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<EarthChampion>());
@@ -686,6 +702,27 @@ namespace FargowiltasSouls
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<SpiritChampion>());
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<TerraChampion>());
                     bossHealthBar.Call("RegisterHealthBarMini", ModContent.NPCType<NatureChampion>());
+
+                    bossHealthBar.Call("hbStart");
+                    bossHealthBar.Call("hbSetColours", new Color(1f, 1f, 1f), new Color(1f, 1f, 0f), new Color(1f, 0f, 0f));
+                    bossHealthBar.Call("hbFinishSingle", ModContent.NPCType<CosmosChampion>());
+
+                    bossHealthBar.Call("hbStart");
+                    bossHealthBar.Call("hbSetColours", new Color(1f, 0f, 1f), new Color(1f, 0.2f, 0.6f), new Color(1f, 0f, 0f));
+                    bossHealthBar.Call("hbFinishSingle", ModContent.NPCType<DeviBoss>());
+
+                    bossHealthBar.Call("RegisterDD2HealthBar", ModContent.NPCType<AbomBoss>());
+
+                    bossHealthBar.Call("hbStart");
+                    bossHealthBar.Call("hbSetColours", new Color(0f, 1f, 0f), new Color(0f, 1f, 1f), new Color(0f, 0.6f, 1f));
+                    //bossHealthBar.Call("hbSetBossHeadTexture", GetTexture("NPCs/MutantBoss/MutantBoss_Head_Boss"));
+                    bossHealthBar.Call("hbSetTexture",
+                        bossHealthBar.GetTexture("UI/MoonLordBarStart"), null,
+                        bossHealthBar.GetTexture("UI/MoonLordBarEnd"), null);
+                    bossHealthBar.Call("hbSetTextureExpert",
+                        bossHealthBar.GetTexture("UI/MoonLordBarStart_Exp"), null,
+                        bossHealthBar.GetTexture("UI/MoonLordBarEnd_Exp"), null);
+                    bossHealthBar.Call("hbFinishSingle", ModContent.NPCType<MutantBoss>());
                 }
 
                 //mutant shop
@@ -1092,7 +1129,29 @@ namespace FargowiltasSouls
                             Main.item[i].position.Y += Main.rand.NextFloat(Main.player[p].Hitbox.Height);
                         }
                     }
-                    break; 
+                    break;
+
+                case 18: //client to server, requesting pillar sync
+                    if (Main.netMode == NetmodeID.Server)
+                    {
+                        int n = reader.ReadByte();
+                        int type = reader.ReadInt32();
+                        if (Main.npc[n].active && Main.npc[n].type == type)
+                        {
+                            Main.npc[n].GetGlobalNPC<EModeGlobalNPC>().NetUpdateMaso(n);
+                        }
+                    }
+                    break;
+
+                /*case 19: //client to all others, synchronize extra updates
+                    {
+                        int p = reader.ReadInt32();
+                        int type = reader.ReadInt32();
+                        int extraUpdates = reader.ReadInt32();
+                        if (Main.projectile[p].active && Main.projectile[p].type == type)
+                            Main.projectile[p].extraUpdates = extraUpdates;
+                    }
+                    break;*/
 
                 case 77: //server side spawning fishron EX
                     if (Main.netMode == NetmodeID.Server)

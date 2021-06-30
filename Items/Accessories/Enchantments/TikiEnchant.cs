@@ -14,6 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Tiki Enchantment");
             Tooltip.SetDefault(
 @"You may continue to summon temporary minions and sentries after maxing out on your slots
+Reduces attack speed of summon weapons in exchange
 'Aku Aku!'");
             DisplayName.AddTranslation(GameCulture.Chinese, "提基魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,

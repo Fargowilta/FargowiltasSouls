@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override string Texture => "FargowiltasSouls/NPCs/Champions/CosmosChampion";
 
-        public const int baseDamage = 220;
+        public const int baseDamage = 300;
         public int drawTrailOffset;
 
         public override void SetStaticDefaults()
@@ -84,7 +84,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 {
                     projectile.direction = projectile.spriteDirection = projectile.Center.X < npc.Center.X ? 1 : -1;
 
-                    switch (player.GetModPlayer<FargoPlayer>().EridanusTimer / (60 * 20)) //attack according to current class
+                    switch (player.GetModPlayer<FargoPlayer>().EridanusTimer / (60 * 10)) //attack according to current class
                     {
                         case 0: //melee
                             {
@@ -191,7 +191,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                                 bool okToAttack = (!player.HeldItem.melee && !player.HeldItem.ranged && !player.HeldItem.magic) || !player.controlUseItem;
 
-                                if (++projectile.localAI[0] > 30)
+                                if (++projectile.localAI[0] > 15)
                                 {
                                     projectile.localAI[0] = 0;
                                     if (Main.myPlayer == projectile.owner && okToAttack)
@@ -199,11 +199,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                                         int modifier = Math.Sign(projectile.Center.Y - npc.Center.Y);
                                         Projectile.NewProjectile(projectile.Center + 3000 * projectile.DirectionFrom(npc.Center) * modifier,
                                             projectile.DirectionTo(npc.Center) * modifier, ModContent.ProjectileType<EridanusDeathray>(), 
-                                            projectile.damage / 3, 0f, Main.myPlayer);
+                                            projectile.damage, projectile.knockBack / 4, Main.myPlayer);
                                     }
                                 }
 
-                                if (okToAttack && projectile.localAI[0] < 10)
+                                if (okToAttack && projectile.localAI[0] < 7)
                                     projectile.frame = 6;
 
                                 projectile.rotation = projectile.DirectionTo(npc.Center).ToRotation();

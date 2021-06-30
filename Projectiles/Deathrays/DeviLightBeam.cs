@@ -20,6 +20,11 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             projectile.extraUpdates = 1;
         }
 
+        public override bool CanDamage()
+        {
+            return projectile.localAI[0] > 6;
+        }
+
         public override void AI()
         {
             Vector2? vector78 = null;

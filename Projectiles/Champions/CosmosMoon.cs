@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Moon");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 7;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
@@ -26,7 +26,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             projectile.tileCollide = false;
             
             projectile.extraUpdates = 0;
-            cooldownSlot = 1;
+            cooldownSlot = 0;
 
             projectile.GetGlobalProjectile<FargoGlobalProjectile>().TimeFreezeImmune = true;
             projectile.GetGlobalProjectile<FargoGlobalProjectile>().ImmuneToMutantBomb = true;
@@ -59,32 +59,56 @@ namespace FargowiltasSouls.Projectiles.Champions
 
                 Main.PlaySound(SoundID.Item92, projectile.Center);
 
-                projectile.localAI[1] += (float)Math.PI / 2;
-                if (projectile.ai[0] < 0)
-                    projectile.localAI[1] += (float)Math.PI;
-                projectile.rotation = projectile.localAI[1];
+                projectile.rotation = projectile.ai[0];
             }
 
             int ai1 = (int)projectile.ai[1];
-            if (!(ai1 > -1 && ai1 < Main.maxNPCs && Main.npc[ai1].active && Main.npc[ai1].type == ModContent.NPCType<NPCs.Champions.CosmosChampion>()))
+            if (ai1 > -1 && ai1 < Main.maxNPCs && Main.npc[ai1].active && Main.npc[ai1].type == ModContent.NPCType<NPCs.Champions.CosmosChampion>())
             {
-                projectile.Kill();
-                return;
+                projectile.timeLeft = 600;
+
+                const float maxAmplitude = 850;
+                float offset = Math.Abs(maxAmplitude * (float)Math.Sin(Main.npc[ai1].ai[2] * 2 * (float)Math.PI / 200));
+                offset += 150;
+                projectile.ai[0] += 0.01f;
+                projectile.Center = Main.npc[ai1].Center + offset * projectile.ai[0].ToRotationVector2();
+            }
+            else
+            {
+                if (projectile.localAI[0] == 1)
+                {
+                    projectile.localAI[0] = 2;
+                    projectile.velocity = projectile.position - projectile.oldPos[1];
+                }
+
+                projectile.damage = 0;
+                projectile.velocity.Y += 0.2f;
+                projectile.tileCollide = true;
             }
 
-            projectile.timeLeft = 2;
-            
-            const float maxAmplitude = 850;
-            float offset = Math.Abs(maxAmplitude * (float)Math.Sin(Main.npc[ai1].ai[2] * 2 * (float)Math.PI / 200));
-            offset += 150;
-            projectile.localAI[1] += 0.01f;
             projectile.rotation += 0.04f;
-            projectile.Center = Main.npc[ai1].Center + offset * projectile.localAI[1].ToRotationVector2();
+        }
+
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        {
+            width = height = (int)(projectile.width / Math.Sqrt(2));
+            return base.TileCollideStyle(ref width, ref height, ref fallThrough);
         }
 
         public override void Kill(int timeLeft) //vanilla explosion code echhhhhhhhhhh
         {
             Main.PlaySound(SoundID.Item89, projectile.position);
+
+            if (!Main.dedServ && Main.LocalPlayer.active)
+                Main.LocalPlayer.GetModPlayer<FargoPlayer>().Screenshake = 30;
+
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                int max = 10;
+                for (int i = 0; i < max; i++)
+                    Projectile.NewProjectile(projectile.Center + Main.rand.NextVector2Circular(projectile.width / 2, projectile.height / 2), Vector2.Zero, ModContent.ProjectileType<MutantBoss.MutantBomb>(), projectile.damage, projectile.knockBack, projectile.owner);
+                Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Masomode.MoonLordMoonBlast>(), projectile.damage, projectile.knockBack, projectile.owner, -Vector2.UnitY.ToRotation(), 32);
+            }
 
             Vector2 size = new Vector2(500, 500);
             Vector2 spawnPos = projectile.Center;

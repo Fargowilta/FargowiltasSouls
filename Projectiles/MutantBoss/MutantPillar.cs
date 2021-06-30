@@ -5,6 +5,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -46,6 +47,11 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             target = reader.ReadInt32();
         }
 
+        public override bool CanDamage()
+        {
+            return projectile.alpha == 0;
+        }
+
         public override void AI()
         {
             if (projectile.localAI[0] == 0f)
@@ -75,8 +81,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             if (projectile.alpha > 0)
             {
-                projectile.velocity.Y += 10f / 120f;
-                projectile.rotation += projectile.velocity.Length() / 20f;
+                projectile.velocity.Y += 5f / 120f;
+                projectile.rotation += projectile.velocity.Length() / 20f * 2f;
                 projectile.localAI[1] += projectile.velocity.Y;
                 projectile.alpha -= 2;
                 if (projectile.alpha <= 0)
@@ -193,14 +199,25 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
+                int fragmentDuration = 240;
+                if (EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>())
+                    && Main.npc[EModeGlobalNPC.mutantBoss].ai[0] == 19)
+                {
+                    fragmentDuration = 420 - (int)Main.npc[EModeGlobalNPC.mutantBoss].ai[1] + 120;
+                }
+
                 const int max = 24;
                 const float rotationInterval = 2f * (float)Math.PI / max;
                 for (int j = 0; j < 4; j++)
                 {
                     Vector2 speed = new Vector2(0f, 4f * (j + 1) + 4f).RotatedBy(projectile.rotation);
                     for (int i = 0; i < max; i++)
-                        Projectile.NewProjectile(projectile.Center, speed.RotatedBy(rotationInterval * i),
+                    {
+                        int p = Projectile.NewProjectile(projectile.Center, speed.RotatedBy(rotationInterval * i),
                             mod.ProjectileType("MutantFragment"), projectile.damage / 2, 0f, Main.myPlayer, projectile.ai[0]);
+                        if (p != Main.maxProjectiles)
+                            Main.projectile[p].timeLeft = fragmentDuration;
+                    }
                 }
             }
         }

@@ -7,25 +7,8 @@ using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
-    public class SpiritHeal : ModProjectile
+    public class SpiritHeal : SpiritSpirit
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Spirit");
-        }
-
-        public override void SetDefaults()
-        {
-            projectile.width = 12;
-            projectile.height = 12;
-            projectile.aiStyle = -1;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
-            projectile.hostile = true;
-            projectile.scale = 0.5f;
-        }
-
         public override bool CanDamage()
         {
             return false;
@@ -69,46 +52,15 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 projectile.position += projectile.velocity;
                 
-                for (int j = 0; j < 5; ++j)
+                /*for (int j = 0; j < 5; ++j)
                 {
                     Vector2 vel = projectile.velocity * 0.2f * j;
                     int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 175, 0f, 0f, 100, default, 1.3f);
                     Main.dust[d].noGravity = true;
                     Main.dust[d].velocity = Vector2.Zero;
                     Main.dust[d].position -= vel;
-                }
+                }*/
             }
-        }
-
-        public override void OnHitPlayer(Player target, int damage, bool crit)
-        {
-            if (FargoSoulsWorld.MasochistMode)
-            {
-                target.AddBuff(ModContent.BuffType<Infested>(), 360);
-                target.AddBuff(ModContent.BuffType<ClippedWings>(), 180);
-            }
-        }
-
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return Color.White * projectile.Opacity;
-        }
-
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-        {
-            Texture2D texture2D13 = Main.projectileTexture[projectile.type];
-            int num156 = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type]; //ypos of lower right corner of sprite to draw
-            int y3 = num156 * projectile.frame; //ypos of upper left corner of sprite to draw
-            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
-            Vector2 origin2 = rectangle.Size() / 2f;
-
-            Color color26 = lightColor;
-            color26 = projectile.GetAlpha(color26);
-
-            SpriteEffects effects = projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-
-            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, effects, 0f);
-            return false;
         }
     }
 }

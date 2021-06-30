@@ -21,6 +21,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projectile.CloneDefaults(ProjectileID.HornetStinger);
             aiType = ProjectileID.Bullet;
             projectile.minion = false;
+            projectile.friendly = true;
             projectile.ranged = true;
             projectile.timeLeft = 240;
             projectile.width = 12;

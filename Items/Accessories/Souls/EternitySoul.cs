@@ -570,6 +570,7 @@ This stacks up to 950 times until you get hit");
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
+            player.wingsLogic = 22;
             ascentWhenFalling = 0.9f; //0.85f
             ascentWhenRising = 0.3f; //0.15f
             maxCanAscendMultiplier = 1f;

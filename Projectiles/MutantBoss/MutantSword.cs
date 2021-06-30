@@ -142,8 +142,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Main.dust[d].position = projectile.Center;
             }
 
-            if (Main.netMode != NetmodeID.MultiplayerClient) //cosmetic explosion
-                Projectile.NewProjectile(projectile.Center, Vector2.Zero, mod.ProjectileType("PhantasmalBlast"), 0, 0f, Main.myPlayer);
+            if (Main.netMode != NetmodeID.MultiplayerClient) //explosion
+                Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantBombSmall>(), projectile.damage, projectile.knockBack, projectile.owner);
         }
 
         public override Color? GetAlpha(Color lightColor)

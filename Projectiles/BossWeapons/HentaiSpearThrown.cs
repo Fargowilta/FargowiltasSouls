@@ -60,14 +60,14 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     if (p != Main.maxProjectiles)
                     {
                         Main.projectile[p].melee = false;
-                        Main.projectile[p].ranged = true;
+                        Main.projectile[p].ranged = projectile.ranged;
                     }
                     p = Projectile.NewProjectile(projectile.Center, 16f * -baseVel,
                         ModContent.ProjectileType<PhantasmalSphere>(), projectile.damage, projectile.knockBack / 2, projectile.owner, 1f);
                     if (p != Main.maxProjectiles)
                     {
                         Main.projectile[p].melee = false;
-                        Main.projectile[p].ranged = true;
+                        Main.projectile[p].ranged = projectile.ranged;
                     }
                     
                     /*Vector2 vel = baseVel.RotatedByRandom(Math.PI / 4);
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     if (p != Main.maxProjectiles)
                     {
                         Main.projectile[p].melee = false;
-                        Main.projectile[p].ranged = true;
+                        Main.projectile[p].ranged = projectile.ranged;
                     }
                 }
             }
@@ -104,14 +104,13 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             projectile.penetrate = 2; //pierce through anyway, dont die on hit, do damage every tick
-
             if (projectile.owner == Main.myPlayer)
             {
                 int p = Projectile.NewProjectile(target.position + new Vector2(Main.rand.Next(target.width), Main.rand.Next(target.height)), Vector2.Zero, ModContent.ProjectileType<PhantasmalBlast>(), projectile.damage, 0f, projectile.owner);
-                if (p < 1000)
+                if (p != Main.maxProjectiles)
                 {
                     Main.projectile[p].melee = false;
-                    Main.projectile[p].ranged = true;
+                    Main.projectile[p].ranged = projectile.ranged;
                 }
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);

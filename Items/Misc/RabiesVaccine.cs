@@ -47,7 +47,7 @@ namespace FargowiltasSouls.Items.Misc
         {
             ModRecipe recipe = new ModRecipe(mod);
 
-            recipe.AddIngredient(ModContent.ItemType<RabiesShot>(), 60);
+            recipe.AddIngredient(ModContent.ItemType<RabiesShot>(), 30);
 
             recipe.AddTile(TileID.AlchemyTable);
             recipe.SetResult(this);

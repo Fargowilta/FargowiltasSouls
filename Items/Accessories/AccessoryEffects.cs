@@ -642,13 +642,14 @@ namespace FargowiltasSouls
 
         public void HallowEffect(bool hideVisual)
         {
+            SilverEnchant = true;
             HallowEnchant = true;
 
-            int dmg = 100;
+            int dmg = 50;
 
             if (SpiritForce || WizardEnchant)
             {
-                dmg = 250;
+                dmg = 150;
             }
 
             AddMinion(player.GetToggleValue("Hallowed"), ModContent.ProjectileType<HallowSword>(), (int)(dmg * player.minionDamage), 0f);
@@ -826,8 +827,8 @@ namespace FargowiltasSouls
 
         public void JungleEffect()
         {
-            
-
+            if (player.whoAmI != Main.myPlayer)
+                return;
 
             if (player.controlJump && player.GetToggleValue("Jungle"))
             {
@@ -848,7 +849,7 @@ namespace FargowiltasSouls
                 }
             }
 
-            if (jungleJumping && player.GetToggleValue("Jungle") && player.whoAmI == Main.myPlayer)
+            if (jungleJumping && player.GetToggleValue("Jungle"))
             {
                 if (player.rocketBoots > 0)
                 {
@@ -899,9 +900,13 @@ namespace FargowiltasSouls
                     if (meteorTimer % 2 == 0)
                     {
                         int p = Projectile.NewProjectile(player.Center.X + Main.rand.Next(-1000, 1000), player.Center.Y - 1000, Main.rand.Next(-2, 2), 0f + Main.rand.Next(8, 12), Main.rand.Next(424, 427), HighestDamageTypeScaling(damage), 0f, player.whoAmI, 0f, 0.5f + (float)Main.rand.NextDouble() * 0.3f);
-
-                        Main.projectile[p].GetGlobalProjectile<FargoGlobalProjectile>().CanSplit = false;
-                        Main.projectile[p].netUpdate = true;
+                        if (p != Main.maxProjectiles)
+                        {
+                            Main.projectile[p].GetGlobalProjectile<FargoGlobalProjectile>().CanSplit = false;
+                            Main.projectile[p].netUpdate = true;
+                            if (ModLoader.GetMod("Fargowiltas") != null)
+                                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", Main.projectile[p]);
+                        }
                     }
 
                     meteorTimer--;
@@ -1662,8 +1667,7 @@ namespace FargowiltasSouls
         public void TinEffect()
         {
             if (!player.GetToggleValue("Tin", false)) return;
-
-            TinCritMax = HighestCritChance() * 2;
+            
             TinEnchant = true;
         }
 
@@ -1777,11 +1781,11 @@ namespace FargowiltasSouls
                 NPC npc = Main.npc[i];
                 if (npc.active && !npc.friendly && npc.lifeMax > 5 && npc.Distance(player.Center) < dist)
                 {
-                    npc.AddBuff(BuffID.ShadowFlame, 120);
+                    npc.AddBuff(BuffID.ShadowFlame, 15);
 
                     if (WoodForce || WizardEnchant)
                     {
-                        npc.AddBuff(BuffID.CursedInferno, 120);
+                        npc.AddBuff(BuffID.CursedInferno, 15);
                     }
                 }
                     
@@ -2144,7 +2148,7 @@ namespace FargowiltasSouls
             //shiny stone
             player.shinyStone = true;
             //flesh knuckles
-            if (player.GetToggleValue("DefenseFleshKnuckle"))
+            if (player.GetToggleValue("DefenseFleshKnuckle", false))
             {
                 player.aggro += 400;
             }
@@ -2235,7 +2239,8 @@ namespace FargowiltasSouls
                 player.dash = 2;
             }
             //ninja gear
-            player.blackBelt = true;
+            if (player.GetToggleValue("BlackBelt"))
+                player.blackBelt = true;
             if (player.GetToggleValue("SupersonicClimbing"))
                 player.spikedBoots = 2;
             if (player.GetToggleValue("SupersonicTabi", false))

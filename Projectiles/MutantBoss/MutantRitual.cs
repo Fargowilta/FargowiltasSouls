@@ -9,7 +9,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
     {
         public override string Texture => "Terraria/Projectile_454";
 
-        public MutantRitual() : base(MathHelper.Pi / 140f, 1200f, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()) { }
+        private const float realRotation = MathHelper.Pi / 140f;
+
+        public MutantRitual() : base(realRotation, 1200f, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()) { }
 
         public override void SetStaticDefaults()
         {
@@ -19,15 +21,19 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         protected override void Movement(NPC npc)
         {
-            //stationary during pillar (commented out is slime rain)
-            if (npc.ai[0] == 19 /*|| Main.npc[ai1].ai[0] == 37 || Main.npc[ai1].ai[0] == 38 || Main.npc[ai1].ai[0] == 39*/)
+            //stationary during pillar, eoc
+            if (npc.ai[0] == 19 || (npc.ai[0] == 20 && npc.ai[1] < 120))
             {
                 projectile.velocity = Vector2.Zero;
+
+                rotationPerTick = -realRotation / 10; //denote arena isn't moving
             }
             else
             {
                 projectile.velocity = npc.Center - projectile.Center;
                 projectile.velocity /= 60f;
+
+                rotationPerTick = realRotation;
             }
         }
 

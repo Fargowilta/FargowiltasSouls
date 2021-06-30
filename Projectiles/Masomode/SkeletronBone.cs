@@ -20,9 +20,13 @@ namespace FargowiltasSouls.Projectiles.Masomode
             aiType = ProjectileID.SkeletonBone;
             projectile.light = 1f;
             projectile.scale = 1.5f;
-            projectile.timeLeft = 300;
+            projectile.timeLeft = 240;
             projectile.tileCollide = false;
-            //cooldownSlot = 1;
+            if (EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.guardBoss, NPCID.DungeonGuardian)
+                || (EModeGlobalNPC.BossIsAlive(ref EModeGlobalNPC.skeleBoss, NPCID.SkeletronHead) && Main.npc[EModeGlobalNPC.skeleBoss].ai[1] == 2f))
+            {
+                cooldownSlot = 1;
+            }
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

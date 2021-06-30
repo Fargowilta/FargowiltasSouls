@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void AI()
         {
-            if (Main.player[projectile.owner].active && !Main.player[projectile.owner].dead && Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusEmpower)
+            if (Main.player[projectile.owner].active && !Main.player[projectile.owner].dead && !Main.player[projectile.owner].ghost && Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusEmpower)
             {
                 projectile.alpha = 0;
             }
@@ -59,7 +59,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (projectile.rotation > PI)
                 projectile.rotation -= 2f * PI;
 
-            switch (Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusTimer / (60 * 20))
+            switch (Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusTimer / (60 * 10))
             {
                 case 0: projectile.frame = 1; break;
                 case 1: projectile.frame = 2; break;
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             
             //handle countdown between phase changes
-            projectile.localAI[0] = Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusTimer % (60f * 20f) / (60f * 20f) * 12f - 1f;
+            projectile.localAI[0] = Main.player[projectile.owner].GetModPlayer<FargoPlayer>().EridanusTimer % (float)(60 * 10) / (float)(60 * 10) * 12f - 1f;
         }
 
         public override bool CanDamage()

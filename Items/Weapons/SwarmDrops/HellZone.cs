@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetDefaults()
         {
-            item.damage = 190; //
+            item.damage = 230; //
             item.knockBack = 4f;
             item.shootSpeed = 12f; //
 
@@ -55,8 +55,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
             Vector2 speed = new Vector2(speedX, speedY);
             position += Vector2.Normalize(speed) * 40f;
-            int max = Main.rand.Next(1, 3);
-            float rotation = MathHelper.Pi / 4f / max * Main.rand.NextFloat(0.25f, 0.75f);
+            int max = Main.rand.Next(1, 4);
+            float rotation = MathHelper.Pi / 4f / max * Main.rand.NextFloat(0.25f, 0.75f) * 0.75f;
             counter++;
             for (int i = -max; i <= max; i++)
             {

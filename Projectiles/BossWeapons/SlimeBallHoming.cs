@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (bounce == 0)
             {
-                bounce = Main.rand.Next(120);
+                bounce = Main.rand.Next(90);
             }
 
             if (++projectile.localAI[0] == bounce)

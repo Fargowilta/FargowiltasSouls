@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             projectile.width = 20;
             projectile.height = 20;
             projectile.aiStyle = -1;
-            projectile.timeLeft = 600;
+            projectile.timeLeft = 270;
             projectile.hostile = true;
 
             projectile.extraUpdates = 2;

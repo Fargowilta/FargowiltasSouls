@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             projectile.aiStyle = -1;
             projectile.alpha = 255;
             projectile.friendly = true;
-            projectile.minion = true;
+            projectile.magic = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
             projectile.extraUpdates = 1;
@@ -33,6 +33,9 @@ namespace FargowiltasSouls.Projectiles.Minions
 
             projectile.usesLocalNPCImmunity = true;
             projectile.localNPCHitCooldown = 10;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         public override void AI()

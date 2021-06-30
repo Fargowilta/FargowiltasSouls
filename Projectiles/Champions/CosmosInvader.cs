@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override string Texture => "Terraria/Projectile_539";
 
-        private bool spawned;
+        protected bool spawned;
 
         public override void SetStaticDefaults()
         {
@@ -43,43 +43,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 projectile.frame = Main.rand.Next(4);
 
                 projectile.timeLeft = (int)projectile.ai[0];
-
-                if (projectile.ai[1] != 0) //dont do dust square or spawn in sound when spawned in eri p3
-                    return true;
-
-                Main.PlaySound(SoundID.NPCKilled, (int)projectile.position.X, (int)projectile.position.Y, 7, 0.5f, 0.0f);
-                
-                for (int index1 = 0; index1 < 4; ++index1)
-                {
-                    int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
-                    Main.dust[index2].position = projectile.Center + Vector2.UnitY.RotatedByRandom(3.14159274101257) * (float)Main.rand.NextDouble() * (float)projectile.width / 2f;
-                }
-                for (int index1 = 0; index1 < 20; ++index1)
-                {
-                    int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 176, 0.0f, 0.0f, 200, new Color(), 3.7f);
-                    Main.dust[index2].position = projectile.Center + Vector2.UnitY.RotatedByRandom(3.14159274101257) * (float)Main.rand.NextDouble() * (float)projectile.width / 2f;
-                    Main.dust[index2].noGravity = true;
-                    Dust dust = Main.dust[index2];
-                    dust.velocity = dust.velocity * 3f;
-                }
-                for (int index1 = 0; index1 < 20; ++index1)
-                {
-                    int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 180, 0.0f, 0.0f, 0, new Color(), 2.7f);
-                    Main.dust[index2].position = projectile.Center + Vector2.UnitX.RotatedByRandom(3.14159274101257).RotatedBy((double)projectile.velocity.ToRotation(), new Vector2()) * (float)projectile.width / 2f;
-                    Main.dust[index2].noGravity = true;
-                    Dust dust = Main.dust[index2];
-                    dust.velocity = dust.velocity * 3f;
-                }
-                for (int index1 = 0; index1 < 10; ++index1)
-                {
-                    int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 31, 0.0f, 0.0f, 0, new Color(), 1.5f);
-                    Main.dust[index2].position = projectile.Center + Vector2.UnitX.RotatedByRandom(3.14159274101257).RotatedBy((double)projectile.velocity.ToRotation(), new Vector2()) * (float)projectile.width / 2f;
-                    Main.dust[index2].noGravity = true;
-                    Dust dust = Main.dust[index2];
-                    dust.velocity = dust.velocity * 3f;
-                }
             }
-
             return true;
         }
 
@@ -88,15 +52,11 @@ namespace FargowiltasSouls.Projectiles.Champions
             projectile.velocity *= 1 + projectile.ai[1];
 
             projectile.rotation = projectile.velocity.ToRotation() + 1.570796f;
-
-            int num4 = projectile.frameCounter + 1;
-            projectile.frameCounter = num4;
-            if (num4 >= 2)
+            
+            if (++projectile.frameCounter >= 4)
             {
                 projectile.frameCounter = 0;
-                int num5 = projectile.frame + 1;
-                projectile.frame = num5;
-                if (num5 >= Main.projFrames[projectile.type])
+                if (++projectile.frame >= Main.projFrames[projectile.type])
                     projectile.frame = 0;
             }
 

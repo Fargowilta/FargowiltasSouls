@@ -24,6 +24,9 @@ namespace FargowiltasSouls.Projectiles.Souls
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.scale = 2f;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         public override void AI()

@@ -106,7 +106,9 @@ namespace FargowiltasSouls
         [DefaultValue(false)]
         public bool HideTogglerWhenInventoryIsClosed;
 
-
+        [Label("Mutant boss music effect")]
+        [DefaultValue(true)]
+        public bool MutantMusicIsRePrologue;
 
         #region maso accessories
 

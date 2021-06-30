@@ -38,7 +38,7 @@ namespace FargowiltasSouls.Projectiles
             projectile.penetrate = -1;
 
             projectile.usesIDStaticNPCImmunity = true;
-            projectile.idStaticNPCHitCooldown = 10;
+            projectile.idStaticNPCHitCooldown = 30;
         }
 
         public override void AI()

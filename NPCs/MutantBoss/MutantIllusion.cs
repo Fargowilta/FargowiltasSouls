@@ -23,9 +23,9 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         {
             npc.width = 34;
             npc.height = 50;
-            npc.damage = 250;
+            npc.damage = 360;
             npc.defense = 400;
-            npc.lifeMax = 7700000;
+            npc.lifeMax = 7000000;
             npc.dontTakeDamage = true;
             npc.HitSound = SoundID.NPCHit57;
             npc.noGravity = true;
@@ -43,8 +43,13 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.damage = 360;
-            npc.lifeMax = (int)(7700000 * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.5f);
+            npc.lifeMax = (int)(npc.lifeMax * 0.5f * bossLifeScale);
+        }
+
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+        {
+            return false;
         }
 
         public override void AI()
@@ -79,10 +84,14 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             npc.target = mutant.target;
             npc.damage = mutant.damage;
             npc.defDamage = mutant.damage;
-            if (npc.HasPlayerTarget)
+
+            npc.frame.Y = mutant.frame.Y;
+
+            if (npc.HasValidTarget)
             {
-                Vector2 distance = Main.player[npc.target].Center - mutant.Center;
-                npc.Center = Main.player[npc.target].Center;
+                Vector2 target = Main.player[mutant.target].Center;
+                Vector2 distance = target - mutant.Center;
+                npc.Center = target;
                 npc.position.X += distance.X * npc.ai[1];
                 npc.position.Y += distance.Y * npc.ai[2];
                 npc.direction = npc.spriteDirection = npc.position.X < Main.player[npc.target].position.X ? 1 : -1;
@@ -91,6 +100,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             {
                 npc.Center = mutant.Center;
             }
+
+            /*Vector2 target = new Vector2(mutant.localAI[1], mutant.localAI[2]);
+            Vector2 distance = target - mutant.Center;
+            npc.Center = target;
+            npc.position.X += distance.X * npc.ai[1];
+            npc.position.Y += distance.Y * npc.ai[2];*/
 
             if (--npc.ai[3] == 0)
             {
@@ -102,7 +117,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 else
                     ai0 = 2;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(npc.Center, Vector2.UnitY * -10, mod.ProjectileType("MutantPillar"), npc.damage / 3, 0, Main.myPlayer, ai0, npc.whoAmI);
+                    Projectile.NewProjectile(npc.Center, Vector2.UnitY * -5, mod.ProjectileType("MutantPillar"), mutant.damage / 3, 0, Main.myPlayer, ai0, npc.whoAmI);
             }
         }
 
@@ -118,13 +133,13 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override void FindFrame(int frameHeight)
         {
-            if (++npc.frameCounter > 6)
+            /*if (++npc.frameCounter > 6)
             {
                 npc.frameCounter = 0;
                 npc.frame.Y += frameHeight;
                 if (npc.frame.Y >= 4 * frameHeight)
                     npc.frame.Y = 0;
-            }
+            }*/
         }
 
         public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)

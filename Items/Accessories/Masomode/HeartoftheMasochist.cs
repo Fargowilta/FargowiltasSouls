@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.SetDefault(@"Grants immunity to Living Wasteland, Frozen, Hypothermia, Oozed, Withered Weapon, and Withered Armor
 Grants immunity to Feral Bite, Mutant Nibble, Flipped, Unstable, Distorted, and Curse of the Moon
 Grants immunity to Wet, Electrified, Oceanic Maul, Moon Leech, Nullification Curse, and water debuffs
-Increases damage, critical strike chance, and damage reduction by 5%,
+Increases damage and critical strike chance by 10% and increases damage reduction by 5%
 Increases flight time by 100%
 You may periodically fire additional attacks depending on weapon type
 Your critical strikes inflict Rotting and Betsy's Curse
@@ -54,8 +54,8 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
-            fargoPlayer.AllDamageUp(.05f);
-            fargoPlayer.AllCritUp(5);
+            fargoPlayer.AllDamageUp(.1f);
+            fargoPlayer.AllCritUp(10);
             fargoPlayer.MasochistHeart = true;
             player.endurance += 0.05f;
 

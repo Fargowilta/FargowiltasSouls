@@ -90,7 +90,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 projectile.netUpdate = true;
             }
 
-            int byUUID = Projectile.GetByUUID(projectile.owner, (int)projectile.ai[0]);
+            int byUUID = FargoGlobalProjectile.GetByUUIDReal(projectile.owner, (int)projectile.ai[0], projectile.type, ModContent.ProjectileType<DestroyerHead>());
             if (byUUID >= 0 && Main.projectile[byUUID].active)
             {
                 flag67 = true;
@@ -100,7 +100,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 float num1053 = MathHelper.Clamp(Main.projectile[byUUID].scale, 0f, 50f);
                 int arg_2D9AD_0 = Main.projectile[byUUID].alpha;
                 Main.projectile[byUUID].localAI[0] = projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != mod.ProjectileType("DestroyerHead")) Main.projectile[byUUID].localAI[1] = projectile.whoAmI;
+                if (Main.projectile[byUUID].type != mod.ProjectileType("DestroyerHead")) Main.projectile[byUUID].localAI[1] = projectile.identity;
             }
 
             if (!flag67) return;

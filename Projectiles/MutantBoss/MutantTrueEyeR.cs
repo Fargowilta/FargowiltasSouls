@@ -18,6 +18,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         {
             DisplayName.SetDefault("True Eye of Mutant");
             Main.projFrames[projectile.type] = 4;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }
 
         public override void SetDefaults()
@@ -90,7 +92,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                             Vector2 spawnPos = projectile.Center - Vector2.UnitY * 6f + new Vector2(distance, 0f).RotatedBy(rotation * i);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(spawnPos, Vector2.Zero, mod.ProjectileType("MutantTrueEyeSphere"),
-                                    projectile.damage, 0f, projectile.owner, projectile.whoAmI, i);
+                                    projectile.damage, 0f, projectile.owner, projectile.identity, i);
                         }
                     }
                     projectile.velocity *= 0.95f;
@@ -194,16 +196,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override Color? GetAlpha(Color lightColor)
         {
-            int r = lightColor.R * 3 / 2;
-            int g = lightColor.G * 3 / 2;
-            int b = lightColor.B * 3 / 2;
-            if (r > 255)
-                r = 255;
-            if (g > 255)
-                g = 255;
-            if (b > 255)
-                b = 255;
-            return new Color(r, g, b);
+            return Color.White * projectile.Opacity;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -214,13 +207,33 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
 
-            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor), projectile.rotation, origin2, projectile.scale, SpriteEffects.None, 0f);
+            Color color26 = projectile.GetAlpha(lightColor);
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+            float scale = (Main.mouseTextColor / 200f - 0.35f) * 0.4f + 1f;
+            scale *= projectile.scale;
+
+            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[projectile.type]; i++)
+            {
+                Color color27 = color26 * 0.75f;
+                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[projectile.type];
+                Vector2 value4 = projectile.oldPos[i];
+                float num165 = projectile.oldRot[i];
+                Main.spriteBatch.Draw(texture2D13, value4 + projectile.Size / 2f - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, scale, SpriteEffects.None, 0f);
+            }
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, projectile.rotation, origin2, projectile.scale, SpriteEffects.None, 0f);
 
             Texture2D pupil = mod.GetTexture("Projectiles/Minions/TrueEyePupil");
             Vector2 pupilOffset = new Vector2(localAI1 / 2f, 0f).RotatedBy(localAI0);
             pupilOffset += new Vector2(0f, -6f).RotatedBy(projectile.rotation);
             Vector2 pupilOrigin = pupil.Size() / 2f;
-            Main.spriteBatch.Draw(pupil, pupilOffset + projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(pupil.Bounds), projectile.GetAlpha(lightColor), 0f, pupilOrigin, projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(pupil, pupilOffset + projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(pupil.Bounds), color26, 0f, pupilOrigin, projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
     }

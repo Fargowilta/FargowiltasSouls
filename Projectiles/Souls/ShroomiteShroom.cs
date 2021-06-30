@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             projectile.melee = false;
             projectile.ranged = true;
             projectile.usesIDStaticNPCImmunity = true;
-            projectile.idStaticNPCHitCooldown = 15;
+            projectile.idStaticNPCHitCooldown = 30;
         }
 
         public override void AI()

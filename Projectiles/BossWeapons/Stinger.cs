@@ -21,6 +21,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             aiType = ProjectileID.Stinger;
             projectile.penetrate = 2;
             projectile.minion = false;
+            projectile.friendly = true;
             projectile.ranged = true;
             projectile.timeLeft = 240;
         }

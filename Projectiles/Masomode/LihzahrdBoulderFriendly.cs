@@ -33,6 +33,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             projectile.usesIDStaticNPCImmunity = true;
             projectile.idStaticNPCHitCooldown = 20;
+
+            if (ModLoader.GetMod("Fargowiltas") != null)
+                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", projectile);
         }
 
         public override void SendExtraAI(BinaryWriter writer)

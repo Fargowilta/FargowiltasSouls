@@ -4,16 +4,9 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.AbomBoss
 {
-    public class AbomSickleSplit2 : MutantBoss.MutantScythe2
+    public class AbomSickleSplit2 : AbomSickleSplit1
     {
         public override string Texture => "FargowiltasSouls/Projectiles/AbomBoss/AbomSickle";
-
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Abominationn Sickle");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 2;
-        }
 
         public override void AI()
         {
@@ -35,6 +28,11 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                 Main.dust[d].velocity = projectile.velocity / velrando;
                 Main.dust[d].noGravity = true;
             }
+        }
+
+        public override void Kill(int timeLeft)
+        {
+            //dont split
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

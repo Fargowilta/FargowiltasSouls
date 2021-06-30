@@ -388,12 +388,11 @@ namespace FargowiltasSouls.NPCs
                     Counter[2] = 0;
                     Counter[0] = 600;
                     npc.lifeMax = (int)(npc.lifeMax * 1.5);
+                    npc.HitSound = SoundID.NPCHit41;
                     break;
                 case NPCID.WallofFleshEye:
-
                     npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
                     npc.lifeMax = (int)(npc.lifeMax * 1.5);
-
                     break;
                 case NPCID.TheHungryII:
                     npc.noTileCollide = true;
@@ -567,7 +566,8 @@ namespace FargowiltasSouls.NPCs
                     break;
 
                 case NPCID.Probe:
-                    npc.lifeMax = (int)(npc.lifeMax * 1.5);
+                    if (BossIsAlive(ref destroyBoss, NPCID.TheDestroyer))
+                        npc.lifeMax = (int)(npc.lifeMax * 1.5);
                     goto case NPCID.TheDestroyer;
 
                 case NPCID.TheDestroyer:
@@ -622,6 +622,16 @@ namespace FargowiltasSouls.NPCs
 
                 case NPCID.AncientLight:
                 case NPCID.SolarGoop:
+                    npc.buffImmune[BuffID.Suffocation] = true;
+                    break;
+
+                case NPCID.SolarCrawltipedeHead:
+                case NPCID.SolarCrawltipedeBody:
+                case NPCID.SolarCrawltipedeTail:
+                case NPCID.VortexHornetQueen:
+                case NPCID.NebulaBrain:
+                case NPCID.StardustJellyfishBig:
+                case NPCID.MartianProbe:
                     npc.buffImmune[BuffID.Suffocation] = true;
                     break;
 
@@ -2061,7 +2071,26 @@ namespace FargowiltasSouls.NPCs
                             break;
 
                         case NPCID.LunarTowerNebula:
-                            if (NPC.LunarApocalypseIsUp)
+                            if (!masoBool[0])
+                            {
+                                masoBool[0] = true;
+                                masoBool[2] = NPC.LunarApocalypseIsUp;
+                                npc.damage += 100;
+                                npc.defDamage += 100;
+                                npc.netUpdate = true;
+                                npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+                                
+                                if (Main.netMode == NetmodeID.MultiplayerClient) //request sync
+                                {
+                                    var netMessage = mod.GetPacket();
+                                    netMessage.Write((byte)18);
+                                    netMessage.Write((byte)npc.whoAmI);
+                                    netMessage.Write(npc.type);
+                                    netMessage.Send();
+                                }
+                            }
+
+                            if (masoBool[2])
                             {
                                 if (NPC.ShieldStrengthTowerNebula > NPC.LunarShieldPowerExpert)
                                     NPC.ShieldStrengthTowerNebula = NPC.LunarShieldPowerExpert;
@@ -2070,24 +2099,15 @@ namespace FargowiltasSouls.NPCs
                                 Aura(npc, 5000, ModContent.BuffType<Antisocial>(), dustid: 58);
                             }
 
-                            if (!masoBool[0])
-                            {
-                                masoBool[0] = true;
-                                npc.damage += 100;
-                                npc.defDamage += 100;
-                                npc.netUpdate = true;
-                                npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
-                            }
-
                             if (npc.dontTakeDamage)
                             {
                                 npc.life = npc.lifeMax;
                             }
                             else
                             {
-                                if (++Counter[0] > 180)
+                                if (++Counter[1] > 180)
                                 {
-                                    Counter[0] = 0;
+                                    Counter[1] = 0;
                                     npc.TargetClosest(false);
                                     for (int i = 0; i < 40; ++i)
                                     {
@@ -2163,22 +2183,32 @@ namespace FargowiltasSouls.NPCs
                             break;
 
                         case NPCID.LunarTowerSolar:
-                            if (NPC.LunarApocalypseIsUp)
+                            if (!masoBool[0])
+                            {
+                                masoBool[0] = true;
+                                masoBool[2] = NPC.LunarApocalypseIsUp;
+                                npc.damage += 200;
+                                npc.defDamage += 200;
+                                npc.netUpdate = true;
+                                npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+
+                                if (Main.netMode == NetmodeID.MultiplayerClient) //request sync
+                                {
+                                    var netMessage = mod.GetPacket();
+                                    netMessage.Write((byte)18);
+                                    netMessage.Write((byte)npc.whoAmI);
+                                    netMessage.Write(npc.type);
+                                    netMessage.Send();
+                                }
+                            }
+
+                            if (masoBool[2])
                             {
                                 if (NPC.ShieldStrengthTowerSolar > NPC.LunarShieldPowerExpert)
                                     NPC.ShieldStrengthTowerSolar = NPC.LunarShieldPowerExpert;
                                 Aura(npc, 5000, ModContent.BuffType<ReverseManaFlow>(), dustid: DustID.SolarFlare);
                                 Aura(npc, 5000, ModContent.BuffType<Jammed>(), dustid: DustID.SolarFlare);
                                 Aura(npc, 5000, ModContent.BuffType<Antisocial>(), dustid: DustID.SolarFlare);
-                            }
-
-                            if (!masoBool[0])
-                            {
-                                masoBool[0] = true;
-                                npc.damage += 200;
-                                npc.defDamage += 200;
-                                npc.netUpdate = true;
-                                npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
                             }
 
                             if (npc.dontTakeDamage)
@@ -2223,13 +2253,23 @@ namespace FargowiltasSouls.NPCs
                             if (!masoBool[0])
                             {
                                 masoBool[0] = true;
+                                masoBool[2] = NPC.LunarApocalypseIsUp;
                                 npc.damage += 100;
                                 npc.defDamage += 100;
                                 npc.netUpdate = true;
                                 npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+
+                                if (Main.netMode == NetmodeID.MultiplayerClient) //request sync
+                                {
+                                    var netMessage = mod.GetPacket();
+                                    netMessage.Write((byte)18);
+                                    netMessage.Write((byte)npc.whoAmI);
+                                    netMessage.Write(npc.type);
+                                    netMessage.Send();
+                                }
                             }
 
-                            if (NPC.LunarApocalypseIsUp)
+                            if (masoBool[2])
                             {
                                 if (NPC.ShieldStrengthTowerStardust > NPC.LunarShieldPowerExpert)
                                     NPC.ShieldStrengthTowerStardust = NPC.LunarShieldPowerExpert;
@@ -2292,13 +2332,23 @@ namespace FargowiltasSouls.NPCs
                             if (!masoBool[0])
                             {
                                 masoBool[0] = true;
+                                masoBool[2] = NPC.LunarApocalypseIsUp;
                                 npc.damage += 100;
                                 npc.defDamage += 100;
                                 npc.netUpdate = true;
                                 npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+
+                                if (Main.netMode == NetmodeID.MultiplayerClient) //request sync
+                                {
+                                    var netMessage = mod.GetPacket();
+                                    netMessage.Write((byte)18);
+                                    netMessage.Write((byte)npc.whoAmI);
+                                    netMessage.Write(npc.type);
+                                    netMessage.Send();
+                                }
                             }
 
-                            if (NPC.LunarApocalypseIsUp)
+                            if (masoBool[2])
                             {
                                 if (NPC.ShieldStrengthTowerVortex > NPC.LunarShieldPowerExpert)
                                     NPC.ShieldStrengthTowerVortex = NPC.LunarShieldPowerExpert;
@@ -2318,9 +2368,9 @@ namespace FargowiltasSouls.NPCs
                             }
                             else
                             {
-                                if (++Counter[0] > 360) //triggers "shield going down" animation
+                                if (++Counter[1] > 360) //triggers "shield going down" animation
                                 {
-                                    Counter[0] = 0;
+                                    Counter[1] = 0;
                                     npc.ai[3] = 1f;
                                     npc.netUpdate = true;
                                 }
@@ -7005,7 +7055,7 @@ namespace FargowiltasSouls.NPCs
 
                     #region boss drops
                     case NPCID.KingSlime:
-                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.LifeCrystal, 2);
+                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.LifeCrystal, 3);
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.WoodenCrate, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<SlimyShield>());
                         if (Main.netMode != NetmodeID.MultiplayerClient && !BossIsAlive(ref mutantBoss, mod.NPCType("MutantBoss")) && !NPC.AnyNPCs(ModContent.NPCType<Mutant>()))
@@ -7017,7 +7067,7 @@ namespace FargowiltasSouls.NPCs
                         break;
 
                     case NPCID.EyeofCthulhu:
-                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.FallenStar, 3);
+                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.FallenStar, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.WoodenCrate, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<AgitatingLens>());
                         break;
@@ -7039,9 +7089,9 @@ namespace FargowiltasSouls.NPCs
                             npc.DropItemInstanced(npc.position, npc.Size, ItemID.CorruptFishingCrate, 5);
                             npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<CorruptHeart>());
 
-                            //to make up for no loot until dead (lowest possible amount dropped ECH)
+                            //to make up for no loot until dead
                             Item.NewItem(npc.Hitbox, ItemID.ShadowScale, 60);
-                            Item.NewItem(npc.Hitbox, ItemID.DemoniteOre, 150);
+                            Item.NewItem(npc.Hitbox, ItemID.DemoniteOre, 200);
                         }
                         break;
 
@@ -7049,9 +7099,9 @@ namespace FargowiltasSouls.NPCs
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.CrimsonFishingCrate, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<GuttedHeart>());
 
-                        //to make up for no loot creepers (lowest possible amount dropped ECH)
+                        //to make up for no loot creepers
                         Item.NewItem(npc.Hitbox, ItemID.TissueSample, 60);
-                        Item.NewItem(npc.Hitbox, ItemID.CrimtaneOre, 150);
+                        Item.NewItem(npc.Hitbox, ItemID.CrimtaneOre, 200);
                         break;
 
                     case NPCID.SkeletronHead:
@@ -7061,7 +7111,7 @@ namespace FargowiltasSouls.NPCs
 
                     case NPCID.QueenBee:
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.JungleFishingCrate, 5);
-                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.HerbBag, 3);
+                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.HerbBag, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<QueenStinger>());
                         break;
 
@@ -7103,7 +7153,7 @@ namespace FargowiltasSouls.NPCs
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<MagicalBulb>());
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.JungleFishingCrate, 5);
                         npc.DropItemInstanced(npc.position, npc.Size, ItemID.LifeFruit, 3);
-                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.ChlorophyteOre, Main.rand.Next(101) + 100);
+                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.ChlorophyteOre, 200);
                         break;
 
                     case NPCID.Golem:
@@ -7157,7 +7207,7 @@ namespace FargowiltasSouls.NPCs
 
                     case NPCID.MoonLordCore:
                         npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<GalacticGlobe>());
-                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.LunarOre, 100);
+                        npc.DropItemInstanced(npc.position, npc.Size, ItemID.LunarOre, 150);
                         break;
 
                     case NPCID.DungeonGuardian:
@@ -8097,7 +8147,7 @@ namespace FargowiltasSouls.NPCs
 
         public override bool? CanBeHitByItem(NPC npc, Player player, Item item)
         {
-            if (isMasoML && masoStateML > 0 && masoStateML < 4 && !player.buffImmune[ModContent.BuffType<NullificationCurse>()] && !FargoSoulsWorld.SwarmActive)
+            if (isMasoML && item.melee && masoStateML > 0 && masoStateML < 4 && !player.buffImmune[ModContent.BuffType<NullificationCurse>()] && !FargoSoulsWorld.SwarmActive)
                 return false;
 
             return null;
@@ -8112,7 +8162,7 @@ namespace FargowiltasSouls.NPCs
                     case 0: if (!projectile.melee) return false; break;
                     case 1: if (!projectile.ranged) return false; break;
                     case 2: if (!projectile.magic) return false; break;
-                    case 3: if (!projectile.minion) return false; break;
+                    case 3: if (!FargoGlobalProjectile.IsMinionDamage(projectile)) return false; break;
                     default: break;
                 }
             }
@@ -8424,7 +8474,7 @@ namespace FargowiltasSouls.NPCs
                     case NPCID.TheDestroyerBody:
                     case NPCID.TheDestroyerTail:
                         //if (projectile.type == ProjectileID.HallowStar) damage /= 4;
-                        if (projectile.numHits > 0 && !projectile.minion)
+                        if (projectile.numHits > 0 && !FargoGlobalProjectile.IsMinionDamage(projectile))
                             damage = (int)(damage * (0.5 + 0.5 * 1 / projectile.numHits));
                         if (projectile.type == ProjectileID.RainFriendly)
                             damage /= 2;
@@ -8434,7 +8484,7 @@ namespace FargowiltasSouls.NPCs
 
                     case NPCID.GolemFistLeft:
                     case NPCID.GolemFistRight:
-                        if (projectile.maxPenetrate != 1 && !projectile.minion)
+                        if (projectile.maxPenetrate != 1 && !FargoGlobalProjectile.IsMinionDamage(projectile))
                             projectile.active = false;
                         break;
 
@@ -8456,7 +8506,7 @@ namespace FargowiltasSouls.NPCs
                             Counter[2] += damage / 10;
                         else if (projectile.magic)
                             Counter[0] += damage / 10;
-                        else if (projectile.minion)
+                        else if (FargoGlobalProjectile.IsMinionDamage(projectile))
                             npc.localAI[3] += damage / 10;
                         break;
 
@@ -9176,8 +9226,8 @@ namespace FargowiltasSouls.NPCs
 
             //works because buffs are client side anyway :ech:
             float range = npc.Distance(p.Center);
-            if (!p.dead && !p.ghost && reverse ? range > distance && range < 3000f : range < distance)
-                p.AddBuff(buff, checkDuration && Main.expertMode && Main.expertDebuffTime > 1 ? 1 : 2);
+            if (p.active && !p.dead && !p.ghost && (reverse ? (range > distance && range < 3000f) : range < distance))
+                p.AddBuff(buff, checkDuration && Main.expertMode && Main.expertDebuffTime >= 2 ? 1 : 2);
         }
 
         public static bool OtherBossAlive(int npcID)

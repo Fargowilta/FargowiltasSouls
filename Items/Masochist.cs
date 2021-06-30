@@ -69,19 +69,11 @@ Minions do reduced damage when used with another weapon
                 FargoSoulsWorld.MasochistMode = !FargoSoulsWorld.MasochistMode;
                 Main.expertMode = true;
 
-                string text = FargoSoulsWorld.MasochistMode ? "Eternity Mode initiated!" : "Eternity Mode deactivated!";
-                if (Main.netMode == NetmodeID.SinglePlayer)
+                if (Main.netMode != NetmodeID.MultiplayerClient && FargoSoulsWorld.MasochistMode && !FargoSoulsWorld.spawnedDevi
+                    && !NPC.AnyNPCs(ModLoader.GetMod("Fargowiltas").NPCType("Deviantt")))
                 {
-                    Main.NewText(text, 175, 75, 255);
-                }
-                else if (Main.netMode == NetmodeID.Server)
-                {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(text), new Color(175, 75, 255));
-                    NetMessage.SendData(MessageID.WorldData); //sync world
-                }
+                    FargoSoulsWorld.spawnedDevi = true;
 
-                if (FargoSoulsWorld.MasochistMode && !NPC.AnyNPCs(ModLoader.GetMod("Fargowiltas").NPCType("Deviantt")))
-                {
                     //NPC.SpawnOnPlayer(player.whoAmI, ModLoader.GetMod("Fargowiltas").NPCType("Deviantt"));
                     int projType = ModLoader.GetMod("Fargowiltas").ProjectileType("SpawnProj");
                     int spawnType = ModLoader.GetMod("Fargowiltas").NPCType("Deviantt");
@@ -96,8 +88,16 @@ Minions do reduced damage when used with another weapon
 
                 Main.PlaySound(SoundID.Roar, (int)player.position.X, (int)player.position.Y, 0);
 
-                /*if (FargoSoulsWorld.MasochistMode && !SkyManager.Instance["FargowiltasSouls:MutantBoss2"].IsActive())
-                    SkyManager.Instance.Activate("FargowiltasSouls:MutantBoss2");*/
+                string text = FargoSoulsWorld.MasochistMode ? "Eternity Mode initiated!" : "Eternity Mode deactivated!";
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText(text, 175, 75, 255);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(text), new Color(175, 75, 255));
+                    NetMessage.SendData(MessageID.WorldData); //sync world
+                }
             }
             return true;
         }

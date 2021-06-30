@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Terraria;
@@ -52,6 +53,12 @@ namespace FargowiltasSouls.NPCs.Champions
             Mod musicMod = ModLoader.GetMod("FargowiltasMusic");
             music = musicMod != null ? ModLoader.GetMod("FargowiltasMusic").GetSoundSlot(SoundType.Music, "Sounds/Music/Champions") : MusicID.Boss1;
             musicPriority = MusicPriority.BossHigh;
+        }
+
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            //npc.damage = (int)(npc.damage * 0.5f);
+            npc.lifeMax = (int)(npc.lifeMax * Math.Sqrt(bossLifeScale));
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -560,17 +567,17 @@ namespace FargowiltasSouls.NPCs.Champions
                                         Main.dust[dustId].noGravity = true;
                                     }
 
-                                // Set ownership
-                                x.hostile = true;
+                                    // Set ownership
+                                    x.hostile = true;
                                     x.friendly = false;
                                     x.owner = Main.myPlayer;
                                     x.damage /= 4;
 
-                                // Turn around
-                                x.velocity *= -1f;
+                                    // Turn around
+                                    x.velocity *= -1f;
 
-                                // Flip sprite
-                                if (x.Center.X > npc.Center.X * 0.5f)
+                                    // Flip sprite
+                                    if (x.Center.X > npc.Center.X * 0.5f)
                                     {
                                         x.direction = 1;
                                         x.spriteDirection = 1;
@@ -581,8 +588,11 @@ namespace FargowiltasSouls.NPCs.Champions
                                         x.spriteDirection = -1;
                                     }
 
-                                //x.netUpdate = true;
-                            }
+                                    //x.netUpdate = true;
+
+                                    if (x.owner == Main.myPlayer)
+                                        Projectile.NewProjectile(x.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Souls.IronParry>(), 0, 0f, Main.myPlayer);
+                                }
                             });
                         }
 
@@ -648,17 +658,18 @@ namespace FargowiltasSouls.NPCs.Champions
                                     float ai1 = Main.rand.NextFloat(0.025f);
                                     Projectile.NewProjectile(npc.Center, vel, ModContent.ProjectileType<SpiritHand>(), npc.damage / 4, 0f, Main.myPlayer, ai0, ai1);
                                 }
+                            }
+                        }
 
-                                Main.PlaySound(SoundID.Item2, npc.Center);
-
-                                if (npc.life < npc.lifeMax * 0.66) //do vertical only crossbones in p2
-                                {
-                                    for (int i = 0; i < 6; i++)
-                                    {
-                                        Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
-                                            Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-8f, 0f), ModContent.ProjectileType<SpiritCrossBone>(), npc.damage / 4, 0f, Main.myPlayer);
-                                    }
-                                }
+                        if (npc.ai[1] % 30 == 0 && Main.netMode != NetmodeID.MultiplayerClient && npc.life < npc.lifeMax * 0.66)
+                        {
+                            Main.PlaySound(SoundID.Item2, npc.Center);
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
+                                    Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-8f, 0f), ModContent.ProjectileType<SpiritCrossBone>(), npc.damage / 4, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.position.X + Main.rand.Next(npc.width), npc.position.Y + Main.rand.Next(npc.height),
+                                    Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(8f, 0f), ModContent.ProjectileType<SpiritCrossBoneReverse>(), npc.damage / 4, 0f, Main.myPlayer);
                             }
                         }
 
@@ -830,28 +841,7 @@ namespace FargowiltasSouls.NPCs.Champions
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
 
-            //Item.NewItem(npc.position, npc.Size, ModContent.ItemType<SpiritForce>());
-            int[] drops = {
-                ModContent.ItemType<FossilEnchant>(),
-                ModContent.ItemType<ForbiddenEnchant>(),
-                ModContent.ItemType<HallowEnchant>(),
-                ModContent.ItemType<TikiEnchant>(),
-                ModContent.ItemType<SpectreEnchant>(),
-            };
-            int lastDrop = -1; //don't drop same ench twice
-            for (int i = 0; i < 2; i++)
-            {
-                int thisDrop = Main.rand.Next(drops.Length);
-
-                if (lastDrop == thisDrop) //try again
-                {
-                    if (++thisDrop >= drops.Length) //drop first ench in line if looped past array
-                        thisDrop = 0;
-                }
-
-                lastDrop = thisDrop;
-                Item.NewItem(npc.position, npc.Size, drops[thisDrop]);
-            }
+            FargoSoulsGlobalNPC.DropEnches(npc, ModContent.ItemType<Items.Accessories.Forces.SpiritForce>());
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

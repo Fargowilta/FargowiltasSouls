@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -16,12 +17,14 @@ namespace FargowiltasSouls.NPCs.EternityMode
         {
             DisplayName.SetDefault("Crystal Leaf");
             DisplayName.AddTranslation(GameCulture.Chinese, "叶绿水晶");
+            NPCID.Sets.TrailCacheLength[npc.type] = 6;
+            NPCID.Sets.TrailingMode[npc.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 32;
-            npc.height = 32;
+            npc.width = 28;
+            npc.height = 28;
             npc.damage = 60;
             npc.defense = 9999;
             npc.lifeMax = 9999;
@@ -173,6 +176,40 @@ namespace FargowiltasSouls.NPCs.EternityMode
             if (num5 > byte.MaxValue)
                 num5 = byte.MaxValue;
             return new Color(num5, num5, num5, 200);
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture2D13 = Main.npcTexture[npc.type];
+            Rectangle rectangle = npc.frame;
+            Vector2 origin2 = rectangle.Size() / 2f;
+
+            Color color26 = lightColor;
+            color26 = npc.GetAlpha(color26);
+
+            SpriteEffects effects = npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+
+            Main.spriteBatch.Draw(texture2D13, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, npc.rotation, origin2, npc.scale, effects, 0f);
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+
+            color26 *= 0.75f;
+
+            for (int i = 0; i < NPCID.Sets.TrailCacheLength[npc.type]; i++)
+            {
+                Color color27 = color26;
+                color27 *= (float)(NPCID.Sets.TrailCacheLength[npc.type] - i) / NPCID.Sets.TrailCacheLength[npc.type];
+                Vector2 value4 = npc.oldPos[i];
+                float num165 = npc.rotation; //npc.oldRot[i];
+                Main.spriteBatch.Draw(texture2D13, value4 + npc.Size / 2f - Main.screenPosition + new Vector2(0, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, npc.scale, effects, 0f);
+            }
+
+            Main.spriteBatch.Draw(texture2D13, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, npc.rotation, origin2, npc.scale, effects, 0f);
+
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+            return false;
         }
     }
 }

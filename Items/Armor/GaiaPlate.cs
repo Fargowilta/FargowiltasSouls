@@ -43,7 +43,7 @@ Increases your life regeneration");
             recipe.AddIngredient(ItemID.ShroomiteBar, 9);
             recipe.AddIngredient(ItemID.SpectreBar, 9);
             recipe.AddIngredient(ItemID.SpookyWood, 150);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

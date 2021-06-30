@@ -23,7 +23,7 @@ namespace FargowiltasSouls.NPCs.Champions
             DisplayName.SetDefault("Champion of Will");
             DisplayName.AddTranslation(GameCulture.Chinese, "意志英灵");
             Main.npcFrameCount[npc.type] = 8;
-            NPCID.Sets.TrailCacheLength[npc.type] = 10;
+            NPCID.Sets.TrailCacheLength[npc.type] = 12;
             NPCID.Sets.TrailingMode[npc.type] = 1;
         }
 
@@ -58,6 +58,12 @@ namespace FargowiltasSouls.NPCs.Champions
             npc.netAlways = true;
         }
 
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            //npc.damage = (int)(npc.damage * 0.5f);
+            npc.lifeMax = (int)(npc.lifeMax * Math.Sqrt(bossLifeScale));
+        }
+
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             cooldownSlot = 1;
@@ -86,10 +92,17 @@ namespace FargowiltasSouls.NPCs.Champions
             {
                 npc.TargetClosest(false);
                 Movement(Main.player[npc.target].Center, 0.8f, 32f);
-                if (npc.Distance(Main.player[npc.target].Center) < 1500)
+                if (npc.Distance(Main.player[npc.target].Center) < 750f)
+                {
                     spawned = true;
+                    npc.ai[2] = 4; //start with a bomb
+                    npc.velocity /= 2;
+                    npc.netUpdate = true;
+                }
                 else
+                {
                     return;
+                }
             }
 
             EModeGlobalNPC.championBoss = npc.whoAmI;
@@ -689,28 +702,7 @@ namespace FargowiltasSouls.NPCs.Champions
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
 
-            int[] drops = {
-                ModContent.ItemType<GoldEnchant>(),
-                ModContent.ItemType<PlatinumEnchant>(),
-                ModContent.ItemType<GladiatorEnchant>(),
-                ModContent.ItemType<RedRidingEnchant>(),
-                ModContent.ItemType<ValhallaKnightEnchant>(),
-                ModContent.ItemType<WizardEnchant>(),
-            };
-            int lastDrop = -1; //don't drop same ench twice
-            for (int i = 0; i < 2; i++)
-            {
-                int thisDrop = Main.rand.Next(drops.Length);
-
-                if (lastDrop == thisDrop) //try again
-                {
-                    if (++thisDrop >= drops.Length) //drop first ench in line if looped past array
-                        thisDrop = 0;
-                }
-
-                lastDrop = thisDrop;
-                Item.NewItem(npc.position, npc.Size, drops[thisDrop]);
-            }
+            FargoSoulsGlobalNPC.DropEnches(npc, ModContent.ItemType<Items.Accessories.Forces.WillForce>());
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -741,20 +733,28 @@ namespace FargowiltasSouls.NPCs.Champions
             Main.spriteBatch.Draw(glowmask, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White, npc.rotation, origin2, npc.scale, effects, 0f);
             
             Main.spriteBatch.End();
-            //Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp/*.PointWrap*/, DepthStencilState.Default, RasterizerState.CullNone, null, Main.GameViewMatrix.ZoomMatrix);
-            Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone, null, Main.GameViewMatrix.EffectMatrix);
+            Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
             ArmorShaderData shader = GameShaders.Armor.GetShaderFromItemId(ItemID.NebulaDye);
             shader.Apply(npc, new Terraria.DataStructures.DrawData?());
 
-            for (int i = 0; i < NPCID.Sets.TrailCacheLength[npc.type]; i++)
+            Color glowColor = Color.White * npc.Opacity * 0.5f;
+
+            for (float i = 0; i < NPCID.Sets.TrailCacheLength[npc.type]; i += 0.25f)
             {
-                Color color27 = Color.White;
+                Color color27 = glowColor * 0.25f;
                 color27 *= (float)(NPCID.Sets.TrailCacheLength[npc.type] - i) / NPCID.Sets.TrailCacheLength[npc.type];
-                Vector2 value4 = npc.oldPos[i];
-                float num165 = npc.rotation; //npc.oldRot[i];
-                Main.spriteBatch.Draw(glowmask2, value4 + npc.Size / 2f - Main.screenPosition + new Vector2(0, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, npc.scale, effects, 0f);
+                float scale = npc.scale;
+                //scale *= (float)(NPCID.Sets.TrailCacheLength[npc.type] - i) / NPCID.Sets.TrailCacheLength[npc.type];
+                int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
+                if (max0 < 0)
+                    continue;
+                Vector2 value4 = npc.oldPos[max0];
+                float num165 = npc.rotation; //npc.oldRot[max0];
+                Vector2 center = Vector2.Lerp(npc.oldPos[(int)i], npc.oldPos[max0], 1 - i % 1);
+                center += npc.Size / 2;
+                Main.spriteBatch.Draw(glowmask2, center - Main.screenPosition + new Vector2(0, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, scale, effects, 0f);
             }
-            Main.spriteBatch.Draw(glowmask2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White, npc.rotation, origin2, npc.scale, effects, 0f);
+            Main.spriteBatch.Draw(glowmask2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glowColor, npc.rotation, origin2, npc.scale, effects, 0f);
 
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);

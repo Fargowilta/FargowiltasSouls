@@ -1,5 +1,6 @@
 using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -666,10 +667,10 @@ namespace FargowiltasSouls.NPCs
 
             if (modPlayer.Bloodthirsty)
             {
-                //20x spawn rate
-                spawnRate = (int)(spawnRate * 0.05);
-                //20x max spawn
-                maxSpawns = (int)(maxSpawns * 20f);
+                //100x spawn rate
+                spawnRate = (int)(spawnRate * 0.01);
+                //2x max spawn
+                maxSpawns = (int)(maxSpawns * 3);
             }
 
             if (modPlayer.SinisterIcon)
@@ -946,10 +947,10 @@ namespace FargowiltasSouls.NPCs
                 Needles = true;
             }
 
-            if (Chilled)
+            /*if (Chilled)
             {
                 damage =  (int)(damage * 1.25f);
-            }
+            }*/
         }
 
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -964,7 +965,7 @@ namespace FargowiltasSouls.NPCs
             /*if (modPlayer.BeeEnchant && !modPlayer.TerrariaSoul && projectile.type == ProjectileID.GiantBee)
                 damage = (int)(damage + npc.defense * .5);*/
 
-            if (modPlayer.SpiderEnchant && (projectile.minion || projectile.sentry) && Main.rand.Next(101) <= modPlayer.SummonCrit && player.GetToggleValue("Spider", false))
+            if (modPlayer.SpiderEnchant && (projectile.minion || projectile.sentry || projectile.minionSlots > 0 || ProjectileID.Sets.MinionShot[projectile.type] || ProjectileID.Sets.SentryShot[projectile.type]) && Main.rand.Next(101) <= modPlayer.SummonCrit && player.GetToggleValue("Spider", false))
             {
                 /*if (modPlayer.LifeForce || modPlayer.WizardEnchant)
                 {
@@ -1066,8 +1067,39 @@ namespace FargowiltasSouls.NPCs
             if (SoulConfig.Instance.PatreonRoomba && type == NPCID.Steampunker)
             {
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Patreon.Gittle.RoombaPet>());
-                shop.item[nextSlot].value = 50000;
+                shop.item[nextSlot].shopCustomPrice = 50000;
                 nextSlot++;
+            }
+        }
+
+        public static void DropEnches(NPC npc, int forceType, bool dropPerPlayer = false)
+        {
+            int max = 1;
+            if (Main.expertMode)
+                max++;
+            if (FargoSoulsWorld.MasochistMode)
+                max++;
+
+            RecipeFinder finder = new RecipeFinder();
+            finder.SetResult(forceType);
+            Recipe exactRecipe = finder.SearchRecipes()[0];
+
+            List<int> enches = new List<int>();
+            foreach (Item material in exactRecipe.requiredItem)
+            {
+                if (material.Name.EndsWith("Enchantment"))
+                    enches.Add(material.type);
+            }
+
+            while (enches.Count > max)
+                enches.RemoveAt(Main.rand.Next(enches.Count));
+
+            foreach (int itemType in enches)
+            {
+                if (!dropPerPlayer || Main.netMode == NetmodeID.SinglePlayer)
+                    Item.NewItem(npc.position, npc.Size, itemType);
+                else if (Main.netMode == NetmodeID.Server)
+                    npc.DropItemInstanced(npc.position, npc.Size, itemType);
             }
         }
     }

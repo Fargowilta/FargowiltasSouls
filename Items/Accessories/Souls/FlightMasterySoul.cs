@@ -56,6 +56,7 @@ Allows the control of gravity
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
+            player.wingsLogic = 22;
             ascentWhenFalling = 0.85f;
             ascentWhenRising = 0.25f;
             maxCanAscendMultiplier = 1f;

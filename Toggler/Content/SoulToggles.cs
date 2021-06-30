@@ -44,6 +44,7 @@ namespace FargowiltasSouls.Toggler.Content
         public string SupersonicTabi;
         public string SupersonicClimbing;
         public string CthulhuShield;
+        public string BlackBelt;
 
         //public int TrawlersSoul = ModContent.ItemType<TrawlerSoul>();
         public string Trawler;

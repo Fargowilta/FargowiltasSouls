@@ -19,6 +19,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             
             string tooltip =
 @"Summons a sword familiar that scales with minion damage
+Drastically increases minion speed
 'Have you power enough to wield me?'";
             Tooltip.SetDefault(tooltip);
 
@@ -54,7 +55,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
         {
             FargoPlayer modPlayer = player.GetModPlayer<FargoPlayer>();
             modPlayer.SilverEnchant = true;
-            modPlayer.AddMinion(player.GetToggleValue("Silver"), ModContent.ProjectileType<SilverSword>(), (int)(30 * player.minionDamage), 0f);
+            modPlayer.AddMinion(player.GetToggleValue("Silver"), ModContent.ProjectileType<SilverSword>(), (int)(20 * player.minionDamage), 0f);
         }
 
         public override void AddRecipes()

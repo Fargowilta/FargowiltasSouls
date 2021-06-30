@@ -15,9 +15,11 @@ namespace FargowiltasSouls.Projectiles.Champions
             DisplayName.SetDefault("Cosmic Deathray");
         }
 
+        bool hasHit;
+
         public override bool CanDamage()
         {
-            return projectile.scale >= 1f;
+            return projectile.scale >= 1f && !hasHit;
         }
 
         public override void AI()
@@ -136,6 +138,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Masomode.CurseoftheMoon>(), 360);
+            hasHit = true;
         }
     }
 }

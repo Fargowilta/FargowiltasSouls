@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             item.reuseDelay = 20;
             item.shootSpeed = 15f;
             item.UseSound = SoundID.Item15;
-            item.value = 100000;
+            item.value = Item.sellPrice(0, 10);
             item.rare = ItemRarityID.Purple;
             item.shoot = mod.ProjectileType("RefractorBlaster2Held");
             item.noUseGraphic = true;

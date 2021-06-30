@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles
 {
     public abstract class BaseArena : ModProjectile
     {
-        protected readonly float rotationPerTick;
+        protected float rotationPerTick;
         protected readonly float npcType;
         protected readonly int dustType;
         protected readonly int increment;
@@ -202,7 +202,7 @@ namespace FargowiltasSouls.Projectiles
                     Color color27 = color26;
                     color27 *= (float)(max - i) / max;
                     Vector2 value4 = projectile.Center + drawOffset.RotatedBy(rotationPerTick * -i);
-                    float rot = rotation + projectile.oldRot[i];
+                    float rot = rotation + projectile.rotation;
                     Main.spriteBatch.Draw(texture2D13, value4 - Main.screenPosition + new Vector2(0, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, rot, origin2, projectile.scale, SpriteEffects.None, 0f);
                 }
 

@@ -24,8 +24,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             projectile.hostile = false;
             projectile.friendly = true;
             projectile.melee = true;
-            /*projectile.usesIDStaticNPCImmunity = true;
-            projectile.idStaticNPCHitCooldown = 10;*/
             projectile.GetGlobalProjectile<FargoGlobalProjectile>().CanSplit = false;
 
             projectile.hide = true;

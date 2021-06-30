@@ -189,7 +189,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     }
                     else //server
                     {
-                        Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.DeviBoss.DeviBoss>(), 0, 0f, Main.myPlayer, 0, npc.whoAmI);
+                        spriteProj = Projectile.NewProjectile(npc.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.DeviBoss.DeviBoss>(), 0, 0f, Main.myPlayer, 0, npc.whoAmI);
                     }
                 }
             }
@@ -452,7 +452,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     if (--npc.ai[1] < 0)
                     {
                         npc.netUpdate = true;
-                        npc.ai[1] = 120;
+                        npc.ai[1] = 150;
 
                         if (++npc.ai[2] > 3)
                         {
@@ -466,9 +466,9 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                                 Vector2 vel = Vector2.Normalize(npc.velocity);
                                 for (int i = 0; i < max; i++)
                                 {
-                                    Projectile.NewProjectile(npc.Center, vel.RotatedBy(2 * Math.PI / max * i), ModContent.ProjectileType<DeviLightBall>(), projectileDamage, 0f, Main.myPlayer, 0f, .009f * npc.direction);
+                                    Projectile.NewProjectile(npc.Center, vel.RotatedBy(2 * Math.PI / max * i), ModContent.ProjectileType<DeviLightBall>(), projectileDamage, 0f, Main.myPlayer, 0f, .008f * npc.direction);
                                     if (npc.localAI[3] > 1)
-                                        Projectile.NewProjectile(npc.Center, vel.RotatedBy(2 * Math.PI / max * i), ModContent.ProjectileType<DeviLightBall>(), projectileDamage, 0f, Main.myPlayer, 0f, .009f * -npc.direction);
+                                        Projectile.NewProjectile(npc.Center, vel.RotatedBy(2 * Math.PI / max * i), ModContent.ProjectileType<DeviLightBall>(), projectileDamage, 0f, Main.myPlayer, 0f, .008f * -npc.direction);
                                 }
                             }
                         }

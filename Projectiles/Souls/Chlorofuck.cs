@@ -12,7 +12,10 @@ namespace FargowiltasSouls.Projectiles.Souls
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chlorofuck");
-		}
+            Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
+            ProjectileID.Sets.Homing[projectile.type] = true;
+        }
 
 		public override void SetDefaults()
 		{
@@ -20,13 +23,11 @@ namespace FargowiltasSouls.Projectiles.Souls
 			projectile.width = 22;
 			projectile.height = 42;
 			projectile.friendly = true;
-			Main.projPet[projectile.type] = true;
+            projectile.minion = true;
 			projectile.penetrate = -1; 
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
 		}
 		
 		public override void AI()

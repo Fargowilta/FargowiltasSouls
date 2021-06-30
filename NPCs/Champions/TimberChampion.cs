@@ -26,7 +26,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npc.height = 234;
             npc.damage = 130;
             npc.defense = 50;
-            npc.lifeMax = 180000;
+            npc.lifeMax = 160000;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath1;
             npc.noGravity = false;
@@ -47,6 +47,12 @@ namespace FargowiltasSouls.NPCs.Champions
             Mod musicMod = ModLoader.GetMod("FargowiltasMusic");
             music = musicMod != null ? ModLoader.GetMod("FargowiltasMusic").GetSoundSlot(SoundType.Music, "Sounds/Music/Champions") : MusicID.Boss1;
             musicPriority = MusicPriority.BossHigh;
+        }
+
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            //npc.damage = (int)(npc.damage * 0.5f);
+            npc.lifeMax = (int)(npc.lifeMax * Math.Sqrt(bossLifeScale));
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -517,29 +523,7 @@ namespace FargowiltasSouls.NPCs.Champions
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
 
-            int[] drops = {
-                ModContent.ItemType<WoodEnchant>(),
-                ModContent.ItemType<BorealWoodEnchant>(),
-                ModContent.ItemType<RichMahoganyEnchant>(),
-                ModContent.ItemType<EbonwoodEnchant>(),
-                ModContent.ItemType<ShadewoodEnchant>(),
-                ModContent.ItemType<PalmWoodEnchant>(),
-                ModContent.ItemType<PearlwoodEnchant>()
-            };
-            int lastDrop = -1; //don't drop same ench twice
-            for (int i = 0; i < 2; i++)
-            {
-                int thisDrop = Main.rand.Next(drops.Length);
-
-                if (lastDrop == thisDrop) //try again
-                {
-                    if (++thisDrop >= drops.Length) //drop first ench in line if looped past array
-                        thisDrop = 0;
-                }
-
-                lastDrop = thisDrop;
-                Item.NewItem(npc.position, npc.Size, drops[thisDrop]);
-            }
+            FargoSoulsGlobalNPC.DropEnches(npc, ModContent.ItemType<Items.Accessories.Forces.TimberForce>());
         }
 
         public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)

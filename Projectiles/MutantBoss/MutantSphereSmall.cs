@@ -135,6 +135,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 dust2.velocity = dust2.velocity * 1f;
                 Main.dust[index3].noGravity = true;
             }
+
+            if (Main.netMode != NetmodeID.MultiplayerClient) //explosion
+                Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantBombSmall>(), projectile.damage, projectile.knockBack, projectile.owner);
         }
 
         public override Color? GetAlpha(Color lightColor)

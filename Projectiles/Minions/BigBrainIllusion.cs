@@ -54,12 +54,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             projectile.alpha = 255 - (int)(Math.Sin(projectile.ai[0] * MathHelper.Pi / 30) * 100);
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if (!Main.player[projectile.owner].HeldItem.summon)
-                damage /= 4;
-        }
-
         /*public override Color? GetAlpha(Color lightColor)
         {
             return Color.White * projectile.Opacity;

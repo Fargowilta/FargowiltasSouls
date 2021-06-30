@@ -18,8 +18,9 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 Collect the bones once they stop moving to heal for 15 HP each
 Double tap down to call an ancient storm to the cursor location
 Any projectiles shot through your storm gain 60% damage
-Summons an Enchanted Sword familiar
 You gain a shield that can reflect projectiles
+Summons an Enchanted Sword familiar
+Drastically increases minion speed
 You may continue to summon temporary minions and sentries after maxing out on your slots
 Damage has a chance to spawn damaging orbs
 If you crit, you might also get a healing orb

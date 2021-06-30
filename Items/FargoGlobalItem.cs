@@ -242,11 +242,11 @@ namespace FargowiltasSouls.Items
                 {
                     Vector2 vel = Vector2.Normalize(Main.MouseWorld - player.Center);
                     float damageMultiplier = player.minionDamage;
-
+                    
                     int type = -1;
                     int damage = 0;
                     int attackCooldown = 0;
-
+                    
                     switch (item.type)
                     {
                         //case ItemID.Bunny:
@@ -516,15 +516,16 @@ namespace FargowiltasSouls.Items
                     case ItemID.PhoenixBlaster:
                     case ItemID.LastPrism:
                     case ItemID.OnyxBlaster:
+                    case ItemID.SkyFracture:
                     case ItemID.Handgun:
                     case ItemID.SpikyBall:
                     case ItemID.SDMG:
                     case ItemID.Xenopopper:
                     case ItemID.NebulaArcanum:
-                    case ItemID.LaserMachinegun:
                     case ItemID.PainterPaintballGun:
                     case ItemID.MoltenFury:
                     case ItemID.Phantasm:
+                    case ItemID.SnowmanCannon:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
                         break;
 
@@ -532,15 +533,13 @@ namespace FargowiltasSouls.Items
                     case ItemID.ElectrosphereLauncher:
                     case ItemID.DaedalusStormbow:
                     case ItemID.BeesKnees:
+                    case ItemID.LaserMachinegun:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
                         break;
 
                     case ItemID.Beenade:
+                    case ItemID.Razorpine:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
-                        break;
-
-                    case ItemID.BeeGun:
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
                         break;
 
@@ -553,7 +552,6 @@ namespace FargowiltasSouls.Items
                     case ItemID.BatScepter:
                     case ItemID.ChainGun:
                     case ItemID.VortexBeater:
-                    case ItemID.SnowmanCannon:
                     case ItemID.RavenStaff:
                     case ItemID.XenoStaff:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
@@ -566,7 +564,6 @@ namespace FargowiltasSouls.Items
                         break;
 
                     case ItemID.BlizzardStaff:
-                    case ItemID.Razorpine:
                         tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
                         tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
                         break;
@@ -595,8 +592,33 @@ namespace FargowiltasSouls.Items
                         }
                         break;
 
+                    case ItemID.BeeGun:
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        break;
+
+                    case ItemID.DD2BallistraTowerT1Popper:
+                    case ItemID.DD2BallistraTowerT2Popper:
+                    case ItemID.DD2BallistraTowerT3Popper:
+                    case ItemID.DD2ExplosiveTrapT1Popper:
+                    case ItemID.DD2ExplosiveTrapT2Popper:
+                    case ItemID.DD2ExplosiveTrapT3Popper:
+                    case ItemID.DD2FlameburstTowerT1Popper:
+                    case ItemID.DD2FlameburstTowerT2Popper:
+                    case ItemID.DD2FlameburstTowerT3Popper:
+                    case ItemID.DD2LightningAuraT1Popper:
+                    case ItemID.DD2LightningAuraT2Popper:
+                    case ItemID.DD2LightningAuraT3Popper:
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
+                        break;
+
                     case ItemID.SlimeStaff:
                         tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Can summon more slimes"));
+                        break;
+
+                    case ItemID.SpiderStaff:
+                    case ItemID.OpticStaff:
+                    case ItemID.DeadlySphereStaff:
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased hit rate"));
                         break;
 
                     case ItemID.DD2SquireBetsySword: //flying dragon
@@ -608,6 +630,9 @@ namespace FargowiltasSouls.Items
                         tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 25%"));
                         break;
                 }
+
+                if (item.summon)
+                    tooltips.Add(new TooltipLine(mod, "masoMinionNerf", "[c/ff0000:Eternity Mode:] Damage drastically reduced when used alongside other classes"));
             }
         }
     }

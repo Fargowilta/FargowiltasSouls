@@ -11,6 +11,8 @@ namespace FargowiltasSouls.Projectiles.Souls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pearlwood Rainbow");
+            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 25;
+            ProjectileID.Sets.TrailingMode[base.projectile.type] = 0;
         }
 
         public override void SetDefaults()
@@ -18,10 +20,9 @@ namespace FargowiltasSouls.Projectiles.Souls
             projectile.width = 1;
             projectile.height = 1;
             projectile.friendly = true;
+            projectile.minion = true;
             projectile.penetrate = -1;
             projectile.timeLeft = 150;
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 25;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 0;
         }
 
         public override void AI()
