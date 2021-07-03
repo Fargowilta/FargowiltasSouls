@@ -26,11 +26,11 @@ Effects of Greedy Ring
 
             string tooltip_ch =
 @"攻击会造成迈达斯减益
-按下'金身'键后会将你包裹在一个黄金壳中
+按下“金身”键后会将你包裹在一个黄金壳中
 被包裹时你无法移动或攻击，但你免疫所有伤害
 再次按下'金身'键会使你提前离开黄金壳
 拥有贪婪戒指效果
-'黄金使世界运转'";
+“黄金使世界运转”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

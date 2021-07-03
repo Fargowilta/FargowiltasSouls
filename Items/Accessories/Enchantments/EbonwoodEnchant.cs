@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Untapped potential'");
             DisplayName.AddTranslation(GameCulture.Chinese, "乌木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"一圈暗影焰光环环绕着你
-'未开发的潜力'");
+@"召唤一圈暗影焰光环
+“潜力未开发”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

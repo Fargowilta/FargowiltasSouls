@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -13,6 +14,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("Omniscience Staff");
             Tooltip.SetDefault("Summons the real twins to fight for you\nNeeds 4 minion slots\n'The reward for slaughtering many...'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 4;
+                        DisplayName.AddTranslation(GameCulture.Chinese, "全知权杖");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'召唤真正的双子魔眼为你战斗\n需要4召唤栏\n'屠戮众多的奖励……'");
         }
 
         public override void SetDefaults()

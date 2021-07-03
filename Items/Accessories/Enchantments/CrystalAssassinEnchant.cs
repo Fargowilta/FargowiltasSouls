@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 ''";
             Tooltip.SetDefault(tooltip);
             string tooltip_ch =
-@"拥有挥发明胶效果
+@"拥有挥发明胶的效果
 ''";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }

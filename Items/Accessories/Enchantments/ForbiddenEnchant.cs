@@ -22,9 +22,9 @@ Any projectiles shot through your storm gain 30% damage
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"双击'下'键召唤远古风暴至光标位置
-穿过远古风暴的弹幕会获得30%额外伤害
-'走路像个埃及人'";
+@"双击“下”键将远古风暴召唤至光标位置
+穿过远古风暴的弹幕会额外获得30%伤害
+“走路像个埃及人”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 

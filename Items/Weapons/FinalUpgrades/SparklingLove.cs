@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
 {
@@ -15,6 +16,10 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             Tooltip.SetDefault(@"Right click to summon the soul of Deviantt
 Right click pattern becomes denser with up to 12 empty minion slots
 'The soul-consuming demon axe of love and justice from a defeated foe...'");
+            DisplayName.AddTranslation(GameCulture.Chinese, "闪光之爱");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"右击召唤德维特之魂
+达到5个空召唤栏时右键模式更密集
+“从一个被打败的敌人那里得到的耗费灵魂的爱和正义的吞噬灵魂的恶魔斧头..");
         }
 
         public override void SetDefaults()

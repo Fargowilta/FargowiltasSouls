@@ -19,14 +19,14 @@ The arrow type is based on the first arrow in your inventory
 This has a cooldown of 10 seconds
 Greatly enhances Explosive Traps effectiveness
 'Big Bad Red Riding Hood'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "红色游侠魔石");
+            DisplayName.AddTranslation(GameCulture.Chinese, "红色骑术魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"箭矢会定期落至你光标周围
-双击'下'键后令箭雨倾斜在光标位置
 箭矢的种类取决于你背包中第一个箭矢
+双击“下”键后令箭雨倾泄在光标位置
 此效果有10秒冷却时间
 大幅强化爆炸陷阱的效果
-'大坏蛋红色骑术帽！'");
+“小红帽大坏蛋！”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Items.Misc
 'Proof of having embraced eternity'");
             DisplayName.AddTranslation(GameCulture.Chinese, "施虐狂");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"'受苦的证明'
-免疫几乎所有受虐模式的Debuff");
+@"免疫几乎所有受虐模式的Debuff
+'受苦的证明'");
         }
 
         public override void SetDefaults()

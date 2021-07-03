@@ -25,11 +25,11 @@ Effects of Celestial Cuffs and Mana Flower
             Tooltip.SetDefault(tooltip);
             string tooltip_ch =
 @"增加30%魔法伤害
-增加20%施法速度
+增加20%魔法武器攻击速度
 增加15%魔法暴击率
-增加200点最大法力值
-拥有天界手铐和魔力花效果
-'奥术之力，合核凝一'";
+增加200点最大魔力值
+拥有天界手铐和魔力花的效果
+“奥术之力，合核凝一”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

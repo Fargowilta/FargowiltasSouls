@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
 'An old foe beaten into submission..'");
             DisplayName.AddTranslation(GameCulture.Chinese, "世界吞噬者法杖");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"一个被迫屈服的老对手..
-每个召唤栏召唤4段身体");
+                @"每个召唤栏召唤4段身体
+'一个被迫屈服的老对手..'");
         }
 
         public override void SetDefaults()

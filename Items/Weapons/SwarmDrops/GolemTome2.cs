@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             DisplayName.SetDefault("The Landslide");
             Tooltip.SetDefault("'The reward for slaughtering many...'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "山崩 EX");
+            DisplayName.AddTranslation(GameCulture.Chinese, "山崩地裂");
             Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励'");
         }
 

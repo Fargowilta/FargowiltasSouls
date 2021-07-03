@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,8 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Mutant's Discount Card");
             Tooltip.SetDefault(@"Permanently reduces Mutant's shop prices by 20%");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体折扣卡");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"永久降低突变体的商店价格20%");
         }
 
         public override void SetDefaults()

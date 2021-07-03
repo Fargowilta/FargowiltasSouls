@@ -20,7 +20,7 @@ Attacking a Shadow Orb will cause it to release a burst of homing shadow energy
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"两颗暗影珠围绕着你旋转
 攻击暗影珠会使其释放追踪暗影能量
-'你感觉你的身体堕入到了黑暗的深渊之中'");
+“你感觉你的身体堕入到了黑暗的深渊之中”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

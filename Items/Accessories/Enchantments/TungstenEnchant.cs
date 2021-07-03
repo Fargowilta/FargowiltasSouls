@@ -23,10 +23,10 @@ Enlarged swords and projectiles deal 10% more damage and have an additional chan
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"增加150%剑的尺寸
+@"剑的尺寸增加150%
 每过0.5秒便会使一个弹幕的尺寸翻倍
-尺寸变大的剑和弹幕会额外造成10%伤害并且有额外几率暴击
-'大就是好'";
+尺寸变大的剑和弹幕会额外造成10%伤害并且暴击率增加
+“大就是好”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

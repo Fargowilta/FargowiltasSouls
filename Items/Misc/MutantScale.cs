@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -8,6 +9,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Abominable Energy");
+			DisplayName.AddTranslation(GameCulture.Chinese, "憎恶的能量"); 
         }
 
         public override void SetDefaults()

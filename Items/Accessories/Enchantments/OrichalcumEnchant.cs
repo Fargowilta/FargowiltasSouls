@@ -18,9 +18,9 @@ Damaging debuffs deal 3x damage
 'Nature blesses you'");
             DisplayName.AddTranslation(GameCulture.Chinese, "山铜魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"花瓣将落到被你攻击的敌人的身上以造成额外伤害和山铜中毒减益
+@"花瓣将落到你攻击的敌人的身上，造成额外伤害和山铜中毒减益
 伤害性减益造成的伤害x3
-'自然祝福着你'");
+“自然祝福着你”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

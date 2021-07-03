@@ -24,8 +24,8 @@ Drastically increases minion speed
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"召唤一柄剑，剑的伤害取决于你的召唤伤害
-'你有足够的力量驾驭我吗？'";
+@"召唤一柄剑，剑的伤害接受召唤伤害加成
+“你有足够的力量驾驭我吗？”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

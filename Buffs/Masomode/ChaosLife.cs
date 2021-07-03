@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Chaos Life");
             Description.SetDefault("Max life reduced");
+            DisplayName.AddTranslation(GameCulture.Chinese, "生命混沌");
+            Description.AddTranslation(GameCulture.Chinese, "减少最大生命值");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;

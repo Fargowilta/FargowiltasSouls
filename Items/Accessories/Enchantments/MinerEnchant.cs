@@ -20,9 +20,9 @@ Light is emitted from the player
             DisplayName.AddTranslation(GameCulture.Chinese, "矿工魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"增加50%挖掘速度
-高亮标记敌人、陷阱和宝藏
-你会散发光芒
-'大地随着你的每一次挥镐而颤动'");
+高亮显示敌人、陷阱和宝藏
+你会发光
+“大地随着你的每一次挥镐而颤动”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

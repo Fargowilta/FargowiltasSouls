@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -15,6 +16,8 @@ namespace FargowiltasSouls.Items.Armor
 10% increased critical strike chance
 Reduces damage taken by 10%
 Grants life regeneration");
+            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙英灵板甲");
+            Tooltip.AddTranslation(GameCulture.Chinese, "增加10%伤害\n增加10%暴击几率\n减少10%所受伤害\n增加生命恢复速度"); 
         }
 
         public override void SetDefaults()

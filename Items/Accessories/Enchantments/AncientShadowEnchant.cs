@@ -20,9 +20,10 @@ Three Shadow Orbs will orbit around you
             DisplayName.AddTranslation(GameCulture.Chinese, "远古暗影魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"攻击有几率造成黑暗减益
-身上带有黑暗减益的敌人有几率向其他敌人发射暗影焰触手
+身上带有黑暗减益的敌人偶尔会向其他敌人发射暗影焰触手
 三颗暗影珠围绕着你旋转
-'十分古老，却非常实用'");
+攻击暗影珠会使其释放追踪暗影能量
+“十分古老，却非常实用”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

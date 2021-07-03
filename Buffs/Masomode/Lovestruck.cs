@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
             DisplayName.AddTranslation(GameCulture.Chinese, "热恋");
-            Description.AddTranslation(GameCulture.Chinese, "坠入爱河!");
+            Description.AddTranslation(GameCulture.Chinese, "曾经和你一起走过传说中的爱河");
         }
 
         public override void Update(Player player, ref int buffIndex)

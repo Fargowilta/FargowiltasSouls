@@ -21,9 +21,9 @@ Allows the control of gravity
             DisplayName.AddTranslation(GameCulture.Chinese, "飞行大师之魂");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"使你获得无限飞行能力
-按住'下'和'跳跃'键悬停
+按住“下”和“跳跃”键悬停
 允许你控制重力
-'飞升'");
+“芜湖起飞”");
         }
 
         public override void SetDefaults()

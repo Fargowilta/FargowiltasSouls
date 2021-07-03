@@ -17,12 +17,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 Solar shield is not depleted on hit, but has reduced damage reduction
 Attacks may inflict the Solar Flare debuff
 'Too hot to handle'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "日耀魔石");
+            DisplayName.AddTranslation(GameCulture.Chinese, "耀斑魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"允许你使用日耀护盾进行冲刺
-日耀护盾在击中敌人时不会被消耗，但会降低其伤害减免效果
-攻击有几率造成耀斑减益
-'烫手魔石'");
+@"召唤日耀护盾，让你能冲撞敌人
+被击中时日耀护盾不会耗尽，但伤害减免效果会降低
+攻击有几率造成太阳耀斑减益
+“烫手魔石”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

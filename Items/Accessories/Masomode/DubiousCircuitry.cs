@@ -20,12 +20,12 @@ Two friendly probes fight by your side
 Reduces damage taken by 5%
 'Malware probably not included'");
             DisplayName.AddTranslation(GameCulture.Chinese, "可疑电路");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'里面也许没有恶意软件'
-免疫诅咒地狱,脓液,避雷针,毫无防御,昏迷和击退
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫诅咒地狱,脓液,避雷针,毫无防御,昏迷和击退
 攻击造成诅咒地狱和脓液效果
 攻击小概率造成避雷针效果
 召唤2个友善的探测器为你而战
-减少6%所受伤害");
+减少6%所受伤害
+'里面也许没有恶意软件'");
         }
 
         public override void SetDefaults()

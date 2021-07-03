@@ -18,8 +18,8 @@ Reduces attack speed of summon weapons in exchange
 'Aku Aku!'");
             DisplayName.AddTranslation(GameCulture.Chinese, "提基魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"在召唤栏用光后你仍可以召唤临时的哨兵和仆从
-'Aku Aku!'");
+@"召唤栏位用光后你仍可以召唤临时的哨兵和仆从
+“Aku Aku!”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

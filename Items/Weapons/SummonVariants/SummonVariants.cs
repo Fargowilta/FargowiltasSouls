@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.SummonVariants
 {
@@ -12,6 +13,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
         {
             Tooltip.SetDefault("Summons bats to attack your enemies");
             Item.staff[item.type] = true;
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤蝙蝠去攻击你的敌人");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

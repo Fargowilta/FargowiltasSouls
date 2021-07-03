@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Pink Eskimo Enchantment");
             Tooltip.SetDefault(
 @"''");
-            DisplayName.AddTranslation(GameCulture.Chinese, "粉爱斯基摩魔石");
+            DisplayName.AddTranslation(GameCulture.Chinese, "粉色防雪魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"''");
         }

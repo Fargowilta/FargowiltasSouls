@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Hypothermia");
             Description.SetDefault("Increased damage taken from cold attacks");
+            DisplayName.AddTranslation(GameCulture.Chinese, "失温");
+            Description.AddTranslation(GameCulture.Chinese, "冷系攻击对你造成更多伤害");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

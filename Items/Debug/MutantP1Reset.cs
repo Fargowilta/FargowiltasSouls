@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Localization;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Debug
@@ -13,6 +14,10 @@ namespace FargowiltasSouls.Items.Debug
             Tooltip.SetDefault(@"Makes Mutant forget you have defeated his first phase
 Results not guaranteed in multiplayer
 You probably shouldn't be reading this...");
+DisplayName.AddTranslation(GameCulture.Chinese, "突变体第一阶段重置");
+Tooltip.AddTranslation(GameCulture.Chinese, @"让突变体忘记你打败过他的第一阶段
+多人游戏中可能无效
+你不应该读到这句话...");
         }
 
         public override void SetDefaults()

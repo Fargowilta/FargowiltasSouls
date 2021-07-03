@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Lihzahrd Curse");
             Description.SetDefault("Wires disabled in Jungle Temple");
+            DisplayName.AddTranslation(GameCulture.Chinese, "蜥蜴人的诅咒");
+            Description.AddTranslation(GameCulture.Chinese, "神庙中电路被禁用");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

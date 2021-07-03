@@ -16,10 +16,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Summons 2 Skeletron arms to whack enemies
 'The bone-growing solution of a defeated foe'");
             DisplayName.AddTranslation(GameCulture.Chinese, "死灵密酿");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"被击败敌人的促进骨生长的溶液
-免疫昏昏欲睡
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫昏昏欲睡
 召唤2个骷髅王手臂重击敌人
-可能会吸引宝宝骷髅头");
+可能会吸引宝宝骷髅头
+'被击败敌人的促进骨生长的溶液'");
         }
 
         public override void SetDefaults()

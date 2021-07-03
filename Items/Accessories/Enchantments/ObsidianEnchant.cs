@@ -18,10 +18,11 @@ You have normal movement and can swim in lava
 While standing in lava or lava wet, your attacks spawn explosions
 'The earth calls'");
             DisplayName.AddTranslation(GameCulture.Chinese, "黑曜石魔石");
-//@"使你免疫火与岩浆
-//使你可以在岩浆中正常移动和游泳
-//在岩浆中时，你的攻击会引发爆炸
-//'大地的呼唤'"); e
+            Tooltip.AddTranslation(GameCulture.Chinese,
+@"使你免疫火块与岩浆
+你可以在岩浆中正常移动和游泳
+在岩浆中或拥有浸入岩浆增益时，你的攻击会引发爆炸
+“大地在呼唤”"); 
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

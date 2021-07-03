@@ -23,10 +23,10 @@ While using wings, spores will continuously spawn
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"召唤一圈叶状水晶射击附近的敌人
+@"召唤一圈叶状水晶射向附近的敌人
 使你获得孢子二段跳能力
-使用翅膀进行飞行时会在你周围不断生成孢子
-'丛林的精华凝结在你周围'";
+使用翅膀进行飞行时，你周围会不断生成孢子
+“丛林的精华在你周围结晶”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 

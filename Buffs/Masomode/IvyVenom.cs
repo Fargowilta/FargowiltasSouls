@@ -11,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Ivy Venom");
             Description.SetDefault("Losing life, will become Infested EX at 20 seconds");
-            DisplayName.AddTranslation(GameCulture.Chinese, "常春藤毒");
-            Description.AddTranslation(GameCulture.Chinese, "流失生命, 持续时间超过20秒时变为感染");
+            DisplayName.AddTranslation(GameCulture.Chinese, "常春藤毒素");
+            Description.AddTranslation(GameCulture.Chinese, "流失生命，持续时间超过20秒时变为感染");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

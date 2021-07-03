@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Minions
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Buffs.Minions
         {
             DisplayName.SetDefault("Big Brain of Cthulhu");
             Description.SetDefault("The Brain of Cthulhu will fight for you");
+            DisplayName.AddTranslation(GameCulture.Chinese, "克苏鲁之脑");
+            Description.AddTranslation(GameCulture.Chinese, "克苏鲁之脑会为你而战");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }

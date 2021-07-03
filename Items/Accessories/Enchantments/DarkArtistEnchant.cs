@@ -25,12 +25,12 @@ Greatly enhances Flameburst effectiveness
 
             Tooltip.SetDefault(tooltip);
             string tooltip_ch =
-@"召唤一个爆炸烈焰哨兵，在充能完毕后会移动至光标位置
-然后将其算作一个哨兵
+@"召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置
+然后它会如同一个哨兵，固定在该位置并产生爆炸进行攻击
 持续攻击两秒后你将被火焰包裹
-切换武器后使下次攻击的伤害增加50%
-大幅强化爆炸烈焰哨兵的效果
-'阴影蕴含之物远超目之所及'";
+切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸
+大幅增加爆炸烈焰哨兵的索敌范围和攻击距离
+“阴影蕴含之物远超目之所及”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 

@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(tooltip);
             string tooltip_ch =
 @"使你获得孢子二段跳能力
-'丛林之怒深藏其中'";
+“丛林之怒深藏其中”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 

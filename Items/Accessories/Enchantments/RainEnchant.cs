@@ -23,8 +23,8 @@ At maximum size, attacks will turn into lightning bolts
 @"使你免疫潮湿减益
 召唤一个微型风暴跟着你
 向其射击会使其变大
-尺寸达到最大时攻击会转化为闪电
-'改日再来'");
+达到最大时攻击会转化为闪电
+“改日再来”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

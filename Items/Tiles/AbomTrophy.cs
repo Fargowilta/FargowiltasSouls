@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Tiles
 {
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn Trophy");
+            DisplayName.AddTranslation(GameCulture.Chinese, "憎恶纪念章");
         }
 
         public override void SetDefaults()

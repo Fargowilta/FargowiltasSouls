@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 'Melting souls since 1902'");
             DisplayName.AddTranslation(GameCulture.Chinese, "阴森魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"你的召唤物获得了额外的镰刀攻击
-'自1902年以来融化的灵魂'");
+@"你的召唤物能进行额外的镰刀攻击
+“自1902年以来融化的灵魂”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

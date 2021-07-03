@@ -29,8 +29,8 @@ Effects of Sniper Scope
 @"增加30%远程伤害
 20%几率不消耗弹药
 增加15%远程暴击率
-拥有狙击镜效果
-'预备，瞄准，开火'";
+拥有狙击镜的效果
+“预备，瞄准，开火”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

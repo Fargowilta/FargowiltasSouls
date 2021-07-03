@@ -24,11 +24,11 @@ Set oiled enemies on fire for extra damage
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"箭矢会定期落至你光标周围
 箭矢的种类取决于你背包中第一个箭矢
-双击'下'键后令箭雨倾斜在光标位置
+双击“下”键后令箭雨倾泄在光标位置
 此效果有15秒冷却时间
 爆炸机关攻击速度更快且会造成涂油减益
 点燃涂油的敌人以造成额外伤害
-'狩猎开始了'");
+“狩猎开始了”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

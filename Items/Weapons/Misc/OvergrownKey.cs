@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using FargowiltasSouls.Projectiles.JungleMimic;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.Misc
 {
@@ -13,6 +14,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             DisplayName.SetDefault("Overgrown Key");
             Tooltip.SetDefault("Summons a Jungle Mimic to fight for you\nNeeds 2 minion slots");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 2;
+                        DisplayName.AddTranslation(GameCulture.Chinese, "杂草丛生的钥匙");
+            Tooltip.AddTranslation(GameCulture.Chinese, "召唤一个丛林宝箱怪为你而战\n需要2个召唤栏");
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Misc
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Items.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Broken Hilt");
+            DisplayName.AddTranslation(GameCulture.Chinese, "断柄"); 
         }
 
         public override void SetDefaults()

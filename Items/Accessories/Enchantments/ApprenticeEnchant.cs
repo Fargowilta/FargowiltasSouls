@@ -20,9 +20,9 @@ Flameburst field of view and range are dramatically increased
             DisplayName.AddTranslation(GameCulture.Chinese, "学徒魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"持续攻击两秒后你将被火焰包裹
-切换武器后使下次攻击的伤害增加50%
+切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸
 大幅增加爆炸烈焰哨兵的索敌范围和攻击距离
-'追求完美的漫漫长路'");
+“追求完美的漫漫长路”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

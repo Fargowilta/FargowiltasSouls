@@ -19,10 +19,10 @@ First Strike ensures your next attack is a crit dealing 3x damage
 'Now you see me, now you don’t'");
             DisplayName.AddTranslation(GameCulture.Chinese, "忍者魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
-@"按下'忍者秘技'键后会扔出一颗烟雾弹，再次按下'忍者秘技'键时会将你传送至其落点的位置并使你获得先发制人增益
+@"若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
 使用混沌传送杖也会获得先发制人增益
 先发制人增益会使你下次攻击必定暴击且造成3倍伤害
-'你现在能看到我了，诶，你又看不到我了'");
+“你现在能看到我了。诶，你又看不到我了”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

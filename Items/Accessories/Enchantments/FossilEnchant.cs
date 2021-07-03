@@ -20,9 +20,9 @@ Collect the bones to heal for 15 HP each
             DisplayName.AddTranslation(GameCulture.Chinese, "化石魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"受到致死伤害时会以1生命值重生并爆出几根骨头
-你攻击敌人时也会扔出骨头
-每根骨头会回复15点生命值
-'被遗忘已久的记忆'");
+你攻击敌人时也会生成骨头
+接触骨头时会回复15点生命值
+“被遗忘已久的记忆”");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

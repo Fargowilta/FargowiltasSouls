@@ -15,9 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Attacks have a chance to squeak and deal 1 damage to you
 'The beloved toy of a defeated foe...?'");
             DisplayName.AddTranslation(GameCulture.Chinese, "吱吱响的玩具");
-            Tooltip.AddTranslation(GameCulture.Chinese, @"'被打败的敌人心爱的玩具...?
-免疫吱吱响的玩具和净化
-敌人攻击概率发出吱吱声,并只造成1点伤害");
+            Tooltip.AddTranslation(GameCulture.Chinese, @"免疫吱吱响的玩具和净化
+敌人攻击概率发出吱吱声,并只造成1点伤害
+'被打败的敌人心爱的玩具...?'");
         }
 
         public override void SetDefaults()

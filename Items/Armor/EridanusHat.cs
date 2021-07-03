@@ -1,8 +1,9 @@
-﻿using FargowiltasSouls.Items.Misc;
+using FargowiltasSouls.Items.Misc;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -16,6 +17,8 @@ namespace FargowiltasSouls.Items.Armor
 5% increased critical strike chance
 Increases your max number of minions by 3
 Increases your max number of sentries by 2");
+            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙英灵帽");
+            Tooltip.AddTranslation(GameCulture.Chinese, "增加5%伤害\n增加5%暴击几率\n增加3个召唤栏位\n增加2个哨兵栏位");
         }
 
         public override void SetDefaults()
@@ -51,7 +54,12 @@ Increases your max number of sentries by 2");
             player.setBonus = @"The blessing of Eridanus empowers your attacks
 The empowered class changes every 10 seconds
 Eridanus fights alongside you when you use the empowered class
-60% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class";
+50% increased damage for the empowered class
+20% increased weapon use speed";
+            if (GameCulture.Chinese.IsActive)
+            {
+                player.setBonus = @"宇宙英灵的护佑增强了你的攻击\n每20秒切换增强的职业\n当你使用增强的职业的武器时宇宙英灵会随你作战\n增加50%增强职业的伤害\n增加20%武器使用速度";
+            }
 
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.EridanusEmpower = true;

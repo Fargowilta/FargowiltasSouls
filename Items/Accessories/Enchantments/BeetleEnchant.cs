@@ -22,9 +22,9 @@ Increases flight time by 25%
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"甲虫会保护你，减免下次受到的伤害，至多减免15%下次受到的伤害
+@"甲虫会保护你，减免下次受到的伤害，至多减免15%伤害
 延长25%飞行时间
-'你的血管里流淌着看不见的粪便生命'";
+“你的血管里流淌着看不见的粪便生命”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
         }
 

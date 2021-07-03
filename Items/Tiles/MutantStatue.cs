@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Tiles
 {
@@ -7,6 +8,7 @@ namespace FargowiltasSouls.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant Statue");
+            DisplayName.AddTranslation(GameCulture.Chinese, "突变体雕像");
         }
 
         public override void SetDefaults()

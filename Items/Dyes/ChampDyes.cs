@@ -1,4 +1,5 @@
 ﻿using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Dyes
 {
@@ -8,6 +9,7 @@ namespace FargowiltasSouls.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Heavenly Dye");
+            DisplayName.AddTranslation(GameCulture.Chinese, "神圣染料");
         }
 
         public override void SetDefaults()
@@ -23,6 +25,7 @@ namespace FargowiltasSouls.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Willpower Dye");
+            DisplayName.AddTranslation(GameCulture.Chinese, "坚毅染料");
         }
 
         public override void SetDefaults()
@@ -38,6 +41,7 @@ namespace FargowiltasSouls.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gaia Dye");
+            DisplayName.AddTranslation(GameCulture.Chinese, "盖亚染料");
         }
 
         public override void SetDefaults()

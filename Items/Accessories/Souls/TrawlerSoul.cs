@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
         {
             DisplayName.SetDefault("Trawler Soul");
             
-            DisplayName.AddTranslation(GameCulture.Chinese, "捕鱼之魂");
+            DisplayName.AddTranslation(GameCulture.Chinese, "垂钓者之魂");
             
             string tooltip =
 @"Increases fishing skill substantially
@@ -29,11 +29,11 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear,
             string tooltip_ch =
 @"大幅增加渔力
 钓竿会额外扔出10根鱼线
-你几乎能立刻就钓到鱼
+你几乎可以立即钓到鱼
 拥有声呐和宝匣效果
-拥有渔夫渔具袋和狍子囊效果
-拥有粉马掌气球和北极潜水装备效果
-'愿者上钩'";
+拥有渔夫渔具袋和孢子囊的效果
+拥有粉马掌气球和北极潜水装备的效果
+“愿者上钩”";
             Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
 
         }

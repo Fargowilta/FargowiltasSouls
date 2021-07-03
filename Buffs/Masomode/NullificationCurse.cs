@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             longerExpertDebuff = false;
             canBeCleared = false;
             DisplayName.AddTranslation(GameCulture.Chinese, "无效诅咒");
-            Description.AddTranslation(GameCulture.Chinese, "无法躲避,并且月球领主进行循环伤害免疫!");
+            Description.AddTranslation(GameCulture.Chinese, "无法躲避伤害；特定种类的伤害对月球领主无效，该效果会循环");
         }
 
         public override void Update(Player player, ref int buffIndex)

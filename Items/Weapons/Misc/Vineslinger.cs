@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Weapons.Misc
 {
@@ -9,6 +10,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
         {
             DisplayName.SetDefault("Vineslinger");
             Tooltip.SetDefault("Hitting an enemy fires leaves");
+                        DisplayName.AddTranslation(GameCulture.Chinese, "藤蔓吊索");
+            Tooltip.AddTranslation(GameCulture.Chinese, "击中敌人时发射树叶");
         }
 
         public override void SetDefaults()
