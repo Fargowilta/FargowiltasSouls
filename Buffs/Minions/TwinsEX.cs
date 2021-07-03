@@ -1,5 +1,6 @@
-﻿using Terraria;
+using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Minions
 {
