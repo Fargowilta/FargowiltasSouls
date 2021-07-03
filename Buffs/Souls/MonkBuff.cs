@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using FargowiltasSouls.Toggler;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Buffs.Souls
 {
