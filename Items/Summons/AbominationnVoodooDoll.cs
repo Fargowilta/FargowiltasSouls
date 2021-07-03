@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Summons
 
             DisplayName.AddTranslation(GameCulture.Chinese, "憎恶巫毒娃娃");
             Tooltip.AddTranslation(GameCulture.Chinese, "召唤憎恶到你的城镇上" +
-                "\n'你可真是个坏东西');
+                "\n'你可真是个坏东西'");
         }
 
         public override void SetDefaults()
