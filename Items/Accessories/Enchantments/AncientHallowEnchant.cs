@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Hallowed Enchantment");
+            /*DisplayName.SetDefault("Ancient Hallowed Enchantment");
             Tooltip.SetDefault(
 @"You gain a shield that can reflect projectiles
 Summons an Enchanted Sword familiar that scales with minion damage
@@ -27,7 +27,7 @@ Summons a magical fairy
 @"使你获得一面可以反弹弹幕的盾牌
 召唤一柄附魔剑，附魔剑的伤害取决于你的召唤伤害
 召唤一只魔法仙灵
-'愿人都尊你的剑与盾为圣'");
+'愿人都尊你的剑与盾为圣'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
