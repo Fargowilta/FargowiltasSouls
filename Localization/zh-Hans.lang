@@ -1,10 +1,20 @@
-﻿
-ItemName.AdamantiteEnchant=精金魔石
-ItemName.AncientCobaltEnchant=远古钴魔石
-ItemName.AncientHallowEnchant=远古神圣魔石
+BuffName.AbomFang=憎恶毒牙
+BuffTooltip.AbomFang=永恒模式的力量压迫着你
+BuffName.AbomPresence=憎恶驾到
+BuffTooltip.AbomPresence=减少防御、伤害减免和生命恢复速度；附带月噬减益效果
+BuffName.DeviPresence=戴薇安驾到
+BuffTooltip.DeviPresence=大幅增加友方NPC受到的伤害
 
+ItemName.AdamantiteEnchant=精金魔石
 ItemTooltip.AdamantiteEnchant=每秒随机使你的一个弹幕分裂成三个\n“一气化三清！”
+
+ItemName.AncientCobaltEnchant=远古钴魔石
 ItemTooltip.AncientCobaltEnchant=你的弹幕有20%几率爆裂成毒刺\n此效果每秒内只会发生一次\n“古老的丛林赋予你力量”
+
+ItemName.AncientHallowEnchant=远古神圣魔石
 ItemTooltip.AncientHallowEnchant=使你获得一面可以反弹弹幕的盾牌\n召唤一柄附魔剑，附魔剑的伤害接受召唤伤害加成\n召唤一只魔法仙灵\n“愿世人都尊你的剑与盾为圣”
+
+
+
 
 
