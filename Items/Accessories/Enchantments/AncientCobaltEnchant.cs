@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Cobalt Enchantment");
+            /*DisplayName.SetDefault("Ancient Cobalt Enchantment");
             Tooltip.SetDefault(
 @"20% chance for your projectiles to explode into stingers
 This can only happen once every second
@@ -20,7 +20,7 @@ This can only happen once every second
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"你的弹幕有20%几率爆裂成毒刺
 此效果在每秒内只会发生一次
-'古老的丛林赋予你力量'");
+'古老的丛林赋予你力量'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
