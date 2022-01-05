@@ -12,13 +12,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Adamantite Enchantment");
-            Tooltip.SetDefault("One of your projectiles will split into 3 every second" +
-                "\n'Three degrees of seperation'");
+            //DisplayName.SetDefault("Adamantite Enchantment");
+            //Tooltip.SetDefault("One of your projectiles will split into 3 every second" +
+            //    "\n'Three degrees of seperation'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "精金魔石");
-            Tooltip.AddTranslation(GameCulture.Chinese, "每秒会随机使你的一个弹幕分裂成三个" +
-                "\n'一气化三清！'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "精金魔石");
+            //ooltip.AddTranslation(GameCulture.Chinese, "每秒会随机使你的一个弹幕分裂成三个" +
+            //    "\n'一气化三清！'");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
