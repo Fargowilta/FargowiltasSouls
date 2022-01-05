@@ -1,10 +1,20 @@
-﻿
+BuffName.AbomFang=Abominable Fang
+BuffTooltip.AbomFang=The power of Eternity Mode compels you
+BuffName.AbomPresence=Abominable Presence
+BuffTooltip.AbomPresence=Defense, damage reduction, and life regen reduced; Moon Leech effect
+BuffName.DeviPresence=Deviant Presence
+BuffTooltip.DeviPresence=Friendly NPCs take massively increased damage
+
+
 ItemName.AdamantiteEnchant=Adamantite Enchantment
-ItemName.AncientCobaltEnchant=Ancient Cobalt Enchantment
-ItemName.AncientHallowEnchant=Ancient Hallowed Enchantment
-
-
-
 ItemTooltip.AdamantiteEnchant=One of your projectiles will split into 3 every second\n'Three degrees of seperation'
+
+ItemName.AncientCobaltEnchant=Ancient Cobalt Enchantment
 ItemTooltip.AncientCobaltEnchant=20% chance for your projectiles to explode into stinger\nThis can only happen once every second\n'The jungle of old empowers you'
+
+ItemName.AncientHallowEnchant=Ancient Hallowed Enchantment
 ItemTooltip.AncientHallowEnchant=You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nSummons a magical fairy\n'Hallowed be your sword and shield'
+
+
+
+
