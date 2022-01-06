@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Abominable Rebirth");
-            Description.SetDefault("You cannot heal at all and cannot die unless struck");
+            /*DisplayName.SetDefault("Abominable Rebirth");
+            Description.SetDefault("You cannot heal at all and cannot die unless struck");*/
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;
