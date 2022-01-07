@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Chaos Life");
-            Description.SetDefault("Max life reduced");
+            //DisplayName.SetDefault("Chaos Life");
+            //Description.SetDefault("Max life reduced");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
