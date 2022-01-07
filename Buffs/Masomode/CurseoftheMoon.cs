@@ -8,13 +8,13 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Curse of the Moon");
-            Description.SetDefault("The moon's wrath consumes you");
+            //DisplayName.SetDefault("Curse of the Moon");
+            //Description.SetDefault("The moon's wrath consumes you");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "月之诅咒");
-            Description.AddTranslation(GameCulture.Chinese, "月亮的愤怒吞噬了你");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "月之诅咒");
+            //Description.AddTranslation(GameCulture.Chinese, "月亮的愤怒吞噬了你");
         }
 
         public override void Update(Player player, ref int buffIndex)

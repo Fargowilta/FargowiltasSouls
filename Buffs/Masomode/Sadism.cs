@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Eternity");
-            Description.SetDefault("The power of Eternity Mode is with you");
+            //DisplayName.SetDefault("Eternity");
+            //Description.SetDefault("The power of Eternity Mode is with you");
             Main.buffNoSave[Type] = false;
-            DisplayName.AddTranslation(GameCulture.Chinese, "施虐狂");
-            Description.AddTranslation(GameCulture.Chinese, "受虐模式的力量与你同在");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "施虐狂");
+            //Description.AddTranslation(GameCulture.Chinese, "受虐模式的力量与你同在");
         }
 
         public override bool Autoload(ref string name, ref string texture)

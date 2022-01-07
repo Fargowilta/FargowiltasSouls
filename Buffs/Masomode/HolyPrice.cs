@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Holy Price");
-            Description.SetDefault("Your attacks inflict 33% less damage");
+            //DisplayName.SetDefault("Holy Price");
+            //Description.SetDefault("Your attacks inflict 33% less damage");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;

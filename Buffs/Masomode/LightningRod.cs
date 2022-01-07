@@ -10,14 +10,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Lightning Rod");
-            Description.SetDefault("You attract thunderbolts");
+            //DisplayName.SetDefault("Lightning Rod");
+            //Description.SetDefault("You attract thunderbolts");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "避雷针");
-            Description.AddTranslation(GameCulture.Chinese, "你将会吸引雷电");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "避雷针");
+            //Description.AddTranslation(GameCulture.Chinese, "你将会吸引雷电");
         }
 
         private void SpawnLightning(Entity obj, int type, int damage)

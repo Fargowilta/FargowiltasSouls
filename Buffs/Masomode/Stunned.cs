@@ -8,13 +8,13 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Stunned");
-            Description.SetDefault("You're too dizzy to move");
+            //DisplayName.SetDefault("Stunned");
+            //Description.SetDefault("You're too dizzy to move");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "昏迷");
-            Description.AddTranslation(GameCulture.Chinese, "你头晕目眩,动弹不得");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "昏迷");
+            //Description.AddTranslation(GameCulture.Chinese, "你头晕目眩,动弹不得");
         }
 
         public override void Update(Player player, ref int buffIndex)

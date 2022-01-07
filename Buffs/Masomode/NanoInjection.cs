@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Nano Injection");
-            Description.SetDefault("Life regeneration and stats reduced");
+            //DisplayName.SetDefault("Nano Injection");
+            //Description.SetDefault("Life regeneration and stats reduced");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;

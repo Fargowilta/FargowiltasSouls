@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Midas");
-            Description.SetDefault("Drop money on hit");
+            //DisplayName.SetDefault("Midas");
+            //Description.SetDefault("Drop money on hit");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "点金手");
-            Description.AddTranslation(GameCulture.Chinese, "被攻击时掉落钱币");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "点金手");
+            //Description.AddTranslation(GameCulture.Chinese, "被攻击时掉落钱币");
         }
 
         public override void Update(Player player, ref int buffIndex)

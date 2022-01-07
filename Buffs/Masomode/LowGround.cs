@@ -10,12 +10,12 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Low Ground");
-            Description.SetDefault("Cannot stand on platforms or liquids");
+            //DisplayName.SetDefault("Low Ground");
+            //Description.SetDefault("Cannot stand on platforms or liquids");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "低地");
-            Description.AddTranslation(GameCulture.Chinese, "不能站在平台或液体上");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "低地");
+            //Description.AddTranslation(GameCulture.Chinese, "不能站在平台或液体上");
         }
 
         public override void Update(Player player, ref int buffIndex)

@@ -11,15 +11,15 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Oceanic Seal");
-            Description.SetDefault("No dodging, no lifesteal, no supersonic, no escape");
+            //DisplayName.SetDefault("Oceanic Seal");
+            //Description.SetDefault("No dodging, no lifesteal, no supersonic, no escape");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
             longerExpertDebuff = false;
             canBeCleared = false;
-            DisplayName.AddTranslation(GameCulture.Chinese, "海洋印记");
-            Description.AddTranslation(GameCulture.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "海洋印记");
+            //Description.AddTranslation(GameCulture.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
         }
 
         public override void Update(Player player, ref int buffIndex)

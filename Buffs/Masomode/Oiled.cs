@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Oiled");
-            Description.SetDefault("Taking more damage from being on fire");
+            //DisplayName.SetDefault("Oiled");
+            //Description.SetDefault("Taking more damage from being on fire");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "浸油");
-            Description.AddTranslation(GameCulture.Chinese, "着火时将受到更多伤害");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "浸油");
+            //Description.AddTranslation(GameCulture.Chinese, "着火时将受到更多伤害");
         }
 
         public override bool Autoload(ref string name, ref string texture)

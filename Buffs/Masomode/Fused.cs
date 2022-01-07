@@ -11,13 +11,13 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Fused");
-            Description.SetDefault("You're going out with a bang");
+            //DisplayName.SetDefault("Fused");
+            //Description.SetDefault("You're going out with a bang");
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "导火线");
-            Description.AddTranslation(GameCulture.Chinese, "你和爆炸有个约会");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "导火线");
+            //Description.AddTranslation(GameCulture.Chinese, "你和爆炸有个约会");
         }
 
         public override void Update(Player player, ref int buffIndex)

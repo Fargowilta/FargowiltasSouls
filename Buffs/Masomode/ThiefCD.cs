@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Thief Cooldown");
-            Description.SetDefault("Your items cannot be stolen again yet");
+            //DisplayName.SetDefault("Thief Cooldown");
+            //Description.SetDefault("Your items cannot be stolen again yet");
             Main.buffNoSave[Type] = true;
         }
     }

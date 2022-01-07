@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Lihzahrd Curse");
-            Description.SetDefault("Wires disabled in Jungle Temple");
+            //DisplayName.SetDefault("Lihzahrd Curse");
+            //Description.SetDefault("Wires disabled in Jungle Temple");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("God Eater");
-            Description.SetDefault("Your soul is cursed by divine wrath");
+            //DisplayName.SetDefault("God Eater");
+            //Description.SetDefault("Your soul is cursed by divine wrath");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "噬神者");
-            Description.AddTranslation(GameCulture.Chinese, "你的灵魂被神明的忿怒所诅咒");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "噬神者");
+            //Description.AddTranslation(GameCulture.Chinese, "你的灵魂被神明的忿怒所诅咒");
         }
 
         public override void Update(Player player, ref int buffIndex)

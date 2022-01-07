@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Guilty");
-            Description.SetDefault("Weapons dulled by the guilt of slaying innocent critters");
+            //DisplayName.SetDefault("Guilty");
+            //Description.SetDefault("Weapons dulled by the guilt of slaying innocent critters");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "内疚");
-            Description.AddTranslation(GameCulture.Chinese, "杀害无辜动物的内疚使你的武器变得迟钝");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "内疚");
+            //Description.AddTranslation(GameCulture.Chinese, "杀害无辜动物的内疚使你的武器变得迟钝");
         }
 
         public override void Update(Player player, ref int buffIndex)

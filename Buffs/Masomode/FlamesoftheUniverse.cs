@@ -9,14 +9,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Flames of the Universe");
-            Description.SetDefault("The heavens themselves have judged you");
+            //DisplayName.SetDefault("Flames of the Universe");
+            //Description.SetDefault("The heavens themselves have judged you");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙之火");
-            Description.AddTranslation(GameCulture.Chinese, "来自诸天的亲自审判");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "宇宙之火");
+            //Description.AddTranslation(GameCulture.Chinese, "来自诸天的亲自审判");
         }
 
         public override void Update(Player player, ref int buffIndex)

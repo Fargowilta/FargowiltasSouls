@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Infested EX");
-            Description.SetDefault("This can only get worse");
+            //DisplayName.SetDefault("Infested EX");
+            //Description.SetDefault("This can only get worse");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "感染");
-            Description.AddTranslation(GameCulture.Chinese, "这只会变得更糟");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "感染");
+            //Description.AddTranslation(GameCulture.Chinese, "这只会变得更糟");
         }
 
         public override void Update(Player player, ref int buffIndex)
