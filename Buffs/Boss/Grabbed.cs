@@ -8,10 +8,10 @@ namespace FargowiltasSouls.Buffs.Boss
     {
         public override void SetDefaults()
         {
-            /*DisplayName.SetDefault("Grabbed");
-            Description.SetDefault("Mash movement keys to escape!");
-            DisplayName.AddTranslation(GameCulture.Chinese, "抓住你了！");
-            Description.AddTranslation(GameCulture.Chinese, "狂点你的移动键来逃离这个！");*/
+            //DisplayName.SetDefault("Grabbed");
+            //Description.SetDefault("Mash movement keys to escape!");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "抓住你了！");
+            //Description.AddTranslation(GameCulture.Chinese, "狂点你的移动键来逃离这个！");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;
