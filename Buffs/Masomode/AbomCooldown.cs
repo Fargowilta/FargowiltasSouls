@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            /*//DisplayName.SetDefault("Abominable Cooldown");
-            //Description.SetDefault("Cannot endure another attack yet");*/
+            //DisplayName.SetDefault("Abominable Cooldown");
+            //Description.SetDefault("Cannot endure another attack yet");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
