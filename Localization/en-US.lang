@@ -1,20 +1,101 @@
-BuffName.AbomFang=Abominable Fang
-BuffTooltip.AbomFang=The power of Eternity Mode compels you
-BuffName.AbomPresence=Abominable Presence
-BuffTooltip.AbomPresence=Defense, damage reduction, and life regen reduced; Moon Leech effect
-BuffName.DeviPresence=Deviant Presence
-BuffTooltip.DeviPresence=Friendly NPCs take massively increased damage
+﻿Buffs and Debuffs:
 
 
-ItemName.AdamantiteEnchant=Adamantite Enchantment
-ItemTooltip.AdamantiteEnchant=One of your projectiles will split into 3 every second\n'Three degrees of seperation'
+BuffName.AbomFang =Abominable Fang
+BuffDescription.AbomFang =The power of Eternity Mode compels you
 
-ItemName.AncientCobaltEnchant=Ancient Cobalt Enchantment
-ItemTooltip.AncientCobaltEnchant=20% chance for your projectiles to explode into stinger\nThis can only happen once every second\n'The jungle of old empowers you'
+BuffName.AbomPresence =Abominable Presence
+BuffDescription.AbomPresence =Defense, damage reduction, and life regen reduced; Moon Leech effect
 
-ItemName.AncientHallowEnchant=Ancient Hallowed Enchantment
-ItemTooltip.AncientHallowEnchant=You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nSummons a magical fairy\n'Hallowed be your sword and shield'
+BuffName.DeviPresence =Deviant Presence
+BuffDescription.DeviPresence =Friendly NPCs take massively increased damage
+
+BuffName.Grabbed =Grabbed
+BuffDescription.Grabbed =Mash movement keys to escape!
+
+BuffName.MutantFang =Mutant Fang
+BuffDescription.MutantFang =The power of Eternity Mode compels you
+
+BuffName.MutantPresence =Mutant Presence
+BuffDescription.MutantPresence =Defense, damage reduction, and life regen reduced; almost all soul toggles disabled; reduced graze radius
+
+BuffName.AbomCooldown =Abominable Cooldown
+BuffDescription.AbomCooldown =Cannot endure another attack yet
+
+BuffName.AbomRebirth =Abominable Rebirth
+BuffDescription.AbomRebirth =You cannot heal at all and cannot die unless struck
+
+BuffName.Antisocial =Antisocial
+BuffDescription.Antisocial =You have no friends
+
+BuffName.Atrophied =Atrophied
+BuffDescription.Atrophied =Your muscles are deteriorating
+
+BuffName.Berserked =Berserked
+BuffDescription.Berserked =10% increased damage and speed but you cannot control yourself
+
+BuffName.Bloodthirsty =Bloodthirsty
+BuffDescription.Bloodthirsty =Hugely increased enemy spawn rate
+
+BuffName.ChaosLife =Chaos Life
+BuffDescription.ChaosLife =Max life reduced
+
+BuffName.ClippedWings =Clipped Wings
+BuffDescription.ClippedWings =You cannot fly or use rocket boots
+
+BuffName.Crippled =Crippled
+BuffDescription.Crippled =You cannot run
+
+BuffName.CurseoftheMoon =Curse of the Moon
+BuffDescription.CurseoftheMoon =The moon's wrath consumes you
+
+BuffName.Defenseless =Defenseless
+BuffDescription.Defenseless =Your guard is completely broken
 
 
 
+Enchs:
+
+
+ItemName.AdamantiteEnchant =Adamantite Enchantment
+ItemTooltip.AdamantiteEnchant =One of your projectiles will split into 3 every second\n'Three degrees of seperation'
+
+ItemName.AncientCobaltEnchant =Ancient Cobalt Enchantment
+ItemTooltip.AncientCobaltEnchant =20% chance for your projectiles to explode into stinger\nThis can only happen once every second\n'The jungle of old empowers you'
+
+ItemName.AncientHallowEnchant =Ancient Hallowed Enchantment
+ItemTooltip.AncientHallowEnchant =You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nSummons a magical fairy\n'Hallowed be your sword and shield'
+
+
+Betsy:
+
+
+EternityMode.Betsy1 =CRINGE
+EternityMode.Betsy2 =NOT POGGERS
+EternityMode.Betsy3 =MONKAS
+EternityMode.Betsy4 =SHOW WINGS
+EternityMode.Betsy5 =AERIAL BANE POG
+EternityMode.Betsy6 =REAL BOSS WHEN?
+EternityMode.Betsy7 =#NOTMYMASOMODE
+EternityMode.Betsy8 =OOA BAD ANYWAY
+EternityMode.Betsy9 =COPE MALD SEETHE
+EternityMode.Betsy10 =GET REAL
+EternityMode.Betsy11 =GET FAKE
+EternityMode.Betsy12 =POGGERS
+EternityMode.Betsy13 =ResidentSleeper
+EternityMode.Betsy14 =If you can read this say 22
+EternityMode.Betsy15 =GuraSit
+EternityMode.Betsy16 =play calamity
+EternityMode.Betsy17 =play thorium
+EternityMode.Betsy18 =hardcore 1hp challenge when?
+EternityMode.Betsy19 =now do it with a copper shortsword
+EternityMode.Betsy20 =Zenith Yoyo?
+EternityMode.Betsy21 =guys how do i beat moon lord
+EternityMode.Betsy22 =GUYS I GOT TERRAPRISMA
+EternityMode.Betsy23 =how do i install this update
+EternityMode.Betsy24 =Hi YouTube!
+EternityMode.Betsy25 =<Message was deleted by staff>
+EternityMode.Betsy26 =<User 
+EternityMode.Betsy27 = was banned>
+EternityMode.Betsy28 = was muted>
 
