@@ -1894,6 +1894,6 @@ namespace FargowiltasSouls
 		{
 			secondaryApply = true;
 			return base.GetSecondaryShader(entity);
-		}		
+		}//		
 	}
 }
