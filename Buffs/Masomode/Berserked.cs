@@ -8,14 +8,14 @@ namespace FargowiltasSouls.Buffs.Masomode
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Berserked");
-            Description.SetDefault("10% increased damage and speed but you cannot control yourself");
+            //DisplayName.SetDefault("Berserked");
+            //Description.SetDefault("10% increased damage and speed but you cannot control yourself");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             canBeCleared = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "狂暴");
-            Description.AddTranslation(GameCulture.Chinese, "你控几不住你记几");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "狂暴");
+            //Description.AddTranslation(GameCulture.Chinese, "你控几不住你记几");
         }
 
         public override void Update(Player player, ref int buffIndex)
