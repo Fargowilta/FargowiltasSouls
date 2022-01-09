@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.HM
@@ -52,7 +53,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (EModeGlobalNPC.spawnFishronEX)
             {
                 IsEX = true;
-                npc.GivenName = "Duke Fishron EX";
+                npc.GivenName = Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.NameFishronEX");
                 npc.damage = (int)(npc.damage * 3);// 1.5);
                 npc.defense *= 30;
                 npc.buffImmune[ModContent.BuffType<FlamesoftheUniverse>()] = true;
@@ -894,7 +895,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (EModeGlobalNPC.fishBossEX == npc.whoAmI) //drop loot here (avoids the vanilla "fishron defeated" message)
                 {
                     FargoSoulsWorld.downedFishronEX = true;
-                    FargoSoulsUtil.PrintText("Duke Fishron EX has been defeated!", new Color(50, 100, 255));
+                    FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.KillFishronEX"), new Color(50, 100, 255));
 
                     Main.PlaySound(npc.DeathSound, npc.Center);
                     npc.DropBossBags();

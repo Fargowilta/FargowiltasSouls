@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.HM
@@ -347,7 +348,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    FargoSoulsUtil.PrintText("Skeletron Prime has entered Dungeon Guardian form!", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.SkeletronPrimeTransform"), new Color(175, 75, 255));
                 }
 
                 if (!FargoSoulsWorld.MasochistModeReal)

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -74,7 +75,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                 }
 
-                FargoSoulsUtil.PrintText("Royal Subject has awoken!", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.RoyalSubject"), new Color(175, 75, 255));
 
                 npc.netUpdate = true;
                 NetSync(npc);
@@ -99,7 +100,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                 }
 
-                FargoSoulsUtil.PrintText("Royal Subject has awoken!", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.RoyalSubject"), new Color(175, 75, 255));
 
                 NPC.SpawnOnPlayer(npc.target, ModContent.NPCType<RoyalSubject>()); //so that both dont stack for being spawned from qb
 

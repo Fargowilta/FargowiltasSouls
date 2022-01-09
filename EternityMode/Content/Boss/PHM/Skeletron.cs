@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -237,7 +238,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    FargoSoulsUtil.PrintText("Skeletron has entered Dungeon Guardian form!", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.SkeletronTransform"), new Color(175, 75, 255));
                 }
                 return false;
             }

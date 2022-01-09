@@ -1,4 +1,4 @@
-using Fargowiltas.Items.Summons.Abom;
+﻿using Fargowiltas.Items.Summons.Abom;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;

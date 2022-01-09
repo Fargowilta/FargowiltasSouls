@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy
@@ -69,8 +70,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
 
                 if (stolen)
                 {
-                    Main.NewText("An item was stolen from you!", new Color(255, 50, 50));
-                    CombatText.NewText(target.Hitbox, new Color(255, 50, 50), "An item was stolen from you!", true);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), new Color(255, 50, 50));
+                    CombatText.NewText(target.Hitbox, new Color(255, 50, 50), Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), true);
                 }
             }
         }
