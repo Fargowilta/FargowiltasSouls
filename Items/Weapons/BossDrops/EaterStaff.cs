@@ -10,14 +10,14 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eater of Worlds Staff");
+            /*DisplayName.SetDefault("Eater of Worlds Staff");
             Tooltip.SetDefault(
                 @"Summons 4 segments for each minion slot
 'An old foe beaten into submission..'");
             DisplayName.AddTranslation(GameCulture.Chinese, "世界吞噬者法杖");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"一个被迫屈服的老对手..
-每个召唤栏召唤4段身体");
+每个召唤栏召唤4段身体");*/
         }
 
         public override void SetDefaults()
