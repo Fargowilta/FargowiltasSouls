@@ -63,6 +63,111 @@ BuffDescription.Defenseless =Your guard is completely broken
 
 
 
+/Items/Weapons
+/Items/Weapons/Boss Drops
+
+ItemName.BoneZone =骸骨领域
+ItemToolTip.BoneZone =消耗骨头作为弹药\n33%的几率不消耗弹药\n“被击败的敌人的残骸……”
+
+ItemName.BrainStaff =精神崩坏
+ItemToolTip.BrainStaff =“一个被迫屈服的老对手……”
+
+ItemName.DamnedBook =邪教徒的魔法书
+
+ItemName.DestroyerGun =毁灭者之枪
+ItemToolTip.DestroyerGun =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算三个召唤栏位\n“一个被迫屈服的老对手……”
+
+ItemName.Dicer =切肉球
+ItemToolTip.Dicer =“一个被击败的敌人的攻击方式，但是被你拴在绳子上了”
+
+ItemName.DragonBreath =巨龙之息
+ItemToolTip.DragonBreath =使用凝胶作为弹药\n33%的几率不消耗弹药\n“一个被击败的敌人的缩小版尸体……”
+
+ItemName.EaterStaff =世界吞噬者召唤杖
+ItemToolTip.EaterStaff =每消耗一个栏位，能召唤出四个体节\n“一个被迫屈服的老对手……”
+
+ItemName.FishStick =鱼杖
+ItemToolTip.FishStick =“被打败的敌人的尸体，被用棍子粗暴地串了起来……”
+
+ItemName.FleshHand =血肉之手
+ItemToolTip.FleshHand =“战败敌人的仆从……”
+
+ItemName.HiveStaff =蜂巢法杖
+ItemToolTip.HiveStaff =“战败敌人的仆从……”
+
+ItemName.LeashOfCthulhu =克苏鲁连枷
+ItemToolTip.LeashOfCthulhu =“被打败的敌人的残尸……”
+
+ItemName.RefractorBlaster =变轨激光炮
+ItemToolTip.RefractorBlaster =“由一个被击败的敌人的手臂改装而来……”
+
+ItemName.RockSlide =岩崩
+ItemToolTip.RockSlide =“被击败的敌人的破碎残骸……”
+
+ItemName.SlimeKingsSlasher =史莱姆王的屠戮者
+ItemToolTip.SlimeKingsSlasher =“撕裂敌人内部而得到……”
+
+ItemName.TheSmallSting =小螯刺
+ItemToolTip.TheSmallSting =消耗飞镖作为弹药\n50%的几率不消耗弹药\n毒刺会扎在敌怪身上，多次击中同一个位置时会造成额外的伤害\n“从被打败敌人的腹部扯下……”
+
+ItemName.TwinRangs =双子回旋镖
+ItemToolTip.TwinRangs =左右键点击会进行不同的攻击\n“被打败的敌人的压缩形态”
+
+
+/Items/Weapons/Challengers
+
+ItemName.TheLightningRod =避雷针
+ItemToolTip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪，伤害都会降低
+
+
+/Items/Weapons/Final Upgrades
+
+ItemName.PhantasmalLeashOfCthulhu =幻影克苏鲁连枷
+ItemToolTip.PhantasmalLeashOfCthulhu =“被永恒能量禁锢的真眼的灵魂……”
+
+ItemName.SlimeRain =史莱姆雨
+ItemToolTip.SlimeRain =“史莱姆王的内脏撒得遍地都是……”
+
+ItemName.SparklingLove =闪闪发光的爱
+ItemToolTip.SparklingLove =右键点击召唤戴薇安的灵魂\n空召唤栏位数越多，右键攻击的激光越密集，最多计算12个空召唤栏位\n“从一个被打败的敌人那里得到，耗费爱和正义、吞噬灵魂的恶魔斧头……”
+
+ItemName.StyxGazer =冥河凝视
+ItemToolTip.StyxGazer =右键挥舞冥狱魔剑\n“灼灼镰刃，破灭狱刃，合二为一，取于敌手……”
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+
 /Items/Enchs
 
 ItemName.AdamantiteEnchant =精金魔石
@@ -405,114 +510,3 @@ EternityMode.Stolen =你有东西被偷了！
 拥有举足轻重靴的效果
 
 
-
-武器：
-
-Boss掉落武器：
-
-
-ItemName.BoneZone =骸骨领域
-ItemToolTip.BoneZone =消耗骨头作为弹药\n33%的几率不消耗弹药\n“被击败的敌人的残骸……”
-
-ItemName.BrainStaff =精神崩坏
-ItemToolTip.BrainStaff =“一个被迫屈服的老对手……”
-
-ItemName.DamnedBook =邪教徒的魔法书
-
-ItemName.DestroyerGun =毁灭者之枪
-ItemToolTip.DestroyerGun =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算三个召唤栏位\n“一个被迫屈服的老对手……”
-
-ItemName.Dicer =切肉球
-ItemToolTip.Dicer =“一个被击败的敌人的攻击方式，但是被你拴在绳子上了”
-
-ItemName.DragonBreath =巨龙之息
-ItemToolTip.DragonBreath =使用凝胶作为弹药\n33%的几率不消耗弹药\n“一个被击败的敌人的缩小版尸体……”
-
-ItemName.EaterStaff =世界吞噬者召唤杖
-ItemToolTip.EaterStaff =每消耗一个栏位，能召唤出四个体节\n“一个被迫屈服的老对手……”
-
-ItemName.FishStick =鱼杖
-ItemToolTip.FishStick =“被打败的敌人的尸体，被用棍子粗暴地串了起来……”
-
-ItemName.FleshHand =血肉之手
-ItemToolTip.FleshHand =“战败敌人的仆从……”
-
-ItemName.HiveStaff =蜂巢法杖
-ItemToolTip.HiveStaff =“战败敌人的仆从……”
-
-ItemName.LeashOfCthulhu =克苏鲁连枷
-ItemToolTip.LeashOfCthulhu =“被打败的敌人的残尸……”
-
-
-
-
-ItemName.RefractorBlaster =变轨激光炮
-ItemToolTip.RefractorBlaster =“由一个被击败的敌人的手臂改装而来……”
-
-ItemName.RockSlide =岩崩
-ItemToolTip.RockSlide =“被击败的敌人的破碎残骸……”
-
-ItemName.SlimeKingsSlasher =史莱姆王的屠戮者
-ItemToolTip.SlimeKingsSlasher =“撕裂敌人内部而得到……”
-
-ItemName.TheSmallSting =小螯刺
-ItemToolTip.TheSmallSting =消耗飞镖作为弹药\n50%的几率不消耗弹药\n毒刺会扎在敌怪身上，多次击中同一个位置时会造成额外的伤害\n“从被打败敌人的腹部扯下……”
-
-ItemName.TwinRangs =双子回旋镖
-ItemToolTip.TwinRangs =左右键点击会进行不同的攻击\n“被打败的敌人的压缩形态”
-
-
-挑战者武器（？）：
-
-
-ItemName.TheLightningRod =避雷针
-ItemToolTip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪，伤害都会降低
-
-
-最终武器：
-
-
-ItemName.PhantasmalLeashOfCthulhu =幻影克苏鲁连枷
-ItemToolTip.PhantasmalLeashOfCthulhu =“被永恒能量禁锢的真眼的灵魂……”
-
-ItemName.SlimeRain =史莱姆雨
-ItemToolTip.SlimeRain =“史莱姆王的内脏撒得遍地都是……”
-
-ItemName.SparklingLove =闪闪发光的爱
-ItemToolTip.SparklingLove =右键点击召唤戴薇安的灵魂\n空召唤栏位数越多，右键攻击的激光越密集，最多计算12个空召唤栏位\n“从一个被打败的敌人那里得到，耗费爱和正义、吞噬灵魂的恶魔斧头……”
-
-ItemName.StyxGazer =冥河凝视
-ItemToolTip.StyxGazer =右键挥舞冥狱魔剑\n“灼灼镰刃，破灭狱刃，合二为一，取于敌手……”
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
-
-ItemName.
-ItemToolTip.
