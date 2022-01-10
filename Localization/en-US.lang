@@ -369,8 +369,8 @@ ItemToolTip.VoidBow =Converts all arrows to void arrows \n40% chance to not cons
 ItemName.BigBrainBuster =Big Brain Buster
 ItemToolTip.BigBrainBuster =
 
-ItemName. =The Blender
-ItemToolTip. ='The reward for slaughtering many...'
+ItemName.Blender =The Blender
+ItemToolTip.Blender ='The reward for slaughtering many...'
 
 ItemName.DestroyerGun2 =Destruction Cannon
 ItemToolTip.DestroyerGun2 =Becomes longer and faster with up to 5 empty minion slots\n'The reward for slaughtering many...'
