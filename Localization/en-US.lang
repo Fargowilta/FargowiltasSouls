@@ -268,6 +268,115 @@ EternityMode.Stolen =An item was stolen from you!
 
 
 
+Weapons:
 
+Boss Drops:
+
+
+ItemName.BoneZone =The Bone Zone
+ItemToolTip.BoneZone =Uses bones for ammo\n33% chance to not consume ammo\n'The shattered remains of a defeated foe..'
+
+ItemName.BrainStaff =Mind Break
+ItemToolTip.BrainStaff ='An old foe beaten into submission..'
+
+ItemName.DamnedBook =Cultist's Spellbook
+
+ItemName.DestroyerGun =Destroyer Gun
+ItemToolTip.DestroyerGun =Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'
+
+ItemName.Dicer =The Dicer
+ItemToolTip.Dicer ='A defeated foe's attack now on a string'
+
+ItemName.DragonBreath =Dragon's Breath
+ItemToolTip.DragonBreath =Uses gel for ammo\n33% chance to not consume ammo\n'The shrunken body of a defeated foe..'
+
+ItemName.EaterStaff =Eater of Worlds Staff
+ItemToolTip.EaterStaff =Summons 4 segments for each minion slot\n'An old foe beaten into submission..'
+
+ItemName.FishStick =Fish Stick
+ItemToolTip.FishStick ='The carcass of a defeated foe shoved violently on a stick..'
+
+ItemName.FleshHand =Flesh Hand
+ItemToolTip.FleshHand ='The enslaved minions of a defeated foe..'
+
+ItemName.HiveStaff =Hive Staff
+ItemToolTip.HiveStaff ='The enslaved minions of a defeated foe..'
+
+ItemName.LeashOfCthulhu =Leash of Cthulhu
+ItemToolTip.LeashOfCthulhu ='The mutilated carcass of a defeated foe...'
+
+
+
+
+ItemName.RefractorBlaster =Refractor Blaster
+ItemToolTip.RefractorBlaster ='Modified from the arm of a defeated foe..'
+
+ItemName.RockSlide =The Rockslide
+ItemToolTip.RockSlide ='The crumbling remains of a defeated foe..'
+
+ItemName.SlimeKingsSlasher =Slime King's Slasher
+ItemToolTip.SlimeKingsSlasher ='Torn from the insides of a defeated foe..'
+
+ItemName.TheSmallSting =The Small Sting
+ItemToolTip.TheSmallSting =Uses darts for ammo\n50% chance to not consume ammo\nStingers will stick to enemies, hitting the same spot again will deal extra damage\n'Repurposed from the abdomen of a defeated foe..'
+
+ItemName.TwinRangs =TwinRangs
+ItemToolTip.TwinRangs =Fire a different twinrang depending on mouse click\n'The compressed forms of defeated foes..'
+
+
+Challengers:
+
+
+ItemName.TheLightningRod =The Lightning Rod
+ItemToolTip.TheLightningRod =Charges power as it is spun\nDamage decreases per hit when thrown
+
+
+FinalUpgrades:
+
+
+ItemName.PhantasmalLeashOfCthulhu =Phantasmal Leash of Cthulhu
+ItemToolTip.PhantasmalLeashOfCthulhu ='The True Eye's soul trapped for eternity..'
+
+ItemName.SlimeRain =Slime Rain
+ItemToolTip.SlimeRain ='The King's innards spread across the land..'
+
+ItemName.SparklingLove =Sparkling Love
+ItemToolTip.SparklingLove =Right click to summon the soul of Deviantt\nRight click pattern becomes denser with up to 12 empty minion slots\n'The soul-consuming demon axe of love and justice from a defeated foe...'
+
+ItemName.StyxGazer =Styx Gazer
+ItemToolTip.StyxGazer =Right click to wield a blade of infernal magic\n'The blazing scythe wand sword destruction ray of a defeated foe...'
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
+
+ItemName.
+ItemToolTip.
 
 
