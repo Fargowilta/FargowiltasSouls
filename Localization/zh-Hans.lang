@@ -162,8 +162,8 @@ ItemToolTip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹�
 ItemName.BigBrainBuster =大脑克星
 ItemToolTip.BigBrainBuster =
 
-ItemName. =绞肉机
-ItemToolTip. =“屠戮众多的奖赏……”
+ItemName.Blender =绞肉机
+ItemToolTip.Blender =“屠戮众多的奖赏……”
 
 ItemName.DestroyerGun2 =毁灭者之炮
 ItemToolTip.DestroyerGun2 =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算五个召唤栏位\n“屠戮众多的奖赏……”
