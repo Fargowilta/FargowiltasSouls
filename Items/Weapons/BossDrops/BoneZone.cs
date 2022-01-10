@@ -13,13 +13,13 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Bone Zone");
+            /*DisplayName.SetDefault("The Bone Zone");
             Tooltip.SetDefault("Uses bones for ammo" +
                 "\n33% chance to not consume ammo" +
                 "\n'The shattered remains of a defeated foe..'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "骸骨领域");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的残骸..'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的残骸..'");*/
         }
 
         public override void SetDefaults()
