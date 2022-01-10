@@ -59,7 +59,7 @@ BuffDescription.Defenseless =Your guard is completely broken
 /Buffs/Mounts
 /Buffs/Pets
 /Buffs/Souls
-/Buffs
+/Buffs/Others
 
 
 
@@ -167,6 +167,11 @@ ItemToolTip.
 ItemName.
 ItemToolTip.
 
+
+/Items/Weapons/Miscs
+/Items/Weapons/Final Upgrades
+/Items/Weapons/Summon Variants
+/Items/Weapons/Swarm
 
 
 /Items/Enchs
