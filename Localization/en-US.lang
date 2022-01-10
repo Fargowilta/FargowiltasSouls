@@ -1,5 +1,5 @@
-﻿Buffs and Debuffs:
-
+/Buffs
+/Buffs/Boss
 
 BuffName.AbomFang =Abominable Fang
 BuffDescription.AbomFang =The power of Eternity Mode compels you
@@ -19,6 +19,8 @@ BuffDescription.MutantFang =The power of Eternity Mode compels you
 BuffName.MutantPresence =Mutant Presence
 BuffDescription.MutantPresence =Defense, damage reduction, and life regen reduced; almost all soul toggles disabled; reduced graze radius
 
+
+/Buffs/Masomode
 
 BuffName.AbomCooldown =Abominable Cooldown
 BuffDescription.AbomCooldown =Cannot endure another attack yet
@@ -53,10 +55,15 @@ BuffDescription.CurseoftheMoon =The moon's wrath consumes you
 BuffName.Defenseless =Defenseless
 BuffDescription.Defenseless =Your guard is completely broken
 
+/Buffs/Minions
+/Buffs/Mounts
+/Buffs/Pets
+/Buffs/Souls
+/Buffs
 
 
-Enchs:
 
+/Items/Enchs
 
 ItemName.AdamantiteEnchant =Adamantite Enchantment
 ItemTooltip.AdamantiteEnchant =One of your projectiles will split into 3 every second\n'Three degrees of seperation'
@@ -68,65 +75,13 @@ ItemName.AncientHallowEnchant =Ancient Hallowed Enchantment
 ItemTooltip.AncientHallowEnchant =You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nSummons a magical fairy\n'Hallowed be your sword and shield'
 
 
-
-Souls:
-
+/Items/Souls
 
 ItemName.EternitySoul =Soul of Eternity
 ItemTooltip.EternitySoul ='Mortal or Immortal, all things acknowledge your claim to divinity'\nCrit chance is set to 50%\nCrit to increase it by 10%\nAt 100% every attack gains 10% life steal\nYou also gain +5% damage and +5 defense\nThis stacks up to 950 times until you get hit
 
 
-
-Eternity:
-
-
-EternityMode.Betsy1 =CRINGE
-EternityMode.Betsy2 =NOT POGGERS
-EternityMode.Betsy3 =MONKAS
-EternityMode.Betsy4 =SHOW WINGS
-EternityMode.Betsy5 =AERIAL BANE POG
-EternityMode.Betsy6 =REAL BOSS WHEN?
-EternityMode.Betsy7 =#NOTMYMASOMODE
-EternityMode.Betsy8 =OOA BAD ANYWAY
-EternityMode.Betsy9 =COPE MALD SEETHE
-EternityMode.Betsy10 =GET REAL
-EternityMode.Betsy11 =GET FAKE
-EternityMode.Betsy12 =POGGERS
-EternityMode.Betsy13 =ResidentSleeper
-EternityMode.Betsy14 =If you can read this say 22
-EternityMode.Betsy15 =GuraSit
-EternityMode.Betsy16 =play calamity
-EternityMode.Betsy17 =play thorium
-EternityMode.Betsy18 =hardcore 1hp challenge when?
-EternityMode.Betsy19 =now do it with a copper shortsword
-EternityMode.Betsy20 =Zenith Yoyo?
-EternityMode.Betsy21 =guys how do i beat moon lord
-EternityMode.Betsy22 =GUYS I GOT TERRAPRISMA
-EternityMode.Betsy23 =how do i install this update
-EternityMode.Betsy24 =Hi YouTube!
-EternityMode.Betsy25 =<Message was deleted by staff>
-EternityMode.Betsy26 =<User 
-EternityMode.Betsy27 = was banned>
-EternityMode.Betsy28 = was muted>
-
-EternityMode.NameFishronEX =Duke Fishron EX
-EternityMode.KillFishronEX =Duke Fishron EX has been defeated!
-
-EternityMode.SkeletronPrimeTransform =Skeletron Prime has entered Dungeon Guardian form!
-
-EternityMode.RetinazerEndure =Retinazer endured the fatal blow to fight alongside its twin!
-EternityMode.SpazmatismEndure =Spazmatism endured the fatal blow to fight alongside its twin!
-
-EternityMode.RoyalSubject =Royal Subject has awoken!
-
-EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
-
-EternityMode.Stolen =An item was stolen from you!
-
-
-
-
-
+/Items/Souls/Soul of Eternity
 
 EternitySoul.VanillaTooltip1 =250% increased damage
 EternitySoul.VanillaTooltip2 =250% increased attack speed
@@ -263,3 +218,56 @@ EternitySoul.VanillaTooltip132 =Effects of Shine potion
 EternitySoul.VanillaTooltip133 =Effects of Builder Mode
 
 EternitySoul.OtherTooltips1 =Additionally grants:
+
+
+
+/EternityMode
+
+EternityMode.Betsy1 =CRINGE
+EternityMode.Betsy2 =NOT POGGERS
+EternityMode.Betsy3 =MONKAS
+EternityMode.Betsy4 =SHOW WINGS
+EternityMode.Betsy5 =AERIAL BANE POG
+EternityMode.Betsy6 =REAL BOSS WHEN?
+EternityMode.Betsy7 =#NOTMYMASOMODE
+EternityMode.Betsy8 =OOA BAD ANYWAY
+EternityMode.Betsy9 =COPE MALD SEETHE
+EternityMode.Betsy10 =GET REAL
+EternityMode.Betsy11 =GET FAKE
+EternityMode.Betsy12 =POGGERS
+EternityMode.Betsy13 =ResidentSleeper
+EternityMode.Betsy14 =If you can read this say 22
+EternityMode.Betsy15 =GuraSit
+EternityMode.Betsy16 =play calamity
+EternityMode.Betsy17 =play thorium
+EternityMode.Betsy18 =hardcore 1hp challenge when?
+EternityMode.Betsy19 =now do it with a copper shortsword
+EternityMode.Betsy20 =Zenith Yoyo?
+EternityMode.Betsy21 =guys how do i beat moon lord
+EternityMode.Betsy22 =GUYS I GOT TERRAPRISMA
+EternityMode.Betsy23 =how do i install this update
+EternityMode.Betsy24 =Hi YouTube!
+EternityMode.Betsy25 =<Message was deleted by staff>
+EternityMode.Betsy26 =<User 
+EternityMode.Betsy27 = was banned>
+EternityMode.Betsy28 = was muted>
+
+EternityMode.NameFishronEX =Duke Fishron EX
+EternityMode.KillFishronEX =Duke Fishron EX has been defeated!
+
+EternityMode.SkeletronPrimeTransform =Skeletron Prime has entered Dungeon Guardian form!
+
+EternityMode.RetinazerEndure =Retinazer endured the fatal blow to fight alongside its twin!
+EternityMode.SpazmatismEndure =Spazmatism endured the fatal blow to fight alongside its twin!
+
+EternityMode.RoyalSubject =Royal Subject has awoken!
+
+EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
+
+EternityMode.Stolen =An item was stolen from you!
+
+
+
+
+
+
