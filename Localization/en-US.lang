@@ -268,8 +268,7 @@ EternityMode.Stolen =An item was stolen from you!
 
 
 
-Weapons/BossDrops
-
+/Items/Weapons/BossDrops
 
 ItemName.BoneZone =The Bone Zone
 ItemToolTip.BoneZone =Uses bones for ammo\n33% chance to not consume ammo\n'The shattered remains of a defeated foe..'
@@ -322,15 +321,13 @@ ItemName.TwinRangs =TwinRangs
 ItemToolTip.TwinRangs =Fire a different twinrang depending on mouse click\n'The compressed forms of defeated foes..'
 
 
-Weapons/Challengers
-
+/Items/Weapons/Challengers
 
 ItemName.TheLightningRod =The Lightning Rod
 ItemToolTip.TheLightningRod =Charges power as it is spun\nDamage decreases per hit when thrown
 
 
-Weapons/FinalUpgrades
-
+/Items/Weapons/FinalUpgrades
 
 ItemName.PhantasmalLeashOfCthulhu =Phantasmal Leash of Cthulhu
 ItemToolTip.PhantasmalLeashOfCthulhu ='The True Eye's soul trapped for eternity..'
@@ -345,8 +342,7 @@ ItemName.StyxGazer =Styx Gazer
 ItemToolTip.StyxGazer =Right click to wield a blade of infernal magic\n'The blazing scythe wand sword destruction ray of a defeated foe...'
 
 
-Weapons/Misc
-
+/Items/Weapons/Misc
 
 ItemName.Mahoguny =Mahoguny
 ItemToolTip.Mahoguny =Uses acorns as ammo\nFires leaves and acorns
@@ -364,12 +360,11 @@ ItemName.VoidBow =Void Bow
 ItemToolTip.VoidBow =Converts all arrows to void arrows \n40% chance to not consume ammo\n'A glimpse to the other side'
 
 
-Weapons/SummonVariants
+/Items/Weapons/SummonVariants
 (Always Believe Lastprismer)
 
 
-Weapons/SwarmDrops
-
+/Items/Weapons/SwarmDrops
 
 ItemName.BigBrainBuster =Big Brain Buster
 ItemToolTip.BigBrainBuster =
