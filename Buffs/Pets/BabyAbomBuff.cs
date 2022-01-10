@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs.Pets
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Baby Abom");
-            Description.SetDefault("Kickflipping on a scythe");
+            //DisplayName.SetDefault("Baby Abom");
+            //Description.SetDefault("Kickflipping on a scythe");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
