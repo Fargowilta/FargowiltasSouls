@@ -268,9 +268,7 @@ EternityMode.Stolen =An item was stolen from you!
 
 
 
-Weapons:
-
-Boss Drops:
+Weapons/BossDrops
 
 
 ItemName.BoneZone =The Bone Zone
@@ -324,14 +322,14 @@ ItemName.TwinRangs =TwinRangs
 ItemToolTip.TwinRangs =Fire a different twinrang depending on mouse click\n'The compressed forms of defeated foes..'
 
 
-Challengers:
+Weapons/Challengers
 
 
 ItemName.TheLightningRod =The Lightning Rod
 ItemToolTip.TheLightningRod =Charges power as it is spun\nDamage decreases per hit when thrown
 
 
-FinalUpgrades:
+Weapons/FinalUpgrades
 
 
 ItemName.PhantasmalLeashOfCthulhu =Phantasmal Leash of Cthulhu
@@ -347,7 +345,7 @@ ItemName.StyxGazer =Styx Gazer
 ItemToolTip.StyxGazer =Right click to wield a blade of infernal magic\n'The blazing scythe wand sword destruction ray of a defeated foe...'
 
 
-Misc:
+Weapons/Misc
 
 
 ItemName.Mahoguny =Mahoguny
@@ -366,11 +364,11 @@ ItemName.VoidBow =Void Bow
 ItemToolTip.VoidBow =Converts all arrows to void arrows \n40% chance to not consume ammo\n'A glimpse to the other side'
 
 
-SummonVariants:
+Weapons/SummonVariants
 (Always Believe Lastprismer)
 
 
-SwarmDrops:
+Weapons/SwarmDrops
 
 
 ItemName.BigBrainBuster =Big Brain Buster
