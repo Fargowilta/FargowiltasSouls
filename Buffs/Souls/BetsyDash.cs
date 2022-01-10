@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Fireball Dash");
-            Description.SetDefault("Impervious to attack");
+            //DisplayName.SetDefault("Fireball Dash");
+            //Description.SetDefault("Impervious to attack");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             //Main.debuff[Type] = true;

@@ -11,16 +11,16 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Time Frozen");
-            Description.SetDefault("You are stopped in time");
+            //DisplayName.SetDefault("Time Frozen");
+            //Description.SetDefault("You are stopped in time");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = false;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = false;
             canBeCleared = false;
-            DisplayName.AddTranslation(GameCulture.Chinese, "时间冻结");
-            Description.AddTranslation(GameCulture.Chinese, "你停止了时间");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "时间冻结");
+            //Description.AddTranslation(GameCulture.Chinese, "你停止了时间");
         }
 
         public override bool Autoload(ref string name, ref string texture)

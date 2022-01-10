@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Power of Squire");
-            Description.SetDefault("Removing some enemy immunity frames");
+            //DisplayName.SetDefault("Power of Squire");
+            //Description.SetDefault("Removing some enemy immunity frames");
             Main.buffNoSave[Type] = true;
         }
 

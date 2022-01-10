@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Orichalcum Poison");
+            //DisplayName.SetDefault("Orichalcum Poison");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;

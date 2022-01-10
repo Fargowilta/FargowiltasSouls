@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Vortex Cooldown");
-            Description.SetDefault("You cannot spawn another vortex yet");
+            //DisplayName.SetDefault("Vortex Cooldown");
+            //Description.SetDefault("You cannot spawn another vortex yet");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
             canBeCleared = false;

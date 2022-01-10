@@ -11,11 +11,11 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Solar Flare");
+            //DisplayName.SetDefault("Solar Flare");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "太阳耀斑");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "太阳耀斑");
         }
 
         public override bool Autoload(ref string name, ref string texture)

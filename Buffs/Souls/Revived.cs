@@ -8,13 +8,13 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Revived");
-            Description.SetDefault("Revived recently");
+            //DisplayName.SetDefault("Revived");
+            //Description.SetDefault("Revived recently");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "已复活");
-            Description.AddTranslation(GameCulture.Chinese, "最近经历过复活");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "已复活");
+            //Description.AddTranslation(GameCulture.Chinese, "最近经历过复活");
         }
     }
 }

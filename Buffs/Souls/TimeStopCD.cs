@@ -9,8 +9,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Time Stop Cooldown");
-            Description.SetDefault("You cannot stop time yet");
+            //DisplayName.SetDefault("Time Stop Cooldown");
+            //Description.SetDefault("You cannot stop time yet");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
             canBeCleared = false;

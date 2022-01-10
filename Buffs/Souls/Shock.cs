@@ -9,9 +9,9 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Shock");
+            //DisplayName.SetDefault("Shock");
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "电击");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "电击");
         }
 
         public override bool Autoload(ref string name, ref string texture)

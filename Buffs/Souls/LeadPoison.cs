@@ -10,11 +10,11 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Lead Poison");
+            //DisplayName.SetDefault("Lead Poison");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "铅中毒");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "铅中毒");
         }
 
         public override bool Autoload(ref string name, ref string texture)

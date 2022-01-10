@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Golden Stasis Cooldown");
-            Description.SetDefault("You cannot turn gold yet");
+            //DisplayName.SetDefault("Golden Stasis Cooldown");
+            //Description.SetDefault("You cannot turn gold yet");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
             canBeCleared = false;

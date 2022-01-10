@@ -12,13 +12,13 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Shell Hide");
-            Description.SetDefault("Projectiles are being blocked,");
+            //DisplayName.SetDefault("Shell Hide");
+            //Description.SetDefault("Projectiles are being blocked,");
             Main.buffNoSave[Type] = true; 
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "缩壳");
-            Description.AddTranslation(GameCulture.Chinese, "阻挡抛射物,但受到双倍接触伤害");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "缩壳");
+            //Description.AddTranslation(GameCulture.Chinese, "阻挡抛射物,但受到双倍接触伤害");
         }
 
         public override void Update(Player player, ref int buffIndex)

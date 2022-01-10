@@ -11,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Meditation");
-            Description.SetDefault("Your Monk Dash is ready");
+            //DisplayName.SetDefault("Meditation");
+            //Description.SetDefault("Your Monk Dash is ready");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
