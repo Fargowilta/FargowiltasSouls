@@ -134,38 +134,84 @@ ItemToolTip.SparklingLove =右键点击召唤戴薇安的灵魂\n空召唤栏位
 ItemName.StyxGazer =冥河凝视
 ItemToolTip.StyxGazer =右键挥舞冥狱魔剑\n“灼灼镰刃，破灭狱刃，合二为一，取于敌手……”
 
-ItemName.
-ItemToolTip.
 
-ItemName.
-ItemToolTip.
+/Items/Weapons/Misc
 
-ItemName.
-ItemToolTip.
+ItemName.Mahoguny =红木枪
+ItemToolTip.Mahoguny =使用橡实作为弹药\n发射树叶和橡实
 
-ItemName.
-ItemToolTip.
+ItemName.OvergrownKey =杂草丛生的钥匙
+ItemToolTip.OvergrownKey =召唤一个丛林宝箱怪为你而战\n需要2个召唤栏位
 
-ItemName.
-ItemToolTip.
+ItemName.TophatSquirrelWeapon =高顶礼帽松鼠
+ItemToolTip.TophatSquirrelWeapon =“谁能知道，这只松鼠竟然有着非凡的宇宙力量呢？”
 
-ItemName.
-ItemToolTip.
+ItemName.Vineslinger =藤蔓吊索
+ItemToolTip.Vineslinger =击中敌人时发射树叶
 
-ItemName.
-ItemToolTip.
+ItemName.VoidBow =虚空弓
+ItemToolTip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹药\n“从维度另一侧的一瞥”
 
-ItemName.
-ItemToolTip.
 
-ItemName.
-ItemToolTip.
+/Items/Weapons/SummonVariants
+(Always Believe Lastprismer)
 
-ItemName.
-ItemToolTip.
 
-ItemName.
-ItemToolTip.
+/Items/Weapons/SwarmDrops
+
+ItemName.BigBrainBuster =大脑克星
+ItemToolTip.BigBrainBuster =
+
+ItemName. =绞肉机
+ItemToolTip. =“屠戮众多的奖赏……”
+
+ItemName.DestroyerGun2 =毁灭者之炮
+ItemToolTip.DestroyerGun2 =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算五个召唤栏位\n“屠戮众多的奖赏……”
+
+ItemName.DragonBreath2 =龙之终焉
+ItemToolTip.DragonBreath2 =使用凝胶作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
+
+ItemName.EaterLauncher =吞噬者发射器
+ItemToolTip.EaterLauncher =使用火箭作为弹药\n50%的几率不消耗弹药\n在标识圈内击中敌怪，会造成更高伤害\n“屠戮众多的奖赏……”
+
+ItemName.FleshCannon =反叛者
+ItemToolTip.FleshCannon =“被奴役的敌人的面孔……”
+
+ItemName.GeminiGlaives =双子座飞轮刃
+ItemToolTip.GeminiGlaives =左右键点击会进行不同的攻击\n交替点击会加强下一次攻击\n“被打败的敌人的压缩形态”
+
+ItemName.GolemTome2 =山崩
+ItemToolTip.GolemTome2 =“屠戮众多的奖赏……”
+
+ItemName.GuardianTome =守卫者
+ItemToolTip.GuardianTome =“现在轮到他们跑了”
+
+ItemName.HellZone =地狱领域
+ItemToolTip.HellZone =消耗骨头作为弹药\n80%的几率不消耗弹药\n“屠戮众多的奖赏……”
+
+ItemName.HentaiSpear =洞察者
+ItemToolTip.HentaiSpear =左右键攻击不同\n按住上键、下键、都不按和同时按下的攻击不同"\n“拥抱永恒的奖赏……”
+
+ItemName.MechanicalLeashOfCthulhu =机械克苏鲁连枷
+ItemToolTip.MechanicalLeashOfCthulhu =“屠戮众多的奖赏……”
+
+ItemName.NukeFishron =核子猪鲨
+ItemToolTip.NukeFishron =使用火箭作为弹药\n“高度武器化的残骸……”
+
+ItemName.OpticStaffEX =全知权杖
+ItemToolTip.OpticStaffEX =召唤真正的双子魔眼为你战斗\n需要3个召唤栏\n“屠戮众多的奖赏……”
+
+ItemName.RefractorBlaster2 =光衍冲击波
+ItemToolTip.RefractorBlaster2 =“屠戮众多的奖赏……”
+
+ItemName.SlimeSword =史莱姆弹幕屠戮者
+ItemToolTip.SlimeSword =“屠戮众多的奖赏……”
+
+ItemName.TheBigSting =大螯刺
+ItemToolTip.TheBigSting =消耗飞镖作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
+
+ItemName.TwinLaser =双子机炮
+
 
 
 /Items/Enchs
