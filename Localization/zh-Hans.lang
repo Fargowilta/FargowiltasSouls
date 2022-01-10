@@ -1,5 +1,5 @@
-﻿Buff和Debuff：
-
+/Buffs
+/Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
 BuffDescription.AbomFang =永恒模式的力量压迫着你
@@ -19,6 +19,9 @@ BuffDescription.MutantFang =永恒模式的力量压迫着你
 BuffName.MutantPresence =突变驾到
 BuffDescription.MutantPresence =减少防御、伤害减免和生命恢复速度；关闭几乎所有魂的效果；降低擦弹半径
 
+
+/Buffs/Masomode
+
 BuffName.AbomCooldown =憎恶手杖冷却
 BuffDescription.AbomCooldown =你扛不住下一击
 
@@ -31,9 +34,36 @@ BuffDescription.Antisocial =你没有朋友
 BuffName.Atrophied =萎缩
 BuffDescription.Atrophied =你的肌肉状况正在恶化
 
+BuffName.Berserked =Berserked
+BuffDescription.Berserked =10% increased damage and speed but you cannot control yourself
 
-魔石：
+BuffName.Bloodthirsty =Bloodthirsty
+BuffDescription.Bloodthirsty =Hugely increased enemy spawn rate
 
+BuffName.ChaosLife =Chaos Life
+BuffDescription.ChaosLife =Max life reduced
+
+BuffName.ClippedWings =Clipped Wings
+BuffDescription.ClippedWings =You cannot fly or use rocket boots
+
+BuffName.Crippled =Crippled
+BuffDescription.Crippled =You cannot run
+
+BuffName.CurseoftheMoon =Curse of the Moon
+BuffDescription.CurseoftheMoon =The moon's wrath consumes you
+
+BuffName.Defenseless =Defenseless
+BuffDescription.Defenseless =Your guard is completely broken
+
+/Buffs/Minions
+/Buffs/Mounts
+/Buffs/Pets
+/Buffs/Souls
+/Buffs
+
+
+
+/Items/Enchs
 
 ItemName.AdamantiteEnchant =精金魔石
 ItemTooltip.AdamantiteEnchant =每秒随机使你的一个弹幕分裂成三个\n“一气化三清！”
@@ -45,62 +75,13 @@ ItemName.AncientHallowEnchant =远古神圣魔石
 ItemTooltip.AncientHallowEnchant =使你获得一面可以反弹弹幕的盾牌\n召唤一柄附魔剑，附魔剑的伤害接受召唤伤害加成\n召唤一只魔法仙灵\n“愿世人都尊你的剑与盾为圣”
 
 
-
-魂饰品:
-
+/Items/Souls
 
 ItemName.EternitySoul =永恒之魂
 ItemTooltip.EternitySoul =“不论凡人或不朽，都承认你的神性”\n基础暴击率设为50%\n每次暴击时都会增加10%暴击率\n暴击率达到100%后，攻击汲取10%生命值\n同时会增加5%攻击力和5点防御力\n最高堆叠950层，受伤时清空加成层数
 
 
-
-永恒模式：
-
-
-EternityMode.Betsy1 =你怕了？
-EternityMode.Betsy2 =乐不起来
-EternityMode.Betsy3 =这就是Fargo开荒吗？
-EternityMode.Betsy4 =你怎么开着无限飞行打这个Boss啊
-EternityMode.Betsy5 =空中祸害牛逼
-EternityMode.Betsy6 =啥时候打点真的Boss？
-EternityMode.Betsy7 =#不是受虐模式#
-EternityMode.Betsy8 =额我的看法呢比较极端，我认为这是坏的，没有任何好处
-EternityMode.Betsy9 =你行你上阿
-EternityMode.Betsy10 =受虐开了
-EternityMode.Betsy11 =受虐关了
-EternityMode.Betsy12 =乐
-EternityMode.Betsy13 =就这？
-EternityMode.Betsy14 =看到的打个22
-EternityMode.Betsy15 =灾基汉化垃圾东西
-EternityMode.Betsy16 =什么时候灾厄开荒啊
-EternityMode.Betsy17 =什么时候瑟银开荒啊
-EternityMode.Betsy18 =什么时候打1血硬核
-EternityMode.Betsy19 =用同志短剑打
-EternityMode.Betsy20 =天顶悠悠球？
-EternityMode.Betsy21 =hxd们怎么打月总啊
-EternityMode.Betsy22 =hxd们我拿到泰拉棱镜了
-EternityMode.Betsy23 =xdm这汉化怎么装啊
-EternityMode.Betsy24 =观前提示，请点赞，投币，转发
-EternityMode.Betsy25 =*本消息已被管理员删除*
-EternityMode.Betsy26 =<玩家
-EternityMode.Betsy27 =被踢出了世界>
-EternityMode.Betsy28 =被禁言29天23小时59分钟>
-
-EternityMode.NameFishronEX =猪龙鱼公爵EX
-EternityMode.KillFishronEX =猪龙鱼公爵EX已被打败！
-
-EternityMode.SkeletronPrimeTransform =机械骷髅王进入了地牢守卫阶段！
-
-EternityMode.RetinazerEndure =激光眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-EternityMode.SpazmatismEndure =魔焰眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-
-EternityMode.RoyalSubject =皇家工蜂已苏醒！
-
-EternityMode.SkeletronTransform =骷髅王进入了地牢守卫阶段！
-
-EternityMode.Stolen =你有东西被偷了！
-
-
+/Items/Souls/Soul of Eternity
 
 EternitySoul.VanillaTooltip1 =增加250%伤害
 EternitySoul.VanillaTooltip2 =增加250%攻击速度
@@ -240,6 +221,56 @@ EternitySoul.OtherTooltips1 =额外加成：
 
 
 
+永恒模式：
+
+EternityMode.Betsy1 =你怕了？
+EternityMode.Betsy2 =乐不起来
+EternityMode.Betsy3 =这就是Fargo开荒吗？
+EternityMode.Betsy4 =你怎么开着无限飞行打这个Boss啊
+EternityMode.Betsy5 =空中祸害牛逼
+EternityMode.Betsy6 =啥时候打点真的Boss？
+EternityMode.Betsy7 =#不是受虐模式#
+EternityMode.Betsy8 =额我的看法呢比较极端，我认为这是坏的，没有任何好处
+EternityMode.Betsy9 =你行你上阿
+EternityMode.Betsy10 =受虐开了
+EternityMode.Betsy11 =受虐关了
+EternityMode.Betsy12 =乐
+EternityMode.Betsy13 =就这？
+EternityMode.Betsy14 =看到的打个22
+EternityMode.Betsy15 =灾基汉化垃圾东西
+EternityMode.Betsy16 =什么时候灾厄开荒啊
+EternityMode.Betsy17 =什么时候瑟银开荒啊
+EternityMode.Betsy18 =什么时候打1血硬核
+EternityMode.Betsy19 =用同志短剑打
+EternityMode.Betsy20 =天顶悠悠球？
+EternityMode.Betsy21 =hxd们怎么打月总啊
+EternityMode.Betsy22 =hxd们我拿到泰拉棱镜了
+EternityMode.Betsy23 =xdm这汉化怎么装啊
+EternityMode.Betsy24 =观前提示，请点赞，投币，转发
+EternityMode.Betsy25 =*本消息已被管理员删除*
+EternityMode.Betsy26 =<玩家
+EternityMode.Betsy27 =被踢出了世界>
+EternityMode.Betsy28 =被禁言29天23小时59分钟>
+
+EternityMode.NameFishronEX =猪龙鱼公爵EX
+EternityMode.KillFishronEX =猪龙鱼公爵EX已被打败！
+
+EternityMode.SkeletronPrimeTransform =机械骷髅王进入了地牢守卫阶段！
+
+EternityMode.RetinazerEndure =激光眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
+EternityMode.SpazmatismEndure =魔焰眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
+
+EternityMode.RoyalSubject =皇家工蜂已苏醒！
+
+EternityMode.SkeletronTransform =骷髅王进入了地牢守卫阶段！
+
+EternityMode.Stolen =你有东西被偷了！
+
+
+
+
+
+永恒魂灾厄效果，待重构
 拥有天蓝套装的套装效果
 拥有斯塔提斯套装的套装效果
 拥有代达罗斯套装的套装效果
@@ -296,7 +327,7 @@ EternitySoul.OtherTooltips1 =额外加成：
 拥有纳米技术的效果
 拥有阿斯加德之庇护的效果
 
-
+永恒魂瑟银效果，待重构
 拥有生命木套装的套装效果
 拥有树人套装的套装效果
 拥有紫衫木套装的套装效果
