@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs.Pets
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Chibi Devi");
-            Description.SetDefault("She's interested in 'you'");
+            //DisplayName.SetDefault("Chibi Devi");
+            //Description.SetDefault("She's interested in 'you'");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
