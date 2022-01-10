@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Buffs.Souls
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Hell Fire");
+            //DisplayName.SetDefault("Hell Fire");
             Main.buffNoSave[Type] = true;
             canBeCleared = false;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "地狱火");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "地狱火");
         }
 
         public override bool Autoload(ref string name, ref string texture)
