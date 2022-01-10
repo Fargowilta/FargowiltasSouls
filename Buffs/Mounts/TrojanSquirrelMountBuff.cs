@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs.Mounts
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Trojan Squirrel");
-            Description.SetDefault("pog");
+            //DisplayName.SetDefault("Trojan Squirrel");
+            //Description.SetDefault("pog");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }
