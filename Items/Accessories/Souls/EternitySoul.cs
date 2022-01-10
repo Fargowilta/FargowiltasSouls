@@ -1,4 +1,4 @@
-﻿using Terraria;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
@@ -22,139 +22,139 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
         private String[] vanillaTooltips = new String[]
         {
-    "250% increased damage",
-    "250% increased attack speed",
-    "100% increased shoot speed",
-    "100% increased knockback",
-    "Increases armor penetration by 50",
-    "Crits deal 10x damage",
-    "Drastically increases life regeneration",
-    "Increases your maximum mana to 999",
-    "Increases your maximum minions by 30",
-    "Increases your maximum sentries by 20",
-    "Increases your maximum HP by 50%",
-    "Reduces your mana usage by 50%",
-    "All attacks inflict Flames of the Universe",
-    "All attacks inflict Sadism",
-    "All attacks inflict Midas",
-    "All attacks reduce enemy immunity frames",
-    "Summons fireballs arund you",
-    "Summons 2 shadow orbs around you",
-    "Summons icicles around you",
-    "Summons leaf crystals around you",
-    "Summons a hallowed sword and shield",
-    "Summons beetles to protect you",
-    "Summons a Flameburst minion",
-    "Summons a ton of pets",
-    "Summons all Eternity Mode bosses to your side ",
-    "Attacks may spawn lightning",
-    "Attacks may spawn flower petals",
-    "Attacks may spawn spectre orbs",
-    "Attacks may spawn a Dungeon Guardian",
-    "Attacks may spawn snowballs",
-    "Attacks may spawn spears",
-    "Attacks may spawn hearts",
-    "Attacks may spawn a miniture storm",
-    "Attacks may spawn buff boosters",
-    "Attacks cause increased life regen",
-    "Attacks cause shadow dodge",
-    "Attacks cause Flameburst shots",
-    "Attacks cause Pumpking attacks",
-    "Attacks cause Cultist spells",
-    "Attacks cause meteor showers",
-    "All Projectiles will split",
-    "Projectiles may shatter",
-    "Projectiles spawn stars",
-    "Item and projectile size increased",
-    "You leave a trail of fire",
-    "Nearby enemies are ignited",
-    "Minions occasionally spew scythes",
-    "You may spawn temporary minions",
-    "Critters have increased defense",
-    "Critter's souls may aid you",
-    "Enemies explode into needles",
-    "Greatly enhances all DD2 sentries",
-    "Double-tap down to spawn a palm tree sentry",
-    "Double-tap down to call an ancient storm",
-    "Double-tap down to call a rain of arrows",
-    "Double-tap down to toggle stealth",
-    "Double-tap down to spawn a portal",
-    "Double-tap down to direct your empowered guardian",
-    "Right Click to Guard",
-    "Press the Gold Key to encase yourself in gold",
-    "Press the Freeze Key to freeze time for 5 seconds",
-    "Solar shield allows you to dash",
-    "Dashing into solid blocks teleports you through them",
-    "Throw a smoke bomb to teleport to it and gain the first strike buff",
-    "Jumping will release a spore explosion",
-    "Enemies getting too close will trigger all on hit effects",
-    "Getting hit reflects damage",
-    "Getting hit triggers a blood geyser",
-    "Getting hit may squeak",
-    "Getting hit causes you to erupt into spiky balls",
-    "Getting hit causes you to erupt into Ancient Visions",
-    "Grants Crimson regen",
-    "Grants immunity to fire",
-    "Grants immunity to fall damage",
-    "Grants immunity to lava",
-    "Grants immunity to knockback",
-    "Grants immunity to most debuffs", //expand?? ech
-	"Grants doubled herb collection",
-    "Grants 50% chance for Mega Bees",
-    "15% chance for minion crits",
-    "20% chance for bonus loot",
-    "Allows Supersonic running and ",
-    "Allows infinite flight",
-    "Increases fishing skill substantially",
-    "All fishing rods will have 10 extra lures",
-    "You respawn 10x as fast",
-    "Prevents boss spawns",
-    "Increases spawn rates",
-    "Reduces skeletons hostility outside of the dungeon",
-    "Empowers Cute Fishron",
-    "Grants autofire",
-    "Grants modifier protection",
-    "Grants gravity control",
-    "Grants fast fall",
-    "Enhances grappling hooks",
-    "You attract items from further away",
-    "Increased block and wall placement speed by 50%",
-    "Near infinite block placement",
-    "Near infinite mining reach",
-    "Mining speed dramatically increased",
-    "You reflect all projectiles",
-    "When you are hurt, you violently explode to damage nearby enemies",
-    "When you die, you revive with full HP",
-    "Effects of Fire Gauntlet",
-    "Effects of Yoyo Bag",
-    "Effects of Sniper Scope",
-    "Effects of Celestial Cuffs",
-    "Effects of Mana Flower",
-    "Effects of Brain of Confusion",
-    "Effects of Star Veil",
-    "Effects of Sweetheart Necklace",
-    "Effects of Bee Cloak",
-    "Effects of Spore Sac",
-    "Effects of Paladin's Shield",
-    "Effects of Frozen Turtle Shell",
-    "Effects of Arctic Diving Gear",
-    "Effects of Frog Legs",
-    "Effects of Flying Carpet",
-    "Effects of Lava Waders",
-    "Effects of Angler Tackle Bag",
-    "Effects of Paint Sprayer",
-    "Effects of Presserator",
-    "Effects of Cell Phone",
-    "Effects of Flower Boots",
-    "Effects of Master Ninja Gear",
-    "Effects of Greedy Ring",
-    "Effects of Celestial Shell",
-    "Effects of Shiny Stone",
-    "Effects of Spelunker potion",
-    "Effects of Dangersense potion",
-    "Effects of Hunter potion",
-    "Effects of Shine potion",
-    "Effects of Builder Mode"
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip1"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip2"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip3"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip4"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip5"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip6"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip7"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip8"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip9"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip10"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip11"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip12"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip13"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip14"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip15"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip16"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip17"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip18"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip19"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip20"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip21"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip22"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip23"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip24"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip25"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip26"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip27"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip28"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip29"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip30"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip31"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip32"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip33"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip34"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip35"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip36"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip37"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip38"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip39"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip40"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip41"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip42"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip43"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip44"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip45"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip46"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip47"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip48"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip49"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip50"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip51"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip52"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip53"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip54"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip55"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip56"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip57"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip58"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip59"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip60"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip61"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip62"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip63"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip64"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip65"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip66"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip67"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip68"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip69"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip70"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip71"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip72"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip73"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip74"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip75"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip76"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip77"),//debuff immunity expand?? ech
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip78"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip79"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip80"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip81"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip82"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip83"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip84"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip85"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip86"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip87"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip88"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip89"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip90"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip91"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip92"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip93"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip94"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip95"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip96"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip97"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip98"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip99"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip100"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip101"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip102"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip103"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip104"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip105"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip106"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip107"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip108"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip109"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip110"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip111"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip112"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip113"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip114"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip115"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip116"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip117"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip118"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip119"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip120"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip121"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip122"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip123"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip124"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip125"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip126"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip127"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip128"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip129"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip130"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip131"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip132"),
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip133")
         };
 
         private String[] thoriumTooltips = new String[]
@@ -334,35 +334,11 @@ namespace FargowiltasSouls.Items.Accessories.Souls
         public override int NumFrames => 10;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of Eternity");
+            //DisplayName.SetDefault("Soul of Eternity");
 
             //oh no idk even for translate
-            string tooltip_ch =
-@"'不论凡人或不朽, 都承认你的神性'
-大幅增加生命回复, 最大法力值增至999 ,+30最大召唤栏, +20最大哨兵栏, 增加500%最大生命值 , 50%伤害减免
-增加250%所有类型伤害和攻击速度; 增加100%射击速度与击退; 增加50点护甲穿透; 暴击造成10倍伤害, 暴击率设为50%
-每次暴击提高10%, 达到100%时所有攻击附带10%的生命偷取, 增加10%伤害, 增加10防御力; 可叠加200,000次, 直至被攻击
-所有攻击造成宇宙之火, 施虐狂, 点金术效果, 并削减敌人的击退免疫
-召唤冰柱, 叶绿水晶, 神圣剑盾，甲虫, 数个宠物, 山铜火球和所有受虐模式的Boss到你身边
-攻击概率产生闪电, 花瓣, 幽灵球, 地牢守卫者, 雪球, 长矛或者增益
-攻击造成生命回复增加, 暗影闪避, 焰爆射击和流星雨
-抛射物可能会分裂或散开, 物品和抛射物尺寸增加, 攻击造成额外攻击并生成心
-身后留下火焰与彩虹路径; 点燃附近敌人; 召唤物偶尔发射镰刀, 有概率生成临时召唤物
-大幅增加动物防御力, 它们的灵魂会在死后帮助你; 敌人会爆炸成刺; 极大增强所有地牢守卫者2(联动的塔防内容)的哨兵
-双击'下'键生成一个哨兵, 召唤远古风暴, 切换潜行, 生成一个传送门, 指挥你的替身
-右键格挡; 按下金身热键, 使自己被包裹在一个黄金壳中; 按下时间冻结热键时停5秒
-日耀护盾允许你双击冲刺, 遇到墙壁自动穿透; 扔烟雾弹进行传送, 获得先发制人Buff
-受击反弹伤害, 释放包孢子爆炸, 使敌人大出血, 敌人攻击概率无效化, 受伤时爆发各种乱七八糟的玩意
-获得血腥套的生命回复效果, 免疫火焰, 坠落伤害和岩浆, 药草收获翻倍, 蜜蜂50%概率变为巨型蜜蜂, 召唤物获得15%暴击率, 20%概率获得额外掉落
-免疫击退和诸多Debuff; 允许超音速奔跑和无限飞行; 大幅提升钓鱼能力, 所有钓竿获得额外10个鱼饵
-重生速度x10倍；阻止Boss自然生成, 增加刷怪速率, 减少地牢外骷髅的敌意, 增强超可爱猪鲨
-武器自动连发, 获得词缀保护, 能够控制重力, 增加掉落速度, 免疫击退和所有受虐模式的Debuff, 增强抓钩以及更多其他效果
-增加50%放置物块及墙壁的速度, 近乎无限的放置和采掘距离, 极大提高采掘速度
-召唤无可阻挡的死亡之环环绕周围, 反弹所有抛射物; 死亡时爆炸并满血复活
-拥有烈火手套, 悠悠球袋, 狙击镜, 星体手铐, 魔力花, 混乱之脑, 星辰项链, 甜心项链和蜜蜂斗篷的效果
-拥有孢子囊, 圣骑士护盾, 冰霜龟壳, 北极潜水装备, 蛙腿, 飞毯, 熔岩行走靴和渔具包的效果
-拥有油漆喷雾器, 促动安装器, 手机, 重力球, 花之靴, 忍者极意, 贪婪戒指, 天界贝壳和闪耀石的效果
-获得发光, 探索者, 猎人和危险感知效果; 获得建造模式权限, 拥有无尽遗物的效果, 可以超远程拾取物品";
+            //always believe calamitiki
+            
             string tooltip_sp = @"'Mortal o Inmortal, todas las cosas reconocen tu reclamación a la divinidad'
 Drasticamente incrementa regeneración de vida, incrementa tu mana máximo a 999, súbditos por 30, torretas por 20, vida maxima por 500%, reducción de daño por 50%
 250% daño incrementado y velocidad de ataque; 100% velocidad de disparo y retroceso; Incrementa penetración de armadura por 50; Críticos hacen 10x daño y la probabilidad de Crítico se vuelve 50%
@@ -390,18 +366,18 @@ Efectos del Saco de esporas, Escudo de paladín, Caparazón de tortuga congelado
 Efectos del Spray de pintura, Pulsificador, Móvil, Globo gravitacional, Botas floridas, Equipo de maestro ninja, Anillo codicioso, Caparazón celestial, y Piedra brillante
 Efectos de pociones de Brillo, Espeleólogo, Cazador, y Sentido del peligro; Efectos del Modo Constructor, Reliquia del Infinito y atraes objectos desde más lejos";
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "永恒之魂");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "永恒之魂");
             DisplayName.AddTranslation(GameCulture.Spanish, "Alma de la Eternidad");
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            //Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
             Tooltip.AddTranslation(GameCulture.Spanish, tooltip_sp);
 
-            Tooltip.SetDefault(
+            /*Tooltip.SetDefault(
 @"'Mortal or Immortal, all things acknowledge your claim to divinity'
 Crit chance is set to 50%
 Crit to increase it by 10%
 At 100% every attack gains 10% life steal
 You also gain +5% damage and +5 defense
-This stacks up to 950 times until you get hit");
+This stacks up to 950 times until you get hit");*/
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 10));
         }
@@ -410,7 +386,7 @@ This stacks up to 950 times until you get hit");
         {
             tooltipsFull.AddRange(vanillaTooltips);
 
-            string description = "Additionally grants:";
+            string description = Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.OtherTooltips1");
 
             for (int i = 0; i < tooltipIndex.Length; i++)
             {
