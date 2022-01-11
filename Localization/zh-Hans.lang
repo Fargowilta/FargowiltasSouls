@@ -59,7 +59,6 @@ BuffDescription.Defenseless =Your guard is completely broken
 /Buffs/Mounts
 /Buffs/Pets
 /Buffs/Souls
-/Buffs
 
 
 
@@ -116,7 +115,7 @@ ItemTooltip.TwinRangs =左右键点击会进行不同的攻击\n“被打败的�
 /Items/Weapons/Challengers
 
 ItemName.TheLightningRod =避雷针
-ItemTooltip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪，伤害都会降低
+ItemTooltip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪次数越多，伤害越低
 
 
 /Items/Weapons/Final Upgrades
@@ -153,7 +152,19 @@ ItemTooltip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹�
 
 
 /Items/Weapons/SummonVariants
+SummonVariants.Convert =右键点击以转换伤害类型
+ItemName.BatScepterSummon =召唤师的蝙蝠权杖
+ItemName.WaspGunSummon =召唤师的胡蜂枪
+ItemName.PiranhaGunSummon =召唤师的食人鱼枪
+ItemName.NimbusRodSummon =召唤师的雨云魔杖
+ItemName.CrimsonRodSummon =召唤师的猩红魔杖
+ItemName.BeeGunSummon =召唤师的蜜蜂枪
 
+ItemTooltip.BatScepterSummon =召唤蝙蝠攻击敌人
+ItemTooltip.PiranhaGunSummon =缠住敌人以造成连续伤害
+ItemTooltip.NimbusRodSummon =召唤云来让敌人淋雨
+ItemTooltip.CrimsonRodSummon =召唤云来让敌人淋血雨
+ItemTooltip.BeeGunSummon =射出会追杀敌人的蜜蜂
 
 
 /Items/Weapons/SwarmDrops
@@ -190,7 +201,7 @@ ItemName.HellZone =地狱领域
 ItemTooltip.HellZone =消耗骨头作为弹药\n80%的几率不消耗弹药\n“屠戮众多的奖赏……”
 
 ItemName.HentaiSpear =洞察者
-ItemTooltip.HentaiSpear =左右键攻击不同\n按住上键、下键、都不按和同时按下的攻击不同"\n“拥抱永恒的奖赏……”
+ItemTooltip.HentaiSpear =左右键攻击不同\n按住上键、下键、都不按和同时按下的攻击不同\n“拥抱永恒的奖赏……”
 
 ItemName.MechanicalLeashOfCthulhu =机械克苏鲁连枷
 ItemTooltip.MechanicalLeashOfCthulhu =“屠戮众多的奖赏……”

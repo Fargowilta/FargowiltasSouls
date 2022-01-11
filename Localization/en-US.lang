@@ -59,7 +59,6 @@ BuffDescription.Defenseless =Your guard is completely broken
 /Buffs/Mounts
 /Buffs/Pets
 /Buffs/Souls
-/Buffs
 
 
 
@@ -153,6 +152,18 @@ ItemTooltip.VoidBow =Converts all arrows to void arrows \n40% chance to not cons
 
 
 /Items/Weapons/SummonVariants
+
+SummonVariants.Convert =Right click to convert
+
+ItemTooltip.BatScepterSummon =Summons bats to attack your enemies
+
+ItemTooltip.PiranhaGunSummon =Latches on to enemies for continuous damage
+
+ItemTooltip.NimbusRodSummon =Summons a cloud to rain down on your foes
+
+ItemTooltip.CrimsonRodSummon =Summons a cloud to rain blood on your foes
+
+ItemTooltip.BeeGunSummon =Shoots bees that will chase your enemy
 
 
 
