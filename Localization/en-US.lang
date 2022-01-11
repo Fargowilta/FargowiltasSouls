@@ -55,10 +55,14 @@ BuffDescription.CurseoftheMoon =The moon's wrath consumes you
 BuffName.Defenseless =Defenseless
 BuffDescription.Defenseless =Your guard is completely broken
 
+BuffName.FlamesoftheUniverse =Flames of the Universe
+BuffDescription.FlamesoftheUniverse =The heavens themselves have judged you
+
 /Buffs/Minions
 /Buffs/Mounts
 /Buffs/Pets
 /Buffs/Souls
+/Buffs/Others
 
 
 
@@ -234,6 +238,198 @@ ItemTooltip.AncientCobaltEnchant =20% chance for your projectiles to explode int
 
 ItemName.AncientHallowEnchant =Ancient Hallowed Enchantment
 ItemTooltip.AncientHallowEnchant =You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nSummons a magical fairy\n'Hallowed be your sword and shield'
+
+ItemName.AncientShadowEnchant =Ancient Shadow Enchantment
+ItemTooltip.AncientShadowEnchant =Your attacks may inflict Darkness on enemies\nDarkened enemies occasionally fire shadowflame tentacles at other enemies\nThree Shadow Orbs will orbit around you\n'Archaic, yet functional'
+
+ItemName.AnglerEnchantment =Angler Enchantment
+ItemTooltip.AnglerEnchantment =Increases fishing power\nYou catch fish almost instantly\nEffects of Angler Tackle Bag\n'As long as they aren't all shoes, you can go home happily'
+
+ItemName.ApprenticeEnchant =Apprentice Enchantment
+ItemTooltip.ApprenticeEnchant =After attacking for 2 seconds you will be enveloped in flames\nSwitching weapons will increase the next attack's damage by 50% and spawn an inferno\nFlameburst field of view and range are dramatically increased\n'A long way to perfection'
+
+ItemName.BeeEnchant =Bee Enchantment
+ItemTooltip.BeeEnchant =Increases the strength of friendly bees\nYour piercing attacks spawn bees\n'According to all known laws of aviation, there is no way a bee should be able to fly'
+
+ItemName.BeetleEnchant =Beetle Enchantment
+ItemTooltip.BeetleEnchant =Beetles protect you from damage, up to 15% damage reduction only\nIncreases flight time by 25%\n'The unseen life of dung courses through your veins'
+
+ItemName.BorealWoodEnchant =Boreal Wood Enchantment
+ItemTooltip.BorealWoodEnchant =Attacks will periodically be accompanied by several snowballs\n'The cooler wood'
+
+ItemName.CactusEnchant =Cactus Enchantment
+ItemTooltip.CactusEnchant =25% of contact damage is reflected\nEnemies may explode into needles on death\n'It's the quenchiest!'
+
+ItemName.ChlorophyteEnchant =Chlorophyte Enchantment
+ItemTooltip.ChlorophyteEnchant =Summons a ring of leaf crystals to shoot at nearby enemies\nGrants a double spore jump\nWhile using wings, spores will continuously spawn\nAllows the ability to dash slightly\nDouble tap a direction\n'The jungle's essence crystallizes around you'
+
+ItemName.CobaltEnchant =Cobalt Enchantment
+ItemTooltip.CobaltEnchant =25% chance for your projectiles to explode into shards\nThis can only happen once every second\n'I can't believe it's not Palladium'
+
+ItemName.CopperEnchant =Copper Enchantment
+ItemTooltip.CopperEnchant =Attacks have a chance to shock enemies with lightning\n'Behold'
+
+ItemName.CrimsonEnchant =Crimson Enchantment
+ItemTooltip.CrimsonEnchant =After taking a hit, regen is greatly increased until the half the hit is healed off\nIf you take another hit before it's healed, you lose the heal in addition to normal damage\n'The blood of your enemy is your rebirth'
+
+ItemName.CrystalAssassinEnchant =Crystal Assassin Enchantment
+ItemTooltip.CrystalAssassinEnchant =Effects of Volatile Gel\n''
+
+ItemName.DarkArtistEnchant =Dark Artist Enchantment
+ItemTooltip.DarkArtistEnchant =Summons a Flameburst minion that will travel to your mouse after charging up\nIt will then act as a sentry\nAfter attacking for 2 seconds you will be enveloped in flames\nSwitching weapons will increase the next attack's damage by 50% and spawn an inferno\nGreatly enhances Flameburst effectiveness\n'The shadows hold more than they seem'
+
+ItemName.EbonwoodEnchant =Ebonwood Enchantment
+ItemTooltip.EbonwoodEnchant =You have an aura of Shadowflame\n'Untapped potential'
+
+ItemName.ForbiddenEnchant =Forbidden Enchantment
+ItemTooltip.ForbiddenEnchant =Double tap down to call an ancient storm to the cursor location\nAny projectiles shot through your storm gain 30% damage\n'Walk like an Egyptian'
+
+ItemName.FossilEnchant =Fossil Enchantment
+ItemTooltip.FossilEnchant =If you reach zero HP you will revive with 1 HP and spawn several bones\nYou will also spawn a few bones on every hit\nCollect the bones to heal for 15 HP each\n'Beyond a forgotten age'
+
+ItemName.FrostEnchant =Frost Enchantment
+ItemTooltip.FrostEnchant =Icicles will start to appear around you\nAttacking will launch them towards the cursor\nWhen they hit an enemy they are frozen solid\nAll hostile projectiles move at half speed\n'Let's coat the world in a deep freeze'
+
+ItemName.GladiatorEnchant =Gladiator Enchantment
+ItemTooltip.GladiatorEnchant =Spears will rain down on struck enemies\n'Are you not entertained?'
+
+ItemName.GoldEnchant =Gold Enchantment
+ItemTooltip.GoldEnchant =Your attacks inflict Midas\nPress the Gold hotkey to be encased in a Golden Shell\nYou will not be able to move or attack, but will be immune to all damage\nPress again to exit early\nEffects of Greedy Ring\n'Gold makes the world go round'
+
+ItemName.HallowEnchant =Hallowed Enchantment
+ItemTooltip.HallowEnchant =You gain a shield that can reflect projectiles\nSummons an Enchanted Sword familiar that scales with minion damage\nDrastically increases minion speed\nCertain minion attacks do reduced damage to compensate for increased speed\n'Hallowed be your sword and shield'
+
+ItemName.HuntressEnchant =Huntress Enchantment
+ItemTooltip.HuntressEnchant =Arrows will periodically fall towards your cursor\nThe arrow type is based on the first arrow in your inventory\nDouble tap down to create a localized rain of arrows at the cursor's position for a few seconds\nThis has a cooldown of 15 seconds\nExplosive Traps recharge faster and oil enemies\nSet oiled enemies on fire for extra damage\n'The Hunt is On'
+
+ItemName.IronEnchant =Iron Enchantment
+ItemTooltip.IronEnchant =Right Click to guard with your shield\nYou will totally block an attack if timed correctly\nYou attract items from a larger range\n'Strike while the iron is hot'
+
+ItemName.JungleEnchant =Jungle Enchantment
+ItemTooltip.JungleEnchant =Grants a double spore jump\nAllows the ability to dash slightly\nDouble tap a direction\n'The wrath of the jungle dwells within'
+
+ItemName.LeadEnchant =Lead Enchantment
+ItemTooltip.LeadEnchant =Attacks may inflict enemies with Lead Poisoning\nLead Poisoning deals damage over time and spreads to nearby enemies\n'Not recommended for eating'
+
+ItemName.MeteorEnchant =Meteor Enchantment
+ItemTooltip.MeteorEnchant =A meteor shower initiates every few seconds while attacking\n'Cosmic power builds your destructive prowess'
+
+ItemName.MinerEnchant =Miner Enchantment
+ItemTooltip.MinerEnchant =50% increased mining speed\nShows the location of enemies, traps, and treasures\nLight is emitted from the player\n'The planet trembles with each swing of your pick'
+
+ItemName.MoltenEnchant =Molten Enchantment
+ItemTooltip.MoltenEnchant =Nearby enemies are ignited\nThe closer they are to you the more damage they take\nWhen you are hurt, you violently explode to damage nearby enemies\n'They shall know the fury of hell'
+
+ItemName.MonkEnchant =Monk Enchantment
+ItemTooltip.MonkEnchant =Allows the ability to dash\nDouble tap a direction\nYou are immune to damage and debuffs for half a second after dashing\nDash cooldown is twice as long as normal dashes\nLightning Aura can now crit and strikes faster\n'Return to Monk'
+
+ItemName.MythrilEnchant =Mythril Enchantment
+ItemTooltip.MythrilEnchant =15% increased weapon use speed\nTaking damage temporarily removes this weapon use speed increase\n'You feel the knowledge of your weapons seep into your mind'
+
+ItemName.NebulaEnchant =Nebula Enchantment
+ItemTooltip.NebulaEnchant =Hurting enemies has a chance to spawn buff boosters\nBuff booster stacking capped at 2\n'The pillars of creation have shined upon you'
+
+ItemName.NecroEnchant =Necro Enchantment
+ItemTooltip.NecroEnchant =Slain enemies may drop a pile of bones\nTouch a pile of bones to spawn a friendly Dungeon Guardian\nDamage scales with the defeated enemy's max HP\nBosses will drop bones every 10% of their HP lost\n'Welcome to the bone zone'
+
+ItemName.NinjaEnchant =Ninja Enchantment
+ItemTooltip.NinjaEnchant =Use Ninja hotkey to throw a smoke bomb, use it again to teleport to it and gain the First Strike Buff\nUsing the Rod of Discord will also grant this buff\nFirst Strike ensures your next attack is a crit dealing 3x damage\n'Now you see me, now you don’t'
+
+ItemName.ObsidianEnchant =Obsidian Enchantment
+ItemTooltip.ObsidianEnchant =Grants immunity to fire and lava\nYou have normal movement and can swim in lava\nWhile standing in lava or lava wet, your attacks spawn explosions\n'The earth calls'
+
+ItemName.OrichalcumEnchant =Orichalcum Enchantment
+ItemTooltip.OrichalcumEnchant =Flower petals will cause extra damage to your target and inflict Orichalcum Poison\nDamaging debuffs deal 3x damage\n'Nature blesses you'
+
+ItemName.PalladiumEnchant =Palladium Enchantment
+ItemTooltip.PalladiumEnchant =Briefly increases life regeneration after striking an enemy\nYou spawn an orb of damaging life energy every 80 life regenerated\n'You feel your wounds slowly healing'
+
+ItemName.PalmWoodEnchant =Palm Wood Enchantment
+ItemTooltip.PalmWoodEnchant =Double tap down to spawn a palm tree sentry that throws nuts at enemies\n'Alarmingly calm'
+
+ItemName.PearlwoodEnchant =Pearlwood Enchantment
+ItemTooltip.PearlwoodEnchant =Projectiles may spawn a star when they hit something\n'Too little, too late…'
+
+ItemName.PinkEskimoEnchant =Pink Eskimo Enchantment
+ItemTooltip.PinkEskimoEnchant =''
+
+ItemName.PlatinumEnchant =Platinum Enchantment
+ItemTooltip.PlatinumEnchant =20% chance for enemies to drop 2x loot\n'Its value is immeasurable'
+
+ItemName.PumpkinEnchant =Pumpkin Enchantment
+ItemTooltip.PumpkinEnchant =You will grow pumpkins while walking on the ground\nWhen fully grown, they will heal 25 HP and spawn damaging embers\nEnemies that touch them will destroy them and take damage\n'Your sudden pumpkin craving will never be satisfied'
+
+ItemName.RainEnchant =Rain Enchantment
+ItemTooltip.RainEnchant =Grants immunity to Wet\nSpawns a miniature storm to follow you around\nShooting it will make it grow\nAt maximum size, attacks will turn into lightning bolts\n'Come again some other day'
+
+ItemName.RedRidingEnchant =Red Riding Enchantment
+ItemTooltip.RedRidingEnchant =Arrows will periodically fall towards your cursor\nDouble tap down to create a rain of arrows that follows the cursor's position for a few seconds\nThe arrow type is based on the first arrow in your inventory\nThis has a cooldown of 10 seconds\nGreatly enhances Explosive Traps effectiveness\n'Big Bad Red Riding Hood'
+
+ItemName.RichMahoganyEnchant =Rich Mahogany Enchantment
+ItemTooltip.RichMahoganyEnchant =All grappling hooks shoot, pull, and retract 1.5x as fast\n'Guaranteed to keep you hooked'
+
+ItemName.ShadewoodEnchant =Shadewood Enchantment
+ItemTooltip.ShadewoodEnchant =You have an aura of Bleeding\nEnemies struck while Bleeding spew damaging blood\n'Surprisingly clean'
+
+ItemName.ShadowEnchant =Shadow Enchantment
+ItemTooltip.ShadowEnchant =Two Shadow Orbs will orbit around you\nAttacking a Shadow Orb will cause it to release a burst of homing shadow energy\n'You feel your body slip into the deepest of shadows'
+
+ItemName.ShinobiEnchant =Shinobi Infiltrator Enchantment
+ItemTooltip.ShinobiEnchant =Dash into any walls, to teleport through them to the next opening\nAllows the ability to dash\nDouble tap a direction\nThrow a smoke bomb to teleport to it and gain the First Strike Buff\nUsing the Rod of Discord will also grant this buff\nGreatly enhances Lightning Aura effectiveness\n'Village Hidden in the Wall'
+
+ItemName.ShroomiteEnchant =Shroomite Enchantment
+ItemTooltip.ShroomiteEnchant =All attacks gain trails of mushrooms\nNot moving puts you in stealth\nWhile in stealth, more mushrooms will spawn\n'Made with real shrooms!'
+
+ItemName.SilverEnchant =Silver Enchantment
+ItemTooltip.SilverEnchant =Summons a sword familiar that scales with minion damage\nDrastically increases minion speed\nCertain minion attacks do reduced damage to compensate for increased speed\n'Have you power enough to wield me?'
+
+ItemName.SnowEnchant =Snow Enchantment
+ItemTooltip.SnowEnchant =Spawns a snowstorm at your cursor\nAny projectiles or npcs in the snowstorm are slowed by 50%\n'It's Burning Cold Outside'
+
+ItemName.SolarEnchant =Solar Enchantment
+ItemTooltip.SolarEnchant =Solar shield allows you to dash through enemies\nSolar shield is not depleted on hit, but has reduced damage reduction\nAttacks may inflict the Solar Flare debuff\n'Too hot to handle'
+
+ItemName.SpectreEnchant =Spectre Enchantment
+ItemTooltip.SpectreEnchant =Damage has a chance to spawn damaging orbs\nIf you crit, you might also get a healing orb\n'Their lifeforce will be their undoing'
+
+ItemName.SpiderEnchant =Spider Enchantment
+ItemTooltip.SpiderEnchant =Your minions and sentries can now crit with a 15% chance\n'Arachnophobia is punishable by arachnid induced death'
+
+ItemName.SpookyEnchant =Spooky Enchantment
+ItemTooltip.SpookyEnchant =All of your minions gain an extra scythe attack\n'Melting souls since 1902'
+
+ItemName.SquireEnchant =Squire Enchantment
+ItemTooltip.SquireEnchant =Increases the effectiveness of healing sources by 25%\nBallista pierces more targets and panics when you take damage\n'Squire, will you hurry?'
+
+ItemName.StardustEnchant =Stardust Enchantment
+ItemTooltip.StardustEnchant =Double tap down to direct your empowered guardian\nPress the Freeze Key to freeze time for 5 seconds\nWhile time is frozen, your minions will continue to attack and Stardust Guardian gains a new attack\nThere is a 60 second cooldown for this effect\n'The power of the Stand is yours'
+
+ItemName.TikiEnchant =Tiki Enchantment
+ItemTooltip.TikiEnchant =You may continue to summon temporary minions and sentries after maxing out on your slots\nReduces attack speed of summon weapons when effect is activated\n'Aku Aku!'
+
+ItemName.TinEnchant =Tin Enchantment
+ItemTooltip.TinEnchant =Sets your critical strike chance to 5%\nEvery crit will increase it by 5% up to double your current critical strike chance\nGetting hit drops your crit back down\n'Return of the Crit'
+
+ItemName.TitaniumEnchant =Titanium Enchantment
+ItemTooltip.TitaniumEnchant =Briefly become invulnerable after striking an enemy\n'Hit me with your best shot'
+
+ItemName.TungstenEnchant =Tungsten Enchantment
+ItemTooltip.TungstenEnchant =150% increased sword size\nEvery half second a projectile will be doubled in size\nEnlarged swords and projectiles deal 10% more damage and have an additional chance to crit\n'Bigger is always better'
+
+ItemName.TurtleEnchant =Turtle Enchantment
+ItemTooltip.TurtleEnchant =100% of contact damage is reflected\nWhen standing still and not attacking, you will enter your shell\nWhile in your shell, you will gain 90% damage resistance \nAdditionally you will destroy incoming projectiles and deal 10x more thorns damage\nThe shell lasts at least 1 second and up to 25 attacks blocked\nEnemies may explode into needles on death\n'You suddenly have the urge to hide in a shell'
+
+ItemName.ValhallaKnightEnchant =Valhalla Knight Enchantment
+ItemTooltip.ValhallaKnightEnchant =Increases the effectiveness of healing sources by 33%\nGreatly enhances Ballista effectiveness\n'Valhalla calls'
+
+ItemName.VortexEnchant =Vortex Enchantment
+ItemTooltip.VortexEnchant =Double tap down to toggle stealth, reducing chance for enemies to target you but slowing movement\nWhen entering stealth, spawn a vortex that draws in enemies and projectiles\nWhile in stealth, your own projectiles will not be sucked in\n'Tear into reality'
+
+ItemName.WizardEnchant =Wizard Enchantment
+ItemTooltip.WizardEnchant =Enhances the power of all other Enchantments to their Force effects\n'I'm a what?'
+
+ItemName.WoodEnchant =Wood Enchantment
+ItemTooltip.WoodEnchant =Turns certain critters into weapons\nRight click with them to attack\n'Humble beginnings…'
 
 
 /Items/Souls

@@ -55,10 +55,14 @@ BuffDescription.CurseoftheMoon =The moon's wrath consumes you
 BuffName.Defenseless =Defenseless
 BuffDescription.Defenseless =Your guard is completely broken
 
+BuffName.FlamesoftheUniverse =宇宙之火
+BuffDescription.FlamesoftheUniverse =来自诸天的亲自审判
+
 /Buffs/Minions
 /Buffs/Mounts
 /Buffs/Pets
 /Buffs/Souls
+/Buffs/Others
 
 
 
@@ -234,6 +238,198 @@ ItemTooltip.AncientCobaltEnchant =你的弹幕有20%几率爆裂成毒刺\n此�
 
 ItemName.AncientHallowEnchant =远古神圣魔石
 ItemTooltip.AncientHallowEnchant =使你获得一面可以反弹弹幕的盾牌\n召唤一柄附魔剑，附魔剑的伤害接受召唤伤害加成\n召唤一只魔法仙灵\n“愿世人都尊你的剑与盾为圣”
+
+ItemName.AncientShadowEnchant =远古暗影魔石
+ItemTooltip.AncientShadowEnchant =攻击有几率造成黑暗减益\n身上带有黑暗减益的敌人偶尔会向其他敌人发射暗影焰触手\n三颗暗影珠围绕着你旋转\n攻击暗影珠会使其释放追踪暗影能量\n“十分古老，却非常实用”
+
+ItemName.AnglerEnchantment =渔夫魔石
+ItemTooltip.AnglerEnchantment =增加渔力\n你几乎可以立即钓到鱼\n拥有渔夫渔具袋效果\n“只要不全是鞋子, 你就能高高兴兴地回家”
+
+ItemName.ApprenticeEnchant =学徒魔石
+ItemTooltip.ApprenticeEnchant =持续攻击两秒后你将被火焰包裹\n切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸\n大幅增加爆炸烈焰哨兵的索敌范围和攻击距离\n“追求完美的漫漫长路”
+
+ItemName.BeeEnchant =蜜蜂魔石
+ItemTooltip.BeeEnchant =增加友好蜜蜂的力量\n穿透类弹幕击中敌人时会生成蜜蜂\n“根据目前所知的所有航空原理, 蜜蜂应该根本不可能会飞”
+
+ItemName.BeetleEnchant =甲虫魔石
+ItemTooltip.BeetleEnchant =甲虫会保护你，减免下次受到的伤害，至多减免15%伤害\n飞行时间延长25%\n“你的血管里流淌着看不见的粪便生命”
+
+ItemName.BorealWoodEnchant =针叶木魔石
+ItemTooltip.BorealWoodEnchant =攻击时定期释放几个雪球\n“挺酷的木魔石”
+
+ItemName.CactusEnchant =仙人掌魔石
+ItemTooltip.CactusEnchant =反弹25%接触伤害\n敌人死亡时有几率爆裂出针刺\n“太解渴了！”
+
+ItemName.ChlorophyteEnchant =叶绿魔石
+ItemTooltip.ChlorophyteEnchant =召唤一圈叶状水晶攻击附近的敌人\n使你获得孢子二段跳能力\n使用翅膀进行飞行时，你周围会不断生成孢子\n“丛林的精华在你周围凝结成晶体”
+
+ItemName.CobaltEnchant =钴蓝魔石
+ItemTooltip.CobaltEnchant =你的弹幕有25%几率爆裂成碎片\n此效果每秒内只会发生一次\n“真不敢相信这竟然不是钯金”
+
+ItemName.CopperEnchant =铜魔石
+ItemTooltip.CopperEnchant =攻击有几率释放闪电攻击敌人\n“瞧！”
+
+ItemName.CrimsonEnchant =猩红魔石
+ItemTooltip.CrimsonEnchant =在你受到伤害后大幅增加你的生命恢复速度，直至你恢复的生命量等同于这次受到的伤害量的一半\n如果你在完成恢复前再次受伤，则不会触发增加生命恢复的效果\n“你从敌人的鲜血中重生”
+
+ItemName.CrystalAssassinEnchant =水晶刺客魔石
+ItemTooltip.CrystalAssassinEnchant =拥有挥发明胶的效果
+
+ItemName.DarkArtistEnchant =暗黑艺术家魔石
+ItemTooltip.DarkArtistEnchant =召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置\n然后它会如同一个哨兵，固定在该位置并产生爆炸进行攻击\n持续攻击两秒后你将被火焰包裹\n切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸\n大幅增加爆炸烈焰哨兵的索敌范围和攻击距离\n“阴影蕴含之物远超目之所及”
+
+ItemName.EbonwoodEnchant =乌木魔石
+ItemTooltip.EbonwoodEnchant =召唤一圈暗影焰光环\n“潜力未完全开发”
+
+ItemName.ForbiddenEnchant =禁戒魔石
+ItemTooltip.ForbiddenEnchant =双击“下”键会在光标位置召唤远古风暴\n“走路像个埃及人”
+
+ItemName.FossilEnchant =化石魔石
+ItemTooltip.FossilEnchant =受到致死伤害时会以1生命值重生并爆出几根骨头\n你受伤时也会生成骨头\n接触骨头时会回复15点生命值\n“被遗忘已久的记忆”
+
+ItemName.FrostEnchant =寒霜魔石
+ItemTooltip.FrostEnchant =你的周围会出现冰锥\n攻击时会将冰锥发射至光标位置\n冰锥击中敌人时会使其短暂冻结\n在光标位置生成暴雪，其中的敌对弹幕飞行速度减半\n“让我们给这个世界披上一层厚厚的冰衣”
+
+ItemName.GladiatorEnchant =角斗士魔石
+ItemTooltip.GladiatorEnchant =长矛将倾泄在被攻击的敌人身上\n“难道你不高兴吗？”
+
+ItemName.GoldEnchant =金魔石
+ItemTooltip.GoldEnchant =攻击会造成迈达斯减益\n按下“金身”键会将你包裹在一个黄金壳中\n被包裹时你无法移动或攻击，但你免疫所有伤害\n再次按下“金身”键会使你提前离开黄金壳\n拥有贪婪戒指的效果\n“有钱能使鬼推磨”
+
+ItemName.HallowEnchant =神圣魔石
+ItemTooltip.HallowEnchant =使你获得一面可以反弹弹幕的盾牌\n召唤一柄附魔剑，附魔剑的伤害接受召唤伤害加成\n大大增加仆从攻击速度，但攻击不穿透敌怪的仆从的攻击力会降低\n“愿人都尊你的剑与盾为圣”
+
+ItemName.HuntressEnchant =女猎人魔石
+ItemTooltip.HuntressEnchant =箭矢会定期落至你光标周围\n箭矢的种类取决于你背包中第一个箭矢\n双击“下”键后令箭雨倾泄在光标位置\n此效果有15秒冷却时间\n爆炸机关攻击速度更快且会造成涂油减益\n点燃涂油的敌人以造成额外伤害\n“狩猎开始了”
+
+ItemName.IronEnchant =铁魔石
+ItemTooltip.IronEnchant =右键进行盾牌格挡\n如果时机正确则抵消这次伤害\n扩大你的拾取范围\n“趁热打铁”
+
+ItemName.JungleEnchant =丛林魔石
+ItemTooltip.JungleEnchant =使你获得孢子二段跳能力\n你能进行短程冲刺\n“丛林之怒深藏其中”
+
+ItemName.LeadEnchant =铅魔石
+ItemTooltip.LeadEnchant =攻击有几率造成铅中毒减益\n铅中毒减益持续造成伤害并且会扩散至周围的敌人\n“不建议食用”
+
+ItemName.MeteorEnchant =流星魔石
+ItemTooltip.MeteorEnchant =攻击时每过几秒便会召唤一次流星雨\n“宇宙之力构建你的毁灭之力”
+
+ItemName.MinerEnchant =矿工魔石
+ItemTooltip.MinerEnchant =增加50%挖掘速度\n高亮显示敌人、陷阱和宝藏\n你会发光\n“大地随着你的每一次挥镐而颤动”
+
+ItemName.MoltenEnchant =熔岩魔石
+ItemTooltip.MoltenEnchant =引燃你附近的敌人\n敌人离你越近，受到的伤害越高\n你受到伤害时会剧烈爆炸并对附近的敌人造成伤害\n“他们将感受到地狱的愤怒”
+
+ItemName.MonkEnchant =武僧魔石
+ItemTooltip.MonkEnchant =使你获得冲刺能力\n双击“左”或“右”键进行冲刺\n在冲刺后的0.5秒内你免疫伤害和减益\n冲刺冷却是普通冲刺的二倍\n闪电光环现在可以暴击且攻击速度更快\n“返本还僧”
+
+ItemName.MythrilEnchant =秘银魔石
+ItemTooltip.MythrilEnchant =武器使用速度增加15%\n受到伤害时,武器使用速度增加效果会暂时失效\n“你感觉武器的知识渗透进你的脑海中”
+
+ItemName.NebulaEnchant =星云魔石
+ItemTooltip.NebulaEnchant =对敌人造成伤害时有几率生成强化焰\n强化增益堆叠上限为2\n“创生之柱照耀着你”
+
+ItemName.NecroEnchant =死灵魔石
+ItemTooltip.NecroEnchant =击杀敌人时有几率爆出一个骨堆\n玩家接触骨堆时会生成一个友好的地牢守卫\n地牢守卫的伤害取决于被击杀的敌人的最大生命值\nBoss每损失10%生命值便会掉落骨堆\n“欢迎来到骸骨领域”
+
+ItemName.NinjaEnchant =忍者魔石
+ItemTooltip.NinjaEnchant =若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益\n使用混沌传送杖也会获得先发制人增益\n先发制人增益会使你下次攻击必定暴击且造成3倍伤害\n“你现在能看到我了。诶，你又看不到我了”
+
+ItemName.ObsidianEnchant =黑曜石魔石
+ItemTooltip.ObsidianEnchant =使你免疫火块与岩浆\n你可以在岩浆中正常移动和游泳\n在岩浆中或拥有浸入岩浆增益时，你的攻击会引发爆炸\n“大地在呼唤”
+
+ItemName.OrichalcumEnchant =山铜魔石
+ItemTooltip.OrichalcumEnchant =花瓣将落到你攻击的敌人的身上，造成额外伤害和山铜中毒减益\n伤害性减益造成的伤害×3\n“自然祝福着你”
+
+ItemName.PalladiumEnchant =钯金魔石
+ItemTooltip.PalladiumEnchant =击中敌人后暂时增加你的生命恢复速度\n你每恢复80点生命值便会生成一个伤害性的生命能量球\n“你感到你的伤口在慢慢愈合”
+
+ItemName.PalmWoodEnchant =棕榈木魔石
+ItemTooltip.PalmWoodEnchant =双击“下”键会召唤一个会向敌人扔橡实的棕榈树哨兵\n“出奇地宁静”
+
+ItemName.PearlwoodEnchant =珍珠木魔石
+ItemTooltip.PearlwoodEnchant =弹幕击中敌人或物块时有几率生成一颗星星\n“既渺小无力，又慢人一步……”
+
+ItemName.PinkEskimoEnchant =粉爱斯基摩魔石
+ItemTooltip.PinkEskimoEnchant =“”
+
+ItemName.PlatinumEnchant =铂金魔石
+ItemTooltip.PlatinumEnchant ="敌人死亡时有20%的几率获得两倍的战利品\n“无价之宝”
+
+ItemName.PumpkinEnchant =南瓜魔石
+ItemTooltip.PumpkinEnchant =你在地上行走时会种下南瓜\n南瓜成熟时会为你回复25点生命值并产生伤害性余烬\n敌人与南瓜接触时会摧毁南瓜但会受到伤害\n“你对南瓜的突发渴望永远不会得到满足”
+
+ItemName.RainEnchant =雨云魔石
+ItemTooltip.RainEnchant =使你免疫潮湿减益\n召唤一个微型雨云跟着你\n攻击它会使其变大\n达到最大时，继续攻击会使它发射闪电\n“改日再来”
+
+ItemName.RedRidingEnchant =红色骑术魔石
+ItemTooltip.RedRidingEnchant =箭矢会定期落至你光标周围\n箭矢的种类取决于你背包中第一个箭矢\n双击“下”键后令箭雨倾泄在光标位置\n此效果有10秒冷却时间\n大幅强化爆炸陷阱的效果\n“小红帽，大坏蛋！”
+
+ItemName.RichMahoganyEnchant =红木魔石
+ItemTooltip.RichMahoganyEnchant =所有钩爪的抛出速度、牵引速度和回收速度×1.5\n“保证钩到你”
+
+ItemName.ShadewoodEnchant =阴影木魔石
+ItemTooltip.ShadewoodEnchant =召唤一圈鲜血光环\n在鲜血光环内被攻击的敌人会喷出伤害性血液\n“出奇的干净”
+
+ItemName.ShadowEnchant =暗影魔石
+ItemTooltip.ShadowEnchant =两颗暗影珠围绕着你旋转\n攻击暗影珠会使其释放追踪暗影能量\n“你感觉你的身体堕入黑暗的深渊之中”
+
+ItemName.ShinobiEnchant =渗透忍者魔石
+ItemTooltip.ShinobiEnchant =朝墙壁冲刺时会直接穿过去\n使你获得冲刺能力\n双击“左”或“右”键进行冲刺\n若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益\n使用混沌传送杖也会获得先发制人增益\n大幅强化闪电光环的效果\n“藏匿于墙中的村庄”
+
+ItemName.ShroomiteEnchant =蘑菇魔石
+ItemTooltip.ShroomiteEnchant =所有攻击都会留下蘑菇尾迹\n站定不动时使你进入隐身状态\n处于隐身状态时，攻击会产生更多蘑菇\n“是用真的蘑菇做的！”
+
+ItemName.SilverEnchant =银魔石
+ItemTooltip.SilverEnchant =召唤一柄剑，剑的伤害接受召唤伤害加成\n大大增加仆从攻击速度，但攻击不穿透敌怪的仆从的攻击力会降低\n“你有足够的力量驾驭我吗？”
+
+ItemName.SnowEnchant =冰雪魔石
+ItemTooltip.SnowEnchant =在光标位置生成暴雪\n暴雪中的所有弹幕和NPC的速度减缓50%\n“冷的要死”
+
+ItemName.SolarEnchant =耀斑魔石
+ItemTooltip.SolarEnchant =召唤日耀护盾，让你能冲撞敌人\n被击中时日耀护盾不会耗尽，但伤害减免效果会降低\n攻击有几率造成太阳耀斑减益\n“烫手魔石”
+
+ItemName.SpectreEnchant =幽魂魔石
+ItemTooltip.SpectreEnchant =对敌人造成伤害时有几率生成幽灵珠\n暴击时有几率生成治疗珠\n“他们的生命力将毁灭他们自己”
+
+ItemName.SpiderEnchant =蜘蛛魔石
+ItemTooltip.SpiderEnchant =召唤伤害可以造成暴击，且有15%基础暴击率\n“蜘蛛恐惧者？让他死于蜘蛛作为惩罚！”
+
+ItemName.SpookyEnchant =阴森魔石
+ItemTooltip.SpookyEnchant =你的召唤物能进行额外的镰刀攻击\n“自1902年以来融化的灵魂”
+
+ItemName.SquireEnchant =侍卫魔石
+ItemTooltip.SquireEnchant =回复生命值时，治疗量增加25%\n弩车可以穿透更多目标，你受到伤害时会得到弩车恐慌增益\n“侍卫，你能快点吗？”
+
+ItemName.StardustEnchant =星尘魔石
+ItemTooltip.StardustEnchant =双击“下”键将你的守卫引至光标位置\n按下“冻结”键后会冻结时间，持续5秒\n你的召唤物不受时间冻结影响，星尘守卫在时间冻结期间获得全新的攻击\n此效果有60秒冷却时间\n“你成为了替身使者”
+
+ItemName.TikiEnchant =提基魔石
+ItemTooltip.TikiEnchant =召唤栏位用光后你仍可以召唤临时的哨兵和仆从\n“Aku Aku!”
+
+ItemName.TinEnchant =锡魔石
+ItemTooltip.TinEnchant =将你的基础暴击率设为4%\n每次暴击时都会增加5%暴击率，暴击率的最大值为你当前最大暴击率数值×2\n被击中会使暴击率恢复为正常值\n“暴击回归”
+
+ItemName.TitaniumEnchant =钛金魔石
+ItemTooltip.TitaniumEnchant =攻击敌人后会使你无敌一小段时间\n“《Hit me with your best shot》”
+
+ItemName.TungstenEnchant =钨魔石
+ItemTooltip.TungstenEnchant =剑的尺寸增加150%\n每过0.5秒便会有一个随机弹幕的尺寸翻倍\n尺寸变大的剑和弹幕会额外造成10%伤害并且暴击率增加\n“大就是好”
+
+ItemName.TurtleEnchant =乌龟魔石
+ItemTooltip.TurtleEnchant =反弹100%接触伤害\n站定不动时且不攻击时你会缩进壳里\n当你缩进壳里时，增加90%伤害减免\n同时，你可以摧毁来犯的敌对弹幕且反弹10倍接触伤害\n壳至少能存在1秒，且能抵挡25次攻击\n敌人死亡时有几率爆裂出针刺\n“你突然有一种想躲进壳里的冲动”
+
+ItemName.ValhallaKnightEnchant =英灵殿骑士魔石
+ItemTooltip.ValhallaKnightEnchant =回复生命值时，治疗量增加33%\n大幅强化弩车的效果\n“瓦尔哈拉的呼唤”
+
+ItemName.VortexEnchant =星旋魔石
+ItemTooltip.VortexEnchant =双击“下”键切换至隐形模式，减少敌人以你为目标的几率，但大幅降低移动速度\n进入隐形状态时生成一个会吸引敌人和弹幕的旋涡\n处于隐形状态时你的弹幕不会被旋涡吸引\n“撕裂现实”
+
+ItemName.WizardEnchant =巫师魔石
+ItemTooltip.WizardEnchant =强化其它魔石，使它们获得在合成“力”系饰品后才能获得的效果\n“我是啥？”
+
+ItemName.WoodEnchant =木魔石
+ItemTooltip.WoodEnchant =将某些小动物转化为武器\n右键进行攻击\n“卑微的开始……”
 
 
 /Items/Souls
