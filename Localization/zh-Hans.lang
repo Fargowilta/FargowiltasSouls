@@ -66,148 +66,148 @@ BuffDescription.Defenseless =Your guard is completely broken
 /Items/Weapons/Boss Drops
 
 ItemName.BoneZone =骸骨领域
-ItemToolTip.BoneZone =消耗骨头作为弹药\n33%的几率不消耗弹药\n“被击败的敌人的残骸……”
+ItemTooltip.BoneZone =消耗骨头作为弹药\n33%的几率不消耗弹药\n“被击败的敌人的残骸……”
 
 ItemName.BrainStaff =精神崩坏
-ItemToolTip.BrainStaff =“一个被迫屈服的老对手……”
+ItemTooltip.BrainStaff =“一个被迫屈服的老对手……”
 
 ItemName.DamnedBook =邪教徒的魔法书
 
 ItemName.DestroyerGun =毁灭者之枪
-ItemToolTip.DestroyerGun =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算三个召唤栏位\n“一个被迫屈服的老对手……”
+ItemTooltip.DestroyerGun =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算三个召唤栏位\n“一个被迫屈服的老对手……”
 
 ItemName.Dicer =切肉球
-ItemToolTip.Dicer =“一个被击败的敌人的攻击方式，但是被你拴在绳子上了”
+ItemTooltip.Dicer =“一个被击败的敌人的攻击方式，但是被你拴在绳子上了”
 
 ItemName.DragonBreath =巨龙之息
-ItemToolTip.DragonBreath =使用凝胶作为弹药\n33%的几率不消耗弹药\n“一个被击败的敌人的缩小版尸体……”
+ItemTooltip.DragonBreath =使用凝胶作为弹药\n33%的几率不消耗弹药\n“一个被击败的敌人的缩小版尸体……”
 
 ItemName.EaterStaff =世界吞噬者召唤杖
-ItemToolTip.EaterStaff =每消耗一个栏位，能召唤出四个体节\n“一个被迫屈服的老对手……”
+ItemTooltip.EaterStaff =每消耗一个栏位，能召唤出四个体节\n“一个被迫屈服的老对手……”
 
 ItemName.FishStick =鱼杖
-ItemToolTip.FishStick =“被打败的敌人的尸体，被用棍子粗暴地串了起来……”
+ItemTooltip.FishStick =“被打败的敌人的尸体，被用棍子粗暴地串了起来……”
 
 ItemName.FleshHand =血肉之手
-ItemToolTip.FleshHand =“战败敌人的仆从……”
+ItemTooltip.FleshHand =“战败敌人的仆从……”
 
 ItemName.HiveStaff =蜂巢法杖
-ItemToolTip.HiveStaff =“战败敌人的仆从……”
+ItemTooltip.HiveStaff =“战败敌人的仆从……”
 
 ItemName.LeashOfCthulhu =克苏鲁连枷
-ItemToolTip.LeashOfCthulhu =“被打败的敌人的残尸……”
+ItemTooltip.LeashOfCthulhu =“被打败的敌人的残尸……”
 
 ItemName.RefractorBlaster =变轨激光炮
-ItemToolTip.RefractorBlaster =“由一个被击败的敌人的手臂改装而来……”
+ItemTooltip.RefractorBlaster =“由一个被击败的敌人的手臂改装而来……”
 
 ItemName.RockSlide =岩崩
-ItemToolTip.RockSlide =“被击败的敌人的破碎残骸……”
+ItemTooltip.RockSlide =“被击败的敌人的破碎残骸……”
 
 ItemName.SlimeKingsSlasher =史莱姆王的屠戮者
-ItemToolTip.SlimeKingsSlasher =“撕裂敌人内部而得到……”
+ItemTooltip.SlimeKingsSlasher =“撕裂敌人内部而得到……”
 
 ItemName.TheSmallSting =小螯刺
-ItemToolTip.TheSmallSting =消耗飞镖作为弹药\n50%的几率不消耗弹药\n毒刺会扎在敌怪身上，多次击中同一个位置时会造成额外的伤害\n“从被打败敌人的腹部扯下……”
+ItemTooltip.TheSmallSting =消耗飞镖作为弹药\n50%的几率不消耗弹药\n毒刺会扎在敌怪身上，多次击中同一个位置时会造成额外的伤害\n“从被打败敌人的腹部扯下……”
 
 ItemName.TwinRangs =双子回旋镖
-ItemToolTip.TwinRangs =左右键点击会进行不同的攻击\n“被打败的敌人的压缩形态”
+ItemTooltip.TwinRangs =左右键点击会进行不同的攻击\n“被打败的敌人的压缩形态”
 
 
 /Items/Weapons/Challengers
 
 ItemName.TheLightningRod =避雷针
-ItemToolTip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪，伤害都会降低
+ItemTooltip.TheLightningRod =旋转时蓄能\n掷出后每次击中敌怪，伤害都会降低
 
 
 /Items/Weapons/Final Upgrades
 
 ItemName.PhantasmalLeashOfCthulhu =幻影克苏鲁连枷
-ItemToolTip.PhantasmalLeashOfCthulhu =“被永恒能量禁锢的真眼的灵魂……”
+ItemTooltip.PhantasmalLeashOfCthulhu =“被永恒能量禁锢的真眼的灵魂……”
 
 ItemName.SlimeRain =史莱姆雨
-ItemToolTip.SlimeRain =“史莱姆王的内脏撒得遍地都是……”
+ItemTooltip.SlimeRain =“史莱姆王的内脏撒得遍地都是……”
 
 ItemName.SparklingLove =闪闪发光的爱
-ItemToolTip.SparklingLove =右键点击召唤戴薇安的灵魂\n空召唤栏位数越多，右键攻击的激光越密集，最多计算12个空召唤栏位\n“从一个被打败的敌人那里得到，耗费爱和正义、吞噬灵魂的恶魔斧头……”
+ItemTooltip.SparklingLove =右键点击召唤戴薇安的灵魂\n空召唤栏位数越多，右键攻击的激光越密集，最多计算12个空召唤栏位\n“从一个被打败的敌人那里得到，耗费爱和正义、吞噬灵魂的恶魔斧头……”
 
 ItemName.StyxGazer =冥河凝视
-ItemToolTip.StyxGazer =右键挥舞冥狱魔剑\n“灼灼镰刃，破灭狱刃，合二为一，取于敌手……”
+ItemTooltip.StyxGazer =右键挥舞冥狱魔剑\n“灼灼镰刃，破灭狱刃，合二为一，取于敌手……”
 
 
 /Items/Weapons/Misc
 
 ItemName.Mahoguny =红木枪
-ItemToolTip.Mahoguny =使用橡实作为弹药\n发射树叶和橡实
+ItemTooltip.Mahoguny =使用橡实作为弹药\n发射树叶和橡实
 
 ItemName.OvergrownKey =杂草丛生的钥匙
-ItemToolTip.OvergrownKey =召唤一个丛林宝箱怪为你而战\n需要2个召唤栏位
+ItemTooltip.OvergrownKey =召唤一个丛林宝箱怪为你而战\n需要2个召唤栏位
 
 ItemName.TophatSquirrelWeapon =高顶礼帽松鼠
-ItemToolTip.TophatSquirrelWeapon =“谁能知道，这只松鼠竟然有着非凡的宇宙力量呢？”
+ItemTooltip.TophatSquirrelWeapon =“谁能知道，这只松鼠竟然有着非凡的宇宙力量呢？”
 
 ItemName.Vineslinger =藤蔓吊索
-ItemToolTip.Vineslinger =击中敌人时发射树叶
+ItemTooltip.Vineslinger =击中敌人时发射树叶
 
 ItemName.VoidBow =虚空弓
-ItemToolTip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹药\n“从维度另一侧的一瞥”
+ItemTooltip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹药\n“从维度另一侧的一瞥”
 
 
 /Items/Weapons/SummonVariants
-
+(Always Believe Lastprismer)
 
 
 /Items/Weapons/SwarmDrops
 
 ItemName.BigBrainBuster =大脑克星
-ItemToolTip.BigBrainBuster =
+ItemTooltip.BigBrainBuster =重复召唤会增加仆从的大小和伤害\n$"加成上限为{Projectiles.Minions.BigBrainProj.MaxMinionSlots}次\n"“屠戮众多的奖赏……”
 
 ItemName.Blender =绞肉机
-ItemToolTip.Blender =“屠戮众多的奖赏……”
+ItemTooltip.Blender =“屠戮众多的奖赏……”
 
 ItemName.DestroyerGun2 =毁灭者之炮
-ItemToolTip.DestroyerGun2 =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算五个召唤栏位\n“屠戮众多的奖赏……”
+ItemTooltip.DestroyerGun2 =玩家拥有空余召唤栏位时，发射的毁灭者更长且更快\n最多计算五个召唤栏位\n“屠戮众多的奖赏……”
 
 ItemName.DragonBreath2 =龙之终焉
-ItemToolTip.DragonBreath2 =使用凝胶作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
+ItemTooltip.DragonBreath2 =使用凝胶作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
 
 ItemName.EaterLauncher =吞噬者发射器
-ItemToolTip.EaterLauncher =使用火箭作为弹药\n50%的几率不消耗弹药\n在标识圈内击中敌怪，会造成更高伤害\n“屠戮众多的奖赏……”
+ItemTooltip.EaterLauncher =使用火箭作为弹药\n50%的几率不消耗弹药\n在标识圈内击中敌怪，会造成更高伤害\n“屠戮众多的奖赏……”
 
 ItemName.FleshCannon =反叛者
-ItemToolTip.FleshCannon =“被奴役的敌人的面孔……”
+ItemTooltip.FleshCannon =“被奴役的敌人的面孔……”
 
 ItemName.GeminiGlaives =双子座飞轮刃
-ItemToolTip.GeminiGlaives =左右键点击会进行不同的攻击\n交替点击会加强下一次攻击\n“被打败的敌人的压缩形态”
+ItemTooltip.GeminiGlaives =左右键点击会进行不同的攻击\n交替点击会加强下一次攻击\n“被打败的敌人的压缩形态”
 
 ItemName.GolemTome2 =山崩
-ItemToolTip.GolemTome2 =“屠戮众多的奖赏……”
+ItemTooltip.GolemTome2 =“屠戮众多的奖赏……”
 
 ItemName.GuardianTome =守卫者
-ItemToolTip.GuardianTome =“现在轮到他们跑了”
+ItemTooltip.GuardianTome =“现在轮到他们跑了”
 
 ItemName.HellZone =地狱领域
-ItemToolTip.HellZone =消耗骨头作为弹药\n80%的几率不消耗弹药\n“屠戮众多的奖赏……”
+ItemTooltip.HellZone =消耗骨头作为弹药\n80%的几率不消耗弹药\n“屠戮众多的奖赏……”
 
 ItemName.HentaiSpear =洞察者
-ItemToolTip.HentaiSpear =左右键攻击不同\n按住上键、下键、都不按和同时按下的攻击不同"\n“拥抱永恒的奖赏……”
+ItemTooltip.HentaiSpear =左右键攻击不同\n按住上键、下键、都不按和同时按下的攻击不同"\n“拥抱永恒的奖赏……”
 
 ItemName.MechanicalLeashOfCthulhu =机械克苏鲁连枷
-ItemToolTip.MechanicalLeashOfCthulhu =“屠戮众多的奖赏……”
+ItemTooltip.MechanicalLeashOfCthulhu =“屠戮众多的奖赏……”
 
 ItemName.NukeFishron =核子猪鲨
-ItemToolTip.NukeFishron =使用火箭作为弹药\n“高度武器化的残骸……”
+ItemTooltip.NukeFishron =使用火箭作为弹药\n“高度武器化的残骸……”
 
 ItemName.OpticStaffEX =全知权杖
-ItemToolTip.OpticStaffEX =召唤真正的双子魔眼为你战斗\n需要3个召唤栏\n“屠戮众多的奖赏……”
+ItemTooltip.OpticStaffEX =召唤真正的双子魔眼为你战斗\n需要3个召唤栏\n“屠戮众多的奖赏……”
 
 ItemName.RefractorBlaster2 =光衍冲击波
-ItemToolTip.RefractorBlaster2 =“屠戮众多的奖赏……”
+ItemTooltip.RefractorBlaster2 =“屠戮众多的奖赏……”
 
 ItemName.SlimeSword =史莱姆弹幕屠戮者
-ItemToolTip.SlimeSword =“屠戮众多的奖赏……”
+ItemTooltip.SlimeSword =“屠戮众多的奖赏……”
 
 ItemName.TheBigSting =大螯刺
-ItemToolTip.TheBigSting =消耗飞镖作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
+ItemTooltip.TheBigSting =消耗飞镖作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
 
 ItemName.TwinLaser =双子机炮
 
