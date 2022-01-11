@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime Rain");
-            Tooltip.SetDefault("'The King's innards spread across the land..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "史莱姆雨");
-            Tooltip.AddTranslation(GameCulture.Chinese, "史莱姆王的内腑撒得遍地都是..");
+            //DisplayName.SetDefault("Slime Rain");
+            //Tolltip.SetDefault("'The King's innards spread across the land..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "史莱姆雨");
+            //Tolltip.AddTranslation(GameCulture.Chinese, "史莱姆王的内腑撒得遍地都是..");
         }
 
         public override void SetDefaults()

@@ -13,9 +13,9 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Leash of Cthulhu");
-            Tooltip.SetDefault("'The True Eye's soul trapped for eternity..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "幻影克苏鲁连枷");
+            //DisplayName.SetDefault("Phantasmal Leash of Cthulhu");
+            //Tolltip.SetDefault("'The True Eye's soul trapped for eternity..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "幻影克苏鲁连枷");
         }
 
         public override void SetDefaults()
