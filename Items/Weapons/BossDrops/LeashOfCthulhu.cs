@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Leash of Cthulhu");
-            Tooltip.SetDefault("'The mutilated carcass of a defeated foe...'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "克苏鲁连枷");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'被打败的敌人的残尸...'");
+            //DisplayName.SetDefault("Leash of Cthulhu");
+            //Tooltip.SetDefault("'The mutilated carcass of a defeated foe...'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "克苏鲁连枷");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'被打败的敌人的残尸...'");
         }
 
         public override void SetDefaults()

@@ -14,10 +14,10 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
 
         public override void SetStaticDefaults()
         {
-            /*DisplayName.SetDefault("Cultist's Spellbook");
-            Tooltip.SetDefault("");
-            DisplayName.AddTranslation(GameCulture.Chinese, "邪教徒的魔法书");
-            Tooltip.AddTranslation(GameCulture.Chinese, "");*/
+            //DisplayName.SetDefault("Cultist's Spellbook");
+            //Tooltip.SetDefault("");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "邪教徒的魔法书");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "");
         }
 
         public override void SetDefaults()

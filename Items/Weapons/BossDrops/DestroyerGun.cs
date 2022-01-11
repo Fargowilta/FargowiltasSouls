@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            /*DisplayName.SetDefault("Destroyer Gun");
-            Tooltip.SetDefault("Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "毁灭者之枪");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'一个被迫屈服的老对手..'");*/
+            //DisplayName.SetDefault("Destroyer Gun");
+            //Tooltip.SetDefault("Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "毁灭者之枪");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'一个被迫屈服的老对手..'");
         }
 
         public override void SetDefaults()

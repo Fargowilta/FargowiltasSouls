@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Refractor Blaster");
-            Tooltip.SetDefault("'Modified from the arm of a defeated foe..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "变轨激光炮");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'由一个被击败的敌人的手臂改装而来..'");
+            //DisplayName.SetDefault("Refractor Blaster");
+            //Tooltip.SetDefault("'Modified from the arm of a defeated foe..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "变轨激光炮");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'由一个被击败的敌人的手臂改装而来..'");
         }
 
         public override void SetDefaults()

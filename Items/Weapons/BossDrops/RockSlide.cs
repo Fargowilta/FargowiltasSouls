@@ -12,11 +12,11 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Rockslide");
-            Tooltip.SetDefault("'The crumbling remains of a defeated foe..'");
+            //DisplayName.SetDefault("The Rockslide");
+            //Tooltip.SetDefault("'The crumbling remains of a defeated foe..'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "山崩");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的破碎残骸'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "山崩");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'被击败的敌人的破碎残骸'");
         }
 
         public override void SetDefaults()

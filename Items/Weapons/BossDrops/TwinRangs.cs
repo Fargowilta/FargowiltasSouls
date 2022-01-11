@@ -11,11 +11,11 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Twinrangs");
-            Tooltip.SetDefault("Fire a different twinrang depending on mouse click" +
-                "\n'The compressed forms of defeated foes..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "双子");
-            Tooltip.AddTranslation(GameCulture.Chinese, "被打败的敌人的压缩形态..");
+            //DisplayName.SetDefault("Twinrangs");
+            //Tooltip.SetDefault("Fire a different twinrang depending on mouse click" +
+            //    "\n'The compressed forms of defeated foes..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "双子");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "被打败的敌人的压缩形态..");
         }
 
         public override void SetDefaults()

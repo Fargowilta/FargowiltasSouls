@@ -9,10 +9,10 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hive Staff");
-            Tooltip.SetDefault("'The enslaved minions of a defeated foe..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "蜂巢法杖");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'战败敌人的仆从..'");
+            //DisplayName.SetDefault("Hive Staff");
+            //Tooltip.SetDefault("'The enslaved minions of a defeated foe..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "蜂巢法杖");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'战败敌人的仆从..'");
         }
 
         public override void SetDefaults()
