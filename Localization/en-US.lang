@@ -66,150 +66,154 @@ BuffDescription.Defenseless =Your guard is completely broken
 /Items/Weapons/BossDrops
 
 ItemName.BoneZone =The Bone Zone
-ItemToolTip.BoneZone =Uses bones for ammo\n33% chance to not consume ammo\n'The shattered remains of a defeated foe..'
+ItemTooltip.BoneZone =Uses bones for ammo\n33% chance to not consume ammo\n'The shattered remains of a defeated foe..'
 
 ItemName.BrainStaff =Mind Break
-ItemToolTip.BrainStaff ='An old foe beaten into submission..'
+ItemTooltip.BrainStaff ='An old foe beaten into submission..'
 
 ItemName.DamnedBook =Cultist's Spellbook
 
 ItemName.DestroyerGun =Destroyer Gun
-ItemToolTip.DestroyerGun =Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'
+ItemTooltip.DestroyerGun =Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'
 
 ItemName.Dicer =The Dicer
-ItemToolTip.Dicer ='A defeated foe's attack now on a string'
+ItemTooltip.Dicer ='A defeated foe's attack now on a string'
 
 ItemName.DragonBreath =Dragon's Breath
-ItemToolTip.DragonBreath =Uses gel for ammo\n33% chance to not consume ammo\n'The shrunken body of a defeated foe..'
+ItemTooltip.DragonBreath =Uses gel for ammo\n33% chance to not consume ammo\n'The shrunken body of a defeated foe..'
 
 ItemName.EaterStaff =Eater of Worlds Staff
-ItemToolTip.EaterStaff =Summons 4 segments for each minion slot\n'An old foe beaten into submission..'
+ItemTooltip.EaterStaff =Summons 4 segments for each minion slot\n'An old foe beaten into submission..'
 
 ItemName.FishStick =Fish Stick
-ItemToolTip.FishStick ='The carcass of a defeated foe shoved violently on a stick..'
+ItemTooltip.FishStick ='The carcass of a defeated foe shoved violently on a stick..'
 
 ItemName.FleshHand =Flesh Hand
-ItemToolTip.FleshHand ='The enslaved minions of a defeated foe..'
+ItemTooltip.FleshHand ='The enslaved minions of a defeated foe..'
 
 ItemName.HiveStaff =Hive Staff
-ItemToolTip.HiveStaff ='The enslaved minions of a defeated foe..'
+ItemTooltip.HiveStaff ='The enslaved minions of a defeated foe..'
 
 ItemName.LeashOfCthulhu =Leash of Cthulhu
-ItemToolTip.LeashOfCthulhu ='The mutilated carcass of a defeated foe...'
+ItemTooltip.LeashOfCthulhu ='The mutilated carcass of a defeated foe...'
+
+
+
 
 ItemName.RefractorBlaster =Refractor Blaster
-ItemToolTip.RefractorBlaster ='Modified from the arm of a defeated foe..'
+ItemTooltip.RefractorBlaster ='Modified from the arm of a defeated foe..'
 
 ItemName.RockSlide =The Rockslide
-ItemToolTip.RockSlide ='The crumbling remains of a defeated foe..'
+ItemTooltip.RockSlide ='The crumbling remains of a defeated foe..'
 
 ItemName.SlimeKingsSlasher =Slime King's Slasher
-ItemToolTip.SlimeKingsSlasher ='Torn from the insides of a defeated foe..'
+ItemTooltip.SlimeKingsSlasher ='Torn from the insides of a defeated foe..'
 
 ItemName.TheSmallSting =The Small Sting
-ItemToolTip.TheSmallSting =Uses darts for ammo\n50% chance to not consume ammo\nStingers will stick to enemies, hitting the same spot again will deal extra damage\n'Repurposed from the abdomen of a defeated foe..'
+ItemTooltip.TheSmallSting =Uses darts for ammo\n50% chance to not consume ammo\nStingers will stick to enemies, hitting the same spot again will deal extra damage\n'Repurposed from the abdomen of a defeated foe..'
 
 ItemName.TwinRangs =TwinRangs
-ItemToolTip.TwinRangs =Fire a different twinrang depending on mouse click\n'The compressed forms of defeated foes..'
+ItemTooltip.TwinRangs =Fire a different twinrang depending on mouse click\n'The compressed forms of defeated foes..'
 
 
 /Items/Weapons/Challengers
 
 ItemName.TheLightningRod =The Lightning Rod
-ItemToolTip.TheLightningRod =Charges power as it is spun\nDamage decreases per hit when thrown
+ItemTooltip.TheLightningRod =Charges power as it is spun\nDamage decreases per hit when thrown
 
 
 /Items/Weapons/FinalUpgrades
 
 ItemName.PhantasmalLeashOfCthulhu =Phantasmal Leash of Cthulhu
-ItemToolTip.PhantasmalLeashOfCthulhu ='The True Eye's soul trapped for eternity..'
+ItemTooltip.PhantasmalLeashOfCthulhu ='The True Eye's soul trapped for eternity..'
 
 ItemName.SlimeRain =Slime Rain
-ItemToolTip.SlimeRain ='The King's innards spread across the land..'
+ItemTooltip.SlimeRain ='The King's innards spread across the land..'
 
 ItemName.SparklingLove =Sparkling Love
-ItemToolTip.SparklingLove =Right click to summon the soul of Deviantt\nRight click pattern becomes denser with up to 12 empty minion slots\n'The soul-consuming demon axe of love and justice from a defeated foe...'
+ItemTooltip.SparklingLove =Right click to summon the soul of Deviantt\nRight click pattern becomes denser with up to 12 empty minion slots\n'The soul-consuming demon axe of love and justice from a defeated foe...'
 
 ItemName.StyxGazer =Styx Gazer
-ItemToolTip.StyxGazer =Right click to wield a blade of infernal magic\n'The blazing scythe wand sword destruction ray of a defeated foe...'
+ItemTooltip.StyxGazer =Right click to wield a blade of infernal magic\n'The blazing scythe wand sword destruction ray of a defeated foe...'
 
 
 /Items/Weapons/Misc
 
 ItemName.Mahoguny =Mahoguny
-ItemToolTip.Mahoguny =Uses acorns as ammo\nFires leaves and acorns
+ItemTooltip.Mahoguny =Uses acorns as ammo\nFires leaves and acorns
 
 ItemName.OvergrownKey =Overgrown Key
-ItemToolTip.OvergrownKey =Summons a Jungle Mimic to fight for you\nNeeds 2 minion slots
+ItemTooltip.OvergrownKey =Summons a Jungle Mimic to fight for you\nNeeds 2 minion slots
 
 ItemName.TophatSquirrelWeapon =Top Hat Squirrel
-ItemToolTip.TophatSquirrelWeapon ='Who knew this squirrel had phenomenal cosmic power?'
+ItemTooltip.TophatSquirrelWeapon ='Who knew this squirrel had phenomenal cosmic power?'
 
 ItemName.Vineslinger =Vineslinger
-ItemToolTip.Vineslinger =Hitting an enemy fires leaves
+ItemTooltip.Vineslinger =Hitting an enemy fires leaves
 
 ItemName.VoidBow =Void Bow
-ItemToolTip.VoidBow =Converts all arrows to void arrows \n40% chance to not consume ammo\n'A glimpse to the other side'
+ItemTooltip.VoidBow =Converts all arrows to void arrows \n40% chance to not consume ammo\n'A glimpse to the other side'
 
 
 /Items/Weapons/SummonVariants
-
+(Always Believe Lastprismer)
 
 
 /Items/Weapons/SwarmDrops
 
 ItemName.BigBrainBuster =Big Brain Buster
-ItemToolTip.BigBrainBuster =
+ItemTooltip.BigBrainBuster =Repeated summons increase the size and damage of the minion$"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n'The reward for slaughtering many...'
 
 ItemName.Blender =The Blender
-ItemToolTip.Blender ='The reward for slaughtering many...'
+ItemTooltip.Blender ='The reward for slaughtering many...'
 
 ItemName.DestroyerGun2 =Destruction Cannon
-ItemToolTip.DestroyerGun2 =Becomes longer and faster with up to 5 empty minion slots\n'The reward for slaughtering many...'
+ItemTooltip.DestroyerGun2 =Becomes longer and faster with up to 5 empty minion slots\n'The reward for slaughtering many...'
 
 ItemName.DragonBreath2 =Dragon's Demise
-ItemToolTip.DragonBreath2 =Uses gel for ammo\n66% chance to not consume ammo\n'The reward for slaughtering many..'
+ItemTooltip.DragonBreath2 =Uses gel for ammo\n66% chance to not consume ammo\n'The reward for slaughtering many..'
 
 ItemName.EaterLauncher =Rockeater Launcher
-ItemToolTip.EaterLauncher =Uses rockets for ammo\n50% chance to not consume ammo\nIncreased damage to enemies in the given range\n'The reward for slaughtering many..'
+ItemTooltip.EaterLauncher =Uses rockets for ammo\n50% chance to not consume ammo\nIncreased damage to enemies in the given range\n'The reward for slaughtering many..'
 
 ItemName.FleshCannon =The Regurgitator
-ItemToolTip.FleshCannon ='The enslaved face of a defeated foe...'
+ItemTooltip.FleshCannon ='The enslaved face of a defeated foe...'
 
 ItemName.GeminiGlaives =Gemini Glaives
-ItemToolTip.GeminiGlaives =Fire different glaives depending on mouse click\nAlternating clicks will enhance attacks\n'The compressed forms of defeated foes..'
+ItemTooltip.GeminiGlaives =Fire different glaives depending on mouse click\nAlternating clicks will enhance attacks\n'The compressed forms of defeated foes..'
 
 ItemName.GolemTome2 =The Landslide
-ItemToolTip.GolemTome2 ='The reward for slaughtering many...'
+ItemTooltip.GolemTome2 ='The reward for slaughtering many...'
 
 ItemName.GuardianTome =The Guardian
-ItemToolTip.GuardianTome ='It's their turn to run'
+ItemTooltip.GuardianTome ='It's their turn to run'
 
 ItemName.HellZone =Hell Zone
-ItemToolTip.HellZone =Uses bones for ammo\n80% chance to not consume ammo\n'The reward for slaughtering many...'
+ItemTooltip.HellZone =Uses bones for ammo\n80% chance to not consume ammo\n'The reward for slaughtering many...'
 
 ItemName.HentaiSpear =The Penetrator
-ItemToolTip.HentaiSpear =Has different attacks when using left or right click\nHas different attacks when used while holding up, down, or both\n'The reward for embracing eternity...'
+ItemTooltip.HentaiSpear =Has different attacks when using left or right click\nHas different attacks when used while holding up, down, or both\n'The reward for embracing eternity...'
 
 ItemName.MechanicalLeashOfCthulhu =Mechanical Leash of Cthulhu
-ItemToolTip.MechanicalLeashOfCthulhu ='The reward for slaughtering many..'
+ItemTooltip.MechanicalLeashOfCthulhu ='The reward for slaughtering many..'
 
 ItemName.NukeFishron =Nuke Fishron
-ItemToolTip.NukeFishron =Uses rockets for ammo\n'The highly weaponized remains of a defeated foe...'
+ItemTooltip.NukeFishron =Uses rockets for ammo\n'The highly weaponized remains of a defeated foe...'
 
 ItemName.OpticStaffEX =Omniscience Staff
-ItemToolTip.OpticStaffEX =Summons the real twins to fight for you\nNeeds 3 minion slots\n'The reward for slaughtering many...'
+ItemTooltip.OpticStaffEX =Summons the real twins to fight for you\nNeeds 3 minion slots\n'The reward for slaughtering many...'
 
 ItemName.RefractorBlaster2 =Diffractor Blaster
-ItemToolTip.RefractorBlaster2 ='The reward for slaughtering many...'
+ItemTooltip.RefractorBlaster2 ='The reward for slaughtering many...'
 
 ItemName.SlimeSword =Slime Slinging Slasher
-ItemToolTip.SlimeSword ='The reward for slaughtering many..'
+ItemTooltip.SlimeSword ='The reward for slaughtering many..'
 
 ItemName.TheBigSting =The Big Sting
-ItemToolTip.TheBigSting =Uses darts for ammo\n66% chance to not consume ammo\n'The reward for slaughtering many..'
+ItemTooltip.TheBigSting =Uses darts for ammo\n66% chance to not consume ammo\n'The reward for slaughtering many..'
 
 ItemName.TwinLaser =Gemini Cannon
+
 
 
 /Items/Enchs
