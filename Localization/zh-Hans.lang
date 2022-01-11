@@ -1,4 +1,4 @@
-/Buffs
+﻿/Buffs
 /Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
@@ -153,7 +153,7 @@ ItemToolTip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹�
 
 
 /Items/Weapons/SummonVariants
-(Always Believe Lastprismer)
+
 
 
 /Items/Weapons/SwarmDrops
@@ -210,7 +210,6 @@ ItemName.TheBigSting =大螯刺
 ItemToolTip.TheBigSting =消耗飞镖作为弹药\n66%的几率不消耗弹药\n“屠戮众多的奖赏……”
 
 ItemName.TwinLaser =双子机炮
-
 
 
 /Items/Enchs
@@ -371,7 +370,7 @@ EternitySoul.OtherTooltips1 =额外加成：
 
 
 
-永恒模式：
+/EternityMode
 
 EternityMode.Betsy1 =你怕了？
 EternityMode.Betsy2 =乐不起来
@@ -553,5 +552,4 @@ EternityMode.Stolen =你有东西被偷了！
 拥有履空靴的效果
 拥有求生家之飞鞋的效果
 拥有举足轻重靴的效果
-
 
