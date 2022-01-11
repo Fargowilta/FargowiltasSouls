@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SummonVariants
@@ -53,7 +54,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "help", "Right click to convert");
+            TooltipLine line = new TooltipLine(mod, "help", Language.GetTextValue("Mods.FargowiltasSouls.SummonVariants.Convert"));
             tooltips.Add(line);
         }
     }

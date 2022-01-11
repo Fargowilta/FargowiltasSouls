@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Summons bats to attack your enemies");
+            //Tooltip.SetDefault("Summons bats to attack your enemies");
             Item.staff[item.type] = true;
         }
 
@@ -64,7 +64,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Latches on to enemies for continuous damage");
+            //Tooltip.SetDefault("Latches on to enemies for continuous damage");
         }
     }
 
@@ -74,7 +74,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Summons a cloud to rain down on your foes");
+            //Tooltip.SetDefault("Summons a cloud to rain down on your foes");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -95,7 +95,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Summons a cloud to rain blood on your foes");
+            //Tooltip.SetDefault("Summons a cloud to rain blood on your foes");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -117,7 +117,7 @@ namespace FargowiltasSouls.Items.Weapons.SummonVariants
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Shoots bees that will chase your enemy");
+            //Tooltip.SetDefault("Shoots bees that will chase your enemy");
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
