@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime Slinging Slasher");
-            Tooltip.SetDefault("'The reward for slaughtering many..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "史莱姆抛射屠戮者");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
+            //DisplayName.SetDefault("Slime Slinging Slasher");
+            //Tooltip.SetDefault("'The reward for slaughtering many..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "史莱姆抛射屠戮者");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
         }
 
         public override void SetDefaults()

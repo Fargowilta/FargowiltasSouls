@@ -12,11 +12,11 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Guardian");
-            Tooltip.SetDefault("'It's their turn to run'");
+            //DisplayName.SetDefault("The Guardian");
+            //Tooltip.SetDefault("'It's their turn to run'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "守卫者");
-            Tooltip.AddTranslation(GameCulture.Chinese, "现在轮到他们跑了");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "守卫者");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "现在轮到他们跑了");
         }
 
         public override void SetDefaults()

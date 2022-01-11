@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Diffractor Blaster");
-            Tooltip.SetDefault("'The reward for slaughtering many...'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "暗星炮");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'由一个被击败的敌人的武器改装而来..'");
+            //DisplayName.SetDefault("Diffractor Blaster");
+            //Tooltip.SetDefault("'The reward for slaughtering many...'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "暗星炮");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'由一个被击败的敌人的武器改装而来..'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 7));
         }
         public override int NumFrames => 7;

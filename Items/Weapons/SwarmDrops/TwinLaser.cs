@@ -14,10 +14,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gemini Cannon");
-            Tooltip.SetDefault("");
-            DisplayName.AddTranslation(GameCulture.Chinese, "双子机炮");
-            Tooltip.AddTranslation(GameCulture.Chinese, "");
+            //DisplayName.SetDefault("Gemini Cannon");
+            //Tooltip.SetDefault("");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "双子机炮");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "");
         }
 
         public override void SetDefaults()

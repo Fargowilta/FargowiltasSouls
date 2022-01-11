@@ -13,12 +13,12 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gemini Glaives");
-            Tooltip.SetDefault("Fire different glaives depending on mouse click" +
+            //DisplayName.SetDefault("Gemini Glaives");
+            /*Tooltip.SetDefault("Fire different glaives depending on mouse click" +
                 "\nAlternating clicks will enhance attacks" +
-                "\n'The compressed forms of defeated foes..'");
+                "\n'The compressed forms of defeated foes..'");*/
 
-            Tooltip.AddTranslation(GameCulture.Chinese, "被打败的敌人的压缩形态..");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "被打败的敌人的压缩形态..");
         }
 
         public override void SetDefaults()

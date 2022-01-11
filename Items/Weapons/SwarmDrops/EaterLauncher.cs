@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rockeater Launcher");
-            Tooltip.SetDefault("Uses rockets for ammo\n50% chance to not consume ammo\nIncreased damage to enemies in the given range\n'The reward for slaughtering many..'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "吞噬者发射器");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
+            //DisplayName.SetDefault("Rockeater Launcher");
+            //Tooltip.SetDefault("Uses rockets for ammo\n50% chance to not consume ammo\nIncreased damage to enemies in the given range\n'The reward for slaughtering many..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "吞噬者发射器");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
         }
 
         public override void SetDefaults()

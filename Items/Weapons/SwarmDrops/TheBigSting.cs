@@ -10,13 +10,13 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Big Sting");
-            Tooltip.SetDefault("Uses darts for ammo" +
-                "\n66% chance to not consume ammo" +
-                "\n'The reward for slaughtering many..'");
+            //DisplayName.SetDefault("The Big Sting");
+            //Tooltip.SetDefault("Uses darts for ammo" +
+            //    "\n66% chance to not consume ammo" +
+            //    "\n'The reward for slaughtering many..'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "大螫刺");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "大螫刺");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励..'");
         }
 
         public override void SetDefaults()

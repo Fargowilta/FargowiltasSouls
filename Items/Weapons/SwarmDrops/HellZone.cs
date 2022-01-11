@@ -13,10 +13,10 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hell Zone");
-            Tooltip.SetDefault("Uses bones for ammo\n80% chance to not consume ammo\n'The reward for slaughtering many...'");
-            DisplayName.AddTranslation(GameCulture.Chinese, "地狱领域");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
+            //DisplayName.SetDefault("Hell Zone");
+            //Tooltip.SetDefault("Uses bones for ammo\n80% chance to not consume ammo\n'The reward for slaughtering many...'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "地狱领域");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
         }
 
         public override void SetDefaults()

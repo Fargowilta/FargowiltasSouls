@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Landslide");
-            Tooltip.SetDefault("'The reward for slaughtering many...'");
+            //DisplayName.SetDefault("The Landslide");
+            //Tooltip.SetDefault("'The reward for slaughtering many...'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "山崩 EX");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "山崩 EX");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励'");
         }
 
         public override void SetDefaults()

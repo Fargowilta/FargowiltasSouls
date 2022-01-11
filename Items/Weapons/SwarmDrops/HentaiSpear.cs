@@ -14,13 +14,13 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Penetrator");
-            Tooltip.SetDefault("Has different attacks when using left or right click" +
+            //DisplayName.SetDefault("The Penetrator");
+            /*Tooltip.SetDefault("Has different attacks when using left or right click" +
                 "\nHas different attacks when used while holding up, down, or both" +
                 "\n'The reward for embracing eternity...'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "洞察者");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");*/
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 10));
         }

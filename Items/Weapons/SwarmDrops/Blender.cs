@@ -10,11 +10,11 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Blender");
-            Tooltip.SetDefault("'The reward for slaughtering many...'");
+            //DisplayName.SetDefault("The Blender");
+            //Tooltip.SetDefault("'The reward for slaughtering many...'");
 
-            DisplayName.AddTranslation(GameCulture.Chinese, "绞肉机");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "绞肉机");
+            //Tooltip.AddTranslation(GameCulture.Chinese, "'屠戮众多的奖励...'");
         }
 
         public override void SetDefaults()

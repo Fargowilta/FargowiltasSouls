@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Regurgitator");
-            Tooltip.SetDefault("'The enslaved face of a defeated foe...'");
+            //DisplayName.SetDefault("The Regurgitator");
+            //Tooltip.SetDefault("'The enslaved face of a defeated foe...'");
         }
 
         public override void SetDefaults()
