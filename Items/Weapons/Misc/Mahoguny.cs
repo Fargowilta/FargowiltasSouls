@@ -8,9 +8,9 @@ namespace FargowiltasSouls.Items.Weapons.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mahoguny");
-            Tooltip.SetDefault("Uses acorns as ammo\n" +
-            "Fires leaves and acorns");
+            //DisplayName.SetDefault("Mahoguny");
+            //Tooltip.SetDefault("Uses acorns as ammo\n" +
+            //"Fires leaves and acorns");
         }
 
         public override void SetDefaults()

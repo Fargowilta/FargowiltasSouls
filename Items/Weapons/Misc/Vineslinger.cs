@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vineslinger");
-            Tooltip.SetDefault("Hitting an enemy fires leaves");
+            //DisplayName.SetDefault("Vineslinger");
+            //Tooltip.SetDefault("Hitting an enemy fires leaves");
         }
 
         public override void SetDefaults()

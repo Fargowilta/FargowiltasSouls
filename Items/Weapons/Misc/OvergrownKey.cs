@@ -10,8 +10,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Overgrown Key");
-            Tooltip.SetDefault("Summons a Jungle Mimic to fight for you\nNeeds 2 minion slots");
+            //DisplayName.SetDefault("Overgrown Key");
+            //Tooltip.SetDefault("Summons a Jungle Mimic to fight for you\nNeeds 2 minion slots");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 2;
         }
 
