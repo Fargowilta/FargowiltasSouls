@@ -153,13 +153,14 @@ ItemTooltip.VoidBow =将所有箭支转化为虚空箭 \n40%概率不消耗弹�
 
 
 /Items/Weapons/SummonVariants
-(Always Believe Lastprismer)
+
 
 
 /Items/Weapons/SwarmDrops
 
 ItemName.BigBrainBuster =大脑克星
-ItemTooltip.BigBrainBuster =重复召唤会增加仆从的大小和伤害\n$"加成上限为{Projectiles.Minions.BigBrainProj.MaxMinionSlots}次\n"“屠戮众多的奖赏……”
+BigBrainBuster.Tooltip1 =重复召唤会增加仆从的大小和伤害\n加成上限为
+BigBrainBuster.Tooltip2 =次\n“屠戮众多的奖赏……”
 
 ItemName.Blender =绞肉机
 ItemTooltip.Blender =“屠戮众多的奖赏……”

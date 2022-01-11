@@ -97,9 +97,6 @@ ItemTooltip.HiveStaff ='The enslaved minions of a defeated foe..'
 ItemName.LeashOfCthulhu =Leash of Cthulhu
 ItemTooltip.LeashOfCthulhu ='The mutilated carcass of a defeated foe...'
 
-
-
-
 ItemName.RefractorBlaster =Refractor Blaster
 ItemTooltip.RefractorBlaster ='Modified from the arm of a defeated foe..'
 
@@ -156,13 +153,14 @@ ItemTooltip.VoidBow =Converts all arrows to void arrows \n40% chance to not cons
 
 
 /Items/Weapons/SummonVariants
-(Always Believe Lastprismer)
+
 
 
 /Items/Weapons/SwarmDrops
 
 ItemName.BigBrainBuster =Big Brain Buster
-ItemTooltip.BigBrainBuster =Repeated summons increase the size and damage of the minion$"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n'The reward for slaughtering many...'
+BigBrainBuster.Tooltip1 =Repeated summons increase the size and damage of the minion\nThis caps at 
+BigBrainBuster.Tooltip2 = slots\n'The reward for slaughtering many...'
 
 ItemName.Blender =The Blender
 ItemTooltip.Blender ='The reward for slaughtering many...'
@@ -213,7 +211,6 @@ ItemName.TheBigSting =The Big Sting
 ItemTooltip.TheBigSting =Uses darts for ammo\n66% chance to not consume ammo\n'The reward for slaughtering many..'
 
 ItemName.TwinLaser =Gemini Cannon
-
 
 
 /Items/Enchs
