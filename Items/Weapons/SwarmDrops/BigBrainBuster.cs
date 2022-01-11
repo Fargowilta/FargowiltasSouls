@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
@@ -9,12 +11,14 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Big Brain Buster");
-            Tooltip.SetDefault(
-"Repeated summons increase the size and damage of the minion\n" +
-$"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n" +
-"'The reward for slaughtering many...'");
+            //DisplayName.SetDefault("Big Brain Buster");            
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 1;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            string Tooltip = Language.GetTextValue("Mods.FargowiltasSouls.BigBrainBuster.Tooltip1") + $"{Projectiles.Minions.BigBrainProj.MaxMinionSlots}" + Language.GetTextValue("Mods.FargowiltasSouls.BigBrainBuster.Tooltip2");
+            tooltips.Add(new TooltipLine(mod, "tooltip", Tooltip));
         }
 
         public override void SetDefaults()
