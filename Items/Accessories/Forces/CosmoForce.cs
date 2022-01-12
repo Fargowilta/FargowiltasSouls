@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Misc;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -11,9 +12,9 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Cosmos");
+            //DisplayName.SetDefault("Force of Cosmos");
             
-            DisplayName.AddTranslation(GameCulture.Chinese, "宇宙之力");
+            /*DisplayName.AddTranslation(GameCulture.Chinese, "宇宙之力");
             
             string tooltip =
 $"[i:{ModContent.ItemType<MeteorEnchant>()}] A meteor shower initiates every few seconds while attacking\n" +
@@ -38,7 +39,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
 星尘守卫不受时间冻结影响且在此期间会获得全新的强力攻击
 此效果有60秒冷却时间，冷却结束时会播放音效
 '自宇宙大爆炸以来就一直存在";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
@@ -50,6 +51,18 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<MeteorEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Meteor")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SolarEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Solar1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SolarEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Solar2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<VortexEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Vortex")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<NebulaEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Nebula")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<StardustEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Stardust1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<StardustEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Stardust2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.CosmoForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
