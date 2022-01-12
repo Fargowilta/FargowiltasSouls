@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs
@@ -12,9 +13,9 @@ namespace FargowiltasSouls.Buffs
             if (FargoSoulsWorld.EternityMode)
             {
                 if (type == BuffID.ShadowDodge)
-                    tip += "\nEternity Mode: Dodging will reduce your damage output";
+                    tip += Language.GetTextValue("Mods.FargowiltasSouls.EternityBuff.ShadowDodge");
                 else if (type == BuffID.IceBarrier)
-                    tip += "\nEternity Mode: Effectiveness reduced to 15%";
+                    tip += Language.GetTextValue("Mods.FargowiltasSouls.EternityBuff.IceBarrier");
             }
         }
 
