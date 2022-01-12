@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Mutant Power");
-            Description.SetDefault("The power of Mutant is with you");
-            DisplayName.AddTranslation(GameCulture.Chinese, "突变之力");
-            Description.AddTranslation(GameCulture.Chinese, "突变之力与你同在");
+            //DisplayName.SetDefault("Mutant Power");
+            //Description.SetDefault("The power of Mutant is with you");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "突变之力");
+            //Description.AddTranslation(GameCulture.Chinese, "突变之力与你同在");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

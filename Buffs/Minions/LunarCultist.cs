@@ -9,12 +9,12 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Lunar Cultist");
-            Description.SetDefault("The Lunar Cultist will protect you");
+            ////DisplayName.SetDefault("Lunar Cultist");
+            ////Description.SetDefault("The Lunar Cultist will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "拜月教徒");
-            Description.AddTranslation(GameCulture.Chinese, "拜月教徒将会保护你");
+            ////DisplayName.AddTranslation(GameCulture.Chinese, "拜月教徒");
+            ////Description.AddTranslation(GameCulture.Chinese, "拜月教徒将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

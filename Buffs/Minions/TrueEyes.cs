@@ -9,12 +9,12 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("True Eyes of Cthulhu");
-            Description.SetDefault("The eyes of Cthulhu will protect you");
+            //DisplayName.SetDefault("True Eyes of Cthulhu");
+            //Description.SetDefault("The eyes of Cthulhu will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "真·克苏鲁之眼");
-            Description.AddTranslation(GameCulture.Chinese, "克苏鲁之眼将会保护你");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "真·克苏鲁之眼");
+            //Description.AddTranslation(GameCulture.Chinese, "克苏鲁之眼将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

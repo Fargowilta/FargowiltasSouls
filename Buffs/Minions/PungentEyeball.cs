@@ -9,12 +9,12 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Pungent Eyeball");
-            Description.SetDefault("The pungent eyeball will protect you");
+            //DisplayName.SetDefault("Pungent Eyeball");
+            //Description.SetDefault("The pungent eyeball will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "尖刻眼球");
-            Description.AddTranslation(GameCulture.Chinese, "尖刻眼球将会保护你");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "尖刻眼球");
+            //Description.AddTranslation(GameCulture.Chinese, "尖刻眼球将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

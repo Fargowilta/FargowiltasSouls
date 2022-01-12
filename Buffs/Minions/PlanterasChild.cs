@@ -8,12 +8,12 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Plantera's Child");
-            Description.SetDefault("The child of Plantera will protect you");
+            //DisplayName.SetDefault("Plantera's Child");
+            //Description.SetDefault("The child of Plantera will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "世纪之花的孩子");
-            Description.AddTranslation(GameCulture.Chinese, "世纪之花的孩子将会保护你");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "世纪之花的孩子");
+            //Description.AddTranslation(GameCulture.Chinese, "世纪之花的孩子将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

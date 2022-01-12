@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Crystal Skull");
-            Description.SetDefault("The pungent eyeball will protect you");
+            ////DisplayName.SetDefault("Crystal Skull");
+            ////Description.SetDefault("The pungent eyeball will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

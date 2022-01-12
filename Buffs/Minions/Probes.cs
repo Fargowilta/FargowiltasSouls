@@ -9,12 +9,12 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Probes");
-            Description.SetDefault("The probes will protect you");
+            //DisplayName.SetDefault("Probes");
+            //Description.SetDefault("The probes will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation(GameCulture.Chinese, "探测器");
-            Description.AddTranslation(GameCulture.Chinese, "探测器将会保护你");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "探测器");
+            //Description.AddTranslation(GameCulture.Chinese, "探测器将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

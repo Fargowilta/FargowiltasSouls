@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Buffs.Minions
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Big Brain of Cthulhu");
-            Description.SetDefault("The Brain of Cthulhu will fight for you");
+            ////DisplayName.SetDefault("Big Brain of Cthulhu");
+            ////Description.SetDefault("The Brain of Cthulhu will fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
