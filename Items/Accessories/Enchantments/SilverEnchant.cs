@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Silver Enchantment");
+            /*DisplayName.SetDefault("Silver Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "银魔石");
             
@@ -27,7 +27,7 @@ Certain minion attacks do reduced damage to compensate for increased speed
             string tooltip_ch =
 @"召唤一柄剑，剑的伤害取决于你的召唤伤害
 '你有足够的力量驾驭我吗？'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

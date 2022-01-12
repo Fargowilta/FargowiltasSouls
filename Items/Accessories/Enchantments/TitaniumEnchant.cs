@@ -11,14 +11,14 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Titanium Enchantment");
+            /*DisplayName.SetDefault("Titanium Enchantment");
             Tooltip.SetDefault(
 @"Briefly become invulnerable after striking an enemy
 'Hit me with your best shot'");
             DisplayName.AddTranslation(GameCulture.Chinese, "钛金魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"攻击敌人后会使你无敌一小段时间
-'Hit me with your best shot'（某歌曲名）");
+'Hit me with your best shot'（某歌曲名）");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

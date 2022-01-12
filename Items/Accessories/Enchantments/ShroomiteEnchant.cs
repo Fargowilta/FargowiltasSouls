@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shroomite Enchantment");
+            /*DisplayName.SetDefault("Shroomite Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "蘑菇魔石");
             
@@ -27,7 +27,7 @@ While in stealth, more mushrooms will spawn
 站定不动时使你进入隐身状态
 处于隐身状态时攻击会留下更多蘑菇尾迹
 '真的是用蘑菇做的！'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

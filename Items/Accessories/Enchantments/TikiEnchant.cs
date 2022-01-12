@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tiki Enchantment");
+            /*DisplayName.SetDefault("Tiki Enchantment");
             Tooltip.SetDefault(
 @"You may continue to summon temporary minions and sentries after maxing out on your slots
 Reduces attack speed of summon weapons when effect is activated
@@ -19,7 +19,7 @@ Reduces attack speed of summon weapons when effect is activated
             DisplayName.AddTranslation(GameCulture.Chinese, "提基魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"在召唤栏用光后你仍可以召唤临时的哨兵和仆从
-'Aku Aku!'");
+'Aku Aku!'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

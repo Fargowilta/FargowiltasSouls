@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wood Enchantment");
+            /*DisplayName.SetDefault("Wood Enchantment");
             Tooltip.SetDefault(
 @"Turns certain critters into weapons
 Right click with them to attack
@@ -20,7 +20,7 @@ Right click with them to attack
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"将某些动物转化为武器
 右键进行攻击
-'卑微的开始...'");
+'卑微的开始...'");*/
             //Certain critters have extra effects
             //Effects of Critter guide tm
         }

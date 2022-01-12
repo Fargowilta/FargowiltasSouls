@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tungsten Enchantment");
+            /*DisplayName.SetDefault("Tungsten Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "钨魔石");
             
@@ -27,7 +27,7 @@ Enlarged swords and projectiles deal 10% more damage and have an additional chan
 每过0.5秒便会使一个弹幕的尺寸翻倍
 尺寸变大的剑和弹幕会额外造成10%伤害并且有额外几率暴击
 '大就是好'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

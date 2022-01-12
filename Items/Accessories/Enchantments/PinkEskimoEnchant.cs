@@ -14,12 +14,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pink Eskimo Enchantment");
+            /*DisplayName.SetDefault("Pink Eskimo Enchantment");
             Tooltip.SetDefault(
 @"''");
             DisplayName.AddTranslation(GameCulture.Chinese, "粉爱斯基摩魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"''");
+@"''");*/
         }
 
         public override void SetDefaults()

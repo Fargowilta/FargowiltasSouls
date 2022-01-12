@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Valhalla Knight Enchantment");
+            /*DisplayName.SetDefault("Valhalla Knight Enchantment");
             Tooltip.SetDefault(
 @"Increases the effectiveness of healing sources by 33%
 Greatly enhances Ballista effectiveness
@@ -20,7 +20,7 @@ Greatly enhances Ballista effectiveness
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"增加33%受治疗量
 大幅强化弩车的效果
-'瓦尔哈拉的呼唤'");
+'瓦尔哈拉的呼唤'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

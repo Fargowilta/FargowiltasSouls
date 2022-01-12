@@ -11,14 +11,14 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rich Mahogany Enchantment");
+            /*DisplayName.SetDefault("Rich Mahogany Enchantment");
             Tooltip.SetDefault(
 @"All grappling hooks shoot, pull, and retract 1.5x as fast
 'Guaranteed to keep you hooked'");
             DisplayName.AddTranslation(GameCulture.Chinese, "红木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"所有钩爪的抛出速度、牵引速度和回收速度x1.5
-'保证钩到你'");
+'保证钩到你'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

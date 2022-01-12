@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spectre Enchantment");
+            /*DisplayName.SetDefault("Spectre Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "幽魂魔石");
             
@@ -25,7 +25,7 @@ If you crit, you might also get a healing orb
 @"伤害敌人时有几率生成幽魂珠
 攻击造成暴击时有几率生成治疗珠
 '他们的生命力将毁灭他们自己'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

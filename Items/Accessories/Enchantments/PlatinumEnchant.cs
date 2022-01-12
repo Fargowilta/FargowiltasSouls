@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Platinum Enchantment");
+            /*DisplayName.SetDefault("Platinum Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "铂金魔石");
             
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip_ch = 
 @"敌人死亡时掉落的战利品有20%几率翻倍
 '价值无法估量'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

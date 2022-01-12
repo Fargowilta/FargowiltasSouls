@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tin Enchantment");
+            /*DisplayName.SetDefault("Tin Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "锡魔石");
            
@@ -27,7 +27,7 @@ Getting hit drops your crit back down
 每次暴击时都会增加5%暴击率，增加的暴击率的最大值为你当前最大暴击率数值x2
 被击中后会降低暴击率
 '暴击回归'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

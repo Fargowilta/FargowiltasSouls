@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stardust Enchantment");
+            /*DisplayName.SetDefault("Stardust Enchantment");
             Tooltip.SetDefault(
 @"Double tap down to direct your empowered guardian
 Press the Freeze Key to freeze time for 5 seconds
@@ -24,7 +24,7 @@ There is a 60 second cooldown for this effect
 按下'冻结'键后会冻结5秒时间
 你的召唤物不受时间冻结影响且星尘守卫在时间冻结期间获得全新的攻击
 此效果有60秒冷却时间
-'替身之力归你所有'");
+'替身之力归你所有'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Turtle Enchantment");
+            /*DisplayName.SetDefault("Turtle Enchantment");
             Tooltip.SetDefault(
 @"100% of contact damage is reflected
 When standing still and not attacking, you will enter your shell
@@ -28,7 +28,7 @@ Enemies may explode into needles on death
 当你缩进壳里时你会摧毁来犯的敌对弹幕且反弹10倍近战伤害
 壳可以在消失前手动取消且能抵挡25次攻击
 敌人死亡时有几率爆裂出针刺
-'你突然有一种想躲进壳里的冲动'");
+'你突然有一种想躲进壳里的冲动'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

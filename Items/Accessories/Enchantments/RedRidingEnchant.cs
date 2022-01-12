@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Red Riding Enchantment");
+            /*DisplayName.SetDefault("Red Riding Enchantment");
             Tooltip.SetDefault(
 @"Arrows will periodically fall towards your cursor
 Double tap down to create a rain of arrows that follows the cursor's position for a few seconds
@@ -26,7 +26,7 @@ Greatly enhances Explosive Traps effectiveness
 箭矢的种类取决于你背包中第一个箭矢
 此效果有10秒冷却时间
 大幅强化爆炸陷阱的效果
-'大坏蛋红色骑术帽！'");
+'大坏蛋红色骑术帽！'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

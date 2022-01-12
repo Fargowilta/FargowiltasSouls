@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Snow Enchantment");
+            /*DisplayName.SetDefault("Snow Enchantment");
             Tooltip.SetDefault(
 @"Spawns a snowstorm at your cursor
 Any projectiles or npcs in the snowstorm are slowed by 50%
@@ -20,7 +20,7 @@ Any projectiles or npcs in the snowstorm are slowed by 50%
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"在光标位置生成暴雪
 暴雪中的所有弹幕和NPC的速度减缓50%（NPC包括敌人）
-'冷的要死'");
+'冷的要死'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

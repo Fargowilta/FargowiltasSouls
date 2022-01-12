@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spider Enchantment");
+            /*DisplayName.SetDefault("Spider Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "蜘蛛魔石");
             
@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip_ch =
 @"你的仆从和哨兵现在可以造成暴击且有15%基础暴击率
 '对恐蛛症者可惩罚他们死于蜘蛛之口'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

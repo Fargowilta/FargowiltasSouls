@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rain Enchantment");
+            /*DisplayName.SetDefault("Rain Enchantment");
             Tooltip.SetDefault(
 @"Grants immunity to Wet
 Spawns a miniature storm to follow you around
@@ -24,7 +24,7 @@ At maximum size, attacks will turn into lightning bolts
 召唤一个微型风暴跟着你
 向其射击会使其变大
 尺寸达到最大时攻击会转化为闪电
-'改日再来'");
+'改日再来'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

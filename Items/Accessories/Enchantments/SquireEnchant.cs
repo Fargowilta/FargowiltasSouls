@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Squire Enchantment");
+            /*DisplayName.SetDefault("Squire Enchantment");
             Tooltip.SetDefault(
 @"Increases the effectiveness of healing sources by 25%
 Ballista pierces more targets and panics when you take damage
@@ -21,7 +21,7 @@ Ballista pierces more targets and panics when you take damage
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"增加25%受治疗量
 受到伤害后使弩车可以穿透更多的敌人且会造成恐慌减益
-'侍卫？你能快点吗？'");
+'侍卫？你能快点吗？'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

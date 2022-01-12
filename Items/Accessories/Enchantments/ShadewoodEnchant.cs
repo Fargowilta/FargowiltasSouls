@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadewood Enchantment");
+            /*DisplayName.SetDefault("Shadewood Enchantment");
             Tooltip.SetDefault(
 @"You have an aura of Bleeding
 Enemies struck while Bleeding spew damaging blood
@@ -20,7 +20,7 @@ Enemies struck while Bleeding spew damaging blood
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"一圈流血光环环绕着你
 在流血光环内被攻击的敌人会喷出伤害性血液
-'出奇的干净'");
+'出奇的干净'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

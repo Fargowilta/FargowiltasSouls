@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vortex Enchantment");
+            /*DisplayName.SetDefault("Vortex Enchantment");
             Tooltip.SetDefault(
 @"Double tap down to toggle stealth, reducing chance for enemies to target you but slowing movement
 When entering stealth, spawn a vortex that draws in enemies and projectiles
@@ -22,7 +22,7 @@ While in stealth, your own projectiles will not be sucked in
 @"双击'下'键切换至隐形模式，减少敌人以你为目标的几率，但大幅降低移动速度
 进入隐形状态时生成一个会吸引敌人和弹幕的旋涡
 处于隐形状态时你的弹幕不会被旋涡吸引
-'撕裂现实'");
+'撕裂现实'");**/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

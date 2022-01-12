@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shinobi Infiltrator Enchantment");
+            /*DisplayName.SetDefault("Shinobi Infiltrator Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "渗透忍者魔石");
             
@@ -33,7 +33,7 @@ Greatly enhances Lightning Aura effectiveness
 使用混沌传送杖也会获得先发制人增益
 大幅强化闪电光环的效果
 '藏匿于墙中的村庄'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
