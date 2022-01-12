@@ -339,7 +339,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             //oh no idk even for translate
             //always believe calamitiki
             
-            string tooltip_sp = @"'Mortal o Inmortal, todas las cosas reconocen tu reclamación a la divinidad'
+            /*string tooltip_sp = @"'Mortal o Inmortal, todas las cosas reconocen tu reclamación a la divinidad'
 Drasticamente incrementa regeneración de vida, incrementa tu mana máximo a 999, súbditos por 30, torretas por 20, vida maxima por 500%, reducción de daño por 50%
 250% daño incrementado y velocidad de ataque; 100% velocidad de disparo y retroceso; Incrementa penetración de armadura por 50; Críticos hacen 10x daño y la probabilidad de Crítico se vuelve 50%
 Consigue un crítico para incrementarlo por 10%, a 100% cada ataque gana 10% robo de vida y ganas +10% daño y +10 defensa; Esto se apila hasta 200,000 veces hasta que te golpeen
@@ -364,12 +364,12 @@ Invoca un anillo de la muerte inpenetrable alrededor de tí y tu reflejas todos 
 Efectos del Guantelete de fuego, Bolsa yoyó, Mira de francotirador, Esposas celestiales, Flor de maná, Cerebro de confusión, Velo estelar, Collar del cariño, y Capa de abejas
 Efectos del Saco de esporas, Escudo de paladín, Caparazón de tortuga congelado, Equipo de buceo ártico, Anca de rana, Alfombra voladora, Katiuskas de lava, y Bolsa de aparejos de pescador
 Efectos del Spray de pintura, Pulsificador, Móvil, Globo gravitacional, Botas floridas, Equipo de maestro ninja, Anillo codicioso, Caparazón celestial, y Piedra brillante
-Efectos de pociones de Brillo, Espeleólogo, Cazador, y Sentido del peligro; Efectos del Modo Constructor, Reliquia del Infinito y atraes objectos desde más lejos";
+Efectos de pociones de Brillo, Espeleólogo, Cazador, y Sentido del peligro; Efectos del Modo Constructor, Reliquia del Infinito y atraes objectos desde más lejos";*/
 
             //DisplayName.AddTranslation(GameCulture.Chinese, "永恒之魂");
-            DisplayName.AddTranslation(GameCulture.Spanish, "Alma de la Eternidad");
+            //DisplayName.AddTranslation(GameCulture.Spanish, "Alma de la Eternidad");
             //Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
-            Tooltip.AddTranslation(GameCulture.Spanish, tooltip_sp);
+            //Tooltip.AddTranslation(GameCulture.Spanish, tooltip_sp);
 
             /*Tooltip.SetDefault(
 @"'Mortal or Immortal, all things acknowledge your claim to divinity'
