@@ -432,6 +432,18 @@ ItemName.WoodEnchant =木魔石
 ItemTooltip.WoodEnchant =将某些小动物转化为武器\n右键进行攻击\n“卑微的开始……”
 
 
+/Items/Forces
+ItemName.CosmoForce =宇宙之力
+CosmoForce.Meteor = 攻击时每过几秒便会召唤一次流星雨
+CosmoForce.Solar1 = 允许你使用日耀护盾进行冲刺
+CosmoForce.Solar2 = 攻击有几率造成太阳耀斑减益
+CosmoForce.Vortex = 双击“下”键切换至隐形模式，生成一个旋涡
+CosmoForce.Nebula = 对敌人造成伤害时有几率生成强化焰
+CosmoForce.Stardust1 = 双击“下”键将你的守卫引至光标位置
+CosmoForce.Stardust2 = 按下“冻结”键后会冻结时间，持续5秒，有60秒冷却时间
+CosmoForce.Addition =“自宇宙大爆炸以来就一直存在”
+
+
 /Items/Souls
 
 ItemName.EternitySoul =永恒之魂

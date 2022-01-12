@@ -432,6 +432,18 @@ ItemName.WoodEnchant =Wood Enchantment
 ItemTooltip.WoodEnchant =Turns certain critters into weapons\nRight click with them to attack\n'Humble beginnings…'
 
 
+/Items/Forces
+ItemName.CosmoForce =Force of Cosmos
+CosmoForce.Meteor = A meteor shower initiates every few seconds while attacking
+CosmoForce.Solar1 = Solar shield allows you to dash through enemies
+CosmoForce.Solar2 = Attacks may inflict the Solar Flare debuff
+CosmoForce.Vortex = Double tap down to toggle stealth and spawn a vortex
+CosmoForce.Nebula = Hurting enemies has a chance to spawn buff boosters
+CosmoForce.Stardust1 = Double tap down to direct your empowered guardian
+CosmoForce.Stardust2 = Press the Freeze Key to freeze time for 5 seconds, 60 second cooldown
+CosmoForce.Addition ='Been around since the Big Bang'
+
+
 /Items/Souls
 
 ItemName.EternitySoul =Soul of Eternity
