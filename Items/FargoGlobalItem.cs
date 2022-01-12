@@ -4,6 +4,7 @@ using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.Projectiles.Critters;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using Terraria.Localization;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -371,7 +372,7 @@ namespace FargowiltasSouls.Items
         {
             if (Array.IndexOf(Summon, item.type) > -1)
             {
-                TooltipLine helperLine = new TooltipLine(mod, "help", "Right click to convert");
+                TooltipLine helperLine = new TooltipLine(mod, "help", Language.GetTextValue("Mods.FargowiltasSouls.SummonVariants.Convert"));
                 tooltips.Add(helperLine);
             }
 
