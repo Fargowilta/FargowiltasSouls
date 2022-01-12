@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Artist Enchantment");
+            /*DisplayName.SetDefault("Dark Artist Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "暗黑艺术家魔石");
            
@@ -31,7 +31,7 @@ Greatly enhances Flameburst effectiveness
 切换武器后使下次攻击的伤害增加50%
 大幅强化爆炸烈焰哨兵的效果
 '阴影蕴含之物远超目之所及'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

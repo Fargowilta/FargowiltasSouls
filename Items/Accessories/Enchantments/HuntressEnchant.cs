@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Huntress Enchantment");
+            /**DisplayName.SetDefault("Huntress Enchantment");
             Tooltip.SetDefault(
 @"Arrows will periodically fall towards your cursor
 The arrow type is based on the first arrow in your inventory
@@ -28,7 +28,7 @@ Set oiled enemies on fire for extra damage
 此效果有15秒冷却时间
 爆炸机关攻击速度更快且会造成涂油减益
 点燃涂油的敌人以造成额外伤害
-'狩猎开始了'");
+'狩猎开始了'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

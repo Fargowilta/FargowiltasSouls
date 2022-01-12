@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Molten Enchantment");
+            /*DisplayName.SetDefault("Molten Enchantment");
             Tooltip.SetDefault(
 @"Nearby enemies are ignited
 The closer they are to you the more damage they take
@@ -22,7 +22,7 @@ When you are hurt, you violently explode to damage nearby enemies
 @"引燃你附近的敌人
 离你越近的敌人受到的伤害越高
 你受到伤害时会剧烈爆炸并伤害附近的敌人
-'他们将感受到地狱的愤怒' ");
+'他们将感受到地狱的愤怒' ");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

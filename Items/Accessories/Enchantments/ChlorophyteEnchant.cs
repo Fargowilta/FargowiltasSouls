@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chlorophyte Enchantment");
+            /*DisplayName.SetDefault("Chlorophyte Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "叶绿魔石");
             
@@ -29,7 +29,7 @@ Double tap a direction
 使你获得孢子二段跳能力
 使用翅膀进行飞行时会在你周围不断生成孢子
 '丛林的精华凝结在你周围'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Necro Enchantment");
+            /*DisplayName.SetDefault("Necro Enchantment");
             Tooltip.SetDefault(
 @"Slain enemies may drop a pile of bones
 Touch a pile of bones to spawn a friendly Dungeon Guardian
@@ -24,7 +24,7 @@ Bosses will drop bones every 10% of their HP lost
 拾取骨头时有几率生成一个地牢守卫
 地牢守卫的伤害取决于被击杀的敌人的最大生命值
 Boss每损失10%生命值便会掉落骨头
-'欢迎来到骸骨领域'");
+'欢迎来到骸骨领域'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

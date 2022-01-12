@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Beetle Enchantment");
+            /*DisplayName.SetDefault("Beetle Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "甲虫魔石");
             
@@ -25,7 +25,7 @@ Increases flight time by 25%
 @"甲虫会保护你，减免下次受到的伤害，至多减免15%下次受到的伤害
 延长25%飞行时间
 '你的血管里流淌着看不见的粪便生命'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

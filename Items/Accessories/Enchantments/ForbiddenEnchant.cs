@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Forbidden Enchantment");
+            /*DisplayName.SetDefault("Forbidden Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "禁戒魔石");
             
@@ -25,7 +25,7 @@ Any projectiles shot through your storm gain 30% damage
 @"双击'下'键召唤远古风暴至光标位置
 穿过远古风暴的弹幕会获得30%额外伤害
 '走路像个埃及人'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

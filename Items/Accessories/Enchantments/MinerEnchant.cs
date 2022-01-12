@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Miner Enchantment");
+            /*DisplayName.SetDefault("Miner Enchantment");
             Tooltip.SetDefault(
 @"50% increased mining speed
 Shows the location of enemies, traps, and treasures
@@ -22,7 +22,7 @@ Light is emitted from the player
 @"增加50%挖掘速度
 高亮标记敌人、陷阱和宝藏
 你会散发光芒
-'大地随着你的每一次挥镐而颤动'");
+'大地随着你的每一次挥镐而颤动'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

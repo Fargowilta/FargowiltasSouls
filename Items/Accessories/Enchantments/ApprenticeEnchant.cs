@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Apprentice Enchantment");
+            /*DisplayName.SetDefault("Apprentice Enchantment");
             Tooltip.SetDefault(
 @"After attacking for 2 seconds you will be enveloped in flames
 Switching weapons will increase the next attack's damage by 50% and spawn an inferno
@@ -22,7 +22,7 @@ Flameburst field of view and range are dramatically increased
 @"持续攻击两秒后你将被火焰包裹
 切换武器后使下次攻击的伤害增加50%
 大幅增加爆炸烈焰哨兵的索敌范围和攻击距离
-'追求完美的漫漫长路'");
+'追求完美的漫漫长路'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Enchantment");
+            /*DisplayName.SetDefault("Gold Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "金魔石");
             
@@ -31,7 +31,7 @@ Effects of Greedy Ring
 再次按下'金身'键会使你提前离开黄金壳
 拥有贪婪戒指效果
 '黄金使世界运转'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

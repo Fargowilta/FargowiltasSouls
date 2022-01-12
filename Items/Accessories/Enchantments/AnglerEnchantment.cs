@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Angler Enchantment");
+            /*DisplayName.SetDefault("Angler Enchantment");
             Tooltip.SetDefault(
 @"Increases fishing power
 You catch fish almost instantly
@@ -22,7 +22,7 @@ Effects of Angler Tackle Bag
 @"增加渔力
 你几乎能立刻就钓到鱼
 拥有渔夫渔具袋效果
-'只要不全是鞋子, 你就可以高高兴兴地回家'");
+'只要不全是鞋子, 你就可以高高兴兴地回家'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

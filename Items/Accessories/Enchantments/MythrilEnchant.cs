@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mythril Enchantment");
+            /*DisplayName.SetDefault("Mythril Enchantment");
             Tooltip.SetDefault(
 @"15% increased weapon use speed
 Taking damage temporarily removes this weapon use speed increase
@@ -21,7 +21,7 @@ Taking damage temporarily removes this weapon use speed increase
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"增加15%武器使用速度
 受到伤害时武器使用速度增加效果会暂时失效
-'你感觉你对武器的知识渗透进了你的脑海中");
+'你感觉你对武器的知识渗透进了你的脑海中");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

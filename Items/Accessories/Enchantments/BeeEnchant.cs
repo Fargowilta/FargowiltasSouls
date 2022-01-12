@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bee Enchantment");
+            /*.SetDefault("Bee Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "蜜蜂魔石");
            
@@ -25,7 +25,7 @@ Your piercing attacks spawn bees
 @"增加友好蜜蜂的力量
 穿透类弹幕在击中敌人时会生成蜜蜂
 '根据目前所知的所有航空原理, 蜜蜂应该根本不可能会飞'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

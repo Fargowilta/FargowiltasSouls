@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Enchantment");
+            /*DisplayName.SetDefault("Jungle Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "丛林魔石");
             
@@ -24,7 +24,7 @@ Double tap a direction
             string tooltip_ch =
 @"使你获得孢子二段跳能力
 '丛林之怒深藏其中'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

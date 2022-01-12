@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nebula Enchantment");
+            /*DisplayName.SetDefault("Nebula Enchantment");
             Tooltip.SetDefault(
 @"Hurting enemies has a chance to spawn buff boosters
 Buff booster stacking capped at 2
@@ -20,7 +20,7 @@ Buff booster stacking capped at 2
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"伤害敌人时有几率生成强化增益
 强化增益最大堆叠上限为2
-'创生之柱照耀着你'");
+'创生之柱照耀着你'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

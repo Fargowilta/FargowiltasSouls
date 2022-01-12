@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cobalt Enchantment");
+            /*DisplayName.SetDefault("Cobalt Enchantment");
             Tooltip.SetDefault(
 @"25% chance for your projectiles to explode into shards
 This can only happen once every second
@@ -20,7 +20,7 @@ This can only happen once every second
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"你的弹幕有25%几率爆裂成碎片
 此效果在每秒内只会发生一次
-'真不敢相信这竟然不是钯金'");
+'真不敢相信这竟然不是钯金'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

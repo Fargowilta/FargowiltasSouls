@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Shadow Enchantment");
+            /*DisplayName.SetDefault("Ancient Shadow Enchantment");
             Tooltip.SetDefault(
 @"Your attacks may inflict Darkness on enemies
 Darkened enemies occasionally fire shadowflame tentacles at other enemies
@@ -22,7 +22,7 @@ Three Shadow Orbs will orbit around you
 @"攻击有几率造成黑暗减益
 身上带有黑暗减益的敌人有几率向其他敌人发射暗影焰触手
 三颗暗影珠围绕着你旋转
-'十分古老，却非常实用'");
+'十分古老，却非常实用'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

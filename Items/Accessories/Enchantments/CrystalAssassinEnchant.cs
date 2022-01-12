@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Assassin Enchantment");
+            /*DisplayName.SetDefault("Crystal Assassin Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "水晶刺客魔石");
             
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip_ch =
 @"拥有挥发明胶效果
 ''";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

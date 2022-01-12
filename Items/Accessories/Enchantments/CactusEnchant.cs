@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cactus Enchantment");
+            /*DisplayName.SetDefault("Cactus Enchantment");
             Tooltip.SetDefault(
 @"25% of contact damage is reflected
 Enemies may explode into needles on death
@@ -20,7 +20,7 @@ Enemies may explode into needles on death
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"反弹25%接触伤害
 敌人死亡时有几率爆裂出针刺
-'太解渴了！'");
+'太解渴了！'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Monk Enchantment");
+            /*DisplayName.SetDefault("Monk Enchantment");
             Tooltip.SetDefault(
 @"Allows the ability to dash
 Double tap a direction
@@ -26,7 +26,7 @@ Lightning Aura can now crit and strikes faster
 在冲刺后的0.5秒内使你免疫伤害和减益
 冲刺冷却是普通冲刺的二倍
 闪电光环现在可以暴击且攻击速度更快
-'返本还僧'");
+'返本还僧'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

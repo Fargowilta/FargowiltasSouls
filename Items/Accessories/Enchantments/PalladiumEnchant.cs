@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palladium Enchantment");
+            /*DisplayName.SetDefault("Palladium Enchantment");
             Tooltip.SetDefault(
 @"Briefly increases life regeneration after striking an enemy
 You spawn an orb of damaging life energy every 80 life regenerated
@@ -20,7 +20,7 @@ You spawn an orb of damaging life energy every 80 life regenerated
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"攻击敌人后暂时增加你的生命恢复速度
 你每恢复80点生命值便会生成一个伤害性的生命能量球
-'你感到你的伤口在慢慢愈合'");
+'你感到你的伤口在慢慢愈合'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

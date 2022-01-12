@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lead Enchantment");
+            /*DisplayName.SetDefault("Lead Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "铅魔石");
             
@@ -24,7 +24,7 @@ Lead Poisoning deals damage over time and spreads to nearby enemies
 @"攻击有几率造成铅中毒减益
 铅中毒减益持续造成伤害并且会扩散至周围的敌人
 '不建议食用'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

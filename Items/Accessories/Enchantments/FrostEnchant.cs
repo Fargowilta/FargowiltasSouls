@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frost Enchantment");
+            /*DisplayName.SetDefault("Frost Enchantment");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "冰霜魔石");
             
@@ -29,7 +29,7 @@ All hostile projectiles move at half speed
 冰锥击中敌人时会使其短暂冻结并受到25%额外伤害5秒
 敌对弹幕飞行速度减半
 '让我们给这个世界披上一层厚厚的冰衣'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

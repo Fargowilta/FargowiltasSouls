@@ -11,14 +11,14 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Boreal Wood Enchantment");
+            /*DisplayName.SetDefault("Boreal Wood Enchantment");
             Tooltip.SetDefault(
 @"Attacks will periodically be accompanied by several snowballs
 'The cooler wood'");
             DisplayName.AddTranslation(GameCulture.Chinese, "针叶木魔石");
             Tooltip.AddTranslation(GameCulture.Chinese, 
 @"攻击时定期释放雪球
-'冷木'");
+'冷木'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
