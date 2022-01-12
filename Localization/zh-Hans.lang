@@ -345,7 +345,7 @@ ItemName.PalladiumEnchant =钯金魔石
 ItemTooltip.PalladiumEnchant =击中敌人后暂时增加你的生命恢复速度\n你每恢复80点生命值便会生成一个伤害性的生命能量球\n“你感到你的伤口在慢慢愈合”
 
 ItemName.PalmWoodEnchant =棕榈木魔石
-ItemTooltip.PalmWoodEnchant =双击“下”键会召唤一个会向敌人扔橡实的棕榈树哨兵\n“出奇地宁静”
+ItemTooltip.PalmWoodEnchant =双击“下”键会召唤一个会向敌人扔橡实的棕榈树哨兵\n“出奇的宁静”
 
 ItemName.PearlwoodEnchant =珍珠木魔石
 ItemTooltip.PearlwoodEnchant =弹幕击中敌人或物块时有几率生成一颗星星\n“既渺小无力，又慢人一步……”
