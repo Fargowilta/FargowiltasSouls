@@ -432,7 +432,26 @@ ItemName.WoodEnchant =木魔石
 ItemTooltip.WoodEnchant =将某些小动物转化为武器\n右键进行攻击\n“卑微的开始……”
 
 
+/Items/Essences
+
+ItemName.ApprenticesEssence =学徒精华
+ItemTooltip.ApprenticesEssence =增加18%魔法伤害\n增加5%魔法暴击率\n增加50点最大魔力值\n“这只是个开始……”
+
+ItemName.BarbariansEssence =野蛮人精华
+ItemTooltip.BarbariansEssence =增加18%近战伤害\n增加10%近战攻速\n增加5%近战暴击率\n“这只是个开始……”
+
+ItemName.OccultistsEssence =术士精华
+ItemTooltip.OccultistsEssence =增加18%召唤伤害\n增加1个召唤栏位\n增加1个哨兵栏位\n“这只是个开始……”
+
+ItemName.SharpshootersEssence =神射手精华
+ItemTooltip.SharpshootersEssence =增加18%远程伤害\n10%几率不消耗弹药\n增加5%远程暴击率\n“这只是个开始……”
+
+ItemName.SlingersEssence =投手精华
+ItemTooltip.SlingersEssence =增加18%投掷伤害\n增加5%投掷暴击率\n增加5%投掷弹幕飞行速度\n“这只是个开始……”
+
+
 /Items/Forces
+
 ItemName.CosmoForce =宇宙之力
 CosmoForce.Meteor = 攻击时每过几秒便会召唤一次流星雨
 CosmoForce.Solar1 = 允许你使用日耀护盾进行冲刺

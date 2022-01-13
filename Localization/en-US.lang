@@ -432,7 +432,26 @@ ItemName.WoodEnchant =Wood Enchantment
 ItemTooltip.WoodEnchant =Turns certain critters into weapons\nRight click with them to attack\n'Humble beginnings…'
 
 
+/Items/Essences
+
+ItemName.ApprenticesEssence =Apprentice's Essence
+ItemTooltip.ApprenticesEssence =18% increased magic damage\n5% increased magic crit\nIncreases your maximum mana by 50\n'This is only the beginning..'
+
+ItemName.BarbariansEssence =Barbarian's Essence
+ItemTooltip.BarbariansEssence =18% increased melee damage\n10% increased melee speed\n5% increased melee crit chance\n'This is only the beginning..'
+
+ItemName.OccultistsEssence =Occultist's Essence
+ItemTooltip.OccultistsEssence =18% increased summon damage\nIncreases your max number of minions by 1\nIncreases your max number of sentries by 1\n'This is only the beginning..'
+
+ItemName.SharpshootersEssence =Sharpshooter's Essence
+ItemTooltip.SharpshootersEssence =18% increased ranged damage\n10% chance to not consume ammo\n5% increased ranged critical chance\n'This is only the beginning..'
+
+ItemName.SlingersEssence =Slinger's Essence
+ItemTooltip.SlingersEssence =18% increased throwing damage\n5% increased throwing critical chance\n5% increased throwing velocity\n'This is only the beginning..'
+
+
 /Items/Forces
+
 ItemName.CosmoForce =Force of Cosmos
 CosmoForce.Meteor = A meteor shower initiates every few seconds while attacking
 CosmoForce.Solar1 = Solar shield allows you to dash through enemies
