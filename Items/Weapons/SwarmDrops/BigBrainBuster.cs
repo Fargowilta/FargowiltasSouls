@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
             string Tooltip = Language.GetTextValue("Mods.FargowiltasSouls.BigBrainBuster.Tooltip1") + $"{Projectiles.Minions.BigBrainProj.MaxMinionSlots}" + Language.GetTextValue("Mods.FargowiltasSouls.BigBrainBuster.Tooltip2");
-            tooltips.Add(new TooltipLine(mod, "tooltip", Tooltip));
+            tooltips.Insert(4, new TooltipLine(mod, "tooltip", Tooltip));
         }
 
         public override void SetDefaults()
