@@ -1,4 +1,3 @@
-﻿/Buffs
 /Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
@@ -432,7 +431,26 @@ ItemName.WoodEnchant =木魔石
 ItemTooltip.WoodEnchant =将某些小动物转化为武器\n右键进行攻击\n“卑微的开始……”
 
 
+/Items/Essences
+
+ItemName.ApprenticesEssence =学徒精华
+ItemTooltip.ApprenticesEssence =增加18%魔法伤害\n增加5%魔法暴击率\n增加50点最大魔力值\n“这只是个开始……”
+
+ItemName.BarbariansEssence =野蛮人精华
+ItemTooltip.BarbariansEssence =增加18%近战伤害\n增加10%近战攻速\n增加5%近战暴击率\n“这只是个开始……”
+
+ItemName.OccultistsEssence =术士精华
+ItemTooltip.OccultistsEssence =增加18%召唤伤害\n增加1个召唤栏位\n增加1个哨兵栏位\n“这只是个开始……”
+
+ItemName.SharpshootersEssence =神射手精华
+ItemTooltip.SharpshootersEssence =增加18%远程伤害\n10%几率不消耗弹药\n增加5%远程暴击率\n“这只是个开始……”
+
+ItemName.SlingersEssence =投手精华
+ItemTooltip.SlingersEssence =增加18%投掷伤害\n增加5%投掷暴击率\n增加5%投掷弹幕飞行速度\n“这只是个开始……”
+
+
 /Items/Forces
+
 ItemName.CosmoForce =宇宙之力
 CosmoForce.Meteor = 攻击时每过几秒便会召唤一次流星雨
 CosmoForce.Solar1 = 允许你使用日耀护盾进行冲刺
@@ -442,6 +460,11 @@ CosmoForce.Nebula = 对敌人造成伤害时有几率生成强化焰
 CosmoForce.Stardust1 = 双击“下”键将你的守卫引至光标位置
 CosmoForce.Stardust2 = 按下“冻结”键后会冻结时间，持续5秒，有60秒冷却时间
 CosmoForce.Addition =“自宇宙大爆炸以来就一直存在”
+
+ItemName.EarthForce =Force of Earth
+EarthForce.Cobalt = 25% chance for your projectiles to explode into shards
+EarthForce.Mythril = 20% increased weapon use speed
+EarthForce.Palladium
 
 
 /Items/Souls
@@ -637,7 +660,69 @@ EternityMode.Stolen =你有东西被偷了！
 
 
 
+/NPCs
+/NPCs/AbomBoss
 
+NPCName.AbomBoss =憎恶
+NPCName.AbomSaucer =迷你飞碟
+
+
+/NPCs/Champions
+
+NPCName.CosmosChampion =厄里达诺斯, 宇宙英灵
+
+NPCName.EarthChampion =大地英灵
+NPCName.EarthChampionHand =大地英灵
+
+NPCName.LesserFairy =小精灵
+NPCName.LifeChampion =生命英灵
+
+NPCName.NatureChampion =自然英灵
+NPCName.NatureChampionHead =自然英灵
+
+NPCName.ShadowChampion =暗影英灵
+NPCName.ShadowOrb =暗影珠
+
+NPCName.SpiritChampion =心灵英灵
+NPCName.SpiritChampionHand =心灵英灵
+
+NPCName.TerraChampion =泰拉英灵
+NPCName.TerraChampionBody =泰拉英灵
+
+NPCName.TimberChampion =森林英灵
+NPCName.TimberChampionHead =森林英灵
+NPCName.Lesser Squirrel =小松鼠
+
+NPCName.WillChampion =意志英灵
+
+
+/NPCs/Critters
+
+NPCName.TophatSquirrelCritter =高顶礼帽松鼠
+
+
+/NPCs/DevisBoss
+
+NPCName.DeviBoss =戴薇安
+
+
+/NPCs/EternityMode
+
+NPCName.BabyGuardian =守卫者宝宝
+NPCName.BrainClone =克苏鲁之脑
+NPCName.BrainIllusion =克苏鲁之脑
+NPCName.BrainIllusionAttack =克苏鲁之脑
+NPCName.CreeperGutted =爬行者
+NPCName.CrystalLeaf =叶绿水晶
+NPCName.DetonatingBubble =爆炸泡泡
+NPCName.DetonatingBubbleEX =爆炸泡泡
+NPCName.RoyalSubject =皇家工蜂
+
+
+/NPCs/MutantBoss
+
+NPCName.MutantBoss =突变体
+NPCName.MutantIllusion =突变体
 
 永恒魂灾厄效果，待重构
 拥有天蓝套装的套装效果
@@ -773,84 +858,3 @@ EternityMode.Stolen =你有东西被偷了！
 拥有求生家之飞鞋的效果
 拥有举足轻重靴的效果
 
-
-
-/NPCs
-/NPCs/AbomBoss
-
-NPCName.AbomBoss =憎恶
-
-NPCName.AbomSaucer =迷你飞碟
-
-
-/NPCs/Champions
-
-NPCName.CosmosChampion =厄里达诺斯, 宇宙英灵
-
-NPCName.EarthChampion =大地英灵
-
-NPCName.EarthChampionHand =大地英灵
-
-NPCName.LesserFairy =小精灵
-
-NPCName.Lesser Squirrel =小松鼠
-
-NPCName.LifeChampion =生命英灵
-
-NPCName.NatureChampion =自然英灵
-
-NPCName.NatureChampionHead =自然英灵
-
-NPCName.ShadowChampion =暗影英灵
-
-NPCName.ShadowOrb =暗影珠
-
-NPCName.SpiritChampion =魂灵英灵
-
-NPCName.SpiritChampionHand =魂灵英灵
-
-NPCName.TerraChampion =泰拉英灵
-
-NPCName.TerraChampionBody =泰拉英灵
-
-NPCName.TimberChampion =木英灵
-
-NPCName.WillChampion =意志英灵
-
-
-/NPCs/Critters
-
-NPCName.TophatSquirrelCritter =高顶礼帽松鼠
-
-
-/NPCs/DevisBoss
-
-NPCName.DeviBoss =戴薇安
-
-
-/NPCs/EternityMode
-
-NPCName.BabyGuardian =守卫者宝宝
-
-NPCName.BrainClone =克苏鲁之脑
-
-NPCName.BrainIllusion =克苏鲁之脑
-
-NPCName.BrainIllusionAttack =克苏鲁之脑
-
-NPCName.CreeperGutted =爬行者
-
-NPCName.CrystalLeaf =叶绿水晶
-
-NPCName.DetonatingBubble =爆炸泡泡
-
-NPCName.DetonatingBubbleEX =爆炸泡泡
-
-NPCName.RoyalSubject =皇家工蜂
-
-
-/NPCs/MutantBoss
-
-NPCName.MutantBoss =突变体
-
-NPCName.MutantIllusion =突变体
