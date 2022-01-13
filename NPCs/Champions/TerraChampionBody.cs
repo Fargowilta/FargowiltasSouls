@@ -14,8 +14,8 @@ namespace FargowiltasSouls.NPCs.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion of Terra");
-            DisplayName.AddTranslation(GameCulture.Chinese, "泰拉英灵");
+            //DisplayName.SetDefault("Champion of Terra");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "泰拉英灵");
 
             NPCID.Sets.TrailCacheLength[npc.type] = 5;
             NPCID.Sets.TrailingMode[npc.type] = 1;

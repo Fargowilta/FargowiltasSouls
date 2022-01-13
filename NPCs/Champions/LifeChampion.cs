@@ -17,8 +17,8 @@ namespace FargowiltasSouls.NPCs.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion of Life");
-            DisplayName.AddTranslation(GameCulture.Chinese, "生命英灵");
+            //DisplayName.SetDefault("Champion of Life");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "生命英灵");
             Main.npcFrameCount[npc.type] = 8;
             NPCID.Sets.TrailCacheLength[npc.type] = 6;
             NPCID.Sets.TrailingMode[npc.type] = 1;

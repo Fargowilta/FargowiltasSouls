@@ -14,8 +14,8 @@ namespace FargowiltasSouls.NPCs.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lesser Squirrel");
-            DisplayName.AddTranslation(GameCulture.Chinese, "小松鼠");
+            //DisplayName.SetDefault("Lesser Squirrel");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "小松鼠");
             Main.npcFrameCount[npc.type] = 6;
         }
 

@@ -14,8 +14,8 @@ namespace FargowiltasSouls.NPCs.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lesser Fairy");
-            DisplayName.AddTranslation(GameCulture.Chinese, "小精灵");
+            //DisplayName.SetDefault("Lesser Fairy");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "小精灵");
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Pixie];
         }
 
