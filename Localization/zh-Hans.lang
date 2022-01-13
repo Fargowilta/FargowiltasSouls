@@ -1,5 +1,4 @@
-/Buffs
-/Buffs/Boss
+﻿/Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
 BuffDescription.AbomFang =永恒模式的力量压迫着你
@@ -64,9 +63,11 @@ BuffDescription.FlamesoftheUniverse =来自诸天的亲自审判
 /Buffs/Souls
 /Buffs/Others
 
+EternityBuff.ShadowDodge =\n永恒模式：闪避攻击会降低你的伤害输出
+EternityBuff.IceBarrier =\n永恒模式：提供的伤害减免降低至15%
 
 
-/Items
+
 /Items/Weapons/Boss Drops
 
 ItemName.BoneZone =骸骨领域
@@ -725,6 +726,14 @@ NPCName.RoyalSubject =皇家工蜂
 
 NPCName.MutantBoss =突变体
 NPCName.MutantIllusion =突变体
+
+
+/NPCs/GlobalNPC
+
+GlobalNPC.ClownExplosion =小丑爆炸了！
+
+
+
 
 永恒魂灾厄效果，待重构
 拥有天蓝套装的套装效果

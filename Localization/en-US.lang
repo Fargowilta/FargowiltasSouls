@@ -1,5 +1,4 @@
-/Buffs
-/Buffs/Boss
+﻿/Buffs/Boss
 
 BuffName.AbomFang =Abominable Fang
 BuffDescription.AbomFang =The power of Eternity Mode compels you
@@ -64,9 +63,11 @@ BuffDescription.FlamesoftheUniverse =The heavens themselves have judged you
 /Buffs/Souls
 /Buffs/Others
 
+EternityBuff.ShadowDodge =\nEternity Mode: Dodging will reduce your damage output
+EternityBuff.IceBarrier =\nEternity Mode: Effectiveness reduced to 15%
 
 
-/Items
+
 /Items/Weapons/BossDrops
 
 ItemName.BoneZone =The Bone Zone
@@ -725,3 +726,9 @@ NPCName.RoyalSubject =Royal Subject
 
 NPCName.MutantBoss =Mutant
 NPCName.MutantIllusion =Mutant
+
+
+/NPCs/GlobalNPC
+
+GlobalNPC.ClownExplosion =A Clown has exploded!
+GlobalNPC.KilledbyDerpling = sucked dry.
