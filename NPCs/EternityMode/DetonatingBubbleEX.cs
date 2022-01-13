@@ -12,9 +12,9 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Detonating Bubble");
+            //DisplayName.SetDefault("Detonating Bubble");
             Main.npcFrameCount[npc.type] = 2;
-            DisplayName.AddTranslation(GameCulture.Chinese, "爆炸泡泡");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "爆炸泡泡");
         }
 
         public override void SetDefaults()

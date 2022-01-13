@@ -12,8 +12,8 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baby Guardian");
-            DisplayName.AddTranslation(GameCulture.Chinese, "守卫者宝宝");
+            //DisplayName.SetDefault("Baby Guardian");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "守卫者宝宝");
         }
 
         public override void SetDefaults()

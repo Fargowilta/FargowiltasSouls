@@ -12,8 +12,8 @@ namespace FargowiltasSouls.NPCs.EternityMode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gutted Creeper");
-            DisplayName.AddTranslation(GameCulture.Chinese, "爬行者");
+            //DisplayName.SetDefault("Gutted Creeper");
+            //DisplayName.AddTranslation(GameCulture.Chinese, "爬行者");
             Main.npcFrameCount[npc.type] = 3;
         }
 

@@ -30,7 +30,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deviantt");
+            //DisplayName.SetDefault("Deviantt");
             Main.npcFrameCount[npc.type] = 4;
         }
 
