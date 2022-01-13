@@ -1,4 +1,5 @@
-﻿/Buffs/Boss
+﻿/Buffs
+/Buffs/Boss
 
 BuffName.AbomFang =Abominable Fang
 BuffDescription.AbomFang =The power of Eternity Mode compels you
@@ -68,6 +69,7 @@ EternityBuff.IceBarrier =\nEternity Mode: Effectiveness reduced to 15%
 
 
 
+/Items
 /Items/Weapons/BossDrops
 
 ItemName.BoneZone =The Bone Zone
@@ -732,3 +734,7 @@ NPCName.MutantIllusion =Mutant
 
 GlobalNPC.ClownExplosion =A Clown has exploded!
 GlobalNPC.KilledbyDerpling = sucked dry.
+GlobalNPC.KilledbyManEater = was eaten alive by a Man Eater.
+GlobalNPC.KilledbyAngryTrapper = was eaten alive by an Angry Trapper.
+GlobalNPC.KilledbyGiantTortoise = was impaled by a Giant Tortoise.
+GlobalNPC.EnchesEnd =Enchantment

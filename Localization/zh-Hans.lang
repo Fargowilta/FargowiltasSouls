@@ -1,4 +1,5 @@
-﻿/Buffs/Boss
+﻿/Buffs
+/Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
 BuffDescription.AbomFang =永恒模式的力量压迫着你
@@ -68,6 +69,7 @@ EternityBuff.IceBarrier =\n永恒模式：提供的伤害减免降低至15%
 
 
 
+/Items
 /Items/Weapons/Boss Drops
 
 ItemName.BoneZone =骸骨领域
@@ -731,7 +733,11 @@ NPCName.MutantIllusion =突变体
 /NPCs/GlobalNPC
 
 GlobalNPC.ClownExplosion =小丑爆炸了！
-
+GlobalNPC.KilledbyDerpling =被吸干了。
+GlobalNPC.KilledbyManEater =被食人怪吃了。
+GlobalNPC.KilledbyAngryTrapper =被愤怒捕手吃了。
+GlobalNPC.KilledbyGiantTortoise =被巨型陆龟刺穿了。
+GlobalNPC.EnchesEnd =魔石
 
 
 
