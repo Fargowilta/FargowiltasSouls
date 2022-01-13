@@ -58,14 +58,286 @@ BuffDescription.Defenseless =Your guard is completely broken
 BuffName.FlamesoftheUniverse =Flames of the Universe
 BuffDescription.FlamesoftheUniverse =The heavens themselves have judged you
 
+BuffName.Flipped =Flipped
+BuffDescription.Flipped =Your gravity is reversed
+
+BuffName.FlippedHallow  =Flipped
+BuffDescription.FlippedHallow =Your gravity is reversed
+
+BuffName.Fused =Fused
+BuffDescription.Fused =You're going out with a bang
+
+BuffName.GodEater =God Eater
+BuffDescription.GodEater =Your soul is cursed by divine wrath
+
+BuffName.Guilty =Guilty
+BuffDescription.Guilty =Weapons dulled by the guilt of slaying innocent critters
+
+BuffName.Hexed =Hexed
+BuffDescription.Hexed =Your attacks heal enemies
+
+BuffName.HolyPrice =Holy Price
+BuffDescription.HolyPrice  =Your attacks inflict 33% less damage
+
+BuffName.Hypothermia =Hypothermia
+BuffDescription.Hypothermia =Increased damage taken from cold attacks
+
+BuffName.Infested =Infested
+BuffDescription.Infested =This can only get worse
+
+BuffName.InfestedEX =Infested
+BuffDescription.InfestedEX =This can only get worse
+
+BuffName.IvyVenom =Ivy Venom
+BuffDescription.IvyVenom =Losing life, will become Infested EX at 20 seconds
+
+BuffName.Jammed =Jammed
+BuffDescription.Jammed =Your ranged weapons are faulty
+
+BuffName.Lethargic =Lethargic
+BuffDescription.Lethargic =Your weapons feel sluggish
+
+BuffName.LightningRod =Lightning Rod
+BuffDescription.LightningRod =You attract thunderbolts
+
+BuffName.LihzahrdBlessing =Lihzahrd Blessing
+BuffDescription.LihzahrdBlessing =Wires enabled and reduced spawn rates in Jungle Temple
+
+BuffName.LihzahrdCurse =Lihzahrd Curse
+BuffDescription.LihzahrdCurse =Wires disabled in Jungle Temple
+
+BuffName.LivingWasteland =Living Wasteland
+BuffDescription.LivingWasteland =Everyone around you turns to rot
+
+BuffName.Lovestruck =Lovestruck
+BuffDescription.Lovestruck =You are in love!
+
+BuffName.LowGround =You are in love!
+BuffDescription.LowGround =Cannot stand on platforms or liquids
+
+BuffName.MarkedforDeath =Marked for Death
+BuffDescription.MarkedforDeath =Just don't get hit
+
+BuffName.Midas =Midas
+BuffDescription.Midas =Drop money on hit
+
+BuffName.MutantNibble =Mutant Nibble
+BuffDescription.MutantNibble =You cannot heal at all
+
+BuffName.NanoInjection =Nano Injection
+BuffDescription.NanoInjection =Life regeneration and stats reduced"
+
+BuffName.NullificationCurse =Nullification Curse
+BuffDescription.NullificationCurse =You cannot dodge and Moon Lord has cycling damage type immunities!
+
+BuffName.OceanicMaul =Oceanic Maul
+BuffDescription.OceanicMaul = Defensive stats and max life are savaged
+
+BuffName.OceanicSeal =Oceanic Seal
+BuffDescription.OceanicSeal =No dodging, no lifesteal, no supersonic, no escape
+
+BuffName.Oiled =Oiled
+BuffDescription.Oiled =Taking more damage from being on fire
+
+BuffName.Purified =Purified
+BuffDescription.Purified =You are cleansed
+
+BuffName.Recovering =Recovering
+BuffDescription.Recovering =The Nurse cannot heal you again yet
+
+BuffName.ReverseManaFlow =Reverse Mana Flow
+BuffDescription.ReverseManaFlow =Your magic weapons cost life instead of mana
+
+BuffName.Rotting =Rotting
+BuffDescription.Rotting =Your body is wasting away
+
+BuffName.Sadism =Eternity
+BuffDescription.Sadism =The power of Eternity Mode is with you
+
+BuffName.Shadowflame =Shadowflame
+BuffDescription.Shadowflame =Losing life
+
+BuffName.SqueakyToy =Squeaky Toy
+BuffDescription.SqueakyToy =Your attacks are squeaky toys!
+
+BuffName.Stunned =Stunned
+BuffDescription.Stunned =You're too dizzy to move
+
+BuffName.Swarming =Swarming
+BuffDescription.Swarming =Hornets are attacking from every direction!
+
+BuffName.ThiefCD =Thief Cooldown
+BuffDescription.ThiefCD =Your items cannot be stolen again yet
+
+BuffName.Unstable =Unstable
+BuffDescription.Unstable =You don't quite fit into reality
+
+
 /Buffs/Minions
-/Buffs/Mounts
-/Buffs/Pets
-/Buffs/Souls
+
+BuffName.BigBrainMinion =Big Brain of Cthulhu
+BuffDescription.BigBrainMinion =The Brain of Cthulhu will fight for you
+
+BuffName.BrainMinion =Big Brain of Cthulhu
+BuffDescription.BrainMinion =The Brain of Cthulhu will fight for you
+
+BuffName.CrystalSkull =Crystal Skull
+BuffDescription.CrystalSkull =The pungent eyeball will protect you
+
+BuffName.EaterMinion =Eater of Worlds
+BuffDescription.EaterMinion =The mini Eater of Worlds will fight for you
+
+BuffName.JungleMimicSummonBuff =Jungle Mimic
+BuffDescription.JungleMimicSummonBuff =he Jungle Mimic will fight for you
+
+BuffName.LunarCultist =Lunar Cultist
+BuffDescription.LunarCultist =The Lunar Cultist will protect you
+
+BuffName.MutantPower =Mutant Power
+BuffDescription.MutantPower =The power of Mutant is with you
+
+BuffName.PlanterasChild =Plantera's Child
+BuffDescription.PlanterasChild =The child of Plantera will protect you
+
+BuffName.Probes =Probes
+BuffDescription.Probes =The probes will protect you
+
+BuffName.PungentEyeball =Pungent Eyeball
+BuffDescription.PungentEyeball =he pungent eyeball will protect you
+
+BuffName.RainbowSlime =Rainbow Slime
+BuffDescription.RainbowSlime =The Rainbow Slime will protect you
+
+BuffName.SaucerMinion =Mini Saucer
+BuffDescription.SaucerMinion =The Mini Saucer will protect you
+
+BuffName.SkeletronArms =Skeletron Arms
+BuffDescription.SkeletronArms =The Skeletron arms will protect you
+
+BuffName.SouloftheMasochist =Soul of the Siblings
+BuffDescription.SouloftheMasochist=The power of Eternity Mode is with you
+
+BuffName.SuperFlocko =Super Flocko
+BuffDescription.SuperFlocko =The super Flocko will protect you
+
+BuffName.TrueEyes =True Eyes of Cthulhu
+BuffDescription.TrueEyes =The eyes of Cthulhu will protect you
+
+BuffName.TwinsEX =Twins EX
+BuffDescription.TwinsEX =The real Twins will fight for you
+
+
+/Buff/Mounts
+
+BuffName.TrojanSquirrelMountBuff =Trojan Squirrel
+BuffDescription.TrojanSquirrelMountBuff =pog
+
+
+/Buff/Pets
+
+BuffName.BabyAbomBuff =Baby Abom
+BuffDescription.BabyAbomBuff =Kickflipping on a scythe
+
+BuffName.ChibiDeviBuff =Chibi Devi
+BuffDescription.ChibiDeviBuff =She's interested in 'you'
+
+BuffName.MutantSpawnBuff =Mutant Spawn
+BuffDescription.MutantSpawnBuff =Mutant Spawn
+
+
+/Buff/Souls
+
+BuffName.BetsyDash =Fireball Dash
+BuffDescription.BetsyDash =Impervious to attack
+
+BuffName.BrokenShell =Broken Shell
+BuffDescription.BrokenShell =You cannot enter your shell yet
+
+BuffName.CrimsonRegen =Crimson Regen
+BuffDescription.CrimsonRegen =You are regenning your last wound
+
+BuffName.DisruptedFocus =Disrupted Focus
+BuffDescription.DisruptedFocus =Weapon speed reduced
+
+BuffName.FirstStrike =First Strike
+BuffDescription.FirstStrike =Your next attack will be enhanced
+
+BuffName.Frozen =Frozen
+BuffDescription.Frozen =You cannot move
+
+BuffName.GoldenStasis =Golden Stasis
+BuffDescription.GoldenStasis =You are immune to all damage, but cannot move
+
+BuffName.GoldenStasisCD =Golden Stasis Cooldown
+BuffDescription.GoldenStasisCD =You cannot turn gold yet
+
+BuffName.HallowCooldown =Hallowed Shield Cooldown
+BuffDescription.HallowCooldown =Your shield cannot reflect projectiles yet
+
+BuffName.HuntressCD =Arrow Rain Cooldown
+BuffDescription.HuntressCD =You cannot trigger another rain of arrows yet
+
+BuffName.LeadPoison =Lead Poison
+BuffDescription.LeadPoison = 
+
+BuffName.MonkBuff =Meditation
+BuffDescription.MonkBuff =Your Monk Dash is ready
+
+BuffName.ObsidianLavaWetBuff =Lava Wet
+BuffDescription.ObsidianLavaWetBuff =You are dripping lava
+
+BuffName.OriPoison =Orichalcum Poison
+BuffDescription.OriPoison = 
+
+BuffName.Revived =Revived
+BuffDescription.Revived =Revived recently
+
+BuffName.ShellHide =Shell Hide
+BuffDescription.ShellHide =Projectiles are being blocked 
+
+BuffName.Shock =Shock
+BuffDescription.Shock = 
+
+BuffName.SolarFlare =Solar Flare
+BuffDescription.SolarFlare = 
+
+BuffName.SquireBuff =Power of Squire
+BuffDescription.SquireBuff =Removing some enemy immunity frames
+
+BuffName.SuperBleed =Blood Geyser
+BuffDescription.SuperBleed =Spewing blood in self defense
+
+BuffName.Swarmed =Swarmed
+BuffDescription.Swarmed = 
+
+BuffName.TimeFrozen =Time Frozen
+BuffDescription.TimeFrozen =You are stopped in time
+
+BuffName.TimeStopCD =Time Stop Cooldown
+BuffDescription.TimeStopCD =You cannot stop time yet
+
+BuffName.ValhallaBuff =Power of Valhalla
+BuffDescription.ValhallaBuff =Removing most enemy immunity frames
+
+BuffName.ValhallaCD =Power of Cooldown
+BuffDescription.ValhallaCD =You cannot trigger Power of Squire or Power of Valhalla yet
+
+BuffName.VortexCD =Vortex Cooldown
+BuffDescription.VortexCD =You cannot spawn another vortex yet
+
+
 /Buffs/Others
+
+BuffName.HellFire =Hell Fire
+BuffDescription.HellFire = 
+
+BuffName.MutantRebirth =Mutant Rebirth
+BuffDescription.MutantRebirth =Deathray revive is recharging
 
 EternityBuff.ShadowDodge =\nEternity Mode: Dodging will reduce your damage output
 EternityBuff.IceBarrier =\nEternity Mode: Effectiveness reduced to 15%
+
+
 
 
 
@@ -662,6 +934,8 @@ EternityMode.RoyalSubject =Royal Subject has awoken!
 EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
 
 EternityMode.Stolen =An item was stolen from you!
+
+
 
 
 

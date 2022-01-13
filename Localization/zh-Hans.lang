@@ -34,38 +34,310 @@ BuffDescription.Antisocial =你没有朋友
 BuffName.Atrophied =萎缩
 BuffDescription.Atrophied =你的肌肉状况正在恶化
 
-BuffName.Berserked =Berserked
-BuffDescription.Berserked =10% increased damage and speed but you cannot control yourself
+BuffName.Berserked =狂暴
+BuffDescription.Berserked =你控几不剧你记几
 
-BuffName.Bloodthirsty =Bloodthirsty
-BuffDescription.Bloodthirsty =Hugely increased enemy spawn rate
+BuffName.Bloodthirsty =嗜血
+BuffDescription.Bloodthirsty =极大提高刷怪效率
 
-BuffName.ChaosLife =Chaos Life
-BuffDescription.ChaosLife =Max life reduced
+BuffName.ChaosLife =生命混沌
+BuffDescription.ChaosLife =最大生命值降低
 
-BuffName.ClippedWings =Clipped Wings
-BuffDescription.ClippedWings =You cannot fly or use rocket boots
+BuffName.ClippedWings =折翼
+BuffDescription.ClippedWings =无法飞翔或使用火箭靴
 
-BuffName.Crippled =Crippled
-BuffDescription.Crippled =You cannot run
+BuffName.Crippled =跛足
+BuffDescription.Crippled =你不能奔跑
 
-BuffName.CurseoftheMoon =Curse of the Moon
-BuffDescription.CurseoftheMoon =The moon's wrath consumes you
+BuffName.CurseoftheMoon =月之诅咒
+BuffDescription.CurseoftheMoon =月亮的愤怒吞噬了你
 
-BuffName.Defenseless =Defenseless
-BuffDescription.Defenseless =Your guard is completely broken
+BuffName.Defenseless =毫无防御
+BuffDescription.Defenseless =你的防御完全崩溃了
 
 BuffName.FlamesoftheUniverse =宇宙之火
 BuffDescription.FlamesoftheUniverse =来自诸天的亲自审判
 
+BuffName.Flipped =翻转
+BuffDescription.Flipped =你的重力颠倒了
+
+BuffName.FlippedHallow =翻转
+BuffDescription.FlippedHallow =你的重力颠倒了
+
+BuffName.Fused =导火线
+BuffDescription.Fused =你和爆炸有个约会
+
+BuffName.GodEater =噬神者
+BuffDescription.GodEater =你的灵魂被神明的忿怒所诅咒
+
+BuffName.Guilty =内疚
+BuffDescription.Guilty =杀害无辜动物的内疚使你的武器变得迟钝
+
+BuffName.Hexed =着魔
+BuffDescription.Hexed =你的攻击会治愈敌人
+
+BuffName.HolyPrice =圣护代价
+BuffDescription.HolyPrice  =你造成的伤害降低33%
+
+BuffName.Hypothermia =恐寒症
+BuffDescription.Hypothermia =受到冰系攻击的伤害增加
+
+BuffName.Infested =感染
+BuffDescription.Infested =这只会变得更糟
+
+BuffName.InfestedEX =感染
+BuffDescription.InfestedEX =这只会变得更糟
+
+BuffName.IvyVenom =常春藤毒素
+BuffDescription.IvyVenom =流失生命, 持续时间超过20秒时变为感染减益
+
+BuffName.Jammed =卡壳
+BuffDescription.Jammed =你的武器出故障了
+
+BuffName.Lethargic =昏昏欲睡
+BuffDescription.Lethargic =你感觉你的武器变得缓慢
+
+BuffName.LightningRod =避雷针
+BuffDescription.LightningRod =你将会吸引雷电
+
+BuffName.LihzahrdBlessing =丛林神庙祝福
+BuffDescription.LihzahrdBlessing =你可以改变神庙里的电路结构，神庙中刷怪率降低
+
+BuffName.LihzahrdCurse =丛林神庙诅咒
+BuffDescription.LihzahrdCurse =你无法改变神庙里的电路结构
+
+BuffName.LivingWasteland =人形废土
+BuffDescription.LivingWasteland =你周围的每个人都开始腐烂
+
+BuffName.Lovestruck =热恋
+BuffDescription.Lovestruck =曾经和你一起走过传说中的爱河
+
+BuffName.LowGround =下陷
+BuffDescription.LowGround =你无法站在平台或液体上
+
+BuffName.MarkedforDeath =死亡标记
+BuffDescription.MarkedforDeath =别被打到
+
+BuffName.Midas =点金手
+BuffDescription.Midas =被攻击时掉落钱币
+
+BuffName.MutantNibble =突变啃啄
+BuffDescription.MutantNibble =无法恢复生命
+
+BuffName.NanoInjection =纳米灌注
+BuffDescription.NanoInjection =生命恢复速度和各项属性降低
+
+BuffName.NullificationCurse =无效诅咒
+BuffDescription.NullificationCurse =无法躲避,并且月球领主进行循环伤害免疫!
+
+BuffName.OceanicMaul =海洋重击
+BuffDescription.OceanicMaul =降低防御力和最大生命值
+
+BuffName.OceanicSeal =海洋印记
+BuffDescription.OceanicSeal =无法躲避,无法进行生命偷取,无法快速移动,无法逃脱
+
+BuffName.Oiled =浸油
+BuffDescription.Oiled =着火时将受到更多伤害
+
+BuffName.Purified =净化
+BuffDescription.Purified =你被净化了
+
+BuffName.Recovering =护士治疗冷却
+BuffDescription.Recovering =护士还不能治疗你
+
+BuffName.ReverseManaFlow =反魔力流
+BuffDescription.ReverseManaFlow =魔法武器消耗生命,而不是法力
+
+BuffName.Rotting =腐败
+BuffDescription.Rotting =身体在逐渐衰弱
+
+BuffName.Sadism =施虐狂
+BuffDescription.Sadism =受虐模式的力量与你同在
+
+BuffName.Shadowflame =暗影烈焰
+BuffDescription.Shadowflame =流失生命
+
+BuffName.SqueakyToy =吱吱响的玩具
+BuffDescription.SqueakyToy =你的攻击如同玩具一般作响!
+
+BuffName.Stunned =昏迷
+BuffDescription.Stunned =你头晕目眩,动弹不得
+
+BuffName.Swarming =蜂群
+BuffDescription.Swarming =黄蜂正从四面八方向你发起进攻!
+
+BuffName.ThiefCD =偷窃冷却
+BuffDescription.ThiefCD =你的东西暂时不会被偷
+
+BuffName.Unstable =不稳定
+BuffDescription.Unstable =现实似乎在排斥你
+
+
 /Buffs/Minions
-/Buffs/Mounts
-/Buffs/Pets
-/Buffs/Souls
-/Buffs/Others
+
+BuffName.BigBrainMinion =克苏鲁之脑
+BuffDescription.BigBrainMinion =克苏鲁之脑将为你而战
+
+BuffName.BrainMinion =克苏鲁之脑
+BuffDescription.BrainMinion =迷你克苏鲁之脑将会为你而战
+
+BuffName.CrystalSkull =水晶头骨
+BuffDescription.CrystalSkull =水晶头骨会保护你
+
+BuffName.EaterMinion =世界吞噬者
+BuffDescription.EaterMinion =迷你世界吞噬者将会为你而战
+
+BuffName.JungleMimicSummonBuff =丛林宝箱怪
+BuffDescription.JungleMimicSummonBuff =丛林大宝箱怪会为你而战
+
+BuffName.LunarCultist =拜月教徒
+BuffDescription.LunarCultist =拜月教徒将会保护你
+
+BuffName.MutantPower =突变之力
+BuffDescription.MutantPower =突变体之力与你同在
+
+BuffName.PlanterasChild =世纪之花的幼株
+BuffDescription.PlanterasChild =世纪之花的幼株将会保护你
+
+BuffName.Probes =探测器
+BuffDescription.Probes =探测器将会保护你
+
+BuffName.PungentEyeball =刺鼻的眼球
+BuffDescription.PungentEyeball =气味刺鼻的眼球将会保护你
+
+BuffName.RainbowSlime =彩虹史莱姆
+BuffDescription.RainbowSlime =彩虹史莱姆将会保护你
+
+BuffName.SaucerMinion =迷你飞碟
+BuffDescription.SaucerMinion =迷你飞碟将会保护你
+
+BuffName.SkeletronArms =骷髅王之手
+BuffDescription.SkeletronArms =骷髅王之手将会保护你
+
+BuffName.SouloftheMasochist =永恒之魂
+BuffDescription.SouloftheMasochist =永恒模式的力量与你同在
+
+BuffName.SuperFlocko =超级雪花
+BuffDescription.SuperFlocko =超级雪花将会保护你
+
+BuffName.TrueEyes =克苏鲁真眼
+BuffDescription.TrueEyes =克苏鲁真眼将会保护你
+
+BuffName.TwinsEX =双子魔眼
+BuffDescription.TwinsEX =真正的双子魔眼会为你而战
+
+
+/Buff/Mounts
+
+BuffName.TrojanSquirrelMountBuff =机械松鼠
+BuffDescription.TrojanSquirrelMountBuff =WOW
+
+
+/Buff/Pets
+
+BuffName.BabyAbomBuff =憎恶宝宝
+BuffDescription.BabyAbomBuff =嚯，把镰刀当成滑板了
+
+BuffName.ChibiDeviBuff =迷你戴薇安
+BuffDescription.ChibiDeviBuff =她对“你”很感兴趣
+
+BuffName.MutantSpawnBuff =突变体宠物
+BuffDescription.MutantSpawnBuff =嗯……不错
+
+
+/Buff/Souls
+
+BuffName.BetsyDash =火球冲刺
+BuffDescription.BetsyDash =无视攻击
+
+BuffName.BrokenShell =龟壳破碎
+BuffDescription.BrokenShell =你无法进入龟壳
+
+BuffName.CrimsonRegen =猩红再生
+BuffDescription.CrimsonRegen =你最后受的伤正在快速恢复
+
+BuffName.DisruptedFocus =分心
+BuffDescription.DisruptedFocus =武器攻击速度降低
+
+BuffName.FirstStrike =先发制人
+BuffDescription.FirstStrike =你的下一次攻击将会得到增强
+
+BuffName.Frozen =冰冻
+BuffDescription.Frozen =你无法移动
+
+BuffName.GoldenStasis =不动金身
+BuffDescription.GoldenStasis =你免疫所有伤害，但无法移动
+
+BuffName.GoldenStasisCD =金身冷却
+BuffDescription.GoldenStasisCD =你还不能进入金身状态
+
+BuffName.HallowCooldown =神圣护盾冷却
+BuffDescription.HallowCooldown =你的护盾还不能反弹弹幕
+
+BuffName.HuntressCD =箭雨冷却
+BuffDescription.HuntressCD =你还不能召唤下一轮箭雨
+
+BuffName.LeadPoison =铅中毒
+BuffDescription.LeadPoison =
+
+BuffName.MonkBuff =静坐冥想
+BuffDescription.MonkBuff =你可以使用武僧冲刺
+
+BuffName.ObsidianLavaWetBuff =浸入岩浆
+BuffDescription.ObsidianLavaWetBuff =岩浆从你身上滴落
+
+BuffName.OriPoison =山铜中毒
+BuffDescription.OriPoison =
+
+BuffName.Revived =复活
+BuffDescription.Revived =你刚刚复活了
+
+BuffName.ShellHide =缩壳
+BuffDescription.ShellHide =阻挡抛射物
+
+BuffName.Shock =电击
+BuffDescription.Shock =
+
+BuffName.SolarFlare =太阳耀斑
+BuffDescription.SolarFlare =
+
+BuffName.SquireBuff =侍卫之力
+BuffDescription.SquireBuff =移除一些敌怪无敌帧
+
+BuffName.SuperBleed =大出血
+BuffDescription.SuperBleed =出于自卫而喷发出的血
+
+BuffName.Swarmed =虫群
+BuffDescription.Swarmed =
+
+BuffName.TimeFrozen =时间冻结
+BuffDescription.TimeFrozen =砸瓦鲁多
+
+BuffName.TimeStopCD =时间冻结冷却
+BuffDescription.TimeStopCD =你无法冻结时间
+
+BuffName.ValhallaBuff =英灵殿骑士之力
+BuffDescription.ValhallaBuff =移除较多敌怪无敌帧
+
+BuffName.ValhallaCD =冷却中
+BuffDescription.ValhallaCD =你还不能激活英灵殿骑士之力或侍卫之力
+
+BuffName.VortexCD =漩涡冷却
+BuffDescription.VortexCD =你还不能召唤另一个漩涡
+
+
+/Buff/Others
+
+BuffName.HellFire =地狱火
+BuffDescription.HellFire =
+
+BuffName.MutantRebirth =突变重生
+BuffDescription.MutantRebirth =死光复苏蓄能中
 
 EternityBuff.ShadowDodge =\n永恒模式：闪避攻击会降低你的伤害输出
 EternityBuff.IceBarrier =\n永恒模式：提供的伤害减免降低至15%
+
+
 
 
 
@@ -662,6 +934,8 @@ EternityMode.RoyalSubject =皇家工蜂已苏醒！
 EternityMode.SkeletronTransform =骷髅王进入了地牢守卫阶段！
 
 EternityMode.Stolen =你有东西被偷了！
+
+
 
 
 
