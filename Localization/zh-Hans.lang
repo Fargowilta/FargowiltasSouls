@@ -1,3 +1,4 @@
+/Buffs
 /Buffs/Boss
 
 BuffName.AbomFang =憎恶毒牙
@@ -65,6 +66,7 @@ BuffDescription.FlamesoftheUniverse =来自诸天的亲自审判
 
 
 
+/Items
 /Items/Weapons/Boss Drops
 
 ItemName.BoneZone =骸骨领域
