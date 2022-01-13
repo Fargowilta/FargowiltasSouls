@@ -432,26 +432,7 @@ ItemName.WoodEnchant =Wood Enchantment
 ItemTooltip.WoodEnchant =Turns certain critters into weapons\nRight click with them to attack\n'Humble beginnings…'
 
 
-/Items/Essences
-
-ItemName.ApprenticesEssence =Apprentice's Essence
-ItemTooltip.ApprenticesEssence =18% increased magic damage\n5% increased magic crit\nIncreases your maximum mana by 50\n'This is only the beginning..'
-
-ItemName.BarbariansEssence =Barbarian's Essence
-ItemTooltip.BarbariansEssence =18% increased melee damage\n10% increased melee speed\n5% increased melee crit chance\n'This is only the beginning..'
-
-ItemName.OccultistsEssence =Occultist's Essence
-ItemTooltip.OccultistsEssence =18% increased summon damage\nIncreases your max number of minions by 1\nIncreases your max number of sentries by 1\n'This is only the beginning..'
-
-ItemName.SharpshootersEssence =Sharpshooter's Essence
-ItemTooltip.SharpshootersEssence =18% increased ranged damage\n10% chance to not consume ammo\n5% increased ranged critical chance\n'This is only the beginning..'
-
-ItemName.SlingersEssence =Slinger's Essence
-ItemTooltip.SlingersEssence =18% increased throwing damage\n5% increased throwing critical chance\n5% increased throwing velocity\n'This is only the beginning..'
-
-
 /Items/Forces
-
 ItemName.CosmoForce =Force of Cosmos
 CosmoForce.Meteor = A meteor shower initiates every few seconds while attacking
 CosmoForce.Solar1 = Solar shield allows you to dash through enemies
@@ -654,5 +635,88 @@ EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
 
 EternityMode.Stolen =An item was stolen from you!
 
+
+
+/NPCs
+/NPCs/AbomBoss
+
+NPCName.AbomBoss =Abominationn
+
+NPCName.AbomSaucer =Mini Saucer
+
+
+/NPCs/Champions
+
+NPCName.CosmosChampion =Eridanus, Champion of Cosmos
+
+NPCName.EarthChampion =Champion of Earth
+
+NPCName.EarthChampionHand =Champion of Earth
+
+NPCName.LesserFairy =Lesser Fairy
+
+NPCName.Lesser Squirrel =Lesser Squirrel
+
+NPCName.LifeChampion =Champion of Life
+
+NPCName.NatureChampion =Champion of Nature
+
+NPCName.NatureChampionHead =Champion of Nature
+
+NPCName.ShadowChampion =Champion of Shadow
+
+NPCName.ShadowOrb =Shadow Orb
+
+NPCName.SpiritChampion =Champion of Spirit
+
+NPCName.SpiritChampionHand =Champion of Spirit
+
+NPCName.TerraChampion =Champion of Terra
+
+NPCName.TerraChampionBody =Champion of Terra
+
+NPCName.TimberChampion =Champion of Timber
+
+NPCName.TimberChampionHead =Champion of Timber
+
+NPCName.WillChampion =Champion of Will
+
+
+/NPCs/Critters
+
+NPCName.TophatSquirrelCritter =Top Hat Squirrel
+
+
+/NPCs/DevisBoss
+
+NPCName.DeviBoss =Deviantt
+
+
+/NPCs/EternityMode
+
+NPCName.BabyGuardian =Baby Guardian
+
+NPCName.BrainClone =Brain of Cthulhu
+
+NPCName.BrainIllusion =Brain of Cthulhu
+
+NPCName.BrainIllusionAttack =Brain of Cthulhu
+
+NPCName.CreeperGutted =Gutted Creeper
+
+NPCName.CrystalLeaf =Crystal Leaf
+
+NPCName.DetonatingBubble =Detonating Bubble
+
+NPCName.DetonatingBubbleEX =Detonating Bubble
+
+NPCName.RoyalSubject =Royal Subject
+
+
+/NPCs/MutantBoss
+
+NPCName.MutantBoss =Mutant
+
+NPCName.MutantIllusion =Mutant
 
 
