@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sharpshooter's Essence");
+            /*DisplayName.SetDefault("Sharpshooter's Essence");
             Tooltip.SetDefault(
 @"18% increased ranged damage
 10% chance to not consume ammo
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
 @"增加18%远程伤害
 10%几率不消耗弹药
 增加5%远程暴击率
-'这只是个开始...'");
+'这只是个开始...'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

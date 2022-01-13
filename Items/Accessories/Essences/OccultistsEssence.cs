@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Occultist's Essence");
+            /*DisplayName.SetDefault("Occultist's Essence");
             Tooltip.SetDefault(
 @"18% increased summon damage
 Increases your max number of minions by 1
@@ -22,7 +22,7 @@ Increases your max number of sentries by 1
 @"增加18%召唤伤害
 +1最大召唤栏
 +1最大哨兵栏
-'这只是个开始...'");
+'这只是个开始...'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

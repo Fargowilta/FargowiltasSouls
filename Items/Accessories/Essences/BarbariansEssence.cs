@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Barbarian's Essence");
+            /*DisplayName.SetDefault("Barbarian's Essence");
             Tooltip.SetDefault(
 @"18% increased melee damage
 10% increased melee speed
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
 @"增加18%近战伤害
 增加10%近战攻速
 增加5%近战暴击率
-'这只是个开始...'");
+'这只是个开始...'");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

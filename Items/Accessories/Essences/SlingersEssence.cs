@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slinger's Essence");
+            /*DisplayName.SetDefault("Slinger's Essence");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "投手精华");
             
@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Items.Accessories.Essences
 增加5%投掷暴击率
 增加5%投掷物力度
 '这只是个开始...'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
