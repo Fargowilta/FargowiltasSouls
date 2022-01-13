@@ -952,7 +952,7 @@ namespace FargowiltasSouls.NPCs
 
                                     if (target.statLife < 0)
                                     {
-                                        target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " sucked dry."), 999, 0);
+                                        target.KillMe(PlayerDeathReason.ByCustomReason(target.name + Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.KilledbyDerpling")), 999, 0);
                                     }
 
                                     if (npc.life < npc.lifeMax)
@@ -2464,9 +2464,9 @@ namespace FargowiltasSouls.NPCs
                                     }
 
                                     if (Main.netMode == NetmodeID.SinglePlayer)
-                                        Main.NewText("A Clown has exploded!", 175, 75, 255);
+                                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.ClownExplosion"), 175, 75, 255);
                                     else if (Main.netMode == NetmodeID.Server)
-                                        NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("A Clown has exploded!"), new Color(175, 75, 255));
+                                        NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.ClownExplosion")), new Color(175, 75, 255));
                                 }
                             }
                             break;
@@ -3800,7 +3800,7 @@ namespace FargowiltasSouls.NPCs
                     case NPCID.ManEater:
                         target.AddBuff(BuffID.Bleeding, 300);
                         if (target.statLife + damage < 100)
-                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was eaten alive by a Man Eater."), 999, 0);
+                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.KilledbyManEater")), 999, 0);
                         break;
 
                     case NPCID.DevourerHead:
@@ -3810,7 +3810,7 @@ namespace FargowiltasSouls.NPCs
                     case NPCID.AngryTrapper:
                         target.AddBuff(BuffID.Bleeding, 300);
                         if (target.statLife + damage < 180)
-                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was eaten alive by an Angry Trapper."), 999, 0);
+                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.KilledbyAngryTrapper")), 999, 0);
                         break;
 
                     case NPCID.CaveBat:
@@ -4057,8 +4057,8 @@ namespace FargowiltasSouls.NPCs
                                 stolen = StealFromInventory(target, ref target.inventory[target.selectedItem]);
                             if (stolen)
                             {
-                                Main.NewText("An item was stolen from you!", new Color(255, 50, 50));
-                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), "An item was stolen from you!", true);
+                                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), new Color(255, 50, 50));
+                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), true);
                             }
                         }
 
@@ -4222,8 +4222,8 @@ namespace FargowiltasSouls.NPCs
 
                             if (stolen)
                             {
-                                Main.NewText("An item was stolen from you!", new Color(255, 50, 50));
-                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), "An item was stolen from you!", true);
+                                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), new Color(255, 50, 50));
+                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), true);
                             }
                         }
                         break;
@@ -4259,8 +4259,8 @@ namespace FargowiltasSouls.NPCs
 
                             if (stolen)
                             {
-                                Main.NewText("An item was stolen from you!", new Color(255, 50, 50));
-                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), "An item was stolen from you!", true);
+                                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), new Color(255, 50, 50));
+                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), true);
                             }
                         }
                         break;
@@ -4286,8 +4286,8 @@ namespace FargowiltasSouls.NPCs
                             }
                             if (stolen)
                             {
-                                Main.NewText("An item was stolen from you!", new Color(255, 50, 50));
-                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), "An item was stolen from you!", true);
+                                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), new Color(255, 50, 50));
+                                CombatText.NewText(target.Hitbox, new Color(255, 50, 50), Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Stolen"), true);
                             }
                         }
                         break;
@@ -6434,7 +6434,7 @@ namespace FargowiltasSouls.NPCs
                 switch (npc.type)
                 {
                     case NPCID.GiantTortoise:
-                        player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was impaled by a Giant Tortoise."), damage / 2, 0);
+                        player.Hurt(PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.KilledbyGiantTortoise")), damage / 2, 0);
                         break;
 
                     default:

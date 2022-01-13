@@ -6,7 +6,6 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Items.Weapons.BossDrops;
 using FargowiltasSouls.NPCs.Critters;
@@ -15,6 +14,7 @@ using FargowiltasSouls.Buffs.Souls;
 using Fargowiltas.NPCs;
 using FargowiltasSouls.Items.Weapons.Misc;
 using FargowiltasSouls.Toggler;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.NPCs
 {
