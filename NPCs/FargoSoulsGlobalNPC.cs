@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Items.Weapons.BossDrops;
 using FargowiltasSouls.NPCs.Critters;
@@ -1116,7 +1117,7 @@ namespace FargowiltasSouls.NPCs
             List<int> enches = new List<int>();
             foreach (Item material in exactRecipe.requiredItem)
             {
-                if (material.Name.EndsWith("Enchantment"))
+                if (material.Name.EndsWith(Language.GetTextValue("Mods.FargowiltasSouls.GlobalNPC.EnchesEnd")))
                     enches.Add(material.type);
             }
 
