@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Dyes
         //public override string Texture => "FargowiltasSouls/Items/Dyes/LifeDye";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Heavenly Dye");
+            //DisplayName.SetDefault("Heavenly Dye");
         }
 
         public override void SetDefaults()
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Items.Dyes
         //public override string Texture => "FargowiltasSouls/Items/Dyes/LifeDye";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Willpower Dye");
+            //DisplayName.SetDefault("Willpower Dye");
         }
 
         public override void SetDefaults()
@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Items.Dyes
         //public override string Texture => "FargowiltasSouls/Items/Dyes/LifeDye";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gaia Dye");
+            //DisplayName.SetDefault("Gaia Dye");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Misc
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Top Hat Squirrel");
+            /*DisplayName.SetDefault("Top Hat Squirrel");*/
         }
 
         public override void SetDefaults()

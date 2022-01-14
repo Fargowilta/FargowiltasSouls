@@ -13,10 +13,10 @@ namespace FargowiltasSouls.Items.Misc
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant's Fury");
+            /*DisplayName.SetDefault("Mutant's Fury");
             Tooltip.SetDefault("'REALLY enrages Mutant... or doesn't'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变狂怒");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'真·正激怒突变体... 也许并不'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'真·正激怒突变体... 也许并不'");*/
         }
 
         public override void SetDefaults()
@@ -35,7 +35,7 @@ namespace FargowiltasSouls.Items.Misc
         public override bool UseItem(Player player)
         {
             FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant;
-            string text = FargoSoulsWorld.AngryMutant ? "Mutant is angered!" : "Mutant is calm.";
+            string text = FargoSoulsWorld.AngryMutant ? Language.GetTextValue("Mods.FargowiltasSouls.MutantsFury.Angry") : Language.GetTextValue("Mods.FargowiltasSouls.MutantsFury.Calm");
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
                 Main.NewText(text, 175, 75, 255);

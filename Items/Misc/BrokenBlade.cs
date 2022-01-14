@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Broken Blade");
+            //DisplayName.SetDefault("Broken Blade");
         }
 
         public override void SetDefaults()

@@ -9,8 +9,8 @@ namespace FargowiltasSouls.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chibi Hat");
-            Tooltip.SetDefault("Summons Chibi Devi\nShe follows your mouse\n'Cute! Cute! Cute!'");
+            //DisplayName.SetDefault("Chibi Hat");
+            //Tooltip.SetDefault("Summons Chibi Devi\nShe follows your mouse\n'Cute! Cute! Cute!'");
         }
 
         public override void SetDefaults()

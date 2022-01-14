@@ -9,10 +9,10 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Universal Collapse");
+            /*DisplayName.SetDefault("Universal Collapse");
             Tooltip.SetDefault("Destroys the Universe");
             DisplayName.AddTranslation(GameCulture.Chinese, "宇宙坍缩");
-            Tooltip.AddTranslation(GameCulture.Chinese, "毁灭宇宙");
+            Tooltip.AddTranslation(GameCulture.Chinese, "毁灭宇宙");*/
         }
 
         public override void SetDefaults()

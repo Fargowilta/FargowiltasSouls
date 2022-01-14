@@ -8,10 +8,10 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lunar Crystal");
+            /*DisplayName.SetDefault("Lunar Crystal");
             Tooltip.SetDefault("A fragment of the moon's power");
             DisplayName.AddTranslation(GameCulture.Chinese, "月之水晶");
-            Tooltip.AddTranslation(GameCulture.Chinese, "月球能量的碎片\n宇宙英灵掉落");
+            Tooltip.AddTranslation(GameCulture.Chinese, "月球能量的碎片\n宇宙英灵掉落");*/
         }
 
         public override void SetDefaults()

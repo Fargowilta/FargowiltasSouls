@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deviating Energy");
+            /*DisplayName.SetDefault("Deviating Energy");*/
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 10));
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }

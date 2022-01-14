@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Items.Debug
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant P1 Reset");
+            /*DisplayName.SetDefault("Mutant P1 Reset");
             Tooltip.SetDefault(@"Left click to make Mutant forget you have defeated his first phase
 Right click to make Mutant think you have defeated his first phase
 Results not guaranteed in multiplayer
-You probably shouldn't be reading this...");
+You probably shouldn't be reading this...");*/
         }
 
         public override void SetDefaults()

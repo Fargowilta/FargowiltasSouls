@@ -11,13 +11,13 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Celestial Seal");
+            /*DisplayName.SetDefault("Celestial Seal");
             Tooltip.SetDefault(@"Permanently increases the number of accessory slots
 Only usable after Demon Heart");
             DisplayName.AddTranslation(GameCulture.Chinese, "天篆");
             Tooltip.AddTranslation(GameCulture.Chinese,
 @"永久增加饰品栏
-只能在使用恶魔之心之后使用");
+只能在使用恶魔之心之后使用");*/
         }
 
         public override void SetDefaults()

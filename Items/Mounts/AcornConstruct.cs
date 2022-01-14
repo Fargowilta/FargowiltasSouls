@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Items.Mounts
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Ride the Squirrel");
+            //Tooltip.SetDefault("Ride the Squirrel");
         }
 
         public override void SetDefaults()

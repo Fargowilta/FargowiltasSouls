@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Energy");
+            /*DisplayName.SetDefault("Phantasmal Energy");*/
         }
 
         public override void SetDefaults()

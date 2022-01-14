@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ordinary Carrot");
+            /*DisplayName.SetDefault("Ordinary Carrot");
             Tooltip.SetDefault(@"Increases night vision
 Minor improvements to all stats
 1 minute duration
@@ -21,7 +21,7 @@ Right click to increase view range while in inventory
 提高夜视能力
 小幅提升所有属性
 1分钟持续时间
-(失落军团掉落)");
+(失落军团掉落)");*/
         }
 
         public override void SetDefaults()

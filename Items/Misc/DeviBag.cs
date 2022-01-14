@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Misc
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
+            /*DisplayName.SetDefault("Treasure Bag");
             Tooltip.SetDefault("Right click to open");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体的摸彩袋");
-            Tooltip.AddTranslation(GameCulture.Chinese, "右键打开");
+            Tooltip.AddTranslation(GameCulture.Chinese, "右键打开");*/
         }
 
         public override void SetDefaults()

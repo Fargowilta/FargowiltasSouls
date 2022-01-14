@@ -9,8 +9,8 @@ namespace FargowiltasSouls.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baby Scythe");
-            Tooltip.SetDefault("Summons Baby Abom\n'Don't worry, it's dull'");
+            //DisplayName.SetDefault("Baby Scythe");
+            //Tooltip.SetDefault("Summons Baby Abom\n'Don't worry, it's dull'");
         }
 
         public override void SetDefaults()

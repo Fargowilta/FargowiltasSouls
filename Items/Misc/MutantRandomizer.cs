@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Misc
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("???");
-            Tooltip.SetDefault("Alters Eternity Mutant fight");
+            /*DisplayName.SetDefault("???");
+            Tooltip.SetDefault("Alters Eternity Mutant fight");*/
         }
 
         public override void SetDefaults()
@@ -35,7 +35,7 @@ namespace FargowiltasSouls.Items.Misc
         public override bool UseItem(Player player)
         {
             FargoSoulsWorld.SuppressRandomMutant = !FargoSoulsWorld.SuppressRandomMutant;
-            string text = FargoSoulsWorld.SuppressRandomMutant ? "Phantasmal energy wanes..." : "Phantasmal energy pulsates.";
+            string text = FargoSoulsWorld.SuppressRandomMutant ? Language.GetTextValue("Mods.FargowiltasSouls.MutantRandomizer.NotRandom") : Language.GetTextValue("Mods.FargowiltasSouls.MutantRandomizer.Random");
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
                 Main.NewText(text, Color.LimeGreen);

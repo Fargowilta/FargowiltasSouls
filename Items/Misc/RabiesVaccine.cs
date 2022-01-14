@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rabies Vaccine");
-            Tooltip.SetDefault(@"Permanently grants immunity to Feral Bite");
+            /*DisplayName.SetDefault("Rabies Vaccine");
+            Tooltip.SetDefault(@"Permanently grants immunity to Feral Bite");*/
         }
 
         public override void SetDefaults()
