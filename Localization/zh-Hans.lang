@@ -1050,6 +1050,38 @@ EternitySoul.soaTooltip24 =连铸机的奥氏体效应
 EternitySoul.OtherTooltips1 =额外加成：
 
 
+/Items/GlobalItem
+
+GlobalItem.KilledbyReverseManaFlow =崩溃于自己的魔法逆流中
+GlobalItem.AmmoNerf1 =[c/ff0000:永恒模式：]伤害降低80%
+GlobalItem.AmmoNerf2 =[c/ff0000:永恒模式：]伤害降低20%
+
+GlobalItem.RodofDiscordNerf =[c/ff0000:永恒模式：]在Boss战中，每次使用都会消耗生命
+GlobalItem.ArrowNerf =[c/ff0000:永恒模式：]伤害增加效果由最终加成乘算变为加算
+GlobalItem.SpiltProjectileNerf =[c/ff0000:永恒模式：]每秒只会分裂四次
+GlobalItem.ChloroBulletNerf =[c/ff0000:永恒模式：]降低速度和存在时间
+GlobalItem.WaterBoltNerf =[c/ff0000:永恒模式：]在骷髅王被击败前无法使用
+GlobalItem.TitaniumNerf =[c/ff0000:永恒模式：]暗影躲避被激活后，一段时间内你的伤害会降低
+GlobalItem.SpectreHoodNerf =[c/ff0000:永恒模式：]治疗幽魂珠飞行变慢，会更快消失
+GlobalItem.FrozenTurtleShellNerf =[c/ff0000:永恒模式：]伤害减免从25%降低至15%
+GlobalItem.StardustCellStaffNerf =[c/ff0000:永恒模式：]细胞伤害会随数量增加而缓慢降低
+
+GlobalItem.DamageNerf =[c/ff0000:永恒模式：]伤害降低
+GlobalItem.AttackSpeedNerf =[c/ff0000:永恒模式：]攻击速度降低
+GlobalItem.VampireKnivesLifestealNerf =[c/ff0000:永恒模式：]生命值高于33%时吸血效果降低
+GlobalItem.DemonScythe1 =[c/ff0000:永恒模式：]在邪恶Boss被击败前，伤害降低50%
+GlobalItem.DemonScythe2 =[c/ff0000:永恒模式：]在邪恶Boss被击败前，攻击速度降低25%
+GlobalItem.SpaceGun1 =[c/ff0000:永恒模式：]在邪恶Boss被击败前，攻击力降低25%
+GlobalItem.SpaceGun2 ={$Mods.FargowiltasSouls.GlobalItem.DemonScythe2}
+
+GlobalItem.SlimeStaffBuff =[c/00ff00:永恒模式：]能够召唤更多史莱姆
+GlobalItem.SummonHitRateBuff =[c/00ff00:永恒模式：]增加攻击频率
+GlobalItem.DamageBuff =[c/00ff00:永恒模式：]伤害增加
+GlobalItem.AttackSpeedBuff =[c/00ff00:永恒模式：]攻击速度增加
+GlobalItem.MinionNerfOffset =[c/00ff00:永恒模式：]当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
+GlobalItem.MinionNerf =[c/ff0000:永恒模式：]当你使用其他职业的武器攻击时，召唤伤害降低
+
+
 
 
 

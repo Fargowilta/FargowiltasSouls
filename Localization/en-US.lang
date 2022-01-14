@@ -1050,6 +1050,38 @@ EternitySoul.soaTooltip24 =Effects of Arcanum of the Caster
 EternitySoul.OtherTooltips1 =Additionally grants:
 
 
+/Items/GlobalItem
+
+GlobalItem.KilledbyReverseManaFlow = was destroyed by their own magic.
+GlobalItem.AmmoNerf1 =[c/ff0000:Eternity Mode:] Contributes 80% less damage to weapons
+GlobalItem.AmmoNerf2 =[c/ff0000:Eternity Mode:] Contributes 20% less damage to weapons
+
+GlobalItem.RodofDiscordNerf =[c/ff0000:Eternity Mode:] During boss fights, every use takes life
+GlobalItem.ArrowNerf =[c/ff0000:Eternity Mode:] Grants additive damage instead of multiplicative
+GlobalItem.SpiltProjectileNerf =[c/ff0000:Eternity Mode:] Can only split 4 times per second
+GlobalItem.ChloroBulletNerf =[c/ff0000:Eternity Mode:] Reduced speed and duration
+GlobalItem.WaterBoltNerf =[c/ff0000:Eternity Mode:] Cannot be used until Skeletron is defeated
+GlobalItem.TitaniumNerf =[c/ff0000:Eternity Mode:] Shadow Dodge activation will temporarily reduce your damage
+GlobalItem.SpectreHoodNerf =[c/ff0000:Eternity Mode:] Healing orbs move slower and disappear quickly
+GlobalItem.FrozenTurtleShellNerf =[c/ff0000:Eternity Mode:] Damage reduction is 15% instead of 25%
+GlobalItem.StardustCellStaffNerf =[c/ff0000:Eternity Mode:] Cell damage slightly reduced as more are summoned
+
+GlobalItem.DamageNerf =[c/ff0000:Eternity Mode:] Reduced damage by 
+GlobalItem.AttackSpeedNerf =[c/ff0000:Eternity Mode:] Reduced attack speed by 
+GlobalItem.VampireKnivesLifestealNerf =[c/ff0000:Eternity Mode:] Reduced lifesteal rate when above 33% life
+GlobalItem.DemonScythe1 =[c/ff0000:Eternity Mode:] Reduced damage by 50% until an evil boss is defeated
+GlobalItem.DemonScythe2 =[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated
+GlobalItem.SpaceGun1 =[c/ff0000:Eternity Mode:] Reduced damage by 25% until an evil boss is defeated
+GlobalItem.SpaceGun2 ={$Mods.FargowiltasSouls.GlobalItem.DemonScythe2}
+
+GlobalItem.SlimeStaffBuff =[c/00ff00:Eternity Mode:] Can summon more slimes
+GlobalItem.SummonHitRateBuff =[c/00ff00:Eternity Mode:] Increased hit rate
+GlobalItem.DamageBuff =[c/00ff00:Eternity Mode:] Increased damage by 
+GlobalItem.AttackSpeedBuff =[c/00ff00:Eternity Mode:] Increased attack speed by 
+GlobalItem.MinionNerfOffset =[c/00ff00:Eternity Mode:] Set bonus increases minimum summon damage when you attack using other classes
+GlobalItem.MinionNerf =[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes
+
+
 
 
 
