@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominable Wand");
+            /*DisplayName.SetDefault("Abominable Wand");
             Tooltip.SetDefault(@"Grants immunity to Abominable Fang and Abominable Presence
 Increased critical damage gained per Sparkling Adoration graze and halves heart cooldown
 Spectral Abominationn periodically manifests to support your critical hits
@@ -30,7 +30,7 @@ Endurance recovers when you reach full life again
 受到致命伤害时，保留1血不死
 该效果发动时，10秒钟内禁止回复血量
 该效果在回复到满血时才能够下一次发动
-'看起来像是什么遗失了的东西'");
+'看起来像是什么遗失了的东西'");*/
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 14));
         }
 

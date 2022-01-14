@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pungent Eyeball");
+            /*DisplayName.SetDefault("Pungent Eyeball");
             Tooltip.SetDefault(@"Grants immunity to Blackout and Obstructed
 Increases your max number of minions by 2
 Increases your max number of sentries by 2
@@ -19,7 +19,7 @@ Increases your max number of sentries by 2
             Tooltip.AddTranslation(GameCulture.Chinese, @"'它在发酵'
 免疫致盲和阻塞
 +2最大召唤栏
-+2最大哨兵栏");
++2最大哨兵栏");*/
         }
 
         public override void SetDefaults()

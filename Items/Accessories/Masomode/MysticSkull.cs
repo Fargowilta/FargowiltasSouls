@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mystic Skull");
+            /*DisplayName.SetDefault("Mystic Skull");
             Tooltip.SetDefault(@"Works in your inventory
 Grants immunity to Suffocation
 10% reduced magic damage
@@ -22,7 +22,7 @@ Automatically use mana potions when needed
 放在物品栏中即可生效
 免疫窒息
 减少10%魔法伤害
-需要时自动使用魔力药水");
+需要时自动使用魔力药水");*/
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 7));
         }

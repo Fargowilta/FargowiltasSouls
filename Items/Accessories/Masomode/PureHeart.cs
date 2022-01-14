@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pure Heart");
+            /*DisplayName.SetDefault("Pure Heart");
             Tooltip.SetDefault(@"Grants immunity to Rotting and Bloodthirsty
 Grants immunity to biome debuffs
 20% increased movement speed and 20% increased max life
@@ -27,7 +27,7 @@ Creeper respawn speed increases when not moving
 增加20%移动速度和最大生命值
 每隔几次攻击就会产生一个迷你噬魂者追踪敌人
 爬行者徘徊在周围来阻挡伤害
-每15秒生成一个新的爬行者,最多同时存在5个");
+每15秒生成一个新的爬行者,最多同时存在5个");*/
         }
 
         public override void SetDefaults()

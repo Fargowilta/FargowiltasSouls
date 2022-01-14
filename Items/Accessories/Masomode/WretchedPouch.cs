@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wretched Pouch");
+            /*DisplayName.SetDefault("Wretched Pouch");
             Tooltip.SetDefault(
 @"Grants immunity to Shadowflame
 Shadowflame tentacles lash out at nearby enemies
@@ -20,7 +20,7 @@ Shadowflame tentacles lash out at nearby enemies
             DisplayName.AddTranslation(GameCulture.Chinese, "诅咒袋子");
             Tooltip.AddTranslation(GameCulture.Chinese, @"'被打败的敌人的诅咒燃烧炸药'
 免疫暗影烈焰
-受伤时爆发暗影烈焰触须");
+受伤时爆发暗影烈焰触须");*/
         }
 
         public override void SetDefaults()

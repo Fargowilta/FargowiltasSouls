@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dubious Circuitry");
+            /*DisplayName.SetDefault("Dubious Circuitry");
             Tooltip.SetDefault(@"Grants immunity to Cursed Inferno, Ichor, Lightning Rod, Defenseless, Nano Injection, and knockback
 Your attacks inflict Cursed Inferno and Ichor
 Your attacks have a small chance to inflict Lightning Rod
@@ -25,7 +25,7 @@ Reduces damage taken by 5%
 攻击造成诅咒地狱和脓液效果
 攻击小概率造成避雷针效果
 召唤2个友善的探测器为你而战
-减少6%所受伤害");
+减少6%所受伤害");*/
         }
 
         public override void SetDefaults()

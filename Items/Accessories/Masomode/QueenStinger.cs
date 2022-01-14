@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Queen's Stinger");
+            /*DisplayName.SetDefault("The Queen's Stinger");
             Tooltip.SetDefault("Grants immunity to Infested" +
                 "\nIncreases armor penetration by 10" +
                 "\nYour attacks inflict Poisoned and spray honey that increases your life regeneration" +
@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\n增加10点护甲穿透" +
                 "\n攻击造成中毒效果" +
                 "\n永久蜂蜜Buff效果" +
-                "\n蜜蜂和虚弱黄蜂变得友好");
+                "\n蜜蜂和虚弱黄蜂变得友好");*/
         }
 
         public override void SetDefaults()

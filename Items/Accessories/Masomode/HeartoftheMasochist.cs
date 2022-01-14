@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Heart of the Eternal");
+            /*DisplayName.SetDefault("Heart of the Eternal");
             Tooltip.SetDefault(@"Grants immunity to Living Wasteland, Frozen, Hypothermia, Oozed, Withered Weapon, and Withered Armor
 Grants immunity to Feral Bite, Mutant Nibble, Flipped, Unstable, Distorted, and Curse of the Moon
 Grants immunity to Wet, Electrified, Oceanic Maul, Moon Leech, Nullification Curse, and water debuffs
@@ -38,7 +38,7 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 暴击造成贝特希的诅咒
 按下火球冲刺按键来进行一次短程的无敌冲刺
 骑乘猪鲨坐骑时获得潮湿状态,能够控制重力
-召唤一个友善的超级圣诞雪灵,迷你飞碟和真·克苏鲁之眼");
+召唤一个友善的超级圣诞雪灵,迷你飞碟和真·克苏鲁之眼");*/
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 5));
         }
 

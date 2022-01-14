@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Corrupt Heart");
+            /*DisplayName.SetDefault("Corrupt Heart");
             Tooltip.SetDefault(@"Grants immunity to Rotting
 10% increased movement speed
 You spawn mini eaters to seek out enemies every few attacks
@@ -19,7 +19,7 @@ You spawn mini eaters to seek out enemies every few attacks
             Tooltip.AddTranslation(GameCulture.Chinese, @"'苍蝇都不想接近它'
 免疫腐败
 增加10%移动速度
-每隔几次攻击就会产生一个迷你噬魂者追踪敌人");
+每隔几次攻击就会产生一个迷你噬魂者追踪敌人");*/
         }
 
         public override void SetDefaults()

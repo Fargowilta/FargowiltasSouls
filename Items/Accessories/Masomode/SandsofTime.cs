@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sands of Time");
+            /*DisplayName.SetDefault("Sands of Time");
             Tooltip.SetDefault(@"Works in your inventory
 Grants immunity to Mighty Wind and cactus damage
 You respawn twice as fast when no boss is alive
@@ -22,7 +22,7 @@ Use to teleport to your last death point
 放在物品栏中即可生效
 免疫强风和仙人掌伤害
 当没有Boss存活时,重生速度加倍
-按下快捷键传送到上次死亡地点");
+按下快捷键传送到上次死亡地点");*/
         }
 
         public override void SetDefaults()

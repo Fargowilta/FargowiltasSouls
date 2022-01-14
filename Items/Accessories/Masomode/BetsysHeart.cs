@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Betsy's Heart");
+ /*           DisplayName.SetDefault("Betsy's Heart");
             Tooltip.SetDefault("Grants immunity to Oozed, Withered Weapon, and Withered Armor" +
                 "\nYour critical strikes inflict Betsy's Curse" +
                 "\nPress the Fireball Dash key to perform a short invincible dash" +
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.AddTranslation(GameCulture.Chinese, "使你免疫分泌物、枯萎武器和枯萎盔甲减益" +
                 "\n攻击造成暴击时造成双足翼龙诅咒减益" +
                 "\n按下'火球冲刺'键后会进行短距离无敌冲刺" +
-                "\n'微烤，五分熟'");
+                "\n'微烤，五分熟'");*/
         }
 
         public override void SetDefaults()

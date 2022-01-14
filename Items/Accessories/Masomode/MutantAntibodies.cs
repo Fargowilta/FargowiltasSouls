@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant Antibodies");
+            /*DisplayName.SetDefault("Mutant Antibodies");
             Tooltip.SetDefault(@"Grants immunity to Wet, Feral Bite, Mutant Nibble, and Oceanic Maul
 Grants immunity to most debuffs caused by entering water
 Grants effects of Wet debuff while riding Cute Fishron
@@ -21,7 +21,7 @@ Increases damage by 20%, but decreases life regeneration
 免疫潮湿,野性咬噬和突变啃啄和海洋重击
 免疫大部分由水造成的Debuff
 骑乘猪鲨坐骑时获得潮湿状态
-增加20%伤害");
+增加20%伤害");*/
         }
 
         public override void SetDefaults()

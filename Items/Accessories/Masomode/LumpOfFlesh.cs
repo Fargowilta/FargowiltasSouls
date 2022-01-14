@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lump of Flesh");
+            /*DisplayName.SetDefault("Lump of Flesh");
             Tooltip.SetDefault(@"Grants immunity to Blackout, Obstructed, Dazed, and Stunned
 Increases minion damage by 16% but slightly decreases defense
 Increases your max number of minions by 2
@@ -28,7 +28,7 @@ Enemies are less likely to target you
 +2最大哨兵栏
 当你攻击时,尖刻眼球会充能来发射激光
 敌人不太可能以你为目标
-地牢外的装甲和魔法骷髅敌意减小");
+地牢外的装甲和魔法骷髅敌意减小");*/
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bionomic Cluster");
+            /*DisplayName.SetDefault("Bionomic Cluster");
             Tooltip.SetDefault("Grants immunity to Frostburn, Shadowflame, Squeaky Toy, Guilty" +
                 "\nGrants immunity to Flames of the Universe, Clipped Wings, Crippled, Webbed, and Purified" +
                 "\nGrants immunity to Lovestruck, Stinky, Midas, Hexed, cactus damage, and enemies that steal items" +
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\n大多敌人在死亡时会掉落随机的药水，减少50%重铸价格" +
                 "\n召唤一只彩虹史莱姆" +
                 "\n使用此饰品后会将你传送至上一次死亡时的地点，右键缩放视域" +
-                "\n'由上千普通敌人融合而成'");
+                "\n'由上千普通敌人融合而成'");*/
         }
 
         public override void SetDefaults()

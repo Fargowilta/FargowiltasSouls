@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slimy Shield");
+            /*DisplayName.SetDefault("Slimy Shield");
             Tooltip.SetDefault(@"Grants immunity to Slimed
 15% increased fall speed
 When you land after a jump, slime will fall from the sky over your cursor
@@ -22,7 +22,7 @@ When you land after a jump, slime will fall from the sky over your cursor
             Tooltip.AddTranslation(GameCulture.Chinese, @"'从被打败的敌人的内脏中撕裂而来'
 免疫黏糊
 增加15%下落速度
-跳跃落地后,在光标处落下史莱姆");
+跳跃落地后,在光标处落下史莱姆");*/
         }
 
         public override void SetDefaults()

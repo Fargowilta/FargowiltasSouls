@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lihzahrd Treasure Box");
+            /*DisplayName.SetDefault("Lihzahrd Treasure Box");
             Tooltip.SetDefault(@"Grants immunity to Burning, Fused, and Low Ground
 Press down in the air to fastfall
 Fastfall will create a fiery eruption on impact after falling a certain distance
@@ -21,7 +21,7 @@ When you land after a jump, you create a burst of boulders
 免疫燃烧，导火线和低地
 受伤时爆发尖钉球
 在空中按'下'键快速下落
-在一定高度使用快速下落,会在撞击地面时产生猛烈的火焰喷发");
+在一定高度使用快速下落,会在撞击地面时产生猛烈的火焰喷发");*/
         }
 
         public override void SetDefaults()

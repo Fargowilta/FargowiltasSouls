@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aeolus Boots");
+            /*DisplayName.SetDefault("Aeolus Boots");
             Tooltip.SetDefault(@"Allows flight, super fast running, and extra mobility on ice
 8% increased movement speed
 Allows the holder to double jump
@@ -22,7 +22,7 @@ Increases jump height and negates fall damage
 增加8%移动速度
 使你获得二段跳能力
 增加跳跃高度并免疫摔落伤害
-'像风一样奔跑'");
+'像风一样奔跑'");*/
         }
 
         public override void SetDefaults()

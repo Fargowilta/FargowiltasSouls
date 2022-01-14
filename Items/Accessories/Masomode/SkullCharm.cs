@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skull Charm");
+            /*DisplayName.SetDefault("Skull Charm");
             Tooltip.SetDefault(@"Grants immunity to Dazed and Stunned
 Increases damage dealt by 15% and damage taken by 10%
 Enemies are less likely to target you
@@ -24,7 +24,7 @@ The crystal skull charges energy to attack as you attack
 免疫眩晕
 增加10%所受和造成的伤害
 敌人不太可能以你为目标
-地牢外的装甲和魔法骷髅敌意减小");
+地牢外的装甲和魔法骷髅敌意减小");*/
         }
 
         public override void SetDefaults()

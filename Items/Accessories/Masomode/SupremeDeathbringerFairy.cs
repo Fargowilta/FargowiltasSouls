@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Supreme Deathbringer Fairy");
+            /*DisplayName.SetDefault("Supreme Deathbringer Fairy");
             Tooltip.SetDefault(@"Grants immunity to Slimed, Berserked, Lethargic, and Infested
 Increases damage by 10% and armor penetration by 10
 15% increased fall speed
@@ -33,7 +33,7 @@ Summons 2 Skeletron arms to whack enemies
 攻击造成毒液效果
 蜜蜂和虚弱黄蜂变得友好
 永久蜂蜜Buff效果
-召唤2个骷髅王手臂重击敌人");
+召唤2个骷髅王手臂重击敌人");*/
         }
 
         public override void SetDefaults()

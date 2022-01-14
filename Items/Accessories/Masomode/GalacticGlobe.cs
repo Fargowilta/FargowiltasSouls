@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Galactic Globe");
+            /*DisplayName.SetDefault("Galactic Globe");
             Tooltip.SetDefault(@"Grants immunity to Flipped, Unstable, and Curse of the Moon
 Allows the holder to control gravity
 Stabilizes gravity in space and in liquids
@@ -23,7 +23,7 @@ Increases flight time by 100%
 免疫翻转,不稳定,扭曲和月之诅咒
 允许使用者改变重力
 召唤真·克苏鲁之眼保护你
-增加100%飞行时间");
+增加100%飞行时间");*/
         }
 
         public override void SetDefaults()

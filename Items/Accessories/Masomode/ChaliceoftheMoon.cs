@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chalice of the Moon");
+            /*DisplayName.SetDefault("Chalice of the Moon");
             Tooltip.SetDefault(@"Grants immunity to Venom, Ivy Venom, Burning, Fused, Low Ground, and Marked for Death
 Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
 Increases life regeneration
@@ -31,7 +31,7 @@ Summons a friendly Cultist and plant to fight at your side
 在一定高度使用快速下落, 会在撞击地面时产生猛烈的火焰喷发
 根据武器类型定期发动额外的攻击
 受伤时爆发尖钉球和远古幻象攻击敌人
-召唤友善的邪教徒和植物为你而战");
+召唤友善的邪教徒和植物为你而战");*/
         }
 
         public override void SetDefaults()

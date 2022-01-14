@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant Eye");
+            /*DisplayName.SetDefault("Mutant Eye");
             Tooltip.SetDefault(@"Grants immunity to Mutant Fang and Mutant Presence
 25% increased graze bonus critical damage cap
 Upgrades Sparkling Adoration hearts to love rays
@@ -30,7 +30,7 @@ Mutant Bomb has a 60 second cooldown
 增加幽灵憎恶的重生频率和伤害
 减少憎恶手杖复活效果禁止回血的时间
 按下Mutant Bomb快捷键释放一波球并破坏多数敌对抛射物
-Mutant Bomb有60秒的冷却");
+Mutant Bomb有60秒的冷却");*/
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 18));
         }
 

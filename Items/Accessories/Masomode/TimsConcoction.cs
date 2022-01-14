@@ -10,9 +10,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tim's Concoction");
+            /*DisplayName.SetDefault("Tim's Concoction");
             Tooltip.SetDefault(@"Certain enemies will drop potions when defeated
-'Smells funny'");
+'Smells funny'");*/
         }
 
         public override void SetDefaults()

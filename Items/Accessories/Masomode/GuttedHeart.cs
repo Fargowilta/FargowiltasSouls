@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gutted Heart");
+            /*DisplayName.SetDefault("Gutted Heart");
             Tooltip.SetDefault(@"Grants immunity to Bloodthirsty
 10% increased max life
 Creepers hover around you blocking some damage
@@ -22,7 +22,7 @@ Creeper respawn speed increases when not moving
 免疫嗜血
 增加10%最大生命值
 爬行者徘徊周围来阻挡伤害
-每15秒生成一个新的爬行者,最多同时存在5个");
+每15秒生成一个新的爬行者,最多同时存在5个");*/
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Remote Control");
+           /* DisplayName.SetDefault("Remote Control");
             Tooltip.SetDefault(@"Grants immunity to Lightning Rod
 Your attacks have a small chance to inflict Lightning Rod
 Two friendly probes fight by your side
@@ -20,7 +20,7 @@ Two friendly probes fight by your side
             Tooltip.AddTranslation(GameCulture.Chinese, @"'被击败敌人的残片,上面粘着天线'
 免疫避雷针
 攻击小概率造成避雷针效果
-召唤2个友善的探测器为你而战");
+召唤2个友善的探测器为你而战");*/
         }
 
         public override void SetDefaults()
