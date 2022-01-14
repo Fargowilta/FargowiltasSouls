@@ -9,10 +9,10 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Golden Dipping Vat");
+            /*DisplayName.SetDefault("Golden Dipping Vat");
             Tooltip.SetDefault("Used to craft Gold Critters");
             DisplayName.AddTranslation(GameCulture.Chinese, "黄金浸渍缸");
-            Tooltip.AddTranslation(GameCulture.Chinese, "用来制作黄金动物");
+            Tooltip.AddTranslation(GameCulture.Chinese, "用来制作黄金动物");*/
         }
 
         public override void SetDefaults()

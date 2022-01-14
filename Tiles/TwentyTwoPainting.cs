@@ -6,8 +6,8 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("22 Painting");
-            Tooltip.SetDefault("'Keuhm E. Dee'");
+            /*DisplayName.SetDefault("22 Painting");
+            Tooltip.SetDefault("'Keuhm E. Dee'");*/
         }
 
         public override void SetDefaults()

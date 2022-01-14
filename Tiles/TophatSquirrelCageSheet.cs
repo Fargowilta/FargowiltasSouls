@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Tiles
             animationFrameHeight = 54;
 
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Top Hat Squirrel Cage");
+            //name.SetDefault("Top Hat Squirrel Cage");
             AddMapEntry(new Color(122, 217, 232), name);
         }
 

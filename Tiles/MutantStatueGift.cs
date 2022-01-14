@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant Statue (Gift)");
+            //DisplayName.SetDefault("Mutant Statue (Gift)");
         }
 
         public override void SetDefaults()
