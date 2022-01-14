@@ -61,7 +61,7 @@ BuffDescription.FlamesoftheUniverse =The heavens themselves have judged you
 BuffName.Flipped =Flipped
 BuffDescription.Flipped =Your gravity is reversed
 
-BuffName.FlippedHallow  =Flipped
+BuffName.FlippedHallow =Flipped
 BuffDescription.FlippedHallow =Your gravity is reversed
 
 BuffName.Fused =Fused
@@ -77,7 +77,7 @@ BuffName.Hexed =Hexed
 BuffDescription.Hexed =Your attacks heal enemies
 
 BuffName.HolyPrice =Holy Price
-BuffDescription.HolyPrice  =Your attacks inflict 33% less damage
+BuffDescription.HolyPrice =Your attacks inflict 33% less damage
 
 BuffName.Hypothermia =Hypothermia
 BuffDescription.Hypothermia =Increased damage taken from cold attacks
@@ -336,6 +336,55 @@ BuffDescription.MutantRebirth =Deathray revive is recharging
 
 EternityBuff.ShadowDodge =\nEternity Mode: Dodging will reduce your damage output
 EternityBuff.IceBarrier =\nEternity Mode: Effectiveness reduced to 15%
+
+
+
+
+
+/EternityMode
+
+EternityMode.Betsy1 =CRINGE
+EternityMode.Betsy2 =NOT POGGERS
+EternityMode.Betsy3 =MONKAS
+EternityMode.Betsy4 =SHOW WINGS
+EternityMode.Betsy5 =AERIAL BANE POG
+EternityMode.Betsy6 =REAL BOSS WHEN?
+EternityMode.Betsy7 =#NOTMYMASOMODE
+EternityMode.Betsy8 =OOA BAD ANYWAY
+EternityMode.Betsy9 =COPE MALD SEETHE
+EternityMode.Betsy10 =GET REAL
+EternityMode.Betsy11 =GET FAKE
+EternityMode.Betsy12 =POGGERS
+EternityMode.Betsy13 =ResidentSleeper
+EternityMode.Betsy14 =If you can read this say 22
+EternityMode.Betsy15 =GuraSit
+EternityMode.Betsy16 =play calamity
+EternityMode.Betsy17 =play thorium
+EternityMode.Betsy18 =hardcore 1hp challenge when?
+EternityMode.Betsy19 =now do it with a copper shortsword
+EternityMode.Betsy20 =Zenith Yoyo?
+EternityMode.Betsy21 =guys how do i beat moon lord
+EternityMode.Betsy22 =GUYS I GOT TERRAPRISMA
+EternityMode.Betsy23 =how do i install this update
+EternityMode.Betsy24 =Hi YouTube!
+EternityMode.Betsy25 =<Message was deleted by staff>
+EternityMode.Betsy26 =<User 
+EternityMode.Betsy27 = was banned>
+EternityMode.Betsy28 = was muted>
+
+EternityMode.NameFishronEX =Duke Fishron EX
+EternityMode.KillFishronEX =Duke Fishron EX has been defeated!
+
+EternityMode.SkeletronPrimeTransform =Skeletron Prime has entered Dungeon Guardian form!
+
+EternityMode.RetinazerEndure =Retinazer endured the fatal blow to fight alongside its twin!
+EternityMode.SpazmatismEndure =Spazmatism endured the fatal blow to fight alongside its twin!
+
+EternityMode.RoyalSubject =Royal Subject has awoken!
+
+EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
+
+EternityMode.Stolen =An item was stolen from you!
 
 
 
@@ -744,6 +793,145 @@ EarthForce.Mythril = 20% increased weapon use speed
 EarthForce.Palladium
 
 
+/Items/Masomode
+
+ItemName.AeolusBoots =Aeolus Boots
+ItemTooltip.AeolusBoots =Allows flight, super fast running, and extra mobility on ice\n8% increased movement speed\nAllows the holder to double jump\nIncreases jump height and negates fall damage\n'Run like the wind'
+
+ItemName.AgitatingLens =Agitating Lens
+ItemTooltip.AgitatingLens =Grants immunity to Berserked\n10% increased damage when below half HP\nWhile dashing or running quickly you will create a trail of demon scythes\n'The irritable remnant of a defeated foe'
+
+ItemName.BetsysHeart =Betsy's Heart
+ItemTooltip.BetsysHeart =Grants immunity to Oozed, Withered Weapon, and Withered Armor\nYour critical strikes inflict Betsy's Curse\nPress the Fireball Dash key to perform a short invincible dash\n'Lightly roasted, medium rare'
+
+ItemName.BionomicCluster =Bionomic Cluster
+ItemTooltip.BionomicCluster =Grants immunity to Frostburn, Shadowflame, Squeaky Toy, Guilty\nGrants immunity to Flames of the Universe, Clipped Wings, Crippled, Webbed, and Purified\nGrants immunity to Lovestruck, Stinky, Midas, Hexed, cactus damage, and enemies that steal items\nUse to teleport to your last death point\nYour attacks can inflict Clipped Wings, spawn Frostfireballs, and produce hearts\nAttacks have a chance to squeak and deal 1 damage to you\nShadowflame tentacles lash out at nearby enemies and summons a friendly rainbow slime\nCertain enemies will drop potions when defeated\nFollowing effects work in inventory or vanity slots:\nGrants immunity to Mighty Wind and Suffocation\nYou have autofire, improved night vision, and automatically use mana potions when needed\nYou respawn with more life and when no boss is alive, respawn faster\nRight click to zoom and 50% discount on reforges\n'The amalgamate born of a thousand common enemies'
+
+ItemName.CelestialRune =Celestial Rune
+ItemTooltip.CelestialRune =Grants immunity to Marked for Death\nYou may periodically fire additional attacks depending on weapon type\nTaking damage creates a friendly Ancient Vision to attack enemies\n'A fallen enemy's spells, repurposed'
+
+ItemName.ChaliceoftheMoon =Chalice of the Moon
+ItemTooltip.ChaliceoftheMoon =Grants immunity to Venom, Ivy Venom, Burning, Fused, Low Ground, and Marked for Death\nGrants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial\nIncreases life regeneration\nPress down in the air to fastfall\nFastfall will create a fiery eruption on impact after falling a certain distance\nWhen you land after a jump, you create a burst of boulders\nYou fire additional attacks depending on weapon type and erupt into Ancient Visions when injured\nSummons a friendly Cultist and plant to fight at your side\n'Consume it’
+
+ItemName.ConcentratedRainbowMatter =Concentrated Rainbow Matter
+ItemTooltip.ConcentratedRainbowMatter =Grants immunity to Flames of the Universe\nSummons a baby rainbow slime to fight for you\n'Taste the rainbow'
+
+ItemName.CorruptHeart =Corrupt Heart
+ItemTooltip.CorruptHeart =Grants immunity to Rotting
+10% increased movement speed\nYou spawn mini eaters to seek out enemies every few attacks\n'Flies refuse to approach it'
+
+ItemName.CyclonicFin =Abominable Wand
+ItemTooltip.CyclonicFin =Grants immunity to Abominable Fang and Abominable Presence\nIncreased critical damage gained per Sparkling Adoration graze and halves heart cooldown\nSpectral Abominationn periodically manifests to support your critical hits\nWith Styx armor, charges energy when graze is maxed\nYou can endure any attack and survive with 1 life\nOnce triggered, you cannot heal for 10 seconds\nEndurance recovers when you reach full life again\n'Seems like something's missing'
+
+ItemName.DubiousCircuitry =Dubious Circuitry
+ItemTooltip.DubiousCircuitry =Grants immunity to Cursed Inferno, Ichor, Lightning Rod, Defenseless, Nano Injection, and knockback\nYour attacks inflict Cursed Inferno and Ichor\nYour attacks have a small chance to inflict Lightning Rod\nTwo friendly probes fight by your side\nReduces damage taken by 5%\n'Malware probably not included'
+
+ItemName.EurusSock =Eurus Socks
+ItemTooltip.EurusSock =The wearer can run pretty fast
+
+ItemName.FrigidGemstone =Frigid Gemstone
+ItemTooltip.FrigidGemstone =Grants immunity to Frostburn\nYour attacks summon Frostfireballs to attack your enemies\n'A shard of ancient magical ice'
+
+ItemName.FusedLens =Fused Lens
+ItemTooltip.FusedLens =Grants immunity to Cursed Inferno and Ichor\nYour attacks inflict Cursed Inferno and Ichor\n'Too melted to improve vision'
+
+ItemName.GalacticGlobe =Galactic Globe
+ItemTooltip.GalacticGlobe =Grants immunity to Flipped, Unstable, and Curse of the Moon\nAllows the holder to control gravity\nStabilizes gravity in space and in liquids\nSummons the true eyes of Cthulhu to protect you\nIncreases flight time by 100%\n'Always watching'
+
+ItemName.GroundStick =Remote Control
+ItemTooltip.GroundStick =Grants immunity to Lightning Rod\nYour attacks have a small chance to inflict Lightning Rod\nTwo friendly probes fight by your side\n'A defeated foe's segment with an antenna glued on'
+
+ItemName.GuttedHeart =Gutted Heart
+ItemTooltip.GuttedHeart =Grants immunity to Bloodthirsty\n10% increased max life\nCreepers hover around you blocking some damage\nA new Creeper appears every 15 seconds, and 5 can exist at once\nCreeper respawn speed increases when not moving\n'Once beating in the mind of a defeated foe'
+
+ItemName.HeartoftheMasochist =Heart of the Eternal
+ItemTooltip.HeartoftheMasochist =Grants immunity to Living Wasteland, Frozen, Hypothermia, Oozed, Withered Weapon, and Withered Armor\nGrants immunity to Feral Bite, Mutant Nibble, Flipped, Unstable, Distorted, and Curse of the Moon\nGrants immunity to Wet, Electrified, Oceanic Maul, Moon Leech, Nullification Curse, and water debuffs\nIncreases damage and critical strike chance by 10% and increases damage reduction by 5%\nIncreases flight time by 100%\nYou may periodically fire additional attacks depending on weapon type\nYour critical strikes inflict Rotting and Betsy's Curse\nPress the Fireball Dash key to perform a short invincible dash\nGrants effects of Wet debuff while riding Cute Fishron and gravity control\nFreeze nearby enemies when hurt\nSummons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu\n'Warm, beating, and no body needed'
+
+ItemName.IceQueensCrown =Ice Queen's Crown
+ItemTooltip.IceQueensCrown =Grants immunity to Frozen and Hypothermia\nIncreases damage reduction by 5%\nFreeze nearby enemies when hurt\nSummons a friendly super Flocko\n'The royal symbol of a defeated foe'
+
+ItemName.LihzahrdTreasureBox =Lihzahrd Treasure Box
+ItemTooltip.LihzahrdTreasureBox =Grants immunity to Burning, Fused, and Low Ground\nPress down in the air to fastfall\nFastfall will create a fiery eruption on impact after falling a certain distance\nWhen you land after a jump, you create a burst of boulders\n'Too many booby traps to open'
+
+ItemName.LumpOfFlesh =Lump of Flesh
+ItemTooltip.LumpOfFlesh =Grants immunity to Blackout, Obstructed, Dazed, and Stunned\nIncreases minion damage by 16% but slightly decreases defense\nIncreases your max number of minions by 2\nIncreases your max number of sentries by 2\nThe pungent eyeball charges energy to fire a laser as you attack\nEnemies are less likely to target you\n'It's growing'
+
+ItemName.MagicalBulb =Magical Bulb
+ItemTooltip.MagicalBulb =Grants immunity to Venom, Ivy Venom, and Swarming\nIncreases life regeneration\nAttracts a legendary plant's offspring which flourishes in combat\n'Matricide?'
+
+ItemName.MutantAntibodies =Mutant Antibodies
+ItemTooltip.MutantAntibodies =Grants immunity to Wet, Feral Bite, Mutant Nibble, and Oceanic Maul\nGrants immunity to most debuffs caused by entering water\nGrants effects of Wet debuff while riding Cute Fishron\nIncreases damage by 20%, but decreases life regeneration\n'Healthy drug recommended by 0 out of 10 doctors'
+
+ItemName.MutantEye =Mutant Eye
+ItemTooltip.MutantEye =Grants immunity to Mutant Fang and Mutant Presence\n25% increased graze bonus critical damage cap\nUpgrades Sparkling Adoration hearts to love rays\nIncreases critical damage gained per graze\nIncreases Spectral Abominationn respawn rate and damage\nReduces Abominable Rebirth duration\nPress the Mutant Bomb key to unleash a wave of spheres and destroy most hostile projectiles\nMutant Bomb has a 60 second cooldown\n'Only a little suspicious'
+
+ItemName.MysticSkull =Mystic Skull
+ItemTooltip.MysticSkull =Works in your inventory\nGrants immunity to Suffocation\n10% reduced magic damage\nAutomatically use mana potions when needed\n'The quietly muttering head of a defeated foe'
+
+ItemName.NecromanticBrew =Necromantic Brew
+ItemTooltip.NecromanticBrew =Grants immunity to Lethargic\nSummons 2 Skeletron arms to whack enemies\n'The bone-growing solution of a defeated foe'
+
+ItemName.NymphsPerfume =Nymph's Perfume
+ItemTooltip.NymphsPerfume =Grants immunity to Lovestruck, Stinky, and Hexed\nYou respawn with more life\nYour attacks occasionally produce hearts\n'The scent is somewhat overpowering'
+
+ItemName.PuffInABottle =Puff in a Bottle
+ItemTooltip.PuffInABottle =Allows the holder to double jump
+
+ItemName.PumpkingsCape =Pumpking's Cape
+ItemTooltip.PumpkingsCape =Grants immunity to Living Wasteland\nIncreases damage and critical strike chance by 5%\nYour critical strikes inflict Rotting\nYou may periodically fire additional attacks depending on weapon type\n'Somehow, it's the right size'
+
+ItemName.PungentEyeball =Pungent Eyeball
+ItemTooltip.PungentEyeball =Grants immunity to Blackout and Obstructed\nIncreases your max number of minions by 2\nIncreases your max number of sentries by 2\n'It's fermenting'
+
+ItemName.PureHeart =Pure Heart
+ItemTooltip.PureHeart =Grants immunity to Rotting and Bloodthirsty\nGrants immunity to biome debuffs\n20% increased movement speed and 20% increased max life\nYou spawn mini eaters to seek out enemies every few attacks\nCreepers hover around you blocking some damage\nA new Creeper appears every 15 seconds, and 5 can exist at once\nCreeper respawn speed increases when not moving\n'It pulses with vitality'
+
+ItemName.QueenStinger =The Queen's Stinger
+ItemTooltip.QueenStinger =Grants immunity to Infested\nIncreases armor penetration by 10\nYour attacks inflict Poisoned and spray honey that increases your life regeneration\nBees and weak Hornets become friendly\n'Ripped right off of a defeated foe'
+
+ItemName.ReinforcedPlating =Reinforced Plating
+ItemTooltip.ReinforcedPlating =Grants immunity to Defenseless, Nano\nInjection, and knockback\nReduces damage taken by 5%\n'The sturdiest piece of a defeated foe'
+
+ItemName.SandsofTime =Sands of Time
+ItemTooltip.SandsofTime =Works in your inventory\nGrants immunity to Mighty Wind and cactus damage\nYou respawn twice as fast when no boss is alive\nUse to teleport to your last death point\n'Whatever you do, don't drop it'
+
+ItemName.SaucerControlConsole =Saucer Control Console
+ItemTooltip.SaucerControlConsole =Grants immunity to Electrified and Distorted\nSummons a friendly Mini Saucer\n'Just keep it in airplane mode'
+
+ItemName.SecurityWallet =Security Wallet
+ItemTooltip.SecurityWallet =Grants immunity to Midas and enemies that steal items\n50% discount on reforges\n'Not secure against being looted off of one's corpse'
+
+ItemName.SinisterIcon =Sinister Icon
+ItemTooltip.SinisterIcon =Prevents Eternity Mode-induced natural boss spawns\nIncreases spawn rate\nEnemies with 2000 or less max life will drop doubled loot but zero coins\n'Most definitely not alive'
+
+ItemName.SkullCharm =Skull Charm
+ItemTooltip.SkullCharm =Grants immunity to Dazed and Stunned\nIncreases damage dealt by 15% and damage taken by 10%\nEnemies are less likely to target you\nThe crystal skull charges energy to attack as you attack\n'No longer in the zone'
+
+ItemName.SlimyShield =Slimy Shield
+ItemTooltip.SlimyShield =Grants immunity to Slimed\n15% increased fall speed\nWhen you land after a jump, slime will fall from the sky over your cursor\n'Torn from the innards of a defeated foe'
+
+ItemName.SparklingAdoration =Sparkling Adoration
+ItemTooltip.SparklingAdoration =Grants immunity to Lovestruck and Fake Hearts\nGraze projectiles to gain up to 25% increased critical damage\nCritical damage bonus decreases over time and is fully lost on hit\nYour attacks periodically summon life-draining hearts\n'With all of your emotion!'
+
+ItemName.SqueakyToy =Squeaky Toy
+ItemTooltip.SqueakyToy =Grants immunity to Squeaky Toy and Guilty\nAttacks have a chance to squeak and deal 1 damage to you\n'The beloved toy of a defeated foe...?'
+
+ItemName.SupremeDeathbringerFairy =Supreme Deathbringer Fairy
+ItemTooltip.SupremeDeathbringerFairy =Grants immunity to Slimed, Berserked, Lethargic, and Infested\nIncreases damage by 10% and armor penetration by 10\n15% increased fall speed\nWhen you land after a jump, slime will fall from the sky over your cursor\nWhile dashing or running quickly you will create a trail of blood scythes\nYour attacks inflict Venom and spray honey that increases your life regeneration\nBees and weak Hornets become friendly\nSummons 2 Skeletron arms to whack enemies\n'Supremacy not necessarily guaranteed'
+
+ItemName.TimsConcoction =Tim's Concoction
+ItemTooltip.TimsConcoction =Certain enemies will drop potions when defeated\n'Smells funny'
+
+ItemName.TribalCharm =Tribal Charm
+ItemTooltip.TribalCharm =Works in your inventory\nGrants immunity to Webbed and Purified\nGrants autofire to all weapons\n'An idol of the ancient jungle dwellers'
+
+ItemName.WretchedPouch =Wretched Pouch
+ItemTooltip.WretchedPouch =Grants immunity to Shadowflame\nShadowflame tentacles lash out at nearby enemies\n'The accursed incendiary powder of a defeated foe'
+
+ItemName.WyvernFeather =Wyvern Feather
+ItemTooltip.WyvernFeather =Grants immunity to Clipped Wings and Crippled\nYour attacks have a 10% chance to inflict Clipped Wings on non-boss enemies\n'Warm to the touch'
+
+
 /Items/Souls
 
 ItemName.EternitySoul =Soul of Eternity
@@ -1050,6 +1238,131 @@ EternitySoul.soaTooltip24 =Effects of Arcanum of the Caster
 EternitySoul.OtherTooltips1 =Additionally grants:
 
 
+/Item/Ammos
+
+ItemName.ItemName.AmalgamatedDartBox =Amalgamated Dart Box
+
+ItemName.FargoArrow =Amalgamated Arrow Quiver
+ItemTooltip.FargoArrowb =Bounces several times\nEach impact explodes, summons falling stars, and fires laser arrows\nInflicts several debuffs
+
+ItemName.FargoBullet =Amalgamated Bullet Pouch
+ItemTooltip.FargoBullet =Chases after your enemy\nBounces several times\n"Each impact causes an explosion of crystal shards\nInflicts several debuffs
+
+
+/Item/Debug
+
+ItemName.MutantP1Reset =Mutant P1 Reset
+ItemTooltip.MutantP1Reset =Left click to make Mutant forget you have defeated his first phase\nRight click to make Mutant think you have defeated his first phase\nResults not guaranteed in multiplayer\nYou probably shouldn't be reading this...
+
+
+/Item/Dyes
+
+ItemName.LifeDye =Heavenly Dye
+ItemName.LifeDye =Willpower Dye
+ItemName.LifeDye =Gaia Dye
+
+
+/Item/Misc
+
+ItemName.AbomBag =Treasure Bag
+ItemTooltip.AbomBag =Right click to open
+
+ItemName.AbomEnergy =AbomEnergy
+
+ItemName.BrokenBlade =Broken Blade
+
+ItemName.BrokenHilt =Broken Hilt
+
+ItemName.CelestialSeal =Celestial Seal
+ItemTooltip.CelestialSeal =Permanently increases the number of accessory slot\nOnly usable after Demon Heart
+
+ItemName.DeviatingEnergy =Deviating Energy
+
+ItemName.DeviBag =Treasure Bag
+ItemTooltip.DeviBag =Right click to open
+
+ItemName.LunarCrystal =Lunar Crystal
+ItemTooltip.LunarCrystal =A fragment of the moon's power
+
+ItemName.MutantBag =Treasure Bag
+ItemTooltip.MutantBag =Right click to open
+
+ItemName.MutantRandomizer =???
+ItemTooltip.MutantRandomizer =Alters Eternity Mutant fight
+
+ItemName.MutantsDiscountCard =Mutant's Discount Card
+ItemTooltip.MutantsDiscountCard =Permanently reduces Mutant's shop prices by 20%
+
+ItemName.MutantsFury =Mutant's Fury
+ItemTooltip.MutantsFury ='REALLY enrages Mutant... or doesn't'
+
+ItemName.MutantsPact =Mutant's Pact
+ItemTooltip.MutantsPact =Permanently reduces Mutant's shop prices by 30%
+
+ItemName.Nuke =Galactic Reformer
+ItemTooltip.Nuke =Destroys an incredibly massive area\nUse at your own risk
+
+ItemName.Nuke2 =Universal Collapse
+ItemTooltip.Nuke2 =Destroys the Universe
+
+ItemName.OrdinaryCarrot =Ordinary Carrot
+ItemTooltip.OrdinaryCarrot =Increases night vision\nMinor improvements to all stats\n1 minute duration\nRight click to increase view range while in inventory\n'Plucked from the face of a defeated foe'
+
+ItemName.PhantasmalEnergy =Phantasmal Energy
+
+ItemName.RabiesShot =Rabies Shot
+ItemTooltip.RabiesShot =Cures Feral Bite
+
+ItemName.RabiesVaccine =Rabies Vaccine
+ItemTooltip.RabiesVaccine =Permanently grants immunity to Feral Bite
+
+ItemName.Sadism =Eternal Energy
+ItemTooltip.Sadism =Grants immunity to almost all Eternity Mode debuffs\n'Proof of having embraced eternity'
+
+ItemName.TopHatSquirrelCaught =Top Hat Squirrel
+ 
+ItemName.VolatileEnergy =Volatile Energy
+
+
+/Item/Mounts
+
+ItemName.AcornConstruct =Ride the Squirrel
+
+
+/Item/Pets
+
+ItemName.BabyScythe =Baby Scythe
+ItemTooltip.BabyScythe =Summons Baby Abom\n'Don't worry, it's dull'
+
+ItemName.ChibiHat =Chibi Hat
+ItemTooltip.ChibiHat =Summons Chibi Devi\nShe follows your mouse\n'Cute! Cute! Cute!'
+
+ItemName.SpawnSack =Spawn Sack
+ItemTooltip.SpawnSack =Summons the spawn of Mutant\n'You think you're safe?'
+
+
+/Item/Tiles
+
+ItemName.AbomTrophy=Abominationn Trophy
+
+ItemName.DeviTrophy =Deviantt Trophy
+
+ItemName.GoldenDippingVat =Golden Dipping Vat
+ItemTooltip.GoldenDippingVat =Used to craft Gold Critters
+
+ItemName.MutantStatue =Mutant Statue
+
+ItemName.MutantTrophy =Mutant Trophy
+
+ItemName.ScremPainting =Screm Painting
+ItemTooltip.ScremPainting ='Merry N. Tuse'
+
+ItemName.TophatSquirrelCage =Top Hat Squirrel Cage
+
+ItemName.TwentyTwoPainting =22 Painting
+ItemTooltip.TwentyTwoPainting ='Keuhm E. Dee'
+
+
 /Items/GlobalItem
 
 GlobalItem.KilledbyReverseManaFlow = was destroyed by their own magic.
@@ -1100,50 +1413,17 @@ MasochistReal.Deactivate =The difficulty got fake!
 
 
 
-/EternityMode
+/ModCompatibilities
+/BossCheckList
 
-EternityMode.Betsy1 =CRINGE
-EternityMode.Betsy2 =NOT POGGERS
-EternityMode.Betsy3 =MONKAS
-EternityMode.Betsy4 =SHOW WINGS
-EternityMode.Betsy5 =AERIAL BANE POG
-EternityMode.Betsy6 =REAL BOSS WHEN?
-EternityMode.Betsy7 =#NOTMYMASOMODE
-EternityMode.Betsy8 =OOA BAD ANYWAY
-EternityMode.Betsy9 =COPE MALD SEETHE
-EternityMode.Betsy10 =GET REAL
-EternityMode.Betsy11 =GET FAKE
-EternityMode.Betsy12 =POGGERS
-EternityMode.Betsy13 =ResidentSleeper
-EternityMode.Betsy14 =If you can read this say 22
-EternityMode.Betsy15 =GuraSit
-EternityMode.Betsy16 =play calamity
-EternityMode.Betsy17 =play thorium
-EternityMode.Betsy18 =hardcore 1hp challenge when?
-EternityMode.Betsy19 =now do it with a copper shortsword
-EternityMode.Betsy20 =Zenith Yoyo?
-EternityMode.Betsy21 =guys how do i beat moon lord
-EternityMode.Betsy22 =GUYS I GOT TERRAPRISMA
-EternityMode.Betsy23 =how do i install this update
-EternityMode.Betsy24 =Hi YouTube!
-EternityMode.Betsy25 =<Message was deleted by staff>
-EternityMode.Betsy26 =<User 
-EternityMode.Betsy27 = was banned>
-EternityMode.Betsy28 = was muted>
+BCL.Spawn1 =Spawn by using 
+BCL.Spawn2 =.
 
-EternityMode.NameFishronEX =Duke Fishron EX
-EternityMode.KillFishronEX =Duke Fishron EX has been defeated!
+BCL.Deviantt.Name =Deviantt
+BCL.Deviantt.Despawn =Deviantt is satisfied with its show of love.
 
-EternityMode.SkeletronPrimeTransform =Skeletron Prime has entered Dungeon Guardian form!
-
-EternityMode.RetinazerEndure =Retinazer endured the fatal blow to fight alongside its twin!
-EternityMode.SpazmatismEndure =Spazmatism endured the fatal blow to fight alongside its twin!
-
-EternityMode.RoyalSubject =Royal Subject has awoken!
-
-EternityMode.SkeletronTransform =Skeletron has entered Dungeon Guardian form!
-
-EternityMode.Stolen =An item was stolen from you!
+BCL.Abom.Name =Abominationn
+BCL.Abom.Despawn =Abominationn has destroyed everyone.
 
 
 

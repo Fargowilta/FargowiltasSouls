@@ -65,7 +65,7 @@ BuffName.FlippedHallow =翻转
 BuffDescription.FlippedHallow =你的重力颠倒了
 
 BuffName.Fused =导火线
-BuffDescription.Fused =你和爆炸有个约会
+BuffDescription.Fused =身上有个炸弹……你还敢出去耍？
 
 BuffName.GodEater =噬神者
 BuffDescription.GodEater =你的灵魂被神明的忿怒所诅咒
@@ -77,7 +77,7 @@ BuffName.Hexed =着魔
 BuffDescription.Hexed =你的攻击会治愈敌人
 
 BuffName.HolyPrice =圣护代价
-BuffDescription.HolyPrice  =你造成的伤害降低33%
+BuffDescription.HolyPrice =你造成的伤害降低33%
 
 BuffName.Hypothermia =恐寒症
 BuffDescription.Hypothermia =受到冰系攻击的伤害增加
@@ -89,13 +89,13 @@ BuffName.InfestedEX =感染
 BuffDescription.InfestedEX =这只会变得更糟
 
 BuffName.IvyVenom =常春藤毒素
-BuffDescription.IvyVenom =流失生命, 持续时间超过20秒时变为感染减益
+BuffDescription.IvyVenom =流失生命，持续时间超过20秒时变为感染减益
 
 BuffName.Jammed =卡壳
-BuffDescription.Jammed =你的武器出故障了
+BuffDescription.Jammed =你的远程武器出故障了
 
 BuffName.Lethargic =昏昏欲睡
-BuffDescription.Lethargic =你感觉你的武器变得缓慢
+BuffDescription.Lethargic =你感觉你的动作变得缓慢
 
 BuffName.LightningRod =避雷针
 BuffDescription.LightningRod =你将会吸引雷电
@@ -116,10 +116,10 @@ BuffName.LowGround =下陷
 BuffDescription.LowGround =你无法站在平台或液体上
 
 BuffName.MarkedforDeath =死亡标记
-BuffDescription.MarkedforDeath =别被打到
+BuffDescription.MarkedforDeath =区区之事，无伤尔
 
-BuffName.Midas =点金手
-BuffDescription.Midas =被攻击时掉落钱币
+BuffName.Midas =迈达斯
+BuffDescription.Midas =被攻击时掉落钱
 
 BuffName.MutantNibble =突变啃啄
 BuffDescription.MutantNibble =无法恢复生命
@@ -128,16 +128,16 @@ BuffName.NanoInjection =纳米灌注
 BuffDescription.NanoInjection =生命恢复速度和各项属性降低
 
 BuffName.NullificationCurse =无效诅咒
-BuffDescription.NullificationCurse =无法躲避,并且月球领主进行循环伤害免疫!
+BuffDescription.NullificationCurse =无法闪避伤害；特定种类的伤害对月球领主无效，该效果会循环
 
 BuffName.OceanicMaul =海洋重击
-BuffDescription.OceanicMaul =降低防御力和最大生命值
+BuffDescription.OceanicMaul =降低防御属性和最大生命值
 
 BuffName.OceanicSeal =海洋印记
-BuffDescription.OceanicSeal =无法躲避,无法进行生命偷取,无法快速移动,无法逃脱
+BuffDescription.OceanicSeal =无法躲避，无法吸血，超音速之魂失效，无法闪避攻击
 
 BuffName.Oiled =浸油
-BuffDescription.Oiled =着火时将受到更多伤害
+BuffDescription.Oiled =提高因着火而受到的伤害
 
 BuffName.Purified =净化
 BuffDescription.Purified =你被净化了
@@ -145,26 +145,26 @@ BuffDescription.Purified =你被净化了
 BuffName.Recovering =护士治疗冷却
 BuffDescription.Recovering =护士还不能治疗你
 
-BuffName.ReverseManaFlow =反魔力流
-BuffDescription.ReverseManaFlow =魔法武器消耗生命,而不是法力
+BuffName.ReverseManaFlow =魔力逆流
+BuffDescription.ReverseManaFlow =你的魔法武器会消耗生命，而不是魔力
 
 BuffName.Rotting =腐败
-BuffDescription.Rotting =身体在逐渐衰弱
+BuffDescription.Rotting =你的身体在逐渐衰弱
 
-BuffName.Sadism =施虐狂
-BuffDescription.Sadism =受虐模式的力量与你同在
+BuffName.Sadism =永恒至尊
+BuffDescription.Sadism =永恒模式的力量与你同在
 
 BuffName.Shadowflame =暗影烈焰
-BuffDescription.Shadowflame =流失生命
+BuffDescription.Shadowflame =正在损失生命值
 
 BuffName.SqueakyToy =吱吱响的玩具
-BuffDescription.SqueakyToy =你的攻击如同玩具一般作响!
+BuffDescription.SqueakyToy =太吵了，别刮了
 
 BuffName.Stunned =昏迷
-BuffDescription.Stunned =你头晕目眩,动弹不得
+BuffDescription.Stunned =你头晕目眩，动弹不得
 
 BuffName.Swarming =蜂群
-BuffDescription.Swarming =黄蜂正从四面八方向你发起进攻!
+BuffDescription.Swarming =黄蜂正从四面八方向你发起进攻！
 
 BuffName.ThiefCD =偷窃冷却
 BuffDescription.ThiefCD =你的东西暂时不会被偷
@@ -179,52 +179,52 @@ BuffName.BigBrainMinion =克苏鲁之脑
 BuffDescription.BigBrainMinion =克苏鲁之脑将为你而战
 
 BuffName.BrainMinion =克苏鲁之脑
-BuffDescription.BrainMinion =迷你克苏鲁之脑将会为你而战
+BuffDescription.BrainMinion =迷你克苏鲁之脑将为你而战
 
 BuffName.CrystalSkull =水晶头骨
 BuffDescription.CrystalSkull =水晶头骨会保护你
 
 BuffName.EaterMinion =世界吞噬者
-BuffDescription.EaterMinion =迷你世界吞噬者将会为你而战
+BuffDescription.EaterMinion =迷你世界吞噬者将为你而战
 
 BuffName.JungleMimicSummonBuff =丛林宝箱怪
-BuffDescription.JungleMimicSummonBuff =丛林大宝箱怪会为你而战
+BuffDescription.JungleMimicSummonBuff =丛林大宝箱怪将为你而战
 
 BuffName.LunarCultist =拜月教徒
-BuffDescription.LunarCultist =拜月教徒将会保护你
+BuffDescription.LunarCultist =拜月教徒会保护你
 
 BuffName.MutantPower =突变之力
 BuffDescription.MutantPower =突变体之力与你同在
 
 BuffName.PlanterasChild =世纪之花的幼株
-BuffDescription.PlanterasChild =世纪之花的幼株将会保护你
+BuffDescription.PlanterasChild =世纪之花的幼株会保护你
 
 BuffName.Probes =探测器
-BuffDescription.Probes =探测器将会保护你
+BuffDescription.Probes =探测器会保护你
 
 BuffName.PungentEyeball =刺鼻的眼球
-BuffDescription.PungentEyeball =气味刺鼻的眼球将会保护你
+BuffDescription.PungentEyeball =气味刺鼻的眼球会保护你
 
 BuffName.RainbowSlime =彩虹史莱姆
-BuffDescription.RainbowSlime =彩虹史莱姆将会保护你
+BuffDescription.RainbowSlime =彩虹史莱姆会保护你
 
 BuffName.SaucerMinion =迷你飞碟
-BuffDescription.SaucerMinion =迷你飞碟将会保护你
+BuffDescription.SaucerMinion =迷你飞碟会保护你
 
 BuffName.SkeletronArms =骷髅王之手
-BuffDescription.SkeletronArms =骷髅王之手将会保护你
+BuffDescription.SkeletronArms =骷髅王之手会保护你
 
 BuffName.SouloftheMasochist =永恒之魂
 BuffDescription.SouloftheMasochist =永恒模式的力量与你同在
 
 BuffName.SuperFlocko =超级雪花
-BuffDescription.SuperFlocko =超级雪花将会保护你
+BuffDescription.SuperFlocko =超级雪花会保护你
 
 BuffName.TrueEyes =克苏鲁真眼
-BuffDescription.TrueEyes =克苏鲁真眼将会保护你
+BuffDescription.TrueEyes =克苏鲁真眼会保护你
 
 BuffName.TwinsEX =双子魔眼
-BuffDescription.TwinsEX =真正的双子魔眼会为你而战
+BuffDescription.TwinsEX =真正的双子魔眼将为你而战
 
 
 /Buff/Mounts
@@ -278,7 +278,7 @@ BuffName.HuntressCD =箭雨冷却
 BuffDescription.HuntressCD =你还不能召唤下一轮箭雨
 
 BuffName.LeadPoison =铅中毒
-BuffDescription.LeadPoison =
+BuffDescription.LeadPoison = 
 
 BuffName.MonkBuff =静坐冥想
 BuffDescription.MonkBuff =你可以使用武僧冲刺
@@ -287,7 +287,7 @@ BuffName.ObsidianLavaWetBuff =浸入岩浆
 BuffDescription.ObsidianLavaWetBuff =岩浆从你身上滴落
 
 BuffName.OriPoison =山铜中毒
-BuffDescription.OriPoison =
+BuffDescription.OriPoison = 
 
 BuffName.Revived =复活
 BuffDescription.Revived =你刚刚复活了
@@ -296,10 +296,10 @@ BuffName.ShellHide =缩壳
 BuffDescription.ShellHide =阻挡抛射物
 
 BuffName.Shock =电击
-BuffDescription.Shock =
+BuffDescription.Shock = 
 
 BuffName.SolarFlare =太阳耀斑
-BuffDescription.SolarFlare =
+BuffDescription.SolarFlare = 
 
 BuffName.SquireBuff =侍卫之力
 BuffDescription.SquireBuff =移除一些敌怪无敌帧
@@ -308,7 +308,7 @@ BuffName.SuperBleed =大出血
 BuffDescription.SuperBleed =出于自卫而喷发出的血
 
 BuffName.Swarmed =虫群
-BuffDescription.Swarmed =
+BuffDescription.Swarmed = 
 
 BuffName.TimeFrozen =时间冻结
 BuffDescription.TimeFrozen =砸瓦鲁多
@@ -329,13 +329,62 @@ BuffDescription.VortexCD =你还不能召唤另一个漩涡
 /Buff/Others
 
 BuffName.HellFire =地狱火
-BuffDescription.HellFire =
+BuffDescription.HellFire = 
 
 BuffName.MutantRebirth =突变重生
 BuffDescription.MutantRebirth =死光复苏蓄能中
 
 EternityBuff.ShadowDodge =\n永恒模式：闪避攻击会降低你的伤害输出
 EternityBuff.IceBarrier =\n永恒模式：提供的伤害减免降低至15%
+
+
+
+
+
+/EternityMode
+
+EternityMode.Betsy1 =你怕了？
+EternityMode.Betsy2 =乐不起来
+EternityMode.Betsy3 =这就是Fargo开荒吗？
+EternityMode.Betsy4 =你怎么开着无限飞行打这个Boss啊
+EternityMode.Betsy5 =空中祸害牛逼
+EternityMode.Betsy6 =啥时候打点真的Boss？
+EternityMode.Betsy7 =#不是受虐模式#
+EternityMode.Betsy8 =额我的看法呢比较极端，我认为这是坏的，没有任何好处
+EternityMode.Betsy9 =你行你上阿
+EternityMode.Betsy10 =受虐开了
+EternityMode.Betsy11 =受虐关了
+EternityMode.Betsy12 =乐
+EternityMode.Betsy13 =就这？
+EternityMode.Betsy14 =看到的打个22
+EternityMode.Betsy15 =灾基汉化垃圾东西
+EternityMode.Betsy16 =什么时候灾厄开荒啊
+EternityMode.Betsy17 =什么时候瑟银开荒啊
+EternityMode.Betsy18 =什么时候打1血硬核
+EternityMode.Betsy19 =用同志短剑打
+EternityMode.Betsy20 =天顶悠悠球？
+EternityMode.Betsy21 =hxd们怎么打月总啊
+EternityMode.Betsy22 =hxd们我拿到泰拉棱镜了
+EternityMode.Betsy23 =xdm这汉化怎么装啊
+EternityMode.Betsy24 =观前提示，请点赞，投币，转发
+EternityMode.Betsy25 =*本消息已被管理员删除*
+EternityMode.Betsy26 =<玩家
+EternityMode.Betsy27 =被踢出了世界>
+EternityMode.Betsy28 =被禁言29天23小时59分钟>
+
+EternityMode.NameFishronEX =猪龙鱼公爵EX
+EternityMode.KillFishronEX =猪龙鱼公爵EX已被打败！
+
+EternityMode.SkeletronPrimeTransform =机械骷髅王进入了地牢守卫阶段！
+
+EternityMode.RetinazerEndure =激光眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
+EternityMode.SpazmatismEndure =魔焰眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
+
+EternityMode.RoyalSubject =皇家工蜂已苏醒！
+
+EternityMode.SkeletronTransform =骷髅王进入了地牢守卫阶段！
+
+EternityMode.Stolen =你有东西被偷了！
 
 
 
@@ -519,13 +568,13 @@ ItemName.AncientShadowEnchant =远古暗影魔石
 ItemTooltip.AncientShadowEnchant =攻击有几率造成黑暗减益\n身上带有黑暗减益的敌人偶尔会向其他敌人发射暗影焰触手\n三颗暗影珠围绕着你旋转\n攻击暗影珠会使其释放追踪暗影能量\n“十分古老，却非常实用”
 
 ItemName.AnglerEnchantment =渔夫魔石
-ItemTooltip.AnglerEnchantment =增加渔力\n你几乎可以立即钓到鱼\n拥有渔夫渔具袋效果\n“只要不全是鞋子, 你就能高高兴兴地回家”
+ItemTooltip.AnglerEnchantment =增加渔力\n你几乎可以立即钓到鱼\n拥有渔夫渔具袋效果\n“只要不全是鞋子，你就能高高兴兴地回家”
 
 ItemName.ApprenticeEnchant =学徒魔石
 ItemTooltip.ApprenticeEnchant =持续攻击两秒后你将被火焰包裹\n切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸\n大幅增加爆炸烈焰哨兵的索敌范围和攻击距离\n“追求完美的漫漫长路”
 
 ItemName.BeeEnchant =蜜蜂魔石
-ItemTooltip.BeeEnchant =增加友好蜜蜂的力量\n穿透类弹幕击中敌人时会生成蜜蜂\n“根据目前所知的所有航空原理, 蜜蜂应该根本不可能会飞”
+ItemTooltip.BeeEnchant =增加友好蜜蜂的力量\n穿透类弹幕击中敌人时会生成蜜蜂\n“根据目前所知的所有航空原理，蜜蜂应该根本不可能会飞”
 
 ItemName.BeetleEnchant =甲虫魔石
 ItemTooltip.BeetleEnchant =甲虫会保护你，减免下次受到的伤害，至多减免15%伤害\n飞行时间延长25%\n“你的血管里流淌着看不见的粪便生命”
@@ -600,7 +649,7 @@ ItemName.MonkEnchant =武僧魔石
 ItemTooltip.MonkEnchant =使你获得冲刺能力\n双击“左”或“右”键进行冲刺\n在冲刺后的0.5秒内你免疫伤害和减益\n冲刺冷却是普通冲刺的二倍\n闪电光环现在可以暴击且攻击速度更快\n“返本还僧”
 
 ItemName.MythrilEnchant =秘银魔石
-ItemTooltip.MythrilEnchant =武器使用速度增加15%\n受到伤害时,武器使用速度增加效果会暂时失效\n“你感觉武器的知识渗透进你的脑海中”
+ItemTooltip.MythrilEnchant =武器使用速度增加15%\n受到伤害时，武器使用速度增加效果会暂时失效\n“你感觉武器的知识渗透进你的脑海中”
 
 ItemName.NebulaEnchant =星云魔石
 ItemTooltip.NebulaEnchant =对敌人造成伤害时有几率生成强化焰\n强化增益堆叠上限为2\n“创生之柱照耀着你”
@@ -742,6 +791,145 @@ ItemName.EarthForce =Force of Earth
 EarthForce.Cobalt = 25% chance for your projectiles to explode into shards
 EarthForce.Mythril = 20% increased weapon use speed
 EarthForce.Palladium
+
+
+/Items/Masomode
+
+ItemName.AeolusBoots =风神靴
+ItemTooltip.AeolusBoots =使你获得飞行和快速奔跑的能力，在冰面上提供额外机动性\n增加8%移动速度\n使你获得二段跳能力\n增加跳跃高度并免疫摔落伤害\n“像风一样奔跑
+
+ItemName.SetStaticDefaults =躁动晶状体
+ItemTooltip.SetStaticDefaults =使你免疫狂暴减益\n生命值低于50%时增加10%伤害\n冲刺或奔跑时会在身后留下一串鲜血镰刀\n“被打败的敌人的躁动残渣”
+
+ItemName.BetsysHeart =双足翼龙之心
+ItemTooltip.BetsysHeart =使你免疫分泌物、枯萎武器和枯萎盔甲减益\n暴击造成双足翼龙诅咒减益\n按下“火球冲刺”键后会进行短距离无敌冲刺\n“用文火，五分熟”
+
+ItemName.BionomicCluster =生态球
+ItemTooltip.BionomicCluster =使你免疫霜冻、暗影焰、吱吱响的玩具、愧疚减益\n使你免疫宇宙之火、折翼、跛足、被网住和净化减益\n使你免疫热恋、恶臭、迈达斯、着魔减益，同时免疫仙人掌伤害和敌人的偷取物品效果\n使用以传送到你上一次死亡的地点\n攻击会造成剪除羽翼减益并生成霜火球和红心\n你受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点\n你受伤害时会发射暗影焰触手，召唤一只彩虹史莱姆\n某些敌人在死亡时会掉落药水\n当该饰品放在背包中或时装栏时，下列效果也会生效：\n免疫强风和窒息减益\n允许所有武器自动攻击、获得夜视效果，需要时自动使用魔力药水\n你会以更高的生命值重生，没有Boss在场时加快重生速度\n右键可改变视野范围，减少50%重铸价格\n“由上千普通敌人融合而成”
+
+ItemName.CelestialRune =天界符文
+ItemTooltip.CelestialRune =免疫死亡标记\n根据武器类型，定期发动额外的攻击\n受伤时召唤几个友好的远古幻影妖来攻击敌人\n“陨落的敌人曾运用的魔咒，现在到你手上了”
+
+ItemName.ChaliceoftheMoon =月之圣杯
+ItemTooltip.ChaliceoftheMoon =使你免疫酸性毒液、常春藤毒素、燃烧、导火索、下陷和死亡标记减益\n使你免疫蜂群、萎缩、卡壳、魔力逆流和社恐减益\n增加生命恢复\n在空中按“下”键快速下落\n在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发\n落地时生成一连串巨石\n根据武器类型，定期发动额外的攻击，受伤时召唤远古幻影妖攻击敌人\n召唤友善的邪教徒和植物幼株为你而战\n“喝了它”
+
+ItemName.ConcentratedRainbowMatter =浓缩彩虹物质
+ItemTooltip.ConcentratedRainbowMatter =使你免疫宇宙之火减益\n召唤一个彩虹史莱姆宝宝\n“遇上彩虹，吃定彩虹！”
+
+ItemName.CorruptHeart =腐化之心
+ItemTooltip.CorruptHeart =使你免疫腐烂减益\n增加10%移动速度\n每攻击几次，你就会产生几个追踪敌人的迷你噬魂者\n“苍蝇都不想接近它”
+
+ItemName.CyclonicFin =憎恶手杖
+ItemTooltip.CyclonicFin =使你免疫憎恶毒牙和憎恶驾到减益\n激活闪烁崇心的擦弹时的暴击伤害加成量提升，红心发射冷却减半\n暴击时偶尔会召唤幽灵憎恶\n受到致命伤害时，保留1点生命值并避免死亡\n该效果发动后10秒钟内你无法回复生命值\n你再次恢复到满生命值后，免死效果才能再被激活\n“看起来像是有人遗失的东西”
+
+ItemName.DubiousCircuitry =可疑电路
+ItemTooltip.DubiousCircuitry =使你免疫诅咒狱火、灵液、避雷针、毫无防御、昏迷、纳米灌注减益和击退\n你的攻击会造成诅咒狱火和灵液减益\n攻击小概率造成避雷针减益\n召唤两个友善的探测器为你而战\n所受伤害减少5%\n“里面也许没有恶意软件”
+
+ItemName.EurusSock =欧洛斯之袜
+ItemTooltip.EurusSock =穿戴者可跑的非常快
+
+ItemName.FrigidGemstone =寒玉
+ItemTooltip.FrigidGemstone =使你免疫霜冻减益\n攻击时召唤霜火球攻击敌人\n“一块古老的魔法冰碎片”
+
+ItemName.FusedLens =融合晶状体
+ItemTooltip.FusedLens =使你免疫诅咒狱火和灵液减益\n你的攻击会造成诅咒狱火和灵液减益\n“融化过度，无法改善视力”
+
+ItemName.GalacticGlobe =银河球
+ItemTooltip.GalacticGlobe =使你免疫翻转、不稳定、扭曲和月之诅咒减益\n允许玩家改变重力\n在太空和液体中恢复正常重力作用\n召唤克苏鲁真眼保护你\n增加100%飞行时间\n“时刻凝视”
+
+ItemName.GroundStick =遥控装置
+ItemTooltip.GroundStick =使你免疫避雷针减益\n攻击小概率造成避雷针减益\n召唤两个友善的探测器为你而战\n“你击败的敌人的体节，上面还粘着天线”
+
+ItemName.GuttedHeart =破碎的心
+ItemTooltip.GuttedHeart =使你免疫嗜血减益\n增加10%最大生命值\n召唤徘徊在你周围、为你阻挡伤害的飞眼怪\n每15秒生成一个新的飞眼怪，最多同时存在5个\n你不移动时飞眼怪生成速度加快\n“曾经还在敌人的大脑中跳动着”
+
+ItemName.HeartoftheMasochist =永恒者之心
+ItemTooltip.HeartoftheMasochist =使你免疫人形废土、霜冻、恐寒症、分泌物、枯萎武器和枯萎盔甲减益\n使你免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益\n使你免疫潮湿、带电、海洋重击、月蛭、失效诅咒和由水造成的减益\n攻击力和暴击率增加10%，伤害减免增加5%\n增加100%飞行时间\n根据武器类型，定期发动额外的攻击\n暴击造成双足翼龙诅咒和腐烂减益\n按下“火球冲刺”键后会进行短距离无敌冲刺\n骑乘猪龙鱼坐骑时获得潮湿状态效果，你能控制重力\n受击时冻住周围的敌人\n召唤友善的超级雪花、迷你飞碟和克苏鲁真眼\n“它还在跳动，很暖和，但没人想要”
+
+ItemName.IceQueensCrown =冰雪女王的皇冠
+ItemTooltip.IceQueensCrown =免疫冰冻和恐寒症减益\n增加5%伤害减免\n受击时冻住周围的敌人\n召唤一个友善的超级雪花\n“击败的皇家敌人的象征”
+
+ItemName.LihzahrdTreasureBox =神庙蜥蜴宝藏盒
+ItemTooltip.LihzahrdTreasureBox =免疫燃烧、导火索和下陷\n在空中按“下”键快速下落\n在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发\n落地时生成一连串巨石\n“陷阱太多，打不开”
+
+ItemName.LumpOfFlesh =血肉团
+ItemTooltip.LumpOfFlesh =使你免疫黑视、遮蔽、眩晕和昏迷减益\n增加16%召唤伤害，但略微减少防御\n增加2个召唤栏位\n增加2个哨兵栏位\n一个气味刺鼻的眼球在你攻击时蓄能，蓄能完毕时会发射激光\n降低敌人以你为目标的可能性\n“它在生长”
+
+ItemName.MagicalBulb =魔法球茎
+ItemTooltip.MagicalBulb =使你免疫酸性毒液、常春藤毒素和蜂群减益\n增加生命恢复\n吸引一株传奇植物的幼株，其会在战斗中茁壮成长\n“弑母？”
+
+ItemName.MutantAntibodies =突变抗体
+ItemTooltip.MutantAntibodies =使你免疫潮湿、野性咬噬、突变啃啄和海洋重击减益\n免疫大多数由水造成的减益\n骑乘猪龙鱼坐骑时获得潮湿状态效果\n增加20%伤害，但是降低生命恢复\n“很健康的药物，十个医生中有零个会推荐使用它”
+
+ItemName.MutantEye =突变之眼
+ItemTooltip.MutantEye =使你免疫突变毒牙和突变驾到减益\n激活擦弹增加暴击伤害的上限增加25%\n将闪烁崇心的心攻击加强为爱之射线\n激活擦弹时的暴击伤害加成量\n提升幽灵憎恶的出现频率和攻击力\n减少憎恶手杖复活冷却时间\n按下“突变炸弹”键时施放一圈幻影眼球，摧毁大多数敌对弹幕突变炸弹有60秒的冷却时间\n“有点可疑”
+
+ItemName.MysticSkull =神秘头骨
+ItemTooltip.MysticSkull =放在物品栏中即可生效\n使你免疫窒息减益\n魔法伤害降低10%\n需要时自动使用魔力药水\n“被打败敌人的喃喃自语的脑袋”
+
+ItemName.NecromanticBrew =死灵密酿
+ItemTooltip.NecromanticBrew =使你免疫昏昏欲睡减益\n召唤两个骷髅王手臂重击敌人\n“这液体来自被你打败的敌人，能促进骨头生长”
+
+ItemName.NymphsPerfume =宁芙的香水
+ItemTooltip.NymphsPerfume =使你免疫热恋、恶臭和着魔减益\n你会以更高的生命值重生\n你的攻击偶尔会生成心\n“气味有点太浓了”
+
+ItemName.PuffInABottle =烟雾瓶
+ItemTooltip.PuffInABottle =允许玩家进行二段跳
+
+ItemName.PumpkingsCape =南瓜王的披肩
+ItemTooltip.PumpkingsCape =使你免疫人形废土减益\n增加5%伤害和暴击率\n暴击造成腐烂减益\n根据武器类型，定期发动额外的攻击\n“不知怎么，它的尺寸正好合适”
+
+ItemName.PungentEyeball =刺鼻的眼球
+ItemTooltip.PungentEyeball =使你免疫黑视和遮蔽减益\n增加2个召唤栏位\n增加2个哨兵栏位\n“它在发酵”
+
+ItemName.PureHeart =纯净之心
+ItemTooltip.PureHeart =使你免疫腐败和嗜血减益\n使你免疫生物群落带来的减益\n增加20%移动速度和最大生命值\n每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
+\n召唤徘徊在你周围、为你阻挡伤害的飞眼怪\n每15秒生成一个新的飞眼怪，最多同时存在5个\n你不移动时飞眼怪生成速度加快\n“它充满活力地跳动着”
+
+ItemName.QueenStinger =蜂后毒刺
+ItemTooltip.QueenStinger =使你免疫感染减益\n增加10点护甲穿透\n攻击造成中毒效果，且会喷出能增加生命恢复速度的蜂蜜滴\n蜜蜂和较弱的黄蜂变得友好\n“从一个被打败的敌人身上撕下来的”
+
+ItemName.ReinforcedPlating =强化钢板
+ItemTooltip.ReinforcedPlating =使你免疫毫无防御、纳米灌注减益和击退\n所受伤害减少5%\n“被打败的敌人最坚强的一面”
+
+ItemName.SandsofTime =时之沙
+ItemTooltip.SandsofTime =放在物品栏中即可生效\n免疫强风减益和仙人掌伤害\n没有Boss在场时重生速度加倍\n使用以传送到你上一次死亡的地点\n“无论你做什么，都不要丢下它”
+
+ItemName.SaucerControlConsole =飞碟控制台
+ItemTooltip.SaucerControlConsole =使你免疫带电减益\n召唤一个友善的迷你飞碟\n“请保持飞行模式”
+
+ItemName.SecurityWallet =安全钱包
+ItemTooltip.SecurityWallet =使你免疫迈达斯减益和敌人的偷取物品效果\n减少50%重铸价格\n“无法完美保护尸体上的财物”
+
+ItemName.SinisterIcon =邪恶头骨
+ItemTooltip.SinisterIcon =阻止永恒模式导致的Boss自然生成\n提高刷怪速率\n生命值小于等于2000的敌人掉落双倍战利品，但不掉落钱币\n“肯定不是活着的”
+
+ItemName.SkullCharm =头骨挂坠
+ItemTooltip.SkullCharm =使你免疫眩晕和昏迷减益\n造成的伤害增加15%，但受到的伤害增加10%\n降低敌人以你为目标的可能性\n一个水晶头骨在你攻击时蓄能，蓄能完毕时会发射暗灵\n“不在这个区域了”
+
+ItemName.SlimyShield =粘液盾
+ItemTooltip.SlimyShield =使你免疫史莱姆减益\n增加15%下落速度\n落地时召唤从天而降的凝胶球，掉落至光标位置\n“从被打败的敌人的内脏中撕裂而来”
+
+ItemName.SparklingAdoration =闪烁崇心
+ItemTooltip.SparklingAdoration =使你免疫热恋减益和假心的伤害\n擦弹能提高暴击伤害，最高可获得最多25%的暴击伤害加成\n暴击伤害加成会随时间流逝而减少，被击中时清零\n你的攻击会周期性地生成能吸血的红心\n“饱含情感！”
+
+ItemName.SqueakyToy =吱吱响的玩具
+ItemTooltip.SqueakyToy =使你免疫吱吱响的玩具和内疚减益\n你受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点\n“被打败的敌人的心爱的玩具……？”
+
+ItemName.SupremeDeathbringerFairy =至高告死精灵
+ItemTooltip.SupremeDeathbringerFairy =免疫史莱姆、狂暴、昏昏欲睡和感染减益\n增加10%伤害、增加10点护甲穿透\n增加15%下落速度\n落地时召唤从天而降的凝胶球掉落至光标位置\n冲刺或奔跑时会在身后留下一串鲜血镰刀\n攻击造成酸性毒液减益，且会喷出能增加生命恢复速度的蜂蜜滴\n蜜蜂和较弱的黄蜂变得友好\n召唤两个骷髅王手臂重击敌人\n“霸权不一定能得到保证”
+
+ItemName.TimsConcoction =蒂姆的秘药
+ItemTooltip.TimsConcoction =某些敌人在死亡时会掉落药水\n“闻起来很上头”
+
+ItemName.TribalCharm =部落挂坠
+ItemTooltip.TribalCharm =放在物品栏中即可生效\n使你免疫被网住和净化减益\n允许所有武器自动挥舞\n“远古丛林居民的偶像”
+
+ItemName.WretchedPouch =诅咒袋子
+ItemTooltip.WretchedPouch =使你免疫暗影焰减益\n你受伤害时会向周围的敌怪发射暗影焰触手\n“被打败的敌人的诅咒燃烧炸药”
+
+ItemName.WyvernFeather =飞龙之羽
+ItemTooltip.WyvernFeather =使你免疫折翼和跛足减益\n攻击有10%概率对非Boss敌怪造成折翼减益\n“触感温暖”
 
 
 /Items/Souls
@@ -1029,7 +1217,7 @@ EternitySoul.soaTooltip4 =阿姆德蒙美国VAO的加成
 EternitySoul.soaTooltip5 =马斯蒂奇的收获谷物
 EternitySoul.soaTooltip6 =炽热之怒的护甲加成
 EternitySoul.soaTooltip7 =来自宇宙指挥官的盔甲红利
-EternitySoul.soaTooltip8 =Nebulous Apprentic的盔甲奖金
+EternitySoul.soaTooltip8 =亚巴顿之影作者支持港独，还玩？我们就是正面刚！
 EternitySoul.soaTooltip9 =来自星际牧师的盔甲红利
 EternitySoul.soaTooltip10 =堕落王子的盔甲奖金
 EternitySoul.soaTooltip11 =空虚守护者的盔甲奖金
@@ -1048,6 +1236,131 @@ EternitySoul.soaTooltip23 =纪念森喜朗的财产
 EternitySoul.soaTooltip24 =连铸机的奥氏体效应
 
 EternitySoul.OtherTooltips1 =额外加成：
+
+
+/Item/Ammos
+
+ItemName.AmalgamatedDartBox =混合飞镖盒
+
+ItemName.FargoArrow =混合箭袋
+ItemTooltip.FargoArrowb =弹跳多次\n每次撞击都会爆炸、召唤流星、发射激光箭\n造成多种减益
+
+ItemName.FargoBullet =混合子弹袋
+ItemTooltip.FargoBullet =追踪敌人\n弹跳多次\n每次撞击都会爆炸产生水晶碎片\n造成多种减益
+
+
+/Item/Debug
+
+ItemName.MutantP1Reset =突变体阶段改变器
+ItemTooltip.MutantP1Reset =左键使用，让突变体忘记你曾经击败它的第一阶段\n右键使用，让突变体以为你曾经击败它的第一阶段\n别在多人模式游戏中期待它生效\n“你本不该看到这段话……”
+
+
+/Item/Dyes
+
+ItemName.LifeDye =天圣染料
+ItemName.WillDye =意志染料
+ItemName.GaiaDye =盖亚染料
+
+
+/Item/Misc
+
+ItemName.AbomBag =宝藏袋
+ItemTooltip.AbomBag =右键点击可打开
+
+ItemName.AbomEnergy =憎恶能量
+
+ItemName.BrokenBlade =断刃
+
+ItemName.BrokenHilt =断柄
+
+ItemName.CelestialSeal =天篆
+ItemTooltip.CelestialSeal =永久增加一个饰品栏\n只能在使用恶魔之心之后使用
+
+ItemName.DeviatingEnergy =异常能量
+
+ItemName.DeviBag =宝藏袋
+ItemTooltip.DeviBag =右键点击可打开
+
+ItemName.LunarCrystal =月之水晶
+ItemTooltip.LunarCrystal =月球能量的碎片
+
+ItemName.MutantBag =宝藏袋
+ItemTooltip.MutantBag =右键点击可打开
+
+ItemName.MutantRandomizer =？？？
+ItemTooltip.MutantRandomizer =切换突变体随机AI和固定AI
+
+ItemName.MutantsDiscountCard =突变体打折卡
+ItemTooltip.MutantsDiscountCard =突变体商店物品的售价永久降低20%
+
+ItemName.MutantsFury =突变狂怒
+ItemTooltip.MutantsFury =“真·正”激怒突变体……也许并不
+
+ItemName.MutantsPact =突变体契约书
+ItemTooltip.MutantsPact =突变体商店物品的售价永久降低30%
+
+ItemName.Nuke =银河重构器
+ItemTooltip.Nuke =破坏一片难以置信的巨大区域\n风险自负
+
+ItemName.Nuke2 =寰宇溃灭
+ItemTooltip.Nuke2 =毁灭宇宙
+
+ItemName.OrdinaryCarrot =普通的胡萝卜
+ItemTooltip.OrdinaryCarrot =提高夜视能力，小幅提升所有属性\n1分钟持续时间\n置于物品栏中时，右键可改变视野范围\n“从被打败的敌人的脸上拔下来的”
+
+ItemName.PhantasmalEnergy =幻象能量
+
+ItemName.RabiesShot =狂犬疫苗
+ItemTooltip.RabiesShot =治愈野性咬噬
+
+ItemName.RabiesVaccine =狂犬疫苗加强针
+ItemTooltip.RabiesVaccine =永久免疫野性咬噬减益
+
+ItemName.Sadism =永恒能量
+ItemTooltip.Sadism =免疫几乎所有永恒模式的减益\n“与永恒相拥的证明”
+
+ItemName.TopHatSquirrelCaught =高顶礼帽松鼠
+ 
+ItemName.VolatileEnergy =不稳定能量
+
+
+/Item/Mounts
+
+ItemName.AcornConstruct =驾驶松鼠机器人
+
+
+/Item/Pets
+
+ItemName.BabyScythe =小镰刀
+ItemTooltip.BabyScythe =召唤憎恶宝宝\n“不用担心，它是个憨憨”
+
+ItemName.ChibiHat =小帽子
+ItemTooltip.ChibiHat =召唤迷你戴薇安\n她会跟随你的鼠标\n“可爱，可爱爱，可可爱爱！！”
+
+ItemName.SpawnSack =突变体的袋子
+ItemTooltip.SpawnSack =召唤突变体宠物\n“你以为你安全了？”
+
+
+/Item/Tiles
+
+ItemName.AbomTrophy =憎恶纪念章
+
+ItemName.DeviTrophy =戴薇安纪念章
+
+ItemName.GoldenDippingVat =黄金浸渍缸
+ItemTooltip.GoldenDippingVat =用来制作黄金动物
+
+ItemName.MutantStatue =突变体的雕像
+
+ItemName.MutantTrophy =突变体纪念章
+
+ItemName.ScremPainting =尖叫猫猫
+ItemTooltip.ScremPainting =“Merry N. Tuse”
+
+ItemName.TophatSquirrelCage =高帽松鼠笼
+
+ItemName.TwentyTwoPainting =画22
+ItemTooltip.TwentyTwoPainting =“Keuhm E. Dee”
 
 
 /Items/GlobalItem
@@ -1094,56 +1407,23 @@ Masochist.Deactivate =永恒模式已关闭！
 ItemName.MasochistReal =遗忘之礼
 ItemTooltip.MasochistReal =用于开/关受虐模式
 MasochistReal.Activate =真正的地狱难度来临！
-MasochistReal.Deactivate =哦我亲爱的小布尔乔亚，你可不能这样临阵脱逃啊!
+MasochistReal.Deactivate =哦我亲爱的小布尔乔亚，你可不能这样临阵脱逃啊！
 
 
 
 
 
-/EternityMode
+/ModCompatibilities
+/BossCheckList
 
-EternityMode.Betsy1 =你怕了？
-EternityMode.Betsy2 =乐不起来
-EternityMode.Betsy3 =这就是Fargo开荒吗？
-EternityMode.Betsy4 =你怎么开着无限飞行打这个Boss啊
-EternityMode.Betsy5 =空中祸害牛逼
-EternityMode.Betsy6 =啥时候打点真的Boss？
-EternityMode.Betsy7 =#不是受虐模式#
-EternityMode.Betsy8 =额我的看法呢比较极端，我认为这是坏的，没有任何好处
-EternityMode.Betsy9 =你行你上阿
-EternityMode.Betsy10 =受虐开了
-EternityMode.Betsy11 =受虐关了
-EternityMode.Betsy12 =乐
-EternityMode.Betsy13 =就这？
-EternityMode.Betsy14 =看到的打个22
-EternityMode.Betsy15 =灾基汉化垃圾东西
-EternityMode.Betsy16 =什么时候灾厄开荒啊
-EternityMode.Betsy17 =什么时候瑟银开荒啊
-EternityMode.Betsy18 =什么时候打1血硬核
-EternityMode.Betsy19 =用同志短剑打
-EternityMode.Betsy20 =天顶悠悠球？
-EternityMode.Betsy21 =hxd们怎么打月总啊
-EternityMode.Betsy22 =hxd们我拿到泰拉棱镜了
-EternityMode.Betsy23 =xdm这汉化怎么装啊
-EternityMode.Betsy24 =观前提示，请点赞，投币，转发
-EternityMode.Betsy25 =*本消息已被管理员删除*
-EternityMode.Betsy26 =<玩家
-EternityMode.Betsy27 =被踢出了世界>
-EternityMode.Betsy28 =被禁言29天23小时59分钟>
+BCL.Spawn1 =通过使用
+BCL.Spawn2 =来召唤。
 
-EternityMode.NameFishronEX =猪龙鱼公爵EX
-EternityMode.KillFishronEX =猪龙鱼公爵EX已被打败！
+BCL.Deviantt.Name =戴薇安
+BCL.Deviantt.Despawn =戴薇安对于她爱的表演感到很满意。
 
-EternityMode.SkeletronPrimeTransform =机械骷髅王进入了地牢守卫阶段！
-
-EternityMode.RetinazerEndure =激光眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-EternityMode.SpazmatismEndure =魔焰眼挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-
-EternityMode.RoyalSubject =皇家工蜂已苏醒！
-
-EternityMode.SkeletronTransform =骷髅王进入了地牢守卫阶段！
-
-EternityMode.Stolen =你有东西被偷了！
+BCL.Abom.Name =憎恶
+BCL.Abom.Despawn =憎恶摧毁了所有人。
 
 
 
@@ -1158,7 +1438,7 @@ NPCName.AbomSaucer =迷你飞碟
 
 /NPCs/Champions
 
-NPCName.CosmosChampion =厄里达诺斯, 宇宙英灵
+NPCName.CosmosChampion =厄里达诺斯，宇宙英灵
 
 NPCName.EarthChampion =大地英灵
 NPCName.EarthChampionHand =大地英灵
