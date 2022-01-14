@@ -10,8 +10,8 @@ namespace FargowiltasSouls.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Forgotten Gift");
-            Tooltip.SetDefault("Toggles Masochist Mode");
+            //DisplayName.SetDefault("Forgotten Gift");
+            //Tooltip.SetDefault("Toggles Masochist Mode");
         }
 
         public override void SetDefaults()
@@ -36,7 +36,7 @@ namespace FargowiltasSouls.Items
 
                 Main.PlaySound(SoundID.Roar, (int)player.position.X, (int)player.position.Y, 0);
 
-                FargoSoulsUtil.PrintText(FargoSoulsWorld.MasochistModeReal ? "The difficulty got real!" : "The difficulty got fake!", new Color(255, 51, 153));
+                FargoSoulsUtil.PrintText(FargoSoulsWorld.MasochistModeReal ? Language.GetTextValue("Mods.FargowiltasSouls.MasochistReal.Activate") : Language.GetTextValue("Mods.FargowiltasSouls.MasochistReal.Deactivate"), new Color(255, 51, 153));
 
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData); //sync world

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant's Gift");
+            /*DisplayName.SetDefault("Mutant's Gift");
             Tooltip.SetDefault(@"Toggles Eternity Mode, entailing the following
 Deviantt provides tips and assistance based on progress
 Changes world to Expert Mode
@@ -27,7 +27,7 @@ Minions do reduced damage when used with another weapon
 [i:1612][c/00ff00:Recommended to use Fargo's Mutant Mod Debuff Display (in config)]
 [c/ff0000:NOT INTENDED FOR USE WITH OTHER CONTENT MODS OR MODDED DIFFICULTIES]");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体的礼物");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'用开/关受虐模式'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'用开/关受虐模式'");*/
         }
 
         public override void SetDefaults()
@@ -61,12 +61,12 @@ Minions do reduced damage when used with another weapon
                     int spawnType = ModLoader.GetMod("Fargowiltas").NPCType("Deviantt");
                     Projectile.NewProjectile(player.Center - 1000 * Vector2.UnitY, Vector2.Zero, projType, 0, 0, Main.myPlayer, spawnType);
 
-                    FargoSoulsUtil.PrintText("Deviantt has awoken!", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintText(Language.GetTextValue("Mods.FargowiltasSouls.Masochist.DevianttAwoken"), new Color(175, 75, 255));
                 }
 
                 Main.PlaySound(SoundID.Roar, (int)player.position.X, (int)player.position.Y, 0);
 
-                FargoSoulsUtil.PrintText(FargoSoulsWorld.EternityMode ? "Eternity Mode initiated!" : "Eternity Mode deactivated!", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintText(FargoSoulsWorld.EternityMode ? Language.GetTextValue("Mods.FargowiltasSouls.Masochist.Activate") : Language.GetTextValue("Mods.FargowiltasSouls.Masochist.Deactivate"), new Color(175, 75, 255));
 
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData); //sync world
