@@ -1,32 +1,39 @@
-using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
-namespace FargowiltasSouls.Tiles
+namespace FargowiltasSouls.Items.Tiles
 {
-    public class MutantStatue : ModTile
+    public class MutantStatue : SoulsItem
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileObsidianKill[Type] = true;
-            Main.tileNoAttach[Type] = true;
-
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.LavaDeath = true;
-            //TileObjectData.newTile.Origin = new Point16(0, 1);
-            //TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
-            TileObjectData.addTile(Type);
-
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Mutant Statue");
-            AddMapEntry(new Color(144, 144, 144), name);
+            DisplayName.SetDefault("Mutant Statue");
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void SetDefaults()
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("MutantStatue"));
+            item.width = 20;
+            item.height = 20;
+            item.maxStack = 99;
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.rare = ItemRarityID.Blue;
+            item.useAnimation = 15;
+            item.useTime = 15;
+            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.consumable = true;
+            item.createTile = mod.TileType("MutantStatue");
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.StoneBlock, 50);
+            recipe.AddIngredient(ModLoader.GetMod("Fargowiltas").ItemType("Mutant"));
+
+            recipe.AddTile(TileID.HeavyWorkBench);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

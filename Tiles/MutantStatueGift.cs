@@ -1,33 +1,37 @@
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
+using Terraria.ID;
 
-namespace FargowiltasSouls.Tiles
+namespace FargowiltasSouls.Items.Tiles
 {
-    public class MutantStatueGift : ModTile
+    public class MutantStatueGift : SoulsItem
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileObsidianKill[Type] = true;
-            Main.tileNoAttach[Type] = true;
-
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.LavaDeath = true;
-            //TileObjectData.newTile.Origin = new Point16(0, 1);
-            //TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
-            TileObjectData.addTile(Type);
-
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Mutant Statue");
-            AddMapEntry(new Color(144, 144, 144), name);
+            DisplayName.SetDefault("Mutant Statue (Gift)");
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void SetDefaults()
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("MutantStatue"));
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("Masochist"));
+            item.width = 20;
+            item.height = 20;
+            item.maxStack = 99;
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.rare = ItemRarityID.Blue;
+            item.useAnimation = 15;
+            item.useTime = 15;
+            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.consumable = true;
+            item.createTile = mod.TileType("MutantStatueGift");
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(mod.ItemType("MutantStatue"));
+            recipe.AddIngredient(mod.ItemType("Masochist"));
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

@@ -1,32 +1,42 @@
-using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
+using Terraria.ID;
 
-namespace FargowiltasSouls.Tiles
+namespace FargowiltasSouls.Items.Tiles
 {
-    public class AbomTrophy : ModTile
+    public class AbomTrophy : SoulsItem
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileLavaDeath[Type] = true;
-
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
-            TileObjectData.newTile.StyleHorizontal = true;
-            TileObjectData.newTile.StyleWrapLimit = 36;
-            TileObjectData.addTile(Type);
-
-            disableSmartCursor = true;
-
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Abominationn Trophy");
-            AddMapEntry(new Color(120, 85, 60), name);
+            DisplayName.SetDefault("Abominationn Trophy");
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void SetDefaults()
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("AbomTrophy"));
+            item.width = 30;
+            item.height = 30;
+            item.maxStack = 99;
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.rare = ItemRarityID.Purple;
+            item.value = Item.sellPrice(0, 1);
+            item.useAnimation = 15;
+            item.useTime = 15;
+            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.consumable = true;
+            item.createTile = mod.TileType("AbomTrophy");
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> list)
+        {
+            foreach (TooltipLine line2 in list)
+            {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.overrideColor = Main.DiscoColor;//new Color(Main.DiscoR, 51, 255 - (int)(Main.DiscoR * 0.4));
+                }
+            }
         }
     }
 }
