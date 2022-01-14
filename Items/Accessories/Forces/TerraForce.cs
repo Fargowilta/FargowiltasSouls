@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Toggler;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -12,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Force");
+            /*DisplayName.SetDefault("Terra Force");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "泰拉之力");
             
@@ -42,7 +43,7 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}]While standing in lava or lava wet
 使你免疫火与岩浆并获得在岩浆中的机动性
 你的攻击会引发爆炸
 '大地赐予它力量'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SetDefaults()
@@ -54,6 +55,22 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}]While standing in lava or lava wet
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
             //item.shieldSlot = 5;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<CopperEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Copper")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TinEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Tin1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TinEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Tin2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<IronEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Iron1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<IronEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Iron2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<LeadEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Lead")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TungstenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Tungsten1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TungstenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Tungsten2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ObsidianEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Obsidian1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ObsidianEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Obsidian2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.TerraForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

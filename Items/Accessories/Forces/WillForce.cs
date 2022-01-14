@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Will");
+            /*DisplayName.SetDefault("Force of Will");
            
             DisplayName.AddTranslation(GameCulture.Chinese, "意志之力");
             
@@ -34,7 +35,7 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 大幅强化弩车和爆炸机关的效果
 拥有贪婪戒指效果
 '坚不可摧的决心'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
@@ -46,6 +47,17 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<GoldEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.WillForce.Gold")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PlatinumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.WillForce.Platinum")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<GladiatorEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.WillForce.Gladiator")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<RedRidingEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.WillForce.RedRiding")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.WillForce.ValhallaKnight")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.WillForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

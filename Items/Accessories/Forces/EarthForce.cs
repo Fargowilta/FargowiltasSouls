@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Toggler;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -11,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Earth");
+            /*DisplayName.SetDefault("Force of Earth");
 
             Tooltip.SetDefault(
 $"[i:{ModContent.ItemType<CobaltEnchant>()}] 25% chance for your projectiles to explode into shards\n" +
@@ -34,7 +35,7 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Briefly become invulnerable after
 伤害性减益造成的伤害x5
 每过3/4秒便会随机使你的一个弹幕分裂成三个
 攻击敌人后会使你无敌一小段时间
-'盖亚的祝福照耀着你'");
+'盖亚的祝福照耀着你'");*/
         }
 
         public override void SetDefaults()
@@ -45,6 +46,20 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Briefly become invulnerable after
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<CobaltEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Cobalt")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<MythrilEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Mythril")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PalladiumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Palladium1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PalladiumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Palladium2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<OrichalcumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Orichalcum1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<OrichalcumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Orichalcum2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<AdamantiteEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Adamantite")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TitaniumEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Titanium")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.EarthForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

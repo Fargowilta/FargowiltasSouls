@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Spirit");
+            /*DisplayName.SetDefault("Force of Spirit");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "心灵之力");
             
@@ -38,7 +39,7 @@ $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damag
 伤害敌人时有几率生成幽魂珠
 攻击造成暴击时有几率生成治疗珠
 '从尘世飞升'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
@@ -50,6 +51,21 @@ $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damag
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<FossilEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Fossil1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<FossilEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Fossil2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ForbiddenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Forbidden1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ForbiddenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Forbidden2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<HallowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Hallow1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<HallowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Hallow2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<HallowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Hallow3")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TikiEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Tiki")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SpectreEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Spectre")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.SpiritForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

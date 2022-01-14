@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Life");
+/*            DisplayName.SetDefault("Force of Life");
 
             string tooltip =
 $"[i:{ModContent.ItemType<PumpkinEnchant>()}] You will grow pumpkins while walking on the ground\n" +
@@ -34,7 +35,7 @@ $"[i:{ModContent.ItemType<BeetleEnchant>()}] Increases flight time by 50%\n" +
 
             Tooltip.SetDefault(tooltip);
             DisplayName.AddTranslation(GameCulture.Chinese, "生命之力");
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SetDefaults()
@@ -45,6 +46,19 @@ $"[i:{ModContent.ItemType<BeetleEnchant>()}] Increases flight time by 50%\n" +
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PumpkinEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Pumpkin")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<CactusEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Cactus")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<BeeEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Bee")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SpiderEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Spider")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<TurtleEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Turtle")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<BeetleEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Beetle1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<BeetleEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Beetle2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.LifeForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

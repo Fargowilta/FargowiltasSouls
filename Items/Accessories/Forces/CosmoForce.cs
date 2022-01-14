@@ -52,6 +52,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
         }
+
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
             int index = 3;

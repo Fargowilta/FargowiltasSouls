@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Force");
+           /* DisplayName.SetDefault("Shadow Force");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "暗影之力");
             
@@ -40,7 +41,7 @@ $"[i:{ModContent.ItemType<ApprenticeEnchant>()}] Switching weapons will increase
 切换武器后使下次攻击的伤害增加100%
 大幅强化爆炸烈焰哨兵和闪电光环的效果
 'Dark, Darker, Yet Darker（出自Undertale）'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SetDefaults()
@@ -51,6 +52,22 @@ $"[i:{ModContent.ItemType<ApprenticeEnchant>()}] Switching weapons will increase
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ShadowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Shadow")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<AncientShadowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.AncientShadow")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<NecroEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Necro")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SpookyEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Spooky")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<NinjaEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Ninja")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<MonkEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Monk")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ShinobiEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Shinobi")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<DarkArtistEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.DarkArtist")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ApprenticeEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Apprentice1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ApprenticeEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Apprentice2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.ShadowForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

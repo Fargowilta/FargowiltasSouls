@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Timber");
+            /*DisplayName.SetDefault("Force of Timber");
 
             Tooltip.SetDefault(
 $"[i:{ModContent.ItemType<WoodEnchant>()}] Turns certain critters into weapons\n" +
@@ -29,7 +30,7 @@ $"[i:{ModContent.ItemType<PearlwoodEnchant>()}] Projectiles may spawn a star whe
 一圈暗影焰、诅咒焰和流血光环环绕着你
 双击'下'键会召唤一个会向敌人扔橡子的棕榈树哨兵
 弹幕在击中敌人或物块时有几率生成一颗星星
-'很刚'");
+'很刚'");*/
         }
 
         public override void SetDefaults()
@@ -40,6 +41,18 @@ $"[i:{ModContent.ItemType<PearlwoodEnchant>()}] Projectiles may spawn a star whe
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<WoodEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.Wood")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<BorealWoodEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.Boreal")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<RichMahoganyEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.RichMahogany")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<EbonwoodEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.Ebonwood")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PalmWoodEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.PalmWood")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<PearlwoodEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.Pearlwood")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.TimberForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

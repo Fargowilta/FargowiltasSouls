@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using System.Collections.Generic;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {
@@ -10,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Force of Nature");
+            /*DisplayName.SetDefault("Force of Nature");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "自然之力");
            
@@ -43,7 +44,7 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
 站定不动时使你进入隐身状态
 处于隐身状态时攻击会留下更多蘑菇尾迹
 '挖掘了荒野的每一个秘密'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 
@@ -55,6 +56,22 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
             ItemID.Sets.ItemNoGravity[item.type] = true;
             item.rare = ItemRarityID.Purple;
             item.value = 600000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            int index = 3;
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<CrimsonEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Crimson")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<MoltenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Molten1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<MoltenEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Molten2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<RainEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Rain")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<FrostEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Frost")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<SnowEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Snow")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ChlorophyteEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Chlorophyte")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<JungleEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Jungle")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ShroomiteEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Shroomite1")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), $"[i:{ModContent.ItemType<ShroomiteEnchant>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Shroomite2")));
+            tooltips.Insert(index++, new TooltipLine(Fargowiltas.Instance, "Line" + index.ToString(), Language.GetTextValue("Mods.FargowiltasSouls.NatureForce.Addition")));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
