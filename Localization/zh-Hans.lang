@@ -1080,6 +1080,21 @@ GlobalItem.DamageBuff =[c/00ff00:永恒模式：]伤害增加
 GlobalItem.AttackSpeedBuff =[c/00ff00:永恒模式：]攻击速度增加
 GlobalItem.MinionNerfOffset =[c/00ff00:永恒模式：]当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
 GlobalItem.MinionNerf =[c/ff0000:永恒模式：]当你使用其他职业的武器攻击时，召唤伤害降低
+SoulsItem.Eternity =永恒模式
+
+
+/Items/Others
+
+ItemName.Masochist =突变体的礼物
+ItemTooltip.Masochist =用于开/关永恒模式，改动如下：\n戴薇安能够依据游戏进度提供建议和帮助\n将世界难度更改为专家模式\n更改所有原版和Fargo之魂的Boss的AI和许多其他敌怪AI\n某些Boss会掉落额外战利品和专属的饰品\n重新平衡许多武器和某些机制\n加入新的减益和减益来源\n敌怪掉落金钱增加，某些敌怪会掉落特殊的物品\n增加刷怪率\n在有Boss存活时不能使用\n当你使用其他职业的武器攻击时，召唤伤害降低\n[i:1612][c/00ff00:建议开启Fargo突变Mod的减益显示功能（可在Mod配置中打开）]\n[c/ff0000:请不要与其他大型Mod一同开启，也不要尝试同时开启其他Mod内置的更高难度挑战]
+Masochist.DevianttAwoken =戴薇安来了！
+Masochist.Activate =永恒模式已开启！
+Masochist.Deactivate =永恒模式已关闭！
+
+ItemName.MasochistReal =遗忘之礼
+ItemTooltip.MasochistReal =用于开/关受虐模式
+MasochistReal.Activate =真正的地狱难度来临！
+MasochistReal.Deactivate =哦我亲爱的小布尔乔亚，你可不能这样临阵脱逃啊!
 
 
 

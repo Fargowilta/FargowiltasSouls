@@ -1080,6 +1080,21 @@ GlobalItem.DamageBuff =[c/00ff00:Eternity Mode:] Increased damage by
 GlobalItem.AttackSpeedBuff =[c/00ff00:Eternity Mode:] Increased attack speed by 
 GlobalItem.MinionNerfOffset =[c/00ff00:Eternity Mode:] Set bonus increases minimum summon damage when you attack using other classes
 GlobalItem.MinionNerf =[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes
+SoulsItem.Eternity =Eternity
+
+
+/Items/Others
+
+ItemName.Masochist =Mutant's Gift
+ItemTooltip.Masochist =Toggles Eternity Mode, entailing the following\nDeviantt provides tips and assistance based on progress\nChanges world to Expert Mode\nChanges all vanilla and Souls Mod boss AIs and many enemy AIs\nCompatible bosses drop additional loot including exclusive accessories\nRebalances many weapons and certain mechanics\nIntroduces new debuffs and possible debuff sources\nIncreases cash from enemies and adds certain drops\nIncreases spawn rates\nCannot be used while a boss is alive\nMinions do reduced damage when used with another weapon\n[i:1612][c/00ff00:Recommended to use Fargo's Mutant Mod Debuff Display (in config)]\n[c/ff0000:NOT INTENDED FOR USE WITH OTHER CONTENT MODS OR MODDED DIFFICULTIES]
+Masochist.DevianttAwoken =Deviantt has awoken!
+Masochist.Activate =Eternity Mode initiated!
+Masochist.Deactivate =Eternity Mode deactivated!
+
+ItemName.MasochistReal =Forgotten Gift
+ItemTooltip.MasochistReal =Toggles Masochist Mode
+MasochistReal.Activate =The difficulty got real!
+MasochistReal.Deactivate =The difficulty got fake!
 
 
 
