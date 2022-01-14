@@ -135,7 +135,7 @@ namespace FargowiltasSouls.Items
             if (item.magic && player.GetModPlayer<FargoPlayer>().ReverseManaFlow)
             {
                 int damage = (int)(item.mana / (1f - player.endurance) + player.statDefense);
-                player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was destroyed by their own magic."), damage, 0);
+                player.Hurt(PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.KilledbyReverseManaFlow")), damage, 0);
                 player.immune = false;
                 player.immuneTime = 0;
             }
@@ -381,15 +381,15 @@ namespace FargowiltasSouls.Items
                 if (item.ammo != AmmoID.None && item.damage > 0)
                 {
                     if (item.ammo == AmmoID.Arrow || item.ammo == AmmoID.Bullet || item.ammo == AmmoID.Dart)
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Contributes 80% less damage to weapons"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AmmoNerf1")));
                     else if (!(item.type >= 71 && item.type <= 74)) //dont show for coins
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Contributes 20% less damage to weapons"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AmmoNerf2")));
                 }
 
                 switch (item.type)
                 {
                     case ItemID.RodofDiscord:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] During boss fights, every use takes life"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.RodofDiscordNerf")));
                         break;
 
                     case ItemID.ArcheryPotion:
@@ -397,22 +397,22 @@ namespace FargowiltasSouls.Items
                     case ItemID.ShroomiteHelmet:
                     case ItemID.ShroomiteHeadgear:
                     case ItemID.ShroomiteMask:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Grants additive damage instead of multiplicative"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.ArrowNerf")));
                         break;
 
                     case ItemID.CrystalBullet:
                     case ItemID.HolyArrow:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Can only split 4 times per second"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SpiltProjectileNerf")));
                         break;
 
                     case ItemID.ChlorophyteBullet:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced speed and duration"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.ChloroBulletNerf")));
                         break;
 
                     case ItemID.WaterBolt:
                         if (!NPC.downedBoss3)
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Cannot be used until Skeletron is defeated"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.WaterBoltNerf")));
                         }
                         break;
 
@@ -421,19 +421,19 @@ namespace FargowiltasSouls.Items
                     case ItemID.TitaniumMask:
                     case ItemID.TitaniumBreastplate:
                     case ItemID.TitaniumLeggings:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Shadow Dodge activation will temporarily reduce your damage"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.TitaniumNerf")));
                         break;
 
                     case ItemID.SpectreHood:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Healing orbs move slower and disappear quickly"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SpectreHoodNerf")));
                         break;
 
                     case ItemID.FrozenTurtleShell:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Damage reduction is 15% instead of 25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.FrozenTurtleShellNerf")));
                         break;
 
                     case ItemID.StardustCellStaff:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Cell damage slightly reduced as more are summoned"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.StardustCellStaffNerf")));
                         break;
                         
                     case ItemID.DD2BetsyBow:
@@ -449,12 +449,12 @@ namespace FargowiltasSouls.Items
                     case ItemID.PainterPaintballGun:
                     case ItemID.MoltenFury:
                     case ItemID.Phantasm:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "25%"));
                         break;
 
                     case ItemID.SkyFracture:
                     case ItemID.SnowmanCannon:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 20%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "20%"));
                         break;
 
                     case ItemID.StarCannon:
@@ -462,13 +462,13 @@ namespace FargowiltasSouls.Items
                     case ItemID.DaedalusStormbow:
                     case ItemID.BeesKnees:
                     case ItemID.LaserMachinegun:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "33%"));
                         break;
 
                     case ItemID.Beenade:
                     case ItemID.Razorpine:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedNerf") + "33%"));
                         break;
 
                     case ItemID.Tsunami:
@@ -484,41 +484,41 @@ namespace FargowiltasSouls.Items
                     case ItemID.RavenStaff:
                     case ItemID.XenoStaff:
                     case ItemID.StardustDragonStaff:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "15%"));
                         break;
 
                     case ItemID.VampireKnives:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced lifesteal rate when above 33% life"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedNerf") + "25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.VampireKnivesLifestealNerf")));
                         break;
 
                     case ItemID.BlizzardStaff:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedNerf") + "50%"));
                         break;
 
                     case ItemID.DemonScythe:
                         if (NPC.downedBoss2)
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "33%"));
                         }
                         else
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50% until an evil boss is defeated"));
-                            tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DemonScythe1")));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DemonScythe2")));
                         }
                         break;
 
                     case ItemID.SpaceGun:
                         if (NPC.downedBoss2)
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageNerf") + "15%"));
                         }
                         else
                         {
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 25% until an evil boss is defeated"));
-                            tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 25% until an evil boss is defeated"));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SpaceGun1")));
+                            tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SpaceGun2")));
                         }
                         break;
 
@@ -526,7 +526,7 @@ namespace FargowiltasSouls.Items
                     case ItemID.Grenade:
                     case ItemID.StickyGrenade:
                     case ItemID.BouncyGrenade:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedNerf") + "33%"));
                         break;
 
                     case ItemID.DD2BallistraTowerT1Popper:
@@ -541,26 +541,26 @@ namespace FargowiltasSouls.Items
                     case ItemID.DD2LightningAuraT1Popper:
                     case ItemID.DD2LightningAuraT2Popper:
                     case ItemID.DD2LightningAuraT3Popper:
-                        tooltips.Add(new TooltipLine(mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedNerf") + "33%"));
                         break;
 
                     case ItemID.SlimeStaff:
-                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Can summon more slimes"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SlimeStaffBuff")));
                         break;
 
                     case ItemID.SpiderStaff:
                     case ItemID.OpticStaff:
                     case ItemID.DeadlySphereStaff:
-                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased hit rate"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.SummonHitRateBuff")));
                         break;
 
                     case ItemID.DD2SquireBetsySword: //flying dragon
-                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 33%"));
-                        tooltips.Add(new TooltipLine(mod, "masoBuff2", "[c/00ff00:Eternity Mode:] Increased attack speed by 33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageBuff") + "33%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff2", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.AttackSpeedBuff") + "33%"));
                         break;
 
                     case ItemID.MonkStaffT3: //sky dragon's fury
-                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Increased damage by 25%"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.DamageBuff") + "25%"));
                         break;
 
                     case ItemID.MonkAltHead:
@@ -590,12 +590,12 @@ namespace FargowiltasSouls.Items
                     case ItemID.AncientBattleArmorHat:
                     case ItemID.AncientBattleArmorPants:
                     case ItemID.AncientBattleArmorShirt:
-                        tooltips.Add(new TooltipLine(mod, "masoBuff", "[c/00ff00:Eternity Mode:] Set bonus increases minimum summon damage when you attack using other classes"));
+                        tooltips.Add(new TooltipLine(mod, "masoBuff", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.MinionNerfOffset")));
                         break;
                 }
 
                 if (item.summon)
-                    tooltips.Add(new TooltipLine(mod, "masoMinionNerf", "[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes"));
+                    tooltips.Add(new TooltipLine(mod, "masoMinionNerf", Language.GetTextValue("Mods.FargowiltasSouls.GlobalItem.MinionNerf")));
             }
         }
     }
