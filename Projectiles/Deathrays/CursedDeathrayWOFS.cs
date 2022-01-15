@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Deathray");
+            //DisplayName.SetDefault("Cursed Deathray");
         }
 
         public override void AI()

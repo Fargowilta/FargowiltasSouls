@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Light Ray");
+			//DisplayName.SetDefault("Light Ray");
 		}
 
         public override void SetDefaults()

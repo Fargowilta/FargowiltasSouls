@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Love Ray");
+            //DisplayName.SetDefault("Love Ray");
         }
 
         public override bool CanDamage()
