@@ -787,10 +787,94 @@ CosmoForce.Stardust1 = 双击“下”键将你的守卫引至光标位置
 CosmoForce.Stardust2 = 按下“冻结”键后会冻结时间，持续5秒，有60秒冷却时间
 CosmoForce.Addition =“自宇宙大爆炸以来就一直存在”
 
-ItemName.EarthForce =Force of Earth
-EarthForce.Cobalt = 25% chance for your projectiles to explode into shards
-EarthForce.Mythril = 20% increased weapon use speed
-EarthForce.Palladium
+ItemName.EarthForce =大地之力
+EarthForce.Cobalt = 你的弹幕有25%几率爆裂成碎片
+EarthForce.Mythril = 武器攻击速度增加20%
+EarthForce.Palladium1 = 击中敌人后大幅增加生命恢复速度
+EarthForce.Palladium2 = 你每恢复80点生命值便会生成一个伤害性的生命能量球
+EarthForce.Orichalcum1 = 花瓣将飞向你的攻击目标，造成额外伤害
+EarthForce.Orichalcum2 = 伤害性减益造成的伤害×5
+EarthForce.Adamantite = 每3/4秒便会有一个随机弹幕分裂成三个
+EarthForce.Titanium = 击中敌人后你会无敌一小段时间
+EarthForce.Addition =“盖亚的祝福照耀着你”
+
+ItemName.LifeForce =生命之力
+LifeForce.Pumpkin = 你在地上行走时会种下南瓜
+LifeForce.Cactus = 敌人死亡时有几率爆裂出针刺
+LifeForce.Bee = 穿透类弹幕击中敌人时会生成蜜蜂
+LifeForce.Spider = 仆从和哨兵可以造成暴击，且有30%基础暴击率
+LifeForce.Turtle = 站定不动时且不攻击时你会缩进壳里
+LifeForce.Beetle1 = 甲虫会保护你，减免下次受到的伤害
+LifeForce.Beetle2 = 飞行时间延长50%
+LifeForce.Addition =“罕有活物敢违背你的意愿”
+
+ItemName.NatureForce =自然之力
+NatureForce.Crimson = 在你受到伤害后大幅增加你的生命恢复速度，直至你恢复的生命量等同于这次受到的伤害量
+NatureForce.Molten1 = 引燃你附近的敌人
+NatureForce.Molten2 = 你受到伤害时会剧烈爆炸并伤害附近的敌人
+NatureForce.Rain = 召唤一个微型雨云跟着你
+NatureForce.Frost = 你的周围会出现冰锥
+NatureForce.Snow = 在你周围生成一个可以将弹幕速度减半的冰雪光环
+NatureForce.Chlorophyte = 召唤一圈叶状攻击附近的敌人
+NatureForce.Jungle = 使你获得孢子二段跳能力
+NatureForce.Shroomite1 = 站定不动时使你进入隐身状态
+NatureForce.Shroomite2 = 所有攻击都会留下蘑菇尾迹
+NatureForce.Addition =“踏遍荒野的每一个秘密”
+
+ItemName.ShadowForce =暗影之力
+ShadowForce.Shadow = 四颗暗影珠围绕着你旋转
+ShadowForce.AncientShadow = 攻击有几率造成黑暗减益
+ShadowForce.Necro = 击杀敌人时有几率爆出一个骨堆
+ShadowForce.Spooky = 你的召唤物能进行额外的镰刀攻击
+ShadowForce.Ninja = 你可以扔出烟雾弹、传送至烟雾弹的位置获得先发制人增益
+ShadowForce.Monk = 每隔几秒，你能进行一次武僧冲刺
+ShadowForce.Shinobi = 朝墙壁冲刺时会直接穿过去
+ShadowForce.DarkArtist = 召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置
+ShadowForce.Apprentice1 = 持续攻击两秒后你将被火焰包裹
+ShadowForce.Apprentice2 = 切换武器后，下次攻击的伤害增加150%
+ShadowForce.Addition =“Dark, Darker, Yet Darker”
+
+ItemName.SpiritForce =心灵之力
+SpiritForce.Fossil1 = 受到致死伤害时会以50生命值重生并爆出几根骨头
+SpiritForce.Fossil2 = 接触停止移动的骨头时会回复15点生命值
+SpiritForce.Forbidden1 = 双击“下”键会在光标位置召唤远古风暴
+SpiritForce.Forbidden2 = 穿过远古风暴的弹幕会额外获得60%伤害
+SpiritForce.Hallow1 = 你获得一面可以反弹弹幕的盾牌
+SpiritForce.Hallow2 = 召唤一柄附魔剑
+SpiritForce.Hallow3 = 大大增加仆从攻击速度
+SpiritForce.Tiki = 召唤栏位用光后你仍可以召唤临时的哨兵和仆从
+SpiritForce.Spectre = 对敌人造成伤害时有几率生成伤害弹幕和治疗弹幕
+SpiritForce.Addition =“飘飘乎如遗世独立，羽化而登仙”
+
+ItemName.TerraForce =泰拉之力
+TerraForce.Copper = 攻击时有几率生成闪电和爆炸
+TerraForce.Tin1 = 将你的基础暴击率设为10%
+TerraForce.Tin2 = 每次暴击时都会增加5%暴击率，暴击率的最大值为你当前最大暴击率数值×2
+TerraForce.Iron1 = 右键进行盾牌格挡
+TerraForce.Iron2 = 扩大你的拾取范围
+TerraForce.Lead = 攻击有几率造成铅中毒减益
+TerraForce.Tungsten1 = 剑的尺寸增加150%
+TerraForce.Tungsten2 = 每过0.5秒便会有一个随机弹幕的尺寸翻倍
+TerraForce.Obsidian1 = 使你免疫火块与岩浆
+TerraForce.Obsidian2 = 在岩浆中或拥有浸入岩浆增益时，你的攻击会引发爆炸
+TerraForce.Addition =“大地赐予它力量”
+
+ItemName.TimberForce =森林之力
+TimberForce.Wood = 将某些小动物转化为武器
+TimberForce.Boreal = 攻击时定期释放几个雪球
+TimberForce.RichMahogany = 所有钩爪的抛出速度、牵引速度和回收速度×2.5
+TimberForce.Ebonwood = 一个暗影焰、诅咒焰和鲜血光环环绕着你
+TimberForce.PalmWood = 双击“下”键会召唤一个会向敌人扔橡实的棕榈树哨兵
+TimberForce.Pearlwood = 弹幕击中敌人或物块时有几率生成一颗星星
+TimberForce.Addition =“很刚”
+
+ItemName.WillForce =意志之力
+WillForce.Gold = 按下“金身”键会将你包裹在一个黄金壳中
+WillForce.Platinum = 敌人死亡时有20%的几率获得五倍的战利品
+WillForce.Gladiator = 长矛将倾泄在被攻击的敌人身上
+WillForce.RedRiding = 双击“下”键后令箭雨倾泄在光标位置
+WillForce.ValhallaKnight = 回复生命值时，治疗量增加50%
+WillForce.Addition =“坚不可摧的决心”
 
 
 /Items/Masomode
@@ -1289,12 +1373,16 @@ ItemTooltip.MutantBag =右键点击可打开
 
 ItemName.MutantRandomizer =？？？
 ItemTooltip.MutantRandomizer =切换突变体随机AI和固定AI
+MutantRandomizer.Random =幻象能量正在波动……
+MutantRandomizer.NotRandom =幻象能量正在减弱……
 
 ItemName.MutantsDiscountCard =突变体打折卡
 ItemTooltip.MutantsDiscountCard =突变体商店物品的售价永久降低20%
 
 ItemName.MutantsFury =突变狂怒
 ItemTooltip.MutantsFury =“真·正”激怒突变体……也许并不
+MutantsFury.Angry =突变体被激怒了！
+MutantsFury.Calm =突变体冷静下来了。
 
 ItemName.MutantsPact =突变体契约书
 ItemTooltip.MutantsPact =突变体商店物品的售价永久降低30%
@@ -1326,7 +1414,7 @@ ItemName.VolatileEnergy =不稳定能量
 
 /Item/Mounts
 
-ItemName.AcornConstruct =驾驶松鼠机器人
+ItemTooltip.AcornConstruct =驾驶松鼠机器人
 
 
 /Item/Pets
@@ -1341,23 +1429,56 @@ ItemName.SpawnSack =突变体的袋子
 ItemTooltip.SpawnSack =召唤突变体宠物\n“你以为你安全了？”
 
 
+/Items/Summons
+
+ItemName.AbominationnVoodooDoll =憎恶巫毒娃娃
+ItemTooltip.AbominationnVoodooDoll =召唤憎恶来到你的城镇\n“你是个可怕的人。”
+
+ItemName.AbomsCurse =憎恶的诅咒
+
+ItemName.DevisCurse =戴薇安的诅咒
+
+ItemName.MutantsCurse =突变体的诅咒
+ItemTooltip.MutantsCurse =“至少不需要用娃娃了”
+
+ItemName.SigilOfChampions =唤灵魔符
+ItemTooltip.SigilOfChampions =召唤英灵\n根据所处环境和时间召唤不同的英灵\n右键使用已查看可能召唤的英灵\n不消耗
+SoC.Spirit =瞿烁精神，振奋人心……
+SoC.Earth =星球之核，隆隆作响……
+SoC.Nature =葱茏之风，骤然吹起……
+SoC.Terra =磐石震动，四野颤抖……
+SoC.Cosmos =群星连珠，命定此刻……
+SoC.Will =金铁呜咽，回荡深渊……
+SoC.Life =温温生命，透体而过……
+SoC.Shadow =黑夜之暗，愈深愈沉……
+SoC.Timber =林叶沙沙，环绕四周……
+SoC.None =八方默然，万籁俱寂……
+
+
 /Item/Tiles
 
 ItemName.AbomTrophy =憎恶纪念章
 
 ItemName.DeviTrophy =戴薇安纪念章
 
+ItemName.FezSquirrelBanner =菲斯帽松鼠旗
+
 ItemName.GoldenDippingVat =黄金浸渍缸
 ItemTooltip.GoldenDippingVat =用来制作黄金动物
+MapObject.GoldenDippingVatSheet =黄金浸渍缸
 
 ItemName.MutantStatue =突变体的雕像
+ItemName.MutantStatueGift =突变体的雕像
 
 ItemName.MutantTrophy =突变体纪念章
 
 ItemName.ScremPainting =尖叫猫猫
 ItemTooltip.ScremPainting =“Merry N. Tuse”
 
+ItemName.TophatSquirrelBanner =高帽松鼠旗
+
 ItemName.TophatSquirrelCage =高帽松鼠笼
+MapObject.TophatSquirrelCageSheet =高帽松鼠笼
 
 ItemName.TwentyTwoPainting =画22
 ItemTooltip.TwentyTwoPainting =“Keuhm E. Dee”

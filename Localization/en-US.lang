@@ -790,7 +790,91 @@ CosmoForce.Addition ='Been around since the Big Bang'
 ItemName.EarthForce =Force of Earth
 EarthForce.Cobalt = 25% chance for your projectiles to explode into shards
 EarthForce.Mythril = 20% increased weapon use speed
-EarthForce.Palladium
+EarthForce.Palladium1 = Greatly increases life regeneration after striking an enemy
+EarthForce.Palladium2 = You spawn an orb of damaging life energy every 80 life regenerated
+EarthForce.Orichalcum1 = Flower petals will cause extra damage to your target
+EarthForce.Orichalcum2 = Damaging debuffs deal 5x damage
+EarthForce.Adamantite = One of your projectiles will split into 3 every 3/4 of a second
+EarthForce.Titanium = Briefly become invulnerable after striking an enemy
+EarthForce.Addition ='Gaia's blessing shines upon you'
+
+ItemName.LifeForce =Force of Life
+LifeForce.Pumpkin = You will grow pumpkins while walking on the ground
+LifeForce.Cactus = Enemies may explode into needles on death
+LifeForce.Bee = Your piercing attacks spawn bees
+LifeForce.Spider = 30% chance for minions and sentries to crit
+LifeForce.Turtle = When standing still and not attacking, you will enter your shell
+LifeForce.Beetle1 = Beetles protect you from damage
+LifeForce.Beetle2 = Increases flight time by 50%
+LifeForce.Addition ='Rare is a living thing that dare disobey your will'
+
+ItemName.NatureForce =Force of Nature
+NatureForce.Crimson = After taking a hit, regen is greatly increased until the hit is healed off
+NatureForce.Molten1 = Nearby enemies are ignited
+NatureForce.Molten2 = When you are hurt, you violently explode to damage nearby enemies
+NatureForce.Rain = Spawns a miniature storm to follow you around
+NatureForce.Frost = Icicles will start to appear around you
+NatureForce.Snow = You have a small area around you that will slow projectiles to 1/2 speed
+NatureForce.Chlorophyte = Summons a ring of leaf crystals to shoot at nearby enemies
+NatureForce.Jungle = Grants a double spore jump
+NatureForce.Shroomite1 = Not moving puts you in stealth
+NatureForce.Shroomite2 = All attacks gain trails of mushrooms
+NatureForce.Addition ='Tapped into every secret of the wilds'
+
+ItemName.ShadowForce =Shadow Force
+ShadowForce.Shadow = Four Shadow Orbs will orbit around you
+ShadowForce.AncientShadow = Your attacks may inflict Darkness on enemies
+ShadowForce.Necro = Slain enemies may drop a pile of bones
+ShadowForce.Spooky = All of your minions gain an extra scythe attack
+ShadowForce.Ninja = Throw a smoke bomb to teleport to it and gain the First Strike Buff
+ShadowForce.Monk = Don't attack to gain a single use monk dash
+ShadowForce.Shinobi = Dash into any walls, to teleport through them to the next opening
+ShadowForce.DarkArtist = Summons a Flameburst minion that will travel to your mouse after charging
+ShadowForce.Apprentice1 = After attacking for 2 seconds you will be enveloped in flames
+ShadowForce.Apprentice2 = Switching weapons will increase the next attack's damage by 150%
+ShadowForce.Addition ='Dark, Darker, Yet Darker'
+
+ItemName.SpiritForce =Force of Spirit
+SpiritForce.Fossil1 = If you reach zero HP you will revive with 50 HP and spawn several bones
+SpiritForce.Fossil2 = Collect the bones once they stop moving to heal for 15 HP each
+SpiritForce.Forbidden1 = Double tap down to call an ancient storm to the cursor location
+SpiritForce.Forbidden2 = Any projectiles shot through your storm gain 60% damage
+SpiritForce.Hallow1 = You gain a shield that can reflect projectiles
+SpiritForce.Hallow2 = Summons an Enchanted Sword familiar
+SpiritForce.Hallow3 = Drastically increases minion speed
+SpiritForce.Tiki = You can summon temporary minions and sentries after maxing out on your slots
+SpiritForce.Spectre = Damage has a chance to spawn damaging and healing orbs
+SpiritForce.Addition ='Ascend from this mortal realm'
+
+ItemName.TerraForce =Terra Force
+TerraForce.Copper = Attacks have a chance to spawn lightning and explosions
+TerraForce.Tin1 = Sets your critical strike chance to 10%
+TerraForce.Tin2 = Every crit will increase it by 5% up to double your current crit chance
+TerraForce.Iron1 = Right Click to guard with your shield
+TerraForce.Iron2 = You attract items from a larger range
+TerraForce.Lead = Attacks may inflict enemies with Lead Poisoning
+TerraForce.Tungsten1 = 150% increased sword size
+TerraForce.Tungsten2 = Every quarter second a projectile will be doubled in size
+TerraForce.Obsidian1 = Grants immunity to fire and lava
+TerraForce.Obsidian2 = While standing in lava or lava wet, your attacks spawn explosions
+TerraForce.Addition ='The land lends its strength'
+
+ItemName.TimberForce =Force of Timber
+TimberForce.Wood = Turns certain critters into weapons
+TimberForce.Boreal = Attacks will periodically be accompanied by several snowballs
+TimberForce.RichMahogany = All grappling hooks shoot, pull, and retract 2.5x as fast
+TimberForce.Ebonwood = You have an aura of Shadowflame, Cursed Flames, and Bleeding
+TimberForce.PalmWood = Double tap down to spawn a palm tree sentry that throws nuts at enemies
+TimberForce.Pearlwood = Projectiles may spawn a star when they hit something
+TimberForce.Addition ='Extremely rigid'
+
+ItemName.WillForce =Force of Will
+WillForce.Gold = Press the Gold hotkey to be encased in a Golden Shell
+WillForce.Platinum = 20% chance for enemies to drop 5x loot
+WillForce.Gladiator = Spears will rain down on struck enemies
+WillForce.RedRiding = Double tap down to create a localized rain of arrows
+WillForce.ValhallaKnight = Increases the effectiveness of healing sources by 50%
+WillForce.Addition ='A mind of unbreakable determination'
 
 
 /Items/Masomode
@@ -1289,12 +1373,16 @@ ItemTooltip.MutantBag =Right click to open
 
 ItemName.MutantRandomizer =???
 ItemTooltip.MutantRandomizer =Alters Eternity Mutant fight
+MutantRandomizer.Random =Phantasmal energy pulsates.
+MutantRandomizer.NotRandom =Phantasmal energy wanes...
 
 ItemName.MutantsDiscountCard =Mutant's Discount Card
 ItemTooltip.MutantsDiscountCard =Permanently reduces Mutant's shop prices by 20%
 
 ItemName.MutantsFury =Mutant's Fury
 ItemTooltip.MutantsFury ='REALLY enrages Mutant... or doesn't'
+MutantsFury.Angry =Mutant is angered!
+MutantsFury.Calm =Mutant is calm.
 
 ItemName.MutantsPact =Mutant's Pact
 ItemTooltip.MutantsPact =Permanently reduces Mutant's shop prices by 30%
@@ -1326,7 +1414,7 @@ ItemName.VolatileEnergy =Volatile Energy
 
 /Item/Mounts
 
-ItemName.AcornConstruct =Ride the Squirrel
+ItemTooltip.AcornConstruct =Ride the Squirrel
 
 
 /Item/Pets
@@ -1341,23 +1429,56 @@ ItemName.SpawnSack =Spawn Sack
 ItemTooltip.SpawnSack =Summons the spawn of Mutant\n'You think you're safe?'
 
 
+/Items/Summons
+
+ItemName.AbominationnVoodooDoll =Abominationn Voodoo Doll
+ItemTooltip.AbominationnVoodooDoll =Summons Abominationn to your town\n'You are a terrible person'
+
+ItemName.AbomsCurse =Abominationn's Curse
+
+ItemName.DevisCurse =Deviantt's Curse
+
+ItemName.MutantsCurse =Mutant's Curse
+ItemTooltip.MutantsCurse ='At least this way, you don't need that doll'
+
+ItemName.SigilOfChampions =Sigil of Champions
+ItemTooltip.SigilOfChampions =Summons the Champions\nSummons vary depending on time and biome\nRight click to check for possible summons\nNot consumed on use
+SoC.Spirit =A strong spirit stirs...
+SoC.Earth =The core of the planet rumbles...
+SoC.Nature =A verdant wind is blowing...
+SoC.Terra =The stones tremble around you...
+SoC.Cosmos =The stars are aligning...
+SoC.Will =Metallic groans echo from the depths...
+SoC.Life =A wave of warmth passes over you...
+SoC.Shadow =The darkness of the night feels deeper...
+SoC.Timber =You are surrounded by the rustling of trees...
+SoC.None =Nothing seems to answer the call...
+
+
 /Item/Tiles
 
 ItemName.AbomTrophy=Abominationn Trophy
 
 ItemName.DeviTrophy =Deviantt Trophy
 
+ItemName.FezSquirrelBanner =Fez Squirrel Banner
+
 ItemName.GoldenDippingVat =Golden Dipping Vat
 ItemTooltip.GoldenDippingVat =Used to craft Gold Critters
+MapObject.GoldenDippingVatSheet =Golden Dipping Vat
 
 ItemName.MutantStatue =Mutant Statue
+ItemName.MutantStatueGift =Mutant Statue (Gift)
 
 ItemName.MutantTrophy =Mutant Trophy
 
 ItemName.ScremPainting =Screm Painting
 ItemTooltip.ScremPainting ='Merry N. Tuse'
 
+ItemName.TophatSquirrelBanner =Tophat Squirrel Banner
+
 ItemName.TophatSquirrelCage =Top Hat Squirrel Cage
+MapObject.TophatSquirrelCageSheet =Top Hat Squirrel Cage
 
 ItemName.TwentyTwoPainting =22 Painting
 ItemTooltip.TwentyTwoPainting ='Keuhm E. Dee'
