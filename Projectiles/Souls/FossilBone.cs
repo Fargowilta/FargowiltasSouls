@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fossil Bone");
+            //DisplayName.SetDefault("Fossil Bone");
         }
 
         public override void SetDefaults()

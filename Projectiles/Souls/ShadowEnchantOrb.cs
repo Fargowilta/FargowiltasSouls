@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Orb");
+            //DisplayName.SetDefault("Shadow Orb");
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
 

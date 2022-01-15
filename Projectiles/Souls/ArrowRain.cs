@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arrow Rain");
+            //DisplayName.SetDefault("Arrow Rain");
         }
 
         public override void SetDefaults()

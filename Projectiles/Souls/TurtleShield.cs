@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Turtle Shield");
+            //DisplayName.SetDefault("Turtle Shield");
             Main.projFrames[projectile.type] = 7;
         }
 

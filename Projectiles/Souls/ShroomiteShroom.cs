@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shroom");
+            //DisplayName.SetDefault("Shroom");
         }
 
         public override void SetDefaults()

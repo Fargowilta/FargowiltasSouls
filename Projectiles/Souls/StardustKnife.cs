@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stardust Knife");
+            //DisplayName.SetDefault("Stardust Knife");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

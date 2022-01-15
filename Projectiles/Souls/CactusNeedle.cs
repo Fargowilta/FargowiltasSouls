@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cactus Needle");
+            //DisplayName.SetDefault("Cactus Needle");
         }
 
         public override void SetDefaults()

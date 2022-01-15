@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Super Blood");
+            //DisplayName.SetDefault("Super Blood");
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mega Flameburst");
+            //DisplayName.SetDefault("Mega Flameburst");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pearlwood Rainbow");
+            //DisplayName.SetDefault("Pearlwood Rainbow");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 25;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
         }

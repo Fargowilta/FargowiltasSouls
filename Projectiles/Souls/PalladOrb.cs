@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palladium Life Orb");
+            //DisplayName.SetDefault("Palladium Life Orb");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }

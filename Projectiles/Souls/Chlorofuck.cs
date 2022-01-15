@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chlorofuck");
+			//DisplayName.SetDefault("Chlorofuck");
             Main.projPet[projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;

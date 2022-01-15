@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dungeon Guardian");
+            //DisplayName.SetDefault("Dungeon Guardian");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 
