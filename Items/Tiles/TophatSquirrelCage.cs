@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Top Hat Squirrel Cage");
+            //DisplayName.SetDefault("Top Hat Squirrel Cage");
         }
 
         public override void SetDefaults()

@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.NPCs.Champions;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Summons
 {
@@ -11,11 +12,11 @@ namespace FargowiltasSouls.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sigil of Champions");
+            /*DisplayName.SetDefault("Sigil of Champions");
             Tooltip.SetDefault(@"Summons the Champions
 Summons vary depending on time and biome
 Right click to check for possible summons
-Not consumed on use");
+Not consumed on use");*/
         }
 
         public override void SetDefaults()
@@ -65,14 +66,14 @@ Not consumed on use");
             if (player.ZoneUndergroundDesert)
             {
                 if (player.altFunctionUse == 2)
-                    Main.NewText("A strong spirit stirs...", color);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Spirit"), color);
                 else
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<SpiritChampion>());
             }
             else if (player.ZoneUnderworldHeight)
             {
                 if (player.altFunctionUse == 2)
-                    Main.NewText("The core of the planet rumbles...", color);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Earth"), color);
                 else
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<EarthChampion>());
             }
@@ -81,14 +82,14 @@ Not consumed on use");
                 if (player.ZoneSnow)
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("A verdant wind is blowing...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Nature"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NatureChampion>());
                 }
                 else
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("The stones tremble around you...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Terra"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TerraChampion>());
                 }
@@ -98,28 +99,28 @@ Not consumed on use");
                 if (player.ZoneSkyHeight)
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("The stars are aligning...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Cosmos"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<CosmosChampion>());
                 }
                 else if (player.ZoneBeach)
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("Metallic groans echo from the depths...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Will"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<WillChampion>());
                 }
                 else if (player.ZoneHoly && Main.dayTime)
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("A wave of warmth passes over you...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Life"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<LifeChampion>());
                 }
                 else if ((player.ZoneCorrupt || player.ZoneCrimson) && !Main.dayTime) //night
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("The darkness of the night feels deeper...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Shadow"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowChampion>());
                 }
@@ -127,14 +128,14 @@ Not consumed on use");
                     && !player.ZoneDesert && !player.ZoneSnow && !player.ZoneJungle && Main.dayTime) //purity day
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("You are surrounded by the rustling of trees...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.Timber"), color);
                     else
                         NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TimberChampion>());
                 }
                 else //nothing to summon
                 {
                     if (player.altFunctionUse == 2)
-                        Main.NewText("Nothing seems to answer the call...", color);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.SoC.None"), color);
                 }
             }
 

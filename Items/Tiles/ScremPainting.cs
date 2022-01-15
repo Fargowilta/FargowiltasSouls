@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Screm Painting");
+            /*DisplayName.SetDefault("Screm Painting");
             Tooltip.SetDefault("'Merry N. Tuse'");
             DisplayName.AddTranslation(GameCulture.Chinese, "尖叫猫猫");
-            Tooltip.AddTranslation(GameCulture.Chinese, "Merry N. Tuse");
+            Tooltip.AddTranslation(GameCulture.Chinese, "Merry N. Tuse");*/
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)

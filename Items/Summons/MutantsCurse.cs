@@ -11,10 +11,10 @@ namespace FargowiltasSouls.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant's Curse");
+            /*DisplayName.SetDefault("Mutant's Curse");
             Tooltip.SetDefault("'At least this way, you don't need that doll'");
             DisplayName.AddTranslation(GameCulture.Chinese, "突变体的诅咒");
-            Tooltip.AddTranslation(GameCulture.Chinese, "'至少不需要用娃娃了'");
+            Tooltip.AddTranslation(GameCulture.Chinese, "'至少不需要用娃娃了'");*/
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 11));
         }
         public override int NumFrames => 11;

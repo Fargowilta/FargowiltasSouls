@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn Trophy");
+            //DisplayName.SetDefault("Abominationn Trophy");
         }
 
         public override void SetDefaults()

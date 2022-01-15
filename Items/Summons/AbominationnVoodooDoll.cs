@@ -14,12 +14,12 @@ namespace FargowiltasSouls.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn Voodoo Doll");
+            /*DisplayName.SetDefault("Abominationn Voodoo Doll");
             Tooltip.SetDefault("Summons Abominationn to your town" +
                 "\n'You are a terrible person'");
 
             DisplayName.AddTranslation(GameCulture.Chinese, "憎恶巫毒娃娃");
-            Tooltip.AddTranslation(GameCulture.Chinese, "你可真是个坏东西");
+            Tooltip.AddTranslation(GameCulture.Chinese, "你可真是个坏东西");*/
         }
 
         public override void SetDefaults()

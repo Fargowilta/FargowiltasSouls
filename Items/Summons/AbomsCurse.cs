@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn's Curse");
+            //DisplayName.SetDefault("Abominationn's Curse");
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 10));
         }
