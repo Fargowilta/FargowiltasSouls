@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Explosion");
+            //DisplayName.SetDefault("Explosion");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
         }

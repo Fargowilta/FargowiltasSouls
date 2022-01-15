@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Razorblade Typhoon");
+            //DisplayName.SetDefault("Razorblade Typhoon");
             Main.projFrames[projectile.type] = 3;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 8;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glow Ring");
+            //DisplayName.SetDefault("Glow Ring");
         }
 
         public override void SetDefaults()

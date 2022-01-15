@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Portal");
+            //DisplayName.SetDefault("Void Portal");
         }
 
         public override void SetDefaults()

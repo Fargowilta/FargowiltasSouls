@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Sphere");
+            //DisplayName.SetDefault("Phantasmal Sphere");
             Main.projFrames[projectile.type] = 2;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;

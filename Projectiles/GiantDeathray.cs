@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Deathray");
+            //DisplayName.SetDefault("Phantasmal Deathray");
         }
 
         public override void SetDefaults()

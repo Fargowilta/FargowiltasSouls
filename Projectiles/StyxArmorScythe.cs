@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Scythe");
+            //DisplayName.SetDefault("Styx Scythe");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

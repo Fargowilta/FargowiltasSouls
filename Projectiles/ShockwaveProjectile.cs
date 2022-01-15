@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shockwave");
+            //DisplayName.SetDefault("Shockwave");
         }
         
         public override void SetDefaults()

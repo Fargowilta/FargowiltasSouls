@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glow Line");
+            //DisplayName.SetDefault("Glow Line");
         }
 
         public override void SetDefaults()

@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Creeper");
+            //DisplayName.SetDefault("Creeper");
         }
 
         public override void SetDefaults()

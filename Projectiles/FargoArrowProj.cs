@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fargo Arrow");
+            //DisplayName.SetDefault("Fargo Arrow");
         }
 
         public override void SetDefaults()

@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spectral Abominationn");
+            //DisplayName.SetDefault("Spectral Abominationn");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

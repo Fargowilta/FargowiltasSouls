@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Arrow");
+            //DisplayName.SetDefault("Void Arrow");
         }
 
         public override void SetDefaults()

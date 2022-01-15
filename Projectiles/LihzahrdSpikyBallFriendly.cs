@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spiky Ball");
+            //DisplayName.SetDefault("Spiky Ball");
         }
 
         public override void SetDefaults()
