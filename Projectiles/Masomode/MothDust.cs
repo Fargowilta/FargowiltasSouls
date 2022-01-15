@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Moth Dust");
+            //DisplayName.SetDefault("Moth Dust");
         }
 
         public override void SetDefaults()

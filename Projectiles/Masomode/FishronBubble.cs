@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Detonating Bubble");
+            //DisplayName.SetDefault("Detonating Bubble");
             Main.projFrames[projectile.type] = 2;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meteor Shot");
+            //DisplayName.SetDefault("Meteor Shot");
         }
 
         public override void SetDefaults()

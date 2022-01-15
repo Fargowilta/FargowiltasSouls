@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Moon Blast");
+            //DisplayName.SetDefault("Moon Blast");
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

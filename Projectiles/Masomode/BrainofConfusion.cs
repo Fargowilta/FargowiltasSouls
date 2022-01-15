@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Brain of Confusion");
+            //DisplayName.SetDefault("Brain of Confusion");
             Main.projFrames[projectile.type] = 4;
         }
 

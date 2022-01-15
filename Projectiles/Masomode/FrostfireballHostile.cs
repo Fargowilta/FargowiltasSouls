@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frostfireball");
+            //DisplayName.SetDefault("Frostfireball");
         }
 
         public override void SetDefaults()

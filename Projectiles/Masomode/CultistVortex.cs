@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vortex");
+            //DisplayName.SetDefault("Vortex");
         }
 
         public override void SetDefaults()

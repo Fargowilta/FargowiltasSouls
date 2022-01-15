@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dash");
+            //DisplayName.SetDefault("Dash");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

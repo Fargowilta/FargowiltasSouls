@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Sun Blast");
+            //DisplayName.SetDefault("Sun Blast");
         }
 
         public override void SetDefaults()

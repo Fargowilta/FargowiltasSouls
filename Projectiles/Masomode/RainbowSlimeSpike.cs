@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rainbow Slime Spike");
+            //DisplayName.SetDefault("Rainbow Slime Spike");
         }
 
         public override void SetDefaults()

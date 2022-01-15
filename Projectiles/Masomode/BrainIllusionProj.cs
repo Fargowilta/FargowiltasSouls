@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Brain of Cthulhu");
+            //DisplayName.SetDefault("Brain of Cthulhu");
             DisplayName.AddTranslation(GameCulture.Chinese, "克苏鲁之脑");
             Main.projFrames[projectile.type] = Main.npcFrameCount[NPCID.BrainofCthulhu];
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

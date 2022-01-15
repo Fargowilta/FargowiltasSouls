@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 	
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spiky Ball");
+            //DisplayName.SetDefault("Spiky Ball");
         }
 
         public override void SetDefaults()

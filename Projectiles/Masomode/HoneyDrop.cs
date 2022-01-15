@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Honey Drop");
+            //DisplayName.SetDefault("Honey Drop");
         }
 
         public override void SetDefaults()

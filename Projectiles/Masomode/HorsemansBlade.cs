@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Horseman's Blade");
+            //DisplayName.SetDefault("The Horseman's Blade");
         }
 
         public override void SetDefaults()

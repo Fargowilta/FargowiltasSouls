@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Bolt");
+            //DisplayName.SetDefault("Phantasmal Bolt");
             Main.projFrames[projectile.type] = 5;
         }
 

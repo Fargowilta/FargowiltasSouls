@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Vision");
+            //DisplayName.SetDefault("Ancient Vision");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

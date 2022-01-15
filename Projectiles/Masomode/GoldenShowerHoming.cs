@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Golden Shower");
+            //DisplayName.SetDefault("Golden Shower");
         }
 
         public override void SetDefaults()

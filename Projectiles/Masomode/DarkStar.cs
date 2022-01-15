@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Star");
+            //DisplayName.SetDefault("Dark Star");
 
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sun");
+            //DisplayName.SetDefault("Sun");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

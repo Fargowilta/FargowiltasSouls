@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Light Ball");
+            //DisplayName.SetDefault("Light Ball");
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fuse Bomb");
+            //DisplayName.SetDefault("Fuse Bomb");
         }
 
         public override void SetDefaults()

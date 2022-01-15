@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Planty Tentacle");
+            //DisplayName.SetDefault("Planty Tentacle");
             Main.projFrames[projectile.type] = Main.npcFrameCount[NPCID.PlanterasTentacle];
         }
 

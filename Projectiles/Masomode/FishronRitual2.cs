@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oceanic Ritual");
+            //DisplayName.SetDefault("Oceanic Ritual");
             Main.projFrames[projectile.type] = 3;
         }
 

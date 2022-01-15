@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Spike");
+            //DisplayName.SetDefault("Ice Spike");
         }
 
         public override void SetDefaults()

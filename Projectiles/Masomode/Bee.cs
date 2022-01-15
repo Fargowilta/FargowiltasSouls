@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bee");
+            //DisplayName.SetDefault("Bee");
             Main.projFrames[projectile.type] = 4;
         }
 

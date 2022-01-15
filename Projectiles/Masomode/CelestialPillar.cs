@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Celestial Pillar");
+            //DisplayName.SetDefault("Celestial Pillar");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

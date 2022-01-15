@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Explosive Bullet");
+            //DisplayName.SetDefault("Explosive Bullet");
         }
 
         public override void SetDefaults()

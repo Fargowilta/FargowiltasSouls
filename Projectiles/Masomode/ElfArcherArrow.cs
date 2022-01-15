@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frostburn Arrow");
+            //DisplayName.SetDefault("Frostburn Arrow");
         }
 
         public override void SetDefaults()

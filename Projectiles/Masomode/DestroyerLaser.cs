@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Death Laser");
+            //DisplayName.SetDefault("Death Laser");
         }
 
         public override void SetDefaults()

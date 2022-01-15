@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Explosion");
+            //DisplayName.SetDefault("Explosion");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.DD2ExplosiveTrapT3Explosion];
         }
 

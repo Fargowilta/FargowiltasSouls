@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Sickle");
+            //DisplayName.SetDefault("Ice Sickle");
         }
 
         public override void SetDefaults()

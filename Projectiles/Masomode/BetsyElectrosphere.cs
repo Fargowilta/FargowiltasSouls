@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sky Dragon's Fury");
+            //DisplayName.SetDefault("Sky Dragon's Fury");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.Electrosphere];
         }
 

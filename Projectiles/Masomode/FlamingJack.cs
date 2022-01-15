@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flaming Jack");
+            //DisplayName.SetDefault("Flaming Jack");
             Main.projFrames[projectile.type] = 3;
         }
 

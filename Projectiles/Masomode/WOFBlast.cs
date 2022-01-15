@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Divine Blast");
+            //DisplayName.SetDefault("Divine Blast");
             Main.projFrames[projectile.type] = 12;
         }
 

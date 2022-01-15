@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Coin");
+            //DisplayName.SetDefault("Coin");
             Main.projFrames[projectile.type] = 4;
         }
 

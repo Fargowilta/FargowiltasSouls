@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Clown Bomb");
+            //DisplayName.SetDefault("Clown Bomb");
         }
 
         public override void SetDefaults()

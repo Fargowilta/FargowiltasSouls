@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Golden Shower");
+            //DisplayName.SetDefault("Golden Shower");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

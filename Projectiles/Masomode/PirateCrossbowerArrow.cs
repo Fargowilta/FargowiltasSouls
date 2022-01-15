@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jester's Arrow");
+            //DisplayName.SetDefault("Jester's Arrow");
         }
 
         public override void SetDefaults()

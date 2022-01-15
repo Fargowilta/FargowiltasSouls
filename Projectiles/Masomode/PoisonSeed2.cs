@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Poison Seed");
+            //DisplayName.SetDefault("Poison Seed");
             Main.projFrames[projectile.type] = 2;
         }
 

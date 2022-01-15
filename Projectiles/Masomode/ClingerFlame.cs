@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Flames");
+            //DisplayName.SetDefault("Cursed Flames");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.ClingerStaff];
         }
 

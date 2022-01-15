@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Moon");
+            //DisplayName.SetDefault("Moon");
         }
 
         public override void SetDefaults()

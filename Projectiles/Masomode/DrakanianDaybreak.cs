@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Daybreak");
+            //DisplayName.SetDefault("Daybreak");
         }
 
         public override void SetDefaults()

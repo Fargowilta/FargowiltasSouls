@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blood Scythe");
+            //DisplayName.SetDefault("Blood Scythe");
         }
 
         public override void SetDefaults()

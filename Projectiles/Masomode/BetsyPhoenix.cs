@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantom Phoenix");
+            //DisplayName.SetDefault("Phantom Phoenix");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.DD2PhoenixBowShot];

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Friend Heart");
+            //DisplayName.SetDefault("Friend Heart");
         }
 
         public override void SetDefaults()

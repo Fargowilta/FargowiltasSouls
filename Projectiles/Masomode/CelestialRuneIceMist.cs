@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Mist");
+            //DisplayName.SetDefault("Ice Mist");
         }
 
         public override void SetDefaults()

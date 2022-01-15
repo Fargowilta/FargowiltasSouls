@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Leaf");
+            //DisplayName.SetDefault("Crystal Leaf");
         }
 
         public override void SetDefaults()

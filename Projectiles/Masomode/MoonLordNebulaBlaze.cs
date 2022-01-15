@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nebula Blaze");
+            //DisplayName.SetDefault("Nebula Blaze");
             Main.projFrames[projectile.type] = 4;
         }
 

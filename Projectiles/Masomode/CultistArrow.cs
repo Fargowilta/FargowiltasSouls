@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cultist Arrow");
+            //DisplayName.SetDefault("Cultist Arrow");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Vision");
+            //DisplayName.SetDefault("Ancient Vision");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }

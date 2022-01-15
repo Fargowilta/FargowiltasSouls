@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fake Heart");
+            //DisplayName.SetDefault("Fake Heart");
         }
 
         public override void SetDefaults()

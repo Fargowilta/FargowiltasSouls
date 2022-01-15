@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hostile Healing Heart");
+            //DisplayName.SetDefault("Hostile Healing Heart");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Deathray");
+            //DisplayName.SetDefault("Shadow Deathray");
         }
 
         public override bool CanDamage()

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dungeon Guardian Prime");
+            //DisplayName.SetDefault("Dungeon Guardian Prime");
             Main.projFrames[projectile.type] = 3;
         }
 

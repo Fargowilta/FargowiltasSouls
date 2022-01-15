@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Flame");
+            //DisplayName.SetDefault("Cursed Flame");
             Main.projFrames[projectile.type] = 5;
         }
 
