@@ -1546,6 +1546,11 @@ BCL.Deviantt.Despawn =戴薇安对于她爱的表演感到很满意。
 BCL.Abom.Name =憎恶
 BCL.Abom.Despawn =憎恶摧毁了所有人。
 
+BCL.Mutant.Name =突变体
+BCL.Mutant.Despawn =突变体肃清了他周围的每一个生灵。
+BCL.Mutant.Spawn1 =在突变体和憎恶同时在场的情况下，把
+BCL.Mutant.Spawn2 =丢入熔岩中。
+
 
 
 
@@ -1623,3 +1628,848 @@ GlobalNPC.KilledbyManEater =被食人怪吃了。
 GlobalNPC.KilledbyAngryTrapper =被愤怒捕手吃了。
 GlobalNPC.KilledbyGiantTortoise =被巨型陆龟刺穿了。
 GlobalNPC.EnchesEnd =魔石
+
+
+
+
+
+/Projectiles
+/Proejectiles/AbomBoss
+
+ProjectileName.AbomBoss =憎恶
+ProjectileName.AbomDeathray =憎恶死亡射线
+ProjectileName.AbomDeathrayMark =死亡射线
+ProjectileName.AbomDeathraySmall =憎恶死亡射线
+ProjectileName.AbomDeathraySmall2 =死亡射线
+ProjectileName.AbomDeathScythe =憎恶镰刀
+ProjectileName.AbomFlocko =超级雪花怪
+ProjectileName.AbomFrostShard =寒霜碎片
+ProjectileName.AbomFrostWave =寒霜波
+ProjectileName.AbomLaser =激光
+ProjectileName.AbomReticle =憎恶十字线
+ProjectileName.AbomRitual =憎恶结界
+ProjectileName.AbomRitual2 =憎恶结界
+ProjectileName.AbomRocket =火箭
+ProjectileName.AbomScytheFlaming =憎恶镰刀
+ProjectileName.AbomScytheSpin =憎恶镰刀
+ProjectileName.AbomScytheSplit =憎恶镰刀
+ProjectileName.AbomSickle =憎恶镰刀
+ProjectileName.AbomSickle2 =憎恶镰刀
+ProjectileName.AbomStyxGazer =冥河凝视
+ProjectileName.AbomSword =冥河凝视之刃
+ProjectileName.AbomSwordHandle =冥河凝视之刃
+
+
+/Proejectiles/BossWeapons
+
+ProjectileName.BigSting22 =22
+ProjectileName.BigStinger =巨大蜂刺
+
+ProjectileName.BlenderOrbital =绞肉机
+ProjectileName.BlenderPetal =绞肉机
+ProjectileName.BlenderProj3 =绞肉机
+ProjectileName.BlenderYoyoProj =绞肉机
+
+ProjectileName.Bonez =骸骨领域
+
+ProjectileName.DragonBreathProj =巨龙之息
+ProjectileName.DragonFireball =火球
+ProjectileName.DragonFireballBoom =火球
+
+ProjectileName.DungeonGuardian =地牢守卫
+
+ProjectileName.EaterRocket =吞噬者火箭
+
+ProjectileName.EyeFireFriendly =魔眼烈火
+ProjectileName.EyeProjectile =眼球
+
+ProjectileName.FishNuke =猪鲨核弹
+ProjectileName.FishNukeExplosion =猪鲨核弹
+
+ProjectileName.FishStickProj =鱼杖
+ProjectileName.FishStickShark =鲨鱼
+
+ProjectileName.FleshLaser =血肉激光
+
+ProjectileName.GibExplosion =爆炸
+ProjectileName.GolemGib =石巨人碎块
+ProjectileName.GolemGib9 =石巨人碎块
+ProjectileName.GolemHeadProj =石巨人头
+
+ProjectileName.HellBone =地狱之骨
+ProjectileName.HellBonez =地狱之骨
+ProjectileName.HellFlame =地狱火
+ProjectileName.HellSkeletron =地狱骷髅
+ProjectileName.HellSkull =地狱头骨
+ProjectileName.HellSkull2 =地狱头骨
+
+ProjectileName.HentaiNuke =幻影爆破
+ProjectileName.HentaiSpear =洞察者
+ProjectileName.HentaiSpearArc =闪电弧
+ProjectileName.HentaiSpearBigDeathray =幻影死亡射线
+ProjectileName.HentaiSpearDash =洞察者
+ProjectileName.HentaiSpearDeathray =幻影死亡射线
+ProjectileName.HentaiSpearDeathray2 =幻影死亡射线
+ProjectileName.HentaiSpearHeld =洞察者
+ProjectileName.HentaiSpearSpin =洞察者
+ProjectileName.HentaiSpearSpinThrown =洞察者
+ProjectileName.HentaiSpearThrown =洞察者
+ProjectileName.HentaiSpearWand =洞察者
+
+ProjectileName.HiveSentry =蜂巢
+
+ProjectileName.Hungry =饿鬼
+ProjectileName.Hungry2 =饿鬼
+
+ProjectileName.LeashFlail =连枷
+
+ProjectileName.MechEyeProjectile =机械眼
+ProjectileName.MechFlail =机械连枷
+
+ProjectileName.PhantasmalBlast =幻影爆炸
+ProjectileName.PhantasmalBolt =幻影矢
+ProjectileName.PhantasmalEyeHoming =幻影眼
+ProjectileName.PhantasmalEyeLeashProj =幻影眼
+ProjectileName.PhantasmalFlail =幻影连枷
+
+ProjectileName.PrimeDeathray =烈焰死亡射线
+ProjectileName.PrimeLaser =机械骷髅王激光
+ProjectileName.RefractorBlaster2Held =光衍冲击波
+
+ProjectileName.RetiDeathray =烈焰死亡射线
+ProjectileName.Retiglaive =激光眼飞轮刃
+ProjectileName.Retirang =激光眼飞轮刃
+ProjectileName.Spazmaglaive =魔焰眼飞轮刃
+ProjectileName.SpazmaglaiveExplosion =诅咒地狱爆炸
+ProjectileName.Spazmarang =魔焰眼激光眼
+
+ProjectileName.SlimeBall =史莱姆球
+ProjectileName.SlimeSlash =史莱姆挥砍
+ProjectileName.SlimeSpikeFriendly =史莱姆刺
+
+ProjectileName.SmallStinger =小毒刺
+
+ProjectileName.SparklingDevi =戴薇安
+ProjectileName.SparklingLove =闪闪发光的爱
+ProjectileName.SparklingLoveBig =闪闪发光的爱
+ProjectileName.SparklingLoveDeathray =爱心激光
+ProjectileName.SparklingLoveDeathray2 =爱心激光
+ProjectileName.SparklingLoveEnergyHeart =能量之心
+ProjectileName.SparklingLoveHeart =友谊之心
+
+ProjectileName.Stinger =毒刺
+
+ProjectileName.StyxGazer =冥河凝视
+ProjectileName.StyxGazerHandle =冥河凝视
+ProjectileName.StyxScythe =冥河镰刀
+ProjectileName.StyxSickle =冥河镰刀
+
+ProjectileName.Whirlpool =漩涡
+
+
+/Proejectiles/ChallengerItems
+
+ProjectileName.TheLightningRodProj =避雷针
+
+
+/Proejectiles/Champions
+
+森林英灵：
+ProjectileName.Acorn =橡实
+ProjectileName.PalmTreeHostile =棕榈树
+ProjectileName.Snowball =雪球
+ProjectileName.Snowball2 =雪球
+ProjectileName.SquirrelHook =松鼠钩
+ProjectileName.SquirrelHook2 =松鼠钩
+ProjectileName.TimberLaser =激光
+ProjectileName.TimberSquirrel =橡实
+ProjectileName.TimberTree =树木
+ProjectileName.TimberTreeAcorn =橡实
+
+宇宙英灵：
+ProjectileName.CosmosBolt =宇宙矢
+ProjectileName.CosmosDeathray =宇宙死亡射线
+ProjectileName.CosmosDeathray2 =宇宙死亡射线
+ProjectileName.CosmosFireball =宇宙火球
+ProjectileName.CosmosFireball2 =宇宙火球
+ProjectileName.CosmosGlowything =宇宙入侵者
+ProjectileName.CosmosInvader =宇宙入侵者
+ProjectileName.CosmosLightning =闪电弧
+ProjectileName.CosmosLightningOrb =闪电弧
+ProjectileName.CosmosMeteor =宇宙陨星
+ProjectileName.CosmosMoon =月球
+ProjectileName.CosmosNebulaBlaze =宇宙陨星
+ProjectileName.CosmosReticle =星云准星
+ProjectileName.CosmosRitual =宇宙结界
+ProjectileName.CosmosSphere =宇宙之球
+ProjectileName.CosmosVortex =星旋
+
+大地英灵：
+ProjectileName.CrystalBomb =水晶炸弹
+ProjectileName.CrystalBombShard =水晶碎片
+ProjectileName.EarthChainBlast =链式爆炸
+ProjectileName.EarthChainBlast2 =链式爆炸
+ProjectileName.EarthGeyser =喷泉
+ProjectileName.EarthPalladOrb =钯金生命能量球
+ProjectileName.FlowerPetal =花瓣
+
+生命英灵：
+ProjectileName.CactusMine =仙人掌感应雷
+ProjectileName.ChampionBee =蜜蜂
+ProjectileName.ChampionBeetle =甲虫
+ProjectileName.LifeDeathray =神圣死亡射线
+ProjectileName.LifeDeathray2 =神圣死亡射线
+ProjectileName.LifeDeathraySmall =神圣死亡射线
+ProjectileName.LifeDeathraySmall2 =神圣死亡射线
+ProjectileName.LifeFireball =火球
+ProjectileName.LifeRitual =生命结界
+
+自然英灵：
+ProjectileName.NatureBullet =自然子弹
+ProjectileName.NatureCloudMoving =自然之云
+ProjectileName.NatureCloudRaining =自然之云
+ProjectileName.NatureDeathray =自然死亡射线
+ProjectileName.NatureDeathraySmall =自然死亡射线
+ProjectileName.NatureExplosion =自然爆炸
+ProjectileName.NatureIcicle =自然冰柱
+ProjectileName.NatureRain =自然之雨
+
+暗影英灵：
+ProjectileName.ShadowClone =暗影英灵
+ProjectileName.ShadowDeathraySmall =暗影死亡射线
+ProjectileName.ShadowflameBlast =暗影焰爆炸
+ProjectileName.ShadowFlameburst =爆炸烈焰
+ProjectileName.ShadowFlamingScythe =烈火镰刀
+ProjectileName.ShadowGuardian =地牢守卫
+ProjectileName.ShadowOrb =暗影珠
+
+心灵英灵：
+ProjectileName.SpiritCrossBone =交叉骨
+ProjectileName.SpiritHand =心灵英灵手
+ProjectileName.SpiritSpirit =心灵英灵
+ProjectileName.SpiritSword =心灵之剑
+
+泰拉英灵：
+ProjectileName.TerraFireball =火球
+ProjectileName.TerraLightningOrb =闪电
+ProjectileName.Lightning Orb =闪电
+ProjectileName.TerraLightningOrbDeathray =闪电死亡射线
+
+意志英灵：
+ProjectileName.WillBomb =意志炸弹
+ProjectileName.WillDeathray =意志死亡射线
+ProjectileName.WillDeathray2 =意志死亡射线
+ProjectileName.WillDeathraySmall =意志死亡射线
+ProjectileName.WillFireball =火球
+ProjectileName.WillFireball2 =火球
+ProjectileName.WillJavelin =标枪
+ProjectileName.WillJavelin2 =标枪
+ProjectileName.WillJavelin3 =标枪
+ProjectileName.WillRitual =意志结界
+ProjectileName.WillShell =意志之壳
+ProjectileName.WillTyphoon =意志利刃台风
+
+
+/Proejectiles/Critters
+
+ProjectileName.BaseBirdProj =鸟
+
+
+/Proejectiles/Deathrays
+
+ProjectileName.ChainDeathrayWOFS =神赐死亡射线
+ProjectileName.CursedDeathrayWOFS =诅咒死亡射线
+
+ProjectileName.DeviBigDeathray =爱心射线
+ProjectileName.DeviDeathray =爱心射线
+ProjectileName.DeviDeathraySmall =爱心射线
+ProjectileName.DeviLightBeam =闪光射线
+
+ProjectileName.PhantasmalDeathray =烈焰死亡射线
+ProjectileName.PhantasmalDeathrayGolem =烈焰死亡射线
+ProjectileName.PhantasmalDeathrayML =幻影死亡射线II
+ProjectileName.PhantasmalDeathrayMLSmall =幻影死亡射线II
+ProjectileName.PhantasmalDeathrayWOF =神赐死亡射线
+ProjectileName.PhantasmalDeathrayWOFS =神赐死亡射线
+
+
+/Proejectiles/DeviBoss
+
+ProjectileName.DeviAxe =闪闪发光的爱
+ProjectileName.DeviBigMimic =生物群落宝箱怪
+ProjectileName.DeviBoss =戴薇安
+ProjectileName.DeviButterfly =蛾
+ProjectileName.DeviEnergyHeart =能量之心
+ProjectileName.DeviGuardian =守卫者宝宝
+ProjectileName.DeviHammer =圣骑士锤
+ProjectileName.DeviHammerHeld =圣骑士锤
+ProjectileName.DeviHeart =假心
+ProjectileName.DeviLostSoul =亡魂
+ProjectileName.DeviMedusa =蛇发女妖头
+ProjectileName.DeviMimic =宝箱怪
+ProjectileName.DeviRainHeart =假心
+ProjectileName.DeviRingHeart =能量之心
+ProjectileName.DeviRitual =戴薇安结界
+ProjectileName.DeviRitual2 =戴薇安结界
+ProjectileName.DeviSparklingLove =闪闪发光的爱
+ProjectileName.DeviSparklingLoveSmall =闪闪发光的爱
+ProjectileName.DeviVisualHeart =假心
+
+
+/Proejectiles/JungleMimic
+
+ProjectileName.AcornProjectile =橡实
+ProjectileName.AcornProjectileExplosion =橡实爆炸
+ProjectileName.JungleMimicSummon =丛林宝箱怪
+ProjectileName.JungleMimicSummonCoin =钱币
+ProjectileName.VineslingerBall =藤蔓吊索
+ProjectileName.VineslingerProjectileFriendly =生命树叶
+
+
+/Proejectiles/Masomode
+
+ProjectileName.AncientVision =远古幻影妖
+
+ProjectileName.AncientVisionLunarCultist =远古幻影妖
+
+ProjectileName.Bee =蜜蜂
+
+ProjectileName.Beehive =蜂巢
+
+ProjectileName.BetsyDash =双足翼龙冲刺
+
+ProjectileName.BetsyElectrosphere =天龙之怒
+
+ProjectileName.BetsyElectrosphere2 =天龙之怒
+
+ProjectileName.BetsyFury =天龙之怒
+
+ProjectileName.BetsyPhoenix =幽灵凤凰
+
+ProjectileName.BigMimicExplosion =爆炸
+
+ProjectileName.BloodScythe =月之镰刀
+
+ProjectileName.BloodScytheFriendly =鲜血镰刀
+
+ProjectileName.BrainIllusionProj =克苏鲁之脑
+
+ProjectileName.BrainofConfusion =混乱之脑
+
+ProjectileName.CelestialFragment =天界碎片
+
+ProjectileName.CelestialPillar =天界柱
+
+ProjectileName.CelestialRuneAncientVision =远古幻影妖
+
+ProjectileName.CelestialRuneFireball =火球
+
+ProjectileName.CelestialRuneIceMist =冰雪雾
+
+ProjectileName.CelestialRuneIceSpike =冰雪尖刺
+
+ProjectileName.CelestialRuneLightningArc =闪电弧
+
+ProjectileName.ClingerFlame =诅咒焰
+
+ProjectileName.ClownBomb =小丑炸弹
+
+ProjectileName.CrystalLeafShot =水晶叶
+
+ProjectileName.CultistArrow =邪教徒箭
+
+ProjectileName.CultistFireball =火球
+
+ProjectileName.CultistRitual =闪电祭礼
+
+ProjectileName.CultistVortex =星旋
+
+ProjectileName.CursedFireballHoming =诅咒眼
+
+ProjectileName.CursedFlameHostile2 =诅咒眼
+
+ProjectileName.CursedFlamethrower =魔眼烈火
+
+ProjectileName.DarkStar =暗星
+
+ProjectileName.DeathSkull =死亡头骨
+
+ProjectileName.DestroyerLaser =死亡激光
+
+ProjectileName.DrakanianDaybreak =破晓
+
+ProjectileName.ElfArcherArrow =霜冻箭
+
+ProjectileName.ElfCopterBullet =爆破弹
+
+ProjectileName.ElfCopterBulletExplosion =爆破弹
+
+ProjectileName.EyeBeam2 =魔眼光束
+
+ProjectileName.EyeFire2 =魔眼烈火
+
+ProjectileName.FakeHeart =假心
+
+ProjectileName.FakeHeart2 =假心
+
+ProjectileName.FishronBubble =爆炸泡泡
+
+ProjectileName.FishronRitual =海洋仪式
+
+ProjectileName.FishronRitual2 =海洋仪式
+
+ProjectileName.FlamingJack =烈焰杰克南瓜
+
+ProjectileName.FragmentRitual =拜月仪式
+
+ProjectileName.FriendHeart =友谊之心
+
+ProjectileName.FrostfireballHostile =霜火球
+
+ProjectileName.FuseBomb =聚合炸弹
+
+ProjectileName.GoblinSpikyBall =尖刺球
+
+ProjectileName.GoldenShowerHoming =黄金雨
+
+ProjectileName.GoldenShowerWOF =黄金雨
+
+ProjectileName.GolemBoulder =巨石
+
+ProjectileName.GolemDeathraySmall =烈焰死亡激光
+
+ProjectileName.GolemFireball =火球
+
+ProjectileName.GolemGeyser =喷泉
+
+ProjectileName.GolemGeyser2 =喷泉
+
+ProjectileName.GolemSpikyBall =尖刺球
+
+ProjectileName.GuardianDeathraySmall =暗影死亡激光
+
+ProjectileName.HoneyDrop =蜂蜜滴
+
+ProjectileName.HorsemansBlade =无头骑士剑
+
+ProjectileName.HostileHealingHeart =假心
+
+ProjectileName.IceSickleHostile =冰雪镰刀
+
+ProjectileName.JungleTentacle =丛林触手
+
+ProjectileName.LightBall =闪电球
+
+ProjectileName.LihzahrdBoulderFriendly =巨石
+
+ProjectileName.LunarRitual =拜月仪式
+
+ProjectileName.MimicCoin =钱币
+
+ProjectileName.MoonLordFireball =火球
+
+ProjectileName.MoonLordMoon =月亮
+
+ProjectileName.MoonLordMoonBlast =月之爆破
+
+ProjectileName.MoonLordNebulaBlaze =星云烈焰
+
+ProjectileName.MoonLordSun =太阳
+
+ProjectileName.MoonLordSunBlast =烈阳爆破
+
+ProjectileName.MothDust =飞蛾尘
+
+ProjectileName.PhantasmalBolt2 =幻影矢
+
+ProjectileName.PhantasmalSphereDeathray =幻影死亡射线
+
+ProjectileName.PhantasmalSphereRing =幻影球
+
+ProjectileName.PirateCrossbowerArrow =小丑
+
+ProjectileName.PirateDeadeyeBullet =流星弹
+
+ProjectileName.PlanteraTentacle =植物触手
+
+ProjectileName.PoisonSeed2 =毒种子
+
+ProjectileName.PrimeGuardian =机械地牢守卫
+
+ProjectileName.PrimeTrail =轨迹
+
+ProjectileName.PumpkingFlamingScythe =烈焰镰刀
+
+ProjectileName.RainbowSlimeSpike =彩虹史莱姆尖刺
+
+ProjectileName.RazorbladeTyphoon =利刃台风
+
+ProjectileName.ShadowflameTentacle =暗影焰触手
+
+ProjectileName.ShadowflameTentacleHostile =暗影焰触手
+
+ProjectileName.SkeletonArcherArrow =毒液箭
+
+ProjectileName.SkeletronBone =骨头
+
+ProjectileName.SkeletronGuardian =守卫者宝宝
+
+ProjectileName.SkeletronGuardian2 =守卫者宝宝
+
+ProjectileName.SlimeBallHostile =史莱姆球
+
+ProjectileName.SlimeSpike =史莱姆尖刺
+
+ProjectileName.SniperBullet =高射速水晶弹
+
+ProjectileName.SniperBulletShard =高射速水晶弹
+
+ProjectileName.StardustRain =宇宙入侵者
+
+ProjectileName.StormDiverBullet =夜明弹
+
+ProjectileName.TacticalSkeletonBullet =流星弹
+
+ProjectileName.TargetingReticle =准星
+
+ProjectileName.VenomSpit =毒液唾沫
+
+ProjectileName.VultureFeather =秃鹫羽毛
+
+ProjectileName.WaterBoltHostile =水矢
+
+ProjectileName.WOFBlast =神圣爆炸
+
+ProjectileName.WOFChain =饿鬼
+
+ProjectileName.WOFReticle =血肉墙准星
+
+
+/Proejectiles/Minions
+
+ProjectileName.Abominationn =憎恶
+
+ProjectileName.AbominationnScythe =憎恶镰刀
+
+ProjectileName.AbominationnSickle =憎恶镰刀
+
+ProjectileName.BigBrainIllusion =大脑
+
+ProjectileName.BigBrainProj =大脑
+
+ProjectileName.BrainProj =大脑
+
+ProjectileName.CreeperMinion =大脑
+
+ProjectileName.CreeperProj =飞眼怪
+
+ProjectileName.CreeperProj2 =飞眼怪
+
+ProjectileName.CrystalSkull =水晶头骨
+
+ProjectileName.DestroyerBody =毁灭者身体
+
+ProjectileName.DestroyerBody2 =毁灭者身体
+
+ProjectileName.DestroyerHead =毁灭者头
+
+ProjectileName.DestroyerHead2 =毁灭者头
+
+ProjectileName.DestroyerTail =毁灭者尾
+
+ProjectileName.DestroyerTail2 =毁灭者尾
+
+ProjectileName.EaterBody =吞噬者身体
+
+ProjectileName.EaterHead =吞噬者头
+
+ProjectileName.EaterTail =吞噬者尾
+
+ProjectileName.EridanusBullet =厄里达诺斯之弹
+
+ProjectileName.EridanusDeathray =厄里达诺斯死亡射线
+
+ProjectileName.EridanusFist =厄里达诺斯之拳
+
+ProjectileName.EridanusMinion =厄里达诺斯
+
+ProjectileName.Eridanus =月之仪式
+
+ProjectileName.FlameburstMinion =燃火仆从
+
+ProjectileName.FriendRay =爱心射线
+
+ProjectileName.FrostShard =寒霜碎块
+
+ProjectileName.FrostWave =寒霜波
+
+ProjectileName.HallowSword =神圣之剑
+
+ProjectileName.LunarCultist =拜月邪教徒
+
+ProjectileName.LunarCultistFireball =火球
+
+ProjectileName.LunarCultistIceMist =冰雪雾
+
+ProjectileName.LunarCultistIceSpike =冰雪尖刺
+
+ProjectileName.LunarCultistLight =远古光明妖
+
+ProjectileName.LunarCultistLightningArc =闪电弧
+
+ProjectileName.LunarCultistLightningOrb =闪电珠
+
+ProjectileName.MiniSaucer =迷你飞碟
+
+ProjectileName.OpticFlame =魔眼烈火
+
+ProjectileName.OpticLaser =死亡激光
+
+ProjectileName.OpticRetinazer =激光眼
+
+ProjectileName.OpticSpazmatism =魔焰眼
+
+ProjectileName.PalmTreeSentry =棕榈树
+
+ProjectileName.PhantasmalBoltTrueEye =幻影矢
+
+ProjectileName.PhantasmalDeathrayPungent =神赐死亡射线
+
+ProjectileName.PhantasmalDeathrayTrueEye =幻影死亡射线
+
+ProjectileName.PhantasmalRing =幻影之环
+
+ProjectileName.PhantasmalRing2 =幻影之环
+
+ProjectileName.PhantasmalSphereTrueEye =幻影球
+
+ProjectileName.PlanterasChild =世纪之花之子
+
+ProjectileName.PoisonSeedPlanterasChild =毒种子
+
+ProjectileName.Probe1 =探针
+
+ProjectileName.Probe2 =探针
+
+ProjectileName.ProbeLaser =探针激光
+
+ProjectileName.PungentEyeball =气味刺鼻的眼球
+
+ProjectileName.RainbowSlime =彩虹史莱姆
+
+ProjectileName.RainbowSlimeSpikeFriendly =彩虹史莱姆尖刺
+
+ProjectileName.RingDeathray =幻影死亡射线
+
+ProjectileName.SaucerDeathray =飞碟光束
+
+ProjectileName.SaucerLaser =激光
+
+ProjectileName.SaucerRocket =火箭
+
+ProjectileName.SeedPlanterasChild =种子
+
+ProjectileName.ShadowflamesFriendly =暗影焰
+
+ProjectileName.SilverSword =银剑
+
+ProjectileName.SkeletronArmL =骷髅王的手
+
+ProjectileName.SkeletronArmR =骷髅王的手
+
+ProjectileName.SpikyBallPlanterasChild =尖刺球
+
+ProjectileName.SuperFlocko =超级雪花怪
+
+ProjectileName.TrueEyeL =克苏鲁真眼
+
+ProjectileName.TrueEyeR =克苏鲁真眼
+
+ProjectileName.TrueEyeS =克苏鲁真眼
+
+
+/Proejectiles/MutantBoss
+
+ProjectileName.BossRush =突变体冲刺
+ProjectileName.MutantBomb =猪鲨核弹
+ProjectileName.MutantBombSmall =飞眼怪
+ProjectileName.MutantBoss =突变体
+ProjectileName.MutantCrystalLeaf =水晶叶
+ProjectileName.MutantDeathray1 =幻影死亡射线
+ProjectileName.MutantDeathray2 =幻影死亡射线
+ProjectileName.MutantDeathray3 =烈焰死亡射线
+ProjectileName.MutantDeathrayAim =幻影死亡射线
+ProjectileName.MutantDeathraySmall =幻影死亡射线
+ProjectileName.MutantDestroyerBody =毁灭者
+ProjectileName.MutantDestroyerHead =毁灭者
+ProjectileName.MutantDestroyerTail =毁灭者
+ProjectileName.MutantEye =幻影眼
+ProjectileName.MutantEyeOfCthulhu =克苏鲁之眼
+ProjectileName.MutantFishron =猪龙鱼
+ProjectileName.MutantFishronRitual =猪鲨核弹
+ProjectileName.MutantFragment =天界碎片
+ProjectileName.MutantGiantDeathray =幻影死亡射线
+ProjectileName.MutantGiantDeathray2 =幻影死亡射线
+ProjectileName.MutantGlowything =激光眼激光动画
+ProjectileName.MutantGuardian =机械骷髅王
+ProjectileName.MutantHeal =突变体疗愈
+ProjectileName.MutantMark1 =幻影球
+ProjectileName.MutantMark2 =水晶叶
+ProjectileName.MutantNuke =猪鲨核弹
+ProjectileName.MutantPillar =天界柱
+ProjectileName.MutantReticle =突变体准星
+ProjectileName.MutantReticle2 =突变体准星
+ProjectileName.MutantRetirang =激光眼回旋镖
+ProjectileName.MutantRitual =突变体结界
+ProjectileName.MutantRitual2 =突变体结界
+ProjectileName.MutantRitual3 =突变体结界
+ProjectileName.MutantRitual4 =突变体结界
+ProjectileName.MutantRitual5 =突变体结界
+ProjectileName.MutantScythe1 =突变体镰刀
+ProjectileName.MutantScythe2 =突变体镰刀
+ProjectileName.MutantSlimeBall =史莱姆雨
+ProjectileName.MutantSlimeBall2 =史莱姆雨
+ProjectileName.MutantSlimeRain =史莱姆雨
+ProjectileName.MutantSpazmarang =魔焰眼回旋镖
+ProjectileName.MutantSpearAim =洞察者
+ProjectileName.MutantSpearDash =洞察者
+ProjectileName.MutantSpearSpin =洞察者
+ProjectileName.MutantSpearThrown =洞察者
+ProjectileName.MutantSphereRing =幻影球
+ProjectileName.MutantSphereSmall =幻影球
+ProjectileName.MutantSword =幻影球
+ProjectileName.MutantTrueEyeDeathray =幻影死亡射线
+ProjectileName.MutantTrueEyeL =突变体真眼
+ProjectileName.MutantTrueEyeR =突变体真眼
+ProjectileName.MutantTrueEyeS =突变体真眼
+ProjectileName.MutantTrueEyeSphere =幻影球
+ProjectileName.MutantTyphoon =利刃台风
+
+
+/Proejectiles/Pets
+
+ProjectileName.BabyAbom =憎恶宝宝
+
+ProjectileName.ChibiDevi =小不点戴薇安
+
+ProjectileName.MutantSpawn =突变体
+
+
+/Proejectiles/Souls
+
+ProjectileName.ArrowRain =箭雨
+
+ProjectileName.CactusNeedle =仙人掌针刺
+
+ProjectileName.Chlorofuck =Chlorofuck
+
+ProjectileName.CopperLightning =闪电弧
+
+ProjectileName.DungeonGuardianNecro =地牢守卫
+
+ProjectileName.ForbiddenTornado =禁忌旋风
+
+ProjectileName.FossilBone =化石骨头
+
+ProjectileName.FrostIcicle =冰柱
+
+ProjectileName.GladiatorJavelin =标枪
+
+ProjectileName.GoldShellProj =黄金壳
+
+ProjectileName.GrowingPumpkin =南瓜
+
+ProjectileName.IronParry =钢铁回避
+
+ProjectileName.MegaFlameburst =究极炎爆
+
+ProjectileName.NecroGrave =死灵护胫
+
+ProjectileName.PalladOrb =钯金生命珠
+
+ProjectileName.PearlwoodRainbow =珍珠木彩虹
+
+ProjectileName.PumpkinFlame =火焰
+
+ProjectileName.RainCloud =雨云
+
+ProjectileName.ShadowBall =暗影球
+
+ProjectileName.ShadowEnchantOrb =暗影珠
+
+ProjectileName.ShroomiteShroom =蘑菇
+
+ProjectileName.Snowstorm =雪暴
+
+ProjectileName.SpookyScythe =镰刀
+
+ProjectileName.StardustKnife =星尘投刀
+
+ProjectileName.SuperBlood =无上之血
+
+ProjectileName.TurtleShield =海龟护盾
+
+
+/Proejectiles/Others
+
+ProjectileName.AbomScytheFriendly =憎恶镰刀
+
+ProjectileName.AmalgamatedDart =混合飞镖
+
+ProjectileName.CreeperHitbox =飞眼怪
+
+ProjectileName.CuteFishronRitual =海洋仪式
+
+ProjectileName.Explosion =爆炸
+
+ProjectileName.ExplosionSmall =爆炸
+
+ProjectileName.FargoArrowProj =混合箭矢
+
+ProjectileName.FargoBulletProj =混合子弹
+
+ProjectileName.GeyserFriendly =喷泉
+
+ProjectileName.GiantDeathray =幻影死亡光线
+
+ProjectileName.GlowLine =发光之线
+
+ProjectileName.GlowRing =发光之环
+
+ProjectileName.GlowRingHollow =发光之环
+
+ProjectileName.GrazeRing =发光之环
+
+ProjectileName.HostileLightning =闪电弧
+
+ProjectileName.LightningArc =闪电弧
+
+ProjectileName.LightningVortex =星旋
+
+ProjectileName.LightningVortexHostile =星旋
+
+ProjectileName.LihzahrdSpikyBallFriendly =尖刺球
+
+ProjectileName.NukeProj =核弹
+
+ProjectileName.NukeProj2 =核弹
+
+ProjectileName.PhantasmalSphere =幻影球
+
+ProjectileName.RazorbladeTyphoonFriendly =利刃台风
+
+ProjectileName.Shadowfrostfireball =霜火球
+
+ProjectileName.ShockwaveProjectile =冲击波
+
+ProjectileName.SpectralFishron =灵能憎恶
+
+ProjectileName.StyxArmorScythe =冥河镰刀
+
+ProjectileName.TopHatSquirrelLaser =激光
+
+ProjectileName.Void =虚空
+
+ProjectileName.VoidArrow =虚空箭
+
+ProjectileName.VoidPortal =虚空传送门

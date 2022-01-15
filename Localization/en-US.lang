@@ -1546,6 +1546,11 @@ BCL.Deviantt.Despawn =Deviantt is satisfied with its show of love.
 BCL.Abom.Name =Abominationn
 BCL.Abom.Despawn =Abominationn has destroyed everyone.
 
+BCL.Mutant.Name =Mutant
+BCL.Mutant.Despawn =Mutant has eviscerated everyone under its hands.
+BCL.Mutant.Spawn1 =Throw 
+BCL.Mutant.Spawn2 = into a pool of lava while Abominationn is alive in Mutant's presence.
+
 
 
 
@@ -1623,3 +1628,848 @@ GlobalNPC.KilledbyManEater = was eaten alive by a Man Eater.
 GlobalNPC.KilledbyAngryTrapper = was eaten alive by an Angry Trapper.
 GlobalNPC.KilledbyGiantTortoise = was impaled by a Giant Tortoise.
 GlobalNPC.EnchesEnd =Enchantment
+
+
+
+
+
+/Projectiles
+/Proejectiles/AbomBoss
+
+ProjectileName.AbomBoss =Abominationn
+ProjectileName.AbomDeathray =Abominable Deathray
+ProjectileName.AbomDeathrayMark =Deathray
+ProjectileName.AbomDeathraySmall =Abominable Deathray
+ProjectileName.AbomDeathraySmall2 =Deathray
+ProjectileName.AbomDeathScythe =Abominationn Scythe
+ProjectileName.AbomFlocko =Super Flocko
+ProjectileName.AbomFrostShard =Frost Shard
+ProjectileName.AbomFrostWave =Frost Wave
+ProjectileName.AbomLaser =Laser
+ProjectileName.AbomReticle =Abominationn Reticle
+ProjectileName.AbomRitual =Abominationn Seal
+ProjectileName.AbomRitual2 =Abominationn Seal
+ProjectileName.AbomRocket =Rocket
+ProjectileName.AbomScytheFlaming =Abominationn Scythe
+ProjectileName.AbomScytheSpin =Abominationn Scythe
+ProjectileName.AbomScytheSplit =Abominationn Scythe
+ProjectileName.AbomSickle =Abominationn Sickle
+ProjectileName.AbomSickle2 =Abominationn Sickle
+ProjectileName.AbomStyxGazer =Styx Gazer
+ProjectileName.AbomSword =Styx Gazer Blade
+ProjectileName.AbomSwordHandle =Styx Gazer Blade
+
+
+/Proejectiles/BossWeapons
+
+ProjectileName.BigSting22 =22
+ProjectileName.BigStinger =Big Stinger
+
+ProjectileName.BlenderOrbital =The Blender
+ProjectileName.BlenderPetal =The Blender
+ProjectileName.BlenderProj3 =The Blender
+ProjectileName.BlenderYoyoProj =The Blender
+
+ProjectileName.Bonez =Bonez
+
+ProjectileName.DragonBreathProj =Dragon's Breath
+ProjectileName.DragonFireball =Fireball
+ProjectileName.DragonFireballBoom =Fireball
+
+ProjectileName.DungeonGuardian =Dungeon Guardian
+
+ProjectileName.EaterRocket =Eater Rocket
+
+ProjectileName.EyeFireFriendly =Eye Fire
+ProjectileName.EyeProjectile =EyeProjectile2
+
+ProjectileName.FishNuke =Fish Nuke
+ProjectileName.FishNukeExplosion =Fish Nuke
+
+ProjectileName.FishStickProj =Fish Stick
+ProjectileName.FishStickShark =Shark
+
+ProjectileName.FleshLaser =Red Laser
+
+ProjectileName.GibExplosion =Explosion
+ProjectileName.GolemGib =Golem Gibs
+ProjectileName.GolemGib9 =Golem Gibs 
+ProjectileName.GolemHeadProj =Golem Head
+
+ProjectileName.HellBone =Hell Bone
+ProjectileName.HellBonez =Hell Bonez
+ProjectileName.HellFlame =Hell Flame
+ProjectileName.HellSkeletron =Hell Skeletron
+ProjectileName.HellSkull =Hell Skull
+ProjectileName.HellSkull2 =Hell Skull
+
+ProjectileName.HentaiNuke =Phantasmal Blast
+ProjectileName.HentaiSpear =The Penetrator
+ProjectileName.HentaiSpearArc =Lightning Arc
+ProjectileName.HentaiSpearBigDeathray =Phantasmal Deathray
+ProjectileName.HentaiSpearDash =The Penetrator
+ProjectileName.HentaiSpearDeathray =Phantasmal Deathray
+ProjectileName.HentaiSpearDeathray2 =Phantasmal Deathray
+ProjectileName.HentaiSpearHeld =The Penetrator
+ProjectileName.HentaiSpearSpin =The Penetrator
+ProjectileName.HentaiSpearSpinThrown =The Penetrator
+ProjectileName.HentaiSpearThrown =The Penetrator
+ProjectileName.HentaiSpearWand =The Penetrator
+
+ProjectileName.HiveSentry =Hive
+
+ProjectileName.Hungry =Hungry
+ProjectileName.Hungry2 =Hungry
+
+ProjectileName.LeashFlail =Leash Flail
+
+ProjectileName.MechEyeProjectile =MechEyeProjectile
+ProjectileName.MechFlail =Mech Flail
+
+ProjectileName.PhantasmalBlast =Phantasmal Blast
+ProjectileName.PhantasmalBolt =Phantasmal Bolt
+ProjectileName.PhantasmalEyeHoming =Phantasmal Eye
+ProjectileName.PhantasmalEyeLeashProj =Phantasmal Eye
+ProjectileName.PhantasmalFlail =Phantasmal Flail
+
+ProjectileName.PrimeDeathray =Blazing Deathray
+ProjectileName.PrimeLaser =Prime Laser
+ProjectileName.RefractorBlaster2Held =Diffractor Blaster
+
+ProjectileName.RetiDeathray =Blazing Deathray
+ProjectileName.Retiglaive =Retiglaive
+ProjectileName.Retirang =Retirang
+ProjectileName.Spazmaglaive =Spazmaglaive
+ProjectileName.SpazmaglaiveExplosion =Cursed Inferno
+ProjectileName.Spazmarang =Spazmarang
+
+ProjectileName.SlimeBall =Slime Ball
+ProjectileName.SlimeSlash =Slime Slash
+ProjectileName.SlimeSpikeFriendly =Slime Spike
+
+ProjectileName.SmallStinger =Small Stinger
+
+ProjectileName.SparklingDevi =Deviantt
+ProjectileName.SparklingLove =Sparkling Love
+ProjectileName.SparklingLoveBig =Sparkling Love
+ProjectileName.SparklingLoveDeathray =Love Ray
+ProjectileName.SparklingLoveDeathray2 =Love Ray
+ProjectileName.SparklingLoveEnergyHeart =Energy Heart
+ProjectileName.SparklingLoveHeart =Friend Heart
+
+ProjectileName.Stinger =Stinger
+
+ProjectileName.StyxGazer =Styx Gazer
+ProjectileName.StyxGazerHandle =Styx Gazer
+ProjectileName.StyxScythe =Styx Scythe
+ProjectileName.StyxSickle =Styx Sickle
+
+ProjectileName.Whirlpool =Whirlpool
+
+
+/Proejectiles/ChallengerItems
+
+ProjectileName.TheLightningRodProj =The Lightning Rod
+
+
+/Proejectiles/Champions
+
+Timber:
+ProjectileName.Acorn =Acorn
+ProjectileName.PalmTreeHostile =Palm Tree
+ProjectileName.SquirrelHook =Squirrel Hook
+ProjectileName.SquirrelHook2 =Squirrel Hook
+ProjectileName.Snowball =Snowball
+ProjectileName.Snowball2 =Snowball
+ProjectileName.TimberLaser =Laser
+ProjectileName.TimberSquirrel =Acorn
+ProjectileName.TimberTree =Tree
+ProjectileName.TimberTreeAcorn =Acorn
+
+Cosmos:
+ProjectileName.CosmosBolt =Cosmic Bolt
+ProjectileName.CosmosDeathray =Cosmic Deathray
+ProjectileName.CosmosDeathray2 =Cosmic Deathray
+ProjectileName.CosmosFireball =Cosmic Fireball
+ProjectileName.CosmosFireball2 =Cosmic Fireball
+ProjectileName.CosmosGlowything =Cosmic Invader
+ProjectileName.CosmosInvader =Cosmic Invader
+ProjectileName.CosmosLightning =Lightning Arc
+ProjectileName.CosmosLightningOrb =Hungry
+ProjectileName.CosmosMeteor =Cosmic Meteor
+ProjectileName.CosmosMoon =Cosmic Moon
+ProjectileName.CosmosNebulaBlaze =Cosmic Meteor
+ProjectileName.CosmosReticle =Cosmic Reticle
+ProjectileName.CosmosRitual =Cosmic Seal
+ProjectileName.CosmosSphere =Cosmic Sphere
+ProjectileName.CosmosVortex =Vortex
+
+Earth:
+ProjectileName.CrystalBomb =Crystal Bomb
+ProjectileName.CrystalBombShard =Crystal Shard
+ProjectileName.EarthChainBlast =Chain Blast
+ProjectileName.EarthChainBlast2 =Chain Blast
+ProjectileName.EarthGeyser =Geyser
+ProjectileName.EarthPalladOrb =Palladium Life Orb
+ProjectileName.FlowerPetal =Flower Petal
+
+Life:
+ProjectileName.CactusMine =Cactus Mine
+ProjectileName.ChampionBee =Bee
+ProjectileName.ChampionBeetle =Beetle
+ProjectileName.LifeDeathray =Holy Deathray
+ProjectileName.LifeDeathray2 =Holy Deathray
+ProjectileName.LifeDeathraySmall =Holy Deathray
+ProjectileName.LifeDeathraySmall2 =Holy Deathray
+ProjectileName.LifeFireball =Fireball
+ProjectileName.LifeRitual =Life Seal
+
+Nature:
+ProjectileName.NatureBullet =Nature Bullet
+ProjectileName.NatureCloudMoving =Nature Cloud
+ProjectileName.NatureCloudRaining =Nature Cloud
+ProjectileName.NatureDeathray =Nature Deathray
+ProjectileName.NatureDeathraySmall =Nature Deathray
+ProjectileName.NatureExplosion =Nature Explosion
+ProjectileName.NatureIcicle =Nature Icicle
+ProjectileName.NatureRain =Nature Rain
+
+Shadow:
+ProjectileName.ShadowClone =Champion of Shadow
+ProjectileName.ShadowDeathraySmall =Shadow Deathray
+ProjectileName.ShadowflameBlast =Shadowflame Blast
+ProjectileName.ShadowFlameburst =Flameburst
+ProjectileName.ShadowFlamingScythe =Flaming Scythe
+ProjectileName.ShadowGuardian =Dungeon Guardian
+ProjectileName.ShadowOrb =Shadow Orb
+
+Spirit:
+ProjectileName.SpiritCrossBone =Cross Bone
+ProjectileName.SpiritHand =Spirit Hand
+ProjectileName.SpiritSpirit =Spirit
+ProjectileName.SpiritSword =Spirit Sword
+
+Terra:
+ProjectileName.TerraFireball =Fireball
+ProjectileName.TerraLightningOrb =Lightning Orb
+ProjectileName.Lightning Orb =Lightning Orb
+ProjectileName.TerraLightningOrbDeathray =Lightning Deathray
+
+Will:
+ProjectileName.WillBomb =Will Bomb
+ProjectileName.WillDeathray =Will Deathray
+ProjectileName.WillDeathray2 =Will Deathray
+ProjectileName.WillDeathraySmall =Will Deathray
+ProjectileName.WillFireball =Fireball
+ProjectileName.WillFireball2 =Fireball
+ProjectileName.WillJavelin =Javelin
+ProjectileName.WillJavelin2 =Javelin
+ProjectileName.WillJavelin3 =Javelin
+ProjectileName.WillRitual =Will Seal
+ProjectileName.WillShell =Will Shell
+ProjectileName.WillTyphoon =Will Typhoon
+
+
+/Proejectiles/Critters
+
+ProjectileName.BaseBirdProj =Bird
+
+
+/Proejectiles/Deathrays
+
+ProjectileName.ChainDeathrayWOFS =Divine Deathray
+ProjectileName.CursedDeathrayWOFS =Cursed Deathray
+
+ProjectileName.DeviBigDeathray =Love Ray
+ProjectileName.DeviDeathray =Love Ray
+ProjectileName.DeviDeathraySmall =Love Ray
+ProjectileName.DeviLightBeam =Light Ray
+
+ProjectileName.PhantasmalDeathray =Blazing Deathray
+ProjectileName.PhantasmalDeathrayGolem =Blazing Deathray
+ProjectileName.PhantasmalDeathrayML =Phantasmal Deathray II
+ProjectileName.PhantasmalDeathrayMLSmall =Phantasmal Deathray II
+ProjectileName.PhantasmalDeathrayWOF =Divine Deathray
+ProjectileName.PhantasmalDeathrayWOFS =Divine Deathray
+
+
+/Proejectiles/DeviBoss
+
+ProjectileName.DeviAxe =Sparkling Love
+ProjectileName.DeviBigMimic =Biome Mimic
+ProjectileName.DeviBoss =Deviantt
+ProjectileName.DeviButterfly =Moth
+ProjectileName.DeviEnergyHeart =Energy Heart
+ProjectileName.DeviGuardian =Baby Guardian
+ProjectileName.DeviHammer =Paladin's Hammer
+ProjectileName.DeviHammerHeld =Paladin's Hammer
+ProjectileName.DeviHeart =Fake Heart
+ProjectileName.DeviLostSoul =Lost Soul
+ProjectileName.DeviMedusa =Medusa Head
+ProjectileName.DeviMimic =Mimic
+ProjectileName.DeviRainHeart =Fake Heart
+ProjectileName.DeviRingHeart =Energy Heart
+ProjectileName.DeviRitual =Deviantt Seal
+ProjectileName.DeviRitual2 =Deviantt Seal
+ProjectileName.DeviSparklingLove =Sparkling Love
+ProjectileName.DeviSparklingLoveSmall =Sparkling Love
+ProjectileName.DeviVisualHeart =Fake Heart
+
+
+/Proejectiles/JungleMimic
+
+ProjectileName.AcornProjectile =Acorn
+ProjectileName.AcornProjectileExplosion =Acorn Explosion
+ProjectileName.JungleMimicSummon =Jungle Mimic
+ProjectileName.JungleMimicSummonCoin =Coin
+ProjectileName.VineslingerBall =Vineslinger Ball
+ProjectileName.VineslingerProjectileFriendly =Living Leaf Projectile
+
+
+/Proejectiles/Masomode
+
+ProjectileName.AncientVision =Ancient Vision
+
+ProjectileName.AncientVisionLunarCultist =Ancient Vision
+
+ProjectileName.Bee =Bee
+
+ProjectileName.Beehive =Bee Hive
+
+ProjectileName.BetsyDash =Dash
+
+ProjectileName.BetsyElectrosphere =Sky Dragon's Fury
+
+ProjectileName.BetsyElectrosphere2 =Sky Dragon's Fury
+
+ProjectileName.BetsyFury =Sky Dragon's Fury
+
+ProjectileName.BetsyPhoenix =Phantom Phoenix
+
+ProjectileName.BigMimicExplosion =Explosion
+
+ProjectileName.BloodScythe =Moon Sickle
+
+ProjectileName.BloodScytheFriendly =Blood Scythe
+
+ProjectileName.BrainIllusionProj =Brain of Cthulhu
+
+ProjectileName.BrainofConfusion =Brain of Confusion
+
+ProjectileName.CelestialFragment =Celestial Fragment
+
+ProjectileName.CelestialPillar =Celestial Pillar
+
+ProjectileName.CelestialRuneAncientVision =Ancient Vision
+
+ProjectileName.CelestialRuneFireball =Fireball
+
+ProjectileName.CelestialRuneIceMist =Ice Mist
+
+ProjectileName.CelestialRuneIceSpike =Ice Spike
+
+ProjectileName.CelestialRuneLightningArc =Lightning Arc
+
+ProjectileName.ClingerFlame =Cursed Flames
+
+ProjectileName.ClownBomb =Clown Bomb
+
+ProjectileName.CrystalLeafShot =Crystal Leaf
+
+ProjectileName.CultistArrow =Cultist Arrow
+
+ProjectileName.CultistFireball =Fireball
+
+ProjectileName.CultistRitual =Cultist Ritual
+
+ProjectileName.CultistVortex =Vortex
+
+ProjectileName.CursedFireballHoming =Cursed Flame
+
+ProjectileName.CursedFlameHostile2 =Cursed Flame
+
+ProjectileName.CursedFlamethrower =Eye Fire
+
+ProjectileName.DarkStar =Dark Star
+
+ProjectileName.DeathSkull =Death Skull
+
+ProjectileName.DestroyerLaser =Death Laser
+
+ProjectileName.DrakanianDaybreak =Daybreak
+
+ProjectileName.ElfArcherArrow =Frostburn Arrow
+
+ProjectileName.ElfCopterBullet =Explosive Bullet
+
+ProjectileName.ElfCopterBulletExplosion =Explosive Bullet
+
+ProjectileName.EyeBeam2 =Eye Beam
+
+ProjectileName.EyeFire2 =Eye Fire
+
+ProjectileName.FakeHeart =Fake Heart
+
+ProjectileName.FakeHeart2 =Fake Heart
+
+ProjectileName.FishronBubble =Detonating Bubble
+
+ProjectileName.FishronRitual =Oceanic Ritual
+
+ProjectileName.FishronRitual2 =Oceanic Ritual
+
+ProjectileName.FlamingJack =Flaming Jack
+
+ProjectileName.FragmentRitual =Lunar Ritual
+
+ProjectileName.FriendHeart =Friend Heart
+
+ProjectileName.FrostfireballHostile =Frostfireball
+
+ProjectileName.FuseBomb =Fuse Bomb
+
+ProjectileName.GoblinSpikyBall =Spiky Ball
+
+ProjectileName.GoldenShowerHoming =Golden Shower
+
+ProjectileName.GoldenShowerWOF =Golden Shower
+
+ProjectileName.GolemBoulder =Boulder
+
+ProjectileName.GolemDeathraySmall =Blazing Deathray
+
+ProjectileName.GolemFireball =Fireball
+
+ProjectileName.GolemGeyser =Geyser
+
+ProjectileName.GolemGeyser2 =Geyser
+
+ProjectileName.GolemSpikyBall =Spiky Ball
+
+ProjectileName.GuardianDeathraySmall =Shadow Deathray
+
+ProjectileName.HoneyDrop =Honey Drop
+
+ProjectileName.HorsemansBlade =The Horseman's Blade
+
+ProjectileName.HostileHealingHeart =Hostile Healing Heart
+
+ProjectileName.IceSickleHostile =Ice Sickle
+
+ProjectileName.JungleTentacle =Jungle Tentacle
+
+ProjectileName.LightBall =Light Ball
+
+ProjectileName.LihzahrdBoulderFriendly =Boulder
+
+ProjectileName.LunarRitual =Lunar Ritual
+
+ProjectileName.MimicCoin =Coin
+
+ProjectileName.MoonLordFireball =Fireball
+
+ProjectileName.MoonLordMoon =Moon
+
+ProjectileName.MoonLordMoonBlast =Moon Blast
+
+ProjectileName.MoonLordNebulaBlaze =Nebula Blaze
+
+ProjectileName.MoonLordSun =Sun
+
+ProjectileName.MoonLordSunBlast =Sun Blast
+
+ProjectileName.MothDust =Moth Dust
+
+ProjectileName.PhantasmalBolt2 =Phantasmal Bolt
+
+ProjectileName.PhantasmalSphereDeathray =Phantasmal Deathray
+
+ProjectileName.PhantasmalSphereRing =Phantasmal Sphere
+
+ProjectileName.PirateCrossbowerArrow =Jester
+
+ProjectileName.PirateDeadeyeBullet =Meteor Shot
+
+ProjectileName.PlanteraTentacle =Planty Tentacle
+
+ProjectileName.PoisonSeed2 =Poison Seed
+
+ProjectileName.PrimeGuardian =Dungeon Guardian Prime
+
+ProjectileName.PrimeTrail =Trail
+
+ProjectileName.PumpkingFlamingScythe =Flaming Scythe
+
+ProjectileName.RainbowSlimeSpike =Rainbow Slime Spike
+
+ProjectileName.RazorbladeTyphoon =Razorblade Typhoon
+
+ProjectileName.ShadowflameTentacle =Shadowflame Tentacle
+
+ProjectileName.ShadowflameTentacleHostile =Shadowflame Tentacle
+
+ProjectileName.SkeletonArcherArrow =Venom Arrow
+
+ProjectileName.SkeletronBone =Bone
+
+ProjectileName.SkeletronGuardian =Baby Guardian
+
+ProjectileName.SkeletronGuardian2 =Baby Guardian
+
+ProjectileName.SlimeBallHostile =Slime Ball
+
+ProjectileName.SlimeSpike =Slime Spike
+
+ProjectileName.SniperBullet =High Velocity Crystal Bullet
+
+ProjectileName.SniperBulletShard =High Velocity Crystal Bullet
+
+ProjectileName.StardustRain =Cosmic Invader
+
+ProjectileName.StormDiverBullet =Luminite Bullet
+
+ProjectileName.TacticalSkeletonBullet =Meteor Shot
+
+ProjectileName.TargetingReticle =Targeting Reticle
+
+ProjectileName.VenomSpit =Venom Spit
+
+ProjectileName.VultureFeather =Vulture Feather
+
+ProjectileName.WaterBoltHostile =Water Bolt
+
+ProjectileName.WOFBlast =Divine Blast
+
+ProjectileName.WOFChain =The Hungry
+
+ProjectileName.WOFReticle =Wall of Flesh Reticle
+
+
+/Proejectiles/Minions
+
+ProjectileName.Abominationn =Abominationn
+
+ProjectileName.AbominationnScythe =Abominationn Scythe
+
+ProjectileName.AbominationnSickle =Abominationn Sickle
+
+ProjectileName.BigBrainIllusion =Big Brain
+
+ProjectileName.BigBrainProj =Big Brain
+
+ProjectileName.BrainProj =Brain Proj
+
+ProjectileName.CreeperMinion =Brain Proj
+
+ProjectileName.CreeperProj =Creeper
+
+ProjectileName.CreeperProj2 =Creeper
+
+ProjectileName.CrystalSkull =Crystal Skull
+
+ProjectileName.DestroyerBody =Destroyer Body
+
+ProjectileName.DestroyerBody2 =Destroyer Body
+
+ProjectileName.DestroyerHead Destroyer Head
+
+ProjectileName.DestroyerHead2 =Destroyer Head
+
+ProjectileName.DestroyerTail =Destroyer Tail
+
+ProjectileName.DestroyerTail2 =Destroyer Tail
+
+ProjectileName.EaterBody =Eater Body
+
+ProjectileName.EaterHead =Eater Head
+
+ProjectileName.EaterTail =Eater Tail
+
+ProjectileName.EridanusBullet =Eridanus Bullet
+
+ProjectileName.EridanusDeathray =Cosmic Deathray
+
+ProjectileName.EridanusFist =Eridanus Fist
+
+ProjectileName.EridanusMinion =Eridanus
+
+ProjectileName.Eridanus =Lunar Ritual
+
+ProjectileName.FlameburstMinion =Flameburst Minion
+
+ProjectileName.FriendRay =Love Ray
+
+ProjectileName.FrostShard =Frost Shard
+
+ProjectileName.FrostWave =Frost Wave
+
+ProjectileName.HallowSword =HallowSword
+
+ProjectileName.LunarCultist =Lunar Cultist
+
+ProjectileName.LunarCultistFireball =Fireball
+
+ProjectileName.LunarCultistIceMist =Ice Mist
+
+ProjectileName.LunarCultistIceSpike =Ice Spike
+
+ProjectileName.LunarCultistLight =Ancient Light
+
+ProjectileName.LunarCultistLightningArc =Lightning Arc
+
+ProjectileName.LunarCultistLightningOrb =Lightning Orb
+
+ProjectileName.MiniSaucer =Mini Saucer
+
+ProjectileName.OpticFlame =Eye Fire
+
+ProjectileName.OpticLaser =Death Laser
+
+ProjectileName.OpticRetinazer =Retinazer
+
+ProjectileName.OpticSpazmatism =Spazmatism
+
+ProjectileName.PalmTreeSentry =Palm Tree
+
+ProjectileName.PhantasmalBoltTrueEye =Phantasmal Bolt
+
+ProjectileName.PhantasmalDeathrayPungent =Divine Deathray
+
+ProjectileName.PhantasmalDeathrayTrueEye =Phantasmal Deathray
+
+ProjectileName.PhantasmalRing =Phantasmal Ring
+
+ProjectileName.PhantasmalRing2 =Phantasmal Ring
+
+ProjectileName.PhantasmalSphereTrueEye =Phantasmal Sphere
+
+ProjectileName.PlanterasChild =Plantera's Child
+
+ProjectileName.PoisonSeedPlanterasChild =Poison Seed
+
+ProjectileName.Probe1 =Probe
+
+ProjectileName.Probe2 =Probe
+
+ProjectileName.ProbeLaser =Probe Laser
+
+ProjectileName.PungentEyeball =Pungent Eyeball
+
+ProjectileName.RainbowSlime =Rainbow Slime
+
+ProjectileName.RainbowSlimeSpikeFriendly =Rainbow Slime Spike
+
+ProjectileName.RingDeathray =Phantasmal Deathray
+
+ProjectileName.SaucerDeathray =Saucer Beam
+
+ProjectileName.SaucerLaser =Laser
+
+ProjectileName.SaucerRocket =Rocket
+
+ProjectileName.SeedPlanterasChild =Seed
+
+ProjectileName.ShadowflamesFriendly =Shadowflames
+
+ProjectileName.SilverSword =SilverSword
+
+ProjectileName.SkeletronArmL =Skeletron Hand
+
+ProjectileName.SkeletronArmR =Skeletron Hand
+
+ProjectileName.SpikyBallPlanterasChild =Spiky Ball
+
+ProjectileName.SuperFlocko =Super Flocko
+
+ProjectileName.TrueEyeL =True Eye of Cthulhu
+
+ProjectileName.TrueEyeR =True Eye of Cthulhu
+
+ProjectileName.TrueEyeS =True Eye of Cthulhu
+
+
+/Proejectiles/MutantBoss
+
+ProjectileName.BossRush =Mutant Seal
+ProjectileName.MutantBomb =Fish Nuke
+ProjectileName.MutantBombSmall =Creeper
+ProjectileName.MutantBoss =Mutant
+ProjectileName.MutantCrystalLeaf =Crystal Leaf
+ProjectileName.MutantDeathray1 =Phantasmal Deathray
+ProjectileName.MutantDeathray2 =Phantasmal Deathray
+ProjectileName.MutantDeathray3 =Blazing Deathray
+ProjectileName.MutantDeathrayAim =Phantasmal Deathray
+ProjectileName.MutantDeathraySmall =Phantasmal Deathray
+ProjectileName.MutantDestroyerBody =The Destroyer
+ProjectileName.MutantDestroyerHead =The Destroyer
+ProjectileName.MutantDestroyerTail =The Destroyer
+ProjectileName.MutantEye =Phantasmal Eye
+ProjectileName.MutantEyeOfCthulhu =Eye of Cthulhu
+ProjectileName.MutantFishron =Spectral Fishron
+ProjectileName.MutantFishronRitual =Fish Nuke
+ProjectileName.MutantFragment =Celestial Fragment
+ProjectileName.MutantGiantDeathray =Phantasmal Deathray
+ProjectileName.MutantGiantDeathray2 =Phantasmal Deathray
+ProjectileName.MutantGlowything =Retiray telegraph
+ProjectileName.MutantGuardian =Skeletron Prime
+ProjectileName.MutantHeal =Mutant Heal
+ProjectileName.MutantMark1 =Phantasmal Sphere
+ProjectileName.MutantMark2 =Crystal Leaf
+ProjectileName.MutantNuke =Fish Nuke
+ProjectileName.MutantPillar =Celestial Pillar
+ProjectileName.MutantReticle =Mutant Reticle
+ProjectileName.MutantReticle2 =Mutant Reticle
+ProjectileName.MutantRetirang =Retirang
+ProjectileName.MutantRitual =Mutant Seal
+ProjectileName.MutantRitual2 =Mutant Seal
+ProjectileName.MutantRitual3 =Mutant Seal
+ProjectileName.MutantRitual4 =Mutant Seal
+ProjectileName.MutantRitual5 =Mutant Seal
+ProjectileName.MutantScythe1 =Mutant Sickle
+ProjectileName.MutantScythe2 =Mutant Sickle
+ProjectileName.MutantSlimeBall =Slime Rain
+ProjectileName.MutantSlimeBall2 =Slime Rain
+ProjectileName.MutantSlimeRain =Slime Rain
+ProjectileName.MutantSpazmarang =Spazmarang
+ProjectileName.MutantSpearAim =The Penetrator
+ProjectileName.MutantSpearDash =The Penetrator
+ProjectileName.MutantSpearSpin =The Penetrator
+ProjectileName.MutantSpearThrown =The Penetrator
+ProjectileName.MutantSphereRing =Phantasmal Sphere
+ProjectileName.MutantSphereSmall =Phantasmal Sphere
+ProjectileName.MutantSword =Phantasmal Sphere
+ProjectileName.MutantTrueEyeDeathray =Phantasmal Deathray
+ProjectileName.MutantTrueEyeL =True Eye of Mutant
+ProjectileName.MutantTrueEyeR =True Eye of Mutant
+ProjectileName.MutantTrueEyeS =True Eye of Mutant
+ProjectileName.MutantTrueEyeSphere =Phantasmal Sphere
+ProjectileName.MutantTyphoon =Razorblade Typhoon
+
+
+/Proejectiles/Pets
+
+ProjectileName.BabyAbom =Baby Abom
+
+ProjectileName.ChibiDevi =Chibi Devi
+
+ProjectileName.MutantSpawn =Mutant Spawn
+
+
+/Proejectiles/Souls
+
+ProjectileName.ArrowRain =Arrow Rain
+
+ProjectileName.CactusNeedle =Cactus Needle
+
+ProjectileName.Chlorofuck =Chlorofuck
+
+ProjectileName.CopperLightning =Lightning Arc
+
+ProjectileName.DungeonGuardianNecro =Dungeon Guardian
+
+ProjectileName.ForbiddenTornado =Forbidden Tornado
+
+ProjectileName.FossilBone =Fossil Bone
+
+ProjectileName.FrostIcicle =Frost Icicle
+
+ProjectileName.GladiatorJavelin =Javelin
+
+ProjectileName.GoldShellProj =Gold Shell
+
+ProjectileName.GrowingPumpkin =Pumpkin
+
+ProjectileName.IronParry =Iron Parry
+
+ProjectileName.MegaFlameburst =Mega Flameburst
+
+ProjectileName.NecroGrave =Necro Grave
+
+ProjectileName.PalladOrb =Palladium Life Orb
+
+ProjectileName.PearlwoodRainbow =Pearlwood Rainbow
+
+ProjectileName.PumpkinFlame =Flame
+
+ProjectileName.RainCloud =Rain Cloud
+
+ProjectileName.ShadowBall =Shadow Ball
+
+ProjectileName.ShadowEnchantOrb =Shadow Orb
+
+ProjectileName.ShroomiteShroom =Shroom
+
+ProjectileName.Snowstorm =Snowstorm
+
+ProjectileName.SpookyScythe =Scythe
+
+ProjectileName.StardustKnife =Stardust Knife
+
+ProjectileName.SuperBlood =Super Blood
+
+ProjectileName.TurtleShield =Turtle Shield
+
+
+/Proejectiles/Others
+
+ProjectileName.AbomScytheFriendly =Abominable Scythe
+
+ProjectileName.AmalgamatedDart =Fargo Dart
+
+ProjectileName.CreeperHitbox =Creeper
+
+ProjectileName.CuteFishronRitual =Oceanic Ritual
+
+ProjectileName.Explosion =Explosion
+
+ProjectileName.ExplosionSmall =Explosion
+
+ProjectileName.FargoArrowProj =Fargo Arrow
+
+ProjectileName.FargoBulletProj =Fargo Bullet
+
+ProjectileName.GeyserFriendly =Geyser
+
+ProjectileName.GiantDeathray =Phantasmal Deathray
+
+ProjectileName.GlowLine =Glow Line
+
+ProjectileName.GlowRing =Glow Ring
+
+ProjectileName.GlowRingHollow =Glow Ring
+
+ProjectileName.GrazeRing =Glow Ring
+
+ProjectileName.HostileLightning =Lightning Arc
+
+ProjectileName.LightningArc =Lightning Arc
+
+ProjectileName.LightningVortex =Vortex
+
+ProjectileName.LightningVortexHostile =Vortex
+
+ProjectileName.LihzahrdSpikyBallFriendly =Spiky Ball
+
+ProjectileName.NukeProj =Nuke
+
+ProjectileName.NukeProj2 =Nuke
+
+ProjectileName.PhantasmalSphere =Phantasmal Sphere
+
+ProjectileName.RazorbladeTyphoonFriendly =Razorblade Typhoon
+
+ProjectileName.Shadowfrostfireball =Frostfireball
+
+ProjectileName.ShockwaveProjectile =Shockwave
+
+ProjectileName.SpectralFishron =Spectral Abominationn
+
+ProjectileName.StyxArmorScythe =Styx Scythe
+
+ProjectileName.TopHatSquirrelLaser =Laser
+
+ProjectileName.Void =Void
+
+ProjectileName.VoidArrow =Void Arrow
+
+ProjectileName.VoidPortal =Void Portal
