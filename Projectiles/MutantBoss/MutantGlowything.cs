@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Retiray telegraph");
+            //DisplayName.SetDefault("Retiray telegraph");
         }
 
         public override void SetDefaults()

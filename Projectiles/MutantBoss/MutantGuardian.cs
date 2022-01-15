@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skeletron Prime");
+            //DisplayName.SetDefault("Skeletron Prime");
             Main.projFrames[projectile.type] = 3;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Energy Heart");
+            //DisplayName.SetDefault("Energy Heart");
         }
 
         public override void SetDefaults()

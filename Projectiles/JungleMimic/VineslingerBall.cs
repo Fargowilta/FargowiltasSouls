@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vineslinger Ball");
+            //DisplayName.SetDefault("Vineslinger Ball");
         }
         public override void SetDefaults()
         {

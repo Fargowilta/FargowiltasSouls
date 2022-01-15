@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Mimic");
+            //DisplayName.SetDefault("Jungle Mimic");
             Main.projPet[projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;

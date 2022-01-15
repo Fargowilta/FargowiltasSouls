@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Paladin's Hammer");
+            //DisplayName.SetDefault("Paladin's Hammer");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lost Soul");
+            //DisplayName.SetDefault("Lost Soul");
         }
 
         public override void SetDefaults()

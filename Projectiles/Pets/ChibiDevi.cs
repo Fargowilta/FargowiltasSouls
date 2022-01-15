@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chibi Devi");
+            //DisplayName.SetDefault("Chibi Devi");
             Main.projFrames[projectile.type] = 6;
             ProjectileID.Sets.LightPet[base.projectile.type] = true;
             Main.projPet[base.projectile.type] = true;

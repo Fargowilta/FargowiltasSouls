@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sparkling Love");
+            //DisplayName.SetDefault("Sparkling Love");
         }
 
         public override void SetDefaults()

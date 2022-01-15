@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Lightning Rod");
+            //DisplayName.SetDefault("The Lightning Rod");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

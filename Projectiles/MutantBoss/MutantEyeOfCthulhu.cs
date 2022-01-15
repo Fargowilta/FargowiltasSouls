@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eye of Cthulhu");
+            //DisplayName.SetDefault("Eye of Cthulhu");
             Main.projFrames[projectile.type] = Main.npcFrameCount[NPCID.EyeofCthulhu];
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

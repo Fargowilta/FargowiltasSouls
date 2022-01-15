@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baby Guardian");
+            //DisplayName.SetDefault("Baby Guardian");
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mimic");
+            //DisplayName.SetDefault("Mimic");
             Main.projFrames[projectile.type] = 8;
         }
 

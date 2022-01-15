@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mutant Reticle");
+            //DisplayName.SetDefault("Mutant Reticle");
         }
 
         public override void SetDefaults()

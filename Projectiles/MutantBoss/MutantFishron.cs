@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spectral Fishron");
+            //DisplayName.SetDefault("Spectral Fishron");
             Main.projFrames[projectile.type] = 8;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 11;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

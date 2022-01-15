@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Destroyer");
+            //DisplayName.SetDefault("The Destroyer");
             Main.projFrames[projectile.type] = 2;
         }
 

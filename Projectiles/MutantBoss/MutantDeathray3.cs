@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blazing Deathray");
+            //DisplayName.SetDefault("Blazing Deathray");
         }
 
         public override bool CanHitPlayer(Player target)

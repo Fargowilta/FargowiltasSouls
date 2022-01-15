@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
         public float bounce = 1;
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Acorn");
+			//DisplayName.SetDefault("Acorn");
             
 		}
 		public override void SetDefaults()

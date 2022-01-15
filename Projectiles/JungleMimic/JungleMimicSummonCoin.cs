@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Coin");
+            //DisplayName.SetDefault("Coin");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
             Main.projFrames[projectile.type] = 4;
         }

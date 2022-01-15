@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Destroyer");
+            //DisplayName.SetDefault("The Destroyer");
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Celestial Fragment");
+            //DisplayName.SetDefault("Celestial Fragment");
             Main.projFrames[projectile.type] = 4;
         }
 

@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Projectiles.Critters
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bird");
+            //DisplayName.SetDefault("Bird");
         }
 
         public override void SetDefaults()
