@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn Scythe");
+            //DisplayName.SetDefault("Abominationn Scythe");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;

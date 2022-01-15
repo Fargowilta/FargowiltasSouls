@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lunar Cultist");
+            //DisplayName.SetDefault("Lunar Cultist");
             Main.projFrames[projectile.type] = 12;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;

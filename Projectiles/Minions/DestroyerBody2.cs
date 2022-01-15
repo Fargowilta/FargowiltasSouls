@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Destroyer Body");
+            //DisplayName.SetDefault("Destroyer Body");
             ProjectileID.Sets.Homing[projectile.type] = true;
             Main.projFrames[projectile.type] = 2;
         }

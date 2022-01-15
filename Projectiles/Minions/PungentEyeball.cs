@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pungent Eyeball");
+            //DisplayName.SetDefault("Pungent Eyeball");
             Main.projFrames[projectile.type] = 6;
             //ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
         }

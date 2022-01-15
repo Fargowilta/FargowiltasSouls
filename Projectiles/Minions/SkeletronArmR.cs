@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skeletron Hand");
+            //DisplayName.SetDefault("Skeletron Hand");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

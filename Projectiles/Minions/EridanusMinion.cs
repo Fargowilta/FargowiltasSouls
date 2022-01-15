@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eridanus");
+            //DisplayName.SetDefault("Eridanus");
             Main.projFrames[projectile.type] = 9;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 7;

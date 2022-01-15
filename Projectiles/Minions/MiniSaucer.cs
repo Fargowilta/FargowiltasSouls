@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mini Saucer");
+            //DisplayName.SetDefault("Mini Saucer");
             //ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

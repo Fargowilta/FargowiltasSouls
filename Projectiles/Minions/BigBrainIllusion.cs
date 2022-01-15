@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Big Brain");
+            //DisplayName.SetDefault("Big Brain");
             Main.projFrames[projectile.type] = 12;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

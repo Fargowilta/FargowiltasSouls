@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Eye of Cthulhu");
+            //DisplayName.SetDefault("True Eye of Cthulhu");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.Homing[projectile.type] = true;
             //ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;

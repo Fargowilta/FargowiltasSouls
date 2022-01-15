@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Saucer Beam");
+            //DisplayName.SetDefault("Saucer Beam");
         }
 
         public override void SetDefaults()

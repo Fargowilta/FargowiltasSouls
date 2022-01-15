@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eater Tail");
+            //DisplayName.SetDefault("Eater Tail");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

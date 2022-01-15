@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Laser");
+            //DisplayName.SetDefault("Laser");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             ProjectileID.Sets.MinionShot[projectile.type] = true;

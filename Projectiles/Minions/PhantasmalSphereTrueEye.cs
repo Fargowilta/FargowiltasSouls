@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Sphere");
+            //DisplayName.SetDefault("Phantasmal Sphere");
             Main.projFrames[projectile.type] = 2;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

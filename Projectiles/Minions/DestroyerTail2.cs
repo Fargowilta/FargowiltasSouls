@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Destroyer Tail");
+            //DisplayName.SetDefault("Destroyer Tail");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

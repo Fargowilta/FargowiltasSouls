@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Probe");
+            //DisplayName.SetDefault("Probe");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadowflames");
+            //DisplayName.SetDefault("Shadowflames");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frost Wave");
+            //DisplayName.SetDefault("Frost Wave");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 

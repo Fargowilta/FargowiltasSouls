@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Brain Proj");
+            //DisplayName.SetDefault("Brain Proj");
             Main.projFrames[projectile.type] = 11;
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;

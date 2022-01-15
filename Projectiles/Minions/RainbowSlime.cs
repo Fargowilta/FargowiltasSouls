@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rainbow Slime");
+            //DisplayName.SetDefault("Rainbow Slime");
             Main.projFrames[projectile.type] = 6;
             ProjectileID.Sets.Homing[projectile.type] = true;
             //ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;

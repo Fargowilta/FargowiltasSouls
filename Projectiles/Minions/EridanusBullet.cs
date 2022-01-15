@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eridanus Bullet");
+            //DisplayName.SetDefault("Eridanus Bullet");
             Main.projFrames[projectile.type] = 8;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.MinionShot[projectile.type] = true;

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lightning Orb");
+            //DisplayName.SetDefault("Lightning Orb");
             Main.projFrames[projectile.type] = 4;
         }
 

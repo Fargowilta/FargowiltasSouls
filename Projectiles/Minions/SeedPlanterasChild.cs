@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Seed");
+            //DisplayName.SetDefault("Seed");
             Main.projFrames[projectile.type] = 2;
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }

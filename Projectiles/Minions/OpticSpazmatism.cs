@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spazmatism");
+            //DisplayName.SetDefault("Spazmatism");
             Main.projFrames[projectile.type] = 6;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

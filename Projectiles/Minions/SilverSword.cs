@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("SilverSword");
+            //DisplayName.SetDefault("SilverSword");
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }

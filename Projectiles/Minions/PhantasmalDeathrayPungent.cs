@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Divine Deathray");
+            //DisplayName.SetDefault("Divine Deathray");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Spike");
+            //DisplayName.SetDefault("Ice Spike");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 

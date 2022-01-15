@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lunar Ritual");
+            //DisplayName.SetDefault("Lunar Ritual");
             Main.projFrames[projectile.type] = 5;
         }
 

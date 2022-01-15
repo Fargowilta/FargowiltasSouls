@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lightning Arc");
+            //DisplayName.SetDefault("Lightning Arc");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 1;
             ProjectileID.Sets.MinionShot[projectile.type] = true;

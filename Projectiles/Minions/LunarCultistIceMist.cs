@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ice Mist");
+            //DisplayName.SetDefault("Ice Mist");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 
