@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn Seal");
+            //DisplayName.SetDefault("Abominationn Seal");
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Gazer");
+            //DisplayName.SetDefault("Styx Gazer");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

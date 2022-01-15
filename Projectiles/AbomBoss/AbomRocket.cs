@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rocket");
+            //DisplayName.SetDefault("Rocket");
             Main.projFrames[projectile.type] = 3;
         }
 

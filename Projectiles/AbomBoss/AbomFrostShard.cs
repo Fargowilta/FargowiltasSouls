@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frost Shard");
+            //DisplayName.SetDefault("Frost Shard");
             Main.projFrames[projectile.type] = 5;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn Sickle");
+            //DisplayName.SetDefault("Abominationn Sickle");
         }
 
         public override void SetDefaults()

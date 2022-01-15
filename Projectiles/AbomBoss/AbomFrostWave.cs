@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frost Wave");
+            //DisplayName.SetDefault("Frost Wave");
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominationn");
+            //DisplayName.SetDefault("Abominationn");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

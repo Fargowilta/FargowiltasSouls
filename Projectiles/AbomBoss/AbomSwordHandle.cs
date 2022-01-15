@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Gazer Blade");
+            //DisplayName.SetDefault("Styx Gazer Blade");
         }
 
         public override void SetDefaults()
