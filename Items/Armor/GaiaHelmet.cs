@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -11,10 +12,10 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gaia Helmet");
+            /*DisplayName.SetDefault("Gaia Helmet");
             Tooltip.SetDefault(@"10% increased damage
 5% increased critical strike chance
-Increases max number of minions and sentries by 1");
+Increases max number of minions and sentries by 1");*/
         }
 
         public override void SetDefaults()
@@ -52,14 +53,15 @@ Increases max number of minions and sentries by 1");
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = @"10% increased melee speed
+            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.GaiaSet.Bonus");
+            /*@"10% increased melee speed
 Reduces mana usage by 10%
 10% chance to not consume ammo
 Increases max number of minions and sentries by 1
 Double tap down to toggle offensive mode, which has the following effects:
 30% increased damage and 15% increased critical strike chance
 Increases armor penetration by 20
-Reduces defense by 20, max life by 20%, and damage reduction by 20%";
+Reduces defense by 20, max life by 20%, and damage reduction by 20%";*/
 
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.GaiaSet = true;

@@ -10,11 +10,11 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eridanus Battleplate");
+            /*DisplayName.SetDefault("Eridanus Battleplate");
             Tooltip.SetDefault(@"10% increased damage
 10% increased critical strike chance
 Reduces damage taken by 10%
-Grants life regeneration");
+Grants life regeneration");*/
         }
 
         public override void SetDefaults()

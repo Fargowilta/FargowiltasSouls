@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Mutant Head");
+            /*DisplayName.SetDefault("True Mutant Head");
             Tooltip.SetDefault(@"50% increased damage and 20% increased critical strike chance
 Increases max number of minions and sentries by 10
 25% reduced mana usage
@@ -21,7 +21,7 @@ Increases max number of minions and sentries by 10
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加50%伤害和20%暴击率
 增加10最大召唤栏和哨兵栏
 减少25%法力消耗
-25%概率不消耗弹药");
+25%概率不消耗弹药");*/
         }
 
         public override void SetDefaults()
@@ -64,11 +64,12 @@ Increases max number of minions and sentries by 10
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = @"Phantasmal Spheres shoot deathrays at nearby enemies
+            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.MutantSet.Bonus");
+            /*@"Phantasmal Spheres shoot deathrays at nearby enemies
 Abominationn's Visage fights alongside you
 Your attacks inflict God Eater and Hellfire
 You erupt into a massive deathray whenever revived
-20% increased weapon use speed";
+20% increased weapon use speed";*/
 
             player.AddBuff(mod.BuffType("MutantPower"), 2);
 

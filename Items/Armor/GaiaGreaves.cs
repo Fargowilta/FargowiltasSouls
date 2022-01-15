@@ -9,10 +9,10 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gaia Greaves");
+            /*DisplayName.SetDefault("Gaia Greaves");
             Tooltip.SetDefault(@"10% increased damage
 5% increased critical strike chance
-10% increased movement speed");
+10% increased movement speed");*/
         }
 
         public override void SetDefaults()

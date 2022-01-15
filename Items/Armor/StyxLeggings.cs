@@ -9,10 +9,10 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Leggings");
+            /*DisplayName.SetDefault("Styx Leggings");
             Tooltip.SetDefault(@"10% increased damage
 10% increased critical strike chance
-20% increased movement speed");
+20% increased movement speed");*/
         }
 
         public override void SetDefaults()

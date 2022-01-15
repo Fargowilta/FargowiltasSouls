@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gaia Plate");
+            /*DisplayName.SetDefault("Gaia Plate");
             Tooltip.SetDefault(@"10% increased damage
 5% increased critical strike chance
 Reduces damage taken by 10%
-Increases your life regeneration");
+Increases your life regeneration");*/
         }
 
         public override void SetDefaults()

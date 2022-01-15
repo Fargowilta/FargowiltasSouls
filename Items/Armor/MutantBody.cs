@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Mutant Body");
+            /*DisplayName.SetDefault("True Mutant Body");
             Tooltip.SetDefault(@"70% increased damage and 30% increased critical strike chance
 Increases max life and mana by 200
 Increases damage reduction by 30%
@@ -21,7 +21,7 @@ Drastically increases life regen");
             Tooltip.AddTranslation(GameCulture.Chinese, @"增加70%伤害和30%暴击率
 增加200最大生命和法力值
 增加50%伤害抗性
-极大提升生命回复");
+极大提升生命回复");*/
         }
 
         public override void SetDefaults()

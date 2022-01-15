@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Projectiles;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -11,10 +12,10 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Crown");
+            /*DisplayName.SetDefault("Styx Crown");
             Tooltip.SetDefault(@"10% increased damage
 10% increased critical strike chance
-Increases max number of minions and sentries by 3");
+Increases max number of minions and sentries by 3");*/
         }
 
         public override void SetDefaults()
@@ -52,11 +53,12 @@ Increases max number of minions and sentries by 3");
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = @"20% increased damage
+            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.StyxSet.Bonus1") + Terraria.Localization.Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN") + Language.GetTextValue("Mods.FargowiltasSouls.StyxSet.Bonus2");
+            /*@"20% increased damage
 Attack enemies to charge energy
 Reduces damage taken at the cost of some energy
 Double tap " + Terraria.Localization.Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN") + @" to release energy as homing shots
-Brandish a blade of infernal magic when fully charged";
+Brandish a blade of infernal magic when fully charged";*/
 
             player.GetModPlayer<FargoPlayer>().AllDamageUp(0.2f);
 

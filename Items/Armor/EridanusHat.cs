@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -11,11 +12,11 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eridanus Hat");
+            /*DisplayName.SetDefault("Eridanus Hat");
             Tooltip.SetDefault(@"5% increased damage
 5% increased critical strike chance
 Increases your max number of minions by 4
-Increases your max number of sentries by 4");
+Increases your max number of sentries by 4");*/
         }
 
         public override void SetDefaults()
@@ -48,10 +49,11 @@ Increases your max number of sentries by 4");
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = @"The blessing of Eridanus empowers your attacks
+            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.EridanusSet.Bonus");
+            /*@"The blessing of Eridanus empowers your attacks
 The empowered class changes every 10 seconds
 Eridanus fights alongside you when you use the empowered class
-75% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class";
+75% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class";*/
 
             FargoPlayer fargoPlayer = player.GetModPlayer<FargoPlayer>();
             fargoPlayer.EridanusEmpower = true;

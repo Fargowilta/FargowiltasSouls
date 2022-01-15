@@ -10,10 +10,10 @@ namespace FargowiltasSouls.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eridanus Legwear");
+            /*DisplayName.SetDefault("Eridanus Legwear");
             Tooltip.SetDefault(@"5% increased damage
 5% increased critical strike chance
-10% increased movement speed");
+10% increased movement speed");*/
         }
 
         public override void SetDefaults()
