@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Deathray");
+            //DisplayName.SetDefault("Cosmic Deathray");
         }
 
         public override bool CanDamage()

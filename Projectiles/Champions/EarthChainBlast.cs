@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chain Blast");
+            //DisplayName.SetDefault("Chain Blast");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.LunarFlare];
         }
 

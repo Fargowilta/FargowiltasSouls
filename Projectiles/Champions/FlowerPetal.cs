@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flower Petal");
+            //DisplayName.SetDefault("Flower Petal");
             Main.projFrames[projectile.type] = 3;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palladium Life Orb");
+            //DisplayName.SetDefault("Palladium Life Orb");
             Main.projFrames[projectile.type] = 4;
         }
 

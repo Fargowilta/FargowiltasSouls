@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vortex");
+            //DisplayName.SetDefault("Vortex");
         }
 
         public override void SetDefaults()

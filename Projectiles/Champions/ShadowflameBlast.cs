@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadowflame Blast");
+            //DisplayName.SetDefault("Shadowflame Blast");
         }
 
         public override void SetDefaults()

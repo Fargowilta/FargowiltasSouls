@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Moon");
+            //DisplayName.SetDefault("Cosmic Moon");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

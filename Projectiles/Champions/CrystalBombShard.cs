@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Shard");
+            //DisplayName.SetDefault("Crystal Shard");
         }
 
         public override void SetDefaults()

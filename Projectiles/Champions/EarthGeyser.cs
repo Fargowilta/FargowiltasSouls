@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Geyser");
+            //DisplayName.SetDefault("Geyser");
         }
 
         public override void SetDefaults()

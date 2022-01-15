@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lightning Deathray");
+            //DisplayName.SetDefault("Lightning Deathray");
         }
 
         public override bool CanDamage()

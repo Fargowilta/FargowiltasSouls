@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spirit");
+            //DisplayName.SetDefault("Spirit");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 15;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

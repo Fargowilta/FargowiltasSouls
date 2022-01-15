@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lightning Arc");
+            //DisplayName.SetDefault("Lightning Arc");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[projectile.type] = 1;
         }

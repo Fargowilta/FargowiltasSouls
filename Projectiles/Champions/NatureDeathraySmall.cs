@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nature Deathray");
+            //DisplayName.SetDefault("Nature Deathray");
         }
 
         public override bool CanDamage()

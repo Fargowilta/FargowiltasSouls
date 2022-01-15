@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Will Deathray");
+            //DisplayName.SetDefault("Will Deathray");
         }
 
         public override bool CanDamage()

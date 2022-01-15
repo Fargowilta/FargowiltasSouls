@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flameburst");
+            //DisplayName.SetDefault("Flameburst");
         }
 
         public override void SetDefaults()

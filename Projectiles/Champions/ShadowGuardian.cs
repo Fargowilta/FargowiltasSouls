@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dungeon Guardian");
+            //DisplayName.SetDefault("Dungeon Guardian");
         }
 
         public override void SetDefaults()

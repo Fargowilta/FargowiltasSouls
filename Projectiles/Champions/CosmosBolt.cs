@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Bolt");
+            //DisplayName.SetDefault("Cosmic Bolt");
             Main.projFrames[projectile.type] = 5;
         }
 

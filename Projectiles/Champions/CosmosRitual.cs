@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Seal");
+            //DisplayName.SetDefault("Cosmic Seal");
             Main.projFrames[projectile.type] = 2;
         }
 

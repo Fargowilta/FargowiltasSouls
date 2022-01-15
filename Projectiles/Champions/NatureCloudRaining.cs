@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nature Cloud");
+            //DisplayName.SetDefault("Nature Cloud");
             Main.projFrames[projectile.type] = 6;
         }
 

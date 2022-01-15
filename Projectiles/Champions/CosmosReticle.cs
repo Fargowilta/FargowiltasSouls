@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Reticle");
+            //DisplayName.SetDefault("Cosmic Reticle");
         }
 
         public override void SetDefaults()

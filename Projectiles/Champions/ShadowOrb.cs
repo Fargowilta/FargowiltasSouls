@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Orb");
+            //DisplayName.SetDefault("Shadow Orb");
         }
 
         public override void SetDefaults()

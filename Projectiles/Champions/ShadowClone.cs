@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion of Shadow");
+            //DisplayName.SetDefault("Champion of Shadow");
             Main.projFrames[projectile.type] = 5;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

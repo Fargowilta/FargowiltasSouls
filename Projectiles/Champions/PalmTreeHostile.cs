@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palm Tree");
+            //DisplayName.SetDefault("Palm Tree");
         }
 
         public override void SetDefaults()

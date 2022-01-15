@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Bomb");
+            //DisplayName.SetDefault("Crystal Bomb");
         }
 
         public override void SetDefaults()

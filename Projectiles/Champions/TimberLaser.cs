@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Laser");
+            //DisplayName.SetDefault("Laser");
         }
 
         public override void SetDefaults()

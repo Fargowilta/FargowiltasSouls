@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Will Shell");
+            //DisplayName.SetDefault("Will Shell");
         }
 
         public override void SetDefaults()

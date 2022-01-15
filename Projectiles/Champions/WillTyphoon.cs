@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Will Typhoon");
+            //DisplayName.SetDefault("Will Typhoon");
             Main.projFrames[projectile.type] = 22;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 8;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

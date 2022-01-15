@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lightning Orb");
+            //DisplayName.SetDefault("Lightning Orb");
             Main.projFrames[projectile.type] = 4;
         }
 

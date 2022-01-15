@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fireball");
+            //DisplayName.SetDefault("Fireball");
             Main.projFrames[projectile.type] = 4;
         }
 

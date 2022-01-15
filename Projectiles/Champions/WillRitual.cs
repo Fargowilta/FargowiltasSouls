@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Will Seal");
+            //DisplayName.SetDefault("Will Seal");
             Main.projFrames[projectile.type] = 22;
         }
 

@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Meteor");
+            //DisplayName.SetDefault("Cosmic Meteor");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

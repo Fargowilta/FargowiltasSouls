@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Invader");
+            //DisplayName.SetDefault("Cosmic Invader");
         }
 
         public override void SetDefaults()

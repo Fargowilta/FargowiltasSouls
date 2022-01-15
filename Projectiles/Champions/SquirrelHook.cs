@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Squirrel Hook");
+            //DisplayName.SetDefault("Squirrel Hook");
         }
 
         public override void SetDefaults()

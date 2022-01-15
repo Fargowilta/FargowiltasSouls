@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nature Bullet");
+            //DisplayName.SetDefault("Nature Bullet");
         }
 
         public override void SetDefaults()

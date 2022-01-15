@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Fireball");
+            //DisplayName.SetDefault("Cosmic Fireball");
             Main.projFrames[projectile.type] = 4;
         }
 
