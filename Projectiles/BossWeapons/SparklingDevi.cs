@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deviantt");
+            //DisplayName.SetDefault("Deviantt");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

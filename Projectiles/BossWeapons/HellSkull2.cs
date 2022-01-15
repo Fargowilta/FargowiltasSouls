@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hell Skull");
+            //DisplayName.SetDefault("Hell Skull");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.ClothiersCurse];

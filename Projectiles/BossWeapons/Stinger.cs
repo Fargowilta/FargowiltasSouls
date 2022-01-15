@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stinger");
+            //DisplayName.SetDefault("Stinger");
         }
 
         public override void SetDefaults()

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shark");
+            //DisplayName.SetDefault("Shark");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.MiniSharkron];
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;

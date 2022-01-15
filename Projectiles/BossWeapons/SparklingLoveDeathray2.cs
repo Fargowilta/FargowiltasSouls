@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Love Ray");
+            //DisplayName.SetDefault("Love Ray");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 

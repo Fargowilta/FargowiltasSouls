@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Blast");
+            //DisplayName.SetDefault("Phantasmal Blast");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.LunarFlare];
         }
 

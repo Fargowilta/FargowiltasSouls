@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Blender");
+            //DisplayName.SetDefault("The Blender");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

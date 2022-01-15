@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Slime Slash");
+			//DisplayName.SetDefault("Slime Slash");
 
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 1;

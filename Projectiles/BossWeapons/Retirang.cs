@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Retirang");
+            //DisplayName.SetDefault("Retirang");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

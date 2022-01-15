@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hungry");
+            //DisplayName.SetDefault("Hungry");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

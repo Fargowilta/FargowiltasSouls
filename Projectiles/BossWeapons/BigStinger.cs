@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Big Stinger");
+            //DisplayName.SetDefault("Big Stinger");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 1;
         }

@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hungry");
+            //DisplayName.SetDefault("Hungry");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             ProjectileID.Sets.Homing[projectile.type] = true;

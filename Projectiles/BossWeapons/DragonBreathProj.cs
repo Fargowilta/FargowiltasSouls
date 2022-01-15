@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragon's Breath");
+			//DisplayName.SetDefault("Dragon's Breath");
 		}
 
         public override void SetDefaults()

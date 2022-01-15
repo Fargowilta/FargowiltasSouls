@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eye Fire");
+            //DisplayName.SetDefault("Eye Fire");
         }
 
         public override void SetDefaults()

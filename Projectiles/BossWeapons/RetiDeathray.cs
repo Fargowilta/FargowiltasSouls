@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blazing Deathray");
+            //DisplayName.SetDefault("Blazing Deathray");
         }
 
         public override void SetDefaults()

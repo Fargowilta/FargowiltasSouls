@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantasmal Bolt");
+            //DisplayName.SetDefault("Phantasmal Bolt");
             Main.projFrames[projectile.type] = 5;
         }
 

@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override string Texture => "Terraria/Projectile_687";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hell Flame");
+            //DisplayName.SetDefault("Hell Flame");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             ProjectileID.Sets.Homing[projectile.type] = true;

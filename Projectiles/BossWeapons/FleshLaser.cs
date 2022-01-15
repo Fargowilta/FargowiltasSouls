@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Red Laser");
+            //DisplayName.SetDefault("Red Laser");
         }
 
         public override void SetDefaults()

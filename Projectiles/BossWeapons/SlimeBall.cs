@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime Ball");
+            //DisplayName.SetDefault("Slime Ball");
         }
 
         public override void SetDefaults()

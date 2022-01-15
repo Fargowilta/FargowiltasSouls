@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cursed Inferno");
+			//DisplayName.SetDefault("Cursed Inferno");
 		}
 
 		public override void AI()

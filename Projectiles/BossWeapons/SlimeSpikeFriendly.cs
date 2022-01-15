@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime Spike");
+            //DisplayName.SetDefault("Slime Spike");
         }
 
         public override void SetDefaults()

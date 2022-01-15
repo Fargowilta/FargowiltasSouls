@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Styx Gazer");
+            //DisplayName.SetDefault("Styx Gazer");
         }
 
         public override void SetDefaults()

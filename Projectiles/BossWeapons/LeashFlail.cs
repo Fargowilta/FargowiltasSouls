@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Leash Flail");
+            //DisplayName.SetDefault("Leash Flail");
         }
 
         public override void SetDefaults()

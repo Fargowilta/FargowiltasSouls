@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("22");
+            //DisplayName.SetDefault("22");
             Main.projFrames[projectile.type] = Main.npcFrameCount[NPCID.QueenBee];
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

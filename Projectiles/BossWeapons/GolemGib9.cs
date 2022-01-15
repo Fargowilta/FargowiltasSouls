@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Golem Gibs");
+            //DisplayName.SetDefault("Golem Gibs");
         }
 
         public override void SetDefaults()

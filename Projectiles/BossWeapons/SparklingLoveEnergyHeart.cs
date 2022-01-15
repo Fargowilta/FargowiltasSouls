@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {   
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Energy Heart");
+            //DisplayName.SetDefault("Energy Heart");
             ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
 

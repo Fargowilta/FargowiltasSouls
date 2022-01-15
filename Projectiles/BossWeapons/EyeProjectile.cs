@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("EyeProjectile2");
+            //DisplayName.SetDefault("EyeProjectile2");
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

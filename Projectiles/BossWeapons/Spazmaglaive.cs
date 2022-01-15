@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         bool hitSomething = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spazmaglaive");
+            //DisplayName.SetDefault("Spazmaglaive");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

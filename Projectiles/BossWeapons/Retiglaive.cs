@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         bool empowered = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Retiglaive");
+            //DisplayName.SetDefault("Retiglaive");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

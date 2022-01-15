@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fish Nuke");
+            //DisplayName.SetDefault("Fish Nuke");
             Main.projFrames[projectile.type] = Main.projFrames[ProjectileID.LunarFlare];
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
