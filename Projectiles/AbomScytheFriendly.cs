@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abominable Scythe");
+            //DisplayName.SetDefault("Abominable Scythe");
             Main.projFrames[projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 8;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
