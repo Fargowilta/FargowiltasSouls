@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Items.Summons
             if (abom > -1 && Main.npc[abom].active)
             {
                 // TODO: Localization.
-                string message = "Abominationn has awoken!";
+                string message = Language.GetTextValue("Mods.FargowiltasSouls.AbomsCurse.Spawn");
 
                 Main.npc[abom].Transform(ModContent.NPCType<AbomBoss>());
 

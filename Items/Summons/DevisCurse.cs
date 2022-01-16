@@ -43,9 +43,9 @@ namespace FargowiltasSouls.Items.Summons
             {
                 Main.npc[mutant].Transform(mod.NPCType("DeviBoss"));
                 if (Main.netMode == NetmodeID.SinglePlayer)
-                    Main.NewText("Deviantt has awoken!", 175, 75, 255);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.DevisCurse.Spawn"), 175, 75, 255);
                 else if (Main.netMode == NetmodeID.Server)
-                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("Deviantt has awoken!"), new Color(175, 75, 255));
+                    NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.FargowiltasSouls.DevisCurse.Spawn")), new Color(175, 75, 255));
             }
             else
             {
