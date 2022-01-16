@@ -1433,13 +1433,17 @@ ItemTooltip.SpawnSack =召唤突变体宠物\n“你以为你安全了？”
 
 ItemName.AbominationnVoodooDoll =憎恶巫毒娃娃
 ItemTooltip.AbominationnVoodooDoll =召唤憎恶来到你的城镇\n“你是个可怕的人。”
+AbominationnVoodooDoll.Spawn =突变体的兄弟死了，突变体被激怒了！
 
 ItemName.AbomsCurse =憎恶的诅咒
+AbomsCurse.Spawn =憎恶已苏醒！
 
 ItemName.DevisCurse =戴薇安的诅咒
+DevisCurse.Spawn =戴薇安已苏醒!
 
 ItemName.MutantsCurse =突变体的诅咒
 ItemTooltip.MutantsCurse =“至少不需要用娃娃了”
+MutantsCurse.Spawn =突变体已苏醒！
 
 ItemName.SigilOfChampions =唤灵魔符
 ItemTooltip.SigilOfChampions =召唤英灵\n根据所处环境和时间召唤不同的英灵\n右键使用已查看可能召唤的英灵\n不消耗
@@ -1452,7 +1456,10 @@ SoC.Will =金铁呜咽，回荡深渊……
 SoC.Life =温温生命，透体而过……
 SoC.Shadow =黑夜之暗，愈深愈沉……
 SoC.Timber =林叶沙沙，环绕四周……
-SoC.None =八方默然，万籁俱寂……
+SoC.None =八方默然，万籁俱寂……\n看来没有英灵回应你的召唤……
+
+ItemName.TruffleWormEX =松露虫EX
+ItemTooltip.TruffleWormEX =只能在永恒模式使用\n怒涛千古响奔雷\n你本不该看到这段话……
 
 
 /Item/Tiles
@@ -1550,6 +1557,51 @@ BCL.Mutant.Name =突变体
 BCL.Mutant.Despawn =突变体肃清了他周围的每一个生灵。
 BCL.Mutant.Spawn1 =在突变体和憎恶同时在场的情况下，把
 BCL.Mutant.Spawn2 =丢入熔岩中。
+
+BCL.Timber.Name =森林英灵
+BCL.Timber.Spawn1 =在白天地表使用
+BCL.Timber.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Timber.Despawn =森林英灵回到了它的松鼠聚落中……
+
+BCL.Terra.Name =泰拉英灵
+BCL.Terra.Spawn1 =在地下使用
+BCL.Terra.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Terra.Despawn =泰拉英灵消失在洞穴深处……
+
+BCL.Earth.Name =大地英灵
+BCL.Earth.Spawn1 =在地狱使用
+BCL.Earth.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Earth.Despawn =大地英灵隐于熔岩烈火……
+
+BCL.Nature.Name =自然英灵
+BCL.Nature.Spawn1 =在地下雪原使用
+BCL.Nature.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Nature.Despawn =自然英灵在它的巢穴沉沉睡去……
+
+BCL.Life.Name =生命英灵
+BCL.Life.Spawn1 =在白天的神圣之地使用
+BCL.Life.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Life.Despawn =生命英灵消失在辉光中……
+
+BCL.Shadow.Name =暗影英灵
+BCL.Shadow.Spawn1 =在腐化之地或猩红之地的夜晚使用
+BCL.Shadow.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Shadow.Despawn =暗影英灵消失在魔焰中……
+
+BCL.Spirit.Name =心灵英灵
+BCL.Spirit.Spawn1 =在地下沙漠使用
+BCL.Spirit.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Spirit.Despawn =心灵英灵消失在沙漠深处……
+
+BCL.Will.Name =意志英灵
+BCL.Will.Spawn1 =在海洋使用
+BCL.Will.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Will.Despawn =意志英灵返回深渊……
+
+BCL.Cosmos.Name =厄里达诺斯，宇宙英灵
+BCL.Cosmos.Spawn1 =在太空使用
+BCL.Cosmos.Spawn2 ={$Mods.FargowiltasSouls.BCL.Spawn2}
+BCL.Cosmos.Despawn =厄里达诺斯，宇宙英灵回归群星之中……
 
 
 

@@ -13,6 +13,7 @@ using FargowiltasSouls.Patreon.Daawnz;
 using System;
 using System.Collections.Generic;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.ModCompatibilities
@@ -61,37 +62,37 @@ namespace FargowiltasSouls.ModCompatibilities
 
             AddBoss(ModContent.NPCType<DeviBoss>(),
                 5.01f,
-                "Deviantt",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Deviantt.Name"),
                 () => FargoSoulsWorld.downedDevi,
                 ModContent.ItemType<DevisCurse>(),
                 deviCollection,
                 ModContent.ItemType<DeviatingEnergy>(),
-                $"Spawn by using [i:{ModContent.ItemType<DevisCurse>()}].",
-                "Deviantt is satisfied with its show of love.",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spawn1") + $"[i:{ModContent.ItemType<DevisCurse>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Deviantt.Despawn"),
                 "FargowiltasSouls/NPCs/DeviBoss/DeviBoss_Still",
                 "FargowiltasSouls/NPCs/DeviBoss/DeviBoss_Head_Boss");
 
             AddBoss(ModContent.NPCType<AbomBoss>(),
                 14.01f,
-                "Abominationn",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Abom.Name"),
                 () => FargoSoulsWorld.downedAbom,
                 ModContent.ItemType<AbomsCurse>(),
                 abomCollection,
                 ModContent.ItemType<AbomEnergy>(),
-                $"Spawn by using [i:{ModContent.ItemType<AbomsCurse>()}].",
-                "Abominationn has destroyed everyone.",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spawn1") + $"[i:{ModContent.ItemType<AbomsCurse>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Abom.Despawn"),
                 "FargowiltasSouls/NPCs/DeviBoss/AbomBoss_Still",
                 "FargowiltasSouls/NPCs/DeviBoss/AbomBoss_Head_Boss");
 
             AddBoss(ModContent.NPCType<MutantBoss>(),
                 ModLoader.GetMod("CalamityMod") != null ? 20f : 14.03f,
-                "Mutant",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Mutant.Name"),
                 () => FargoSoulsWorld.downedMutant,
                 ModContent.ItemType<AbominationnVoodooDoll>(),
                 mutantCollection,
                 ModContent.ItemType<Sadism>(),
-                $"Throw [i:{ModContent.ItemType<AbominationnVoodooDoll>()}] into a pool of lava while Abominationn is alive in Mutant's presence.",
-                "Mutant has eviscerated everyone under its hands.",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Mutant.Spawn1") +$"[i:{ModContent.ItemType<AbominationnVoodooDoll>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Mutant.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Mutant.Despawn"),
                 "FargowiltasSouls/NPCs/DeviBoss/MutantBoss_Still",
                 "FargowiltasSouls/NPCs/DeviBoss/MutantBoss_Head_Boss");
         }
@@ -100,7 +101,7 @@ namespace FargowiltasSouls.ModCompatibilities
         {
             AddMiniboss(ModContent.NPCType<TimberChampion>(),
                 14.0001f,
-                "Champion of Timber",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Timber.Name"),
                 () => FargoSoulsWorld.downedChampions[0],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -113,14 +114,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<PalmWoodEnchant>(),
                     ModContent.ItemType<PearlwoodEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] on the surface during the day.",
-                "Champion of Timber returns to its squirrel clan...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Timber.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Timber.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Timber.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/TimberChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/TimberChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<TerraChampion>(),
                 14.001f,
-                "Champion of Terra",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Terra.Name"),
                 () => FargoSoulsWorld.downedChampions[1],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -132,14 +133,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<TungstenEnchant>(),
                     ModContent.ItemType<ObsidianEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] underground.",
-                "Champion of Terra vanishes into the caverns...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Terra.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Terra.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Terra.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/TerraChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/TerraChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<EarthChampion>(),
                 14.002f,
-                "Champion of Earth",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Earth.Name"),
                 () => FargoSoulsWorld.downedChampions[2],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -151,14 +152,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<AdamantiteEnchant>(),
                     ModContent.ItemType<TitaniumEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underworld.",
-                "Champion of Earth disappears beneath the magma...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Earth.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Earth.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Earth.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/EarthChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/EarthChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<NatureChampion>(),
                 14.003f,
-                "Champion of Nature",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Nature.Name"),
                 () => FargoSoulsWorld.downedChampions[3],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -170,14 +171,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<ChlorophyteEnchant>(),
                     ModContent.ItemType<ShroomiteEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in underground snow.",
-                "Champion of Nature returns to its slumber...",
-                "FargowiltasSouls/NPCs/Champions/NatureChampion_Still",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Nature.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Nature.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Nature.Despawn"),
+               "FargowiltasSouls/NPCs/Champions/NatureChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/NatureChampionHead_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<LifeChampion>(),
                 14.004f,
-                "Champion of Life",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Life.Name"),
                 () => FargoSoulsWorld.downedChampions[4],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -188,14 +189,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<TurtleEnchant>(),
                     ModContent.ItemType<BeetleEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Hallow at day.",
-                "Champion of Life fades away...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Life.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Life.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Life.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/LifeChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/LifeChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<ShadowChampion>(),
                 14.005f,
-                "Champion of Shadow",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Shadow.Name"),
                 () => FargoSoulsWorld.downedChampions[5],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -206,14 +207,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<ShinobiEnchant>(),
                     ModContent.ItemType<DarkArtistEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Corruption or Crimson at night.",
-                "Champion of Shadow fades away...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Shadow.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Shadow.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Shadow.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/ShadowChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/ShadowChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<SpiritChampion>(),
                 14.006f,
-                "Champion of Spirit",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spirit.Name"),
                 () => FargoSoulsWorld.downedChampions[6],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -224,14 +225,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<TikiEnchant>(),
                     ModContent.ItemType<SpectreEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underground desert.",
-                "Champion of Spirit vanishes into the desert...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spirit.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spirit.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Spirit.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/SpiritChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/SpiritChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<WillChampion>(),
                 14.007f,
-                "Champion of Will",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Will.Name"),
                 () => FargoSoulsWorld.downedChampions[7],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -242,14 +243,14 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<RedRidingEnchant>(),
                     ModContent.ItemType<ValhallaKnightEnchant>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] at the ocean.",
-                "Champion of Will returns to the depths...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Will.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Will.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Will.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/WillChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/WillChampion_Head_Boss");
 
             AddMiniboss(ModContent.NPCType<CosmosChampion>(),
                 14.008f,
-                "Eridanus, Champion of Cosmos",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Cosmos.Name"),
                 () => FargoSoulsWorld.downedChampions[8],
                 ModContent.ItemType<SigilOfChampions>(),
                 new List<int>
@@ -258,10 +259,11 @@ namespace FargowiltasSouls.ModCompatibilities
                     ModContent.ItemType<NebulaEnchant>(),
                     ModContent.ItemType<VortexEnchant>(),
                     ModContent.ItemType<StardustEnchant>(),
-                    ModContent.ItemType<MeteorEnchant>()
+                    ModContent.ItemType<MeteorEnchant>(),
+                    ModContent.ItemType<LunarCrystal>()
                 },
-                $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in space.",
-                "Eridanus, Champion of Cosmos returns to the stars...",
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Cosmos.Spawn1") + $"[i:{ModContent.ItemType<SigilOfChampions>()}]" + Language.GetTextValue("Mods.FargowiltasSouls.BCL.Cosmos.Spawn2"),
+                Language.GetTextValue("Mods.FargowiltasSouls.BCL.Cosmos.Despawn"),
                 "FargowiltasSouls/NPCs/Champions/CosmosChampion_Still",
                 "FargowiltasSouls/NPCs/Champions/CosmosChampion_Head_Boss");
         }

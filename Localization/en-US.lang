@@ -1433,13 +1433,17 @@ ItemTooltip.SpawnSack =Summons the spawn of Mutant\n'You think you're safe?'
 
 ItemName.AbominationnVoodooDoll =Abominationn Voodoo Doll
 ItemTooltip.AbominationnVoodooDoll =Summons Abominationn to your town\n'You are a terrible person'
+AbominationnVoodooDoll.Spawn =Mutant has been enraged by the death of his brother!
 
 ItemName.AbomsCurse =Abominationn's Curse
+AbomsCurse.Spawn =Abominationn has awoken!
 
 ItemName.DevisCurse =Deviantt's Curse
+DevisCurse.Spawn =Deviantt has awoken!
 
 ItemName.MutantsCurse =Mutant's Curse
 ItemTooltip.MutantsCurse ='At least this way, you don't need that doll'
+MutantsCurse.Spawn =Mutant has awoken!
 
 ItemName.SigilOfChampions =Sigil of Champions
 ItemTooltip.SigilOfChampions =Summons the Champions\nSummons vary depending on time and biome\nRight click to check for possible summons\nNot consumed on use
@@ -1453,6 +1457,9 @@ SoC.Life =A wave of warmth passes over you...
 SoC.Shadow =The darkness of the night feels deeper...
 SoC.Timber =You are surrounded by the rustling of trees...
 SoC.None =Nothing seems to answer the call...
+
+ItemName.TruffleWormEX =Truffle Worm EX
+ItemTooltip.TruffleWormEX =Only usable in Masochist Mode\nThe tides surge in its presence\nYou probably shouldn't be reading this...
 
 
 /Item/Tiles
@@ -1550,6 +1557,51 @@ BCL.Mutant.Name =Mutant
 BCL.Mutant.Despawn =Mutant has eviscerated everyone under its hands.
 BCL.Mutant.Spawn1 =Throw 
 BCL.Mutant.Spawn2 = into a pool of lava while Abominationn is alive in Mutant's presence.
+
+BCL.Timber.Name =Champion of Timber
+BCL.Timber.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Timber.Spawn2 = on the surface during the day.
+BCL.Timber.Despawn =Champion of Timber returns to its squirrel clan...
+
+BCL.Terra.Name =Champion of Terra
+BCL.Terra.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Terra.Spawn2 = underground.
+BCL.Terra.Despawn =Champion of Terra vanishes into the caverns...
+
+BCL.Earth.Name =Champion of Earth
+BCL.Earth.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Earth.Spawn2 = in the underworld.
+BCL.Earth.Despawn =Champion of Earth disappears beneath the magma...
+
+BCL.Nature.Name =Champion of Nature
+BCL.Nature.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Nature.Spawn2 = in underground snow.
+BCL.Nature.Despawn =Champion of Nature returns to its slumber...
+
+BCL.Life.Name =Champion of Life
+BCL.Life.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Life.Spawn2 = in the Hallow at day.
+BCL.Life.Despawn =Champion of Life fades away...
+
+BCL.Shadow.Name =Champion of Shadow
+BCL.Shadow.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Shadow.Spawn2 = in the Corruption or Crimson at night.
+BCL.Shadow.Despawn =Champion of Shadow fades away...
+
+BCL.Spirit.Name =Champion of Spirit
+BCL.Spirit.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Spirit.Spawn2 = in the underground desert.
+BCL.Spirit.Despawn =Champion of Spirit vanishes into the desert...
+
+BCL.Will.Name =Champion of Will
+BCL.Will.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Will.Spawn2 = at the ocean.
+BCL.Will.Despawn =Champion of Will returns to the depths...
+
+BCL.Cosmos.Name =Eridanus, Champion of Cosmos
+BCL.Cosmos.Spawn1 ={$Mods.FargowiltasSouls.BCL.Spawn1}
+BCL.Cosmos.Spawn2 = in space.
+BCL.Cosmos.Despawn =Eridanus, Champion of Cosmos returns to the stars...
 
 
 
