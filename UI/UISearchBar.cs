@@ -11,7 +11,7 @@ namespace FargowiltasSouls.UI
     public class UISearchBar : UIElement
     {
         public const int CharacterLimit = 16;
-        public string HintText = Language.GetTextValue("Mods.FargowiltasSouls.UISearchBar.HintText");//"const""Search..."
+        public string HintText = Language.GetTextValue("Mods.FargowiltasSouls.UISearchBar.HintText");// const "Search..."
 
         public bool IsEmpty => string.IsNullOrEmpty(Input);
 
