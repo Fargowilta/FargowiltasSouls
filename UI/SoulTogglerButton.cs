@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.UI
 {
@@ -17,7 +18,7 @@ namespace FargowiltasSouls.UI
             Icon.Top.Set(300, 0f);
             Append(Icon);
 
-            IconHighlight = new UIHoverTextImageButton(Fargowiltas.UserInterfaceManager.SoulTogglerButton_MouseOverTexture, "Configure Accessory Effects");
+            IconHighlight = new UIHoverTextImageButton(Fargowiltas.UserInterfaceManager.SoulTogglerButton_MouseOverTexture, Language.GetTextValue("Mods.FargowiltasSouls.UISoulTogglerButton.HoverText"));//"Configure Accessory Effects"
             IconHighlight.Left.Set(-2, 0f);
             IconHighlight.Top.Set(-2, 0f);
             IconHighlight.SetVisibility(1f, 0f);

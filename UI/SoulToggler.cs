@@ -93,19 +93,19 @@ namespace FargowiltasSouls.UI
 
             OffButton = new UIPresetButton(Fargowiltas.UserInterfaceManager.PresetOffButton, (toggles) => {
                 toggles.SetAll(false);
-            }, "Turn all toggles off");
+            }, Language.GetTextValue("Mods.FargowiltasSouls.UIPresetButton.Off"));//"Turn all toggles off"
             OffButton.Top.Set(6, 0f);
             OffButton.Left.Set(8, 0f);
 
             OnButton = new UIPresetButton(Fargowiltas.UserInterfaceManager.PresetOnButton, (toggles) => {
                 toggles.SetAll(true);
-            }, "Turn all toggles on");
+            }, Language.GetTextValue("Mods.FargowiltasSouls.UIPresetButton.On"));//"Turn all toggles on"
             OnButton.Top.Set(6, 0f);
             OnButton.Left.Set(30, 0f);
 
             MinimalButton = new UIPresetButton(Fargowiltas.UserInterfaceManager.PresetMinimalButton, (toggles) => {
                 toggles.MinimalEffects();
-            }, "Minimal effects preset");
+            }, Language.GetTextValue("Mods.FargowiltasSouls.UIPresetButton.Minimal"));//"Minimal effects preset"
             MinimalButton.Top.Set(6, 0f);
             MinimalButton.Left.Set(52, 0f);
 

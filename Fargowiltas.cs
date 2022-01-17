@@ -105,24 +105,12 @@ namespace FargowiltasSouls
             SkyManager.Instance["FargowiltasSouls:MutantBoss"] = new MutantSky();
             SkyManager.Instance["FargowiltasSouls:MutantBoss2"] = new MutantSky2();
 
-            if (Language.ActiveCulture == GameCulture.Chinese)
-            {
-                FreezeKey = RegisterHotKey("冻结时间", "P");
-                GoldKey = RegisterHotKey("金身", "O");
-                SmokeBombKey = RegisterHotKey("Throw Smoke Bomb", "I");
-                BetsyDashKey = RegisterHotKey("Betsy Dash", "C");
-                MutantBombKey = RegisterHotKey("Mutant Bomb", "Z");
-                SoulToggleKey = RegisterHotKey("Open Soul Toggler", ".");
-            }
-            else
-            {
-                FreezeKey = RegisterHotKey("Freeze Time", "P");
-                GoldKey = RegisterHotKey("Turn Gold", "O");
-                SmokeBombKey = RegisterHotKey("Throw Smoke Bomb", "I");
-                BetsyDashKey = RegisterHotKey("Fireball Dash", "C");
-                MutantBombKey = RegisterHotKey("Mutant Bomb", "Z");
-                SoulToggleKey = RegisterHotKey("Open Soul Toggler", ".");
-            }
+            FreezeKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.Freeze"), "P");//"Freeze Time"
+            GoldKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.Gold"), "O");//"Turn Gold"
+            SmokeBombKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.SmokeBomb"), "I");//"Throw Smoke Bomb"
+            BetsyDashKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.BetsyDash"), "C");//"Fireball Dash"
+            MutantBombKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.MutantBomb"), "Z");//"Mutant Bomb"
+            SoulToggleKey = RegisterHotKey(Language.GetTextValue("Mods.FargowiltasSouls.HotKey.SoulToggle"), ".");//"Open Soul Toggler"
 
             ToggleLoader.Load();
 
@@ -135,265 +123,265 @@ namespace FargowiltasSouls
 
             #region enchants
 
-            AddToggle("WoodHeader", "Force of Timber", "TimberForce", "ffffff");
-            AddToggle("BorealConfig", "Boreal Snowballs", "BorealWoodEnchant", "8B7464");
-            AddToggle("MahoganyConfig", "Mahogany Hook Speed", "RichMahoganyEnchant", "b56c64");
-            AddToggle("EbonConfig", "Ebonwood Shadowflame", "EbonwoodEnchant", "645a8d");
-            AddToggle("ShadeConfig", "Blood Geyser On Hit", "ShadewoodEnchant", "586876");
-            AddToggle("ShadeOnHitConfig", "Proximity Triggers On Hit Effects", "ShadewoodEnchant", "586876");
-            AddToggle("PalmConfig", "Palmwood Sentry", "PalmWoodEnchant", "b78d56");
-            AddToggle("PearlConfig", "Pearlwood Rain", "PearlwoodEnchant", "ad9a5f");
+            AddToggle("WoodHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Timber"), "TimberForce", "ffffff");//"Force of Timber"
+            AddToggle("BorealConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Boreal"), "BorealWoodEnchant", "8B7464");//"Boreal Snowballs"
+            AddToggle("MahoganyConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Mahogany"), "RichMahoganyEnchant", "b56c64");//"Mahogany Hook Speed"
+            AddToggle("EbonConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Ebon"), "EbonwoodEnchant", "645a8d");//"Ebonwood Shadowflame"
+            AddToggle("ShadeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shade1"), "ShadewoodEnchant", "586876");//"Blood Geyser On Hit"
+            AddToggle("ShadeOnHitConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shade2"), "ShadewoodEnchant", "586876");//"Proximity Triggers On Hit Effects"
+            AddToggle("PalmConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Palm"), "PalmWoodEnchant", "b78d56");//"Palmwood Sentry"
+            AddToggle("PearlConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Pearl"), "PearlwoodEnchant", "ad9a5f");//"Pearlwood Rain"
 
-            AddToggle("EarthHeader", "Force of Earth", "EarthForce", "ffffff");
-            AddToggle("AdamantiteConfig", "Adamantite Projectile Splitting", "AdamantiteEnchant", "dd557d");
-            AddToggle("CobaltConfig", "Cobalt Shards", "CobaltEnchant", "3da4c4");
-            AddToggle("AncientCobaltConfig", "Ancient Cobalt Stingers", "AncientCobaltEnchant", "354c74");
-            AddToggle("MythrilConfig", "Mythril Weapon Speed", "MythrilEnchant", "9dd290");
-            AddToggle("OrichalcumConfig", "Orichalcum Petals", "OrichalcumEnchant", "eb3291");
-            AddToggle("PalladiumConfig", "Palladium Healing", "PalladiumEnchant", "f5ac28");
-            AddToggle("PalladiumOrbConfig", "Palladium Orbs", "PalladiumEnchant", "f5ac28");
-            AddToggle("TitaniumConfig", "Titanium Shadow Dodge", "TitaniumEnchant", "828c88");
+            AddToggle("EarthHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Earth"), "EarthForce", "ffffff");//"Force of Earth"
+            AddToggle("AdamantiteConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Adamantite"), "AdamantiteEnchant", "dd557d");//"Adamantite Projectile Splitting"
+            AddToggle("CobaltConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Cobalt"), "CobaltEnchant", "3da4c4");//"Cobalt Shards"
+            AddToggle("AncientCobaltConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AncientCobalt"), "AncientCobaltEnchant", "354c74");//"Ancient Cobalt Stingers"
+            AddToggle("MythrilConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Mythril"), "MythrilEnchant", "9dd290");//"Mythril Weapon Speed"
+            AddToggle("OrichalcumConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Orichalcum"), "OrichalcumEnchant", "eb3291");//"Orichalcum Petals"
+            AddToggle("PalladiumConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Palladium1"), "PalladiumEnchant", "f5ac28");//"Palladium Healing"
+            AddToggle("PalladiumOrbConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Palladium2"), "PalladiumEnchant", "f5ac28");//"Palladium Orbs"
+            AddToggle("TitaniumConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Titanium"), "TitaniumEnchant", "828c88");//"Titanium Shadow Dodge"
 
-            AddToggle("TerraHeader", "Terra Force", "TerraForce", "ffffff");
-            AddToggle("CopperConfig", "Copper Lightning", "CopperEnchant", "d56617");
-            AddToggle("IronMConfig", "Iron Magnet", "IronEnchant", "988e83");
-            AddToggle("IronSConfig", "Iron Shield", "IronEnchant", "988e83");
-            AddToggle("TinConfig", "Tin Crits", "TinEnchant", "a28b4e");
-            AddToggle("TungstenConfig", "Tungsten Item Effect", "TungstenEnchant", "b0d2b2");
-            AddToggle("TungstenProjConfig", "Tungsten Projectile Effect", "TungstenEnchant", "b0d2b2");
-            AddToggle("ObsidianConfig", "Obsidian Explosions", "ObsidianEnchant", "453e73");
+            AddToggle("TerraHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Terra"), "TerraForce", "ffffff");//"Terra Force"
+            AddToggle("CopperConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Copper"), "CopperEnchant", "d56617");//"Copper Lightning"
+            AddToggle("IronMConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Iron1"), "IronEnchant", "988e83");//"Iron Magnet"
+            AddToggle("IronSConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Iron2"), "IronEnchant", "988e83");//"Iron Shield"
+            AddToggle("TinConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Tin"), "TinEnchant", "a28b4e");//"Tin Crits"
+            AddToggle("TungstenConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Tungsten1"), "TungstenEnchant", "b0d2b2");//"Tungsten Item Effect"
+            AddToggle("TungstenProjConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Tungsten2"), "TungstenEnchant", "b0d2b2");//"Tungsten Projectile Effect"
+            AddToggle("ObsidianConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Obsidian"), "ObsidianEnchant", "453e73");//"Obsidian Explosions"
 
-            AddToggle("WillHeader", "Force of Will", "WillForce", "ffffff");
-            AddToggle("GladiatorConfig", "Gladiator Rain", "GladiatorEnchant", "9c924e");
-            AddToggle("GoldConfig", "Gold Lucky Coin", "GoldEnchant", "e7b21c");
-            AddToggle("HuntressConfig", "Huntress Ability", "HuntressEnchant", "7ac04c");
-            AddToggle("ValhallaConfig", "Squire/Valhalla Healing", "ValhallaKnightEnchant", "93651e");
-            AddToggle("SquirePanicConfig", "Ballista Panic On Hit", "SquireEnchant", "948f8c");
+            AddToggle("WillHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Will"), "WillForce", "ffffff");//"Force of Will"
+            AddToggle("GladiatorConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Gladiator"), "GladiatorEnchant", "9c924e");//"Gladiator Rain"
+            AddToggle("GoldConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Gold"), "GoldEnchant", "e7b21c");//"Gold Lucky Coin"
+            AddToggle("HuntressConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Huntress"), "HuntressEnchant", "7ac04c");//"Huntress Ability"
+            AddToggle("ValhallaConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Valhalla"), "ValhallaKnightEnchant", "93651e");//"Squire/Valhalla Healing"
+            AddToggle("SquirePanicConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Squire"), "SquireEnchant", "948f8c");//"Ballista Panic On Hit"
 
-            AddToggle("LifeHeader", "Force of Life", "LifeForce", "ffffff");
-            AddToggle("BeeConfig", "Bees", "BeeEnchant", "FEF625");
-            AddToggle("BeetleConfig", "Beetles", "BeetleEnchant", "6D5C85");
-            AddToggle("CactusConfig", "Cactus Needles", "CactusEnchant", "799e1d");
-            AddToggle("PumpkinConfig", "Grow Pumpkins", "PumpkinEnchant", "e3651c");
-            AddToggle("SpiderConfig", "Spider Crits", "SpiderEnchant", "6d4e45");
-            AddToggle("TurtleConfig", "Turtle Shell Buff", "TurtleEnchant", "f89c5c");
+            AddToggle("LifeHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Life"), "LifeForce", "ffffff");//"Force of Life"
+            AddToggle("BeeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Bee"), "BeeEnchant", "FEF625");//"Bees"
+            AddToggle("BeetleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Beetle"), "BeetleEnchant", "6D5C85");//"Beetles"
+            AddToggle("CactusConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Cactus"), "CactusEnchant", "799e1d");//"Cactus Needles"
+            AddToggle("PumpkinConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Pumpkin"), "PumpkinEnchant", "e3651c");//"Grow Pumpkins"
+            AddToggle("SpiderConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Spider"), "SpiderEnchant", "6d4e45");//"Spider Crits"
+            AddToggle("TurtleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Turtle"), "TurtleEnchant", "f89c5c");//"Turtle Shell Buff"
 
-            AddToggle("NatureHeader", "Force of Nature", "NatureForce", "ffffff");
-            AddToggle("ChlorophyteConfig", "Chlorophyte Leaf Crystal", "ChlorophyteEnchant", "248900");
-            AddToggle("CrimsonConfig", "Crimson Regen", "CrimsonEnchant", "C8364B");
-            AddToggle("RainConfig", "Rain Clouds", "RainEnchant", "ffec00");
-            AddToggle("FrostConfig", "Frost Icicles", "FrostEnchant", "7abdb9");
-            AddToggle("SnowConfig", "Snowstorm", "SnowEnchant", "25c3f2");
-            AddToggle("JungleConfig", "Jungle Spores", "JungleEnchant", "71971f");
-            AddToggle("JungleDashConfig", "Jungle Dash", "JungleEnchant", "71971f");
-            AddToggle("MoltenConfig", "Molten Inferno Buff", "MoltenEnchant", "c12b2b");
-            AddToggle("MoltenEConfig", "Molten Explosion On Hit", "MoltenEnchant", "c12b2b");
-            AddToggle("ShroomiteConfig", "Shroomite Stealth", "ShroomiteEnchant", "008cf4");
-            AddToggle("ShroomiteShroomConfig", "Shroomite Mushrooms", "ShroomiteEnchant", "008cf4");
+            AddToggle("NatureHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Nature"), "NatureForce", "ffffff");//"Force of Nature"
+            AddToggle("ChlorophyteConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Chlorophyte"), "ChlorophyteEnchant", "248900");//"Chlorophyte Leaf Crystal"
+            AddToggle("CrimsonConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Crimson"), "CrimsonEnchant", "C8364B");//"Crimson Regen"
+            AddToggle("RainConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Rain"), "RainEnchant", "ffec00");//"Rain Clouds"
+            AddToggle("FrostConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Frost"), "FrostEnchant", "7abdb9");//"Frost Icicles"
+            AddToggle("SnowConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Snow"), "SnowEnchant", "25c3f2");//"Snowstorm"
+            AddToggle("JungleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Jungle1"), "JungleEnchant", "71971f");//"Jungle Spores"
+            AddToggle("JungleDashConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Jungle2"), "JungleEnchant", "71971f");//"Jungle Dash"
+            AddToggle("MoltenConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Molten1"), "MoltenEnchant", "c12b2b");//"Molten Inferno Buff"
+            AddToggle("MoltenEConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Molten2"), "MoltenEnchant", "c12b2b");//"Molten Explosion On Hit"
+            AddToggle("ShroomiteConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shroomite1"), "ShroomiteEnchant", "008cf4");//"Shroomite Stealth"
+            AddToggle("ShroomiteShroomConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shroomite2"), "ShroomiteEnchant", "008cf4");//"Shroomite Mushrooms"
 
-            AddToggle("ShadowHeader", "Shadow Force", "ShadowForce", "ffffff");
-            AddToggle("DarkArtConfig", "Flameburst Minion", "DarkArtistEnchant", "9b5cb0");
-            AddToggle("ApprenticeConfig", "Apprentice Effect", "ApprenticeEnchant", "5d86a6");
-            AddToggle("NecroConfig", "Necro Graves", "NecroEnchant", "565643");
-            AddToggle("ShadowConfig", "Shadow Orbs", "ShadowEnchant", "42356f");
-            AddToggle("AncientShadowConfig", "Ancient Shadow Darkness", "AncientShadowEnchant", "42356f");
-            AddToggle("MonkConfig", "Monk Dash", "MonkEnchant", "920520");
-            AddToggle("ShinobiDashConfig", "Shinobi Teleport Dash", "ShinobiEnchant", "935b18");
-            AddToggle("ShinobiConfig", "Shinobi Through Walls", "ShinobiEnchant", "935b18");
-            AddToggle("SupersonicTabiConfig", "Tabi Dash", "SupersonicSoul", "935b18");
-            AddToggle("SupersonicClimbingConfig", "Tiger Climbing Gear", "SupersonicSoul", "935b18");
-            AddToggle("SpookyConfig", "Spooky Scythes", "SpookyEnchant", "644e74");
+            AddToggle("ShadowHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.ShadowForce"), "ShadowForce", "ffffff");//"Shadow Force"
+            AddToggle("DarkArtConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.DarkArt"), "DarkArtistEnchant", "9b5cb0");//"Flameburst Minion"
+            AddToggle("ApprenticeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Apprentice"), "ApprenticeEnchant", "5d86a6");//"Apprentice Effect"
+            AddToggle("NecroConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Necro"), "NecroEnchant", "565643");//"Necro Graves"
+            AddToggle("ShadowConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shadow"), "ShadowEnchant", "42356f");//"Shadow Orbs"
+            AddToggle("AncientShadowConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AncientShadow"), "AncientShadowEnchant", "42356f");//"Ancient Shadow Darkness"
+            AddToggle("MonkConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Monk"), "MonkEnchant", "920520");//"Monk Dash"
+            AddToggle("ShinobiDashConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shinobi1"), "ShinobiEnchant", "935b18");//"Shinobi Teleport Dash"
+            AddToggle("ShinobiConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shinobi2"), "ShinobiEnchant", "935b18");//"Shinobi Through Walls"
+            AddToggle("SupersonicTabiConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicTabi"), "SupersonicSoul", "935b18");//"Tabi Dash"
+            AddToggle("SupersonicClimbingConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicClimbing"), "SupersonicSoul", "935b18");//"Tiger Climbing Gear"
+            AddToggle("SpookyConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Spooky"), "SpookyEnchant", "644e74");//"Spooky Scythes"
 
-            AddToggle("SpiritHeader", "Force of Spirit", "SpiritForce", "ffffff");
-            AddToggle("FossilConfig", "Fossil Bones On Hit", "FossilEnchant", "8c5c3b");
-            AddToggle("ForbiddenConfig", "Forbidden Storm", "ForbiddenEnchant", "e7b21c");
-            AddToggle("HallowedConfig", "Hallowed Enchanted Sword Familiar", "HallowEnchant", "968564");
-            AddToggle("HallowSConfig", "Hallowed Shield", "HallowEnchant", "968564");
-            AddToggle("SilverConfig", "Silver Sword Familiar", "SilverEnchant", "b4b4cc");
-            AddToggle("SilverSpeedConfig", "Silver Minion Speed", "SilverEnchant", "b4b4cc");
-            AddToggle("SpectreConfig", "Spectre Orbs", "SpectreEnchant", "accdfc");
-            AddToggle("TikiConfig", "Tiki Minions", "TikiEnchant", "56A52B");
+            AddToggle("SpiritHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Spirit"), "SpiritForce", "ffffff");//"Force of Spirit"
+            AddToggle("FossilConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Fossil"), "FossilEnchant", "8c5c3b");//"Fossil Bones On Hit"
+            AddToggle("ForbiddenConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Forbidden"), "ForbiddenEnchant", "e7b21c");//"Forbidden Storm"
+            AddToggle("HallowedConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Hallow1"), "HallowEnchant", "968564");//"Hallowed Enchanted Sword Familiar"
+            AddToggle("HallowSConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Hallow2"), "HallowEnchant", "968564");//"Hallowed Shield"
+            AddToggle("SilverConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Silver1"), "SilverEnchant", "b4b4cc");//"Silver Sword Familiar"
+            AddToggle("SilverSpeedConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Silver2"), "SilverEnchant", "b4b4cc");//"Silver Minion Speed"
+            AddToggle("SpectreConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Spectre"), "SpectreEnchant", "accdfc");//"Spectre Orbs"
+            AddToggle("TikiConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Tiki"), "TikiEnchant", "56A52B");//"Tiki Minions"
 
-            AddToggle("CosmoHeader", "Force of Cosmos", "CosmoForce", "ffffff");
-            AddToggle("MeteorConfig", "Meteor Shower", "MeteorEnchant", "5f4752");
-            AddToggle("NebulaConfig", "Nebula Boosters", "NebulaEnchant", "fe7ee5");
-            AddToggle("SolarConfig", "Solar Shield", "SolarEnchant", "fe9e23");
-            AddToggle("SolarFlareConfig", "Inflict Solar Flare", "SolarEnchant", "fe9e23");
-            AddToggle("StardustConfig", "Stardust Guardian", "StardustEnchant", "00aeee");
-            AddToggle("VortexSConfig", "Vortex Stealth", "VortexEnchant", "00f2aa");
-            AddToggle("VortexVConfig", "Vortex Voids", "VortexEnchant", "00f2aa");
+            AddToggle("CosmoHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Cosmos"), "CosmoForce", "ffffff");//"Force of Cosmos"
+            AddToggle("MeteorConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Meteor"), "MeteorEnchant", "5f4752");//"Meteor Shower"
+            AddToggle("NebulaConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Nebula"), "NebulaEnchant", "fe7ee5");//"Nebula Boosters"
+            AddToggle("SolarConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Solar1"), "SolarEnchant", "fe9e23");//"Solar Shield"
+            AddToggle("SolarFlareConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Solar2"), "SolarEnchant", "fe9e23");//"Inflict Solar Flare"
+            AddToggle("StardustConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Stardust"), "StardustEnchant", "00aeee");//"Stardust Guardian"
+            AddToggle("VortexSConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Vortex1"), "VortexEnchant", "00f2aa");//"Vortex Stealth"
+            AddToggle("VortexVConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Vortex2"), "VortexEnchant", "00f2aa");//"Vortex Voids"
 
             #endregion enchants
 
             #region masomode toggles
 
             //Masomode Header
-            AddToggle("MasoHeader", "Eternity Mode", "MutantStatue", "ffffff");
-            AddToggle("MasoHeader2", "Eternity Mode Accessories", "DeviatingEnergy", "ffffff");
+            AddToggle("MasoHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MasoHeader1"), "MutantStatue", "ffffff");//"Eternity Mode"
+            AddToggle("MasoHeader2", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MasoHeader2"), "DeviatingEnergy", "ffffff");//"Eternity Mode Accessories"
             //AddToggle("MasoBossBG", "Mutant Bright Background", "Masochist", "ffffff");
-            AddToggle("MasoBossRecolors", "Boss Recolors (Toggle needs restart)", "Masochist", "ffffff");
-            AddToggle("MasoAeolusConfig", "Aeolus Jump", "AeolusBoots", "ffffff");
-            AddToggle("MasoIconConfig", "Sinister Icon Spawn Rates", "SinisterIcon", "ffffff");
-            AddToggle("MasoIconDropsConfig", "Sinister Icon Drops", "SinisterIcon", "ffffff");
-            AddToggle("MasoGrazeConfig", "Graze", "SparklingAdoration", "ffffff");
-            AddToggle("MasoGrazeRingConfig", "Graze Radius Visual", "SparklingAdoration", "ffffff");
-            AddToggle("MasoDevianttHeartsConfig", "Homing Hearts On Hit", "SparklingAdoration", "ffffff");
+            AddToggle("MasoBossRecolors", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.BossRecolors"), "Masochist", "ffffff");//"Boss Recolors (Toggle needs restart)"
+            AddToggle("MasoAeolusConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Aeolus"), "AeolusBoots", "ffffff");//"Aeolus Jump"
+            AddToggle("MasoIconConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SinisterIcon1"), "SinisterIcon", "ffffff");//"Sinister Icon Spawn Rates"
+            AddToggle("MasoIconDropsConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SinisterIcon2"), "SinisterIcon", "ffffff");//"Sinister Icon Drops"
+            AddToggle("MasoGrazeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Graze"), "SparklingAdoration", "ffffff");//"Graze"
+            AddToggle("MasoGrazeRingConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.GrazeRadius"), "SparklingAdoration", "ffffff");//"Graze Radius Visual"
+            AddToggle("MasoDevianttHeartsConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.DeviHearts"), "SparklingAdoration", "ffffff");//"Homing Hearts On Hit"
 
             //supreme death fairy header
-            AddToggle("SupremeFairyHeader", "Supreme Deathbringer Fairy", "SupremeDeathbringerFairy", "ffffff");
-            AddToggle("MasoSlimeConfig", "Slimy Balls", "SlimyShield", "ffffff");
-            AddToggle("SlimeFallingConfig", "Increased Fall Speed", "SlimyShield", "ffffff");
-            AddToggle("MasoEyeConfig", "Scythes When Dashing", "AgitatingLens", "ffffff");
-            AddToggle("MasoHoneyConfig", "Honey When Hitting Enemies", "QueenStinger", "ffffff");
-            AddToggle("MasoSkeleConfig", "Skeletron Arms Minion", "NecromanticBrew", "ffffff");
+            AddToggle("SupremeFairyHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupremeFairy"), "SupremeDeathbringerFairy", "ffffff");//"Supreme Deathbringer Fairy"
+            AddToggle("MasoSlimeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SlimyShield1"), "SlimyShield", "ffffff");//"Slimy Balls"
+            AddToggle("SlimeFallingConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SlimyShield2"), "SlimyShield", "ffffff");//"Increased Fall Speed"
+            AddToggle("MasoEyeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AgitatingLens"), "AgitatingLens", "ffffff");//"Scythes When Dashing"
+            AddToggle("MasoHoneyConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.QueenStinger"), "QueenStinger", "ffffff");//"Honey When Hitting Enemies"
+            AddToggle("MasoSkeleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.NecromanticBrew"), "NecromanticBrew", "ffffff");//"Skeletron Arms Minion"
 
             //bionomic
-            AddToggle("BionomicHeader", "Bionomic Cluster", "BionomicCluster", "ffffff");
-            AddToggle("MasoConcoctionConfig", "Tim's Concoction", "TimsConcoction", "ffffff");
-            AddToggle("MasoCarrotConfig", "Carrot View", "OrdinaryCarrot", "ffffff");
-            AddToggle("MasoRainbowConfig", "Rainbow Slime Minion", "ConcentratedRainbowMatter", "ffffff");
-            AddToggle("MasoFrigidConfig", "Frostfireballs", "FrigidGemstone", "ffffff");
-            AddToggle("MasoNymphConfig", "Attacks Spawn Hearts", "NymphsPerfume", "ffffff");
-            AddToggle("MasoSqueakConfig", "Squeaky Toy On Hit", "SqueakyToy", "ffffff");
-            AddToggle("MasoPouchConfig", "Shadowflame Tentacles", "WretchedPouch", "ffffff");
-            AddToggle("MasoClippedConfig", "Inflict Clipped Wings", "WyvernFeather", "ffffff");
-            AddToggle("TribalCharmConfig", "Tribal Charm Auto Swing", "TribalCharm", "ffffff");
+            AddToggle("BionomicHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Bionomic"), "BionomicCluster", "ffffff");//"Bionomic Cluster"
+            AddToggle("MasoConcoctionConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TimsConcoction"), "TimsConcoction", "ffffff");//"Tim's Concoction"
+            AddToggle("MasoCarrotConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.OrdinaryCarrot"), "OrdinaryCarrot", "ffffff");//"Carrot View"
+            AddToggle("MasoRainbowConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.RainbowMatter"), "ConcentratedRainbowMatter", "ffffff");//"Rainbow Slime Minion"
+            AddToggle("MasoFrigidConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.FrigidGemstone"), "FrigidGemstone", "ffffff");//"Frostfireballs"
+            AddToggle("MasoNymphConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.NymphsPerfume"), "NymphsPerfume", "ffffff");//"Attacks Spawn Hearts"
+            AddToggle("MasoSqueakConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SqueakyToy"), "SqueakyToy", "ffffff");//"Squeaky Toy On Hit"
+            AddToggle("MasoPouchConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.WretchedPouch"), "WretchedPouch", "ffffff");//"Shadowflame Tentacles"
+            AddToggle("MasoClippedConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.WyvernFeather"), "WyvernFeather", "ffffff");//"Inflict Clipped Wings"
+            AddToggle("TribalCharmConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TribalCharm"), "TribalCharm", "ffffff");//"Tribal Charm Auto Swing"
             //AddToggle("WalletHeader", "Security Wallet", "SecurityWallet", "ffffff");
 
             //dubious
-            AddToggle("DubiousHeader", "Dubious Circuitry", "DubiousCircuitry", "ffffff");
-            AddToggle("MasoLightningConfig", "Inflict Lightning Rod", "GroundStick", "ffffff");
-            AddToggle("MasoProbeConfig", "Probes Minion", "GroundStick", "ffffff");
+            AddToggle("DubiousHeader",Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Dubious") , "DubiousCircuitry", "ffffff");//"Dubious Circuitry"
+            AddToggle("MasoLightningConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.RemoteControl1"), "GroundStick", "ffffff");//"Inflict Lightning Rod"
+            AddToggle("MasoProbeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.RemoteControl2"), "GroundStick", "ffffff");//"Probes Minion"
 
             //pure heart
-            AddToggle("PureHeartHeader", "Pure Heart", "PureHeart", "ffffff");
-            AddToggle("MasoEaterConfig", "Tiny Eaters", "CorruptHeart", "ffffff");
-            AddToggle("MasoBrainConfig", "Creeper Shield", "GuttedHeart", "ffffff");
+            AddToggle("PureHeartHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PureHeart"), "PureHeart", "ffffff");//"Pure Heart"
+            AddToggle("MasoEaterConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CorruptHeart"), "CorruptHeart", "ffffff");//"Tiny Eaters"
+            AddToggle("MasoBrainConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.GuttedHeart"), "GuttedHeart", "ffffff");//"Creeper Shield"
 
             //lump of flesh
-            AddToggle("LumpofFleshHeader", "Lump of Flesh", "LumpOfFlesh", "ffffff");
-            AddToggle("MasoPugentConfig", "Pungent Eye Minion", "LumpOfFlesh", "ffffff");
+            AddToggle("LumpofFleshHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.LumpOfFlesh"), "LumpOfFlesh", "ffffff");//"Lump of Flesh"
+            AddToggle("MasoPugentConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PungentEye"), "LumpOfFlesh", "ffffff");//"Pungent Eye Minion"
 
             //chalice
-            AddToggle("ChaliceHeader", "Chalice of the Moon", "ChaliceoftheMoon", "ffffff");
-            AddToggle("MasoCultistConfig", "Cultist Minion", "ChaliceoftheMoon", "ffffff");
-            AddToggle("MasoPlantConfig", "Plantera Minion", "MagicalBulb", "ffffff");
-            AddToggle("MasoGolemConfig", "Lihzahrd Ground Pound", "LihzahrdTreasureBox", "ffffff");
-            AddToggle("MasoBoulderConfig", "Boulder Spray", "LihzahrdTreasureBox", "ffffff");
-            AddToggle("MasoCelestConfig", "Celestial Rune Support", "CelestialRune", "ffffff");
-            AddToggle("MasoVisionConfig", "Ancient Visions On Hit", "CelestialRune", "ffffff");
+            AddToggle("ChaliceHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Chalice"), "ChaliceoftheMoon", "ffffff");//"Chalice of the Moon"
+            AddToggle("MasoCultistConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Cultist"), "ChaliceoftheMoon", "ffffff");//"Cultist Minion"
+            AddToggle("MasoPlantConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MagicalBulb"), "MagicalBulb", "ffffff");//"Plantera Minion"
+            AddToggle("MasoGolemConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Lihzahrd1"), "LihzahrdTreasureBox", "ffffff");//"Lihzahrd Ground Pound"
+            AddToggle("MasoBoulderConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Lihzahrd2"), "LihzahrdTreasureBox", "ffffff");//"Boulder Spray"
+            AddToggle("MasoCelestConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CelestialRune1"), "CelestialRune", "ffffff");//"Celestial Rune Support"
+            AddToggle("MasoVisionConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CelestialRune2"), "CelestialRune", "ffffff");//"Ancient Visions On Hit"
 
             //heart of the masochist
-            AddToggle("HeartHeader", "Heart of the Eternal", "HeartoftheMasochist", "ffffff");
-            AddToggle("MasoPumpConfig", "Pumpking's Cape Support", "PumpkingsCape", "ffffff");
-            AddToggle("IceQueensCrownConfig", "Freeze On Hit", "IceQueensCrown", "ffffff");
-            AddToggle("MasoFlockoConfig", "Flocko Minion", "IceQueensCrown", "ffffff");
-            AddToggle("MasoUfoConfig", "Saucer Minion", "SaucerControlConsole", "ffffff");
-            AddToggle("MasoGravConfig", "Gravity Control", "GalacticGlobe", "ffffff");
-            AddToggle("MasoGrav2Config", "Stabilized Gravity", "GalacticGlobe", "ffffff");
-            AddToggle("MasoTrueEyeConfig", "True Eyes Minion", "GalacticGlobe", "ffffff");
+            AddToggle("HeartHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.EternalHeart"), "HeartoftheMasochist", "ffffff");//"Heart of the Eternal"
+            AddToggle("MasoPumpConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PumpCape"), "PumpkingsCape", "ffffff");//"Pumpking's Cape Support"
+            AddToggle("IceQueensCrownConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.IceQueensCrown1"), "IceQueensCrown", "ffffff");//"Freeze On Hit"
+            AddToggle("MasoFlockoConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.IceQueensCrown2"), "IceQueensCrown", "ffffff");//"Flocko Minion"
+            AddToggle("MasoUfoConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SaucerConsole"), "SaucerControlConsole", "ffffff");//"Saucer Minion"
+            AddToggle("MasoGravConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.GalaGlobe1"), "GalacticGlobe", "ffffff");//"Gravity Control"
+            AddToggle("MasoGrav2Config", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.GalaGlobe2"), "GalacticGlobe", "ffffff");//"Stabilized Gravity"
+            AddToggle("MasoTrueEyeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.GalaGlobe3"), "GalacticGlobe", "ffffff");//"True Eyes Minion"
 
             //cyclonic fin
-            AddToggle("CyclonicHeader", "Abominable Wand", "CyclonicFin", "ffffff");
-            AddToggle("MasoFishronConfig", "Spectral Abominationn", "CyclonicFin", "ffffff");
+            AddToggle("CyclonicHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AbomWand"), "CyclonicFin", "ffffff");//"Abominable Wand"
+            AddToggle("MasoFishronConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SpectralAbom"), "CyclonicFin", "ffffff");//"Spectral Abominationn"
 
             //mutant armor
-            AddToggle("MutantArmorHeader", "True Mutant Armor", "HeartoftheMasochist", "ffffff");
-            AddToggle("MasoAbomConfig", "Abominationn Minion", "MutantMask", "ffffff");
-            AddToggle("MasoRingConfig", "Phantasmal Ring Minion", "MutantMask", "ffffff");
-            AddToggle("MasoReviveDeathrayConfig", "Deathray When Revived", "MutantMask", "ffffff");
+            AddToggle("MutantArmorHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MutantArmorHeader"), "HeartoftheMasochist", "ffffff");//"True Mutant Armor"
+            AddToggle("MasoAbomConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AbomMinion"), "MutantMask", "ffffff");//"Abominationn Minion"
+            AddToggle("MasoRingConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PhantasmalRing"), "MutantMask", "ffffff");//"Phantasmal Ring Minion"
+            AddToggle("MasoReviveDeathrayConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.ReviveDeathray"), "MutantMask", "ffffff");//"Deathray When Revived"
 
             #endregion masomode toggles
 
             #region soul toggles
 
-            AddToggle("SoulHeader", "Souls", "UniverseSoul", "ffffff");
-            AddToggle("MeleeConfig", "Melee Speed", "GladiatorsSoul", "ffffff");
-            AddToggle("MagmaStoneConfig", "Magma Stone", "GladiatorsSoul", "ffffff");
-            AddToggle("YoyoBagConfig", "Yoyo Bag", "GladiatorsSoul", "ffffff");
-            AddToggle("MoonCharmConfig", "Moon Charm", "GladiatorsSoul", "ffffff");
-            AddToggle("NeptuneShellConfig", "Neptune's Shell", "GladiatorsSoul", "ffffff");
-            AddToggle("SniperConfig", "Sniper Scope", "SnipersSoul", "ffffff");
-            AddToggle("UniverseConfig", "Universe Attack Speed", "UniverseSoul", "ffffff");
-            AddToggle("MiningHuntConfig", "Mining Hunter Buff", "MinerEnchant", "ffffff");
-            AddToggle("MiningDangerConfig", "Mining Dangersense Buff", "MinerEnchant", "ffffff");
-            AddToggle("MiningSpelunkConfig", "Mining Spelunker Buff", "MinerEnchant", "ffffff");
-            AddToggle("MiningShineConfig", "Mining Shine Buff", "MinerEnchant", "ffffff");
-            AddToggle("BuilderConfig", "Builder Mode", "WorldShaperSoul", "ffffff");
-            AddToggle("TrawlerSporeConfig", "Spore Sac", "TrawlerSoul", "ffffff");
-            AddToggle("DefenseStarConfig", "Stars On Hit", "ColossusSoul", "ffffff");
-            AddToggle("DefenseBeeConfig", "Bees On Hit", "ColossusSoul", "ffffff");
-            AddToggle("DefensePanicConfig", "Panic On Hit", "ColossusSoul", "ffffff");
-            AddToggle("DefenseFleshKnuckleConfig", "Flesh Knuckles Aggro", "ColossusSoul", "ffffff");
-            AddToggle("DefensePaladinConfig", "Paladin's Shield", "ColossusSoul", "ffffff");
-            AddToggle("RunSpeedConfig", "Higher Base Run Speed", "SupersonicSoul", "ffffff");
-            AddToggle("MomentumConfig", "No Momentum", "SupersonicSoul", "ffffff");
-            AddToggle("SupersonicConfig", "Supersonic Speed Boosts", "SupersonicSoul", "ffffff");
-            AddToggle("SupersonicJumpsConfig", "Supersonic Jumps", "SupersonicSoul", "ffffff");
-            AddToggle("SupersonicRocketBootsConfig", "Supersonic Rocket Boots", "SupersonicSoul", "ffffff");
-            AddToggle("SupersonicCarpetConfig", "Supersonic Carpet", "SupersonicSoul", "ffffff");
-            AddToggle("SupersonicFlowerConfig", "Flower Boots", "SupersonicSoul", "248900");
-            AddToggle("CthulhuShieldConfig", "Shield of Cthulhu", "SupersonicSoul", "ffffff");
-            AddToggle("BlackBeltConfig", "Black Belt", "SupersonicSoul", "ffffff");
-            AddToggle("TrawlerConfig", "Trawler Extra Lures", "TrawlerSoul", "ffffff");
-            AddToggle("TrawlerJumpConfig", "Trawler Jump", "TrawlerSoul", "ffffff");
-            AddToggle("EternityConfig", "Eternity Stacking", "EternitySoul", "ffffff");
+            AddToggle("SoulHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SoulHeader"), "UniverseSoul", "ffffff");//"Souls"
+            AddToggle("MeleeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MeleeSpeed"), "GladiatorsSoul", "ffffff");//"Melee Speed"
+            AddToggle("MagmaStoneConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MagmaStone"), "GladiatorsSoul", "ffffff");//"Magma Stone"
+            AddToggle("YoyoBagConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.YoyoBag"), "GladiatorsSoul", "ffffff");//"Yoyo Bag"
+            AddToggle("MoonCharmConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MoonCharm"), "GladiatorsSoul", "ffffff");//"Moon Charm"
+            AddToggle("NeptuneShellConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.NeptuneShell"), "GladiatorsSoul", "ffffff");//"Neptune's Shell"
+            AddToggle("SniperConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SniperScope"), "SnipersSoul", "ffffff");//"Sniper Scope"
+            AddToggle("UniverseConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.AttackSpeed"), "UniverseSoul", "ffffff");//"Universe Attack Speed"
+            AddToggle("MiningHuntConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Hunter"), "MinerEnchant", "ffffff");//"Mining Hunter Buff"
+            AddToggle("MiningDangerConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Dangersense"), "MinerEnchant", "ffffff");//"Mining Dangersense Buff"
+            AddToggle("MiningSpelunkConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Spelunker"), "MinerEnchant", "ffffff");//"Mining Spelunker Buff"
+            AddToggle("MiningShineConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Shine"), "MinerEnchant", "ffffff");//"Mining Shine Buff"
+            AddToggle("BuilderConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.BuilderMode"), "WorldShaperSoul", "ffffff");//"Builder Mode"
+            AddToggle("TrawlerSporeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SporeSac"), "TrawlerSoul", "ffffff");//"Spore Sac"
+            AddToggle("DefenseStarConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Stars"), "ColossusSoul", "ffffff");//"Stars On Hit"
+            AddToggle("DefenseBeeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Bees"), "ColossusSoul", "ffffff");//"Bees On Hit"
+            AddToggle("DefensePanicConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Panic"), "ColossusSoul", "ffffff");//"Panic On Hit"
+            AddToggle("DefenseFleshKnuckleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Aggro"), "ColossusSoul", "ffffff");//"Flesh Knuckles Aggro"
+            AddToggle("DefensePaladinConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PaladinShield"), "ColossusSoul", "ffffff");//"Paladin's Shield"
+            AddToggle("RunSpeedConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicBaseSpeed"), "SupersonicSoul", "ffffff");//"Higher Base Run Speed"
+            AddToggle("MomentumConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicMomentum"), "SupersonicSoul", "ffffff");//"No Momentum"
+            AddToggle("SupersonicConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicSpeed"), "SupersonicSoul", "ffffff");//"Supersonic Speed Boosts"
+            AddToggle("SupersonicJumpsConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicJumps"), "SupersonicSoul", "ffffff");//"Supersonic Jumps"
+            AddToggle("SupersonicRocketBootsConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicRocketBoots"), "SupersonicSoul", "ffffff");//"Supersonic Rocket Boots"
+            AddToggle("SupersonicCarpetConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicCarpet"), "SupersonicSoul", "ffffff");//"Supersonic Carpet"
+            AddToggle("SupersonicFlowerConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SupersonicFlower"), "SupersonicSoul", "248900");//"Flower Boots"
+            AddToggle("CthulhuShieldConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CthulhuShield"), "SupersonicSoul", "ffffff");//"Shield of Cthulhu"
+            AddToggle("BlackBeltConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.BlackBelt"), "SupersonicSoul", "ffffff");//"Black Belt"
+            AddToggle("TrawlerConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TrawlerLures"), "TrawlerSoul", "ffffff");//"Trawler Extra Lures"
+            AddToggle("TrawlerJumpConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TrawlerJump"), "TrawlerSoul", "ffffff");//"Trawler Jump"
+            AddToggle("EternityConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Eternity"), "EternitySoul", "ffffff");//"Eternity Stacking"
 
             #endregion soul toggles
 
             #region pet toggles
 
-            AddToggle("PetHeader", "Pets", ItemID.ZephyrFish, "ffffff");
-            AddToggle("PetBlackCatConfig", "Black Cat Pet", 1810, "ffffff");
-            AddToggle("PetCompanionCubeConfig", "Companion Cube Pet", 3628, "ffffff");
-            AddToggle("PetCursedSaplingConfig", "Cursed Sapling Pet", 1837, "ffffff");
-            AddToggle("PetDinoConfig", "Dino Pet", 1242, "ffffff");
-            AddToggle("PetDragonConfig", "Dragon Pet", 3857, "ffffff");
-            AddToggle("PetEaterConfig", "Eater Pet", 994, "ffffff");
-            AddToggle("PetEyeSpringConfig", "Eye Spring Pet", 1311, "ffffff");
-            AddToggle("PetFaceMonsterConfig", "Face Monster Pet", 3060, "ffffff");
-            AddToggle("PetGatoConfig", "Gato Pet", 3855, "ffffff");
-            AddToggle("PetHornetConfig", "Hornet Pet", 1170, "ffffff");
-            AddToggle("PetLizardConfig", "Lizard Pet", 1172, "ffffff");
-            AddToggle("PetMinitaurConfig", "Mini Minotaur Pet", 2587, "ffffff");
-            AddToggle("PetParrotConfig", "Parrot Pet", 1180, "ffffff");
-            AddToggle("PetPenguinConfig", "Penguin Pet", 669, "ffffff");
-            AddToggle("PetPupConfig", "Puppy Pet", 1927, "ffffff");
-            AddToggle("PetSeedConfig", "Seedling Pet", 1182, "ffffff");
-            AddToggle("PetDGConfig", "Skeletron Pet", 1169, "ffffff");
-            AddToggle("PetSnowmanConfig", "Snowman Pet", 1312, "ffffff");
-            AddToggle("PetGrinchConfig", "Grinch Pet", ItemID.BabyGrinchMischiefWhistle, "ffffff");
-            AddToggle("PetSpiderConfig", "Spider Pet", 1798, "ffffff");
-            AddToggle("PetSquashConfig", "Squashling Pet", 1799, "ffffff");
-            AddToggle("PetTikiConfig", "Tiki Pet", 1171, "ffffff");
-            AddToggle("PetShroomConfig", "Truffle Pet", 1181, "ffffff");
-            AddToggle("PetTurtleConfig", "Turtle Pet", 753, "ffffff");
-            AddToggle("PetZephyrConfig", "Zephyr Fish Pet", 2420, "ffffff");
-            AddToggle("PetHeartConfig", "Crimson Heart Pet", 3062, "ffffff");
-            AddToggle("PetNaviConfig", "Fairy Pet", 425, "ffffff");
-            AddToggle("PetFlickerConfig", "Flickerwick Pet", 3856, "ffffff");
-            AddToggle("PetLanternConfig", "Magic Lantern Pet", 3043, "ffffff");
-            AddToggle("PetOrbConfig", "Shadow Orb Pet", 115, "ffffff");
-            AddToggle("PetSuspEyeConfig", "Suspicious Eye Pet", 3577, "ffffff");
-            AddToggle("PetWispConfig", "Wisp Pet", 1183, "ffffff");
+            AddToggle("PetHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PetHeader"), ItemID.ZephyrFish, "ffffff");//"Pets"
+            AddToggle("PetBlackCatConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.BlackCat"), 1810, "ffffff");//"Black Cat Pet"
+            AddToggle("PetCompanionCubeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CompanionCube"), 3628, "ffffff");//"Companion Cube Pet"
+            AddToggle("PetCursedSaplingConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CursedSapling"), 1837, "ffffff");//"Cursed Sapling Pet"
+            AddToggle("PetDinoConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Dino"), 1242, "ffffff");//"Dino Pet"
+            AddToggle("PetDragonConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Dragon"), 3857, "ffffff");//"Dragon Pet"
+            AddToggle("PetEaterConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Eater"), 994, "ffffff");//"Eater Pet"
+            AddToggle("PetEyeSpringConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.EyeSpring"), 1311, "ffffff");//"Eye Spring Pet"
+            AddToggle("PetFaceMonsterConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.FaceMonster"), 3060, "ffffff");//"Face Monster Pet"
+            AddToggle("PetGatoConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Gato"), 3855, "ffffff");//"Gato Pet"
+            AddToggle("PetHornetConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Hornet"), 1170, "ffffff");//"Hornet Pet"
+            AddToggle("PetLizardConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Lizard"), 1172, "ffffff");//"Lizard Pet"
+            AddToggle("PetMinitaurConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MiniMinotaur"), 2587, "ffffff");//"Mini Minotaur Pet"
+            AddToggle("PetParrotConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Parrot"), 1180, "ffffff");//"Parrot Pet"
+            AddToggle("PetPenguinConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Penguin"), 669, "ffffff");//"Penguin Pet"
+            AddToggle("PetPupConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Puppy"), 1927, "ffffff");//"Puppy Pet"
+            AddToggle("PetSeedConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Seedling"), 1182, "ffffff");//"Seedling Pet"
+            AddToggle("PetDGConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Skeletron"), 1169, "ffffff");//"Skeletron Pet"
+            AddToggle("PetSnowmanConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Snowman"), 1312, "ffffff");//"Snowman Pet"
+            AddToggle("PetGrinchConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Grinch"), ItemID.BabyGrinchMischiefWhistle, "ffffff");//"Grinch Pet"
+            AddToggle("PetSpiderConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SpiderPet"), 1798, "ffffff");//"Spider Pet"
+            AddToggle("PetSquashConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Squashling"), 1799, "ffffff");//"Squashling Pet"
+            AddToggle("PetTikiConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TikiPet"), 1171, "ffffff");//"Tiki Pet"
+            AddToggle("PetShroomConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Truffle"), 1181, "ffffff");//"Truffle Pet"
+            AddToggle("PetTurtleConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.TurtlePet"), 753, "ffffff");//"Turtle Pet"
+            AddToggle("PetZephyrConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.ZephyrFish"), 2420, "ffffff");//"Zephyr Fish Pet"
+            AddToggle("PetHeartConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.CrimsonHeart"), 3062, "ffffff");//"Crimson Heart Pet"
+            AddToggle("PetNaviConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Fairy"), 425, "ffffff");//"Fairy Pet"
+            AddToggle("PetFlickerConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Flickerwick"), 3856, "ffffff");//"Flickerwick Pet"
+            AddToggle("PetLanternConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.MagicLantern"), 3043, "ffffff");//"Magic Lantern Pet"
+            AddToggle("PetOrbConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.ShadowOrb"), 115, "ffffff");//"Shadow Orb Pet"
+            AddToggle("PetSuspEyeConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.SuspiciousEye"), 3577, "ffffff");//"Suspicious Eye Pet"
+            AddToggle("PetWispConfig", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.Wisp"), 1183, "ffffff");//"Wisp Pet"
 
             #endregion pet toggles
 
             #region patreon toggles
-            AddToggle("PatreonHeader", "Patreon Items (Toggles need restart)", "RoombaPet", "ffffff");
-            AddToggle("PatreonRoomba", "Roomba", "RoombaPet", "ffffff");
-            AddToggle("PatreonOrb", "Computation Orb", "ComputationOrb", "ffffff");
-            AddToggle("PatreonFishingRod", "Miss Drakovi's Fishing Pole", "MissDrakovisFishingPole", "ffffff");
-            AddToggle("PatreonDoor", "Squidward Door", "SquidwardDoor", "ffffff");
-            AddToggle("PatreonWolf", "Paradox Wolf Soul", "ParadoxWolfSoul", "ffffff");
-            AddToggle("PatreonDove", "Fig Branch", "FigBranch", "ffffff");
-            AddToggle("PatreonKingSlime", "Medallion of the Fallen King", "MedallionoftheFallenKing", "ffffff");
-            AddToggle("PatreonFishron", "Staff Of Unleashed Ocean", "StaffOfUnleashedOcean", "ffffff");
-            AddToggle("PatreonPlant", "Piranha Plant Voodoo Doll", "PiranhaPlantVoodooDoll", "ffffff");
-            AddToggle("PatreonDevious", "Devious Aestheticus", "DeviousAestheticus", "ffffff");
-            AddToggle("PatreonVortex", "Vortex Ritual", "VortexMagnetRitual", "ffffff");
-            AddToggle("PatreonPrime", "Prime Staff", "PrimeStaff", "ffffff");
-            AddToggle("PatreonCrimetroid", "Crimetroid", "CrimetroidEgg", "ffffff");
+            AddToggle("PatreonHeader", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonHeader"), "RoombaPet", "ffffff");//"Patreon Items (Toggles need restart)"
+            AddToggle("PatreonRoomba", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonRoomba"), "RoombaPet", "ffffff");//"Roomba"
+            AddToggle("PatreonOrb", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonOrb"), "ComputationOrb", "ffffff");//"Computation Orb"
+            AddToggle("PatreonFishingRod", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonFishingRod"), "MissDrakovisFishingPole", "ffffff");//"Miss Drakovi's Fishing Pole"
+            AddToggle("PatreonDoor", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonDoor"), "SquidwardDoor", "ffffff");//"Squidward Door"
+            AddToggle("PatreonWolf", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonWolf"), "ParadoxWolfSoul", "ffffff");//"Paradox Wolf Soul"
+            AddToggle("PatreonDove", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonDove"), "FigBranch", "ffffff");//"Fig Branch"
+            AddToggle("PatreonKingSlime", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonKingSlime"), "MedallionoftheFallenKing", "ffffff");//"Medallion of the Fallen King"
+            AddToggle("PatreonFishron", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonFishron"), "StaffOfUnleashedOcean", "ffffff");//"Staff Of Unleashed Ocean"
+            AddToggle("PatreonPlant", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonPlant"), "PiranhaPlantVoodooDoll", "ffffff");//"Piranha Plant Voodoo Doll"
+            AddToggle("PatreonDevious", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonDevious"), "DeviousAestheticus", "ffffff");//"Devious Aestheticus"
+            AddToggle("PatreonVortex", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonVortex"), "VortexMagnetRitual", "ffffff");//"Vortex Ritual"
+            AddToggle("PatreonPrime", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonPrime"), "PrimeStaff", "ffffff");//"Prime Staff"
+            AddToggle("PatreonCrimetroid", Language.GetTextValue("Mods.FargowiltasSouls.Toggle.PatreonCrimetroid"), "CrimetroidEgg", "ffffff");//"Crimetroid"
             #endregion patreon toggles
 
             #endregion Toggles
