@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of the Void");
+            /*DisplayName.SetDefault("Soul of the Void");
 
             string tooltip =
 @"Summons SOMETHING";
-            Tooltip.SetDefault(tooltip);
+            Tooltip.SetDefault(tooltip);*/
         }
 
         public override void SetDefaults()

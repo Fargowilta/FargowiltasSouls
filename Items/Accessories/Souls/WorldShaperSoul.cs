@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("World Shaper Soul");
+            /*DisplayName.SetDefault("World Shaper Soul");
             Tooltip.SetDefault(
 @"Increased block and wall placement speed by 50%
 Near infinite block placement and mining reach
@@ -41,7 +41,7 @@ Summons a pet Magic Lantern
 可以在 魂 选项菜单中禁用此效果
 拥有手机和皇家凝胶效果
 召唤一个魔法灯笼
-'无限的可能性'");
+'无限的可能性'");*/
         }
 
         public override void SetDefaults()

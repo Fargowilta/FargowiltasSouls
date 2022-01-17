@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Berserker's Soul");
+            /*DisplayName.SetDefault("Berserker's Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "狂战士之魂");
             
@@ -33,7 +33,7 @@ Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
 增加近战击退
 拥有烈火手套、悠悠球袋和天界壳效果
 '吾之传说生者弗能传颂'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

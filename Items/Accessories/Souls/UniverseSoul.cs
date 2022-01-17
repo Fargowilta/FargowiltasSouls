@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of the Universe");
+            /*DisplayName.SetDefault("Soul of the Universe");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "寰宇之魂");
             
@@ -45,7 +45,7 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
 拥有烈火手套、悠悠球袋和天界壳效果
 拥有狙击镜、 天界手铐、和魔力花效果
 '诸天也向你俯首'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 10));
 

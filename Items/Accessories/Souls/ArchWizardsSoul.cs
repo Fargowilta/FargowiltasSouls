@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arch Wizard's Soul");
+            /*DisplayName.SetDefault("Arch Wizard's Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "巫师之魂");
             
@@ -30,7 +30,7 @@ Effects of Celestial Cuffs and Mana Flower
 增加200点最大法力值
 拥有天界手铐和魔力花效果
 '奥术之力，合核凝一'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

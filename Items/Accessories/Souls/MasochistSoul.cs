@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of the Siblings");
+/*            DisplayName.SetDefault("Soul of the Siblings");
             Tooltip.SetDefault(
 @"Increases wing time by 200%, armor penetration by 50, and movement speed by 20%
 Increases max life by 100%, damage by 50%, and damage reduction by 10%
@@ -47,7 +47,7 @@ Summons the aid of all Eternity Mode bosses to your side
 阻止Boss自然生成，增加刷怪率，敌人死亡后会掉落更多战利品，你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
 召唤所有永恒模式Boss的援助到你身边
 '拥抱永恒'");
-        }
+*/        }
 
         public override void SetDefaults()
         {

@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Conjurist's Soul");
+            /*DisplayName.SetDefault("Conjurist's Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "召唤之魂");
             
@@ -29,7 +29,7 @@ Increased minion knockback
 +2最大哨兵栏
 增加召唤物击退
 '一支听命于您的军队'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

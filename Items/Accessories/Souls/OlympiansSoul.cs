@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Olympian's Soul");
+            /*DisplayName.SetDefault("Olympian's Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "奥林匹斯之魂");
             
@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 增加20%投掷速度
 增加15%投掷暴击率和投掷力度
 '一击索命，避无可避'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

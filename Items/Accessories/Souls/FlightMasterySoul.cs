@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flight Mastery Soul");
+            /*DisplayName.SetDefault("Flight Mastery Soul");
             Tooltip.SetDefault(
 @"Allows for infinite flight
 Hold DOWN and JUMP to hover
@@ -23,7 +23,7 @@ Allows the control of gravity
 @"使你获得无限飞行能力
 按住'下'和'跳跃'键悬停
 允许你控制重力
-'飞升'");
+'飞升'");*/
         }
 
         public override void SetDefaults()

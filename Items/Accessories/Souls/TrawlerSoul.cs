@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Trawler Soul");
+            /*DisplayName.SetDefault("Trawler Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "捕鱼之魂");
             
@@ -34,7 +34,7 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear
 拥有渔夫渔具袋和狍子囊效果
 拥有粉马掌气球和北极潜水装备效果
 '愿者上钩'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Colossus Soul");
+            /*DisplayName.SetDefault("Colossus Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "巨像之魂");
             
@@ -36,7 +36,7 @@ Effects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell
 拥有混乱之脑、星星面纱和蜜蜂斗篷效果
 拥有闪亮石、圣骑士护盾和冰冻海龟壳效果
 '你无人可挡'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

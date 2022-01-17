@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sniper's Soul");
+            /*DisplayName.SetDefault("Sniper's Soul");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "神枪手之魂");
             
@@ -31,7 +31,7 @@ Effects of Sniper Scope
 增加15%远程暴击率
 拥有狙击镜效果
 '预备，瞄准，开火'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
         }
 

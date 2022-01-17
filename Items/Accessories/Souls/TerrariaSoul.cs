@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of Terraria");
+            /*DisplayName.SetDefault("Soul of Terraria");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "泰拉之魂");
             
@@ -62,7 +62,7 @@ Effects of Flower Boots and Greedy Ring
 你受到伤害时会剧烈爆炸并伤害附近的敌人，你在重生时以200点生命值重生
 拥有花靴和贪婪戒指效果
 '泰拉之主，天地共证'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 24));
         }

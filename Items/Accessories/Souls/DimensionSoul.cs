@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of Dimensions");
+            /*DisplayName.SetDefault("Soul of Dimensions");
             
             DisplayName.AddTranslation(GameCulture.Chinese, "维度之魂");
             
@@ -56,7 +56,7 @@ Effects of Shield of Cthulhu and Master Ninja Gear
 拥有熔岩靴、渔夫渔具袋、喷漆器、自动安放器、手机和重力球效果
 拥有克苏鲁护盾和忍者大师装备效果
 '泰拉瑞亚的维度触手可及'";
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
 
 
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 18));

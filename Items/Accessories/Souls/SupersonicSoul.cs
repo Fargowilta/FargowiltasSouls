@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Supersonic Soul");
+            /*DisplayName.SetDefault("Supersonic Soul");
 
             string tooltip =
 @"Allows Supersonic running, flight, and extra mobility on ice
@@ -37,7 +37,7 @@ Effects of Sweetheart Necklace and Amber Horseshoe Balloon
 
             Tooltip.SetDefault(tooltip);
             DisplayName.AddTranslation(GameCulture.Chinese, "超音速之魂");
-            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);
+            Tooltip.AddTranslation(GameCulture.Chinese, tooltip_ch);*/
         }
 
         public override void SetDefaults()
