@@ -1018,11 +1018,53 @@ ItemTooltip.WyvernFeather =Grants immunity to Clipped Wings and Crippled\nYour a
 
 /Items/Souls
 
+ItemName.ArchWizardsSoul =Arch Wizard's Soul
+ItemTooltip.ArchWizardsSoul =30% increased magic damage\n20% increased spell casting speed\n15% increased magic crit chance\nIncreases your maximum mana by 200\nEffects of Celestial Cuffs and Mana Flower\n'Arcane to the core'
+
+ItemName.ColossusSoul =Colossus Soul
+ItemTooltip.ColossusSoul =Increases HP by 100\n15% damage reduction\nIncreases life regeneration by 5\nGrants immunity to knockback, several debuffs, and fall damage\nEnemies are more likely to target you\nEffects of Brain of Confusion, Star Veil, and Bee Cloak\nEffects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell\n'Nothing can stop you'
+
+ItemName.ConjuristsSoul =Conjurist's Soul
+ItemTooltip.ConjuristsSoul =30% increased summon damage\nIncreases your max number of minions by 3\nIncreases your max number of sentries by 3\nIncreased minion knockback\n'An army at your disposal'
+
+ItemName.DimensionSoul =Soul of Dimensions
+ItemTooltip.DimensionSoul =Increases HP by 300\n20% damage reduction\nIncreases life regeneration by 8\nGrants immunity to knockback and several debuffs\nEnemies are more likely to target you\nAllows Supersonic running and infinite flight\nIncreases fishing skill substantially, All fishing rods will have 10 extra lures\nIncreased block and wall placement speed by 50%\nNear infinite block placement and mining reach, Mining speed tripled\nShine, Spelunker, Hunter, and Dangersense effects\nAuto paint and actuator effect\nGrants the ability to enable Builder Mode\nEffects of the Brain of Confusion, Star Veil, Sweetheart Necklace, Bee Cloak, Spore Sac, and Shiny Stone\nEffects of Paladin's Shield, Frozen Turtle Shell, Arctic Diving Gear, Frog Legs, and Flying Carpet\nEffects of Lava Waders, Angler Tackle Bag, Paint Sprayer, Presserator, Cell Phone, and Gravity Globe\nEffects of Shield of Cthulhu and Master Ninja Gear\n'The dimensions of Terraria at your fingertips'
+
+ItemName.FlightMasterySoul =Flight Mastery Soul
+ItemTooltip.FlightMasterySoul =Allows for infinite flight\nHold DOWN and JUMP to hover\nAllows the control of gravity\n'Ascend'
+
+ItemName.GladiatorsSoul =Berserker's Soul
+ItemTooltip.GladiatorsSoul =30% increased melee damage\n20% increased melee speed\n15% increased melee crit chance\nIncreased melee knockback\nEffects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell\n'None shall live to tell the tale'
+
+ItemName.MasochistSoul =Soul of the Siblings
+ItemTooltip.MasochistSoul =Increases wing time by 200%, armor penetration by 50, and movement speed by 20%\nIncreases max life by 100%, damage by 50%, and damage reduction by 10%\nIncreases life regen drastically, increases max number of minions and sentries by 2\nGrants gravity control, fastfall, and immunity to knockback, almost all Eternity Mode debuffs, and more\nGrants autofire to all weapons and you automatically use mana potions when needed\nYour attacks create additional attacks, hearts, and inflict a cocktail of Eternity Mode debuffs\nPress the Fireball Dash key to perform a short invincible dash, zoom with right click\nCertain enemies will drop potions when defeated, 50% discount on reforges, you respawn with more life\nYou respawn twice as fast, attacks spawn honey, have improved night vision, and erupt into various attacks when injured\nPrevents boss spawns, increases spawn rate, increases loot, and attacks may squeak and deal 1 damage to you\nUse to teleport to your last death point\nSummons the aid of all Eternity Mode bosses to your side\n'Embrace eternity'
+
+ItemName.OlympiansSoul =Olympian's Soul
+ItemTooltip.OlympiansSoul =30% increased throwing damage\n20% increased throwing speed\n15% increased throwing critical chance and velocity\n'Strike with deadly precision'
+
+ItemName.SnipersSoul =Sniper's Soul
+ItemTooltip.SnipersSoul =30% increased ranged damage\n20% chance to not consume ammo\n15% increased ranged critical chance\nEffects of Sniper Scope\n'Ready, aim, fire'
+
+ItemName.SupersonicSoul =Supersonic Soul
+ItemTooltip.SupersonicSoul =Allows Supersonic running, flight, and extra mobility on ice\nAllows the holder to quintuple jump if no wings are equipped\nIncreases jump height, jump speed, and allows auto-jump\nFlowers grow on the grass you walk on\nGrants the ability to swim and greatly extends underwater breathing\nProvides the ability to walk on water and lava\nGrants immunity to lava and fall damage\nEffects of Flying Carpet, Shield of Cthulhu and Master Ninja Gear\nEffects of Sweetheart Necklace and Amber Horseshoe Balloon\n'I am speed'
+
+ItemName.TerrariaSoul =Soul of Terraria
+ItemTooltip.TerrariaSoul =Summons fireballs, shadow orbs, icicles, leaf crystals, flameburst minion, hallowed sword and shield, and beetles\nRight Click to Guard\nDouble tap down to spawn a sentry and portal, call a storm and arrow rain, toggle stealth, and direct your empowered guardian\nGold Key encases you in gold, Freeze Key freezes time for 5 seconds, minions spew scythes\nSolar shield allows you to dash, Dash into any walls, to teleport through them\nThrow a smoke bomb to teleport to it and gain the First Strike Buff\nAttacks may spawn lightning, a storm cloud, flower petals, spectre orbs, a Dungeon Guardian, snowballs, spears, or buff boosters\nAttacks cause increased life regen, shadow dodge, Flameburst shots, meteor showers, and reduced enemy immune frames\nCritical chance is set to 25%, Crit to increase it by 5%, At 100% every 10th attack gains 4% life steal\nGetting hit drops your crit back down, trigger a blood geyser, and reflects damage\nProjectiles may split or shatter and spawn stars, item and projectile size increased, attract items from further away\nNearby enemies are ignited, You leave behind a trail of fire, jump to create a spore explosion\nGrants Crimson regen, immunity to fire, fall damage, and lava, and doubled herb collection\nGrants 50% chance for Mega Bees, 15% chance for minion crits, 20% chance for bonus loot\nCritters have increased defense and their souls will aid you, You may summon temporary minions\nAll grappling hooks are more effective and fire homing shots, Greatly enhances all DD2 sentries\nYour attacks inflict Midas, Enemies explode into needles\nYou violently explode to damage nearby enemies when hurt and revive with 200 HP when killed\nEffects of Flower Boots and Greedy Ring\n'A true master of Terraria'
+
+ItemName.TrawlerSoul =Trawler Soul
+ItemTooltip.TrawlerSoul =Increases fishing skill substantially\nAll fishing rods will have 10 extra lures\nYou catch fish almost instantly\nPermanent Sonar and Crate Buffs\nEffects of Angler Tackle Bag and Spore Sac \nEffects of Pink Horseshoe Balloon and Arctic Diving Gear\n'The fish catch themselves'
+
+ItemName.UniverseSoul =Soul of Universe
+ItemTooltip.UniverseSoul =66% increased all damage\n50% increased use speed for all weapons\n50% increased shoot speed\n25% increased all critical chance\nCrits deal 5x damage\nAll weapons have double knockback\nIncreases your maximum mana by 300\nIncreases your max number of minions by 4\nIncreases your max number of sentries by 4\nAll attacks inflict Flames of the Universe\nEffects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell\nEffects of Sniper Scope, Celestial Cuffs and Mana Flower\n'The heavens themselves bow to you'
+
+ItemName.VoidSoul =Soul of the Void
+ItemTooltip.VoidSoul =Summons SOMETHING
+
+ItemName.WorldShaperSoul =World Shaper Soul
+ItemTooltip.WorldShaperSoul =Increased block and wall placement speed by 50%\nNear infinite block placement and mining reach\nMining speed tripled\nShows the location of enemies, traps, and treasures\nAuto paint and actuator effect\nProvides light and allows gravity control\nGrants the ability to enable Builder Mode:\nAnything that creates a tile will not be consumed and can be used much faster\nNo enemies can spawn\nEffect can be disabled in Soul Toggles menu\nEffects of the Cell Phone and Royal Gel\nSummons a pet Magic Lantern\n'Limitless possibilities'
+
 ItemName.EternitySoul =Soul of Eternity
 ItemTooltip.EternitySoul ='Mortal or Immortal, all things acknowledge your claim to divinity'\nCrit chance is set to 50%\nCrit to increase it by 10%\nAt 100% every attack gains 10% life steal\nYou also gain +5% damage and +5 defense\nThis stacks up to 950 times until you get hit
-
-
-/Items/Souls/Soul of Eternity
 
 EternitySoul.VanillaTooltip1 =250% increased damage
 EternitySoul.VanillaTooltip2 =250% increased attack speed
@@ -2525,3 +2567,18 @@ ProjectileName.Void =Void
 ProjectileName.VoidArrow =Void Arrow
 
 ProjectileName.VoidPortal =Void Portal
+
+
+
+
+
+/FargoPlayer
+FargoPlayer.Music1 =Fargo's Music Mod not found!
+FargoPlayer.Music2 =Please install Fargo's Music Mod for the full experience!!
+FargoPlayer.KilledByCactus = was pricked by a Cactus.
+FargoPlayer.Revive =You've been revived!
+FargoPlayer.KilledByInfested = could not handle the infection.
+FargoPlayer.KilledByRotting = rotted away.
+FargoPlayer.KilledByGodEater = was annihilated by divine wrath.
+FargoPlayer.KilledByDeathMarked = was reaped by the cold hand of death.
+FargoPlayer.SpawnDukeFishronEX =Duke Fishron EX has awoken!

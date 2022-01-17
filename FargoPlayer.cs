@@ -28,6 +28,7 @@ using Terraria.Graphics.Shaders;
 using FargowiltasSouls.Toggler;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Accessories.Souls;
+using Terraria.Localization;
 
 namespace FargowiltasSouls
 {
@@ -434,8 +435,8 @@ namespace FargowiltasSouls
 
             if (ModLoader.GetMod("FargowiltasMusic") == null)
             {
-                Main.NewText("Fargo's Music Mod not found!", Color.LimeGreen);
-                Main.NewText("Please install Fargo's Music Mod for the full experience!!", Color.LimeGreen);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Music1"), Color.LimeGreen);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Music2"), Color.LimeGreen);
             }
 
             /*for (int i = 0; i < 200; i++)
@@ -1349,7 +1350,7 @@ namespace FargowiltasSouls
                             damage *= 2;
 
                         if (player.hurtCooldowns[0] <= 0) //same i-frames as spike tiles
-                            player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was pricked by a Cactus."), damage, 0, false, false, false, 0);
+                            player.Hurt(PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.KilledByCactus")), damage, 0, false, false, false, 0);
                     }
                 }
 
@@ -3801,7 +3802,7 @@ namespace FargowiltasSouls
                     player.immuneTime = 180;
                     player.hurtCooldowns[0] = 180;
                     player.hurtCooldowns[1] = 180;
-                    Main.NewText("You've been revived!", Color.LimeGreen);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"), Color.LimeGreen);
                     player.AddBuff(ModContent.BuffType<MutantRebirth>(), 10800);
                     Projectile.NewProjectile(player.Center, -Vector2.UnitY, ModContent.ProjectileType<GiantDeathray>(), (int)(7000 * player.minionDamage), 10f, player.whoAmI);
                     retVal = false;
@@ -3811,7 +3812,7 @@ namespace FargowiltasSouls
                     if (!WasHurtBySomething)
                     {
                         player.statLife = 1;
-                        //CombatText.NewText(player.Hitbox, Color.SandyBrown, "You've been revived!");
+                        //CombatText.NewText(player.Hitbox, Color.SandyBrown, Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"));
                         return false; //this is deliberate
                     }
                 }
@@ -3828,8 +3829,8 @@ namespace FargowiltasSouls
                         player.hurtCooldowns[0] = 120;
                         player.hurtCooldowns[1] = 120;
 
-                        CombatText.NewText(player.Hitbox, Color.SandyBrown, "You've been revived!", true);
-                        Main.NewText("You've been revived!", Color.SandyBrown);
+                        CombatText.NewText(player.Hitbox, Color.SandyBrown, Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"), true);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"), Color.SandyBrown);
 
                         player.AddBuff(ModContent.BuffType<Revived>(), reviveCooldown);
                         retVal = false;
@@ -3862,8 +3863,8 @@ namespace FargowiltasSouls
                     player.immuneTime = 120;
                     player.hurtCooldowns[0] = 120;
                     player.hurtCooldowns[1] = 120;
-                    CombatText.NewText(player.Hitbox, Color.Yellow, "You've been revived!", true);
-                    Main.NewText("You've been revived!", Color.Yellow);
+                    CombatText.NewText(player.Hitbox, Color.Yellow, Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"), true);
+                    Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.Revive"), Color.Yellow);
                     player.AddBuff(ModContent.BuffType<AbomRebirth>(), MutantEye ? 600 : 900);
                     retVal = false;
                     for (int i = 0; i < 24; i++)
@@ -3898,22 +3899,22 @@ namespace FargowiltasSouls
             //add more tbh
             if (Infested && damage == 10.0 && hitDirection == 0 && damageSource.SourceOtherIndex == 8)
             {
-                damageSource = PlayerDeathReason.ByCustomReason(player.name + " could not handle the infection.");
+                damageSource = PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.KilledByInfested"));
             }
 
             if (Rotting && damage == 10.0 && hitDirection == 0 && damageSource.SourceOtherIndex == 8)
             {
-                damageSource = PlayerDeathReason.ByCustomReason(player.name + " rotted away.");
+                damageSource = PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.KilledByRotting"));
             }
 
             if ((GodEater || FlamesoftheUniverse || CurseoftheMoon) && damage == 10.0 && hitDirection == 0 && damageSource.SourceOtherIndex == 8)
             {
-                damageSource = PlayerDeathReason.ByCustomReason(player.name + " was annihilated by divine wrath.");
+                damageSource = PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.KilledByGodEater"));
             }
 
             if (DeathMarked)
             {
-                damageSource = PlayerDeathReason.ByCustomReason(player.name + " was reaped by the cold hand of death.");
+                damageSource = PlayerDeathReason.ByCustomReason(player.name + Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.KilledByDeathMarked"));
             }
 
             /*if (MutantPresence)
@@ -4288,7 +4289,7 @@ namespace FargowiltasSouls
                                 NPC.NewNPC((int)Main.projectile[i].Center.X, (int)Main.projectile[i].Center.Y + 100,
                                     NPCID.DukeFishron, 0, 0f, 0f, 0f, 0f, player.whoAmI);
                                 EModeGlobalNPC.spawnFishronEX = false;
-                                Main.NewText("Duke Fishron EX has awoken!", 50, 100, 255);
+                                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoPlayer.SpawnDukeFishronEX"), 50, 100, 255);
                             }
                             else if (Main.netMode == NetmodeID.MultiplayerClient) //MP, broadcast(?) packet from spawning player's client
                             {
@@ -4301,7 +4302,7 @@ namespace FargowiltasSouls
                             }
                             else if (Main.netMode == NetmodeID.Server)
                             {
-                                NetMessage.BroadcastChatMessage(Terraria.Localization.NetworkText.FromLiteral("???????"), Color.White);
+                                NetMessage.BroadcastChatMessage(NetworkText.FromLiteral("???????"), Color.White);
                             }
                         }
                     }

@@ -1018,11 +1018,53 @@ ItemTooltip.WyvernFeather =使你免疫折翼和跛足减益\n攻击有10%概率
 
 /Items/Souls
 
+ItemName.ArchWizardsSoul =巫师之魂
+ItemTooltip.ArchWizardsSoul =增加30%魔法伤害\n增加20%施法速度\n增加15%魔法暴击率\n增加200点最大魔力值\n拥有天界手铐和魔力花的效果\n“奥术之力，合核凝一”
+
+ItemName.ColossusSoul =巨像之魂
+ItemTooltip.ColossusSoul =增加100点最大生命值\n增加15%伤害减免\n增加5点生命恢复速度\n使你免疫击退、一些减益和摔落伤害\n敌人更有可能以你为目标\n拥有混乱之脑、星星面纱和蜜蜂斗篷的效果\n拥有闪亮石、圣骑士护盾和冰冻海龟壳的效果\n“无人可挡”
+
+ItemName.ConjuristsSoul =唤魔之魂
+ItemTooltip.ConjuristsSoul =增加30%召唤伤害\n增加3个召唤栏位\n增加3个哨兵栏位\n增加召唤物击退\n“一支听命于您的军队”
+
+ItemName.DimensionSoul =维度之魂
+ItemTooltip.DimensionSoul =增加300点最大生命值\n增加20%伤害减免\n增加8点生命恢复速度\n使你免疫击退、一些减益和摔落伤害\n敌人更有可能以你为目标\n使你获得超音速奔跑和无限飞行的能力\n大大增加渔力，所有的钓竿都会额外抛出10根鱼线\n物块和墙壁的放置速度增加50%\n获得近乎无限的放置和挖掘距离，挖掘速度×3\n拥有光芒、洞穴探险、狩猎和危险感增益效果\n能够自动刷漆、放置致动器\n你能够开启“建筑师模式”\n拥有混乱之脑、星星面纱、甜心项链、蜜蜂斗篷、孢子囊和闪亮石的效果\n拥有圣骑士护盾、冰冻海龟壳、北极潜水装备、蛙腿和飞毯的效果\n拥有熔岩靴、渔夫渔具袋、喷漆器、自动安放器、手机和重力球的效果\n拥有克苏鲁护盾和忍者大师装备的效果\n“泰拉瑞亚的维度触手可及”
+
+ItemName.FlightMasterySoul =飞行大师之魂
+ItemTooltip.FlightMasterySoul =使你获得无限飞行的能力\n按住“下”和“跳跃”键悬停\n允许你控制重力\n“飞升”
+
+ItemName.GladiatorsSoul =狂战士之魂
+ItemTooltip.GladiatorsSoul =增加30%近战伤害\n增加20%近战攻速\n增加15%近战暴击率\n增加近战击退\n拥有烈火手套、悠悠球袋和天界壳的效果\n“吾之传说，生者弗能传颂”
+
+ItemName.MasochistSoul =血亲之魂
+ItemTooltip.MasochistSoul =飞行时间延长200%，增加50点护甲穿透和20%移动速度\n增加100%最大生命值，50%伤害和10%伤害减免\n大幅增加生命恢复速度，增加2个召唤和哨兵栏位\n使你获得控制重力，快速下落和免疫击退的能力，免疫几乎所有永恒模式的减益，还有……\n允许所有武器自动攻击，需要时自动使用魔力药水\n攻击会发射额外弹幕，生成红心，造成一堆永恒模式的减益\n按下“火球冲刺”键后会进行短距离无敌冲刺，右键可改变视野范围\n某些敌人在死亡时会掉落药水，减少50%重铸价格，你会以更高的生命值重生\n重生速度翻倍，攻击会喷出蜂蜜滴，获得夜视效果，受伤时爆发出多种攻击特效\n阻止Boss自然生成，提高刷怪速率，增加敌人掉落的战利品数量，受伤时有几率发出吱吱声并只受1点伤害\n使用以传送到你上一次死亡的地点\n召唤所有可以召唤的永恒Boss为你而战\n“拥抱永恒”
+
+ItemName.OlympiansSoul =奥林匹斯之魂
+ItemTooltip.OlympiansSoul =增加30%投掷伤害\n增加20%投掷速度\n增加15%投掷暴击率和投掷弹幕飞行速度\n“傻孩子们，快跑啊！”
+
+ItemName.SnipersSoul =神枪手之魂
+ItemTooltip.SnipersSoul =增加30%远程伤害\n20%几率不消耗弹药\n增加15%远程暴击率\n拥有狙击镜的效果\n“每一颗子弹消灭一个敌人”
+
+ItemName.SupersonicSoul =超音速之魂
+ItemTooltip.SupersonicSoul =获得超音速奔跑和飞行能力，在冰面上提供额外机动性\n没有装备翅膀时，玩家可以进行五段跳\n增加跳跃高度和跳跃速度，允许玩家自动跳跃\n你走过的草地上会生长花朵\n你可以游泳，大大延长水下呼吸时间\n你可可以在水和熔岩上行走\n使你免疫熔岩伤害和摔落伤害\n拥有飞毯、克苏鲁护盾和忍者大师装备的效果\n拥有甜心项链和琥珀马掌气球的效果\n“我就是速度”
+
+ItemName.TerrariaSoul =泰拉之魂
+ItemTooltip.TerrariaSoul =召唤火球、暗影珠、冰锥、叶状水晶、爆炸烈焰哨兵、神圣剑、神圣盾和甲虫\n右键进行盾牌格挡\n双击“下”键后会召唤棕榈树哨兵、传送门、远古风暴、箭雨和星尘守卫至光标位置，并切换至隐形状态\n按下“金身”键会将你包裹在一个黄金壳中，按下“冻结”键后时间会冻结5秒，仆从会释放镰刀\n允许你使用日耀护盾进行冲刺，朝墙壁冲刺时会直接穿过去\n你可以扔出烟雾弹、传送至烟雾弹的位置获得先发制人增益\n攻击时有几率生成闪电、雨云、花瓣、幽魂珠、地牢守卫、雪球、长矛或强化焰\n击中敌人后大幅增加生命恢复速度并获得一小段无敌时间，会发射出爆炸烈焰火球、流星雨，并减少敌怪无敌帧\n将你的基础暴击率设为25%，每次暴击时都会增加5%暴击率，暴击率达到100%后每攻击10次会汲取4%生命值\n被击中会使暴击率恢复为正常值、喷出血液并反弹伤害\n弹幕有几率分裂、爆裂成碎片并生成星星，增加物品和弹幕的尺寸，扩大你的拾取范围\n引燃你附近的敌人，你的身后会留下一条火痕，跳跃时你周围会不断生成孢子\n给予你猩红魔石的恢复效果，使你免疫火块、岩浆和摔落伤害，使药草收获翻倍\n普通蜜蜂有50%几率变成超级蜜蜂，你的仆从和哨兵现在可以造成暴击且有15%基础暴击率，敌人死亡时有20%几率掉落更多战利品\n将某些小动物转化为武器，召唤栏位用光后你仍可以召唤临时的哨兵和仆从\n提高钩爪速度，大幅强化旧日军团的塔防哨兵\n你的攻击会造成迈达斯减益，敌人死亡时会爆裂出针刺\n你受到伤害时会发生剧烈爆炸并伤害附近的敌人\n受到致死伤害时会以200生命值重生并爆出几根骨头\n拥有花靴和贪婪戒指的效果\n“泰拉之主，天地共证”
+
+ItemName.TrawlerSoul =捕鱼之魂
+ItemTooltip.TrawlerSoul =大大增加渔力\n所有的钓竿都会额外抛出10根鱼线\n你几乎可以立即钓到鱼\n拥有声呐和宝匣增益效果\n拥有渔夫渔具袋和孢子囊的效果\n拥有粉马掌气球和北极潜水装备的效果\n“暗漉泥中玉，光跳日下银。”
+
+ItemName.UniverseSoul =寰宇之魂
+ItemTooltip.UniverseSoul =增加66%伤害\n增加50%武器攻击速度\n增加50%射击速度\n增加25%暴击率\n暴击伤害×5\n武器击退翻倍\n增加300点最大魔力值\n增加4个召唤栏位\n增加4\n攻击会造成宇宙之火减益\n拥有烈火手套、悠悠球袋和天界壳的效果\n拥有狙击镜、天界手铐和魔力花的效果\n“诸天也向你俯首”
+
+ItemName.VoidSoul =虚空之魂
+ItemTooltip.VoidSoul =召唤 亿 点 东 西
+
+ItemName.WorldShaperSoul =铸世者之魂
+ItemTooltip.WorldShaperSoul =物块和墙壁的放置速度增加50%\n获得近乎无限的放置和挖掘距离\n挖掘速度×3\n高亮标记敌人、陷阱和宝藏的位置\n拥有喷漆器和自动安放器的效果\n提供光照效果，你能够控制重力\n你能够开启“建筑师模式”：\n放置物块时不会消耗物块且大幅增加放置速度\n敌人不会生成（该效果可以在“魂”选项菜单中开启和关闭）\n拥有手机和皇家凝胶的效果\n召唤可显露附近宝藏的魔法灯笼\n“无限的可能性”
+
 ItemName.EternitySoul =永恒之魂
 ItemTooltip.EternitySoul =“不论凡人或不朽，都承认你的神性”\n基础暴击率设为50%\n每次暴击时都会增加10%暴击率\n暴击率达到100%后，攻击汲取10%生命值\n同时会增加5%攻击力和5点防御力\n最高堆叠950层，受伤时清空加成层数
-
-
-/Items/Souls/Soul of Eternity
 
 EternitySoul.VanillaTooltip1 =增加250%伤害
 EternitySoul.VanillaTooltip2 =增加250%攻击速度
@@ -1521,7 +1563,7 @@ GlobalItem.DamageBuff =[c/00ff00:永恒模式：]伤害增加
 GlobalItem.AttackSpeedBuff =[c/00ff00:永恒模式：]攻击速度增加
 GlobalItem.MinionNerfOffset =[c/00ff00:永恒模式：]当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
 GlobalItem.MinionNerf =[c/ff0000:永恒模式：]当你使用其他职业的武器攻击时，召唤伤害降低
-SoulsItem.Eternity =永恒模式
+SoulsItem.Eternity =永恒
 
 
 /Items/Others
@@ -2525,3 +2567,18 @@ ProjectileName.Void =虚空
 ProjectileName.VoidArrow =虚空箭
 
 ProjectileName.VoidPortal =虚空传送门
+
+
+
+
+
+/FargoPlayer
+FargoPlayer.Music1 =未加载Fargo的音乐Mod（Fargo's Music Mod）！
+FargoPlayer.Music2 =请加载Fargo的音乐Mod以获得完整的游戏体验！！
+FargoPlayer.KilledByCactus =被仙人掌捅穿了。
+FargoPlayer.Revive =你复活了！
+FargoPlayer.KilledByInfested =不能控制伤口感染。
+FargoPlayer.KilledByRotting =烂了。
+FargoPlayer.KilledByGodEater =湮灭于神明的忿怒中。
+FargoPlayer.KilledByDeathMarked =陨落于死神之镰刃下。
+FargoPlayer.SpawnDukeFishronEX =猪龙鱼公爵EX已苏醒！
