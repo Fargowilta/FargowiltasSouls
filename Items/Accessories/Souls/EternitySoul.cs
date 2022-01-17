@@ -150,11 +150,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip126"),
             Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip127"),
             Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip128"),
-            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip129"),
-            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip130"),
-            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip131"),
-            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip132"),
-            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip133")
+            Language.GetTextValue("Mods.FargowiltasSouls.EternitySoul.VanillaTooltip129")
         };
 
         private String[] thoriumTooltips = new String[]
