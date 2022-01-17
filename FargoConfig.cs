@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
@@ -48,7 +49,7 @@ namespace FargowiltasSouls
         }
 
         [Header("$Mods.FargowiltasSouls.PresetHeader")]
-        [Label("All Toggles On")]
+        [Label("$Mods.FargowiltasSouls.FargoConfigs.AllOn")]
         public bool PresetA
         {
             get => false;
@@ -60,7 +61,7 @@ namespace FargowiltasSouls
                 }
             }
         }
-        [Label("All Toggles Off")]
+        [Label("$Mods.FargowiltasSouls.FargoConfigs.AllOff")]
         public bool PresetB
         {
             get => false;
@@ -101,12 +102,12 @@ namespace FargowiltasSouls
             }
         }*/
 
-        [Label("Only show effect toggler when inventory is open")]
-        [Description("If true, the effect toggler is automatically hidden when your inventory is closed.")]
+        [Label("$Mods.FargowiltasSouls.FargoConfigs.EffectToggler")]
+        [Description("$Mods.FargowiltasSouls.FargoConfigs.EffectTogglerDescription")]
         [DefaultValue(false)]
         public bool HideTogglerWhenInventoryIsClosed;
 
-        [Label("Mutant boss music effect")]
+        [Label("$Mods.FargowiltasSouls.FargoConfigs.BossMusic")]
         [DefaultValue(true)]
         public bool MutantMusicIsRePrologue;
 

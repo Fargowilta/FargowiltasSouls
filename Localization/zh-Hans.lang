@@ -2572,7 +2572,28 @@ ProjectileName.VoidPortal =虚空传送门
 
 
 
+/UI
+
+UIPresetButton.Off =关闭所有效果
+UIPresetButton.On =开启所有效果
+UIPresetButton.Minimal =开启最少推荐效果
+UISoulTogglerButton.HoverText =饰品效果设置
+UISearchBar.HintText =搜索……
+
+
+
+
+
+/FargoConfigs
+FargoConfigs.EffectToggler =只在开启物品栏时，才会显示饰品效果菜单
+FargoConfigs.EffectTogglerDescription =如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏
+FargoConfigs.BossMusic =突变体Boss音乐效果
+FargoConfigs.AllOn =开启全部
+FargoConfigs.AllOff =关闭全部
+
+
 /FargoPlayer
+
 FargoPlayer.Music1 =未加载Fargo的音乐Mod（Fargo's Music Mod）！
 FargoPlayer.Music2 =请加载Fargo的音乐Mod以获得完整的游戏体验！！
 FargoPlayer.KilledByCactus =被仙人掌捅穿了。
@@ -2582,3 +2603,251 @@ FargoPlayer.KilledByRotting =烂了。
 FargoPlayer.KilledByGodEater =湮灭于神明的忿怒中。
 FargoPlayer.KilledByDeathMarked =陨落于死神之镰刃下。
 FargoPlayer.SpawnDukeFishronEX =猪龙鱼公爵EX已苏醒！
+
+
+
+
+
+/Fargowiltas
+
+HotKey.Freeze =冻结时间
+HotKey.Gold =金身
+HotKey.SmokeBomb =投掷烟雾弹
+HotKey.BetsyDash =火球冲刺
+HotKey.MutantBomb =突变炸弹
+HotKey.SoulToggle =打开饰品属性菜单
+
+Toggle.PresetConfigs =预置配置设定
+
+Toggle.Timber =森林之力
+Toggle.Boreal =针叶木 雪球
+Toggle.Mahogany =红木 钩爪加成
+Toggle.Ebon =乌木 暗影焰光环
+Toggle.Shade1 =阴影木 鲜血喷溅
+Toggle.Shade2 =敌怪接近你时就会触发受伤效果
+Toggle.Palm =棕榈木 仆从
+Toggle.Pearl =珍珠木 星星
+
+Toggle.Earth =大地之力
+Toggle.Adamantite =精金 弹幕分裂
+Toggle.Cobalt =钴蓝 碎片
+Toggle.AncientCobalt =远古钴蓝 毒刺
+Toggle.Mythril =秘银 速度加成
+Toggle.Orichalcum =山铜 花瓣
+Toggle.Palladium1 =钯金 生命恢复
+Toggle.Palladium2 =钯金 伤害珠
+Toggle.Titanium =钛金 暗影躲避
+
+Toggle.Terra =泰拉之力
+Toggle.Copper =铜 闪电
+Toggle.Iron1 =铁 吸引掉落物
+Toggle.Iron2 =铁 盾
+Toggle.Tin =锡 暴击
+Toggle.Tungsten1 =钨 物品变大
+Toggle.Tungsten2 =钨 弹幕变大
+Toggle.Obsidian =黑曜石 爆炸
+
+Toggle.Will =意志之力
+Toggle.Gladiator =角斗士 长矛
+Toggle.Gold =金 幸运币
+Toggle.Huntress =女猎人 相关效果
+Toggle.Valhalla =侍卫/英灵殿骑士 治疗提升
+Toggle.Squire =弩车恐慌！
+
+Toggle.Life =生命之力
+Toggle.Bee =蜜蜂 相关效果
+Toggle.Beetle =甲虫 相关效果
+Toggle.Cactus =仙人掌 针刺
+Toggle.Pumpkin =南瓜 种植南瓜
+Toggle.Spider =蜘蛛 召唤物暴击
+Toggle.Turtle =乌龟 缩壳减伤
+
+Toggle.Nature =自然之力
+Toggle.Chlorophyte =叶绿 水晶
+Toggle.Crimson =猩红 生命恢复
+Toggle.Rain =雨云 相关效果
+Toggle.Frost =寒霜 冰锥
+Toggle.Snow =冰雪 暴雪领域
+Toggle.Jungle1 =丛林 跳跃孢子
+Toggle.Jungle2 =丛林 冲刺
+Toggle.Molten1 =熔岩 狱火增益
+Toggle.Molten2 =熔岩 爆炸
+Toggle.Shroomite1 =蘑菇 潜行
+Toggle.Shroomite2 =蘑菇 蘑菇尾迹
+
+Toggle.ShadowForce =暗影之力
+Toggle.DarkArt =暗黑艺术家 爆炸烈焰仆从
+Toggle.Apprentice =学徒 相关效果
+Toggle.Necro =死灵 骨堆
+Toggle.Shadow =暗影 暗影珠
+Toggle.AncientShadow =远古暗影 黑暗减益
+Toggle.Monk =武僧 武僧冲刺
+Toggle.Shinobi1 =渗透忍者 传送冲刺
+Toggle.Shinobi2 =渗透忍者 穿墙冲刺
+Toggle.SupersonicTabi =忍者大师冲刺
+Toggle.SupersonicClimbing =猛虎攀爬装备
+Toggle.Spooky =阴森 镰刀攻击
+
+Toggle.Spirit =心灵之力
+Toggle.Fossil =化石 骨头释放
+Toggle.Forbidden =禁戒 远古风暴
+Toggle.Hallow1 =神圣 附魔剑
+Toggle.Hallow2 =神圣 反弹护盾
+Toggle.Silver1 =银 剑
+Toggle.Silver2 =银 仆从攻击速度加成
+Toggle.Spectre =幽魂 幽魂珠
+Toggle.Tiki =提基 额外仆从
+
+Toggle.Cosmos =宇宙之力
+Toggle.Meteor =流星 流星雨
+Toggle.Nebula =星云 强化焰
+Toggle.Solar1 =耀斑 护盾
+Toggle.Solar2 =耀斑 太阳耀斑减益
+Toggle.Stardust =星尘 星尘守卫
+Toggle.Vortex1 =星旋 潜行
+Toggle.Vortex2 =星旋 星旋旋涡
+
+Toggle.MasoHeader1 =永恒模式
+Toggle.MasoHeader2 =永恒模式
+Toggle.BossRecolors =Boss贴图替换（需要重启Mod）
+Toggle.Aeolus =风神跳跃
+Toggle.SinisterIcon1 =刷怪率提升
+Toggle.SinisterIcon2 =战利品掉落
+Toggle.Graze =擦弹
+Toggle.GrazeRadius =擦弹范围可视化
+Toggle.DeviHearts =追踪红心攻击
+
+Toggle.SupremeFairy =至高告死精灵
+Toggle.SlimyShield1 =凝胶球
+Toggle.SlimyShield2 =提高下落速度
+Toggle.AgitatingLens =鲜血镰刀
+Toggle.QueenStinger =蜂蜜喷溅
+Toggle.NecromanticBrew =骷髅王手臂
+
+Toggle.Bionomic =生态球
+Toggle.TimsConcoction =蒂姆的秘药
+Toggle.OrdinaryCarrot =狙击镜效果
+Toggle.RainbowMatter =彩虹史莱姆仆从
+Toggle.FrigidGemstone =霜火球
+Toggle.NymphsPerfume =攻击生成心
+Toggle.SqueakyToy =击中发出吱吱声
+Toggle.WretchedPouch =暗影焰触手
+Toggle.WyvernFeather =造成折翼减益
+Toggle.TribalCharm =武器自动攻击
+
+Toggle.Dubious =可疑电路
+Toggle.RemoteControl1 =造成避雷针减益
+Toggle.RemoteControl2 =探测器仆从
+
+Toggle.PureHeart =纯净之心
+Toggle.CorruptHeart =迷你噬魂者
+Toggle.GuttedHeart =飞眼怪
+
+Toggle.LumpOfFlesh =血肉团
+Toggle.PungentEye =眼球仆从
+
+Toggle.Chalice =月之圣杯
+Toggle.Cultist =拜月教徒仆从
+Toggle.MagicalBulb =世纪之花仆从
+Toggle.Lihzahrd1 =下落坠地火焰
+Toggle.Lihzahrd2 =落地巨石
+Toggle.CelestialRune1 =天界符文额外攻击
+Toggle.CelestialRune2 =受伤释放远古幻影妖
+
+Toggle.EternalHeart =永恒者之心
+Toggle.PumpCape =南瓜王披肩效果
+Toggle.IceQueensCrown1 =受击时冻住敌人
+Toggle.IceQueensCrown2 =超级雪花仆从
+Toggle.SaucerConsole =迷你飞碟仆从
+Toggle.GalaGlobe1 =重力控制
+Toggle.GalaGlobe2 =重力稳定
+Toggle.GalaGlobe3 =克苏鲁真眼仆从
+
+Toggle.AbomWand =憎恶手杖
+Toggle.SpectralAbom =幽灵憎恶
+
+Toggle.MutantArmorHeader =真·突变体套装
+Toggle.AbomMinion =幽灵憎恶
+Toggle.PhantasmalRing =幻影球仆从
+Toggle.ReviveDeathray =复活死光
+
+Toggle.SoulHeader =魂饰品
+Toggle.MeleeSpeed =近战攻速
+Toggle.MagmaStone =岩浆石
+Toggle.YoyoBag =悠悠球袋
+Toggle.MoonCharm =月光护身符
+Toggle.NeptuneShell =海神贝壳
+Toggle.SniperScope =狙击镜
+Toggle.AttackSpeed =寰宇之魂攻击速度加成
+Toggle.Hunter =狩猎药水效果
+Toggle.Dangersense =危险感药水效果
+Toggle.Spelunker =洞穴探险药水效果
+Toggle.Shine =光芒药水效果
+Toggle.BuilderMode =建筑师模式
+Toggle.SporeSac =孢子囊
+Toggle.Stars =受伤产生落星
+Toggle.Bees =受伤产生蜜蜂
+Toggle.Panic =受伤获得恐慌效果
+Toggle.Aggro =血肉指虎仇恨
+Toggle.PaladinShield =圣骑士护盾
+Toggle.SupersonicBaseSpeed =提高基础奔跑速度
+Toggle.SupersonicMomentum =不计算动量
+Toggle.SupersonicSpeed =超音速之魂速度提升
+Toggle.SupersonicJumps =超音速之魂五段跳
+Toggle.SupersonicRocketBoots =超音速之魂火箭靴
+Toggle.SupersonicCarpet =超音速之魂飞毯
+Toggle.SupersonicFlower =花靴
+Toggle.CthulhuShield =克苏鲁护盾
+Toggle.BlackBelt =黑腰带闪避
+Toggle.TrawlerLures =额外鱼线
+Toggle.TrawlerJump =捕鱼之魂跳跃
+Toggle.Eternity =永恒之魂属性叠加
+
+Toggle.PetHeader =宠物
+Toggle.BlackCat =黑猫
+Toggle.CompanionCube =同伴方块
+Toggle.CursedSapling =诅咒树苗
+Toggle.Dino =恐龙宝宝
+Toggle.Dragon =Hoardagron
+Toggle.Eater =吞噬怪宝宝
+Toggle.EyeSpring =弹簧眼
+Toggle.FaceMonster =脸怪宝宝
+Toggle.Gato =飞翔Gato
+Toggle.Hornet =黄蜂宝宝
+Toggle.Lizard =蜥蜴宝宝
+Toggle.MiniMinotaur =迷你牛头怪
+Toggle.Parrot =鹦鹉
+Toggle.Penguin =企鹅宝宝
+Toggle.Puppy =小狗
+Toggle.Seedling =幼苗
+Toggle.Skeletron =骷髅王头宝宝
+Toggle.Snowman =雪人宝宝
+Toggle.Grinch =格林奇宝宝
+Toggle.SpiderPet =蜘蛛
+Toggle.Squashling =南瓜娃娃
+Toggle.TikiPet =提基幽魂
+Toggle.Truffle =松露人宝宝
+Toggle.TurtlePet =龟
+Toggle.ZephyrFish =和风鱼
+Toggle.CrimsonHeart =猩红之心
+Toggle.Fairy =仙灵
+Toggle.Flickerwick =闪烁灯芯
+Toggle.MagicLantern =魔法灯笼
+Toggle.ShadowOrb =暗影珠
+Toggle.SuspiciousEye =可疑眼球
+Toggle.Wisp =妖灵
+
+Toggle.PatreonHeader =捐赠者物品（开关后需要重启Mod）
+Toggle.PatreonRoomba =扫地机器人
+Toggle.PatreonOrb =演算宝珠
+Toggle.PatreonFishingRod =Drakovi小姐的钓竿
+Toggle.PatreonDoor =章鱼哥的大门
+Toggle.PatreonWolf =悖论狼魂
+Toggle.PatreonDove =无花果树枝
+Toggle.PatreonKingSlime =陨落王者的护符
+Toggle.PatreonFishron =怒海狂涛
+Toggle.PatreonPlant =食人花巫毒娃娃
+Toggle.PatreonDevious =艳岚谲锋
+Toggle.PatreonVortex =星旋圣仪
+Toggle.PatreonPrime =机械骷髅王法杖
+Toggle.PatreonCrimetroid =血水母的蛋

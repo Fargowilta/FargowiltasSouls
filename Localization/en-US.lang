@@ -2572,7 +2572,28 @@ ProjectileName.VoidPortal =Void Portal
 
 
 
+/UI
+
+UIPresetButton.Off =Turn all toggles off
+UIPresetButton.On =Turn all toggles on
+UIPresetButton.Minimal =Minimal effects preset
+UISoulTogglerButton.HoverText =Configure Accessory Effects
+UISearchBar.HintText =Search...
+
+
+
+
+
+/FargoConfigs
+FargoConfigs.EffectToggler =Only show effect toggler when inventory is open
+FargoConfigs.EffectTogglerDescription =If true, the effect toggler is automatically hidden when your inventory is closed.
+FargoConfigs.BossMusic =Mutant boss music effect
+FargoConfigs.AllOn =All Toggles On
+FargoConfigs.AllOff =All Toggles Off
+
+
 /FargoPlayer
+
 FargoPlayer.Music1 =Fargo's Music Mod not found!
 FargoPlayer.Music2 =Please install Fargo's Music Mod for the full experience!!
 FargoPlayer.KilledByCactus = was pricked by a Cactus.
@@ -2582,3 +2603,251 @@ FargoPlayer.KilledByRotting = rotted away.
 FargoPlayer.KilledByGodEater = was annihilated by divine wrath.
 FargoPlayer.KilledByDeathMarked = was reaped by the cold hand of death.
 FargoPlayer.SpawnDukeFishronEX =Duke Fishron EX has awoken!
+
+
+
+
+
+/Fargowiltas
+
+HotKey.Freeze =Freeze Time
+HotKey.Gold =Turn Gold
+HotKey.SmokeBomb =Throw Smoke Bomb
+HotKey.BetsyDash =Fireball Dash
+HotKey.MutantBomb =Mutant Bomb
+HotKey.SoulToggle =Open Soul Toggler
+
+Toggle.PresetConfigs =Preset Configurations
+
+Toggle.Timber =Force of Timber
+Toggle.Boreal =Boreal Snowballs
+Toggle.Mahogany =Mahogany Hook Speed
+Toggle.Ebon =Ebonwood Shadowflame
+Toggle.Shade1 =Blood Geyser On Hit
+Toggle.Shade2 =Proximity Triggers On Hit Effects
+Toggle.Palm =Palmwood Sentry
+Toggle.Pearl =Pearlwood Rain
+
+Toggle.Earth =Force of Earth
+Toggle.Adamantite =Adamantite Projectile Splitting
+Toggle.Cobalt =Cobalt Shards
+Toggle.AncientCobalt =Ancient Cobalt Stingers
+Toggle.Mythril =Mythril Weapon Speed
+Toggle.Orichalcum =Orichalcum Petals
+Toggle.Palladium1 =Palladium Healing
+Toggle.Palladium2 =Palladium Orbs
+Toggle.Titanium =Titanium Shadow Dodge
+
+Toggle.Terra =Terra Force
+Toggle.Copper =Copper Lightning
+Toggle.Iron1 =Iron Magnet
+Toggle.Iron2 =Iron Shield
+Toggle.Tin =Tin Crits
+Toggle.Tungsten1 =Tungsten Item Effect
+Toggle.Tungsten2 =Tungsten Projectile Effect
+Toggle.Obsidian =Obsidian Explosions
+
+Toggle.Will =Force of Will
+Toggle.Gladiator =Gladiator Rain
+Toggle.Gold =Gold Lucky Coin
+Toggle.Huntress =Huntress Ability
+Toggle.Valhalla =Squire/Valhalla Healing
+Toggle.Squire =Ballista Panic On Hit
+
+Toggle.Life =Force of Life
+Toggle.Bee =Bees
+Toggle.Beetle =Beetles
+Toggle.Cactus =Cactus Needles
+Toggle.Pumpkin =Grow Pumpkins
+Toggle.Spider =Spider Crits
+Toggle.Turtle =Turtle Shell Buff
+
+Toggle.Nature =Force of Nature
+Toggle.Chlorophyte =Chlorophyte Leaf Crystal
+Toggle.Crimson =Crimson Regen
+Toggle.Rain =Rain Clouds
+Toggle.Frost =Frost Icicles
+Toggle.Snow =Snowstorm
+Toggle.Jungle1 =Jungle Spores
+Toggle.Jungle2 =Jungle Dash
+Toggle.Molten1 =Molten Inferno Buff
+Toggle.Molten2 =Molten Explosion On Hit
+Toggle.Shroomite1 =Shroomite Stealth
+Toggle.Shroomite2 =Shroomite Mushrooms
+
+Toggle.ShadowForce =Shadow Force
+Toggle.DarkArt =Flameburst Minion
+Toggle.Apprentice =Apprentice Effect
+Toggle.Necro =Necro Graves
+Toggle.Shadow =Shadow Orbs
+Toggle.AncientShadow =Ancient Shadow Darkness
+Toggle.Monk =Monk Dash
+Toggle.Shinobi1 =Shinobi Teleport Dash
+Toggle.Shinobi2 =Shinobi Through Walls
+Toggle.SupersonicTabi =Tabi Dash
+Toggle.SupersonicClimbing =Tiger Climbing Gear
+Toggle.Spooky =Spooky Scythes
+
+Toggle.Spirit =Force of Spirit
+Toggle.Fossil =Fossil Bones On Hit
+Toggle.Forbidden =Forbidden Storm
+Toggle.Hallow1 =Hallowed Enchanted Sword Familiar
+Toggle.Hallow2 =Hallowed Shield
+Toggle.Silver1 =Silver Sword Familiar
+Toggle.Silver2 =Silver Minion Speed
+Toggle.Spectre =Spectre Orbs
+Toggle.Tiki =Tiki Minions
+
+Toggle.Cosmos =Force of Cosmos
+Toggle.Meteor =Meteor Shower
+Toggle.Nebula =Nebula Boosters
+Toggle.Solar1 =Solar Shield
+Toggle.Solar2 =Inflict Solar Flare
+Toggle.Stardust =Stardust Guardian
+Toggle.Vortex1 =Vortex Stealth
+Toggle.Vortex2 =Vortex Voids
+
+Toggle.MasoHeader1 =Eternity Mode
+Toggle.MasoHeader2 =Eternity Mode Accessories
+Toggle.BossRecolors =Boss Recolors (Toggle needs restart)
+Toggle.Aeolus =Aeolus Jump
+Toggle.SinisterIcon1 =Sinister Icon Spawn Rates
+Toggle.SinisterIcon2 =Sinister Icon Drops
+Toggle.Graze =Graze
+Toggle.GrazeRadius =Graze Radius Visual
+Toggle.DeviHearts =Homing Hearts On Hit
+
+Toggle.SupremeFairy =Supreme Deathbringer Fairy
+Toggle.SlimyShield1 =Slimy Balls
+Toggle.SlimyShield2 =Increased Fall Speed
+Toggle.AgitatingLens =Scythes When Dashing
+Toggle.QueenStinger =Honey When Hitting Enemies
+Toggle.NecromanticBrew =Skeletron Arms Minion
+
+Toggle.Bionomic =Bionomic Cluster
+Toggle.TimsConcoction =Tim's Concoction
+Toggle.OrdinaryCarrot =Carrot View
+Toggle.RainbowMatter =Rainbow Slime Minion
+Toggle.FrigidGemstone =Frostfireballs
+Toggle.NymphsPerfume =Attacks Spawn Hearts
+Toggle.SqueakyToy =Squeaky Toy On Hit
+Toggle.WretchedPouch =Shadowflame Tentacles
+Toggle.WyvernFeather =Inflict Clipped Wings
+Toggle.TribalCharm =Tribal Charm Auto Swing
+
+Toggle.Dubious =Dubious Circuitry
+Toggle.RemoteControl1 =Inflict Lightning Rod
+Toggle.RemoteControl2 =Probes Minion
+
+Toggle.PureHeart =Pure Heart
+Toggle.CorruptHeart =Tiny Eaters
+Toggle.GuttedHeart =Creeper Shield
+
+Toggle.LumpOfFlesh =Lump of Flesh
+Toggle.PungentEye =Pungent Eye Minion
+
+Toggle.Chalice =Chalice of the Moon
+Toggle.Cultist =Cultist Minion
+Toggle.MagicalBulb =Plantera Minion
+Toggle.Lihzahrd1 =Lihzahrd Ground Pound
+Toggle.Lihzahrd2 =Boulder Spray
+Toggle.CelestialRune1 =Celestial Rune Support
+Toggle.CelestialRune2 =Ancient Visions On Hit
+
+Toggle.EternalHeart =Heart of the Eternal
+Toggle.PumpCape =Pumpking's Cape Support
+Toggle.IceQueensCrown1 =Freeze On Hit
+Toggle.IceQueensCrown2 =Flocko Minion
+Toggle.SaucerConsole =Saucer Minion
+Toggle.GalaGlobe1 =Gravity Control
+Toggle.GalaGlobe2 =Stabilized Gravity
+Toggle.GalaGlobe3 =True Eyes Minion
+
+Toggle.AbomWand =Abominable Wand
+Toggle.SpectralAbom =Spectral Abominationn
+
+Toggle.MutantArmorHeader =True Mutant Armor
+Toggle.AbomMinion =Abominationn Minion
+Toggle.PhantasmalRing =Phantasmal Ring Minion
+Toggle.ReviveDeathray =Deathray When Revived
+
+Toggle.SoulHeader =Souls
+Toggle.MeleeSpeed =Melee Speed
+Toggle.MagmaStone =Magma Stone
+Toggle.YoyoBag =Yoyo Bag
+Toggle.MoonCharm =Moon Charm
+Toggle.NeptuneShell =Neptune's Shell
+Toggle.SniperScope =Sniper Scope
+Toggle.AttackSpeed =Universe Attack Speed
+Toggle.Hunter =Mining Hunter Buff
+Toggle.Dangersense =Mining Dangersense Buff
+Toggle.Spelunker =Mining Spelunker Buff
+Toggle.Shine =Mining Shine Buff
+Toggle.BuilderMode =Builder Mode
+Toggle.SporeSac =Spore Sac
+Toggle.Stars =Stars On Hit
+Toggle.Bees =Bees On Hit
+Toggle.Panic =Panic On Hit
+Toggle.Aggro =Flesh Knuckles Aggro
+Toggle.PaladinShield =Paladin's Shield
+Toggle.SupersonicBaseSpeed =Higher Base Run Speed
+Toggle.SupersonicMomentum =No Momentum
+Toggle.SupersonicSpeed =Supersonic Speed Boosts
+Toggle.SupersonicJumps =Supersonic Jumps
+Toggle.SupersonicRocketBoots =Supersonic Rocket Boots
+Toggle.SupersonicCarpet =Supersonic Carpet
+Toggle.SupersonicFlower =Flower Boots
+Toggle.CthulhuShield =Shield of Cthulhu
+Toggle.BlackBelt =Black Belt
+Toggle.TrawlerLures =Trawler Extra Lures
+Toggle.TrawlerJump =Trawler Jump
+Toggle.Eternity =Eternity Stacking
+
+Toggle.PetHeader =Pets
+Toggle.BlackCat =Black Cat Pet
+Toggle.CompanionCube =Companion Cube Pet
+Toggle.CursedSapling =Cursed Sapling Pet
+Toggle.Dino =Dino Pet
+Toggle.Dragon =Dragon Pet
+Toggle.Eater =Eater Pet
+Toggle.EyeSpring =Eye Spring Pet
+Toggle.FaceMonster =Face Monster Pet
+Toggle.Gato =Gato Pet
+Toggle.Hornet =Hornet Pet
+Toggle.Lizard =Lizard Pet
+Toggle.MiniMinotaur =Mini Minotaur Pet
+Toggle.Parrot =Parrot Pet
+Toggle.Penguin =Penguin Pet
+Toggle.Puppy =Puppy Pet
+Toggle.Seedling =Seedling Pet
+Toggle.Skeletron =Skeletron Pet
+Toggle.Snowman =Snowman Pet
+Toggle.Grinch =Grinch Pet
+Toggle.SpiderPet =Spider Pet
+Toggle.Squashling =Squashling Pet
+Toggle.TikiPet =Tiki Pet
+Toggle.Truffle =Truffle Pet
+Toggle.TurtlePet =Turtle Pet
+Toggle.ZephyrFish =Zephyr Fish Pet
+Toggle.CrimsonHeart =Crimson Heart Pet
+Toggle.Fairy =Fairy Pet
+Toggle.Flickerwick =Flickerwick Pet
+Toggle.MagicLantern =Magic Lantern Pet
+Toggle.ShadowOrb =Shadow Orb Pet
+Toggle.SuspiciousEye =Suspicious Eye Pet
+Toggle.Wisp =Wisp Pet
+
+Toggle.PatreonHeader =Patreon Items (Toggles need restart)
+Toggle.PatreonRoomba =Roomba
+Toggle.PatreonOrb =Computation Orb
+Toggle.PatreonFishingRod =Miss Drakovi's Fishing Pole
+Toggle.PatreonDoor =Squidward Door
+Toggle.PatreonWolf =Paradox Wolf Soul
+Toggle.PatreonDove =Fig Branch
+Toggle.PatreonKingSlime =Medallion of the Fallen King
+Toggle.PatreonFishron =Staff Of Unleashed Ocean
+Toggle.PatreonPlant =Piranha Plant Voodoo Doll
+Toggle.PatreonDevious =Devious Aestheticus
+Toggle.PatreonVortex =Vortex Ritual
+Toggle.PatreonPrime =Prime Staff
+Toggle.PatreonCrimetroid =Crimetroid
