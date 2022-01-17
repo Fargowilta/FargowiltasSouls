@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls
@@ -190,8 +191,8 @@ namespace FargowiltasSouls
         {
             x = x * 2 - Main.maxTilesX;
             y = y * 2 - (int)Main.worldSurface * 2;
-            string xCoord = x < 0 ? " west, " : " east, ";
-            string yCoord = y < 0 ? " surface." : " underground.";
+            string xCoord = x < 0 ? Language.GetTextValue("Mods.FargowiltasSouls.FargoGlobalTile.West") : Language.GetTextValue("Mods.FargowiltasSouls.FargoGlobalTile.East");
+            string yCoord = y < 0 ? Language.GetTextValue("Mods.FargowiltasSouls.FargoGlobalTile.Surface") : Language.GetTextValue("Mods.FargowiltasSouls.FargoGlobalTile.Underground");
             x = x < 0 ? x * -1 : x;
             y = y < 0 ? y * -1 : y;
             return x + xCoord + y + yCoord;
@@ -225,7 +226,7 @@ namespace FargowiltasSouls
                 {
                     if (!Main.LocalPlayer.HasBuff(mod.BuffType("LihzahrdBlessing")))
                     {
-                        Main.NewText("The altar's light shines on you!", Color.Orange);
+                        Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.FargoGlobalTile.LihzahrdBlessing"), Color.Orange);
                         Main.PlaySound(SoundID.Item4, Main.LocalPlayer.Center);
                         for (int k = 0; k < 50; k++)
                         {

@@ -2585,11 +2585,27 @@ UISearchBar.HintText =Search...
 
 
 /FargoConfigs
+
 FargoConfigs.EffectToggler =Only show effect toggler when inventory is open
 FargoConfigs.EffectTogglerDescription =If true, the effect toggler is automatically hidden when your inventory is closed.
 FargoConfigs.BossMusic =Mutant boss music effect
 FargoConfigs.AllOn =All Toggles On
 FargoConfigs.AllOff =All Toggles Off
+
+
+
+
+
+/FargoGlobalTile
+
+FargoGlobalTile.West = west, 
+FargoGlobalTile.East = east, 
+FargoGlobalTile.Surface = surface.
+FargoGlobalTile.Underground = underground.
+FargoGlobalTile.LihzahrdBlessing =The altar's light shines on you!
+
+
+
 
 
 /FargoPlayer

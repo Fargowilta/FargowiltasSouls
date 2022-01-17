@@ -2585,11 +2585,27 @@ UISearchBar.HintText =搜索……
 
 
 /FargoConfigs
+
 FargoConfigs.EffectToggler =只在开启物品栏时，才会显示饰品效果菜单
 FargoConfigs.EffectTogglerDescription =如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏
 FargoConfigs.BossMusic =突变体Boss音乐效果
 FargoConfigs.AllOn =开启全部
 FargoConfigs.AllOff =关闭全部
+
+
+
+
+
+/FargoGlobalTile
+
+FargoGlobalTile.West =西，
+FargoGlobalTile.Eest =东，
+FargoGlobalTile.Surface =地表。
+FargoGlobalTile.Underground =地下。
+FargoGlobalTile.LihzahrdBlessing =丛林蜥蜴祭坛发出的光芒照耀在你身上！
+
+
+
 
 
 /FargoPlayer
