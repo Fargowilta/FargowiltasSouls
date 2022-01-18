@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Patreon.Sasha
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Water Stream");
+            //DisplayName.SetDefault("Water Stream");
         }
 
         public override void SetDefaults()

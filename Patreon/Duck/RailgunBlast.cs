@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Patreon.Duck
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Railgun Blast");
+            //DisplayName.SetDefault("Railgun Blast");
         }
 
         public override void SetDefaults()

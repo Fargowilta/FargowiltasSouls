@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Patreon.ParadoxWolf
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wolf Dash");
+            //DisplayName.SetDefault("Wolf Dash");
         }
 
         public override void SetDefaults()

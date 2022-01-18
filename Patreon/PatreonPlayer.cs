@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -74,7 +75,7 @@ namespace FargowiltasSouls
         {
             if (Gittle || Sasha || ManliestDove || Cat || JojoTheGamer)
             {
-                Main.NewText("Your special patreon effects are active " + player.name + "!");
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.PatreonPlayer.Active1") + player.name + Language.GetTextValue("Mods.FargowiltasSouls.PatreonPlayer.Active2"));
             }
         }
 

@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Patreon.Purified
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Micro Prime");
+            //DisplayName.SetDefault("Micro Prime");
             Main.projFrames[projectile.type] = 7;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;

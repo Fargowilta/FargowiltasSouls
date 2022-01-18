@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Items;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Duck
 {
@@ -11,11 +12,11 @@ namespace FargowiltasSouls.Patreon.Duck
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scientific Railgun");
+            /*DisplayName.SetDefault("Scientific Railgun");
             Tooltip.SetDefault(
 @"Uses coins for ammo
 Higher valued coins do more damage
-'Particular and specific'");
+'Particular and specific'");*/
         }
 
         public override void SetDefaults()
@@ -41,7 +42,7 @@ Higher valued coins do more damage
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

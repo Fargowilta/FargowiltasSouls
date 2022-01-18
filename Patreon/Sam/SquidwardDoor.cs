@@ -1,6 +1,7 @@
 ﻿using FargowiltasSouls.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Sam
@@ -9,7 +10,7 @@ namespace FargowiltasSouls.Patreon.Sam
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'After you Mr. Squidward'");
+            //Tooltip.SetDefault("'After you Mr. Squidward'");
         }
 
         public override void SetDefaults()
@@ -29,7 +30,7 @@ namespace FargowiltasSouls.Patreon.Sam
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

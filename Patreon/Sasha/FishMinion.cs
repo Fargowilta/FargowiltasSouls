@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fish Minion");
+            //DisplayName.SetDefault("Fish Minion");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             Main.projFrames[projectile.type] = 4;

@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Duke Fishron");
+            //DisplayName.SetDefault("Duke Fishron");
             Main.projFrames[projectile.type] = 8;
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;

@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Patreon.Sam
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Squidward Door");
+            //name.SetDefault("Squidward Door");
             AddMapEntry(new Color(200, 200, 200), name);
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.ClosedDoor };

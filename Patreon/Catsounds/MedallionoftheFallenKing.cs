@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Catsounds
@@ -10,9 +11,9 @@ namespace FargowiltasSouls.Patreon.Catsounds
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Medallion of the Fallen King");
+            /*DisplayName.SetDefault("Medallion of the Fallen King");
             Tooltip.SetDefault(
-@"Spawns a King Slime Minion that scales with summon damage");
+@"Spawns a King Slime Minion that scales with summon damage");*/
         }
 
         public override void SetDefaults()
@@ -26,7 +27,7 @@ namespace FargowiltasSouls.Patreon.Catsounds
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

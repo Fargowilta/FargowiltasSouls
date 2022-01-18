@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Patreon.DemonKing
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Duke Fishron");
-            Description.SetDefault("Duke Fishron will fight for you");
+            //DisplayName.SetDefault("Duke Fishron");
+            //Description.SetDefault("Duke Fishron will fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }

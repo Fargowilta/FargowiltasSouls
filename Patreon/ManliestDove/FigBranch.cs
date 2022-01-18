@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using FargowiltasSouls.Items;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.ManliestDove
 {
@@ -11,8 +12,8 @@ namespace FargowiltasSouls.Patreon.ManliestDove
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fig Branch");
-            Tooltip.SetDefault("Summons a Dove companion");
+            /*DisplayName.SetDefault("Fig Branch");
+            Tooltip.SetDefault("Summons a Dove companion");*/
         }
 
         public override void SetDefaults()
@@ -24,7 +25,7 @@ namespace FargowiltasSouls.Patreon.ManliestDove
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

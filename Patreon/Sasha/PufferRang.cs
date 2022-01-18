@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("PufferRang");
+            //DisplayName.SetDefault("PufferRang");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
         }

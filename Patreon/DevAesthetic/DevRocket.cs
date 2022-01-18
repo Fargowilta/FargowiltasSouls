@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dev Rocket");
+		    //DisplayName.SetDefault("Dev Rocket");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 24;
             ProjectileID.Sets.TrailingMode[projectile.type] = 2;
             ProjectileID.Sets.Homing[projectile.type] = true;

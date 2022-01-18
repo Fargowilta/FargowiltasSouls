@@ -17,10 +17,10 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Miss Drakovi's Fishing Pole");
+            /*DisplayName.SetDefault("Miss Drakovi's Fishing Pole");
             Tooltip.SetDefault("Right click to cycle through options of attack\nEvery damage type has one");
             DisplayName.AddTranslation(GameCulture.Chinese, "Drakovi小姐的钓竿");
-            Tooltip.AddTranslation(GameCulture.Chinese, "右键循环切换攻击模式\n每种伤害类型对应一种模式");
+            Tooltip.AddTranslation(GameCulture.Chinese, "右键循环切换攻击模式\n每种伤害类型对应一种模式");*/
         }
 
         public override void SetDefaults()
@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

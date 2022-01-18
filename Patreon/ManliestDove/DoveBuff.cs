@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Patreon.ManliestDove
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Dove");
-            Description.SetDefault("A Dove is following you");
+            //DisplayName.SetDefault("Dove");
+            //Description.SetDefault("A Dove is following you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

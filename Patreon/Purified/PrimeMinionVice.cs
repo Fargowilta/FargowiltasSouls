@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Patreon.Purified
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Prime Vice");
+            //DisplayName.SetDefault("Prime Vice");
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;

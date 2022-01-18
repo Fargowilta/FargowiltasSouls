@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using FargowiltasSouls.Items;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.DemonKing
 {
@@ -11,8 +12,8 @@ namespace FargowiltasSouls.Patreon.DemonKing
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Staff of Unleashed Ocean");
-            Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 2 minion slots\n'Now channel your rage against them!'");
+            //DisplayName.SetDefault("Staff of Unleashed Ocean");
+            //Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 2 minion slots\n'Now channel your rage against them!'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 3;
         }
 
@@ -39,7 +40,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

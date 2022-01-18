@@ -11,14 +11,14 @@ namespace FargowiltasSouls.Patreon.Daawnz
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Computation Orb");
+            /*DisplayName.SetDefault("Computation Orb");
             Tooltip.SetDefault(
 @"Non-magic/summon attacks deal 25% extra damage but are affected by Mana Sickness
 Non-magic/summon weapons require 10 mana to use
 'Within the core, a spark of hope remains.'");
             DisplayName.AddTranslation(GameCulture.Chinese, "演算宝珠");
             Tooltip.AddTranslation(GameCulture.Chinese,
-@"非魔法攻击将额外造成25%伤害, 并消耗10法力");
+@"非魔法攻击将额外造成25%伤害, 并消耗10法力");*/
         }
 
         public override void SetDefaults()
@@ -32,7 +32,7 @@ Non-magic/summon weapons require 10 mana to use
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

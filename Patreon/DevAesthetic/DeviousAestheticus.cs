@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using FargowiltasSouls.Items;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.DevAesthetic
 {
@@ -11,10 +12,10 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Devious Aestheticus");
+            /*DisplayName.SetDefault("Devious Aestheticus");
             Tooltip.SetDefault(
 @"Shot spread scales with up to 6 empty minion slots
-'If you're seeing this, You've been in a coma for 20 years, I don't know where this message will be, but please wake up'");
+'If you're seeing this, You've been in a coma for 20 years, I don't know where this message will be, but please wake up'");*/
         }
 
         public override void SetDefaults()
@@ -38,7 +39,7 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

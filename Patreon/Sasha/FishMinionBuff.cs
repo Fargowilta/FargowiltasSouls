@@ -7,8 +7,8 @@ namespace FargowiltasSouls.Patreon.Sasha
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Fish");
-            Description.SetDefault("This fish will fight for you");
+            //DisplayName.SetDefault("Fish");
+            //Description.SetDefault("This fish will fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }

@@ -5,20 +5,22 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using FargowiltasSouls.Items;
 using System.Linq;
+using Terraria.Localization;
+
 namespace FargowiltasSouls.Patreon.Purified
 {
     public class PrimeStaff : SoulsItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Prime Staff");
-            Tooltip.SetDefault("Summons Skeletron Prime to fight for you\n'Using expert hacking skills (turning it off and on again), you've reprogrammed a terror of the night!'");
+            //DisplayName.SetDefault("Prime Staff");
+            //Tooltip.SetDefault("Summons Skeletron Prime to fight for you\n'Using expert hacking skills (turning it off and on again), you've reprogrammed a terror of the night!'");
             ItemID.Sets.StaffMinionSlotsRequired[item.type] = 1;
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }

@@ -12,10 +12,10 @@ namespace FargowiltasSouls.Patreon.LaBonez
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Piranha Plant Voodoo Doll");
+            /*DisplayName.SetDefault("Piranha Plant Voodoo Doll");
             Tooltip.SetDefault(
 @"Toggle that will grant all enemies the ability to inflict random debuffs
-'In loving memory of Masochist mode EX. I always hated you.'");
+'In loving memory of Masochist mode EX. I always hated you.'");*/
         }
 
         public override void SetDefaults()
@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Patreon.LaBonez
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }
@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Patreon.LaBonez
             PatreonPlayer patreonPlayer = player.GetModPlayer<PatreonPlayer>();
             patreonPlayer.PiranhaPlantMode = !patreonPlayer.PiranhaPlantMode;
 
-            string text = patreonPlayer.PiranhaPlantMode ? "The suffering continues." : "The suffering wanes.";
+            string text = patreonPlayer.PiranhaPlantMode ? Language.GetTextValue("Mods.FargowiltasSouls.PiranhaPlantVoodooDoll.Activate") : Language.GetTextValue("Mods.FargowiltasSouls.PiranhaPlantVoodooDoll.Deactivate");
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
                 Main.NewText(text, 175, 75, 255);

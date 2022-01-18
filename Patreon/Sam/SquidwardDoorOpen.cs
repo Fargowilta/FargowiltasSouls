@@ -59,7 +59,7 @@ namespace FargowiltasSouls.Patreon.Sam
             TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
             TileID.Sets.HasOutlines[Type] = true;
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Squidward Door");
+            //name.SetDefault("Squidward Door");
             AddMapEntry(new Color(200, 200, 200), name);
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.OpenDoor };
