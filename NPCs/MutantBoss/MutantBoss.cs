@@ -985,7 +985,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                             if (FargoSoulsWorld.skipMutantP1 == 10)
                             {
-                                string text = "Mutant tires of the charade...";
+                                string text = Language.GetTextValue("Mods.FargowiltasSouls.Mutant.SkipMutantP1");
                                 if (Main.netMode == NetmodeID.SinglePlayer)
                                     Main.NewText(text, Color.LimeGreen);
                                 else if (Main.netMode == NetmodeID.Server)
