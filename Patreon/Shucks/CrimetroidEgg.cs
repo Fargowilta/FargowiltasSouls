@@ -12,8 +12,8 @@ namespace FargowiltasSouls.Patreon.Shucks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crimetroid Egg");
-            Tooltip.SetDefault("Summons the Baby\nNot to be confused with criminal androids");
+            //DisplayName.SetDefault("Crimetroid Egg");
+            //Tooltip.SetDefault("Summons the Baby\nNot to be confused with criminal androids");
         }
 
         public override void SetDefaults()
@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Patreon.Shucks
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
-            TooltipLine line = new TooltipLine(mod, "tooltip", ">> Patreon Item <<");
+            TooltipLine line = new TooltipLine(mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Patreon.Tooltip"));
             line.overrideColor = Color.Orange;
             tooltips.Add(line);
         }
