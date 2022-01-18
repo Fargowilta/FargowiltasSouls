@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Buffs.Masomode
                 player.AddBuff(mod.BuffType("InfestedEX"), player.buffTime[buffIndex]);
                 player.buffTime[buffIndex] = 1;
                 Main.PlaySound(SoundID.Roar, (int)player.Center.X, (int)player.Center.Y, 0);
-                Main.NewText("Your Ivy Venom has become an Infestation!", 175, 75, 255);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.IvyVenom.Convert"), 175, 75, 255);
             }
             player.venom = true;
         }
