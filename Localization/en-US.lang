@@ -90,6 +90,7 @@ BuffDescription.InfestedEX =This can only get worse
 
 BuffName.IvyVenom =Ivy Venom
 BuffDescription.IvyVenom =Losing life, will become Infested EX at 20 seconds
+IvyVenom.Convert =Your Ivy Venom has become an Infestation!
 
 BuffName.Jammed =Jammed
 BuffDescription.Jammed =Your ranged weapons are faulty
@@ -1756,6 +1757,7 @@ NPCName.RoyalSubject =Royal Subject
 
 NPCName.MutantBoss =Mutant
 NPCName.MutantIllusion =Mutant
+Mutant.SkipMutantP1 =Mutant tires of the charade...
 
 
 /NPCs/GlobalNPC

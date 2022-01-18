@@ -90,6 +90,7 @@ BuffDescription.InfestedEX =这只会变得更糟
 
 BuffName.IvyVenom =常春藤毒素
 BuffDescription.IvyVenom =流失生命，持续时间超过20秒时变为感染减益
+IvyVenom.Convert =你身上的常春藤毒素让你感染了！
 
 BuffName.Jammed =卡壳
 BuffDescription.Jammed =你的远程武器出故障了
@@ -1756,6 +1757,7 @@ NPCName.RoyalSubject =皇家工蜂
 
 NPCName.MutantBoss =突变体
 NPCName.MutantIllusion =突变体
+Mutant.SkipMutantP1 =突变体不想再伪装下去了……
 
 
 /NPCs/GlobalNPC
