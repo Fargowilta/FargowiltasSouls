@@ -1723,6 +1723,125 @@ GlobalNPC.EnchesEnd =Enchantment
 
 
 
+/Patreon
+
+Patreon.Tooltip =>> Patreon Item <<
+
+
+/Catsounds
+
+ProjectileName.KingSlimeMinion =King Slime
+BuffName.KingSlimeMinionBuff =Mini King Slime
+BuffDescription.KingSlimeMinionBuff =This Mini King Slime will protect you
+ItemName.MedallionoftheFallenKing =Medallion of the Fallen King
+ItemTooltip.MedallionoftheFallenKing =Spawns a King Slime Minion that scales with summon damage
+
+
+/Daawnz
+ItemName.ComputationOrb =Computation Orb
+ItemTooltip.ComputationOrb =Non-magic/summon attacks deal 25% extra damage but are affected by Mana Sickness\nNon-magic/summon weapons require 10 mana to use\n'Within the core, a spark of hope remains.'
+
+
+/DemonKing
+BuffName.DukeFishronBuff =Duke Fishron
+BuffDescription.DukeFishronBuff =Duke Fishron will fight for you
+ProjectileName.DukeFishronMinion =Duke Fishron
+ItemName.StaffOfUnleashedOcean =Staff of Unleashed Ocean
+ItemTooltip.StaffOfUnleashedOcean =Summons Duke Fishron to fight for you\nNeeds 2 minion slots\n'Now channel your rage against them!'
+
+
+/DevAesthetic
+ItemName.DeviousAestheticus =Devious Aestheticus
+ItemTooltip.DeviousAestheticus =Shot spread scales with up to 6 empty minion slots\n'If you're seeing this, You've been in a coma for 20 years, I don't know where this message will be, but please wake up'
+ProjectileName.DevRocket =Dev Rocket
+
+
+/Duck
+ProjectileName.RailgunBlast =Railgun Blast
+ItemName.ScientificRailgun =Scientific Railgun
+ItemTooltip.ScientificRailgun =Uses coins for ammo\nHigher valued coins do more damage\n'Particular and specific'
+
+
+/Gittle
+ItemName.RoombaPet =Roomba
+ItemTooltip.RoombaPet =Summons a Roomba to follow you around in hopes of cleaning the whole world
+BuffName.RoombaPetBuff =Roomba
+BuffDescription.RoombaPetBuff =This Roomba is following you
+
+
+/GreatestKraken
+ItemName.VortexMagnetRitual =Vortex Ritual
+ItemTooltip.VortexMagnetRitual ='Power surges in your hand'
+ProjectileName.VortexRitualProj =Vortex Ritual
+
+
+/LaBonez
+ItemName.PiranhaPlantVoodooDoll =Piranha Plant Voodoo Doll
+ItemTooltip.PiranhaPlantVoodooDoll =Toggle that will grant all enemies the ability to inflict random debuffs\n'In loving memory of Masochist mode EX. I always hated you.'
+PiranhaPlantVoodooDoll.Activate =The suffering continues.
+PiranhaPlantVoodooDoll.Deactivate =The suffering wanes.
+
+
+/ManliestDove
+BuffName.DoveBuff =Dove
+BuffDescription.DoveBuff =A Dove is following you
+ItemName.FigBranch =Fig Branch
+ItemTooltip.FigBranch =Summons a Dove companion
+
+
+/ParadoxWolf
+ItemName.ParadoxWolfSoul =Paradox Wolf Soul
+ItemTooltip.ParadoxWolfSoul =Double tap to dash through and damage enemies\nThere is a cooldown of 3 seconds between uses
+ProjectileName.WolfDashProj =Wolf Dash
+
+
+/Purified
+BuffName.PrimeMinionBuff =Mini Prime
+BuffDescription.PrimeMinionBuff =Skeletron Prime will fight for you
+ProjectileName.PrimeMinionCannon =Prime Cannon Arm
+ProjectileName.PrimeMinionLaserGun =Prime Laser Arm
+ProjectileName.PrimeMinionProj =Micro Prime
+ProjectileName.PrimeMinionSaw =Prime Saw
+ProjectileName.PrimeMinionVice =Prime Vice
+ItemName.PrimeStaff =Prime Staff
+ItemTooltip.PrimeStaff =Summons Skeletron Prime to fight for you\n'Using expert hacking skills (turning it off and on again), you've reprogrammed a terror of the night!'
+
+
+/Sam
+ItemName.SquidwardDoor =Squidward Door
+ItemTooltip.SquidwardDoor ='After you Mr. Squidward'
+MapObject.SquidwardDoorClosed =Squidward Door
+MapObject.SquidwardDoorOpen =Squidward Door
+
+
+/Sasha
+ProjectileName.Bubble =Bubble
+ProjectileName.FishMinion =Fish Minion
+ProjectileName.PufferRang =PufferRang
+ProjectileName.PufferSpray =PufferSpray
+ProjectileName.SpikyLure =Spiky Lure
+ProjectileName.WaterStream =Water Stream
+BuffName.FishMinionBuff =Fish
+BuffDescription.FishMinionBuff =This fish will fight for you
+ItemName.MissDrakovisFishingPole =Miss Drakovi's Fishing Pole
+ItemTooltip.MissDrakovisFishingPole =Right click to cycle through options of attack\nEvery damage type has one
+
+
+/Shucks
+BuffName.CrimetroidBuff =Baby Crimetroid
+BuffDescription.CrimetroidBuff =The Baby is following you
+ItemName.CrimetroidEgg =Crimetroid Egg
+ItemTooltip.CrimetroidEgg =Summons the Baby\nNot to be confused with criminal androids
+
+
+/PatreonPlayer
+PatreonPlayer.Active1 =Your special patreon effects are active 
+PatreonPlayer.Active2 =!
+
+
+
+
+
 /Projectiles
 /Proejectiles/AbomBoss
 

@@ -1723,6 +1723,125 @@ GlobalNPC.EnchesEnd =魔石
 
 
 
+/Patreon
+
+Patreon.Tooltip =>> 捐赠者 <<
+
+
+/Catsounds
+
+ProjectileName.KingSlimeMinion =史莱姆王
+BuffName.KingSlimeMinionBuff 迷你史莱姆王
+BuffDescription.KingSlimeMinionBuff =迷你史莱姆王会保护你
+ItemName.MedallionoftheFallenKing =陨落王者的护符
+ItemTooltip.MedallionoftheFallenKing =召唤一个史莱姆王仆从，接受召唤伤害加成
+
+
+/曙旼始灵
+ItemName.ComputationOrb =演算宝珠
+ItemTooltip.ComputationOrb =近战和远程攻击将额外造成25%伤害，但会受耐魔性影响\n这两种攻击会消耗10点魔力值\n“在它的核心里，希望之光仍存”
+
+
+/DemonKing
+BuffName.DukeFishronBuff =猪龙鱼公爵
+BuffDescription.DukeFishronBuff =猪龙鱼公爵会为你而战
+ProjectileName.DukeFishronMinion =猪龙鱼公爵
+ItemName.StaffOfUnleashedOcean =怒海狂涛
+ItemTooltip.StaffOfUnleashedOcean =召唤猪龙鱼公爵为你而战\n消耗两个召唤栏位\n“现在，把你的怒火倾泻在他们头顶上！”
+
+
+/DevAesthetic
+ItemName.DeviousAestheticus =艳岚谲锋
+ItemTooltip.DeviousAestheticus =发射出彩虹弹幕，弹幕数量随着空召唤栏位数量增加而增加，最多计算6个召唤栏位\n“如果你读到了这段话，那说明你已经昏迷了20年。我不知道这条消息会出现在何处，但是，请你尽力醒来吧。”
+ProjectileName.DevRocket =艳岚飞弹
+
+
+/Duck
+ProjectileName.RailgunBlast =超电磁炮
+ItemName.ScientificRailgun =某科学的超电磁炮
+ItemTooltip.ScientificRailgun =消耗硬币作为弹药\n硬币价值更高，伤害越大\n“你指尖跃动的电光，是我此生不灭的信仰，唯我超电磁炮永世长存！”
+
+
+/Gittle
+ItemName.RoombaPet =扫地机器人
+ItemTooltip.RoombaPet =召唤一个扫地机器人跟随你，它希望清洁整个世界
+BuffName.RoombaPetBuff =扫地机器人
+BuffDescription.RoombaPetBuff =这个扫地机器人在跟着你
+
+
+/GreatestKraken
+ItemName.VortexMagnetRitual =星旋圣仪
+ItemTooltip.VortexMagnetRitual =“能量在你的手中脉动”
+ProjectileName.VortexRitualProj =星旋仪式
+
+
+/LaBonez
+ItemName.PiranhaPlantVoodooDoll =食人花巫毒娃娃
+ItemTooltip.PiranhaPlantVoodooDoll =使用以开启，使所有敌人都会造成随机减益\n“以纪念我所钟爱的受虐EX模式。我永远恨你。”
+PiranhaPlantVoodooDoll.Activate =受虐开始了。
+PiranhaPlantVoodooDoll.Deactivate =受虐结束了。
+
+
+/ManliestDove
+BuffName.DoveBuff =白鸽
+BuffDescription.DoveBuff =白鸽在跟着你
+ItemName.FigBranch =无花果树枝
+ItemTooltip.FigBranch =召唤一只白鸽
+
+
+/ParadoxWolf
+ItemName.ParadoxWolfSoul =悖论狼魂
+ItemTooltip.ParadoxWolfSoul =双击以冲刺并对敌人造成伤害\n冲刺有3秒冷却时间
+ProjectileName.WolfDashProj =狼魂冲刺
+
+
+/Purified
+BuffName.PrimeMinionBuff =迷你机械骷髅王
+BuffDescription.PrimeMinionBuff =机械骷髅王会为你而战
+ProjectileName.PrimeMinionCannon =机械炮
+ProjectileName.PrimeMinionLaserGun =机械激光炮
+ProjectileName.PrimeMinionProj =迷你机械骷髅王
+ProjectileName.PrimeMinionSaw =机械锯
+ProjectileName.PrimeMinionVice =机械钳
+ItemName.PrimeStaff =机械骷髅王法杖
+ItemTooltip.PrimeStaff =召唤迷你机械骷髅王为你而战\n“通过登峰造极的黑客技术（指重启），你让黑夜的恐惧之物再临世间！”
+
+
+/Sam
+ItemName.SquidwardDoor =章鱼哥的门
+ItemTooltip.SquidwardDoor =“在你身后，章鱼哥先生”
+MapObject.SquidwardDoorClosed =章鱼哥的门
+MapObject.SquidwardDoorOpen =章鱼哥的门
+
+
+/Sasha
+ProjectileName.Bubble =泡泡
+ProjectileName.FishMinion =和风鱼
+ProjectileName.PufferRang =炸弹鱼
+ProjectileName.PufferSpray =炸弹鱼
+ProjectileName.SpikyLure =尖刺鱼钩
+ProjectileName.WaterStream =水流
+BuffName.FishMinionBuff =和风鱼
+BuffDescription.FishMinionBuff =和风鱼为你而战
+ItemName.MissDrakovisFishingPole =Drakovi小姐的鱼竿
+ItemTooltip.MissDrakovisFishingPole =右键循环切换攻击模式\n每种伤害类型对应一种模式
+
+
+/Shucks
+BuffName.CrimetroidBuff =血腥机器人
+BuffDescription.CrimetroidBuff =血腥机器人宝宝跟着你
+ItemName.CrimetroidEgg =血腥机器人的蛋
+ItemTooltip.CrimetroidEgg =召唤机器人宝宝\n不是安卓系统的
+
+
+/PatreonPlayer
+PatreonPlayer.Active1 =你的特殊捐赠者效果：
+PatreonPlayer.Active2 =已激活！
+
+
+
+
+
 /Projectiles
 /Proejectiles/AbomBoss
 
