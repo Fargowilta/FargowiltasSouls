@@ -856,7 +856,7 @@ TerraForce.Lead = Attacks may inflict enemies with Lead Poisoning
 TerraForce.Tungsten1 = 150% increased sword size
 TerraForce.Tungsten2 = Every quarter second a projectile will be doubled in size
 TerraForce.Obsidian1 = Grants immunity to fire and lava
-TerraForce.Obsidian2 = While standing in lava or lava wet, your attacks spawn explosions
+TerraForce.Obsidian2 = Your attacks spawn explosions
 TerraForce.Addition ='The land lends its strength'
 
 ItemName.TimberForce =Force of Timber

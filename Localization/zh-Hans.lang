@@ -856,7 +856,7 @@ TerraForce.Lead = 攻击有几率造成铅中毒减益
 TerraForce.Tungsten1 = 剑的尺寸增加150%
 TerraForce.Tungsten2 = 每过0.5秒便会有一个随机弹幕的尺寸翻倍
 TerraForce.Obsidian1 = 使你免疫火块与岩浆
-TerraForce.Obsidian2 = 在岩浆中或拥有浸入岩浆增益时，你的攻击会引发爆炸
+TerraForce.Obsidian2 = 你的攻击会引发爆炸
 TerraForce.Addition =“大地赐予它力量”
 
 ItemName.TimberForce =森林之力
@@ -1542,7 +1542,7 @@ SoC.Will =金铁呜咽，回荡深渊……
 SoC.Life =温温生命，透体而过……
 SoC.Shadow =黑夜之暗，愈深愈沉……
 SoC.Timber =林叶沙沙，环绕四周……
-SoC.None =八方默然，万籁俱寂……\n看来没有英灵回应你的召唤……
+SoC.None =八方默然，万籁俱寂……看来没有英灵回应你的召唤……
 
 ItemName.TruffleWormEX =松露虫EX
 ItemTooltip.TruffleWormEX =只能在永恒模式使用\n怒涛千古响奔雷\n你本不该看到这段话……
@@ -1779,7 +1779,7 @@ Patreon.Tooltip =>> 捐赠者 <<
 /Catsounds
 
 ProjectileName.KingSlimeMinion =史莱姆王
-BuffName.KingSlimeMinionBuff 迷你史莱姆王
+BuffName.KingSlimeMinionBuff =迷你史莱姆王
 BuffDescription.KingSlimeMinionBuff =迷你史莱姆王会保护你
 ItemName.MedallionoftheFallenKing =陨落王者的护符
 ItemTooltip.MedallionoftheFallenKing =召唤一个史莱姆王仆从，接受召唤伤害加成
