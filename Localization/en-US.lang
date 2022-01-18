@@ -1365,10 +1365,58 @@ EternitySoul.OtherTooltips1 =Additionally grants:
 ItemName.ItemName.AmalgamatedDartBox =Amalgamated Dart Box
 
 ItemName.FargoArrow =Amalgamated Arrow Quiver
-ItemTooltip.FargoArrowb =Bounces several times\nEach impact explodes, summons falling stars, and fires laser arrows\nInflicts several debuffs
+ItemTooltip.FargoArrow =Bounces several times\nEach impact explodes, summons falling stars, and fires laser arrows\nInflicts several debuffs
 
 ItemName.FargoBullet =Amalgamated Bullet Pouch
 ItemTooltip.FargoBullet =Chases after your enemy\nBounces several times\n"Each impact causes an explosion of crystal shards\nInflicts several debuffs
+
+
+/Items/Armors
+
+ItemName.EridanusBattleplate =Eridanus Battleplate
+ItemTooltip.EridanusBattleplate =10% increased damage\n10% increased critical strike chance\nReduces damage taken by 10%\nGrants life regeneration
+
+ItemName.EridanusHat =Eridanus Hat
+ItemTooltip.EridanusHat =5% increased damage\n5% increased critical strike chance\nIncreases your max number of minions by 4\nIncreases your max number of sentries by 4
+
+ItemName.EridanusLegwear =Eridanus Legwear
+ItemTooltip.EridanusLegwear =5% increased damage\n5% increased critical strike chance\n10% increased movement speed
+
+EridanusSet.Bonus =The blessing of Eridanus empowers your attacks\nThe empowered class changes every 10 seconds\nEridanus fights alongside you when you use the empowered class\n75% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class
+
+ItemName.GaiaGreaves =Gaia Greaves
+ItemTooltip.GaiaGreaves =10% increased damage\n5% increased critical strike chance\n10% increased movement speed
+
+ItemName.GaiaHelmet =Gaia Helmet
+ItemTooltip.GaiaHelmet =10% increased damage\n5% increased critical strike chance\nIncreases max number of minions and sentries by 1
+
+ItemName.GaiaPlate =Gaia Plate
+ItemTooltip.GaiaPlate =10% increased damage\n5% increased critical strike chance\nReduces damage taken by 10%\nIncreases your life regeneration
+
+GaiaSet.Bonus =10% increased melee speed\nReduces mana usage by 10%\n10% chance to not consume ammo\nIncreases max number of minions and sentries by 1\nDouble tap down to toggle offensive mode, which has the following effects:\n30% increased damage and 15% increased critical strike chance\nIncreases armor penetration by 20\nReduces defense by 20, max life by 20%, and damage reduction by 20%
+
+ItemName.MutantBody =True Mutant Body
+ItemTooltip.MutantBody =70% increased damage and 30% increased critical strike chance\nIncreases max life and mana by 200\nIncreases damage reduction by 30%\nDrastically increases life regen
+
+ItemName.MutantMask =True Mutant Head
+ItemTooltip.MutantMask =50% increased damage and 20% increased critical strike chance\nIncreases max number of minions and sentries by 10\n25% reduced mana usage\n25% chance not to consume ammo
+
+ItemName.MutantPants =True Mutant Pants
+ItemTooltip.MutantPants =50% increased damage and 20% increased critical strike chance\n40% increased movement and melee speed
+
+MutantSet.Bonus =Phantasmal Spheres shoot deathrays at nearby enemies\nAbominationn's Visage fights alongside you\nYour attacks inflict God Eater and Hellfire\nYou erupt into a massive deathray whenever revived\n20% increased weapon use speed
+
+ItemName.StyxChestplate =Styx Chestplate
+ItemTooltip.StyxChestplate =15% increased damage\n10% increased critical strike chance\nReduces damage taken by 10%\nIncreases your life regeneration
+
+ItemName.StyxCrown =Styx Crown
+ItemTooltip.StyxCrown =10% increased damage\n10% increased critical strike chance\nIncreases max number of minions and sentries by 3
+
+ItemName.StyxLeggings =Styx Leggings
+ItemTooltip.StyxLeggings =10% increased damage\n10% increased critical strike chance\n20% increased movement speed
+
+StyxSet.Bonus1 =20% increased damage\nAttack enemies to charge energy\nReduces damage taken at the cost of some energy\nDouble tap 
+StyxSet.Bonus2 = to release energy as homing shots\nBrandish a blade of infernal magic when fully charged
 
 
 /Item/Debug

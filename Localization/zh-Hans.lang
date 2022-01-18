@@ -661,7 +661,7 @@ ItemName.NinjaEnchant =忍者魔石
 ItemTooltip.NinjaEnchant =若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益\n使用混沌传送杖也会获得先发制人增益\n先发制人增益会使你下次攻击必定暴击且造成3倍伤害\n“你现在能看到我了。诶，你又看不到我了”
 
 ItemName.ObsidianEnchant =黑曜石魔石
-ItemTooltip.ObsidianEnchant =使你免疫火块与岩浆\n你可以在岩浆中正常移动和游泳\n在岩浆中或拥有浸入岩浆增益时，你的攻击会引发爆炸\n“大地在呼唤”
+ItemTooltip.ObsidianEnchant =使你免疫火块与岩浆\n你可以在岩浆中正常移动和游泳\n在岩浆中会获得“浸入岩浆”增益\n拥有该增益时，你的攻击会引发爆炸\n“大地在呼唤”
 
 ItemName.OrichalcumEnchant =山铜魔石
 ItemTooltip.OrichalcumEnchant =花瓣将落到你攻击的敌人的身上，造成额外伤害和山铜中毒减益\n伤害性减益造成的伤害×3\n“自然祝福着你”
@@ -880,10 +880,10 @@ WillForce.Addition =“坚不可摧的决心”
 /Items/Masomode
 
 ItemName.AeolusBoots =风神靴
-ItemTooltip.AeolusBoots =使你获得飞行和快速奔跑的能力，在冰面上提供额外机动性\n增加8%移动速度\n使你获得二段跳能力\n增加跳跃高度并免疫摔落伤害\n“像风一样奔跑
+ItemTooltip.AeolusBoots =使你获得飞行和快速奔跑的能力，在冰面上提供额外机动性\n增加8%移动速度\n使你获得二段跳能力\n增加跳跃高度并免疫摔落伤害\n“像风一样奔跑”
 
-ItemName.SetStaticDefaults =躁动晶状体
-ItemTooltip.SetStaticDefaults =使你免疫狂暴减益\n生命值低于50%时增加10%伤害\n冲刺或奔跑时会在身后留下一串鲜血镰刀\n“被打败的敌人的躁动残渣”
+ItemName.AgitatingLens =躁动晶状体
+ItemTooltip.AgitatingLens =使你免疫狂暴减益\n生命值低于50%时增加10%伤害\n冲刺或奔跑时会在身后留下一串鲜血镰刀\n“被打败的敌人的躁动残渣”
 
 ItemName.BetsysHeart =双足翼龙之心
 ItemTooltip.BetsysHeart =使你免疫分泌物、枯萎武器和枯萎盔甲减益\n暴击造成双足翼龙诅咒减益\n按下“火球冲刺”键后会进行短距离无敌冲刺\n“用文火，五分熟”
@@ -1055,7 +1055,7 @@ ItemName.TrawlerSoul =捕鱼之魂
 ItemTooltip.TrawlerSoul =大大增加渔力\n所有的钓竿都会额外抛出10根鱼线\n你几乎可以立即钓到鱼\n拥有声呐和宝匣增益效果\n拥有渔夫渔具袋和孢子囊的效果\n拥有粉马掌气球和北极潜水装备的效果\n“暗漉泥中玉，光跳日下银。”
 
 ItemName.UniverseSoul =寰宇之魂
-ItemTooltip.UniverseSoul =增加66%伤害\n增加50%武器攻击速度\n增加50%射击速度\n增加25%暴击率\n暴击伤害×5\n武器击退翻倍\n增加300点最大魔力值\n增加4个召唤栏位\n增加4\n攻击会造成宇宙之火减益\n拥有烈火手套、悠悠球袋和天界壳的效果\n拥有狙击镜、天界手铐和魔力花的效果\n“诸天也向你俯首”
+ItemTooltip.UniverseSoul =增加66%伤害\n增加50%武器攻击速度\n增加50%射击速度\n增加25%暴击率\n暴击伤害×5\n武器击退翻倍\n增加300点最大魔力值\n增加4个召唤栏位\n增加4个哨兵栏位\n攻击会造成宇宙之火减益\n拥有烈火手套、悠悠球袋和天界壳的效果\n拥有狙击镜、天界手铐和魔力花的效果\n“诸天也向你俯首”
 
 ItemName.VoidSoul =虚空之魂
 ItemTooltip.VoidSoul =召唤 亿 点 东 西
@@ -1365,10 +1365,58 @@ EternitySoul.OtherTooltips1 =额外加成：
 ItemName.AmalgamatedDartBox =混合飞镖盒
 
 ItemName.FargoArrow =混合箭袋
-ItemTooltip.FargoArrowb =弹跳多次\n每次撞击都会爆炸、召唤流星、发射激光箭\n造成多种减益
+ItemTooltip.FargoArrow =弹跳多次\n每次撞击都会爆炸、召唤流星、发射激光箭\n造成多种减益
 
 ItemName.FargoBullet =混合子弹袋
 ItemTooltip.FargoBullet =追踪敌人\n弹跳多次\n每次撞击都会爆炸产生水晶碎片\n造成多种减益
+
+
+/Items/Armors
+
+ItemName.EridanusBattleplate =波江板甲
+ItemTooltip.EridanusBattleplate =增加10%伤害\n增加10%暴击率\n增加10%伤害减免\n增加生命恢复速度
+
+ItemName.EridanusHat =波江礼帽
+ItemTooltip.EridanusHat =增加5%伤害\n增加5%暴击率\n增加4个召唤栏位和4个哨兵栏位
+
+ItemName.EridanusLegwear =波江腿甲
+ItemTooltip.EridanusLegwear =增加5%伤害\n增加5%暴击率\n增加10%移动速度
+
+EridanusSet.Bonus =宇宙英灵的护佑增强了你的攻击\n每10秒切换增强的职业\n当你使用对应职业的武器时，宇宙英灵会随你作战\n对应职业武器增加75%伤害、30%攻击速度和20%暴击率
+
+ItemName.GaiaGreaves =盖亚护胫
+ItemTooltip.GaiaGreaves =增加10%伤害\n增加5%暴击率\n增加10%移动速度
+
+ItemName.GaiaHelmet =盖亚战盔
+ItemTooltip.GaiaHelmet =增加10%伤害\n增加5%暴击几率\n增加1个召唤栏位和1个哨兵栏位
+
+ItemName.GaiaPlate =盖亚板甲
+ItemTooltip.GaiaPlate =增加10%伤害\n增加5%暴击几率\n增加10%伤害减免\n增加生命恢复速度
+
+GaiaSet.Bonus =增加10%近战攻速\n魔力消耗减少10%\n10%几率不消耗弹药\n增加1个召唤栏位和1个哨兵栏位\n双击“下”键以开关进攻模式，进攻模式具有如下效果：\n增加30%伤害和15%暴击几率\n增加20点护甲穿透\n降低20点防御、20%最大生命值20%伤害减免
+
+ItemName.MutantBody =真·突变之躯
+ItemTooltip.MutantBody =增加70%伤害和30%暴击率\n增加200点最大生命值和魔力值\n增加30%伤害减免\n极大提升生命恢复速度
+
+ItemName.MutantMask =真·突变之颅
+ItemTooltip.MutantMask =增加50%伤害和20%暴击率\n增加10个召唤栏位和10个哨兵栏位\n魔力消耗减少25%\n25%几率不消耗弹药
+
+ItemName.MutantPants =真·突变之胫
+ItemTooltip.MutantPants =增加50%伤害和20%暴击率\n增加40%移动速度和近战攻击速度
+
+MutantSet.Bonus =召唤会向周围的敌怪发射激光的幻影眼球\n召唤幽灵憎恶与你一同战斗\n你的攻击会造成地狱火和噬神者减益\n你复活时会发射出巨大的幻影死光射线\n增加20%武器使用速度
+
+ItemName.StyxChestplate =冥河战甲
+ItemTooltip.StyxChestplate =增加15%伤害\n增加10%暴击率\n增加10%伤害减免\n增加生命恢复速度
+
+ItemName.StyxCrown =冥河之冕
+ItemTooltip.StyxCrown =增加10%伤害\n增加10%暴击率\n增加3个召唤栏位和3个哨兵栏位
+
+ItemName.StyxLeggings =冥河战靴
+ItemTooltip.StyxLeggings =增加10%伤害\n增加10%暴击率\n增加20%移动速度
+
+StyxSet.Bonus1 =增加20%伤害\n攻击敌人以积蓄冥河能量\n擦弹加成计满时同样会增加蓄能\n击中时消耗冥河能量，减免一部分伤害\n双击
+StyxSet.Bonus2 =键以消耗能量，释放追踪镰刀\n能量蓄满时会释放出冥狱魔剑
 
 
 /Item/Debug
