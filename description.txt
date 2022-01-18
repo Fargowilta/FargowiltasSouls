@@ -6,3 +6,14 @@ NEW UPDATE - V 1.3.99.90
 -This is the final update before transitioning to 1.4
 
 -See the wiki for full details!
+
+
+
+Fargo之魂Mod是一个内容丰富的模组，加入了强大的魔石饰品和魂饰品、许多Boss和迷你Boss，以及一个大大增加游戏难度、极具挑战性的新模式。
+
+最新版本 - V 1.3.99.91
+-加入某些物品、调整平衡，修复bug
+-以及……加入了官方汉化！不再需要汉化者mod的支持，避免了诸多问题！
+-这是1.4前的最后一次更新！
+
+-详情可查看维基！
