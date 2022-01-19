@@ -408,7 +408,28 @@ This stacks up to 950 times until you get hit");
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+            tooltipsFull.Clear();
             tooltipsFull.AddRange(vanillaTooltips);
+
+            if (ModLoader.GetMod("FargowiltasSoulsDLC") != null)
+            {
+                if (ModLoader.GetMod("ThoriumMod") != null)
+                {
+                    tooltipsFull.AddRange(thoriumTooltips);
+                }
+                if (ModLoader.GetMod("CalamityMod") != null)
+                {
+                    tooltipsFull.AddRange(calamityTooltips);
+                }
+                if (ModLoader.GetMod("DBZMOD") != null)
+                {
+                    tooltipsFull.AddRange(dbtTooltips);
+                }
+                if (ModLoader.GetMod("SacredTools") != null)
+                {
+                    tooltipsFull.AddRange(soaTooltips);
+                }
+            }
 
             string description = "Additionally grants:";
 
@@ -426,7 +447,12 @@ This stacks up to 950 times until you get hit");
                 int segment = tooltipsFull.Count / tooltipIndex.Length;
                 for (int i = 0; i < tooltipIndex.Length; i++)
                 {
-                    tooltipIndex[i] = segment * i + Main.rand.Next(segment);
+                    // Ensure that the index does not go past the full count
+                    do
+                    {
+                        tooltipIndex[i] = segment * i + Main.rand.Next(segment);
+                    }
+                    while (tooltipIndex[i] >= tooltipsFull.Count);
                 }
 
                 Counter = 5;
