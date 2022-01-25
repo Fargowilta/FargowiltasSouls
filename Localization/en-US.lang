@@ -1562,8 +1562,10 @@ ItemTooltip.TruffleWormEX =Only usable in Masochist Mode\nThe tides surge in its
 /Item/Tiles
 
 ItemName.AbomTrophy=Abominationn Trophy
+MapObject.AbomTrophy =Abominationn Trophy
 
 ItemName.DeviTrophy =Deviantt Trophy
+MapObject.DeviTrophy =Deviantt Trophy
 
 ItemName.FezSquirrelBanner =Fez Squirrel Banner
 
@@ -1573,8 +1575,11 @@ MapObject.GoldenDippingVatSheet =Golden Dipping Vat
 
 ItemName.MutantStatue =Mutant Statue
 ItemName.MutantStatueGift =Mutant Statue (Gift)
+MapObject.MutantStatue =Mutant Statue
+MapObject.MutantStatueGift =Mutant Statue
 
 ItemName.MutantTrophy =Mutant Trophy
+MapObject.MutantTrophy =Mutant Trophy
 
 ItemName.ScremPainting =Screm Painting
 ItemTooltip.ScremPainting ='Merry N. Tuse'

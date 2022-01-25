@@ -1562,8 +1562,10 @@ ItemTooltip.TruffleWormEX =只能在永恒模式使用\n怒涛千古响奔雷\n�
 /Item/Tiles
 
 ItemName.AbomTrophy =憎恶纪念章
+MapObject.AbomTrophy =憎恶纪念章
 
 ItemName.DeviTrophy =戴薇安纪念章
+MapObject.DeviTrophy =戴薇安纪念章
 
 ItemName.FezSquirrelBanner =菲斯帽松鼠旗
 
@@ -1573,8 +1575,11 @@ MapObject.GoldenDippingVatSheet =黄金浸渍缸
 
 ItemName.MutantStatue =突变体的雕像
 ItemName.MutantStatueGift =突变体的雕像
+MapObject.MutantStatue =突变体的雕像
+MapObject.MutantStatueGift =突变体的雕像
 
 ItemName.MutantTrophy =突变体纪念章
+MapObject.MutantTrophy =突变体纪念章
 
 ItemName.ScremPainting =尖叫猫猫
 ItemTooltip.ScremPainting =“Merry N. Tuse”
