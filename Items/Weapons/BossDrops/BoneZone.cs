@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 "\n'The shattered remains of a defeated foe..'");
 
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "骸骨领域");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被击败的敌人的残骸..'");
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "以骨头作为弹药" + "\n33%几率不消耗弹药" + "\n'被击败的敌人的残骸..'");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
