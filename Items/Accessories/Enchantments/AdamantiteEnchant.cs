@@ -21,7 +21,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 "\n'Chaos'");
 
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "精金魔石");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "每秒会随机使你的一个弹幕分裂成三个" +
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "每秒会随机使你的一个弹幕分裂成三个" + 
+                "\n所有弹幕伤害造成50%伤害" + 
                 "\n'一气化三清！'");
         }
 
