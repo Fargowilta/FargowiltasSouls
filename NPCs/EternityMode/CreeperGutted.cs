@@ -1,12 +1,11 @@
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Toggler;
-using System.Linq;
 using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {

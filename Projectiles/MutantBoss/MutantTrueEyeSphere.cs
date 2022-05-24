@@ -3,6 +3,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -130,7 +131,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void Kill(int timeleft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 208;
             Projectile.position.X -= (float)(Projectile.width / 2);

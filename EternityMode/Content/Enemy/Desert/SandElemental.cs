@@ -4,6 +4,7 @@ using FargowiltasSouls.EternityMode.NPCMatching;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
                 }
                 else
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     AttackTarget = Main.player[npc.target].Center;
                     AttackTarget.Y -= 650;
@@ -67,9 +68,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
 
             if (AttackTimer > 300 && AttackTimer % 3 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Projectile.NewProjectile(npc.GetSource_FromThis(), 
-                    AttackTarget + Main.rand.NextVector2Circular(80, 80), 
-                    new Vector2(Main.rand.NextFloat(-.5f, .5f), Main.rand.NextFloat(3f)), 
+                Projectile.NewProjectile(npc.GetSource_FromThis(),
+                    AttackTarget + Main.rand.NextVector2Circular(80, 80),
+                    new Vector2(Main.rand.NextFloat(-.5f, .5f), Main.rand.NextFloat(3f)),
                     ModContent.ProjectileType<Projectiles.Champions.SpiritCrossBone>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
             }
 

@@ -1,7 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
 using FargowiltasSouls.NPCs;
+using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {

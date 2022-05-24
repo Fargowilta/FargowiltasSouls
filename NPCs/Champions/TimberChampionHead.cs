@@ -1,18 +1,18 @@
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Champions;
-using Microsoft.Xna.Framework.Graphics;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
 using FargowiltasSouls.Items.Accessories.Forces;
-using FargowiltasSouls.Projectiles.Challengers;
-using System.Linq;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Challengers;
+using FargowiltasSouls.Projectiles.Champions;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Linq;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.NPCs.Champions
         {
             if (NPC.localAI[2] == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 NPC.TargetClosest(false);
                 NPC.localAI[2] = 1;
             }
@@ -144,7 +144,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 1: //laser rain
                     if (NPC.ai[1] == 0)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (player.Center - NPC.Center) / 120,
@@ -192,14 +192,14 @@ namespace FargowiltasSouls.NPCs.Champions
                     }
                     else if (NPC.ai[1] == 120)
                     {
-                        
+
                     }
                     else if (NPC.ai[1] < 270) //spam lasers everywhere
                     {
                         if (NPC.ai[3] == 0) //only if not flagged
                         {
                             if (NPC.ai[1] % 3 == 0)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item157, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item157, NPC.Center);
 
                             for (int i = 0; i < 5; i++)
                             {
@@ -267,8 +267,8 @@ namespace FargowiltasSouls.NPCs.Champions
 
                             if (feedbackFX)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item36, NPC.Center); //shotgun sfx
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, NPC.Center); //snowball cannon sfx
+                                SoundEngine.PlaySound(SoundID.Item36, NPC.Center); //shotgun sfx
+                                SoundEngine.PlaySound(SoundID.Item11, NPC.Center); //snowball cannon sfx
 
                                 for (int j = 0; j < 20; j++)
                                 {
@@ -406,7 +406,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             {
                                 NPC.ai[2] = 0;
 
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                                 Vector2 speed = 32f * NPC.DirectionTo(player.Center).RotatedByRandom(Math.PI / 2);
                                 float ai1 = noMoreChainsTime + endlag - NPC.ai[1];
@@ -438,7 +438,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     NPC.velocity = Vector2.Zero;
 
                     if (NPC.ai[1] == 0)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                     if (++NPC.ai[1] > 120)
                     {
@@ -626,7 +626,7 @@ namespace FargowiltasSouls.NPCs.Champions
             distance.X = distance.X / time;
             distance.Y = distance.Y / time - 0.5f * gravity * time;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
+            SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

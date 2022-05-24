@@ -1,12 +1,11 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Terraria.Graphics.Effects;
-using Terraria.ModLoader;
 using FargowiltasSouls.EternityMode;
 using FargowiltasSouls.EternityMode.Content.Boss.HM;
 using FargowiltasSouls.NPCs;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Sky
 {
@@ -49,7 +48,7 @@ namespace FargowiltasSouls.Sky
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            
+
         }
 
         public override float GetCloudAlpha()

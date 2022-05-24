@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -50,7 +51,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

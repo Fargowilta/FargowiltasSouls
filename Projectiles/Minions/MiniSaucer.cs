@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -72,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.ai[0] = minionAttackTargetNpc.whoAmI;
                 Projectile.netUpdate = true;
             }*/
-            
+
             if (player.whoAmI == Main.myPlayer)
             {
                 mousePos = Main.MouseWorld;
@@ -114,8 +115,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                         if (player.whoAmI == Main.myPlayer)
                         {
                             Vector2 vel = Projectile.DirectionTo(Main.MouseWorld) * 16f;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                            
+                            SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+
                             FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.velocity * 2.5f,
                                 vel.RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 3.0),
                                 ModContent.ProjectileType<SaucerLaser>(), Projectile.originalDamage / 2, Projectile.knockBack, Projectile.owner);
@@ -164,7 +165,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.velocity.Y = cap;
             if (Projectile.velocity.Y < -cap)
                 Projectile.velocity.Y = -cap;
-            
+
             if (Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<SaucerDeathray>()] > 0)
             {
                 Projectile.rotation = 0;

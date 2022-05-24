@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int GeneralTimer;
         public int P3Timer;
         public int EXTornadoTimer;
-        
+
         public bool RemovedInvincibility;
         public bool TakeNoDamageOnHit;
         public bool IsEX;
@@ -38,7 +39,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(GeneralTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(P3Timer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(EXTornadoTimer), IntStrategies.CompoundStrategy },
-                
+
                 { new Ref<object>(RemovedInvincibility), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(TakeNoDamageOnHit), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(IsEX), BoolStrategies.CompoundStrategy },
@@ -88,7 +89,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     if (reduceTimeleft && p < 1000)
                         Main.projectile[p].timeLeft /= 2;
                 }
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, npc.Center);
+                SoundEngine.PlaySound(SoundID.Item84, npc.Center);
             }
 
             void EnrageDust()
@@ -115,7 +116,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
 
             #region duke ex ai
-            
+
             if (IsEX) //fishron EX
             {
                 npc.GetGlobalNPC<FargoSoulsGlobalNPC>().MutantNibble = false;
@@ -139,7 +140,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 ModContent.ProjectileType<FishronRitual>(), 0, 0f, Main.myPlayer, npc.lifeMax, npc.whoAmI);
                             if (ritual1 == Main.maxProjectiles) //failed to spawn projectile, abort spawn
                                 npc.active = false;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, npc.Center);
+                            SoundEngine.PlaySound(SoundID.Item84, npc.Center);
                         }
                         TakeNoDamageOnHit = true;
                         break;
@@ -342,13 +343,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             switch ((int)npc.ai[0])
             {
                 case -1: //just spawned
-                         /*if (npc.ai[2] == 1 && Main.netMode != NetmodeID.MultiplayerClient) //create spell circle
-                         {
-                             int p2 = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero,
-                                 ModContent.ProjectileType<FishronRitual2>(), 0, 0f, Main.myPlayer, 0f, npc.whoAmI);
-                             if (p2 == 1000) //failed to spawn projectile, abort spawn
-                                 npc.active = false;
-                         }*/
+                    /*if (npc.ai[2] == 1 && Main.netMode != NetmodeID.MultiplayerClient) //create spell circle
+                    {
+                        int p2 = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero,
+                            ModContent.ProjectileType<FishronRitual2>(), 0, 0f, Main.myPlayer, 0f, npc.whoAmI);
+                        if (p2 == 1000) //failed to spawn projectile, abort spawn
+                            npc.active = false;
+                    }*/
                     if (!IsEX)
                         npc.dontTakeDamage = true;
                     break;
@@ -508,7 +509,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     if (npc.ai[2] == 120)
                     {
-                        int max = /*Fargowiltas.Instance.MasomodeEXLoaded ||*/ FargoSoulsWorld.MasochistModeReal ? npc.lifeMax : npc.lifeMax / 2; //heal
+                        int max = FargoSoulsWorld.MasochistModeReal ? npc.lifeMax / 2 : npc.lifeMax / 3;
                         int heal = max - npc.life;
                         npc.life = max;
                         CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal);
@@ -580,7 +581,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     else if (npc.ai[3] == 5)
                     {
                         if (npc.ai[2] == 0)
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                         npc.ai[2] -= 0.5f;
                         npc.velocity *= 0.5f;
@@ -611,7 +612,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     if (!Main.player[npc.target].ZoneBeach || npc.ai[3] >= 5)
                     {
                         if (npc.ai[2] == 0 && !Main.dedServ)
-                            Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Monster70"), npc.Center);
+                            SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Monster70"), npc.Center);
 
                         if (Main.player[npc.target].ZoneBeach)
                         {
@@ -874,7 +875,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     FargoSoulsWorld.downedFishronEX = true;
                     //FargoSoulsUtil.PrintText("Duke Fishron EX has been defeated!", new Color(50, 100, 255));
 
-                    //Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                    //SoundEngine.PlaySound(npc.DeathSound, npc.Center);
                     //npc.DropBossBags();
                     //npc.DropItemInstanced(npc.position, npc.Size, ModContent.ItemType<AbominableWand>());
 

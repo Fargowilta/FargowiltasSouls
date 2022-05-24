@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles
@@ -35,7 +34,7 @@ namespace FargowiltasSouls.Projectiles
                 CombatText.NewText(Projectile.Hitbox, new Color(51, 102, 0), countdown, true);
                 countdown--;
             }
-            
+
             Projectile.scale += .01f;
 
             Projectile.frameCounter++;   //Making the timer go up.
@@ -57,7 +56,7 @@ namespace FargowiltasSouls.Projectiles
                 for (int j = 0; j < Main.maxTilesY; j++)
                 {
                     Main.tile[i, j].ClearEverything();
-                    
+
                     if (WorldGen.InWorld(i, j))
                         Main.Map.Update(i, j, 255);
                 }
@@ -87,9 +86,9 @@ namespace FargowiltasSouls.Projectiles
             }
 
             Main.refreshMap = true;
-            
+
             if (!Main.dedServ)
-                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder").WithVolume(1.5f));
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 1.5f });
         }
     }
 }

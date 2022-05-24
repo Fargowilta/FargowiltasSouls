@@ -1,10 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Buffs.Masomode;
 using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {

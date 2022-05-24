@@ -47,7 +47,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.velocity = Projectile.DirectionTo(n.Center + n.velocity * Main.rand.NextFloat(60)) * 32f;
                 }
             }
-            
+
             if (Projectile.alpha > 0)
             {
                 Projectile.alpha -= 20;

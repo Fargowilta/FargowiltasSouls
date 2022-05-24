@@ -1,17 +1,17 @@
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
+//using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using FargowiltasSouls.EternityMode.Content.Boss.PHM;
+using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-//using FargowiltasSouls.EternityMode.Content.Boss.HM;
-using FargowiltasSouls.EternityMode.Content.Boss.PHM;
-using FargowiltasSouls.Projectiles.Masomode;
-using Terraria.DataStructures;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.Projectiles
 {
@@ -334,14 +334,14 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 if (counter == maxTime)
                                 {
-                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), 
+                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile),
                                         Projectile.Center, Projectile.rotation.ToRotationVector2(),
-                                        Projectile.type, 
+                                        Projectile.type,
                                         Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
 
-                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), 
-                                        Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(), 
-                                        ModContent.ProjectileType<DestroyerLaser>(), 
+                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile),
+                                        Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(),
+                                        ModContent.ProjectileType<DestroyerLaser>(),
                                         Projectile.damage, Projectile.knockBack, Projectile.owner);
                                 }
                             }
@@ -349,13 +349,13 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 if (counter > maxTime - 20 && counter % 10 == 0)
                                 {
-                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), 
-                                        Projectile.Center, Projectile.rotation.ToRotationVector2(), 
-                                        Projectile.type, 
+                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile),
+                                        Projectile.Center, Projectile.rotation.ToRotationVector2(),
+                                        Projectile.type,
                                         Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
 
                                     Projectile.NewProjectile(Projectile.InheritSource(Projectile),
-                                        Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(), 
+                                        Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(),
                                         ModContent.ProjectileType<DarkStarHoming>(),
                                         Projectile.damage, Projectile.knockBack, Projectile.owner, -1, 1f);
                                 }

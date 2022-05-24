@@ -1,7 +1,7 @@
 using FargowiltasSouls.NPCs;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Your body is wasting away");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "腐败");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "身体在逐渐衰弱");
         }

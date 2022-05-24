@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -151,7 +152,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
 
                 if (++AttackTimer > 1) //spray bone rain above player
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item1, npc.Center);
 
                     AttackTimer = 0;
 
@@ -314,7 +315,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
 
                 if (++AttackTimer > 2)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item1, npc.Center);
 
                     AttackTimer = 0;
                     Vector2 speed = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
@@ -401,7 +402,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
             target.AddBuff(ModContent.BuffType<GodEater>(), 420);
             target.AddBuff(ModContent.BuffType<FlamesoftheUniverse>(), 420);
             target.AddBuff(ModContent.BuffType<MarkedforDeath>(), 420);
-            
+
             //target.immune = false; //handled by special checks in ai
             //target.immuneTime = 0;
         }

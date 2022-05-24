@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -246,7 +247,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                         if (++FinalPhaseDashCD == 1)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.player[npc.target].Center, -1); //eoc roar
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.player[npc.target].Center);
 
                             if (!FinalPhaseDashHorizSpeedSet) //only set this on the first dash of each set
                             {
@@ -313,7 +314,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                                 if (tile != null && tile.HasUnactuatedTile)
                                     floatUp = Main.tileSolid[tile.TileType];
                             }
-                            
+
                             if (floatUp)
                             {
                                 npc.velocity.X *= 0.95f;
@@ -412,7 +413,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         npc.alpha = 255;
                         IsInFinalPhase = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, npc.type);
@@ -478,14 +479,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         }
                     }
                 }
-                
+
                 /*if (++Timer > 600)
                 {
                     Timer = 0;
                     if (npc.HasValidTarget)
                     {
                         Player player = Main.player[npc.target];
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item9, player.Center, 104);
+                        SoundEngine.PlaySound(SoundID.Item9104, player.Center);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             Vector2 spawnPos = player.Center;

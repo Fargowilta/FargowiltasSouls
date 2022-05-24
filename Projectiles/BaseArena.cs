@@ -102,7 +102,7 @@ namespace FargowiltasSouls.Projectiles
                         if (distance > threshold * 2f)
                         {
                             player.controlLeft = false;
-                            player.controlRight= false;
+                            player.controlRight = false;
                             player.controlUp = false;
                             player.controlDown = false;
                             player.controlUseItem = false;

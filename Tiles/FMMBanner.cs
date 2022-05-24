@@ -1,11 +1,11 @@
+using FargowiltasSouls.Items.Placeables;
+using FargowiltasSouls.NPCs.Critters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.Localization;
-using FargowiltasSouls.Items.Placeables;
-using FargowiltasSouls.NPCs.Critters;
 
 namespace FargowiltasSouls.Tiles
 {
@@ -18,15 +18,15 @@ namespace FargowiltasSouls.Tiles
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Height = 3;
-            TileObjectData.newTile.CoordinateHeights = new int[] {16, 16, 16};
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
-            
+
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Banner");
             AddMapEntry(new Color(13, 88, 130), name);
-            
+
             name.AddTranslation((int)GameCulture.CultureName.Chinese, "旗帜");
         }
 
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Tiles
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (!closer) return;
-            
+
             Player player = Main.LocalPlayer;
             int style = Main.tile[i, j].TileFrameX / 18;
             int npcType = /*style = 0 ?*/ ModContent.NPCType<TophatSquirrelCritter>();// : ModContent.NPCType<FezSquirrel>();

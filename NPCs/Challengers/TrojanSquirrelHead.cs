@@ -1,11 +1,10 @@
+using FargowiltasSouls.Projectiles.Challengers;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.Audio;
 using Terraria.ID;
-using FargowiltasSouls.Projectiles.Champions;
-using FargowiltasSouls.Projectiles.Challengers;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -153,7 +152,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 
             distance.X += Math.Min(4f, Math.Abs(NPC.velocity.X)) * Math.Sign(NPC.velocity.X);
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
+            SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

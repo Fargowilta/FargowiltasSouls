@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.ai[1] == 0f)
             {
                 Projectile.ai[1] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
             }
         }
 

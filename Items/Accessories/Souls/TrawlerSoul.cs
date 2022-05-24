@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -15,9 +14,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Trawler Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "捕鱼之魂");
-            
+
             string tooltip =
 @"Increases fishing skill substantially
 All fishing rods will have 10 extra lures
@@ -46,7 +45,7 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear
 
             Item.value = 750000;
         }
-        
+
         protected override Color? nameColor => new Color(0, 238, 125);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -80,7 +79,7 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

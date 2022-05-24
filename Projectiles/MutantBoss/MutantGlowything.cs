@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 spawnPoint = Projectile.Center;
             Projectile.Center = spawnPoint + Vector2.UnitX.RotatedBy(Projectile.ai[0]) * 96 * Projectile.scale;
 
-            if(Projectile.scale < 4f) //grow over time
+            if (Projectile.scale < 4f) //grow over time
             {
                 Projectile.scale += 0.2f;
             }
@@ -46,7 +46,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.scale = 4f;
                 Projectile.alpha += 10;
             }
-            if(Projectile.alpha > 255) //die if fully faded away
+            if (Projectile.alpha > 255) //die if fully faded away
             {
                 Projectile.Kill();
             }

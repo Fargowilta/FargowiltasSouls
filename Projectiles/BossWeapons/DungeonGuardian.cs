@@ -13,26 +13,26 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 80;
-			Projectile.height = 102;
-			Projectile.aiStyle = 0;
-			AIType = ProjectileID.Bullet;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Magic;
-			Projectile.penetrate = -1;
-			Projectile.tileCollide = false;
-			Projectile.timeLeft = 600;
-		}
-		
+        public override void SetDefaults()
+        {
+            Projectile.width = 80;
+            Projectile.height = 102;
+            Projectile.aiStyle = 0;
+            AIType = ProjectileID.Bullet;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 600;
+        }
+
         public override void AI()
         {
             Projectile.rotation += 0.2f;
 
             const int aislotHomingCooldown = 0;
             //int homingDelay = 10;
-            int homingDelay = (int) Projectile.ai[1];
+            int homingDelay = (int)Projectile.ai[1];
             const float desiredFlySpeedInPixelsPerFrame = 60;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's  float!
 

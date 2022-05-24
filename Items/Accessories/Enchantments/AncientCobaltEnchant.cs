@@ -1,11 +1,9 @@
-﻿using Terraria;
+﻿using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.Localization;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Projectiles;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -70,7 +68,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 modPlayer.JustCobaltJumped = true;
             }
 
-            if (modPlayer.CanCobaltJump || (modPlayer.JustCobaltJumped && !player.isPerformingJump_Cloud && !player.isPerformingJump_Blizzard && !player.isPerformingJump_Fart && !player.isPerformingJump_Sail && !player.isPerformingJump_Sandstorm && !modPlayer.JungleJumping)) 
+            if (modPlayer.CanCobaltJump || (modPlayer.JustCobaltJumped && !player.isPerformingJump_Cloud && !player.isPerformingJump_Blizzard && !player.isPerformingJump_Fart && !player.isPerformingJump_Sail && !player.isPerformingJump_Sandstorm && !modPlayer.JungleJumping))
             {
                 if (modPlayer.CobaltEnchantItem != null)
                 {

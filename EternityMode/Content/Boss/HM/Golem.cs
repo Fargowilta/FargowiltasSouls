@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 npc.life += HealPerSecond / 60; //healing stuff
                 if (npc.life > npc.lifeMax)
                     npc.life = npc.lifeMax;
-                
+
                 if (++HealCounter >= 75)
                 {
                     HealCounter = Main.rand.Next(30);
@@ -620,7 +621,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     {
                         if (AttackTimer == 1)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                             //telegraph
                             if (DoDeathray && Main.netMode != NetmodeID.MultiplayerClient)
@@ -634,7 +635,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         target.Y = DeathraySweepTargetHeight;
                         if (npc.HasPlayerTarget && Main.player[npc.target].position.Y < target.Y)
                             target.Y = Main.player[npc.target].position.Y;
-                        
+
                         npc.velocity = (target - npc.Center) / 30;
                     }
                     else if (AttackTimer == fireTime) //attack
@@ -650,7 +651,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             {
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.UnitY, ModContent.ProjectileType<PhantasmalDeathrayGolem>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 0f, npc.whoAmI);
                             }
-                            
+
                             if (doSpikeBalls)
                             {
                                 const int max = 3;

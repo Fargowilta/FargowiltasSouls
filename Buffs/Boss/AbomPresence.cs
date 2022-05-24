@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Boss
 {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Buffs.Boss
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
-            
+
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
 

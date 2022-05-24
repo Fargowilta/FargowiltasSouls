@@ -1,10 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -26,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.timeLeft = 300;
-            
+
             Projectile.light = 0.25f;
             Projectile.tileCollide = false;
             Projectile.hide = true;
@@ -39,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.hide = false;
                 Projectile.rotation = Main.rand.NextFloat((float)Math.PI / 2);
                 Projectile.direction = Projectile.spriteDirection = Main.rand.NextBool() ? 1 : -1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }
 
             if (++Projectile.localAI[0] > 30 && Projectile.localAI[0] < 120)
@@ -107,7 +108,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             color26 = Projectile.GetAlpha(color26);
 
             SpriteEffects effects = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            
+
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
                 Color color27 = Color.White * Projectile.Opacity * 0.75f * 0.5f;

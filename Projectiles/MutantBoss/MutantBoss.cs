@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -87,10 +85,10 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     || Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<MutantSpearSpin>()] > 0
                     || Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<MutantSlimeRain>()] > 0;
 
-                sansEye = 
-                    (npc.ai[0] == 10 && npc.ai[1] > 150) 
+                sansEye =
+                    (npc.ai[0] == 10 && npc.ai[1] > 150)
                     || (npc.ai[0] == -5 && npc.ai[2] > 420 - 90 && npc.ai[2] < 420);
-                
+
                 if (npc.ai[0] == 10 && FargoSoulsWorld.EternityMode)
                 {
                     SHADOWMUTANTREAL += 0.03f;

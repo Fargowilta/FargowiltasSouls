@@ -203,7 +203,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                                         Projectile.rotation = Projectile.rotation.AngleLerp(rotation.ToRotation(), rotationModifier);
                                     }
-                                } 
+                                }
                             }
                         }
                         Projectile.ai[1] = 0f;

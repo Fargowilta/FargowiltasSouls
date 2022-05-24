@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -93,7 +93,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 float smoothtrail = i % 1 * (float)Math.PI / 6.85f;
 
                 center += Projectile.Size / 2;
-                
+
                 Main.EntitySpriteDraw(
                     glow,
                     center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY),

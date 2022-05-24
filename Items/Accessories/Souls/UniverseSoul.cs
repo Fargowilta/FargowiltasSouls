@@ -1,9 +1,9 @@
+using FargowiltasSouls.Toggler;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Toggler;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -14,9 +14,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Soul of the Universe");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "寰宇之魂");
-            
+
             string tooltip =
 @"66% increased all damage
 50% increased use speed for all weapons

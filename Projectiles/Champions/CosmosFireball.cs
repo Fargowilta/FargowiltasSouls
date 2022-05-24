@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -37,7 +38,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 Projectile.localAI[1] = 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
                 for (int i = 0; i < 30; i++)
                 {
@@ -144,7 +145,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
             int ai0 = (int)Projectile.ai[0];
             if (ai0 > -1 && ai0 < Main.maxNPCs && Main.npc[ai0].active && Main.npc[ai0].type == ModContent.NPCType<NPCs.Champions.CosmosChampion>()

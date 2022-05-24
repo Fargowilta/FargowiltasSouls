@@ -1,10 +1,6 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+using FargowiltasSouls.Toggler;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Toggler;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {

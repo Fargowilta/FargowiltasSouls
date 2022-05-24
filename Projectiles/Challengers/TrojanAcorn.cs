@@ -1,9 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Challengers
 {
@@ -26,7 +23,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             for (int index = 0; index < 10; ++index)
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 7);
         }

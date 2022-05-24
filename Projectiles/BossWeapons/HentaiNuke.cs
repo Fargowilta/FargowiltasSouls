@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -32,7 +33,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.alpha = 0;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
+
+            Projectile.hide = true;
         }
+
+        public override bool? CanDamage() => Projectile.localAI[0] != 0;
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
@@ -66,13 +71,16 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+
+                Projectile.hide = false;
+                Projectile.position.Y -= 144 * Projectile.scale;
 
                 if (!Main.dedServ && Main.LocalPlayer.active)
                     Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
 
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder").WithVolume(0.8f).WithPitchVariance(-0.5f), Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 0.8f, Pitch = 0.5f }, Projectile.Center);
 
                 for (int a = 0; a < 4; a++)
                 {
@@ -150,7 +158,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Texture2D texture2D13 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/BossWeapons/HentaiNuke/HentaiNuke_" + Projectile.frame.ToString(), ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
             Rectangle rectangle = texture2D13.Bounds;
             Vector2 origin2 = rectangle.Size() / 2f;
-            
+
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }

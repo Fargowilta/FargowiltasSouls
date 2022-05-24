@@ -1,8 +1,10 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Items.Consumables;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Deathrays;
@@ -11,12 +13,11 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Items.Consumables;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.ItemDropRules.Conditions;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -110,7 +111,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     int speed = !UseCorruptAttack ? 10 : 8;
                     float scale = !UseCorruptAttack ? 6f : 4f;
                     float speedModifier = !UseCorruptAttack ? 12f : 5f;
-                    
+
                     Vector2 direction = npc.DirectionTo(Main.player[npc.target].Center);
                     Vector2 vel = speed * direction;
 
@@ -132,7 +133,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             float xDistance = (2500f - 1800f * WorldEvilAttackCycleTimer / 240f) * Math.Sign(npc.velocity.X);
                             Vector2 spawnPos = new Vector2(npc.Center.X + xDistance, npc.Center.Y);
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, spawnPos);
+                            SoundEngine.PlaySound(SoundID.Item34, spawnPos);
 
                             const int offsetY = 800;
                             const int speed = 14;
@@ -180,7 +181,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 if (!Main.dedServ)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Monster94"),
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Monster94"),
                         npc.HasValidTarget && Main.player[npc.target].ZoneUnderworldHeight ? Main.player[npc.target].Center : npc.Center);
 
                     if (Main.LocalPlayer.active)
@@ -238,7 +239,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 if (!Main.dedServ)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Monster94"),
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Monster94"),
                         npc.HasValidTarget && Main.player[npc.target].ZoneUnderworldHeight ? Main.player[npc.target].Center : npc.Center);
 
                     if (Main.LocalPlayer.active)
@@ -265,10 +266,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                     npc.netUpdate = true;
                     NetSync(npc);
-                    
+
                     if (!Main.dedServ)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Monster5").WithVolume(1.5f),
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Monster5") { Volume = 1.5f },
                             npc.HasValidTarget && Main.player[npc.target].ZoneUnderworldHeight ? Main.player[npc.target].Center : npc.Center);
 
                         if (Main.LocalPlayer.active)
@@ -294,7 +295,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             {
                 npc.position.X -= (Math.Abs(npc.velocity.X) - maxSpeed) * Math.Sign(npc.velocity.X);
             }
-            
+
             if (Main.LocalPlayer.active & !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && Main.LocalPlayer.ZoneUnderworldHeight)
             {
                 float velX = npc.velocity.X;
@@ -320,7 +321,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     if (Math.Abs(2400 - npc.Distance(Main.LocalPlayer.Center)) < 400)
                     {
                         if (!Main.LocalPlayer.tongued)
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.LocalPlayer.Center, -1); //eoc roar
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.LocalPlayer.Center); //eoc roar
                         Main.LocalPlayer.AddBuff(BuffID.TheTongue, 10);
                     }
                 }
@@ -501,12 +502,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         if (t != -1)
                         {
                             if (npc.Distance(Main.player[t].Center) < 3000)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.player[t].Center, 0);
+                                SoundEngine.PlaySound(SoundID.Roar, Main.player[t].Center);
                             npc.ai[2] = -2f;
                             npc.ai[3] = (npc.Center - Main.player[t].Center).ToRotation();
                             if (npc.realLife != -1 && Main.npc[npc.realLife].velocity.X > 0)
                                 npc.ai[3] += (float)Math.PI;
-                            
+
                             Vector2 speed = Vector2.UnitX.RotatedBy(npc.ai[3]);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<PhantasmalDeathrayWOFS>(), 0, 0f, Main.myPlayer, 0, npc.whoAmI);
@@ -531,7 +532,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                 }
             }
-            
+
             //dont fire during mouth's special attacks (this is at bottom to override others)
             if (((mouth.GetEModeNPCMod<WallofFlesh>().InPhase2 && mouth.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240) || mouth.GetEModeNPCMod<WallofFlesh>().InDesperationPhase) && !FargoSoulsWorld.MasochistModeReal)
             {
@@ -591,8 +592,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 return;
 
             NPC wall = FargoSoulsUtil.NPCExists(EModeGlobalNPC.wallBoss, NPCID.WallofFlesh);
-            if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 200 && wall != null 
-                && wall.GetEModeNPCMod<WallofFlesh>().UseCorruptAttack && wall.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240 
+            if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 200 && wall != null
+                && wall.GetEModeNPCMod<WallofFlesh>().UseCorruptAttack && wall.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240
                 && !FargoSoulsWorld.MasochistModeReal)
             {
                 //snap away from player if too close during wof cursed flame wall

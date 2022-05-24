@@ -1,12 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -233,7 +234,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     }
                 }
             }
-            
+
             Dust dust3 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 229, 0f, 0f, 0, new Color(), 1f)];
             dust3.velocity *= 5f;
             dust3.fadeIn = 1f;
@@ -248,7 +249,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             int type = 229;
             for (int index = 0; index < 80; ++index)
             {

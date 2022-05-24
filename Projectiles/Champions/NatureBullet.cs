@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,11 +42,11 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 Projectile.localAI[0] = 1;
                 Projectile.localAI[1] = Projectile.velocity.Length();
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
             }
 
             Projectile.hide = false;
-            
+
             if (--Projectile.ai[0] < 0 && Projectile.ai[0] > -40 * Projectile.MaxUpdates)
             {
                 Projectile.velocity = Vector2.Zero;
@@ -60,7 +61,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             }
             else if (Projectile.ai[0] == -40 * Projectile.MaxUpdates)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
                 int p = Player.FindClosest(Projectile.Center, 0, 0);
                 if (p != -1)
                     Projectile.velocity = Projectile.DirectionTo(Main.player[p].Center) * Projectile.localAI[1];
@@ -86,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, (int)Projectile.position.X, (int)Projectile.position.Y);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
             for (int index1 = 0; index1 < 20; ++index1)
             {

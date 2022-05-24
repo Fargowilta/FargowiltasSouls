@@ -1,10 +1,9 @@
+using FargowiltasSouls.Items.Misc;
+using FargowiltasSouls.Items.Placeables;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Items.Misc;
-using FargowiltasSouls.Items.Placeables;
 
 namespace FargowiltasSouls.NPCs.Critters
 {

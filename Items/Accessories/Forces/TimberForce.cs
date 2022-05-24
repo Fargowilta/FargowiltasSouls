@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using FargowiltasSouls.Items.Accessories.Enchantments;
+using Terraria;
 using Terraria.Localization;
-using FargowiltasSouls.Items.Accessories.Enchantments;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Forces
 {

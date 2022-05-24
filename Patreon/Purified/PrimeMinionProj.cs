@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Purified
 {
@@ -123,7 +118,7 @@ namespace FargowiltasSouls.Patreon.Purified
                     Projectile.netUpdate = true;
                 }
             }
-            
+
             if (Projectile.Distance(targetPos) > 16 || spin)
             {
                 float speed = npc == null ? 12f : 16f;
@@ -170,4 +165,3 @@ namespace FargowiltasSouls.Patreon.Purified
         }
     }
 }
-    

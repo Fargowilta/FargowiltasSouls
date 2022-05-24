@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.AbomBoss
@@ -12,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }
             Projectile.rotation += 0.8f;
             if (++Projectile.localAI[1] > 30 && Projectile.localAI[1] < 100)

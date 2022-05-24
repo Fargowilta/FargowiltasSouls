@@ -1,13 +1,13 @@
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.PHM;
+using FargowiltasSouls.NPCs.EternityMode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.PHM;
-using FargowiltasSouls.NPCs.EternityMode;
-using Terraria.Graphics.Shaders;
 
 namespace FargowiltasSouls.Projectiles
 {
@@ -296,7 +296,7 @@ namespace FargowiltasSouls.Projectiles
         {
             if (Projectile.ai[1] == NPCID.QueenSlimeBoss)
             {
-                Main.spriteBatch.End(); 
+                Main.spriteBatch.End();
                 Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, null, Main.Transform);
                 GameShaders.Misc["HallowBoss"].Apply(new Terraria.DataStructures.DrawData?());
             }

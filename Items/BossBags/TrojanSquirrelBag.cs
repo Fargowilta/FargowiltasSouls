@@ -1,9 +1,8 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using FargowiltasSouls.Items.Materials;
+﻿using FargowiltasSouls.Items.Accessories.Expert;
 using FargowiltasSouls.Items.Weapons.Challengers;
+using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Items.Accessories.Expert;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.BossBags
 {
@@ -26,6 +25,7 @@ namespace FargowiltasSouls.Items.BossBags
 
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.WoodenCrate, 5);
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.HerbBag, 5);
+            player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.Acorn, 100);
 
             if (Main.rand.NextBool(5))
                 player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.Find<ModItem>("Fargowiltas", "LumberJaxe").Type);

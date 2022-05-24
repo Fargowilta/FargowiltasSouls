@@ -1,6 +1,6 @@
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
-using FargowiltasSouls.Toggler;
 
 namespace FargowiltasSouls.Projectiles
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -109,8 +109,8 @@ namespace FargowiltasSouls.Projectiles
             // Play explosion sound
             if (!Main.dedServ)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, (int)position.X, (int)position.Y);
+                SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item14, position);
             }
         }
     }

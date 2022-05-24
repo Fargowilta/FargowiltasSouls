@@ -1,11 +1,10 @@
-﻿using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Minions;
-using Terraria.ID;
+﻿using FargowiltasSouls.Projectiles.Minions;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
 {
@@ -33,7 +32,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 1.5f;
-            Item.UseSound = new LegacySoundStyle(4, 13);
+            Item.UseSound = SoundID.NPCDeath13;
             Item.value = 50000;
             Item.rare = ItemRarityID.Pink;
             Item.autoReuse = true;

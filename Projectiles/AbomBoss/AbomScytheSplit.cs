@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             /*if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }*/
 
             Projectile.rotation += 1f;

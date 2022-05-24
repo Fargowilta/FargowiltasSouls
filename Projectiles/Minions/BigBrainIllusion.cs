@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,7 +35,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.aiStyle = -1;
-            
+
             Projectile.extraUpdates = 1;
             Projectile.alpha = 125;
         }
@@ -49,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.scale = Projectile.ai[0];
                 Projectile.Center = Projectile.position;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 104, 0.5f, -0.2f);
+                SoundEngine.PlaySound(SoundID.Item104 with { Volume = 0.5f, Pitch = -0.2f }, Projectile.Center);
             }
 
             Projectile.frameCounter++;
@@ -58,7 +59,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.frameCounter = 0;
                 Projectile.frame = (Projectile.frame + 1) % 12;
             }
-            
+
             Projectile.alpha = 255 - (int)(Math.Cos(++Projectile.localAI[0] * MathHelper.Pi / 2 / maxTime) * 200);
         }
 

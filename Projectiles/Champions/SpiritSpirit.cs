@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             for (int i = 0; i < 3; i++) //make up for real spectre bolt having 3 extraUpdates
             {
                 Projectile.position += Projectile.velocity;
-                
+
                 /*for (int j = 0; j < 5; ++j)
                 {
                     Vector2 vel = Projectile.velocity * 0.2f * j;
@@ -115,7 +115,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 float smoothtrail = i % 1 * (float)Math.PI / 6.85f;
 
                 center += Projectile.Size / 2;
-                
+
                 Main.EntitySpriteDraw(
                     glow,
                     center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY),

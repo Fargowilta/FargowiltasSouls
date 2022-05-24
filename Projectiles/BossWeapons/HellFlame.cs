@@ -182,7 +182,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.velocity != Vector2.Zero && !Projectile.velocity.HasNaNs())
                 value4 -= Vector2.Normalize(Projectile.velocity) * 4f;
             float num165 = Projectile.rotation + (Main.GlobalTimeWrappedHourly * 0.6f);
-            
+
             Vector2 previousPosOffset = Projectile.oldPos[2] - Projectile.position;
             float prevPosRotation = Projectile.oldRot[2] + (Main.GlobalTimeWrappedHourly * 0.6f);
             Main.EntitySpriteDraw(texture2D13, previousPosOffset + value4 - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
@@ -192,7 +192,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             Main.EntitySpriteDraw(texture2D13, value4 - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                 color27, num165, origin2, scale, effects, 0);
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                 Color.Black * Projectile.Opacity, num165, origin2, Projectile.scale, effects, 0);
             return false;
         }

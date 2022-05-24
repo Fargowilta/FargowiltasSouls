@@ -4,8 +4,8 @@ using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -75,7 +75,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
                     if (Projectile.timeLeft % 20 == 0)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                     }
 
                     if (mutant.ai[0] == 13)
@@ -206,7 +206,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
 
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
-            
+
             if (Projectile.ai[1] > 0)
             {
                 Texture2D glow = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/MutantBoss/MutantSpearAimGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;

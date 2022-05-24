@@ -60,7 +60,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
             int dX = projHitbox.Center.X - targetHitbox.Center.X - clampedX;
             int dY = projHitbox.Center.Y - targetHitbox.Center.Y - clampedY;
-            
+
             return Math.Sqrt(dX * dX + dY * dY) <= 1200;
         }
 

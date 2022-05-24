@@ -1,16 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
 {
@@ -93,11 +83,11 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
 
             if (npc.ai[0] >= 270f && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                npc.Transform(Main.rand.Next(new int[] { 
-                    NPCID.StardustJellyfishBig, 
-                    NPCID.StardustSpiderBig, 
-                    NPCID.StardustWormHead, 
-                    NPCID.StardustCellBig 
+                npc.Transform(Main.rand.Next(new int[] {
+                    NPCID.StardustJellyfishBig,
+                    NPCID.StardustSpiderBig,
+                    NPCID.StardustWormHead,
+                    NPCID.StardustCellBig
                 }));
             }
         }

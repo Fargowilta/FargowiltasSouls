@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-
-namespace FargowiltasSouls.Projectiles.BossWeapons
+﻿namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     public class WhirlpoolBase : Whirlpool
     {

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -121,7 +122,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             if (Projectile.owner == Main.myPlayer)
             {
                 int modifier = Main.rand.NextBool() ? 1 : -1;

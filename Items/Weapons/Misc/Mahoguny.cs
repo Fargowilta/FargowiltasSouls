@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
                     Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<MahogunyLeafProjectile>(), (int)(damage * 0.6), knockback, player.whoAmI);
                 }
             }
-  
+
             return true;
         }
 

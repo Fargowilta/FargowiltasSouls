@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -105,7 +105,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (++dustTimer == 15)
             {
                 MakeDust();
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }
 
             if (Projectile.ai[0] == -1) //fly forward
@@ -118,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.spriteDirection = (int)Projectile.ai[1];
 
                     if (Projectile.localAI[0] == startup)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
                 }
                 else
                 {
@@ -139,7 +139,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.timeLeft++;
 
                     const float rotationPerTick = MathHelper.TwoPi / 60f;
-                    
+
                     Projectile.spriteDirection = Math.Sign(Projectile.ai[1]);
                     Projectile.ai[1] += rotationPerTick * Projectile.spriteDirection;
                     Projectile.rotation = Projectile.ai[1];
@@ -183,7 +183,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (dustTimer >= 15)
             {
                 MakeDust();
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
             }
         }
 

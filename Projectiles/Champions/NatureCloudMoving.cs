@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.hostile = true;
             Projectile.timeLeft = 40;
             Projectile.tileCollide = false;
-            
+
             CooldownSlot = 1;
         }
 

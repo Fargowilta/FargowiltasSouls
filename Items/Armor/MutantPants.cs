@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -59,7 +59,7 @@ namespace FargowiltasSouls.Items.Armor
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(null, "EternalEnergy", 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

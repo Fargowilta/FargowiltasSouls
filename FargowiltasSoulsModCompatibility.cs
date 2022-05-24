@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.Items.Accessories.Forces;
+﻿using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Items.Pets;
 using FargowiltasSouls.Items.Placeables.Trophies;
@@ -9,7 +8,6 @@ using FargowiltasSouls.NPCs.Challengers;
 using FargowiltasSouls.NPCs.Champions;
 using FargowiltasSouls.NPCs.DeviBoss;
 using FargowiltasSouls.NPCs.MutantBoss;
-using FargowiltasSouls.Patreon.Phupperbat;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -31,12 +29,12 @@ namespace FargowiltasSouls
                 void Add(string type, string bossName, List<int> npcIDs, float progression, Func<bool> downed, Func<bool> available, List<int> collectibles, List<int> spawnItems, bool hasKilledAllMessage, string portrait = null)
                 {
                     bossChecklist.Call(
-                        $"Add{type}", 
-                        this, 
+                        $"Add{type}",
+                        this,
                         $"$Mods.{Name}.NPCName.{bossName}",
-                        npcIDs, 
+                        npcIDs,
                         progression,
-                        downed, 
+                        downed,
                         available,
                         collectibles,
                         spawnItems,

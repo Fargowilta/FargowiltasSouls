@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -88,7 +89,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         if (++Projectile.localAI[0] > 7)
                         {
                             Projectile.localAI[0] = 0;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, Projectile.Center);
+                            SoundEngine.PlaySound(SoundID.Item34, Projectile.Center);
                             if (Projectile.owner == Main.myPlayer)
                             {
                                 FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center - (Projectile.rotation + (float)Math.PI / 2).ToRotationVector2() * 60,
@@ -187,7 +188,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (Math.Abs(Projectile.velocity.Y) > 24)
                 Projectile.velocity.Y = 24 * Math.Sign(Projectile.velocity.Y);
         }
-        
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[Projectile.owner] = 8;

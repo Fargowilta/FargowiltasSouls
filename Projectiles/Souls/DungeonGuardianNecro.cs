@@ -15,25 +15,25 @@ namespace FargowiltasSouls.Projectiles.Souls
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 20;
-			Projectile.height = 20;
-			Projectile.aiStyle = 0;
-			AIType = ProjectileID.Bullet;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 1;
-			Projectile.tileCollide = false;
-			Projectile.timeLeft = 1000;
-		}
-		
+        public override void SetDefaults()
+        {
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.aiStyle = 0;
+            AIType = ProjectileID.Bullet;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 1000;
+        }
+
         public override void AI()
         {
             Projectile.rotation += 0.2f;
 
             const int aislotHomingCooldown = 0;
-            int homingDelay = (int) Projectile.ai[1];
+            int homingDelay = (int)Projectile.ai[1];
             const float desiredFlySpeedInPixelsPerFrame = 45;
             const float amountOfFramesToLerpBy = 15; // minimum of 1, please keep in full numbers even though it's  float!
 

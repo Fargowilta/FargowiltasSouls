@@ -1,19 +1,19 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Projectiles.Champions;
 using System.IO;
-using Terraria.Graphics.Shaders;
+using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Accessories.Forces;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -180,7 +180,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                             if (NPC.ai[1] <= 420)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
@@ -199,7 +199,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         if (++NPC.ai[1] == 1)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item4, NPC.Center);
 
                             for (int i = 0; i < Main.maxProjectiles; i++) //purge leftover bombs and spears
                             {
@@ -216,7 +216,7 @@ namespace FargowiltasSouls.NPCs.Champions
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<WillShell>(), 0, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(player.Center) * 12f, ModContent.ProjectileType<WillBomb>(), NPC.defDamage / 4, 0f, Main.myPlayer, 12f / 40f, NPC.whoAmI);
                             }
-                            
+
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.GlowRing>(), 0, 0f, Main.myPlayer, NPC.whoAmI, -6);
                         }
@@ -236,7 +236,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         int threshold = delay * 2 * 1600 / gap; //rate of spawn * cover length twice * length / gap
                         if (++NPC.ai[2] % delay == 0 && NPC.ai[2] < threshold * 2)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                             Vector2 targetPos = new Vector2(NPC.localAI[0], NPC.localAI[1]);
                             Vector2 speed = new Vector2(Main.rand.NextFloat(-20f, 20f), Main.rand.NextFloat(-20f, 20f));
@@ -272,7 +272,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         if (++NPC.ai[1] == 1)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item4, NPC.Center);
 
                             for (int i = 0; i < Main.maxProjectiles; i++) //purge leftover bombs
                             {
@@ -353,7 +353,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             {
                                 NPC.velocity = NPC.DirectionTo(player.Center) * 33f;
 
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit14, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.NPCHit14, NPC.Center);
                             }
                         }
                         else //regular movement
@@ -425,7 +425,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         NPC.localAI[0] = 2;
                         if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[3] == 1)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 1.5f * Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 1.5f * Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2),
                                 ModContent.ProjectileType<WillFireball2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 1.5f * Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2),
                                 ModContent.ProjectileType<WillFireball2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
@@ -450,7 +450,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     if (++NPC.ai[1] == 30) //spawn bomb
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                        SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -516,7 +516,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                             if (NPC.ai[1] < 110 || NPC.localAI[3] == 1)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                                SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
 
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
@@ -592,7 +592,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             NPC.localAI[0] = 0;
                             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] < 90) //shoot fireball
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item34, NPC.Center);
                                 Vector2 spawn = new Vector2(40, 50);
                                 if (NPC.direction < 0)
                                 {
@@ -626,7 +626,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         if (++NPC.ai[1] == 1)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                         }
                         else if (NPC.ai[1] > 120)
                         {

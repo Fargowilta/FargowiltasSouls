@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -55,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (Projectile.localAI[1] == 0)
             {
                 Projectile.localAI[1] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
             }
 
             int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Main.rand.NextBool() ? 174 : 259, 0f, 0f, 100, new Color(), 2f);
@@ -89,8 +90,8 @@ namespace FargowiltasSouls.Projectiles.Souls
             }
 
             //if (!Main.dedServ && Main.LocalPlayer.active) Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
-            
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 20; i++)
             {

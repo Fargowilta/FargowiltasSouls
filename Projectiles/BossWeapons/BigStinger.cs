@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void AI()
         {
             //stuck in enemy
-            if(Projectile.ai[0] == 1)
+            if (Projectile.ai[0] == 1)
             {
                 Projectile.extraUpdates = 0;
                 Projectile.aiStyle = -1;
@@ -45,7 +46,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
                 int secondsStuck = 15;
                 bool kill = false;
-  
+
                 Projectile.localAI[0] += 1f;
 
                 int npcIndex = (int)Projectile.ai[1];
@@ -100,13 +101,14 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             {
                 Projectile p = Main.projectile[i];
 
-                if(p.active && p.type == Projectile.type && p != Projectile && Projectile.Hitbox.Intersects(p.Hitbox))
+                if (p.active && p.type == Projectile.type && p != Projectile && Projectile.Hitbox.Intersects(p.Hitbox))
                 {
                     target.StrikeNPC(Projectile.damage / 2, 0, 0, true); //normal damage but looks like a crit ech
                     target.AddBuff(BuffID.Venom, 600);
                     DustRing(p, 24);
                     p.Kill();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 27, 1f, -0.4f);
+
+                    SoundEngine.PlaySound(SoundID.Item27 with { Pitch = -0.4f }, Projectile.Center);
 
                     if (Projectile.owner == Main.myPlayer)
                     {
@@ -150,14 +152,14 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.ai[0] == 1)
                 Projectile.velocity = Vector2.Zero; //for the dust
 
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int num92 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 18, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.9f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 0.25f;
                 Main.dust[num92].fadeIn = 1.3f;
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
         }
 
         private void DustRing(Projectile proj, int max)
@@ -186,7 +188,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             int num157 = 7;
             int num159 = 0;
             float num160 = 0f;
-            
+
             int num161 = num159;
             while (Projectile.ai[0] != 1 && num161 < num157) //doesnt draw trail while stuck in enemy
             {

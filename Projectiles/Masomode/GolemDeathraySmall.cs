@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
             if (Projectile.localAI[0] == 0f)
             {
-                //SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 0.15f;
             Projectile.localAI[0] += 1f;

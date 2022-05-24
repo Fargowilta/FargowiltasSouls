@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Graphics.Effects;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -83,7 +83,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     Projectile.alpha = 0;
             }
             Projectile.scale = (1f - Projectile.alpha / 255f);
-            
+
             if (++Projectile.frameCounter >= 6)
             {
                 Projectile.frameCounter = 0;
@@ -128,7 +128,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (FargoSoulsWorld.MasochistModeReal && Main.npc[NPCs.EModeGlobalNPC.mutantBoss].ai[0] == -5)
                 {
                     if (!target.HasBuff(ModContent.BuffType<TimeFrozen>()))
-                        Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/ZaWarudo"), target.Center);
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ZaWarudo"), target.Center);
                     target.AddBuff(ModContent.BuffType<TimeFrozen>(), 300);
                 }
             }
@@ -138,7 +138,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         public override void Kill(int timeleft)
         {
             if (Main.rand.NextBool(Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] / 10 + 1))
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+                SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 208;
             Projectile.Center = Projectile.position;

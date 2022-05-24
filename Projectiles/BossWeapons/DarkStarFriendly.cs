@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             Projectile.rotation = Projectile.rotation + (Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y)) * 0.01f * Projectile.direction;
             Projectile.soundDelay = 0;
-            if(Projectile.velocity.Length() < 22) //fix stars not being aligned properly by making sure their total velocity is the same???
+            if (Projectile.velocity.Length() < 22) //fix stars not being aligned properly by making sure their total velocity is the same???
             {
                 Projectile.velocity.Normalize();
                 Projectile.velocity *= 22;

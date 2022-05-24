@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 20, 2, 0);
+                SoundEngine.PlaySound(SoundID.Item20 with { Volume = 2, Pitch = 0 }, Projectile.Center);
             }
 
             if (Main.rand.NextBool(3) && Projectile.velocity.Length() > 0)
@@ -69,7 +70,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
             else if (Projectile.localAI[1] == 120 + Projectile.ai[1]) //shoot at player much faster
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 20, 2, 0);
+                SoundEngine.PlaySound(SoundID.Item20 with { Volume = 2, Pitch = 0 }, Projectile.Center);
                 float num = 24f;
                 for (int index1 = 0; index1 < num; ++index1)
                 {
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int index1 = 0; index1 < 20; ++index1)
             {
                 int index2 = Dust.NewDust(new Vector2((float)Projectile.position.X, (float)Projectile.position.Y), Projectile.width, Projectile.height, 75, (float)(-Projectile.velocity.X * 0.200000002980232), (float)(-Projectile.velocity.Y * 0.200000002980232), 100, default, 2f * Projectile.scale);

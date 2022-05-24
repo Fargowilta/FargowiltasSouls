@@ -1,11 +1,9 @@
+using FargowiltasSouls.NPCs.AbomBoss;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.NPCs.AbomBoss;
-using Terraria.Chat;
 
 namespace FargowiltasSouls.Items.Summons
 {
@@ -17,6 +15,7 @@ namespace FargowiltasSouls.Items.Summons
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 10));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
@@ -26,7 +25,7 @@ namespace FargowiltasSouls.Items.Summons
             Item.width = 42;
             Item.height = 48;
             Item.rare = ItemRarityID.Purple;
-            Item.maxStack = 999;
+            Item.maxStack = 20;
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;

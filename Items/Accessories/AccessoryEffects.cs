@@ -1,26 +1,25 @@
-﻿using System;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.EternityMode;
+using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.BossWeapons;
+using FargowiltasSouls.Projectiles.Masomode;
+using FargowiltasSouls.Projectiles.Minions;
+using FargowiltasSouls.Projectiles.Souls;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameInput;
+using Terraria.Graphics.Capture;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Graphics.Capture;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Projectiles.Souls;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Buffs.Souls;
-using System.Collections.Generic;
-using FargowiltasSouls.Projectiles.Minions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.NPCs.MutantBoss;
-using FargowiltasSouls.NPCs.EternityMode;
-using System.Linq;
-using Terraria.Audio;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.BossWeapons;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls
 {
@@ -114,7 +113,7 @@ namespace FargowiltasSouls
                         beetles = 1;
                     }
                 }
-                
+
                 if (beetles < Player.beetleOrbs)
                     Player.beetleCountdown = 0;
                 else if (beetles > Player.beetleOrbs)
@@ -575,7 +574,7 @@ namespace FargowiltasSouls
                 goldHP = Player.statLife;
 
                 if (!Main.dedServ)
-                    SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Zhonyas").WithVolume(1f), Player.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zhonyas"), Player.Center);
             }
             //cancel it early
             else
@@ -714,7 +713,7 @@ namespace FargowiltasSouls
                     JungleCD = 17 - tier * tier;
                     int dmg = 12 * tier * tier;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Player.Center.X, (int)Player.Center.Y, 62, 0.5f);
+                    SoundEngine.PlaySound(SoundID.Item62 with { Volume = 0.5f }, Player.Center);
 
                     foreach (Projectile p in FargoSoulsUtil.XWay(10, Player.GetSource_Misc(""), Player.Bottom, ProjectileID.SporeCloud, 4f, FargoSoulsUtil.HighestDamageTypeScaling(Player, dmg), 0f))
                     {
@@ -885,11 +884,11 @@ namespace FargowiltasSouls
                 MythrilTimer = 0;
         }
 
-        
+
 
         public void NebulaEffect()
         {
-            if (!Player.GetToggleValue("Nebula", false)) 
+            if (!Player.GetToggleValue("Nebula", false))
                 return;
 
             if (Player.setNebula)
@@ -1477,7 +1476,7 @@ namespace FargowiltasSouls
                 FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(item), Player.Center, Vector2.Zero, ProjectileID.StardustGuardian, 30, 10f, Main.myPlayer);
             }
 
-            
+
             //AddMinion(item, Player.GetToggleValue("Stardust"), ProjectileID.StardustGuardian, 30, 10f);
             //AddPet(Player.GetToggleValue("Stardust"), false, BuffID.StardustGuardianMinion, ProjectileID.StardustGuardian);
             Player.setStardust = true;
@@ -1528,7 +1527,7 @@ namespace FargowiltasSouls
                 if (freezeLength == 90)
                 {
                     if (!Main.dedServ)
-                        SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/ZaWarudoResume").WithVolume(1f).WithPitchVariance(.5f), Player.Center);
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ZaWarudoResume"), Player.Center);
                 }
 
                 if (freezeLength <= 0)
@@ -1580,7 +1579,7 @@ namespace FargowiltasSouls
             TurtleEnchantActive = true;
 
 
-            if (Player.GetToggleValue("Turtle") && !Player.HasBuff(ModContent.BuffType<BrokenShell>()) 
+            if (Player.GetToggleValue("Turtle") && !Player.HasBuff(ModContent.BuffType<BrokenShell>())
                 && IsStandingStill && !Player.controlUseItem && Player.whoAmI == Main.myPlayer && !noDodge)
             {
                 TurtleCounter++;
@@ -1721,7 +1720,7 @@ namespace FargowiltasSouls
         }
 
 
-        
+
 
         public void MonkEffect()
         {
@@ -1847,9 +1846,9 @@ namespace FargowiltasSouls
             }
 
             //frozen turtle shell
-            if (Player.GetToggleValue("DefenseFrozen",  false))
+            if (Player.GetToggleValue("DefenseFrozen", false))
             {
-                if (Player.statLife <= Player.statLifeMax2 * 0.5) 
+                if (Player.statLife <= Player.statLifeMax2 * 0.5)
                     Player.AddBuff(BuffID.IceBarrier, 5, true);
             }
 
@@ -1905,13 +1904,13 @@ namespace FargowiltasSouls
             }
 
             Player.iceSkate = true;
-            
+
             //lava waders
             Player.waterWalk = true;
             Player.fireWalk = true;
             Player.lavaImmune = true;
             Player.noFallDmg = true;
-            
+
             //bundle
             if (Player.GetToggleValue("SupersonicJumps") && Player.wingTime == 0)
             {
@@ -1938,7 +1937,7 @@ namespace FargowiltasSouls
                     Player.carpetTime = 1000;
                 }
             }
-            
+
             //EoC Shield
             if (Player.GetToggleValue("CthulhuShield"))
                 Player.dashType = 2;
@@ -2397,7 +2396,7 @@ namespace FargowiltasSouls
 
                 if (Player.GetToggleValue("MasoEater") && (projectile == null || projectile.type != ProjectileID.TinyEater))
                 {
-                    SoundEngine.PlaySound(SoundID.NPCHit, Player.Center);
+                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/NPC_Hit_0"), Player.Center);
                     for (int index1 = 0; index1 < 20; ++index1)
                     {
                         int index2 = Dust.NewDust(Player.position, Player.width, Player.height, 184, 0.0f, 0.0f, 0, new Color(), 1f);

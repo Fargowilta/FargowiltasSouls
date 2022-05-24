@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Minions
@@ -56,8 +57,8 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center + Projectile.velocity * 3000);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center + Projectile.velocity * 3000, 14);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center + Projectile.velocity * 3000);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center + Projectile.velocity * 3000);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

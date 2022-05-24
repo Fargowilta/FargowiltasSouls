@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 4;
-    
+
             DisplayName.SetDefault("Living Leaf Projectile");
         }
 
@@ -31,7 +32,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
         public override void Kill(int timeLeft)
         {
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Grass, Projectile.position);
             for (int d = 0; d < 35; d++)
             {
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.JungleGrass, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default(Color), 0.7f);

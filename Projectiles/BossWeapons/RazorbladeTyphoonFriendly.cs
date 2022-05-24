@@ -77,7 +77,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Main.dust[index2].noLight = true;
             Main.dust[index2].velocity /= 4f;
             Main.dust[index2].velocity -= Projectile.velocity;
-            
+
             Projectile.rotation += 0.2f;// * (Projectile.velocity.X > 0f ? 1f : -1f);
             Projectile.frame++;
             if (Projectile.frame > 2)

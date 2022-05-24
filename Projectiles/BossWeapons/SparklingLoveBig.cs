@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -70,7 +71,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.localAI[0] = 1;
                     if (Projectile.owner == Main.myPlayer)
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -14);
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
                     MakeDust();
                 }
@@ -148,8 +149,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             MakeDust();
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
             if (Projectile.owner == Main.myPlayer)
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -14);

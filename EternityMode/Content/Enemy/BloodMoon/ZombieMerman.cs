@@ -2,8 +2,6 @@
 using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.Souls;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

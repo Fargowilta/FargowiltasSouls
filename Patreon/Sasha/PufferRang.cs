@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -49,7 +50,7 @@ namespace FargowiltasSouls.Patreon.Sasha
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[Projectile.owner] = 7;
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             if (Projectile.owner == Main.myPlayer)
             {

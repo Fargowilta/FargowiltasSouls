@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.Localization;
-using Terraria.ID;
 using FargowiltasSouls.Toggler;
+using Terraria;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {

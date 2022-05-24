@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
 
             Projectile.rotation = Projectile.ai[1] + (float)Math.PI / 2f;
-            
+
             if (Projectile.localAI[0] > 20)
             {
                 Projectile.localAI[0] = 1;

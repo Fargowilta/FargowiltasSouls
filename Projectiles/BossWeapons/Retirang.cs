@@ -54,7 +54,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
                     if (Projectile.owner == Main.myPlayer)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
                         int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<PrimeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 
                         if (p != Main.maxProjectiles)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             {
                 Projectile.localAI[0] = 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
                 for (int i = 0; i < 20; i++)
                 {
                     int dust = Dust.NewDust(Projectile.position, Projectile.width,

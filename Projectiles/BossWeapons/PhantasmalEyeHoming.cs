@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -98,7 +99,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void Kill(int timeleft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 103);
+            SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_103"), Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 144;
             Projectile.position.X -= (float)(Projectile.width / 2);

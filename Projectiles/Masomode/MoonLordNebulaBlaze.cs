@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -47,15 +48,15 @@ namespace FargowiltasSouls.Projectiles.Masomode
             {
                 Projectile.ai[1] = 1f;
                 Projectile.localAI[0] = (float)-Main.rand.Next(48);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
             }
             else if ((double)Projectile.ai[1] == 1.0 && Projectile.owner == Main.myPlayer)
             {
-                
+
             }
             else if ((double)Projectile.ai[1] > (double)num1)
             {
-                
+
             }
             if ((double)Projectile.ai[1] >= 1.0 && (double)Projectile.ai[1] < (double)num1)
             {
@@ -175,7 +176,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Scale3 = 2.2f;
                 vector2 *= 0.5f;
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = num2;
             Projectile.Center = Projectile.position;

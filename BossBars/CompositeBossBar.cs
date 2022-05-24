@@ -3,12 +3,10 @@ using FargowiltasSouls.NPCs.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.BigProgressBar;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.BossBars
@@ -28,14 +26,16 @@ namespace FargowiltasSouls.BossBars
         public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float lifePercent, ref float shieldPercent)
         {
             NPC npc = FargoSoulsUtil.NPCExists(info.npcIndexToAimAt);
-            
-            if (npc == null)
-                return base.ModifyInfo(ref info, ref lifePercent, ref shieldPercent);
+
+            if (npc == null || !npc.active)
+                return false;
 
             bossHeadIndex = npc.GetBossHeadTextureIndex();
 
             int life = npc.life;
             int lifeMax = npc.lifeMax;
+
+            bool retval = true;
 
             if (npc.ModNPC is TrojanSquirrel trojanSquirrel)
             {
@@ -66,10 +66,14 @@ namespace FargowiltasSouls.BossBars
                     shieldPercent = Utils.Clamp((float)untouchedBalls / ballCount, 0f, 1f);
                 }
             }
+            else
+            {
+                retval = false;
+            }
 
             lifePercent = Utils.Clamp((float)life / lifeMax, 0f, 1f);
 
-            return true;
+            return retval;
         }
     }
 }

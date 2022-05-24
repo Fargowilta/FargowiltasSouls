@@ -1,12 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Projectiles.MutantBoss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.Projectiles.MutantBoss;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.MutantBoss
 {

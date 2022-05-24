@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -57,7 +58,7 @@ namespace FargowiltasSouls.Projectiles
                 Projectile.velocity = -Vector2.UnitY;
 
             Player player = Main.player[Projectile.owner];
-            
+
             if (!Projectile.friendly || Projectile.hostile || !player.active || player.dead || player.ghost || !player.GetModPlayer<FargoSoulsPlayer>().StyxSet)
             {
                 Projectile.Kill();
@@ -110,7 +111,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
 
             for (int i = 0; i < 20; i++)
             {

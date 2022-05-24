@@ -5,6 +5,7 @@ using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -56,7 +57,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                         if (npc.HasValidTarget)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Main.player[npc.target].Center);
+                            SoundEngine.PlaySound(SoundID.Item21, Main.player[npc.target].Center);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 for (int i = 0; i < 6; i++)
@@ -173,7 +174,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (!masoBool[2])
                 {
                     masoBool[2] = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                 }
 
                 if (Counter[0] > 45) //faster slime spike rain
@@ -207,7 +208,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (npc.ai[1] == 5) //when teleporting
                 {
                     if (npc.ai[0] == 1 && !DidP2SpecialTeleport)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     if (npc.HasPlayerTarget) //live update tp position
                     {
@@ -252,7 +253,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.OnKill(npc);
 
-            if (Main.netMode != NetmodeID.MultiplayerClient 
+            if (Main.netMode != NetmodeID.MultiplayerClient
                 && !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>())
                 && ModContent.TryFind("Fargowiltas", "Mutant", out ModNPC mutant) && !NPC.AnyNPCs(mutant.Type))
             {

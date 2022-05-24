@@ -3,12 +3,9 @@ using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.Souls;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -45,7 +42,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             else if (AttackTimer >= 360 + 10 + 45)
             {
                 AttackTimer = 0;
-                
+
                 if (Main.netMode != NetmodeID.MultiplayerClient && npc.HasValidTarget)
                 {
                     for (int i = 0; i < 10; i++)

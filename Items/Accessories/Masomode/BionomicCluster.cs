@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Minions;
+using FargowiltasSouls.Items.Consumables;
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Minions;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Items.Consumables;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {

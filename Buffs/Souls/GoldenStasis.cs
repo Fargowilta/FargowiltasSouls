@@ -1,6 +1,6 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
 {
@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Buffs.Souls
             DisplayName.SetDefault("Golden Stasis");
             Description.SetDefault("You are immune to all damage, but cannot move");
             Main.buffNoSave[Type] = true;
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "不动金身");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "免疫所有伤害,但无法移动");
         }

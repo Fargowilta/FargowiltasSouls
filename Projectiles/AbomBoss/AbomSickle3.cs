@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.AbomBoss
@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             {
                 Projectile.localAI[0] = Projectile.Center.X;
                 Projectile.localAI[1] = Projectile.Center.Y;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }
             Projectile.rotation += 0.8f;
             /*for (int i = 0; i < 6; i++)

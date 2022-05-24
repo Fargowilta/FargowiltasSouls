@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -49,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
                 if (Projectile.localAI[0] == 0)
                     Projectile.localAI[1] = Projectile.ai[1] / maxTime; //do this first
-                
+
                 Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1]);
                 Projectile.ai[1] -= Projectile.localAI[1];
                 Projectile.Center = npc.Center + new Vector2(60, 60).RotatedBy(Projectile.velocity.ToRotation() - MathHelper.PiOver4) * Projectile.scale;
@@ -63,7 +64,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                
+
                 /*Vector2 basePos = Projectile.Center - Projectile.velocity * 141 / 2 * Projectile.scale;
                 for (int i = 0; i < 40; i++)
                 {
@@ -72,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                     Main.dust[d].noGravity = true;
                 }*/
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }
 
             /*if (Projectile.timeLeft == maxTime - 20)

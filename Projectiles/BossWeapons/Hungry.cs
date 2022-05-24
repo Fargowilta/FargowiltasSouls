@@ -21,9 +21,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             Projectile.width = 24;
             Projectile.height = 24;
-            Projectile.aiStyle = 1; 
+            Projectile.aiStyle = 1;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Magic; 
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 4;
             Projectile.timeLeft = 240;
             AIType = ProjectileID.Bullet;
@@ -98,7 +98,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.velocity.X = -oldVelocity.X;
             if (Projectile.velocity.Y != oldVelocity.Y)
                 Projectile.velocity.Y = -oldVelocity.Y;
-            
+
             return --Projectile.penetrate <= 0;
         }
 

@@ -1,12 +1,11 @@
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.MutantBoss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.NPCs.MutantBoss;
 
 namespace FargowiltasSouls.Shaders
 {
@@ -14,7 +13,7 @@ namespace FargowiltasSouls.Shaders
     {
         public FinalSparkShader(Ref<Effect> shader, string passName) : base(shader, passName)
         {
-            
+
         }
 
         public override void Update(GameTime gameTime)

@@ -1,10 +1,6 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Toggler;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {

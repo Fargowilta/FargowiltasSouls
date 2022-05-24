@@ -1,17 +1,17 @@
 ﻿using FargowiltasSouls.EternityMode.Net;
+using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using Terraria.DataStructures;
 
 namespace FargowiltasSouls.EternityMode
 {
@@ -121,6 +121,8 @@ namespace FargowiltasSouls.EternityMode
         public virtual bool SpecialOnKill(NPC npc) => false;
 
         public virtual bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot) => true;
+
+        public virtual void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit) { }
 
         public virtual void OnHitPlayer(NPC npc, Player target, int damage, bool crit) { }
 

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 namespace FargowiltasSouls.Patreon.Purified
 {
     public class PrimeMinionVice : ModProjectile
@@ -99,7 +94,7 @@ namespace FargowiltasSouls.Patreon.Purified
                         {
                             Vector2 distancetotarget = Main.npc[index].Center - Projectile.Center;
                             Vector2 headtotarget = Main.npc[index].Center - Main.projectile[head].Center;
-                            if (distancetotarget.Length() < distancemax && headtotarget.Length() <  300)
+                            if (distancetotarget.Length() < distancemax && headtotarget.Length() < 300)
                             {
                                 distancemax = distancetotarget.Length();
                                 targetnpc = Main.npc[index];
@@ -108,14 +103,14 @@ namespace FargowiltasSouls.Patreon.Purified
                         }
                     }
                 }
-                
+
                 if (targetting)
                 {
                     Projectile.direction = Projectile.spriteDirection = Math.Sign(targetnpc.Center.X - Projectile.Center.X);
 
                     float movespeed = Math.Max(Projectile.Distance(targetnpc.Center) / 40f, 18f);
 
-                   if (Projectile.Distance(targetnpc.Center) > 32)
+                    if (Projectile.Distance(targetnpc.Center) > 32)
                         Projectile.velocity = Vector2.Lerp(Projectile.velocity, Projectile.DirectionTo(targetnpc.Center) * movespeed, 0.05f);
                 }
                 else

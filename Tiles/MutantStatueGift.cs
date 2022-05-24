@@ -1,7 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
 using FargowiltasSouls.Items;
+using Terraria;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Tiles
 {

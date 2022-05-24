@@ -1,10 +1,8 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Toggler;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -25,14 +23,14 @@ Increases gravity
 Allows the control of gravity
 'Ascend'");
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "飞行大师之魂");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
 @"使你获得无限飞行能力
 按住'下'和'跳跃'键悬停
 允许你控制重力
 '飞升'");
 
         }
-        
+
         protected override Color? nameColor => new Color(56, 134, 255);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -65,7 +63,7 @@ Allows the control of gravity
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

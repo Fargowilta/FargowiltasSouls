@@ -1,10 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.Graphics.Shaders;
+﻿using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Dyes
 {
@@ -73,7 +68,7 @@ namespace FargowiltasSouls.Items.Dyes
             .AddIngredient(ItemID.SpectreBar)
             .AddIngredient(ItemID.SpookyWood)
             .AddTile(TileID.DyeVat)
-            
+
             .Register();
         }
     }

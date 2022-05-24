@@ -2,6 +2,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -82,7 +83,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             {
                                 damage = damage * 5f / 4f;
                                 type = ModContent.ProjectileType<PoisonSeedPlanterasChild>();
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
                             }
                             else if (Main.rand.NextBool(6))
                             {
@@ -92,7 +93,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             else
                             {
                                 type = ModContent.ProjectileType<SeedPlanterasChild>();
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item17, Projectile.position);
                             }
 
                             if (Projectile.owner == Main.myPlayer)

@@ -1,22 +1,22 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.GameContent;
 using System.Linq;
+using Terraria;
 using Terraria.Audio;
-using FargowiltasSouls.ItemDropRules.Conditions;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public int ReticleTarget;
         public int BabyGuardianTimer;
         public int DGSpeedRampup;
-        
+
         public bool InPhase2;
 
         public bool DroppedSummon;
@@ -39,7 +39,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 { new Ref<object>(ReticleTarget), IntStrategies.CompoundStrategy },
                 { new Ref<object>(BabyGuardianTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(DGSpeedRampup), IntStrategies.CompoundStrategy },
-                
+
                 { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
             };
 
@@ -148,7 +148,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 {
                     BabyGuardianTimer = 180;
 
-                    SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center, -1);
+                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient) //spray of baby guardian missiles
                     {
@@ -205,7 +205,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                                 Main.rand.Next(skeletons),
                                 velocity: distance);
 
-                            SoundEngine.PlaySound(new LegacySoundStyle(4, 13), npc.Center);
+                            SoundEngine.PlaySound(SoundID.NPCDeath13, npc.Center);
                         }
                     }
 
@@ -213,7 +213,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     {
                         BabyGuardianTimer = FargoSoulsWorld.MasochistModeReal ? 180 : 240;
 
-                        SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center, -1);
+                        SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
 
                         for (int j = -1; j <= 1; j++) //to both sides
                         {
@@ -272,7 +272,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             if (npc.ai[1] != 2f && !FargoSoulsWorld.SwarmActive)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                 npc.life = npc.lifeMax / 176;
                 if (npc.life < 50)
@@ -350,7 +350,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             {
                 if (AttackTimer > 0 && head.life >= head.lifeMax * .75) //for a short period
                 {
-                    if (--AttackTimer < 65) 
+                    if (--AttackTimer < 65)
                     {
                         Vector2 centerPoint = head.Center - 10 * 16 * Vector2.UnitY;
                         if (!npc.HasValidTarget || npc.Distance(centerPoint) > 15 * 16)
@@ -379,7 +379,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         distance.Y = distance.Y / time - 0.5f * gravity * time;
 
                         FargoSoulsUtil.NewNPCEasy(
-                            npc.GetSource_FromAI(), 
+                            npc.GetSource_FromAI(),
                             npc.Center,
                             Main.rand.Next(new int[] {
                                 NPCID.BoneThrowingSkeleton,

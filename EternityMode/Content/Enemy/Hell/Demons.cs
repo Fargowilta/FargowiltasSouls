@@ -1,15 +1,8 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -55,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
             {
                 const int dollBurningTime = 720;
 
-                if (npc.lavaWet && npc.HasValidTarget 
+                if (npc.lavaWet && npc.HasValidTarget
                     && (npc.Distance(Main.player[npc.target].Center) < 450 || Collision.CanHitLine(npc.Center, 0, 0, Main.player[npc.target].Center, 0, 0)))
                 {
                     npc.buffImmune[BuffID.OnFire] = false;
@@ -65,7 +58,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
 
                 if (npc.onFire || npc.onFire3)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)npc.Center.X, (int)npc.Center.Y, 10, 1f, 0.5f);
+                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/NPCKilled_10") { PitchVariance = 0.5f }, npc.Center);
 
                     for (int i = 0; i < 3; i++) //NOTICE ME
                     {
@@ -87,7 +80,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
                             int p = npc.HasPlayerTarget ? npc.target : npc.FindClosestPlayer();
                             if (p != -1 && !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.wallBoss, NPCID.WallofFlesh))
                                 NPC.SpawnWOF(Main.player[npc.target].Center);
-                            
+
                         }
                     }
                 }

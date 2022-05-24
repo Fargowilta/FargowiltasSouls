@@ -121,9 +121,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.velocity = Vector2.Zero;
                 Projectile.localAI[1] = 1f;
                 goto label_3461;
-                label_3460:
+            label_3460:
                 spinningpoint = rotationVector2;
-                label_3461:
+            label_3461:
                 if (Projectile.velocity == Vector2.Zero || Projectile.velocity.Length() < 4f)
                 {
                     Projectile.velocity = Vector2.UnitX.RotatedBy(Projectile.ai[0]).RotatedByRandom(Math.PI / 4) * 7f;
@@ -195,7 +195,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Color color27 = Projectile.GetAlpha(lightColor);
             for (int i = 1; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
-                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i-1] == Projectile.oldPos[i])
+                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i - 1] == Projectile.oldPos[i])
                     continue;
                 Vector2 offset = Projectile.oldPos[i - 1] - Projectile.oldPos[i];
                 int length = (int)offset.Length();

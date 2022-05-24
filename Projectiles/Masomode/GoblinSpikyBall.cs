@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 {
     public class GoblinSpikyBall : ModProjectile
     {
-	
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Spiky Ball");

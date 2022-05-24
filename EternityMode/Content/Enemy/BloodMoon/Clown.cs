@@ -1,15 +1,9 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +30,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             /*if (!masoBool[0]) //roar when spawn
             {
                 masoBool[0] = true;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                 if (Main.netMode == NetmodeID.SinglePlayer)
                     Main.NewText("A Clown has begun ticking!", 175, 75, 255);
                 else if (Main.netMode == NetmodeID.Server)
@@ -60,7 +54,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             {
                 npc.life = 0;
                 npc.HitEffect();
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 npc.active = false;
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)

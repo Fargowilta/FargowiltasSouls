@@ -1,20 +1,20 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Champions;
-using Terraria.DataStructures;
-using Terraria.Graphics.Shaders;
 using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Accessories.Forces;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -154,7 +154,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     NPC.velocity = -20f * Vector2.UnitY.RotatedByRandom(MathHelper.PiOver2);
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 2); //arte scream
+                    SoundEngine.PlaySound(SoundID.ScaryScream, NPC.Center); //arte scream
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -244,7 +244,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     if (++NPC.ai[1] == 180) //heal up
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 2); //arte scream
+                        SoundEngine.PlaySound(SoundID.ScaryScream, NPC.Center); //arte scream
 
                         int heal = NPC.lifeMax / 3 - NPC.life;
                         NPC.life += heal;
@@ -271,7 +271,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     if (++NPC.ai[1] == 180) //heal up
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 2); //arte scream
+                        SoundEngine.PlaySound(SoundID.ScaryScream, NPC.Center); //arte scream
 
                         int heal = NPC.lifeMax - NPC.life;
                         NPC.life += heal;
@@ -303,7 +303,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         break;
                     }
-                    
+
                     targetPos = player.Center;
                     targetPos.Y -= 300;
                     if (NPC.Distance(targetPos) > 50)
@@ -345,7 +345,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     NPC.velocity *= 0.95f;
                     if (++NPC.ai[1] > (NPC.localAI[2] == 1 ? 2 : 3))
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                         NPC.ai[1] = 0;
                         NPC.ai[2] -= (float)Math.PI / 4 / 457 * NPC.ai[3];
                         if (NPC.ai[2] < -(float)Math.PI)
@@ -386,7 +386,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                             return;
                         }
-                        
+
                         if (NPC.ai[2] == 0)
                         {
                             NPC.ai[2] = NPC.Center.Y; //store arena height
@@ -394,7 +394,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.GlowRingHollow>(), 0, 0f, Main.myPlayer, 7, NPC.whoAmI);
                         }
-                        
+
                         if (NPC.Center.Y > NPC.ai[2] + 1000) //now below arena, track player
                         {
                             targetPos = new Vector2(player.Center.X, NPC.ai[2] + 1100);
@@ -403,7 +403,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             if (Math.Abs(player.Center.X - NPC.Center.X) < NPC.width / 2
                                 && ++NPC.ai[1] > (NPC.localAI[2] == 1 ? 30 : 60)) //in position under player
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                                 NPC.ai[3]++;
                                 NPC.ai[1] = 0;
@@ -429,8 +429,8 @@ namespace FargowiltasSouls.NPCs.Champions
                             Vector2 velocity = 5f * Vector2.UnitX.RotatedBy(Math.PI * (Main.rand.NextDouble() - 0.5));
                             velocity.X *= NPC.localAI[0];
 
-                            FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center, 
-                                ModContent.NPCType<LesserFairy>(), NPC.whoAmI, 
+                            FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center,
+                                ModContent.NPCType<LesserFairy>(), NPC.whoAmI,
                                 target: NPC.target, velocity: velocity);
                         }
 
@@ -461,7 +461,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     if (++NPC.ai[2] > (NPC.localAI[2] == 1 ? 40 : 60))
                     {
                         NPC.ai[2] = 0;
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                         if (NPC.localAI[0] > 0)
                             NPC.localAI[0] = -1;
@@ -549,7 +549,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 9: //deathray spin
                     NPC.velocity *= 0.95f;
 
-                    NPC.ai[3] +=  (float)Math.PI * 2 / (NPC.localAI[2] == 1 ? -300 : 360);
+                    NPC.ai[3] += (float)Math.PI * 2 / (NPC.localAI[2] == 1 ? -300 : 360);
 
                     if (--NPC.ai[2] < 0)
                     {
@@ -594,7 +594,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         {
                             NPC.ai[3] = 0;
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -810,14 +810,14 @@ namespace FargowiltasSouls.NPCs.Champions
             {
                 spriteBatch.End(); spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
             }
-            
+
             Main.EntitySpriteDraw(wing, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(wingRectangle), glowColor, 0, wingOrigin, NPC.scale * 2, effects, 0);
 
             if (!NPC.IsABestiaryIconDummy)
             {
                 spriteBatch.End(); spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
             }
-            
+
             DrawData wingGlowData = new DrawData(wingGlow, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(wingRectangle), glowColor * 0.5f, 0, wingOrigin, NPC.scale * 2, effects, 0);
             GameShaders.Misc["LCWingShader"].UseColor(new Color(1f, 0.647f, 0.839f)).UseSecondaryColor(Color.Goldenrod);
             GameShaders.Misc["LCWingShader"].Apply(wingGlowData);

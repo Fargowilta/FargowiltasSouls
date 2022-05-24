@@ -1,12 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System;
-using FargowiltasSouls.Items.Weapons.BossDrops;
+﻿using FargowiltasSouls.Items.Weapons.BossDrops;
 using FargowiltasSouls.Projectiles.BossWeapons;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -32,7 +31,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 5f;
-            Item.UseSound = new LegacySoundStyle(2, 62);
+            Item.UseSound = SoundID.Item62;
             Item.useAmmo = AmmoID.Rocket;
             Item.value = Item.sellPrice(0, 10);
             Item.rare = ItemRarityID.Purple;
@@ -105,7 +104,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(ItemID.LunarBar, 10)
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs
 {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Buffs
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变重生");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "死光复苏蓄能中");
             Main.debuff[Type] = true;
-            
+
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
     }

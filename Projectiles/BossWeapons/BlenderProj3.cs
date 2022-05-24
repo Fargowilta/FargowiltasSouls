@@ -83,9 +83,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             for (int i = 0; i < 2; i++)
             {
                 if (!Main.dedServ)
-                    Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)Main.rand.Next(Projectile.width), 
-                    Projectile.position.Y + (float)Main.rand.Next(Projectile.height)), 
-                    Projectile.velocity, 
+                    Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)Main.rand.Next(Projectile.width),
+                    Projectile.position.Y + (float)Main.rand.Next(Projectile.height)),
+                    Projectile.velocity,
                     ModContent.Find<ModGore>(Mod.Name, $"Tentacle{i}").Type,
                     Projectile.scale);
             }

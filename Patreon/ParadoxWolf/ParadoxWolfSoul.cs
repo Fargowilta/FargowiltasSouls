@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Items;
+using Terraria.Audio;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.ParadoxWolf
 {
@@ -117,7 +116,7 @@ There is a cooldown of 3 seconds between uses");
 
                 Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, new Vector2(player.velocity.X, 0), ModContent.ProjectileType<WolfDashProj>(), (int)(50 * player.GetDamage(DamageClass.Melee).Additive), 0f, player.whoAmI);
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, player.Center, 8);
+                SoundEngine.PlaySound(SoundID.NPCDeath8, player.Center);
             }
         }
     }

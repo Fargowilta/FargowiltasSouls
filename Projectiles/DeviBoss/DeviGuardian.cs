@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.DeviBoss
 {
@@ -41,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 Projectile.rotation = Main.rand.NextFloat(0, 2 * (float)Math.PI);
                 Projectile.hide = false;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
 
                 for (int i = 0; i < 50; i++)
                 {

@@ -1,17 +1,14 @@
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Linq;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.PHM;
-using Microsoft.Xna.Framework.Graphics;
-using FargowiltasSouls.Buffs.Masomode;
-using Terraria.GameContent.Bestiary;
-using System.Linq;
-using Terraria.Graphics.Shaders;
-using System;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {
@@ -124,7 +121,9 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override bool CheckDead()
         {
-            Terraria.Audio.SoundEngine.PlaySound(NPC.DeathSound, NPC.Center);
+            if (NPC.DeathSound != null)
+                SoundEngine.PlaySound(NPC.DeathSound.Value, NPC.Center);
+
             NPC.active = false;
 
             return false;
@@ -142,9 +141,9 @@ namespace FargowiltasSouls.NPCs.EternityMode
                     Main.dust[d].scale += 0.75f;
                 }
 
-                for (int i = 0; i < 2 ; i++)
+                for (int i = 0; i < 2; i++)
                     if (!Main.dedServ)
-                            Gore.NewGore(NPC.GetSource_FromThis(), NPC.position + new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height)), NPC.velocity / 2, 1260, NPC.scale);
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position + new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height)), NPC.velocity / 2, 1260, NPC.scale);
             }
         }
 
@@ -189,7 +188,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
             Main.EntitySpriteDraw(texture2D13, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, NPC.rotation, origin2, NPC.scale, effects, 0);
 
-            spriteBatch.End(); 
+            spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
 
             return false;

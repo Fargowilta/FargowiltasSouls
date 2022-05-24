@@ -1,12 +1,8 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,7 +12,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
 {
     public class Goblins : EModeNPCBehaviour
     {
-        public override NPCMatcher CreateMatcher() =>  new NPCMatcher().MatchTypeRange(
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.GoblinArcher,
             NPCID.GoblinPeon,
             NPCID.GoblinScout,
@@ -113,7 +109,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(Main.rand.NextFloat(-2f, 2f), -5), ModContent.ProjectileType<GoblinSpikyBall>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer);
-            
+
             if (NPC.downedGoblins && !FargoSoulsWorld.haveForcedAbomFromGoblins)
             {
                 FargoSoulsWorld.haveForcedAbomFromGoblins = true;

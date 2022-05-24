@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria;
 
 namespace FargowiltasSouls.Items.Summons
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Items.Summons
         {
             DisplayName.SetDefault("Championy Sigil");
             Tooltip.SetDefault("Summons the Champions");
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
 

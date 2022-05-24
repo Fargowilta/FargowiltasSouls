@@ -1,25 +1,26 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.ID;
-using Terraria.Localization;
-using Terraria.ModLoader;
-using System.IO;
+using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Items.BossBags;
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Items.Pets;
+using FargowiltasSouls.Items.Placeables.Relics;
+using FargowiltasSouls.Items.Placeables.Trophies;
 using FargowiltasSouls.Items.Summons;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.AbomBoss;
-using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Items.Pets;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Items.BossBags;
-using FargowiltasSouls.Items.Placeables.Trophies;
+using Terraria.Graphics.Effects;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.AbomBoss
 {
@@ -145,7 +146,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                 if (NPC.Distance(Main.player[NPC.target].Center) < 1500)
                 {
                     NPC.localAI[3] = 1;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Roar_0"), NPC.Center);
                     NPC.localAI[0] = Main.rand.Next(3); //start on a random strong attack
                     NPC.localAI[1] = Main.rand.Next(2); //start on a random super
                 }
@@ -309,7 +310,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         {
                             ritualProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
                         }
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Roar_0"), NPC.Center);
                     }
                     break;
 
@@ -373,7 +374,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                             }
                         }
                     }
-                    
+
                     if (NPC.ai[1] > 120)
                     {
                         NPC.netUpdate = true;
@@ -452,7 +453,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                                     for (int i = 0; i < max; i++)
                                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(player.Center).RotatedBy(MathHelper.TwoPi / max * (i + offset)) * speed, ModContent.ProjectileType<AbomScytheFlaming>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, baseDelay, baseDelay + extendedDelay);
                                 }
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                                SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                             }
                             NPC.netUpdate = true;
                             break;
@@ -575,7 +576,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                 case 4: //choose the next attack
                     if (!AliveCheck(player))
                         break;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     NPC.netUpdate = true;
                     //NPC.TargetClosest();
                     NPC.ai[0] += ++NPC.localAI[0];
@@ -627,7 +628,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, baseRot + MathHelper.TwoPi / 4 * (i + 0.5f));
                                 }
                             }
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                         }
                         NPC.netUpdate = true;
                         break;
@@ -677,7 +678,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                             }
                         }
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item27, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item27, NPC.Center);
                         for (int index1 = 0; index1 < 30; ++index1)
                         {
                             int index2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 76, 0.0f, 0.0f, 0, new Color(), 1f);
@@ -741,7 +742,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         if (++NPC.ai[2] > 1) //spam lasers
                         {
                             NPC.ai[2] = 0;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 if (NPC.localAI[3] > 1) //p2 shoots to either side of you
@@ -796,7 +797,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                                 NPC.ai[3] -= 2f * (float)Math.PI;
                         }
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         //make warning dust
                         for (int i = 0; i < 5; i++)
@@ -815,7 +816,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     NPC.localAI[2] = 0;
                     if (++NPC.ai[1] > 120)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                         NPC.ai[1] = 0;
                         NPC.ai[2] = 0;
@@ -853,7 +854,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
                     if (++NPC.ai[1] == 1)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.ai[3] = NPC.DirectionTo(player.Center).ToRotation();
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -868,13 +869,13 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         for (int j = -1; j <= 1; j += 2)
                         {
                             Vector2 dustVel = NPC.ai[3].ToRotationVector2() * j * 3f;
-                            
+
                             for (int i = 0; i < 20; i++)
                             {
                                 int dust = Dust.NewDust(NPC.Center, 0, 0, 31, dustVel.X, dustVel.Y, 0, default(Color), 3f);
                                 Main.dust[dust].velocity *= 1.4f;
                             }
-                            
+
                             for (int i = 1; i <= max + 2; i++)
                             {
                                 float speed = i * j * gap / 30;
@@ -938,7 +939,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
                     if (++NPC.ai[1] > 150)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
@@ -957,7 +958,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     {
                         NPC.ai[3] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
 
                         float timeLeft = 2400 / Math.Abs(NPC.velocity.X) * 2 - NPC.ai[1] + 120;
                         if (NPC.ai[1] <= 15)
@@ -1010,7 +1011,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
                     if (++NPC.ai[1] > 210)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
@@ -1026,7 +1027,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     {
                         NPC.ai[3] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
 
                         float timeLeft = 2400 / Math.Abs(NPC.velocity.X) * 2 - NPC.ai[1] + 120;
                         if (NPC.ai[1] <= 15)
@@ -1117,7 +1118,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         NPC.netUpdate = true;
                         NPC.velocity = Vector2.Zero;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         float ai0 = NPC.ai[2] == 1 ? -1 : 1;
                         ai0 *= MathHelper.ToRadians(270) / 120;
                         Vector2 vel = NPC.DirectionTo(player.Center).RotatedBy(-ai0 * 60);
@@ -1220,7 +1221,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         }
                         /*else if (NPC.ai[1] == 180 || (NPC.dontTakeDamage && NPC.ai[1] == 120))
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), NPC.Center, Vector2.UnitX * NPC.localAI[2], ModContent.ProjectileType<AbomDeathraySmall2>(), 0, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                         }*/
@@ -1497,6 +1498,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AbomBag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbomTrophy>(), 10));
 
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<AbomRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<BabyScythe>(), 4));
 
             LeadingConditionRule emodeRule = new LeadingConditionRule(new EModeDropCondition());

@@ -1,16 +1,17 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
     public class LesserFairy : ModNPC
     {
         public override string Texture => "Terraria/Images/NPC_75";
-        
+
         public int counter;
 
         public override void SetStaticDefaults()
@@ -25,7 +26,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(
-                ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[ModContent.NPCType<LifeChampion>()], 
+                ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[ModContent.NPCType<LifeChampion>()],
                 quickUnlock: true
             );
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -71,7 +72,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
             if (Main.rand.NextBool(40))
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Pixie, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Pixie, NPC.Center);
             }
 
             NPC.direction = NPC.spriteDirection = NPC.velocity.X < 0 ? -1 : 1;

@@ -1,8 +1,9 @@
-using System;
 using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -122,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         case 2: //shoot
                             if (Projectile.localAI[0] == 7f)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 6, 0.75f, 0);
+                                SoundEngine.PlaySound(SoundID.NPCDeath6 with { Volume = 0.75f, Pitch = 0 }, Projectile.Center);
                                 ShootBolts(npc);
                             }
                             else if (Projectile.localAI[0] == 14f)
@@ -143,7 +144,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
                 else //forget target
                 {
-                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile,  1000);
+                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000);
                     Projectile.ai[1] = 0f;
                     Projectile.localAI[0] = 0f;
                     Projectile.localAI[1] = 0f;

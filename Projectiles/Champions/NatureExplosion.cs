@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -60,7 +61,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int num615 = 0; num615 < 45; num615++)
             {
@@ -107,7 +108,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 gore104.velocity.Y = gore104.velocity.Y - 1f;
             }
 
-            
+
             for (int k = 0; k < 40; k++) //make visual dust
             {
                 Vector2 dustPos = Projectile.position;

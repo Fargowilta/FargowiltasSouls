@@ -1,11 +1,5 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -112,7 +106,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
             }
         }
 
-        
+
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
         {
@@ -166,9 +160,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
                         FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.BlueSlime);
                     break;
 
-                default: 
+                default:
                     break;
-            }    
+            }
         }
     }
 }

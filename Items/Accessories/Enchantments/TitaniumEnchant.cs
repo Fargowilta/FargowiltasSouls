@@ -1,11 +1,7 @@
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Projectiles.Souls;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -54,7 +50,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             player.AddBuff(306, 600, true, false);
             if (player.ownedProjectileCounts[ProjectileID.TitaniumStormShard] < 25)
             {
-            Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.TitaniumEnchantItem), player.Center, Vector2.Zero, 908 /*ModContent.ProjectileType<TitaniumShard>()*/, 50, 15f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.TitaniumEnchantItem), player.Center, Vector2.Zero, 908 /*ModContent.ProjectileType<TitaniumShard>()*/, 50, 15f, player.whoAmI, 0f, 0f);
 
                 //for (int i = 0; i < Main.maxProjectiles; i++)
                 //{

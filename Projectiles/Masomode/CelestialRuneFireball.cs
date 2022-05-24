@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -149,7 +150,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.localAI[1] = 1;
                 Projectile.penetrate = -1;
                 Projectile.position = Projectile.Center;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                 Projectile.width = Projectile.height = 176;
                 Projectile.Center = Projectile.position;
                 Projectile.Damage();

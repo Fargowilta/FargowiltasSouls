@@ -1,6 +1,6 @@
-﻿using System;
-using FargowiltasSouls.Buffs.Boss;
+﻿using FargowiltasSouls.Buffs.Boss;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                //SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;
@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                     }
                 }
             }*/
-            
+
             /*int d = Dust.NewDust(Projectile.position + Projectile.velocity * Main.rand.NextFloat(100), Projectile.width, Projectile.height, 87, 0f, 0f, 0, default(Color), 1.5f);
             Main.dust[d].noGravity = true;
             Main.dust[d].velocity *= 4f;*/

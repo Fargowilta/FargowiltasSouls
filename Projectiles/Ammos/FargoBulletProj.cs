@@ -1,5 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -27,12 +27,12 @@ namespace FargowiltasSouls.Projectiles.Ammos
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = -1; //same as luminite
             Projectile.timeLeft = 200;
-            Projectile.alpha = 255; 
-            Projectile.light = 0.5f; 
+            Projectile.alpha = 255;
+            Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
-            Projectile.tileCollide = true;    
+            Projectile.tileCollide = true;
             Projectile.extraUpdates = 1;
-            AIType = ProjectileID.Bullet; 
+            AIType = ProjectileID.Bullet;
 
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 2;
@@ -97,7 +97,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
 
             if (Projectile.ai[1] > 0f)
             {
-                int num175 = (int) (Projectile.ai[1] - 1f);
+                int num175 = (int)(Projectile.ai[1] - 1f);
                 if (Main.npc[num175].active && Main.npc[num175].CanBeChasedBy(Projectile, true) && !Main.npc[num175].dontTakeDamage)
                 {
                     float num176 = Main.npc[num175].position.X + Main.npc[num175].width / 2;
@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
                 Vector2 vector19 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                 float num180 = num167 - vector19.X;
                 float num181 = num168 - vector19.Y;
-                float num182 = (float) Math.Sqrt(num180 * num180 + num181 * num181);
+                float num182 = (float)Math.Sqrt(num180 * num180 + num181 * num181);
                 num182 = num179 / num182;
                 num180 *= num182;
                 num181 *= num182;
@@ -141,7 +141,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
             if (_bounce > 1)
             {
                 Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
                 _bounce--;
                 if (Projectile.velocity.X != oldVelocity.X) Projectile.velocity.X = -oldVelocity.X;
                 if (Projectile.velocity.Y != oldVelocity.Y) Projectile.velocity.Y = -oldVelocity.Y;
@@ -180,7 +180,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
         public void OnHit()
         {
             //crystal 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, (int) Projectile.position.X, (int) Projectile.position.Y);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 68);
@@ -197,7 +197,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
             }
 
             //explosion
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int i = 0; i < 7; i++) Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 1.5f);
             for (int i = 0; i < 3; i++)
             {
@@ -233,7 +233,7 @@ namespace FargowiltasSouls.Projectiles.Ammos
             OnHit();
 
             //venom dust
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int i = 0; i < 10; i++)
             {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 171, 0f, 0f, 100);

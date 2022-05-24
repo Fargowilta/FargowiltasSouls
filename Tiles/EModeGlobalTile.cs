@@ -1,7 +1,7 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Tiles
                     if (!Main.LocalPlayer.HasBuff(ModContent.BuffType<LihzahrdBlessing>()))
                     {
                         Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.LihzahrdBlessing"), Color.Orange);
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, Main.LocalPlayer.Center);
+                        SoundEngine.PlaySound(SoundID.Item4, Main.LocalPlayer.Center);
                         for (int k = 0; k < 50; k++)
                         {
                             int d = Dust.NewDust(Main.LocalPlayer.position, Main.LocalPlayer.width, Main.LocalPlayer.height, DustID.Torch, 0f, 0f, 0, default(Color), Main.rand.NextFloat(3f, 6f));
@@ -84,7 +84,7 @@ namespace FargowiltasSouls.Tiles
             if (!CanBreakTileMaso(i, j, type))
                 return false;
 
-            
+
             return base.CanKillTile(i, j, type, ref blockDamaged);
         }
 

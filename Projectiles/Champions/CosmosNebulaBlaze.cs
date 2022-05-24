@@ -1,10 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -59,7 +60,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 Projectile.ai[1] = 1f;
                 Projectile.localAI[0] = (float)-Main.rand.Next(48);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
             }
             /*else if ((double)Projectile.ai[1] == 1.0 && Projectile.owner == Main.myPlayer)
             {
@@ -121,7 +122,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft) //vanilla explosion code echhhhhhhhhhh
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
             /*int num1 = Utils.SelectRandom<int>(Main.rand, new int[5] { 242, 73, 72, 71, (int)byte.MaxValue });
             int Type1 = (int)byte.MaxValue;
@@ -131,7 +132,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             float Scale2 = 0.8f;
             float Scale3 = 2f;
             Vector2 vector2 = (Projectile.rotation - 1.570796f).ToRotationVector2() * Projectile.velocity.Length() * (float)Projectile.MaxUpdates;
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = num2;
             Projectile.Center = Projectile.position;

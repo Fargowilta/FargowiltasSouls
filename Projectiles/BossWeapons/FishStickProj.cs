@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Linq;
 using Terraria;
 using Terraria.GameContent;
@@ -74,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             Player player = Main.player[Projectile.owner];
-            
+
             if (Projectile.owner == Main.myPlayer)
             {
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<WhirlpoolBase>()] < 1)

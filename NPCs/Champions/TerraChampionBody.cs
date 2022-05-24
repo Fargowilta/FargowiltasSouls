@@ -1,12 +1,13 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Projectiles.Champions;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -76,7 +77,7 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC head = FargoSoulsUtil.NPCExists(NPC.ai[3], ModContent.NPCType<TerraChampion>());
             if (segment == null || head == null || (FargoSoulsWorld.EternityMode && segment.life < segment.lifeMax / 10))
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -58,10 +58,10 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
                 Projectile.timeLeft++;
                 float rotdir = (Projectile.ai[0] > 0) ? 1 : -1;
-                Vector2 vel = Projectile.velocity.RotatedBy(rotdir * MathHelper.Pi/6);
+                Vector2 vel = Projectile.velocity.RotatedBy(rotdir * MathHelper.Pi / 6);
                 float windup = Math.Min(1f, Spinup);
                 float rotspeed = windup * 1.5f * 6f;
-                
+
                 Projectile.velocity = vel.RotatedBy(Math.Sin(Projectile.localAI[0] * rotspeed + (Math.Abs(Projectile.ai[0]) / 6 * MathHelper.TwoPi))
                     * rotdir * MathHelper.Pi / 14 * windup);
             }
@@ -133,7 +133,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             DelegateMethods.v3_1 = new Vector3(0.8f, 0f, 0);
             Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * (Projectile.localAI[1]), 10, DelegateMethods.CastLight);
         }
-        
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[Projectile.owner] = 6;

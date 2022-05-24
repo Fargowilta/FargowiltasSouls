@@ -1,15 +1,9 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -91,7 +85,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.beeBoss, NPCID.QueenBee))
             {
                 npc.active = false;
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 return false;
             }
 

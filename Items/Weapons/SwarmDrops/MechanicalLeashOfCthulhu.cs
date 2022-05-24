@@ -1,8 +1,8 @@
-﻿using Terraria;
+﻿using FargowiltasSouls.Items.Weapons.BossDrops;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Items.Weapons.BossDrops;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(ItemID.LunarBar, 10)
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

@@ -1,16 +1,7 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,7 +27,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.DemonEye, 
+                    FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.DemonEye,
                         velocity: new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-3, 3)));
                 }
             }

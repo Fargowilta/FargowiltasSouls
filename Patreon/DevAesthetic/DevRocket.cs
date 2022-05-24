@@ -9,18 +9,18 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
 {
     class DevRocket : ModProjectile
     {
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Dev Rocket");
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dev Rocket");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 24;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionShot[Projectile.type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.CloneDefaults(ProjectileID.VortexBeaterRocket);
+        public override void SetDefaults()
+        {
+            Projectile.CloneDefaults(ProjectileID.VortexBeaterRocket);
             Projectile.aiStyle = -1;
             //AIType = ProjectileID.VortexBeaterRocket;
 
@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
             Projectile.penetrate = 2;
 
             Projectile.timeLeft = 75 * (Projectile.extraUpdates + 1);
-		}
+        }
 
         private Color color;
 
@@ -80,15 +80,15 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
 
         public override void Kill(int timeLeft)
         {
-			if (Projectile.owner == Main.myPlayer && Projectile.localAI[1] == 1)
-			{
-				Projectile[] projs = FargoSoulsUtil.XWay(Main.rand.Next(3, 7), Terraria.Entity.InheritSource(Projectile), Projectile.Center, Projectile.type, 6, Projectile.damage, Projectile.knockBack);
+            if (Projectile.owner == Main.myPlayer && Projectile.localAI[1] == 1)
+            {
+                Projectile[] projs = FargoSoulsUtil.XWay(Main.rand.Next(3, 7), Terraria.Entity.InheritSource(Projectile), Projectile.Center, Projectile.type, 6, Projectile.damage, Projectile.knockBack);
                 foreach (Projectile proj in projs)
                 {
                     if (proj != null)
                         proj.localAI[1] = 2;
                 }
-			}
+            }
 
             Color dustColor = color;
             dustColor.A = 100;
@@ -134,7 +134,7 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
             color26 = Projectile.GetAlpha(color26);
 
             SpriteEffects effects = SpriteEffects.None;
-            
+
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
                 Color color27 = color26 * 0.75f;

@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Items.Armor
             .AddIngredient(ItemID.SpectreBar, 6)
             .AddIngredient(ItemID.SpookyWood, 100)
             .AddTile(TileID.LunarCraftingStation)
-            
+
             .Register();
         }
     }

@@ -1,25 +1,22 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.Items.Placeables;
+using FargowiltasSouls.Items.Consumables;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.NPCs.EternityMode;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Deathrays;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Projectiles.Champions;
-using Terraria.Localization;
-using System;
-using FargowiltasSouls.Projectiles.Deathrays;
-using FargowiltasSouls.Items.Consumables;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -142,7 +139,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                             if (npc.alpha == 0)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {

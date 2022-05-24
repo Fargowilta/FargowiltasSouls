@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Items.Materials
     public class AbomEnergy : SoulsItem
     {
         public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Abominable Energy");
+        {
+            DisplayName.SetDefault("Abominable Energy");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;

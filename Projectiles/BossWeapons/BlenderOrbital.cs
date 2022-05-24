@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -101,7 +102,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (soundtimer > 0)
                 soundtimer--;
         }
-        
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             //target.immune[Projectile.owner] = 6;
@@ -113,7 +114,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (soundtimer == 0)
             {
                 soundtimer = 15;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 22, 1.5f, 1f);
+                SoundEngine.PlaySound(SoundID.Item22 with { Volume = 1.5f, Pitch = 1f }, Projectile.Center);
             }
         }
 

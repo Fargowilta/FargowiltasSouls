@@ -3,6 +3,7 @@ using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
             if (++AttackTimer > 180)
             {
                 AttackTimer = 0;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, npc.Center);
+                SoundEngine.PlaySound(SoundID.Item8, npc.Center);
                 if (npc.HasPlayerTarget && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     //for (int i = 0; i < 4; i++)

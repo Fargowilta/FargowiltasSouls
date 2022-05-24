@@ -1,28 +1,28 @@
+using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.BossBags;
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Items.Pets;
+using FargowiltasSouls.Items.Placeables.Relics;
+using FargowiltasSouls.Items.Placeables.Trophies;
+using FargowiltasSouls.Items.Summons;
+using FargowiltasSouls.Projectiles.MutantBoss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-
-using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.Projectiles.MutantBoss;
-using FargowiltasSouls.Items.Summons;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Items.Placeables.Relics;
-using FargowiltasSouls.Items.Placeables.Trophies;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Pets;
-using Terraria.GameContent.Creative;
-using FargowiltasSouls.Items.BossBags;
 
 namespace FargowiltasSouls.NPCs.MutantBoss
 {
@@ -34,7 +34,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         public bool playerInvulTriggered;
         public int ritualProj, spriteProj, ringProj;
         private bool droppedSummon = false;
-        
+
         public Queue<float> attackHistory = new Queue<float>();
         public int attackCount;
 
@@ -127,7 +127,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod))
             {
-                Music = MusicLoader.GetMusicSlot(musicMod, 
+                Music = MusicLoader.GetMusicSlot(musicMod,
                     FargoSoulsWorld.MasochistModeReal ? "Assets/Music/rePrologue" : "Assets/Music/SteelRed");
             }
             else
@@ -214,7 +214,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 case 12: VoidRaysP2(); break;
 
                 case 13: PrepareSpearDashPredictiveP2(); break;
-                case 14: SpearDashPredictiveP2();  break;
+                case 14: SpearDashPredictiveP2(); break;
                 case 15: WhileDashingP2(); break;
 
                 case 16: goto case 11; //approach for bullet hell
@@ -236,7 +236,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 case 24: SpawnDestroyersForPredictiveThrow(); break;
                 case 25: SpearTossPredictiveP2(); break;
 
-                case 26: PrepareMechRayFan(); break; 
+                case 26: PrepareMechRayFan(); break;
                 case 27: MechRayFan(); break;
 
                 case 28: NPC.ai[0]++; break; //free slot for new attack
@@ -269,8 +269,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 case 45: PrepareMutantSword(); break;
                 case 46: MutantSword(); break;
 
-                    //gap in the numbers here so the ai loops right
-                    //when adding a new attack, remember to make ChooseNextAttack() point to the right case!
+                //gap in the numbers here so the ai loops right
+                //when adding a new attack, remember to make ChooseNextAttack() point to the right case!
 
                 case 48: P2NextAttackPause(); break;
 
@@ -279,15 +279,15 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 #region phase 3
 
                 case -1: Phase3Transition(); break;
-                
+
                 case -2: VoidRaysP3(); break;
-                
+
                 case -3: OkuuSpheresP3(); break;
-                
+
                 case -4: BoundaryBulletHellP3(); break;
-                
+
                 case -5: FinalSpark(); break;
-                
+
                 case -6: DyingDramaticPause(); break;
                 case -7: DyingAnimationAndHandling(); break;
 
@@ -335,7 +335,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 if (NPC.Distance(Main.player[NPC.target].Center) < 1500)
                 {
                     NPC.localAI[3] = 1;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     //EdgyBossText("I hope you're ready to embrace suffering.");
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -570,7 +570,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Vector2 vel = speed * Vector2.UnitY.RotatedBy(rotation * i + offset);
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier * NPC.spriteDirection, speed);
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+            SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
         }
 
         bool AliveCheck(Player p, bool forceDespawn = false)
@@ -686,7 +686,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.player[NPC.target].ClearBuff(ModContent.BuffType<AbomRebirth>());
             }
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 27, 1.5f);
+            SoundEngine.PlaySound(SoundID.Item27 with { Volume = 1.5f }, NPC.Center);
 
             if (normalAnimation)
             {
@@ -695,7 +695,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             }
 
             const int max = 40;
-            float totalAmountToHeal = fightIsOver 
+            float totalAmountToHeal = fightIsOver
                 ? Main.player[NPC.target].statLifeMax2 / 4f
                 : (NPC.lifeMax - NPC.life) + NPC.lifeMax * 0.1f;
             for (int i = 0; i < max; i++)
@@ -830,7 +830,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                 if (FargoSoulsWorld.MasochistModeReal && NPC.ai[2] == 0) //first time only
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, NPC.Center, 13);
+                    SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
                     if (Main.netMode != NetmodeID.MultiplayerClient) //spawn worm
                     {
                         for (int j = 0; j < 8; j++)
@@ -905,7 +905,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[0]++;
                 NPC.ai[1] = 0;
                 NPC.netUpdate = true;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
         }
 
@@ -958,7 +958,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                             Main.projectile[p].netUpdate = true;
                         }
                     }
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
                     for (int i = 0; i < 30; i++)
                     {
                         int d = Dust.NewDust(NPC.position, NPC.width, NPC.height, 135, 0f, 0f, 0, default(Color), 3f);
@@ -1145,7 +1145,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     //else
                     if (++NPC.ai[1] > 2) //boundary
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                         NPC.ai[1] = 0;
                         //ai3 - 300 so that when attack ends, the projs will behave like at start of attack normally (straight streams)
                         NPC.ai[2] += FargoSoulsWorld.MasochistModeReal //maso uses true boundary
@@ -1169,11 +1169,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     }
                     break;
 
-                case 1: 
+                case 1:
                     PrepareMutantSword();
                     break;
 
-                case 2: 
+                case 2:
                     MutantSword();
                     break;
 
@@ -1205,7 +1205,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     NPC.velocity = Vector2.Zero;
                     NPC.netUpdate = true;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                     NPC.localAI[1] = Math.Sign(player.Center.X - NPC.Center.X);
                     float startAngle = MathHelper.PiOver4 * -NPC.localAI[1];
@@ -1377,7 +1377,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             }
             else if (NPC.ai[1] == 150)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -1443,7 +1443,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[2] = player.DirectionTo(NPC.Center).ToRotation();
                 NPC.ai[3] = (float)Math.PI / 10f;
                 NPC.localAI[0] = 0;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 if (player.Center.X < NPC.Center.X)
                     NPC.ai[3] *= -1;
             }
@@ -1533,7 +1533,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                     if (NPC.ai[2] == NPC.localAI[1] - 1)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<MutantSpearAim>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI, 4);
@@ -1610,7 +1610,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             }
             if (NPC.ai[3] > 60 && ++NPC.ai[1] > 2)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                 NPC.ai[1] = 0;
                 NPC.ai[2] += (float)Math.PI / 8 / 480 * NPC.ai[3] * NPC.localAI[0];
                 if (NPC.ai[2] > (float)Math.PI)
@@ -1648,14 +1648,14 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[2] == 0 && NPC.ai[3] == 0) //target one corner of arena
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient) //spawn cultists
                 {
                     void Clone(float ai1, float ai2, float ai3) => FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center, ModContent.NPCType<MutantIllusion>(), NPC.whoAmI, NPC.whoAmI, ai1, ai2, ai3);
                     Clone(-1, 1, pillarAttackDelay * 4);
                     Clone(1, -1, pillarAttackDelay * 2);
                     Clone(1, 1, pillarAttackDelay * 3);
-                    if (FargoSoulsWorld.MasochistModeReal) 
+                    if (FargoSoulsWorld.MasochistModeReal)
                         Clone(1, 1, pillarAttackDelay * 6);
                 }
 
@@ -1801,7 +1801,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         for (int i = 0; i < 8; i++)
                             Projectile.NewProjectile(npc.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * 10f, ModContent.ProjectileType<MutantScythe1>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 0.8f), 0f, Main.myPlayer, NPC.whoAmI);
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                 }
                 NPC.netUpdate = true;
                 break;
@@ -1935,7 +1935,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
                 else
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, NPC.Center, 13);
+                    SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
                     if (Main.netMode != NetmodeID.MultiplayerClient) //spawn worm
                     {
                         Vector2 vel = NPC.DirectionFrom(player.Center).RotatedByRandom(MathHelper.ToRadians(120)) * 10f;
@@ -2006,7 +2006,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[1] == 30)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1); //eoc roar
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center); //eoc roar
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.GlowRing>(), 0, 0f, Main.myPlayer, NPC.whoAmI, NPCID.Retinazer);
             }
@@ -2040,7 +2040,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[1] = 0;
                 NPC.ai[2] = 0;
                 NPC.ai[3] = 0;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 //NPC.TargetClosest();
             }
         }
@@ -2089,7 +2089,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             {
                 NPC.localAI[0] = 0;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item21, NPC.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -2212,7 +2212,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             Movement(targetPos, 1.2f, false);
             if (++NPC.ai[1] > 60)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float gravity = 0.2f;
@@ -2297,7 +2297,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             targetPos.X += 700 * (NPC.Center.X < targetPos.X ? -1 : 1);
             targetPos.Y += 200;
             Movement(targetPos, 2f);
-            
+
             if (++NPC.ai[2] > 30 || (FargoSoulsWorld.MasochistModeReal && NPC.Distance(targetPos) < 64))
             {
                 NPC.ai[0]++;
@@ -2315,7 +2315,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             {
                 NPC.ai[3] = 1;
                 //Main.NewText(NPC.position.Y);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<MutantSlimeRain>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
             }
@@ -2361,7 +2361,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[1] > 120 && NPC.ai[1] % 5 == 0) //rain down slime balls
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, player.Center);
+                SoundEngine.PlaySound(SoundID.Item34, player.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     void Slime(Vector2 pos, float off, Vector2 vel)
@@ -2383,7 +2383,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                         float xOffset = i + Main.rand.Next(75);
                         if (Math.Abs(xOffset - NPC.localAI[0]) < safeRange) //dont fall over safespot
                             continue;
-                        
+
                         Vector2 spawnPos = basePos;
                         spawnPos.X += xOffset;
                         Vector2 velocity = Vector2.UnitY * Main.rand.NextFloat(15f, 20f);
@@ -2409,7 +2409,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             if (FargoSoulsWorld.MasochistModeReal)
             {
                 if (NPC.ai[2] == 180 * 3 - 60)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                 if (NPC.ai[2] > 180 * 3)
                 {
@@ -2438,7 +2438,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         {
             if (!AliveCheck(player))
                 return;
-            
+
             Vector2 targetPos = player.Center;
             targetPos.X += 400 * (NPC.Center.X < targetPos.X ? -1 : 1);
             targetPos.Y -= 400;
@@ -2496,11 +2496,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             {
                 NPC.ai[2] = Main.rand.NextBool() ? -1 : 1;
                 NPC.ai[3] = Main.rand.NextFloat((float)Math.PI * 2);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.GlowRing>(), 0, 0f, Main.myPlayer, NPC.whoAmI, -2);
             }
-            
+
             if (++NPC.ai[3] > endTime)
             {
                 ChooseNextAttack(13, 19, 20, FargoSoulsWorld.MasochistModeReal ? 13 : 26, FargoSoulsWorld.MasochistModeReal ? 44 : 33, 41, 44);
@@ -2612,7 +2612,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             int ringMax = FargoSoulsWorld.MasochistModeReal ? 5 : 4;
             if (NPC.ai[3] % ringDelay == 0 && NPC.ai[3] < ringDelay * ringMax)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float rotationOffset = MathHelper.TwoPi / ringMax * NPC.ai[3] / ringDelay + NPC.localAI[0];
@@ -2640,7 +2640,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[1] = 20;
                 NPC.ai[2] = NPC.ai[2] > 0 ? -1 : 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[3] < 330)
                 {
@@ -2683,7 +2683,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[1] == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                 NPC.ai[3] = Main.rand.NextFloat(MathHelper.TwoPi);
             }
 
@@ -2700,7 +2700,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             {
                 NPC.ai[2] = attackThreshold;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item163, player.Center);
+                SoundEngine.PlaySound(SoundID.Item163, player.Center);
 
                 if (Math.Abs(MathHelper.WrapAngle(NPC.DirectionFrom(player.Center).ToRotation() - NPC.ai[3])) > MathHelper.PiOver2)
                     NPC.ai[3] += MathHelper.Pi; //swords always spawn closer to player
@@ -2737,7 +2737,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 {
                     Vector2 spawnPos = focusPoint + spawnOffset * spawnDistance + spawnOffset.RotatedBy(MathHelper.PiOver2) * gap * i;
                     float Ai1 = swordCounter++ / (max * 2f + 1);
-                    
+
                     Sword(spawnPos, attackAngle + MathHelper.PiOver4, Ai1, Main.rand.NextVector2Unit());
                     Sword(spawnPos, attackAngle - MathHelper.PiOver4, Ai1, Main.rand.NextVector2Unit());
 
@@ -2758,7 +2758,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             int swordSwarmTime = startup + attackThreshold * timesToAttack + 40;
             if (NPC.ai[1] == swordSwarmTime)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item164, player.Center);
+                SoundEngine.PlaySound(SoundID.Item164, player.Center);
 
                 float safeAngle = NPC.ai[3];
                 float safeRange = MathHelper.ToRadians(10);
@@ -2853,7 +2853,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     NPC.ai[1] = 0;
                     NPC.ai[2] = NPC.DirectionFrom(player.Center).ToRotation();
                     NPC.ai[3] = (float)Math.PI / 20f;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     if (player.Center.X < NPC.Center.X)
                         NPC.ai[3] *= -1;
                     //EdgyBossText("But we're not done yet!");
@@ -2952,7 +2952,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 SpawnSphereRing(max, speed, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), -0.75f, rotation);
                 SpawnSphereRing(max, speed, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0.75f, rotation);
             }
-            
+
             if (++NPC.ai[3] > endTime)
             {
                 NPC.netUpdate = true;
@@ -2984,7 +2984,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (++NPC.ai[1] > 3)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                 NPC.ai[1] = 0;
                 NPC.ai[2] += (float)Math.PI / 5 / 420 * NPC.ai[3] * NPC.localAI[0] * (FargoSoulsWorld.MasochistModeReal ? 2f : 1);
                 if (NPC.ai[2] > (float)Math.PI)
@@ -3094,7 +3094,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
                 else
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {

@@ -1,16 +1,10 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -46,7 +40,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
             {
                 if (AttackTimer == 75)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item5, npc.position);
+                    SoundEngine.PlaySound(SoundID.Item5, npc.position);
                 }
 
                 AttackTimer--;

@@ -3,7 +3,6 @@ using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

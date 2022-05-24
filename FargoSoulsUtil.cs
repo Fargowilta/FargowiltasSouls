@@ -1,4 +1,6 @@
-﻿using FargowiltasSouls.Projectiles;
+﻿using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,13 +10,11 @@ using Terraria;
 using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using Terraria.GameContent.ItemDropRules;
 //using FargowiltasSouls.Projectiles;
 
 namespace FargowiltasSouls
@@ -85,7 +85,7 @@ namespace FargowiltasSouls
 
         public static int HighestDamageTypeScaling(Player player, int dmg)
         {
-            List<float> types = new List<float> {  
+            List<float> types = new List<float> {
                 player.ActualClassDamage(DamageClass.Melee),
                 player.ActualClassDamage(DamageClass.Ranged),
                 player.ActualClassDamage(DamageClass.Magic),
@@ -97,9 +97,9 @@ namespace FargowiltasSouls
 
         public static float HighestCritChance(Player player)
         {
-            List<float> types = new List<float> { 
-                player.ActualClassCrit(DamageClass.Melee), 
-                player.ActualClassCrit(DamageClass.Ranged), 
+            List<float> types = new List<float> {
+                player.ActualClassCrit(DamageClass.Melee),
+                player.ActualClassCrit(DamageClass.Ranged),
                 player.ActualClassCrit(DamageClass.Magic),
                 player.ActualClassCrit(DamageClass.Summon)
             };
@@ -509,7 +509,7 @@ namespace FargowiltasSouls
 
         public static void SpawnBossTryFromNPC(int playerTarget, int originalType, int bossType)
         {
-            if (Main.netMode == NetmodeID.MultiplayerClient)
+            if (Main.netMode == NetmodeID.MultiplayerClient && playerTarget == Main.myPlayer)
             {
                 var packet = FargowiltasSouls.Instance.GetPacket();
                 packet.Write((byte)FargowiltasSouls.PacketID.SpawnBossTryFromNPC);

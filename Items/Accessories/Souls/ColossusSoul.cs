@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -15,9 +14,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Colossus Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巨像之魂");
-            
+
             string tooltip =
 @"Increases HP by 100
 15% damage reduction
@@ -48,7 +47,7 @@ Effects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell
             Item.defense = 10;
             Item.shieldSlot = 4;
         }
-        
+
         protected override Color? nameColor => new Color(252, 59, 0);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -77,7 +76,7 @@ Effects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

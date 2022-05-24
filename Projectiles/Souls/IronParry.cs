@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +32,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             {
                 Projectile.localAI[0] = 1;
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit4, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.NPCHit4, Projectile.Center);
 
                 for (int i = 0; i < 20; i++)
                 {

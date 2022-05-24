@@ -1,8 +1,9 @@
-using System;
 using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -141,7 +142,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         case 2: //ramming
                             if (Projectile.localAI[0] == 1f)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, (int)Projectile.Center.X, (int)Projectile.Center.Y, 102, 0.75f, 0);
+                                SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_102") with { Volume = 0.75f, Pitch = 0 }, Projectile.Center);
                                 Projectile.velocity = npc.Center - Projectile.Center;
                                 if (Projectile.velocity != Vector2.Zero)
                                 {

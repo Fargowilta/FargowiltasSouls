@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -59,7 +60,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 Projectile.localAI[0] = 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
                 Projectile.rotation = Projectile.ai[0];
             }
@@ -101,7 +102,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft) //vanilla explosion code echhhhhhhhhhh
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
 
             if (!Main.dedServ && Main.LocalPlayer.active)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;

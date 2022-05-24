@@ -1,8 +1,5 @@
 ﻿using FargowiltasSouls.NPCs;
 using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -17,7 +14,7 @@ namespace FargowiltasSouls.Buffs.Souls
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = false;
             Main.buffNoSave[Type] = true;
-            
+
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
 

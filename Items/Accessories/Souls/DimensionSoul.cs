@@ -1,11 +1,10 @@
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Toggler;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -19,9 +18,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Soul of Dimensions");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "维度之魂");
-            
+
             String tooltip =
 @"Increases HP by 300
 20% damage reduction
@@ -136,7 +135,7 @@ Effects of Shield of Cthulhu and Master Ninja Gear
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

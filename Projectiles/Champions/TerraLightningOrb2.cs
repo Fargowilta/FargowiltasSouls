@@ -1,11 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using System.IO;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -70,7 +71,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         {
             Projectile.velocity = Vector2.Zero;
 
-            if(!firsttick)
+            if (!firsttick)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -83,7 +84,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 firsttick = true;
             }
 
-            if(Projectile.localAI[0] > 0) //rotate fast, then slow down over time
+            if (Projectile.localAI[0] > 0) //rotate fast, then slow down over time
             {
                 Projectile.rotation += Projectile.localAI[1] * (6 - Projectile.scale) * 0.012f;
             }
@@ -94,7 +95,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.alpha -= 10;
                 if (Projectile.alpha < 0)
                     Projectile.alpha = 0;
-                
+
                 Projectile.velocity = 4f * Projectile.DirectionTo(Main.player[npc.target].Center);
 
                 if (++Projectile.ai[1] > 60) //grow
@@ -115,7 +116,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                     Projectile.Center = Projectile.position;
 
                     MakeDust();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
                 }
             }
             else
@@ -193,7 +194,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
             MakeDust();
 
@@ -203,14 +204,14 @@ namespace FargowiltasSouls.Projectiles.Champions
             if (Projectile.alpha == 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder").WithVolume(0.8f).WithPitchVariance(-0.5f), Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 0.8f, Pitch = 0.5f }, Projectile.Center);
                 for (int i = 0; i < 8; i++)
                 {
                     Vector2 dir = Vector2.UnitX.RotatedBy((2 * (float)Math.PI / 8 * i) + Projectile.rotation);
                     float ai1New = (Main.rand.NextBool()) ? 1 : -1; //randomize starting direction
                     Vector2 vel = Vector2.Normalize(dir) * 54f;
                     Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, vel, ModContent.ProjectileType<HostileLightning>(),
-                        Projectile.damage, 0, Main.myPlayer, dir.ToRotation(), ai1New/2);
+                        Projectile.damage, 0, Main.myPlayer, dir.ToRotation(), ai1New / 2);
                 }
             }
         }

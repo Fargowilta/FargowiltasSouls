@@ -1,11 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -39,14 +40,14 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.soundDelay == 0)
             {
                 Projectile.soundDelay = 60 + Main.rand.Next(60);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item9, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item9, Projectile.position);
             }
 
             if (Projectile.localAI[1] == 0)
             {
                 Projectile.localAI[1] = 1f;
                 if (Projectile.ai[1] == 1f)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item33, Projectile.position);
+                    SoundEngine.PlaySound(SoundID.Item33, Projectile.position);
             }
 
             if (Projectile.localAI[0] == 0)
@@ -62,9 +63,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.alpha = 0;
                 Projectile.localAI[0] = 1f;
             }
-            
+
             Projectile.rotation = Projectile.rotation + (Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y)) * 0.01f * Projectile.direction;
-            
+
             if (Main.rand.NextBool(30))
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 58, (float)(Projectile.velocity.X * 0.5), (float)(Projectile.velocity.Y * 0.5), 150, default, 1.2f);
 
@@ -85,8 +86,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-            
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+
             //Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 58, Projectile.velocity.X * 0.1f, Projectile.velocity.Y * 0.1f, 150, new Color(), 1.2f);
             /*int Type = Main.rand.Next(16, 18);
             if (Projectile.type == 503)
@@ -115,7 +116,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Vector2 drawCenter = Projectile.Center - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
 
             Main.EntitySpriteDraw(glow, drawCenter - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle),//create small, non transparent trail texture
-                   Projectile.GetAlpha(lightColor), Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, Projectile.scale/2, SpriteEffects.None, 0);
+                   Projectile.GetAlpha(lightColor), Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, Projectile.scale / 2, SpriteEffects.None, 0);
 
             for (int i = 0; i < 3; i++) //create multiple transparent trail textures ahead of the projectile
             {
@@ -132,7 +133,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 float scale = Projectile.scale * (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i] - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
-                Main.EntitySpriteDraw(glow, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle), color27, 
+                Main.EntitySpriteDraw(glow, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle), color27,
                     Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, scale, SpriteEffects.None, 0);
             }
 

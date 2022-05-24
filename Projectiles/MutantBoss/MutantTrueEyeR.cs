@@ -1,12 +1,13 @@
 using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -124,7 +125,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 case 2: //ramming
                     if (Projectile.localAI[0] == 1f)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 102);
+                        SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_102"), Projectile.Center);
                         Projectile.velocity = target.Center - Projectile.Center;
                         if (Projectile.velocity != Vector2.Zero)
                         {
@@ -154,7 +155,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                         Main.dust[d].noLight = true;
                         Main.dust[d].velocity *= 8f;
                     }
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 102);
+                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_102"), Projectile.Center);
                     Projectile.Kill();
                     break;
             }
@@ -220,7 +221,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Vector2 origin2 = rectangle.Size() / 2f;
 
             Color color26 = Projectile.GetAlpha(lightColor);
-            
+
             float scale = (Main.mouseTextColor / 200f - 0.35f) * 0.4f + 1f;
             scale *= Projectile.scale;
 

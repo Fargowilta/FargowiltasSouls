@@ -1,16 +1,12 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.Souls;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -89,7 +85,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
                         void Checks()
                         {
                             if (npc.ai[1] == 60)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                             if (npc.ai[1] >= 120 && npc.ai[1] % 15 == 5) //when done
                             {

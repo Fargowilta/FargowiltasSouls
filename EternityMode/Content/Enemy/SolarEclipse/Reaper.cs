@@ -1,15 +1,8 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -38,7 +31,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SolarEclipse
 
             if (AttackTimer >= 0 && --AttackTimer % 10 == 0)
             {
-                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, 
+                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero,
                     ProjectileID.DeathSickle, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 0f, Main.myPlayer);
             }
         }

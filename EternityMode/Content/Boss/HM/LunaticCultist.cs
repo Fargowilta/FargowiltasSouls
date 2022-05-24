@@ -1,7 +1,7 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Consumables;
@@ -12,9 +12,10 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 {
@@ -126,7 +127,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     npc.ai[1] = 0;
                     npc.ai[2] = 0;
                     npc.ai[3] = -1;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -302,7 +303,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             npc.defense = npc.defDefense; //prevent vanilla p2 from lowering defense!
             Lighting.AddLight(npc.Center, 1f, 1f, 1f);
-            
+
             EModeUtils.DropSummon(npc, "CultistSummon", NPC.downedAncientCultist, ref DroppedSummon, NPC.downedGolemBoss);
 
             return result;
@@ -450,7 +451,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (!FargoSoulsWorld.SwarmActive)
             {
                 NPC cultist = FargoSoulsUtil.NPCExists(npc.ai[3], NPCID.CultistBoss);
-                
+
                 //yes, this spawns two clones without the check
                 if (cultist != null && NPC.CountNPCS(npc.type) < (FargoSoulsWorld.MasochistModeReal ? Math.Min(TotalCultistCount + 1, 12) : TotalCultistCount))
                 {
@@ -531,7 +532,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void SetDefaults(NPC npc)
         {
             base.SetDefaults(npc);
-            
+
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.OnFire] = true;
             npc.lavaImmune = true;

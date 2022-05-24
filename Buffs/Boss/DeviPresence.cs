@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Boss
 {
@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Buffs.Boss
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "大幅增加友方NPC受到的伤害");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            
+
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
 

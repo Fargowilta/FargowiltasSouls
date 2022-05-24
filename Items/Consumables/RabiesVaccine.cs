@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Items.Consumables
             .AddIngredient(ModContent.ItemType<RabiesShot>(), 30)
 
             .AddTile(TileID.Bottles)
-            
+
             .Register();
         }
     }

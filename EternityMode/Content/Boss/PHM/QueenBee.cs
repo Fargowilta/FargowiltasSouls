@@ -1,23 +1,24 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Placeables;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.NPCs.EternityMode;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Projectiles.Champions;
+using Terraria.ID;
 using Terraria.Localization;
-using System;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 {
@@ -113,7 +114,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             if (!InPhase2 && npc.life < npc.lifeMax / 2) //enable new attack and roar below 50%
             {
                 InPhase2 = true;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                 if (FargoSoulsWorld.MasochistModeReal)
                     SpawnedRoyalSubjectWave1 = false; //do this again
@@ -220,7 +221,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, npc.type);
 
                             if (npc.HasValidTarget)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.player[npc.target].Center, -1); //eoc roar
+                                SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.player[npc.target].Center); //eoc roar
 
                             if (FargoSoulsWorld.MasochistModeReal)
                                 BeeSwarmTimer += 30;
@@ -281,7 +282,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 {
                     if (npc.ai[2] == -44) //telegraph
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item21, npc.Center);
 
                         for (int i = 0; i < 44; i++)
                         {

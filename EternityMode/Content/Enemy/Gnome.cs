@@ -1,13 +1,5 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 
@@ -22,7 +14,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
             base.OnFirstTick(npc);
 
             if (Main.rand.NextBool(3))
-                EModeGlobalNPC.Horde(npc, Main.rand.Next(2, 10)); 
+                EModeGlobalNPC.Horde(npc, Main.rand.Next(2, 10));
         }
     }
 }

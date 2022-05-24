@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
             }
 
             Projectile.alpha += Projectile.timeLeft > 20 ? -10 : 10;
@@ -53,7 +54,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             if (Projectile.timeLeft % 60 == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
                 Vector2 vel = Vector2.UnitX.RotatedBy(Projectile.rotation);
                 vel *= 12f;
                 for (int i = 0; i < 6; i++)

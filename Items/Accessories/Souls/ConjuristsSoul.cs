@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -14,9 +13,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Conjurist's Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "召唤之魂");
-            
+
             string tooltip =
 @"30% increased summon damage
 Increases your max number of minions by 3
@@ -34,7 +33,7 @@ Increased minion knockback
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
 
         }
-        
+
         protected override Color? nameColor => new Color(0, 255, 255);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -56,7 +55,7 @@ Increased minion knockback
             .AddIngredient(ItemID.PygmyNecklace)
             .AddIngredient(ItemID.PapyrusScarab)
 
-            
+
             .AddIngredient(ItemID.Smolstar) //blade staff
             .AddIngredient(ItemID.PirateStaff)
             .AddIngredient(ItemID.OpticStaff)
@@ -75,7 +74,7 @@ Increased minion knockback
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
             .Register();
-            
+
 
         }
     }

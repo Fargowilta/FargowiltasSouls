@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -101,7 +102,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
             for (int i = 0; i < 20; i++)
             {
                 int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 5);

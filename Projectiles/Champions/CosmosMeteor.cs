@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.DamageType = DamageClass.Default;
             Projectile.friendly = false;
             Projectile.hostile = true;
-            
+
             CooldownSlot = 1;
 
             Projectile.timeLeft = 120 * Projectile.MaxUpdates;
@@ -46,7 +47,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft) //vanilla explosion code echhhhhhhhhhh
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
 
             Projectile.position = Projectile.Center;
             Projectile.width = (int)(64 * (double)Projectile.scale);
@@ -74,7 +75,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Main.gore[index2].velocity.X += (float)Main.rand.Next(-10, 11) * 0.05f;
                 Main.gore[index2].velocity.Y += (float)Main.rand.Next(-10, 11) * 0.05f;
             }
-            
+
             for (int index1 = 0; index1 < 2; ++index1)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Utils.SelectRandom<int>(Main.rand, new int[3] { 6, 259, 158 }), 2.5f * (float)Projectile.direction, -2.5f, 0, new Color(), 1f);

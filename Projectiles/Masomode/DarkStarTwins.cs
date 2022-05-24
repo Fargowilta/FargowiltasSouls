@@ -1,7 +1,7 @@
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -31,13 +31,13 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 float targetAngle = vel.ToRotation();
 
                 //if reti alive and player isnt behind projectile
-                if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.retiBoss, NPCID.Retinazer) 
+                if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.retiBoss, NPCID.Retinazer)
                     && System.Math.Abs(MathHelper.WrapAngle(targetAngle - rotation)) < MathHelper.PiOver2)
                 {
                     const float deadZone = 600;
                     const float maxHomingRampupDistance = 1800;
                     const float maxLerp = 0.5f;
-                    
+
                     float ratio = (Main.npc[EModeGlobalNPC.retiBoss].Distance(target.Center) - deadZone) / (maxHomingRampupDistance - deadZone);
                     ratio *= ratio; //so the lerp effect ramps up much more violently at distance
                     if (ratio < 0)

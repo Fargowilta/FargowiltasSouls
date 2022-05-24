@@ -1,6 +1,7 @@
 using Terraria;
-using Terraria.ModLoader;
+using Terraria.Audio;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -30,7 +31,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             player.GetModPlayer<FargoSoulsPlayer>().Stunned = true;
 
             if (player.whoAmI == Main.myPlayer && player.buffTime[buffIndex] % 60 == 55)
-                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/DizzyBird"));
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/DizzyBird"));
         }
 
         public override void Update(NPC npc, ref int buffIndex)

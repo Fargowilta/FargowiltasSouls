@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode

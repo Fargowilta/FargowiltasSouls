@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -200,6 +199,19 @@ namespace FargowiltasSouls.EternityMode
             }
 
             return result;
+        }
+
+        public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
+        {
+            base.ModifyHitPlayer(npc, target, ref damage, ref crit);
+
+            if (!FargoSoulsWorld.EternityMode)
+                return;
+
+            foreach (EModeNPCBehaviour behaviour in EModeNpcBehaviours)
+            {
+                behaviour.ModifyHitPlayer(npc, target, ref damage, ref crit);
+            }
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

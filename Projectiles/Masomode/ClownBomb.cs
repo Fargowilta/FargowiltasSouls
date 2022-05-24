@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, 
+            Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center,
                 Vector2.Zero, ModContent.ProjectileType<FusedExplosion>(), Projectile.damage * 4, Projectile.knockBack, Main.myPlayer);
         }
     }

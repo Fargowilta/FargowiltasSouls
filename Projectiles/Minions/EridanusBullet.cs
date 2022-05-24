@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -72,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.localAI[0] = 1;
                 Projectile.frame = Main.rand.Next(Main.projFrames[Projectile.type]);
                 Projectile.rotation = Main.rand.NextFloat((float)Math.PI * 2);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             }
 
             Projectile.rotation += 0.15f * Math.Sign(Projectile.velocity.X);
@@ -100,9 +101,9 @@ namespace FargowiltasSouls.Projectiles.Minions
 
             //if (!Main.dedServ && Main.LocalPlayer.active) Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 30; i++)
             {

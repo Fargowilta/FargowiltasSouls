@@ -1,7 +1,8 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,8 +19,8 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
             Projectile.width = 34;
             Projectile.height = 34;
             Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee; 
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.aiStyle = 15;
         }
 
@@ -59,7 +60,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
 
             return true;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) 
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Projectile.owner == Main.myPlayer)
             {
@@ -68,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
                     float speedX = -Projectile.velocity.X * Main.rand.NextFloat(.2f, .3f) + Main.rand.NextFloat(-4f, 4f);
                     float speedY = -Projectile.velocity.Y * Main.rand.NextFloat(.2f, .3f) + Main.rand.NextFloat(-4f, 4f);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + speedX, Projectile.position.Y + speedY, speedX, speedY, ModContent.ProjectileType<VineslingerProjectileFriendly>(), (int)(Projectile.damage * 0.5), 0f, Projectile.owner, 0f, 0);
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, Projectile.position);
+                    SoundEngine.PlaySound(SoundID.Grass, Projectile.position);
                 }
             }
         }

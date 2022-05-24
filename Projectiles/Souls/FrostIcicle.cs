@@ -1,6 +1,6 @@
-﻿using System;
-using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -51,7 +51,7 @@ namespace FargowiltasSouls.Projectiles.Souls
                 //rotation mumbo jumbo
                 float distanceFromPlayer = 32;
 
-                Projectile.position = player.Center + new Vector2(distanceFromPlayer, 0f).RotatedBy(Projectile.ai[1]); 
+                Projectile.position = player.Center + new Vector2(distanceFromPlayer, 0f).RotatedBy(Projectile.ai[1]);
                 Projectile.position.X -= Projectile.width / 2;
                 Projectile.position.Y -= Projectile.height / 2;
 

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -44,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             if (--Projectile.localAI[1] < 0)
             {
                 Projectile.localAI[1] = 60;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
             }
 
             Projectile.alpha -= 10;
@@ -75,7 +76,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
 
             for (int index1 = 0; index1 < 40; ++index1)
             {

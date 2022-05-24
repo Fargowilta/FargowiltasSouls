@@ -1,44 +1,35 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Items.Dyes;
+using FargowiltasSouls.Items.Misc;
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.EternityMode;
+using FargowiltasSouls.Shaders;
+using FargowiltasSouls.Sky;
+using FargowiltasSouls.Toggler;
+using FargowiltasSouls.UI;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 //using FargowiltasSouls.ModCompatibilities;
 using Terraria;
+using Terraria.Chat;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Shaders;
-using FargowiltasSouls.Sky;
-using FargowiltasSouls.Toggler;
-using System.Linq;
-using Terraria.Chat;
-using FargowiltasSouls.NPCs.EternityMode;
-using ReLogic.Content;
-using Terraria.GameContent;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
-using FargowiltasSouls.Items;
-using FargowiltasSouls.Items.Placeables;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.Items.Accessories.Forces;
-using FargowiltasSouls.Items.Dyes;
-using FargowiltasSouls.Items.Accessories.Souls;
-using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Items.Consumables;
-using FargowiltasSouls.Items.Armor;
-using FargowiltasSouls.UI;
-using FargowiltasSouls.Items.Misc;
-using FargowiltasSouls.Projectiles;
 
 namespace FargowiltasSouls
 {
@@ -135,7 +126,7 @@ namespace FargowiltasSouls
 
             SkyManager.Instance["FargowiltasSouls:MoonLordSky"] = new MoonLordSky();
 
-            FreezeKey = KeybindLoader.RegisterKeybind(this, "Freeze Time", "P");
+            FreezeKey = KeybindLoader.RegisterKeybind(this, "Freeze", "P");
             GoldKey = KeybindLoader.RegisterKeybind(this, "Turn Gold", "O");
             SmokeBombKey = KeybindLoader.RegisterKeybind(this, "Throw Smoke Bomb", "I");
             BetsyDashKey = KeybindLoader.RegisterKeybind(this, "Fireball Dash", "C");

@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
                 Projectile.ai[aislotHomingCooldown] = homingDelay; //cap this value 
-                
+
                 NPC n = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000));
                 if (n != null)
                 {

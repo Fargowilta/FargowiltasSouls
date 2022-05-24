@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         public override void SetDefaults()
         {
             base.SetDefaults();
-            
+
             Projectile.hide = false;
         }
 
@@ -41,7 +41,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
-            
+
         }
     }
 }

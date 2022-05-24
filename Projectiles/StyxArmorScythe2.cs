@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,7 +21,7 @@ namespace FargowiltasSouls.Projectiles
         public override void SetDefaults()
         {
             base.SetDefaults();
-            
+
             Projectile.penetrate = 1;
 
             Projectile.usesLocalNPCImmunity = false;
@@ -74,7 +75,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
 
             for (int i = 0; i < 40; i++)
             {
@@ -94,7 +95,7 @@ namespace FargowiltasSouls.Projectiles
                 Projectile.Damage();
             }
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 20; i++)
             {

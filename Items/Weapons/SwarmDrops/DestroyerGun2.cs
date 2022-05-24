@@ -1,11 +1,10 @@
-﻿using Terraria;
-using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using FargowiltasSouls.Projectiles.Minions;
-using Terraria.DataStructures;
+﻿using FargowiltasSouls.Projectiles.Minions;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -32,7 +31,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 1.5f;
-            Item.UseSound = new LegacySoundStyle(4, 13);
+            Item.UseSound = SoundID.NPCDeath13;
             Item.value = Item.sellPrice(0, 25);
             Item.rare = ItemRarityID.Purple;
             Item.autoReuse = true;
@@ -53,7 +52,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerDestroy"))
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

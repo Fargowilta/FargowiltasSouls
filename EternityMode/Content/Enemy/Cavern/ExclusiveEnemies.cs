@@ -1,20 +1,12 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
 {
     public class ExclusiveEnemies : EModeNPCBehaviour
     {
-        public override NPCMatcher CreateMatcher() => 
+        public override NPCMatcher CreateMatcher() =>
             new NPCMatcher().MatchTypeRange(
                 NPCID.Crawdad,
                 NPCID.GiantShelly,

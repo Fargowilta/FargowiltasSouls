@@ -69,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 }
                 else
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(new LegacySoundStyle(4, 13), Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.NPCDeath13, Projectile.Center);
                     Projectile.ai[0] = 1;
                     Projectile.penetrate = 1;
                     Projectile.maxPenetrate = 1;
@@ -177,7 +177,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 }
             }
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 30; i++)
             {

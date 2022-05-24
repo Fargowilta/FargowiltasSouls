@@ -1,10 +1,9 @@
-using Terraria;
-using Terraria.Localization;
-using Terraria.ID;
-using FargowiltasSouls.Toggler;
-using Terraria.ModLoader;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Minions;
+using FargowiltasSouls.Toggler;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {

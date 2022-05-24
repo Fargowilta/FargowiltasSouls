@@ -1,8 +1,8 @@
-using FargowiltasSouls.Items.Consumables;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Creative;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -91,7 +91,7 @@ Cannot be used while a boss is alive
                         FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}SpawnDevi", new Color(175, 75, 255));
                     }
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, player.Center);
 
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendData(MessageID.WorldData); //sync world

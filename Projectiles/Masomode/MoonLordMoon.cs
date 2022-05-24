@@ -1,10 +1,11 @@
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -33,10 +34,10 @@ namespace FargowiltasSouls.Projectiles.Masomode
         {
             if (Projectile.localAI[0] == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
                 Projectile.rotation = Projectile.velocity.ToRotation();
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
 
                 if (!Main.dedServ && Main.LocalPlayer.active)
                     Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;

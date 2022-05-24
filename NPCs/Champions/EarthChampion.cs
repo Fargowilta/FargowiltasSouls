@@ -1,16 +1,16 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Champions;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.ItemDropRules.Conditions;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Items.Accessories.Forces;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -179,7 +179,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     else*/
                     if (NPC.ai[1] == 120) //begin healing
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath10, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.NPCDeath10, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -203,7 +203,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     else if (NPC.ai[1] > 120) //healing
                     {
                         NPC.velocity *= 0.9f;
-                        
+
                         int heal = (int)(NPC.lifeMax / 2 / 120 * Main.rand.NextFloat(1f, 1.5f));
                         NPC.life += heal;
                         if (NPC.life > NPC.lifeMax)
@@ -307,7 +307,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         if (--NPC.ai[2] < 0)
                         {
                             NPC.ai[2] = 75;
-                            Terraria.Audio.SoundEngine.PlaySound(4, NPC.Center, 13);
+                            SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
                             if (NPC.ai[1] > 10 && Main.netMode != NetmodeID.MultiplayerClient) //shoot spread of fireballs, but not the first time
                             {
                                 for (int i = -1; i <= 1; i++)

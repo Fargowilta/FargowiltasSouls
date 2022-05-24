@@ -1,10 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -76,7 +77,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             else
             {
                 if (counter == 0)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
 
                 if (++counter < attackTime)
                 {
@@ -99,7 +100,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 else if (counter == attackTime)
                 {
                     Projectile.velocity = 32f * Projectile.ai[1].ToRotationVector2();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
                 }
                 else
                 {
@@ -131,7 +132,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
 
             if (Projectile.localAI[0] != 0 && Projectile.localAI[1] != 0)
             {

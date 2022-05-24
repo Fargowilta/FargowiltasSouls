@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -52,9 +53,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Zombie_104").WithVolume(0.6f), Projectile.Center);
-                //Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                //Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104") { Volume = 0.6f }, Projectile.Center);
+                //SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                //SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             }
             float num801 = .5f;
             Projectile.localAI[0] += 1f;
@@ -154,7 +155,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 }
             }
         }
-        
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);

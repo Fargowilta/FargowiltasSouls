@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,10 +36,10 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 if (Projectile.Colliding(Projectile.Hitbox, npc.Hitbox))
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit4, Projectile.Center); //indicate it hit squrrl
+                    SoundEngine.PlaySound(SoundID.NPCHit4, Projectile.Center); //indicate it hit squrrl
                     for (int i = 0; i < 10; i++)
                         Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, Projectile.velocity.X * 0.4f, -Projectile.velocity.Y * 0.4f);
-                    
+
                     Projectile.Kill();
                     return;
                 }

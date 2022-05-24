@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI;
 using Terraria.ID;
@@ -189,7 +189,7 @@ namespace FargowiltasSouls.Projectiles.Pets
 
                 if (Main.npc[FargoSoulsGlobalNPC.boss].life < Main.npc[FargoSoulsGlobalNPC.boss].lifeMax / 4)
                     TryTalkWithCD(TalkType.BossAlmostDead, MediumCD);
-            }   
+            }
             else
             {
                 //only do idle talk when awake, not a boss fight, and not in danger
@@ -353,7 +353,7 @@ namespace FargowiltasSouls.Projectiles.Pets
             {
                 if (!Main.player[Projectile.owner].dead && !Main.player[Projectile.owner].ghost)
                     EmoteBubble.MakeLocalPlayerEmote(EmoteID.EmotionLove);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.LucyTheAxeTalk, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.LucyTheAxeTalk, Projectile.Center);
 
                 string key = Enum.GetName(talkType);
                 int actualSay = TalkCounters[talkInt] + 1;

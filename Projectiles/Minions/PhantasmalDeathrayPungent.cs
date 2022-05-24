@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Enums;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Minions
 {
@@ -64,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = (Projectile.ai[1] == 0f) ? 0.4f : 1f;
             Projectile.localAI[0] += 1f;

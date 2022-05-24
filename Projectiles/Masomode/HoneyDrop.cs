@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.alpha = 0;
             if (Projectile.alpha == 0 && Main.rand.NextBool(3))
             {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 
+                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height,
                     DustID.t_Honey, 0f, 0f, 50, default, 1.2f);
                 Main.dust[d].velocity *= 0.3f;
                 Main.dust[d].velocity += Projectile.velocity * 0.3f;

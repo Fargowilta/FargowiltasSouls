@@ -1,10 +1,9 @@
-using Terraria;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.Localization;
-using Terraria.ID;
 using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -16,9 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Berserker's Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狂战士之魂");
-            
+
             string tooltip =
 @"30% increased melee damage
 20% increased melee speed

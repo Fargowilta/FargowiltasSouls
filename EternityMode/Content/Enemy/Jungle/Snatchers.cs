@@ -1,12 +1,7 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -57,7 +52,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
                 DashTimer = 0;
 
                 Player victim = Main.player[BittenPlayer];
-                if (BiteTimer > 0 && victim.active && !victim.ghost && !victim.dead 
+                if (BiteTimer > 0 && victim.active && !victim.ghost && !victim.dead
                     && (npc.Distance(victim.Center) < 160 || victim.whoAmI != Main.myPlayer)
                     && victim.GetModPlayer<FargoSoulsPlayer>().MashCounter < 20)
                 {
@@ -90,6 +85,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
                 BiteTimer++;
             if (BiteTimer > 0)
                 BiteTimer--;
+        }
+
+        public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
+        {
+            base.ModifyHitPlayer(npc, target, ref damage, ref crit);
+
+            target.longInvince = true;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

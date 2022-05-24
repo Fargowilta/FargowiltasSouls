@@ -1,9 +1,5 @@
 ﻿using Terraria;
-using Terraria.DataStructures;
-using Terraria.Localization;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace FargowiltasSouls.Items.Accessories.Expert
 {

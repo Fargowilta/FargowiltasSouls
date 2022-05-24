@@ -1,9 +1,9 @@
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using System;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {

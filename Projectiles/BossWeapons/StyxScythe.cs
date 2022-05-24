@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -54,7 +55,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.localAI[0] = 1;
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
                 rotationDirection = Math.Sign(Projectile.ai[1]);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }
 
             if (Projectile.localAI[0] == 1) //extend out, locked to move around player

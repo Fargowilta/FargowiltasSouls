@@ -1,10 +1,10 @@
+using FargowiltasSouls.Buffs.Souls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Souls;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -17,21 +17,21 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 42;
-			Projectile.height = 42;
+        public override void SetDefaults()
+        {
+            Projectile.width = 42;
+            Projectile.height = 42;
             Projectile.aiStyle = -1;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = -1;
-			Projectile.tileCollide = true;
-			Projectile.timeLeft = 120;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = true;
+            Projectile.timeLeft = 120;
             Projectile.extraUpdates = 1;
             Projectile.scale = 1.25f;
             Projectile.hide = true;
-		}
-		
+        }
+
         public override void AI()
         {
             if (Projectile.localAI[0] == 0)

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -48,7 +49,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
             {
                 if (Projectile.localAI[0] == 0)
                     Projectile.localAI[1] = Projectile.ai[1] / maxTime; //do this first
-                
+
                 Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1]);
                 Projectile.ai[1] -= Projectile.localAI[1];
                 Projectile.Center = npc.Center + new Vector2(50, 50).RotatedBy(Projectile.velocity.ToRotation() - MathHelper.PiOver4) * Projectile.scale;
@@ -69,9 +70,9 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                     Main.dust[d].velocity *= 4.5f;
                     Main.dust[d].noGravity = true;
                 }
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
             }
-            
+
             Projectile.direction = Projectile.spriteDirection = Math.Sign(Projectile.ai[1]);
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(Projectile.direction < 0 ? 135 : 45);
             //Main.NewText(MathHelper.ToDegrees(Projectile.velocity.ToRotation()) + " " + MathHelper.ToDegrees(Projectile.ai[1]));

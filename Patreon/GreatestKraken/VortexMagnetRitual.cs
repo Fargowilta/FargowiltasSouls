@@ -1,6 +1,4 @@
-﻿using FargowiltasSouls.Items;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -66,7 +64,7 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerCultist"))
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

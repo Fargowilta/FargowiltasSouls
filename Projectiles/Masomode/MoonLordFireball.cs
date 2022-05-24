@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             {
                 Projectile.localAI[1] = 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
             }
 
             Projectile.frameCounter++;
@@ -116,7 +117,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

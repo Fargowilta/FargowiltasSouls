@@ -9,7 +9,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
 {
     public class Pigrons : EModeNPCBehaviour
     {
-        public override NPCMatcher CreateMatcher() =>  new NPCMatcher().MatchTypeRange(
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.PigronCorruption,
             NPCID.PigronCrimson,
             NPCID.PigronHallow

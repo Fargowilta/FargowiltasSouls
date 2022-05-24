@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
-            
+
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "无效诅咒");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,并且月球领主进行循环伤害免疫!");

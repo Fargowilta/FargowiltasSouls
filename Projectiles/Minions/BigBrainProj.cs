@@ -72,7 +72,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 if (++Projectile.localAI[0] > 5)
                 {
                     Projectile.localAI[0] = 0;
-                    
+
                     if (Projectile.owner == Main.myPlayer)
                     {
                         const float speed = 18f;
@@ -89,12 +89,12 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
             }
 
-            Projectile.Center = player.Center + new Vector2(0, (200 + Projectile.alpha) * Projectile.scale).RotatedBy(Projectile.ai[1] + Projectile.ai[0]/MathHelper.TwoPi);
+            Projectile.Center = player.Center + new Vector2(0, (200 + Projectile.alpha) * Projectile.scale).RotatedBy(Projectile.ai[1] + Projectile.ai[0] / MathHelper.TwoPi);
         }
 
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            damage = (int) (damage * Projectile.scale);
+            damage = (int)(damage * Projectile.scale);
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -104,13 +104,13 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
-            for(int i = 0; i <= 3; i++) //simulate collision of 4 Projectiles orbiting because i didnt want to make orbiting illusions seperate Projectiles, also makes collision with scale changes better
+            for (int i = 0; i <= 3; i++) //simulate collision of 4 Projectiles orbiting because i didnt want to make orbiting illusions seperate Projectiles, also makes collision with scale changes better
             {
                 Player player = Main.player[Projectile.owner];
                 Vector2 newCenter = player.Center + new Vector2(0, (200 + Projectile.alpha) * Projectile.scale).RotatedBy((i * MathHelper.PiOver2) + Projectile.ai[1] + Projectile.ai[0] / MathHelper.TwoPi);
                 int width = (int)(Projectile.scale * Projectile.width);
                 int height = (int)(Projectile.scale * Projectile.height);
-                Rectangle newprojhitbox = new Rectangle((int)newCenter.X - width/2, (int)newCenter.Y - height/2, width, height);
+                Rectangle newprojhitbox = new Rectangle((int)newCenter.X - width / 2, (int)newCenter.Y - height / 2, width, height);
                 if (newprojhitbox.Intersects(targetHitbox))
                     return true;
             }
@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             int frameheight = texture.Height / Main.projFrames[Projectile.type];
             Rectangle rectangle = new Rectangle(0, Projectile.frame * frameheight, texture.Width, frameheight);
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, new Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, rectangle.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
-            for(int i = 1; i <= 3; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 Player player = Main.player[Projectile.owner];
                 Vector2 newCenter = player.Center + new Vector2(0, (200 + Projectile.alpha) * Projectile.scale).RotatedBy((i * MathHelper.PiOver2) + Projectile.ai[1] + Projectile.ai[0] / MathHelper.TwoPi);

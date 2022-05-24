@@ -1,15 +1,9 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -38,7 +32,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                     int damage = Main.expertMode ? 28 : 35;
                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<SkeletonArcherArrow>(), damage, 0f, Main.myPlayer);
                 }
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item5, npc.Center);
+                SoundEngine.PlaySound(SoundID.Item5, npc.Center);
                 npc.ai[2] = 0f;
                 npc.ai[1] = 0f;
                 npc.netUpdate = true;

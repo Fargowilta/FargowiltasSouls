@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
-using Terraria.GameContent;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -105,7 +105,7 @@ namespace FargowiltasSouls.Projectiles.Pets
                     case 0: //stab
                         if (Projectile.owner == Main.myPlayer)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                            SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                             player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByOther(6), 777, 0, false, false, false, -1);
                             player.immune = false;
                             player.immuneTime = 0;

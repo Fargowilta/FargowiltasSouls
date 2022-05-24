@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
             }
 
             if (!FargoSoulsUtil.BossIsAlive(ref NPCs.EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>())
@@ -78,7 +79,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             int num1 = 36;
             for (int index1 = 0; index1 < num1; ++index1)
             {
@@ -89,7 +90,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Main.dust[index2].noLight = true;
                 Main.dust[index2].velocity = vector2_2;
             }
-            
+
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<PhantasmalBlast>(), 0, 0f, Projectile.owner);

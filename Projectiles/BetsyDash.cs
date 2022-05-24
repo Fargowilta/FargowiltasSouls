@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -75,14 +76,14 @@ namespace FargowiltasSouls.Projectiles
             player.immuneTime = Math.Max(player.immuneTime, 2);
             player.hurtCooldowns[0] = Math.Max(player.hurtCooldowns[0], 2);
             player.hurtCooldowns[1] = Math.Max(player.hurtCooldowns[1], 2);
-            
+
             if (Projectile.velocity != Vector2.Zero)
                 Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2;
 
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
                 for (int i = 0; i < 30; i++)
                 {
                     int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0, 0, 0, default, 2.5f);
@@ -99,7 +100,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
             for (int i = 0; i < 30; i++)
             {
                 int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0, 0, 0, default, 2.5f);

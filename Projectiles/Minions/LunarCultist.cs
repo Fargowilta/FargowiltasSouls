@@ -1,13 +1,14 @@
-using System;
-using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using FargowiltasSouls.EternityMode;
 using FargowiltasSouls.EternityMode.Content.Boss.HM;
 using FargowiltasSouls.Projectiles.Masomode;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Minions
 {
@@ -117,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             Projectile.velocity = Vector2.Zero;
                             if (Projectile.localAI[0] <= 30 && Projectile.localAI[0] % 10 == 0)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
                                 Vector2 spawn = Projectile.Center;
                                 spawn.X -= 30 * Projectile.spriteDirection;
                                 spawn.Y += 12f;
@@ -140,7 +141,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             Projectile.velocity = Vector2.Zero;
                             if (Projectile.localAI[0] == 15f)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item121, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item121, Projectile.position);
                                 Vector2 spawn = Projectile.Center;
                                 spawn.Y -= 100;
                                 if (Projectile.owner == Main.myPlayer)

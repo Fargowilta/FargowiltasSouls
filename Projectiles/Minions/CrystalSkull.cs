@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -96,7 +97,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 (new Vector2(Projectile.ai[0], Projectile.ai[1]) - Projectile.Center).ToRotation(), rotationModifier);
 
             Projectile.frame = 1;
-            
+
             if (Projectile.localAI[0] < 0) //attacking
             {
                 Projectile.localAI[0]++;
@@ -104,13 +105,13 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                 if (Projectile.localAI[0] % 5 == 0)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
                     if (Projectile.owner == Main.myPlayer)
                     {
                         FargoSoulsUtil.NewSummonProjectile(
                             Projectile.GetSource_FromThis(), Projectile.Center,
                             12f * Projectile.DirectionTo(Main.MouseWorld).RotatedByRandom(MathHelper.ToRadians(4)),
-                            ModContent.ProjectileType<ShadowflamesFriendly>(), Projectile.originalDamage, Projectile.knockBack, 
+                            ModContent.ProjectileType<ShadowflamesFriendly>(), Projectile.originalDamage, Projectile.knockBack,
                             Projectile.owner);
                     }
                 }
@@ -120,7 +121,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 clickTimer--;
 
                 Projectile.localAI[0]++;
-                
+
                 if (Projectile.localAI[0] == chargeTime * 2f)
                 {
                     if (Projectile.owner == Main.myPlayer)

@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You cannot heal at all");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变啃啄");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法恢复生命");
         }

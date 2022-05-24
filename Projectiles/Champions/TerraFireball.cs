@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -36,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
             }
             for (int index1 = 0; index1 < 2; ++index1)
             {
@@ -53,7 +54,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 30; i++)
             {

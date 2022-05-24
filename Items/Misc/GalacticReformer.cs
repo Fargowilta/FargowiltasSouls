@@ -1,8 +1,8 @@
+using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Projectiles;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Items.Misc
             CreateRecipe()
             .AddIngredient(ItemID.Dynamite, 500)
             .AddTile(TileID.Hellforge)
-            
+
             .Register();
         }
     }

@@ -1,11 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -27,7 +28,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.timeLeft = 300;
-            
+
             CooldownSlot = 1;
             Projectile.tileCollide = false;
         }
@@ -36,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         {
             if (Projectile.localAI[0] == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
 
                 for (int i = 0; i < 5; i++)
                 {

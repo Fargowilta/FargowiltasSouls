@@ -1679,3 +1679,23 @@ removed the middle proj from adam ench splits to keep it "balanced"
 	trust me on this, halving iframes is already iffy enough, thirding it will shit the game
 	made the spread a bit tighter to compensate
 adam ench no longer crashes with whips
+fixed a conspicuously long delay after devi's mega ray in maso
+devi maso sparkling love doesnt have worse aim when youre behind her
+lihzahrd curse disables wrenches and blocks placing actuators better
+snatchers nerfed, gives you longer iframes to compensate grab
+fixed grabbed causing you to dash on escape if you input a dash at any point while mashing
+fixed zapinator being able to stack damage and do x100 or more after hitting many enemies
+fixed killing trojan squirrel causing a health bar to appear when it shouldnt
+tried fixing special boss spawners like the sibling spawners not always working in mp
+trojan squirrel drops 100 acorns
+fixed penetrator dive blast offset not working properly when upscaled by tungsten
+a truly genuinely unspeakable number of sound refactors because tml exploded a fundamental system again
+
+more sound refactors
+fixed space suffocation having the wrong sound effect
+zapinators have tooltip for nerf
+fixed armored skeletons hurting themselves with beam swords
+fixed a bug that caused maso prime to shoot stars at double the intended rate
+fishron p3 emode heals to 33%, was 50%
+fishron p3 maso heals to 50%, was 100%
+added abom relic

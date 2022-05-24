@@ -51,14 +51,14 @@ namespace FargowiltasSouls.Projectiles.Minions
 
             Projectile.ai[0]++;
             Projectile.alpha = (int)(Math.Cos(Projectile.ai[0] * MathHelper.TwoPi / 180) * 122.5 + 122.5);
-            if(Projectile.ai[0] == 180)
+            if (Projectile.ai[0] == 180)
             {
 
                 Projectile.Center = player.Center + Main.rand.NextVector2CircularEdge(300, 300);
                 Projectile.velocity = Projectile.DirectionTo(player.Center) * 8;
                 Projectile.netUpdate = true;
                 Projectile.ai[0] = 0;
-            }    
+            }
         }
     }
 }

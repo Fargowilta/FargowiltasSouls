@@ -1,13 +1,14 @@
 using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     Projectile.alpha = 0;
                     if (target != -1)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
                         Projectile.velocity = Main.player[target].Center - Projectile.Center;
                         float distance = Projectile.velocity.Length();
                         Projectile.velocity.Normalize();
@@ -169,7 +170,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             if (Main.LocalPlayer.active && !Main.dedServ)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             int type;
             switch ((int)Projectile.ai[0])
             {

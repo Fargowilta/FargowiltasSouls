@@ -1,12 +1,12 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.BossWeapons;
+﻿using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Items.Weapons.SwarmDrops;
+using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using FargowiltasSouls.Items.Materials;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
 {
@@ -59,7 +59,7 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             .AddIngredient(ModContent.ItemType<EternalEnergy>(), 15)
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

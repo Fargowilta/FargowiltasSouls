@@ -94,7 +94,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void Kill(int timeleft)
         {
-            //SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+            //SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 208;
             Projectile.Center = Projectile.position;

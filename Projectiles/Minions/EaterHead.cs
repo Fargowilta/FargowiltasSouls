@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -71,7 +71,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Player player = Main.player[Projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if ((int) Main.time % 120 == 0) Projectile.netUpdate = true;
+            if ((int)Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)
             {
                 Projectile.active = false;
@@ -176,7 +176,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             float num1049 = MathHelper.Clamp(Projectile.localAI[0], 0f, 50f);
             Projectile.position = Projectile.Center;
             Projectile.scale = 1f + num1049 * 0.01f;
-            Projectile.width = Projectile.height = (int) (num1038 * Projectile.scale);
+            Projectile.width = Projectile.height = (int)(num1038 * Projectile.scale);
             Projectile.Center = Projectile.position;
             if (Projectile.alpha > 0)
             {

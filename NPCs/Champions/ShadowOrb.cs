@@ -1,12 +1,12 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using System.IO;
-using Terraria.GameContent.ItemDropRules;
+using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -86,7 +86,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 NPC.netUpdate = true;
                 return;
             }
-            
+
             NPC.scale = (Main.mouseTextColor / 200f - 0.35f) * 0.2f + 0.95f;
             NPC.life = NPC.lifeMax;
 
@@ -134,7 +134,7 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.netUpdate = true;
             damage = 0;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
             const int num226 = 36;
             for (int num227 = 0; num227 < num226; num227++)

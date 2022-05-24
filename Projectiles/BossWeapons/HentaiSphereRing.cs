@@ -1,6 +1,6 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Terraria;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {

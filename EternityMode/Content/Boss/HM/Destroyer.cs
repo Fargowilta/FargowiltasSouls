@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -73,7 +74,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     AttackModeTimer = P2_COIL_BEGIN_TIME;
                     npc.netUpdate = true;
                     if (npc.HasPlayerTarget)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center);
                 }
             }
             else
@@ -284,9 +285,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 npc.netUpdate = true;
                                 NetSync(npc);
 
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center, 0);
+                                SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center);
                                 if (npc.life < npc.lifeMax / 10)
-                                    Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.player[npc.target].Center, -1); //eoc roar
+                                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.player[npc.target].Center); //eoc roar
 
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
@@ -312,7 +313,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 {
                                     AttackModeTimer = P2_COIL_BEGIN_TIME;
                                     NetSync(npc);
-                                    Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.player[npc.target].Center, -1); //eoc roar
+                                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.player[npc.target].Center); //eoc roar
                                 }
                             }
                             else
@@ -519,7 +520,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             }
                             else if (AttackModeTimer == P2_COIL_BEGIN_TIME - 120) //telegraph with roar
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center, 0);
+                                SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center);
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), 0, 0f, Main.myPlayer, 6, npc.whoAmI);
@@ -640,7 +641,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void ModifyHitByAnything(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit)
         {
             base.ModifyHitByAnything(npc, player, ref damage, ref knockback, ref crit);
-            
+
             if (IsCoiling)
             {
                 if (npc.life < npc.lifeMax / 10)
@@ -705,7 +706,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
     public class DestroyerSegment : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.TheDestroyerBody, NPCID.TheDestroyerTail);
-        
+
         public int ProjectileCooldownTimer;
         public int AttackTimer;
         public int ProbeReleaseTimer;
@@ -750,7 +751,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
 
             Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>();
-            
+
             npc.defense = npc.defDefense;
             npc.localAI[0] = 0f; //disable vanilla lasers
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = destroyer.buffImmune[ModContent.BuffType<TimeFrozen>()];
@@ -777,7 +778,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (AttackTimer > 1000)
                     AttackTimer = 1000;
             }
-            
+
             if (npc.ai[2] == 0) //shoot lasers
             {
                 if (++ProbeReleaseTimer > 60)
@@ -978,7 +979,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             {
                 OrbitChangeTimer = 0;
                 OrbitDirection = Main.rand.NextBool() ? 1 : -1;
-                
+
                 npc.netUpdate = true;
                 NetSync(npc);
             }
@@ -1077,7 +1078,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
             {
                 npc.active = false;
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 return false;
             }
 

@@ -44,16 +44,16 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.scale = 1;
 
             Player player = Main.player[Projectile.owner];
-            
+
             int target = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 2000);
-            
+
             if (++Projectile.ai[0] == 50) //spawn axe
             {
                 Projectile.netUpdate = true;
                 if (Projectile.owner == Main.myPlayer)
                 {
                     Vector2 offset = new Vector2(0, -275).RotatedBy(Math.PI / 4 * Projectile.spriteDirection);
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + offset, Vector2.Zero, ModContent.ProjectileType<SparklingLoveBig>(), 
+                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + offset, Vector2.Zero, ModContent.ProjectileType<SparklingLoveBig>(),
                         Projectile.originalDamage, Projectile.knockBack, Projectile.owner, 0f, Projectile.identity);
                 }
             }
@@ -73,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.direction = Projectile.spriteDirection = -Main.player[Projectile.owner].direction;
                     targetPos = Main.player[Projectile.owner].Center + new Vector2(100 * Projectile.direction, -100);
                 }
-                
+
                 if (Projectile.Distance(targetPos) > 50)
                     Movement(targetPos, 1f);
             }

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -110,8 +110,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                 if (Projectile.owner == Main.myPlayer)
                     Projectile.Damage();
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
 
                 for (int i = 0; i < 20; i++)
                 {

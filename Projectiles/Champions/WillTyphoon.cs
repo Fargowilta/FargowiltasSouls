@@ -1,10 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -49,7 +49,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                     Projectile.frame = 0;
             }
         }
-        
+
         public override void Kill(int timeLeft)
         {
             int num1 = 36;

@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using FargowiltasSouls.Items;
-using Terraria.DataStructures;
 
 namespace FargowiltasSouls.Patreon.DevAesthetic
 {

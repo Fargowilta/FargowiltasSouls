@@ -58,7 +58,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerTwins"))
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

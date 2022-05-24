@@ -1,7 +1,8 @@
-﻿using System;
-using FargowiltasSouls.Buffs.Masomode;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,8 +13,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public DeviBigDeathray() : base(180, "DeviDeathray") { }
 
         public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
+        {
+            base.SetStaticDefaults();
 
             DisplayName.SetDefault("Love Ray");
         }
@@ -50,7 +51,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 17f;
             Projectile.localAI[0] += 1f;
@@ -138,7 +139,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 2);
             target.AddBuff(ModContent.BuffType<Lovestruck>(), 360);
             target.AddBuff(ModContent.BuffType<Defenseless>(), 1800);
-            
+
             target.velocity.X = 0;
             target.velocity.Y = -0.4f;
         }

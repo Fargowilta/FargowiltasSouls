@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -39,7 +38,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.Kill();
                 return;
             }
-            
+
             if (++Projectile.localAI[0] > 4)
             {
                 Projectile.localAI[0] = 0;
@@ -48,7 +47,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 {
                     Vector2 spawnPos = Projectile.Center + Projectile.ai[1] * Projectile.localAI[1] * i * Vector2.UnitX;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, spawnPos, 14);
+                    SoundEngine.PlaySound(SoundID.Item14, spawnPos);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero, ProjectileID.DD2ExplosiveTrapT3Explosion, Projectile.damage, 0f, Main.myPlayer);

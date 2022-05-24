@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.GameContent.Creative;
+using Terraria.Audio;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -232,7 +232,7 @@ namespace FargowiltasSouls
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendData(MessageID.WorldData);
                     if (!Main.dedServ)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
                 }
                 else if (!EternityMode && FargoSoulsUtil.WorldIsExpertOrHarder())
                 {
@@ -241,7 +241,7 @@ namespace FargowiltasSouls
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendData(MessageID.WorldData);
                     if (!Main.dedServ)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
                 }
             }
             else if (EternityMode)
@@ -251,7 +251,7 @@ namespace FargowiltasSouls
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData);
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
             }
 
             if (EternityMode)
@@ -283,7 +283,7 @@ namespace FargowiltasSouls
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendData(MessageID.WorldData);
                     if (!Main.dedServ)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
                 }
             }
 
@@ -294,7 +294,7 @@ namespace FargowiltasSouls
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData);
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
             }
 
             //Main.NewText(BuilderMode);
@@ -304,7 +304,7 @@ namespace FargowiltasSouls
             //right when day starts
             /*if(/*Main.time == 0 && Main.dayTime && !Main.eclipse && FargoSoulsWorld.masochistMode)
             {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, player.Center);
 
                     if (Main.netMode == NetmodeID.SinglePlayer)
                     {
@@ -322,7 +322,7 @@ namespace FargowiltasSouls
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 361 && Main.CanStartInvasion(1, true))
             // {
             // this.itemTime = item.useTime;
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // if (Main.netMode != NetmodeID.MultiplayerClient)
             // {
             // if (Main.invasionType == 0)
@@ -339,7 +339,7 @@ namespace FargowiltasSouls
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 602 && Main.CanStartInvasion(2, true))
             // {
             // this.itemTime = item.useTime;
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // if (Main.netMode != NetmodeID.MultiplayerClient)
             // {
             // if (Main.invasionType == 0)
@@ -356,7 +356,7 @@ namespace FargowiltasSouls
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1315 && Main.CanStartInvasion(3, true))
             // {
             // this.itemTime = item.useTime;
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // if (Main.netMode != NetmodeID.MultiplayerClient)
             // {
             // if (Main.invasionType == 0)
@@ -373,7 +373,7 @@ namespace FargowiltasSouls
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1844 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
             // {
             // this.itemTime = item.useTime;
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // if (Main.netMode != NetmodeID.MultiplayerClient)
             // {
             // Main.NewText(Lang.misc[31], 50, 255, 130, false);
@@ -387,7 +387,7 @@ namespace FargowiltasSouls
 
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 3601 && NPC.downedGolemBoss && Main.hardMode && !NPC.AnyDanger() && !NPC.AnyoneNearCultists())
             // {
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // this.itemTime = item.useTime;
             // if (Main.netMode == NetmodeID.SinglePlayer)
             // {
@@ -401,7 +401,7 @@ namespace FargowiltasSouls
             // if (this.itemTime == 0 && this.itemAnimation > 0 && item.type == 1958 && !Main.dayTime && !Main.pumpkinMoon && !Main.snowMoon && !DD2Event.Ongoing)
             // {
             // this.itemTime = item.useTime;
-            // Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, this.Center, 0);
+            // SoundEngine.PlaySound(SoundID.Roar, this.Center);
             // if (Main.netMode != NetmodeID.MultiplayerClient)
             // {
             // Main.NewText(Lang.misc[34], 50, 255, 130, false);
@@ -428,12 +428,12 @@ namespace FargowiltasSouls
 
             bool TryPlacingStatue(int baseCheckX, int baseCheckY)
             {
-                List<int> legalBlocks = new List<int> { 
-                    TileID.Stone, 
+                List<int> legalBlocks = new List<int> {
+                    TileID.Stone,
                     TileID.Grass,
                     TileID.Dirt,
                     TileID.SnowBlock,
-                    TileID.IceBlock, 
+                    TileID.IceBlock,
                     TileID.ClayBlock,
                     TileID.Mud,
                     TileID.JungleGrass,

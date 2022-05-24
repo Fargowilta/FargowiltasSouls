@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles.BossWeapons;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.BossWeapons;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -92,7 +92,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerTwins"))
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

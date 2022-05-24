@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.rotation = Main.rand.NextFloat(0, (float)Math.PI * 2);
                 Projectile.hide = false;
             }
-            
+
             if (--Projectile.ai[0] > 0)
             {
                 Projectile.tileCollide = false;
@@ -63,7 +64,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                         Projectile.velocity = Projectile.velocity.RotatedBy(rotation);
                     }
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                 }
             }
             else
@@ -78,7 +79,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
 
             for (int index1 = 0; index1 < 20; ++index1)
             {

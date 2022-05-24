@@ -1,10 +1,10 @@
+using FargowiltasSouls.Projectiles.Challengers;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.Audio;
 using Terraria.ID;
-using FargowiltasSouls.Projectiles.Challengers;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                         {
                             body.velocity.X *= 0.9f;
                             if (NPC.ai[1] % teabagInterval == 0)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit41, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.NPCHit41, NPC.Center);
                         }
 
                         NPC.ai[1]++;
@@ -145,7 +145,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                             for (int i = 0; i < 2; i++)
                             {
                                 Vector2 pos = GetShootPos();
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, pos);
+                                SoundEngine.PlaySound(SoundID.Item11, pos);
                                 for (int j = 0; j < 20; j++)
                                 {
                                     int d = Dust.NewDust(pos, 0, 0, DustID.SnowBlock, Scale: 3f);
@@ -160,7 +160,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                         {
                             Vector2 pos = GetShootPos();
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, pos);
+                            SoundEngine.PlaySound(SoundID.Item11, pos);
 
                             float ratio = (NPC.ai[1] - start) / (end - start);
 

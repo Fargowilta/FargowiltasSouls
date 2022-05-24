@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Patreon.Catsounds
                             }
                         }
                     }
-                    
+
                 }
             }
             else if (Projectile.velocity.Y > 0)

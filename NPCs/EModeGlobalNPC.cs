@@ -1,4 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Placeables;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +11,6 @@ using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Placeables;
 
 namespace FargowiltasSouls.NPCs
 {
@@ -80,7 +80,7 @@ namespace FargowiltasSouls.NPCs
             if (!FargoSoulsWorld.EternityMode) return;
 
             npc.value = (int)(npc.value * 1.3);
-            
+
             //VERY old masomode boss scaling numbers, leaving here in case we ever want to do the funny again
             // +2.5% hp each kill 
             // +1.25% damage each kill
@@ -316,7 +316,7 @@ namespace FargowiltasSouls.NPCs
                         pool[NPCID.LeechHead] = .05f;
                         pool[NPCID.BlazingWheel] = .1f;
                         //if (!FargoSoulsUtil.BossIsAlive(ref wallBoss, NPCID.WallofFlesh))
-                            //pool[NPCID.RedDevil] = .025f;
+                        //pool[NPCID.RedDevil] = .025f;
                     }
                     else if (sky)
                     {
@@ -386,7 +386,7 @@ namespace FargowiltasSouls.NPCs
                                 if (NPC.downedMechBossAny && (noBiome || dungeon))
                                     pool[NPCID.CultistArcherWhite] = .01f;
 
-                                if(jungle)
+                                if (jungle)
                                     pool[NPCID.Parrot] = .05f;
 
                             }
@@ -410,7 +410,7 @@ namespace FargowiltasSouls.NPCs
                                     }
                                 }*/
                             }
-                            
+
                             if (noInvasion && !oldOnesArmy && !sinisterIcon)
                                 pool[NPCID.Clown] = 0.01f;
 
@@ -545,7 +545,7 @@ namespace FargowiltasSouls.NPCs
                             {
                                 pool[NPCID.CreatureFromTheDeep] = .02f;
                             }
-                           
+
                             pool[NPCID.PigronCorruption] = .01f;
                             pool[NPCID.PigronCrimson] = .01f;
                             pool[NPCID.PigronHallow] = .01f;
@@ -649,7 +649,7 @@ namespace FargowiltasSouls.NPCs
                         {
                             pool[NPCID.BlazingWheel] = .05f;
                         }
-                        
+
                         if (NPC.downedPlantBoss)// && !spawnInfo.player.GetModPlayer<FargoSoulsPlayer>().SkullCharm)
                         {
                             pool[NPCID.DiabolistRed] = .001f;

@@ -88,7 +88,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     }
                 }
             }
-            
+
             if ((Projectile.ai[1] != 2 || Projectile.localAI[1] > 0) //dont give invul on the tick it spawns for dive
                 && Projectile.localAI[0] == 0) //only give invul with a full speed dash
             {
@@ -149,9 +149,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             //successful dive
             if (Projectile.owner == Main.myPlayer && Projectile.ai[1] == 2 && Projectile.localAI[1] > 2 && timeLeft > 0)
             {
-                Vector2 spawnPos = player.Center;
-                spawnPos.Y -= 144 * 1.5f;
-                Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), spawnPos, Vector2.Zero, ModContent.ProjectileType<HentaiNuke>(), Projectile.damage, Projectile.knockBack * 10f, Projectile.owner);
+                Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), player.Center, Vector2.Zero, ModContent.ProjectileType<HentaiNuke>(), Projectile.damage, Projectile.knockBack * 10f, Projectile.owner);
             }
         }
 

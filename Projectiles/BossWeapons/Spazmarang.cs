@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 }
             }
             //travel back to player
-            else 
+            else
             {
                 Projectile.extraUpdates = 0;
                 Projectile.velocity = Vector2.Normalize(Main.player[Projectile.owner].Center - Projectile.Center) * 45;
@@ -70,7 +70,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 hitSomething = true;
                 if (Projectile.owner == Main.myPlayer)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item74, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item74, Projectile.Center);
                     FargoSoulsUtil.XWay(12, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<EyeFireFriendly>(), 3, Projectile.damage / 2, Projectile.knockBack);
                 }
                 Projectile.ai[0] = 1;

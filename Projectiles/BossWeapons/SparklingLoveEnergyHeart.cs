@@ -2,13 +2,14 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     public class SparklingLoveEnergyHeart : ModProjectile
-    {   
+    {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Energy Heart");
@@ -26,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.aiStyle = -1;
-            
+
             Projectile.timeLeft = 90;
             Projectile.extraUpdates = 1;
 
@@ -40,7 +41,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             {
                 Projectile.localAI[0] = Projectile.Center.X;
                 Projectile.localAI[1] = Projectile.Center.Y;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item44, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item44, Projectile.Center);
             }
 
             Projectile.rotation = Projectile.ai[0];

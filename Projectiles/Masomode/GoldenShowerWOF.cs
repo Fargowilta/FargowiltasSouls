@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.localAI[1] == 0)
             {
                 Projectile.localAI[1] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item17, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item17, Projectile.Center);
             }
 
             /*for (int i = 0; i < 2; i++) //vanilla dusts
@@ -61,7 +62,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Main.dust[d].velocity += Projectile.velocity * 0.5f;
                 }
             }*/
-            
+
             if (--Projectile.ai[0] < 0)
                 Projectile.tileCollide = true;
 

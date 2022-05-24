@@ -1,8 +1,8 @@
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Toggler;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Items.Materials;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {

@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles
 {
@@ -62,7 +63,7 @@ namespace FargowiltasSouls.Projectiles
                     Projectile.velocity = Projectile.DirectionTo(n.Center + n.velocity * 10) * 32f;
                 }
             }
-            
+
             if (Projectile.alpha > 0)
             {
                 Projectile.alpha -= 20;
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void Kill(int timeleft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 208;
             Projectile.Center = Projectile.position;

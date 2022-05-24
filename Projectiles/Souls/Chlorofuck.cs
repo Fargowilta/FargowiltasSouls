@@ -1,60 +1,60 @@
-﻿using System;
-using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Souls
 {
-	public class Chlorofuck : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Chlorofuck");
+    public class Chlorofuck : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chlorofuck");
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.netImportant = true;
-			Projectile.width = 22;
-			Projectile.height = 42;
-			Projectile.friendly = true;
+        public override void SetDefaults()
+        {
+            Projectile.netImportant = true;
+            Projectile.width = 22;
+            Projectile.height = 42;
+            Projectile.friendly = true;
             Projectile.minion = true;
-			Projectile.DamageType = DamageClass.Summon;
-			Projectile.penetrate = -1; 
-			Projectile.timeLeft = 18000;
-			Projectile.tileCollide = false;
-			Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Summon;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 18000;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
-		}
-		
-		public override void AI()
+        }
+
+        public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-			FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-			if (player.whoAmI == Main.myPlayer && (player.dead || !(modPlayer.ChloroEnchantActive || modPlayer.TerrariaSoul) || !player.GetToggleValue("Chlorophyte")))
-			{
-				modPlayer.ChloroEnchantActive = false;
+            if (player.whoAmI == Main.myPlayer && (player.dead || !(modPlayer.ChloroEnchantActive || modPlayer.TerrariaSoul) || !player.GetToggleValue("Chlorophyte")))
+            {
+                modPlayer.ChloroEnchantActive = false;
                 Projectile.Kill();
-				Projectile.netUpdate = true;
+                Projectile.netUpdate = true;
                 return;
             }
 
-			Projectile.netUpdate = true;
+            Projectile.netUpdate = true;
 
             float cooldown = 50f;
-			
-			float num395 = Main.mouseTextColor / 200f - 0.35f;
-			num395 *= 0.2f;
-			Projectile.scale = num395 + 0.95f;
+
+            float num395 = Main.mouseTextColor / 200f - 0.35f;
+            num395 *= 0.2f;
+            Projectile.scale = num395 + 0.95f;
 
             if (true)
-			{
+            {
                 //rotation mumbo jumbo
                 float distanceFromPlayer = 75;
 
@@ -75,16 +75,16 @@ namespace FargowiltasSouls.Projectiles.Souls
 
                 //wait for CD
                 if (Projectile.ai[0] != 0f)
-				{
-					Projectile.ai[0] -= 1f;
-					return;
-				}
+                {
+                    Projectile.ai[0] -= 1f;
+                    return;
+                }
 
                 //trying to shoot
-				float num396 = Projectile.position.X;
-				float num397 = Projectile.position.Y;
-				float num398 = 700f;
-				bool flag11 = false;
+                float num396 = Projectile.position.X;
+                float num397 = Projectile.position.Y;
+                float num398 = 700f;
+                bool flag11 = false;
 
                 NPC npc = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 700, true));
                 if (npc != null)
@@ -96,23 +96,23 @@ namespace FargowiltasSouls.Projectiles.Souls
                 }
 
                 //shoot
-				if (flag11)
-				{
-					Vector2 vector29 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
-					float num404 = num396 - vector29.X;
-					float num405 = num397 - vector29.Y;
-					float num406 = (float)Math.Sqrt(num404 * num404 + num405 * num405);
-					num406 = 10f / num406;
-					num404 *= num406;
-					num405 *= num406;
+                if (flag11)
+                {
+                    Vector2 vector29 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+                    float num404 = num396 - vector29.X;
+                    float num405 = num397 - vector29.Y;
+                    float num406 = (float)Math.Sqrt(num404 * num404 + num405 * num405);
+                    num406 = 10f / num406;
+                    num404 *= num406;
+                    num405 *= num406;
                     if (Projectile.owner == Main.myPlayer)
-					    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(num404, num405), ProjectileID.CrystalLeafShot, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
-					Projectile.ai[0] = cooldown;
+                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(num404, num405), ProjectileID.CrystalLeafShot, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                    Projectile.ai[0] = cooldown;
                 }
-			}
+            }
 
-			if (Main.netMode == NetmodeID.Server)
-				Projectile.netUpdate = true;
+            if (Main.netMode == NetmodeID.Server)
+                Projectile.netUpdate = true;
         }
-	}
+    }
 }

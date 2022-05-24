@@ -1,13 +1,12 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.DeviBoss;
-using Terraria.GameContent.Bestiary;
-using System.Linq;
 using FargowiltasSouls.Projectiles.Champions;
-using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
+using System.Linq;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -45,12 +44,12 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.lifeMax = 1800;
-            
+
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 0f;
             NPC.knockBackResist = .1f;
-            
+
             AnimationType = NPCID.Squirrel;
 
             NPC.aiStyle = 7;
@@ -121,7 +120,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 for (int k = 0; k < 20; k++)
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, hitDirection, -1f);
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                 for (int i = 0; i < 20; i++)
                 {

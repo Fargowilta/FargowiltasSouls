@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
     public class RazorbladeTyphoon2 : RazorbladeTyphoon
     {
         public override string Texture => "Terraria/Images/Projectile_409";
-        
+
         public override void AI()
         {
             if (++Projectile.localAI[1] > 30 && Projectile.localAI[1] < 120)

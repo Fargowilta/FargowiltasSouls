@@ -4,6 +4,7 @@ using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -61,7 +62,7 @@ namespace FargowiltasSouls.Buffs
 
                 case BuffID.Dazed:
                     if (player.whoAmI == Main.myPlayer && player.buffTime[buffIndex] % 60 == 55)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/DizzyBird"));
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/DizzyBird"));
                     break;
 
                 case BuffID.SwordWhipPlayerBuff:
@@ -110,7 +111,7 @@ namespace FargowiltasSouls.Buffs
                             if (target.active && !target.friendly && Vector2.Distance(npc.Center, target.Center) < 250)
                             {
                                 Vector2 velocity = Vector2.Normalize(target.Center - npc.Center) * 5;
-                                Projectile.NewProjectile(npc.GetSource_Buff(buffIndex), npc.Center, velocity, ProjectileID.ShadowFlame, 40 +FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_Buff(buffIndex), npc.Center, velocity, ProjectileID.ShadowFlame, 40 + FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer);
                                 if (Main.rand.NextBool(3))
                                     break;
                             }

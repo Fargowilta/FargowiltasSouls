@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -80,7 +81,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -16 + scaleCounter);
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
                     }
                 }
 
@@ -95,8 +96,8 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             if (Projectile.timeLeft == 8)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -14);

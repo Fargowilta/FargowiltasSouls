@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.UI;
-using FargowiltasSouls.Toggler;
 using ReLogic.Graphics;
-using Terraria.Localization;
+using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.UI;
 
 namespace FargowiltasSouls.UI
 {
@@ -50,6 +50,6 @@ namespace FargowiltasSouls.UI
             position += new Vector2(0, Font.MeasureString(text).Y * 0.175f);
 
             Utils.DrawBorderString(spriteBatch, text, position, Color.White);
-        }        
+        }
     }
 }

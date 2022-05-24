@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -58,7 +59,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
                 if (headsStacked == maxHeadsStacked - 1)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit41, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.NPCHit41, Projectile.Center);
                     FargoSoulsUtil.DustRing(Projectile.Center, 96, 87, 12f, default, 2f);
                 }
 
@@ -72,7 +73,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.netUpdate = true;
                 }
             }
-            
+
             const int longestHomingDelay = 25;
             const float desiredFlySpeedInPixelsPerFrame = 48;
             const float amountOfFramesToLerpBy = 15; // minimum of 1, please keep in full numbers even though it's a float!
@@ -120,7 +121,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     //staggered launch
                     if (++Projectile.ai[1] > (player.ownedProjectileCounts[Projectile.type] - headsStacked) * 4)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit41, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.NPCHit41, Projectile.Center);
 
                         if (Projectile.owner == Main.myPlayer)
                         {
@@ -141,7 +142,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     if (Projectile.tileCollide)
                     {
                         Projectile.position = Projectile.Center;
-                        Projectile.width  = (int)(Projectile.width / 0.75f);
+                        Projectile.width = (int)(Projectile.width / 0.75f);
                         Projectile.height = (int)(Projectile.height / 0.75f);
                         Projectile.scale /= 0.75f;
                         Projectile.Center = Projectile.position;
@@ -208,7 +209,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.Damage();
             }
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int num615 = 0; num615 < 45; num615++)
             {

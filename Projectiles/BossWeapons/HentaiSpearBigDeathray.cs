@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -90,7 +91,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Zombie_104"), Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 10f;
 
@@ -180,7 +181,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             {
                 Projectile.ai[0] = 0;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, player.Center);
+                SoundEngine.PlaySound(SoundID.Item84, player.Center);
 
                 if (Projectile.owner == Main.myPlayer)
                 {

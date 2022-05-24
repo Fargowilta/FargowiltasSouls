@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Masomode
@@ -43,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (++Projectile.localAI[1] > 120) //fire frost wave
             {
                 Projectile.localAI[1] = 0f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vel = Projectile.DirectionTo(player.Center) * 7f;
@@ -52,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     {
                         Vector2 velocity = vel.RotatedBy(MathHelper.ToRadians(4) * i);
                         velocity.X = (player.Center.X - Projectile.Center.X) / 100f;
-                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), Projectile.Center, 
+                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), Projectile.Center,
                             velocity, ProjectileID.FrostWave, Projectile.damage, Projectile.knockBack, Projectile.owner);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = 101;

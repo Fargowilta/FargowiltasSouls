@@ -1,9 +1,10 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
+﻿using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
-using FargowiltasSouls.Projectiles.BossWeapons;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -48,7 +49,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             if (--skullTimer < 0)
             {
                 skullTimer = 5;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot);
+                SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot);
                 //float ai = Main.rand.NextFloat((float)Math.PI * 2);
                 /*for (int i = 0; i <= 4; i++)
                 {
@@ -80,7 +81,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerBetsy"))
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

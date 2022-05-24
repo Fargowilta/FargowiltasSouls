@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Pets;
+using FargowiltasSouls.Projectiles.Pets;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Pets;
-using FargowiltasSouls.Projectiles.Pets;
 
 namespace FargowiltasSouls.Items.Pets
 {

@@ -1,10 +1,9 @@
-using Terraria;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.Localization;
-using Terraria.ID;
 using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -15,9 +14,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Arch Wizard's Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巫师之魂");
-            
+
             string tooltip =
 @"30% increased magic damage
 20% increased spell casting speed
@@ -36,7 +35,7 @@ Effects of Celestial Cuffs and Mana Flower
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
 
         }
-        
+
         protected override Color? nameColor => new Color(255, 83, 255);
 
         public override void UpdateAccessory(Player player, bool hideVisual)

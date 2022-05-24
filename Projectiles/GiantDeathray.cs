@@ -1,11 +1,10 @@
-﻿using System;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ID;
+using Terraria.Audio;
 using Terraria.ModLoader;
-using Terraria.Enums;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles
 {
@@ -57,7 +56,7 @@ namespace FargowiltasSouls.Projectiles
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Zombie_104").WithVolume(0.5f), Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104") { Volume = 0.5f }, Projectile.Center);
             }
             float num801 = 10f;
             Projectile.localAI[0] += 1f;
@@ -135,7 +134,7 @@ namespace FargowiltasSouls.Projectiles
             if (Main.rand.NextBool(10))
                 Projectile.spriteDirection *= -1;
         }
-        
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);

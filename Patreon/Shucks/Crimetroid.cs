@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Patreon.Shucks
             {
                 modPlayer.Crimetroid = false;
             }
-            
+
             if (modPlayer.Crimetroid)
             {
                 Projectile.timeLeft = 2;

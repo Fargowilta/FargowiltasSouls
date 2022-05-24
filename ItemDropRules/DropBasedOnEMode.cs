@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.ItemDropRules.Conditions
 {
@@ -20,9 +18,9 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
         }
 
         public bool CanDrop(DropAttemptInfo info)
-		{
-			return FargoSoulsWorld.EternityMode ? ruleForEMode.CanDrop(info) : ruleForDefault.CanDrop(info);
-		}
+        {
+            return FargoSoulsWorld.EternityMode ? ruleForEMode.CanDrop(info) : ruleForDefault.CanDrop(info);
+        }
 
         public void ReportDroprates(List<DropRateInfo> drops, DropRateInfoChainFeed ratesInfo)
         {

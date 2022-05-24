@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             if (++Projectile.localAI[0] > 90 && ++Projectile.localAI[1] > 60) //fire frost wave
             {
                 Projectile.localAI[1] = 0f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vel = Projectile.DirectionTo(player.Center) * 7f;

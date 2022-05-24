@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles.Minions;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using FargowiltasSouls.Projectiles.Minions;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

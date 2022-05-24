@@ -1,10 +1,9 @@
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Toggler;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -16,9 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Sniper's Soul");
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "神枪手之魂");
-            
+
             string tooltip =
 @"30% increased ranged damage
 20% chance to not consume ammo
@@ -37,7 +36,7 @@ Effects of Sniper Scope
 
         }
 
-        
+
 
         protected override Color? nameColor => new Color(188, 253, 68);
 
@@ -66,7 +65,7 @@ hive pack*/
             .AddIngredient(ItemID.BoneGlove)
             .AddIngredient(ItemID.MoltenQuiver)
             .AddIngredient(ItemID.StalkersQuiver)
-            .AddIngredient(ItemID.ReconScope) 
+            .AddIngredient(ItemID.ReconScope)
 
             .AddIngredient(ItemID.DartPistol)
             .AddIngredient(ItemID.Megashark)

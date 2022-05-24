@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Deathrays
 {
@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
             /*if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }*/
             float num801 = 0.3f;
             Projectile.localAI[0] += 1f;
@@ -58,7 +58,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<PhantasmalDeathrayML>(), 
+                    Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<PhantasmalDeathrayML>(),
                         Projectile.damage, Projectile.knockBack, Projectile.owner, 0, Projectile.ai[1]);
                 }
 

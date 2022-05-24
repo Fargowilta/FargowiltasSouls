@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using FargowiltasSouls.Projectiles.Souls;
 using Microsoft.Xna.Framework;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Souls;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
 {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Buffs.Souls
             DisplayName.SetDefault("Shell Hide");
             Description.SetDefault("Projectiles are being blocked,");
             Main.debuff[Type] = true;
-            Main.buffNoSave[Type] = true; 
+            Main.buffNoSave[Type] = true;
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "缩壳");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "阻挡抛射物,但受到双倍接触伤害");

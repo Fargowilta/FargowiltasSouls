@@ -42,7 +42,7 @@ Increases your life regeneration");
             .AddIngredient(ItemID.SpectreBar, 9)
             .AddIngredient(ItemID.SpookyWood, 150)
             .AddTile(TileID.LunarCraftingStation)
-            
+
             .Register();
         }
     }

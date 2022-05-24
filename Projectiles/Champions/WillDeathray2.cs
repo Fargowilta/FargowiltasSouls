@@ -1,9 +1,10 @@
-﻿using System;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
-using Terraria.ID;
+using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -43,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Zombie_104"), new Vector2(Projectile.Center.X, Main.LocalPlayer.Center.Y));
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104"), new Vector2(Projectile.Center.X, Main.LocalPlayer.Center.Y));
             }
             float num801 = 10f;
             Projectile.localAI[0] += 1f;

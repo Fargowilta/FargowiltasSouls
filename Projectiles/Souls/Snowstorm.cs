@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.NPCs;
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Toggler;
 
 namespace FargowiltasSouls.Projectiles.Souls
 {
@@ -88,7 +88,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
                 Projectile proj = Main.projectile[i];
-                
+
 
                 if (proj.active && proj.hostile && proj.damage > 0 && Projectile.Distance(FargoSoulsUtil.ClosestPointInHitbox(proj, Projectile.Center)) < dist && FargoSoulsUtil.CanDeleteProjectile(proj))
                 {

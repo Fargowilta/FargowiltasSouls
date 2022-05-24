@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Champions
@@ -56,8 +57,8 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Vector2 spawnPos = Projectile.Center;
                 if (Projectile.ai[0] == 0f)
                     spawnPos += Projectile.velocity * 3000;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, spawnPos);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, spawnPos, 14);
+                SoundEngine.PlaySound(SoundID.Item12, spawnPos);
+                SoundEngine.PlaySound(SoundID.Item14, spawnPos);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

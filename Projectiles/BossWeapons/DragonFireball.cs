@@ -2,9 +2,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Graphics.Shaders;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -71,7 +72,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             if (Projectile.owner == Main.myPlayer)
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DragonFireballBoom>(), 0, 0, Main.myPlayer);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_BetsysWrathImpact, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.DD2_BetsysWrathImpact, Projectile.Center);
 
             for (int i = 0; i < 30; i++)
             {
@@ -127,7 +128,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     lerpamount = 0.6f;
                 if (i >= 5)
                     lerpamount = 0.8f;
-                    
+
                 Color color27 = Color.Lerp(Color.Fuchsia, Color.Black, lerpamount) * 0.75f * 0.5f;
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 float scale = Projectile.scale * (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];

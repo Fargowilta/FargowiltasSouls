@@ -1,9 +1,10 @@
 ﻿using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -55,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Main.player[Main.myPlayer].Center, 104);
+                SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Main.player[Main.myPlayer].Center);
             }
             float num801 = 10f;
             Projectile.localAI[0] += 1f;

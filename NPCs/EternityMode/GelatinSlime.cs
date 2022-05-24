@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Graphics.Shaders;
 using FargowiltasSouls.EternityMode;
 using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {
@@ -93,12 +93,12 @@ namespace FargowiltasSouls.NPCs.EternityMode
                         for (int i = 0; i < 20; i++)
                         {
                             Projectile.NewProjectile(
-                                NPC.GetSource_FromThis(), 
-                                NPC.Center, 
-                                new Vector2(Main.rand.NextFloat(-0.5f, 0.5f), Main.rand.NextFloat(-maxSpeed, -4)), 
-                                ProjectileID.QueenSlimeMinionBlueSpike, 
-                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 
-                                0f, 
+                                NPC.GetSource_FromThis(),
+                                NPC.Center,
+                                new Vector2(Main.rand.NextFloat(-0.5f, 0.5f), Main.rand.NextFloat(-maxSpeed, -4)),
+                                ProjectileID.QueenSlimeMinionBlueSpike,
+                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f),
+                                0f,
                                 Main.myPlayer);
                         }
                     }
@@ -115,7 +115,8 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override bool CheckDead()
         {
-            Terraria.Audio.SoundEngine.PlaySound(NPC.DeathSound, NPC.Center);
+            if (NPC.DeathSound != null)
+                SoundEngine.PlaySound(NPC.DeathSound.Value, NPC.Center);
             NPC.active = false;
 
             return false;

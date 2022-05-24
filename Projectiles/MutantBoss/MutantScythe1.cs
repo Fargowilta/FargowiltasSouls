@@ -1,5 +1,4 @@
 ﻿using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -31,7 +30,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.ignoreWater = true;
             Projectile.aiStyle = -1;
             CooldownSlot = 1;
-            
+
             Projectile.hide = true;
         }
 
@@ -63,7 +62,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             /*if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }*/
             if (Projectile.rotation == 0)
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);

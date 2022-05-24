@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -59,14 +60,14 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     spawnPos.Y = (Projectile.localAI[0] > 0 ? Main.maxTilesY * 16 - 16 : Main.maxTilesY * 16 - 200 * 16) - Projectile.Center.Y;
                     spawnPos.X = spawnPos.Y * (float)Math.Tan(Main.rand.NextFloat(-angle, angle));
                     spawnPos += Projectile.Center;
-                    
+
                     Vector2 vel = Main.rand.NextFloat(0.8f, 1.2f) * (Projectile.Center - spawnPos) / 90;
                     if (vel.Length() < 10f)
                         vel = Vector2.Normalize(vel) * Main.rand.NextFloat(10f, 15f);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         Projectile.NewProjectile(Projectile.InheritSource(Projectile), spawnPos, vel, ModContent.ProjectileType<WOFChain>(), Projectile.damage, 0f, Main.myPlayer);
-
-                    Terraria.Audio.SoundEngine.PlaySound(4, (int)Projectile.Center.X, (int)Projectile.Center.Y, 13, volumeScale: 0.5f);
+                    
+                    SoundEngine.PlaySound(SoundID.NPCDeath13 with { Volume = 0.5f }, Projectile.Center);
 
                     Projectile.localAI[0] *= -1;
                 }

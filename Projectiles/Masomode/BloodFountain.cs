@@ -1,12 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using FargowiltasSouls.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using Microsoft.Xna.Framework.Graphics;
-using System.Linq;
-using FargowiltasSouls.Dusts;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {

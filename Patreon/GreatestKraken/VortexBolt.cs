@@ -5,7 +5,7 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
 {
     public class VortexBolt : Projectiles.LightningArc
     {
-		public override string Texture => "Terraria/Images/Projectile_466";
+        public override string Texture => "Terraria/Images/Projectile_466";
 
         public override void SetStaticDefaults()
         {

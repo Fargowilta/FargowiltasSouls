@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +25,7 @@ namespace FargowiltasSouls.Items
             if (!FargoSoulsWorld.EternityMode)
                 return base.CanUseItem(item, player);
 
-            if (item.type == ItemID.RodofDiscord || item.type == ItemID.WireKite || item.type == ItemID.WireCutter)
+            if (item.type == ItemID.RodofDiscord || item.type == ItemID.WireKite || item.type == ItemID.WireCutter || item.type == ItemID.Wrench || item.type == ItemID.BlueWrench || item.type == ItemID.GreenWrench || item.type == ItemID.MulticolorWrench || item.type == ItemID.YellowWrench || item.type == ItemID.Actuator)
             {
                 //either player is affected by lihzahrd curse, or cursor is targeting a place in temple (player standing outside)
                 if (player.GetModPlayer<FargoSoulsPlayer>().LihzahrdCurse || (Framing.GetTileSafely(Main.MouseWorld).WallType == WallID.LihzahrdBrickUnsafe && !player.buffImmune[ModContent.BuffType<Buffs.Masomode.LihzahrdCurse>()]))
@@ -149,6 +145,11 @@ namespace FargowiltasSouls.Items
 
                 case ItemID.VampireKnives:
                     tooltips.Add(new TooltipLine(Mod, "masoNerf3", "[c/ff0000:Eternity Mode:] Reduced lifesteal rate when above 33% life"));
+                    break;
+
+                case ItemID.ZapinatorGray:
+                case ItemID.ZapinatorOrange:
+                    tooltips.Add(new TooltipLine(Mod, "masoNerf3", "[c/ff0000:Eternity Mode:] Cannot stack damage multipliers"));
                     break;
 
                 //case ItemID.EmpressBlade:

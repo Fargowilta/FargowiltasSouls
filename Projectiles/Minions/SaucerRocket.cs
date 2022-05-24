@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -113,7 +114,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (Projectile.penetrate > -1)
             {
                 Projectile.penetrate = -1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                 Projectile.position = Projectile.Center;
                 Projectile.width = Projectile.height = 112;
                 Projectile.position.X -= (float)(Projectile.width / 2);

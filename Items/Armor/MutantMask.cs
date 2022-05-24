@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Minions;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
-using FargowiltasSouls.Buffs.Minions;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -87,7 +87,7 @@ Increases max number of minions and sentries by 10
             .AddIngredient(null, "AbomEnergy", 10)
             .AddIngredient(null, "EternalEnergy", 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

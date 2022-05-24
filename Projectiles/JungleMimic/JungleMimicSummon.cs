@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using FargowiltasSouls.Buffs.Minions;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using FargowiltasSouls.Buffs.Minions;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.JungleMimic
 {
@@ -68,13 +69,13 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
                     if (targetNPC != null)
                     {
                         Vector2 shootVel = Projectile.DirectionTo(targetNPC.Center);
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootVel * 14f + targetNPC.velocity/2, ModContent.ProjectileType<JungleMimicSummonCoin>(), Projectile.originalDamage / 4, Projectile.knockBack, Main.myPlayer);
+                        SoundEngine.PlaySound(SoundID.Item11, Projectile.Center);
+                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootVel * 14f + targetNPC.velocity / 2, ModContent.ProjectileType<JungleMimicSummonCoin>(), Projectile.originalDamage / 4, Projectile.knockBack, Main.myPlayer);
                     }
                 }
             }
 
-            if(counter > 180)
+            if (counter > 180)
             {
                 if (counter > 300)
                     counter = 0;
@@ -86,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
                     {
                         Projectile.frameCounter++;
                         trailbehind = true;
-                        if(Projectile.frameCounter > 8)
+                        if (Projectile.frameCounter > 8)
                         {
                             Projectile.frame++;
                             if (Projectile.frame > 5)
@@ -145,7 +146,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i];
                 float num165 = Projectile.oldRot[i];
-                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
+                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                     color27, num165, origin2, Projectile.scale, Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             }
 
@@ -157,4 +158,3 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
     }
 }
 
-   

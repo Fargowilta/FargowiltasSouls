@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Terraria;
 using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
 namespace FargowiltasSouls.Patreon.Purified
 {
     public class PrimeMinionBuff : ModBuff

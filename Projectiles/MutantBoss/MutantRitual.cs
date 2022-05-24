@@ -4,6 +4,7 @@ using FargowiltasSouls.Buffs.Souls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
@@ -82,7 +83,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (FargoSoulsWorld.MasochistModeReal && Main.npc[NPCs.EModeGlobalNPC.mutantBoss].ai[0] == -5)
                 {
                     if (!target.HasBuff(ModContent.BuffType<TimeFrozen>()))
-                        Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/ZaWarudo"), target.Center);
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ZaWarudo"), target.Center);
                     target.AddBuff(ModContent.BuffType<TimeFrozen>(), 300);
                 }
             }

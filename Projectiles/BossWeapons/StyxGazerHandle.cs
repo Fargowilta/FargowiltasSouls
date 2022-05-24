@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
             //if (Projectile.localAI[0] == 0f)
             //{
-             //   Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, (int)Projectile.Center.X, (int)Projectile.Center.Y, 104, 0.6f, 0);
+            //   SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104") with { Volume = 0.6f, Pitch = 0 }, Projectile.Center);
             //}
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

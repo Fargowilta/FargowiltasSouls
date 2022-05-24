@@ -65,8 +65,8 @@ namespace FargowiltasSouls.Patreon.Duck
                 Projectile.frame = Main.rand.Next(15);
                 if (!Main.dedServ)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Railgun"), Projectile.Center);
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder"), player.Center + Projectile.velocity * Math.Min(Main.screenWidth / 2, 900f));
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Railgun"), Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder"), player.Center + Projectile.velocity * Math.Min(Main.screenWidth / 2, 900f));
                 }
 
                 Vector2 dustPos = player.Center + Projectile.velocity * 50f;
@@ -105,7 +105,7 @@ namespace FargowiltasSouls.Patreon.Duck
                     Main.gore[gore].velocity += player.velocity / 2;
                 }
             }
-            
+
             if (++Projectile.localAI[0] >= maxTime)
             {
                 Projectile.Kill();
@@ -232,7 +232,7 @@ namespace FargowiltasSouls.Patreon.Duck
             ArmorShaderData shader = GameShaders.Armor.GetShaderFromItemId(ItemID.BrightYellowDye);
             shader.Apply(Projectile, new Terraria.DataStructures.DrawData?());
 
-            SpriteEffects spriteEffects = Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally: SpriteEffects.None;
+            SpriteEffects spriteEffects = Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             Texture2D texture2D19 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
             Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}2", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;

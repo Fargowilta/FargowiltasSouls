@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -276,7 +277,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
             {
                 Projectile.localAI[1] = 60;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center); //rings on hit
+                SoundEngine.PlaySound(SoundID.Item84, Projectile.Center); //rings on hit
                 if (Projectile.owner == Main.myPlayer)
                 {
                     int modifier = Main.rand.NextBool() ? -1 : 1;
@@ -311,7 +312,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
 
             Color color26 = lightColor;
             color26 = Projectile.GetAlpha(color26);
-            
+
             SpriteEffects effects = Projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)

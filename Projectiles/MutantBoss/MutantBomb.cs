@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Boss;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -64,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.localAI[0] = 1;
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
                 for (int i = 0; i < 2; i++)
                 {
                     int dust = Dust.NewDust(Projectile.position, Projectile.width,
@@ -88,9 +89,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                         Projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
                     Main.dust[dust].velocity *= 3f;
                 }
-                
+
                 float scaleFactor9 = 0.5f;
-                
+
                 int gore = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center,
                     default(Vector2),
                     Main.rand.Next(61, 64));

@@ -1,7 +1,8 @@
-﻿using System;
-using FargowiltasSouls.Buffs.Masomode;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,11 +13,11 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public DeviLightBeam() : base(30 * 2, "AbomDeathray") { }
 
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Light Ray");
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -52,8 +53,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                //SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 0.3f;
             Projectile.localAI[0] += 1f;

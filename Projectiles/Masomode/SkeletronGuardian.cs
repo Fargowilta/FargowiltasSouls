@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.rotation = Main.rand.NextFloat(0, 2 * (float)Math.PI);
                 Projectile.hide = false;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
 
                 for (int i = 0; i < 50; i++)
                 {
@@ -66,7 +67,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                         Projectile.ai[1] = p; //now used for tracking player
                         Projectile.netUpdate = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                     }
                     else
                     {

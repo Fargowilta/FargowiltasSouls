@@ -1,10 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -80,7 +80,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     target.statLife += 1;
                     target.HealEffect(1);
                 }
-  
+
                 Projectile.timeLeft = 0;
             }
             return false;

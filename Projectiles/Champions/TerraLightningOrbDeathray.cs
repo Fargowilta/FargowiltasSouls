@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
-using Terraria.ID;
+using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             }
             /*if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
             }*/
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] >= maxTime)
@@ -51,7 +51,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.Kill();
                 return;
             }
-            Projectile.scale = 0.4f + (float)Math.Sin(Projectile.localAI[0]/4) * 0.15f;
+            Projectile.scale = 0.4f + (float)Math.Sin(Projectile.localAI[0] / 4) * 0.15f;
             float num804 = Projectile.velocity.ToRotation();
             //num804 += Projectile.ai[0];
             Projectile.rotation = num804 - 1.57079637f;

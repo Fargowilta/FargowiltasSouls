@@ -15,7 +15,7 @@ namespace FargowiltasSouls.UI
 
         static UIToggleList()
         {
-            field_innerList = typeof(UIList).GetField("_innerList", BindingFlags.Instance|BindingFlags.NonPublic);
+            field_innerList = typeof(UIList).GetField("_innerList", BindingFlags.Instance | BindingFlags.NonPublic);
             method_uiElementAppend = typeof(UIElement).GetMethod("Append", BindingFlags.Instance | BindingFlags.Public);
             method_uiElementRecalcuate = typeof(UIElement).GetMethod("Recalculate", BindingFlags.Instance | BindingFlags.Public);
             method_uiElementRemoveChild = typeof(UIElement).GetMethod("RemoveChild", BindingFlags.Instance | BindingFlags.Public);

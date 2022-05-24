@@ -1,7 +1,8 @@
-﻿using System;
-using FargowiltasSouls.Buffs.Masomode;
+﻿using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,15 +37,15 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
 
             maxTime = (int)Projectile.ai[1];
-            
+
             if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.DeerclopsScream, Projectile.Center);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.DeerclopsRubbleAttack, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.DeerclopsScream, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.DeerclopsRubbleAttack, Projectile.Center);
             }
             float num801 = 0.25f;
             Projectile.localAI[0] += 1f;

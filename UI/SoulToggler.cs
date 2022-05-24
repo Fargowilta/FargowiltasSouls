@@ -1,15 +1,15 @@
 ﻿using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
-using System.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
-using Terraria.UI;
-using System;
 using Terraria.Localization;
+using Terraria.UI;
 using Terraria.UI.Chat;
-using System.Text.RegularExpressions;
 
 namespace FargowiltasSouls.UI
 {
@@ -91,19 +91,22 @@ namespace FargowiltasSouls.UI
             PresetPanel.PaddingLeft = PresetPanel.PaddingRight = 0;
             PresetPanel.BackgroundColor = new Color(74, 95, 172);
 
-            OffButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOffButton.Value, (toggles) => {
+            OffButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOffButton.Value, (toggles) =>
+            {
                 toggles.SetAll(false);
             }, "Turn all toggles off");
             OffButton.Top.Set(6, 0);
             OffButton.Left.Set(8, 0);
 
-            OnButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOnButton.Value, (toggles) => {
+            OnButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOnButton.Value, (toggles) =>
+            {
                 toggles.SetAll(true);
             }, "Turn all toggles on");
             OnButton.Top.Set(6, 0);
             OnButton.Left.Set(30, 0);
 
-            MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) => {
+            MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
+            {
                 toggles.MinimalEffects();
             }, "Minimal effects preset");
             MinimalButton.Top.Set(6, 0);
@@ -149,7 +152,8 @@ namespace FargowiltasSouls.UI
             Player player = Main.LocalPlayer;
             ToggleBackend toggler = player.GetModPlayer<FargoSoulsPlayer>().Toggler;
 
-            IEnumerable<Toggle> displayToggles = toggler.Toggles.Values.Where((toggle) => {
+            IEnumerable<Toggle> displayToggles = toggler.Toggles.Values.Where((toggle) =>
+            {
                 string[] words = GetRawToggleName(toggle.InternalName).Split(' ');
                 return
                 (string.IsNullOrEmpty(DisplayMod) || toggle.Mod == DisplayMod) &&

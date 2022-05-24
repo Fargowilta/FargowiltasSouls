@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,7 +24,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.aiStyle = -1;
             Projectile.penetrate = -1;
             Projectile.hostile = true;
-            
+
             //CooldownSlot = 1;
         }
 
@@ -59,7 +60,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 if (Projectile.ai[1] % 5 == 0)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient) //rain meteors
                     {

@@ -1,13 +1,14 @@
+using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Buffs.Boss;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -85,7 +86,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             if (Projectile.localAI[1] == 0f)
             {
                 Projectile.localAI[1] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 20);
+                SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_20"), Projectile.Center);
                 p = FargoSoulsUtil.AnyBossAlive() ? Main.npc[NPCs.FargoSoulsGlobalNPC.boss].target : Player.FindClosest(Projectile.Center, 0, 0);
                 Projectile.netUpdate = true;
             }
@@ -181,7 +182,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         /*public override void Kill(int timeleft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 SpawnRazorbladeRing(6, 12f, 1f);
@@ -203,7 +204,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (p != 1000)
                     Main.projectile[p].timeLeft = 240;
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
         }*/
 
         public override bool PreDraw(ref Color lightColor)

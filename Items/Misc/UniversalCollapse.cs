@@ -1,8 +1,8 @@
+using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Projectiles;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -41,7 +41,7 @@ namespace FargowiltasSouls.Items.Misc
             CreateRecipe()
             .AddIngredient(ModContent.ItemType<GalacticReformer>(), 100)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

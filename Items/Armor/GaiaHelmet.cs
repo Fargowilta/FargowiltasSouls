@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -69,7 +70,7 @@ Increases max number of minions and sentries by 1");
                 fargoPlayer.GaiaOffense = !fargoPlayer.GaiaOffense;
 
                 if (fargoPlayer.GaiaOffense)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, player.Center);
+                    SoundEngine.PlaySound(SoundID.Item4, player.Center);
 
                 Vector2 baseVel = Vector2.UnitX.RotatedByRandom(2 * Math.PI);
                 const int max = 36; //make some indicator dusts
@@ -119,7 +120,7 @@ Increases max number of minions and sentries by 1");
             .AddIngredient(ItemID.SpectreBar, 6)
             .AddIngredient(ItemID.SpookyWood, 100)
             .AddTile(TileID.LunarCraftingStation)
-            
+
             .Register();
         }
     }

@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Items.Materials;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -106,7 +106,7 @@ Increases max number of minions and sentries by 3");
                 {
                     Vector2 speed = Vector2.Normalize(Main.MouseWorld - player.Center);
                     bool flip = speed.X < 0;
-                    speed = speed.RotatedBy(MathHelper.PiOver2 * (flip ? 1 : -1 ));
+                    speed = speed.RotatedBy(MathHelper.PiOver2 * (flip ? 1 : -1));
                     Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, speed, ModContent.ProjectileType<StyxGazerArmor>(), 0, 14f, player.whoAmI, MathHelper.Pi / 120 * (flip ? -1 : 1));
 
                     player.controlUseItem = false; //this kills other heldprojs
@@ -122,7 +122,7 @@ Increases max number of minions and sentries by 3");
             .AddIngredient(ItemID.LunarBar, 5)
             .AddIngredient(ModContent.ItemType<AbomEnergy>(), 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

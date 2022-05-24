@@ -1,13 +1,12 @@
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Items.Weapons.BossDrops;
+using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using Terraria.DataStructures;
-using FargowiltasSouls.Items.Weapons.BossDrops;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Projectiles.BossWeapons;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 {
@@ -33,7 +32,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 7.7f;
-            Item.UseSound = new LegacySoundStyle(2, 62);
+            Item.UseSound = SoundID.Item62;
             Item.useAmmo = AmmoID.Rocket;
             Item.value = Item.sellPrice(0, 15);
             Item.rare = ItemRarityID.Purple;
@@ -72,7 +71,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(ModContent.ItemType<AbomEnergy>(), 10)
             .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "EnergizerFish"))
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -44,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.scale = Main.rand.NextFloat(1.5f, 2f);
                 Projectile.frame = Main.rand.Next(3);
                 Projectile.hide = false;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }
 
             if (++Projectile.localAI[1] > 30 && Projectile.localAI[1] < 100)

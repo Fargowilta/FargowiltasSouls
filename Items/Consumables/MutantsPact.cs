@@ -1,8 +1,6 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Consumables
 {
@@ -42,9 +40,9 @@ namespace FargowiltasSouls.Items.Consumables
             {
                 player.GetModPlayer<FargoSoulsPlayer>().MutantsPactSlot = true;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, player.Center);
                 if (!Main.dedServ)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder"), player.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder"), player.Center);
             }
             return true;
         }

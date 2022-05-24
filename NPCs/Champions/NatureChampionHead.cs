@@ -1,13 +1,14 @@
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Champions;
-using System.IO;
-using Microsoft.Xna.Framework.Graphics;
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Projectiles.Champions;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 NPC.active = false;
                 return;
             }
-            
+
             NPC.target = body.target;
             NPC.realLife = body.whoAmI;
             NPC.position += body.velocity * 0.75f;
@@ -106,7 +107,7 @@ namespace FargowiltasSouls.NPCs.Champions
             else if (player.Center.X > NPC.position.X + NPC.width)
                 NPC.direction = NPC.spriteDirection = 1;
             NPC.rotation = 0;
-            
+
             switch ((int)NPC.ai[0])
             {
                 case -3: //crimson
@@ -148,7 +149,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         NPC.ai[2] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                        SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -184,7 +185,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         NPC.velocity = Vector2.Zero;
                         NPC.netUpdate = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -215,7 +216,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         NPC.localAI[1] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item66, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item66, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -377,7 +378,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.localAI[1]), 
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.localAI[1]),
                                     ModContent.ProjectileType<NatureDeathraySmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3), 0f, Main.myPlayer, 0f, NPC.whoAmI);
                             }
                         }

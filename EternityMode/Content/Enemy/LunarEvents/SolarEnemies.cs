@@ -1,13 +1,10 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -86,7 +83,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                         distance *= 6f;
                         int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance, ProjectileID.FlamesTrap, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
                         Main.projectile[p].friendly = false;
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item34, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item34, npc.Center);
                     }
                 }
             }
@@ -202,7 +199,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                 velocity *= 14f;
                 Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center, velocity, ModContent.ProjectileType<DrakanianDaybreak>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, npc.Center);
+            SoundEngine.PlaySound(SoundID.Item1, npc.Center);
             if (Main.rand.NextBool())
             {
                 npc.Transform(NPCID.SolarSolenian);

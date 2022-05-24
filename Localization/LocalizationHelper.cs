@@ -8,12 +8,7 @@ using FargowiltasSouls.Items.Consumables;
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Items.Placeables;
 using FargowiltasSouls.Items.Summons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls

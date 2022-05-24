@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent;
 
 namespace FargowiltasSouls.Projectiles.Souls
 {
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             Projectile.tileCollide = true;
             Projectile.DamageType = DamageClass.Generic;
         }
-        
+
         public override void AI()
         {
             Lighting.AddLight(Projectile.Center, 0.5f, 0.5f, 0.5f);
@@ -86,7 +86,7 @@ namespace FargowiltasSouls.Projectiles.Souls
                     }
 
                     player.GetModPlayer<FargoSoulsPlayer>().HealPlayer(heal);
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item2, player.Center);
+                    SoundEngine.PlaySound(SoundID.Item2, player.Center);
                     Projectile.Kill();
                 }
             }
@@ -97,7 +97,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (Projectile.ai[0] > 1800) //make Projectile shrink and disappear after 30 seconds instead of lasting forever
                 Projectile.scale -= 0.01f;
 
-            if(Projectile.scale <= 0)
+            if (Projectile.scale <= 0)
                 Projectile.Kill();
         }
 
@@ -112,7 +112,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
             //leave some fire behind
             Projectile[] fires = FargoSoulsUtil.XWay(5, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<PumpkinFlame>(), 3, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, damage), 0);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item74, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item74, Projectile.Center);
         }
 
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)

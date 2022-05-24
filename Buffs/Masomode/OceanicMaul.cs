@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Defensive stats and max life are savaged");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋重击");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "降低防御力和最大生命值");
         }

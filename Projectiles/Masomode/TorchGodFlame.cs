@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             Projectile.localAI[0] += 1;
             if (Projectile.localAI[0] == 0)
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item117, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item117, Projectile.Center);
 
             const float danceTime = 240;
             float interval = MathHelper.TwoPi / danceTime * Projectile.localAI[0];

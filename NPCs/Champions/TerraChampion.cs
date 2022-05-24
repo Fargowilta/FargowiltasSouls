@@ -1,19 +1,19 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using System.Linq;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Projectiles.Champions;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Items.Accessories.Forces;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -163,7 +163,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
             if (FargoSoulsWorld.EternityMode && NPC.ai[1] != -1 && NPC.life < NPC.lifeMax / 10)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, player.Center, -1);
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, player.Center);
                 NPC.life = NPC.lifeMax / 10;
                 NPC.velocity = Vector2.Zero;
                 NPC.ai[1] = -1f;
@@ -199,7 +199,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         if (NPC.localAI[1] > 120) //dont shoot while orb is exploding
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -291,7 +291,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         if (NPC.localAI[1] == 0)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, player.Center);
                             NPC.localAI[1] = 1;
                             NPC.velocity = NPC.DirectionTo(player.Center) * 24;
                         }
@@ -360,7 +360,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         if (NPC.localAI[0] == 0)
                         {
                             NPC.localAI[1] = NPC.DirectionTo(player.Center).ToRotation();
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, player.Center);
                         }
 
                         const int end = 360;
@@ -379,7 +379,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         if (Math.Abs(sinModifier) < 0.001f) //account for rounding issues
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -425,7 +425,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 8: //dash but u-turn
                     if (NPC.localAI[1] == 0)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, player.Center);
                         NPC.localAI[1] = 1;
                         NPC.velocity = NPC.DirectionTo(player.Center) * 36;
                     }
@@ -486,7 +486,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         NPC.localAI[0] = 0;
                         NPC.localAI[1] = NPC.Distance(player.Center);
                         NPC.velocity = 32f * NPC.DirectionTo(player.Center).RotatedBy(Math.PI / 2);
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, player.Center);
                     }
                     NPC.rotation = NPC.velocity.ToRotation();
                     break;
@@ -497,12 +497,12 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         Vector2 acceleration = Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2) * 32f * 32f / 600f;
                         NPC.velocity = Vector2.Normalize(NPC.velocity) * 32f + acceleration;
-                        
+
                         NPC.rotation = NPC.velocity.ToRotation();
 
                         Vector2 pivot = NPC.Center;
                         pivot += Vector2.Normalize(NPC.velocity.RotatedBy(-Math.PI / 2)) * 600;
-                        
+
                         Player target = Main.player[NPC.target];
                         if (target.active && !target.dead) //arena effect
                         {
@@ -573,7 +573,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     NPC.soundDelay = 10;
                 if (NPC.soundDelay > 20)
                     NPC.soundDelay = 20;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
 
             int pastPos = NPCID.Sets.TrailCacheLength[NPC.type] - (int)NPC.ai[3] - 1; //ai3 check is to trace better and coil tightly

@@ -1,5 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 
 namespace FargowiltasSouls.Projectiles.Minions
@@ -87,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
                 else
                 {
-                    Projectile.velocity *= (float) Math.Pow(0.97, 40.0 / Inertia);
+                    Projectile.velocity *= (float)Math.Pow(0.97, 40.0 / Inertia);
                 }
             }
             else
@@ -124,7 +124,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 else
                 {
                     Projectile.direction = Main.player[Projectile.owner].direction;
-                    Projectile.velocity *= (float) Math.Pow(0.9, 40.0 / Inertia);
+                    Projectile.velocity *= (float)Math.Pow(0.9, 40.0 / Inertia);
                 }
             }
 

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
     public class DeviHammer : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_300";
-        
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Paladin's Hammer");

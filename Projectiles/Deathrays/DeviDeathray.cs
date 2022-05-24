@@ -1,6 +1,7 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Deathrays
@@ -10,11 +11,11 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public DeviDeathray() : base(60, "DeviDeathray") { }
 
         public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
+        {
+            base.SetStaticDefaults();
 
             DisplayName.SetDefault("Love Ray");
-		}
+        }
 
         public override void AI()
         {
@@ -39,8 +40,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                //SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 0.5f;
             Projectile.localAI[0] += 1f;

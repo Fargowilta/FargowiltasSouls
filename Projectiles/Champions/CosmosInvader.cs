@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -52,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.velocity *= 1 + Projectile.ai[1];
 
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.570796f;
-            
+
             if (++Projectile.frameCounter >= 4)
             {
                 Projectile.frameCounter = 0;
@@ -68,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 80;
             Projectile.Center = Projectile.position;
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 7, 0.5f, 0);
+            SoundEngine.PlaySound(SoundID.NPCDeath7 with { Volume = 0.5f, Pitch = 0 }, Projectile.Center);
             for (int index1 = 0; index1 < 2; ++index1)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
@@ -117,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Rectangle glowrectangle = glow.Bounds;
             Vector2 gloworigin2 = glowrectangle.Size() / 2f;
             Color glowcolor = Color.Lerp(new Color(29, 171, 239, 0), Color.Transparent, 0.3f);
-            
+
             float transparency = (Projectile.localAI[0] - FargoSoulsGlobalProjectile.TimeFreezeMoveDuration) / FargoSoulsGlobalProjectile.TimeFreezeMoveDuration;
             if (transparency < 0) //clamp and delay the rampup until timestop is over
                 transparency = 0;

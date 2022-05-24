@@ -7,15 +7,13 @@ using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.NPCs.EternityMode;
 using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Events;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.HM
@@ -67,7 +65,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             {
                 StompTimer = 1;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center, -1);
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, NPCID.WallofFleshEye);
@@ -119,7 +117,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     StompVelocityX = distance.X;
                     StompVelocityY = distance.Y;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, npc.Center);
 
                     npc.netUpdate = true;
                     NetSync(npc);
@@ -165,7 +163,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             StompTimer = /*NPC.AnyNPCs(ModContent.NPCType<GelatinSlime>()) ? 1 :*/ 15;
                         }
 
-                        Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                        if (npc.DeathSound != null)
+                            SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
 
                         //spray spikes
                         if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -218,7 +217,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     for (int i = 0; i < 6; i++)
                     {
-                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, ModContent.NPCType<GelatinSubject>(), npc.whoAmI, target: npc.target, 
+                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, ModContent.NPCType<GelatinSubject>(), npc.whoAmI, target: npc.target,
                             velocity: Main.rand.NextFloat(8f) * npc.DirectionFrom(Main.player[npc.target].Center).RotatedByRandom(MathHelper.PiOver2));
                     }
 
@@ -251,7 +250,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     SpikeCounter = 4;
                     NetSync(npc);
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -321,7 +320,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                             npc.netUpdate = true;
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, -16);
@@ -459,7 +458,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             base.ModifyNPCLoot(npc, npcLoot);
-            
+
             LeadingConditionRule emodeRule = new LeadingConditionRule(new EModeDropCondition());
             emodeRule.OnSuccess(FargoSoulsUtil.BossBagDropCustom(ModContent.ItemType<GelicWings>()));
             emodeRule.OnSuccess(FargoSoulsUtil.BossBagDropCustom(ItemID.HallowedFishingCrateHard, 5));

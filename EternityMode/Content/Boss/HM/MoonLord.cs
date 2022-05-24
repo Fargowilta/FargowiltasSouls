@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Creative;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
@@ -28,7 +29,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void SetDefaults(NPC npc)
         {
             base.SetDefaults(npc);
-            
+
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -251,7 +252,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                             Main.projectile[p].timeLeft = 1800 - VulnerabilityTimer;
                                     }
                                 }
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, npc.Center);
+                                SoundEngine.PlaySound(SoundID.Item84, npc.Center);
                             }
                             break;
                     }
@@ -263,7 +264,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     EnteredPhase2 = true;
                     AttackTimer = 0;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
                     npc.netUpdate = true;
                     NetSync(npc);
                 }
@@ -402,7 +403,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 int increment = (int)Math.Max(1, (1f - (float)npc.life / npc.lifeMax) * 4);
                 if (FargoSoulsWorld.MasochistModeReal)
                     increment++;
-                
+
                 VulnerabilityTimer += increment;
                 AttackTimer += increment;
 
@@ -480,8 +481,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                         {
                                             Vector2 vel = 9f * bodyPart.DirectionTo(Main.player[npc.target].Center).RotatedBy(MathHelper.Pi / 5 * j);
                                             FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(),
-                                                bodyPart.Center, NPCID.AncientLight, 0, 
-                                                0f, 
+                                                bodyPart.Center, NPCID.AncientLight, 0,
+                                                0f,
                                                 (Main.rand.NextFloat() - 0.5f) * 0.3f * 6.28318548202515f / 60f,
                                                 vel.X,
                                                 vel.Y,
@@ -508,7 +509,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier, speed);
                                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, -rotationModifier, speed);
                                     }
-                                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, npc.Center);
+                                    SoundEngine.PlaySound(SoundID.Item84, npc.Center);
                                 }
                                 break;
                         }
@@ -536,7 +537,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     case 0: HandleScene("Solar"); break;
                     case 1: HandleScene("Vortex"); break;
                     case 2: HandleScene("Nebula"); break;
-                    case 3: HandleScene("Stardust");
+                    case 3:
+                        HandleScene("Stardust");
                         if (VulnerabilityTimer < 120) //so that player isn't punished for using weapons during prior phase
                             Main.LocalPlayer.GetModPlayer<EModePlayer>().MasomodeMinionNerfTimer = 0;
                         break;
@@ -562,7 +564,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void LoadSprites(NPC npc, bool recolor)
         {
             base.LoadSprites(npc, recolor);
-            
+
             LoadBossHeadSprite(recolor, 8);
             for (int i = 13; i <= 26; i++)
             {

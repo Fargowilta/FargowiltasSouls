@@ -1,10 +1,11 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {
@@ -115,7 +116,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
                         NPC.ai[3] = 255;
                         NPC.position.X = NPC.ai[1] * 16f - (float)(NPC.width / 2);
                         NPC.position.Y = NPC.ai[2] * 16f - (float)(NPC.height / 2);
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item8, NPC.Center);
                         NPC.ai[0] = -3f;
                         NPC.netUpdate = true;
                         NPC.netSpam = 0;

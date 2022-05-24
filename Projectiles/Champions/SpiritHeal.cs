@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             for (int i = 0; i < 3; i++) //make up for real spectre bolt having 3 extraUpdates
             {
                 Projectile.position += Projectile.velocity;
-                
+
                 /*for (int j = 0; j < 5; ++j)
                 {
                     Vector2 vel = Projectile.velocity * 0.2f * j;

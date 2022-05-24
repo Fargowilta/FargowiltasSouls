@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.Items.Accessories.Enchantments;
 //using FargowiltasSouls.Buffs.Souls;
 //using FargowiltasSouls.Projectiles.Critters;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.UI;
 
 namespace FargowiltasSouls.Items
 {
@@ -99,7 +98,7 @@ namespace FargowiltasSouls.Items
         public override bool? CanAutoReuseItem(Item item, Player player)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            
+
             if (modPlayer.Berserked)
                 return true;
 
@@ -340,7 +339,7 @@ namespace FargowiltasSouls.Items
                 if (modPlayer.JungleCD == 0)
                 {
                     int dmg = (modPlayer.NatureForce || modPlayer.WizardEnchantActive) ? 150 : 75;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)player.Center.X, (int)player.Center.Y, 62, 0.5f);
+                    SoundEngine.PlaySound(SoundID.Item62 with { Volume = 0.5f }, player.Center);
                     FargoSoulsUtil.XWay(10, player.GetSource_Accessory(modPlayer.ChloroEnchantItem), new Vector2(player.Center.X, player.Center.Y + (player.height / 2)), ProjectileID.SporeCloud, 3f, FargoSoulsUtil.HighestDamageTypeScaling(player, dmg), 0);
 
                     modPlayer.JungleCD = 8;
@@ -443,7 +442,7 @@ namespace FargowiltasSouls.Items
                     case PrefixID.Intimidating:
                     case PrefixID.Unpleasant:
 
-                    #endregion mediocre
+                        #endregion mediocre
 
                         return false;
 

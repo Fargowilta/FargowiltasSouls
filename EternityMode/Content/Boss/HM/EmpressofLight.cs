@@ -5,14 +5,12 @@ using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.GameContent.Events;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -249,7 +247,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 float ai1 = (npc.ai[1] - delay) / max;
 
                                 if (FargoSoulsWorld.MasochistModeReal)
-                                { 
+                                {
                                     float math = MathHelper.TwoPi / max * (npc.ai[1] - delay);
                                     Vector2 boltVel = -Vector2.UnitY.RotatedBy(-math);
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 20f * boltVel, ProjectileID.HallowBossRainbowStreak, FargoSoulsUtil.ScaledProjectileDamage(BaseProjDmg(npc), 1.3f), 0f, Main.myPlayer, npc.target, ai1);
@@ -296,7 +294,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (AttackTimer == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
+                SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
             }
             else if (AttackTimer == startDelay)
             {
@@ -311,7 +309,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 targetPos = Main.player[npc.target].Center + Main.player[npc.target].DirectionTo(targetPos) * radius;
 
             if (AttackTimer % 90 == 30) //rapid fire sound effect
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item164, Main.player[npc.target].Center);
+                SoundEngine.PlaySound(SoundID.Item164, Main.player[npc.target].Center);
 
             int spinTime = FargoSoulsWorld.MasochistModeReal ? 210 : 160;
             float spins = /*FargoSoulsWorld.MasochistModeReal ? 2 :*/ 1.5f;
@@ -360,7 +358,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             if (AttackTimer == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
+                SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
 
                 //rainbow trails to prevent running out of range
                 for (float i = 0; i < 1; i += 1f / 13f)
@@ -440,7 +438,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             if (AttackTimer == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
+                SoundEngine.PlaySound(SoundID.Item161, npc.HasValidTarget ? Main.player[npc.target].Center : npc.Center);
 
                 startRotation = Main.rand.NextFloat(MathHelper.TwoPi);
             }
@@ -471,7 +469,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     //whooshy sound effect
                     if (AttackTimer % waveDelay * 4 == 0)
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item163, Main.player[npc.target].Center);
+                        SoundEngine.PlaySound(SoundID.Item163, Main.player[npc.target].Center);
                 }
 
                 if (AttackTimer % /*(FargoSoulsWorld.MasochistModeReal ? 2 : 3)*/ 3 == 0)
@@ -514,7 +512,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 AttackTimer = 0;
 
                 if (!doSunWings)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item164, Main.player[npc.target].Center);
+                    SoundEngine.PlaySound(SoundID.Item164, Main.player[npc.target].Center);
 
                 if (--DashCounter <= 0) //sometimes do two consecutive dashes
                 {
@@ -562,7 +560,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (shouldIncrement && DashCounter == dashValue - 1) //for the second consecutive dash
                 {
                     if (npc.ai[1] == 0) //add the sound since the longer startup broke it
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item160, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item160, npc.Center);
 
                     if (npc.ai[1] < 39) //more startup on this one
                         npc.ai[1] -= 0.33f;

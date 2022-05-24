@@ -7,6 +7,7 @@ using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -99,7 +100,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
             if (!SpawnedByOtherSlime)
             {
                 npc.active = false;
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     for (int i = 0; i < 4; i++)

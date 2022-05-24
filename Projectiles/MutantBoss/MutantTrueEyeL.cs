@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -144,7 +145,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                         Main.dust[d].noLight = true;
                         Main.dust[d].velocity *= 8f;
                     }
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 102);
+                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_102"), Projectile.Center);
                     Projectile.Kill();
                     break;
             }

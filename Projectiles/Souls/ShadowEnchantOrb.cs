@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -118,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.Souls
                     int damage = FargoSoulsUtil.HighestDamageTypeScaling(player, dmg);
                     Projectile[] balls = FargoSoulsUtil.XWay(numBalls, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<ShadowBall>(), 6, damage, 0);
 
-                    foreach(Projectile ball in balls)
+                    foreach (Projectile ball in balls)
                     {
                         ball.originalDamage = damage;
                     }

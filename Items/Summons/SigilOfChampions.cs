@@ -1,10 +1,10 @@
+using FargowiltasSouls.NPCs.Champions;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.NPCs.Champions;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Summons
 {
@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Items.Summons
 Summons vary depending on time and biome
 Right click to check for possible summons
 Not consumed on use");
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -26,8 +27,8 @@ Not consumed on use");
             Item.height = 40;
             Item.rare = ItemRarityID.Purple;
             Item.maxStack = 1;
-            Item.useAnimation = 45;
-            Item.useTime = 45;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = false;
             Item.value = Item.buyPrice(1);
@@ -172,7 +173,7 @@ Not consumed on use");
             .AddIngredient(ItemID.LunarBar, 5)
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

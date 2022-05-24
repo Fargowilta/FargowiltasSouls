@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Terraria.GameContent.UI.Elements;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria.UI;
 using Terraria;
+using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
+using Terraria.UI;
 
 namespace FargowiltasSouls.UI
 {
@@ -116,8 +114,8 @@ namespace FargowiltasSouls.UI
             {
                 Vector2 textPosition = Main.MouseScreen + new Vector2(21, 21);
                 Utils.DrawBorderString(
-                    spriteBatch, 
-                    FargoSoulsWorld.MasochistModeReal ? TextMaso : TextEMode, 
+                    spriteBatch,
+                    FargoSoulsWorld.MasochistModeReal ? TextMaso : TextEMode,
                     textPosition,
                     FargoSoulsWorld.MasochistModeReal ? new Color(51, 255, 191) : Color.White);
             }

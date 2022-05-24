@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -38,7 +39,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
         }
-        
+
         public override void AI()
         {
             //dust!
@@ -71,7 +72,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (++Projectile.localAI[0] > 10)
             {
                 Projectile.localAI[0] = 0;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                 if (Projectile.owner == Main.myPlayer)
                 {
                     Vector2 speed = Vector2.UnitX.RotatedByRandom(2 * Math.PI) * Main.rand.NextFloat(9f, 12f);
@@ -117,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.localAI[1]++;
             float straightModifier = -0.5f * (float)Math.Cos(Math.PI * 2 / maxTime * Projectile.localAI[1]);
             float sideModifier = 0.5f * (float)Math.Sin(Math.PI * 2 / maxTime * Projectile.localAI[1]) * player.direction;
-            
+
             Vector2 baseVel = new Vector2(Projectile.ai[0], Projectile.ai[1]);
             Vector2 straightVel = baseVel * straightModifier;
             Vector2 sideVel = baseVel.RotatedBy(Math.PI / 2) * sideModifier;
@@ -212,7 +213,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
                 center += Projectile.Size / 2;
 
-                Vector2 offset = (Projectile.Size/4).RotatedBy(Projectile.oldRot[(int)i] - smoothtrail * (-Projectile.direction));
+                Vector2 offset = (Projectile.Size / 4).RotatedBy(Projectile.oldRot[(int)i] - smoothtrail * (-Projectile.direction));
                 Main.EntitySpriteDraw(
                     glow,
                     center - offset - Main.screenPosition + new Vector2(0, Projectile.gfxOffY),
@@ -234,7 +235,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, SpriteEffects.None, 0);
             }
 
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                 Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }

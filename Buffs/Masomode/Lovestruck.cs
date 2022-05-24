@@ -1,6 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You are in love!");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            
+
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "热恋");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "坠入爱河!");
         }

@@ -1,8 +1,8 @@
+using FargowiltasSouls.NPCs.Champions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs.Champions;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.Center = npc.Center;
                 Projectile.direction = Projectile.spriteDirection = npc.direction;
                 Projectile.rotation = npc.rotation;
-                
+
                 if (Projectile.localAI[0] == 0)
                 {
                     Projectile.alpha += 17;

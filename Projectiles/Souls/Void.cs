@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -106,7 +107,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
 
                 //suck
-               if (timer == 0)
+                if (timer == 0)
                 {
                     int minDist = 500;
                     Player player = Main.player[Projectile.owner];
@@ -200,7 +201,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             int type = 229;
             for (int index = 0; index < 80; ++index)
             {

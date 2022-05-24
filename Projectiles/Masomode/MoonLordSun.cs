@@ -1,10 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
-            
+
             Projectile.extraUpdates = 0;
             CooldownSlot = 1;
 
@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         /*public void Dusts()
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 6);
+            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             for (int index1 = 0; index1 < 15; ++index1)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);

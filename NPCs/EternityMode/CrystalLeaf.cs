@@ -1,14 +1,14 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
-using FargowiltasSouls.Buffs.Masomode;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {
@@ -73,7 +73,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         {
             if (NPC.buffType[0] != 0)
                 NPC.DelBuff(0);
-            
+
             NPC plantera = FargoSoulsUtil.NPCExists(NPC.ai[0], NPCID.Plantera);
             if (plantera == null || FargoSoulsWorld.SwarmActive)
             {
@@ -105,7 +105,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
                     NPC.netUpdate = true;
                     if (NPC.ai[1] == 130 && plantera.life > plantera.lifeMax / 2)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, (int)NPC.position.X, (int)NPC.position.Y);
+                        SoundEngine.PlaySound(SoundID.Grass, NPC.position);
                         if (Main.netMode != -1)
                         {
                             for (int i = -2; i <= 2; i++)

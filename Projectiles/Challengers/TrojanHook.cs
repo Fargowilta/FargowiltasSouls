@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -45,23 +46,23 @@ namespace FargowiltasSouls.Projectiles.Challengers
             }
         }
 
-		public override void SendExtraAI(BinaryWriter writer)
-		{
+        public override void SendExtraAI(BinaryWriter writer)
+        {
             writer.Write(npc is NPC ? npc.whoAmI : -1);
             writer.Write(offset.X);
             writer.Write(offset.Y);
             writer.Write(dir);
-		}
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
             npc = FargoSoulsUtil.NPCExists(reader.ReadInt32());
             offset.X = reader.ReadSingle();
             offset.Y = reader.ReadSingle();
             dir = reader.ReadInt32();
-		}
+        }
 
-		public override void PostAI()
+        public override void PostAI()
         {
             if (npc != null && dir != npc.direction)
             {
@@ -84,7 +85,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             }
 
             Projectile.extraUpdates = FargoSoulsWorld.EternityMode ? 1 : 0;
@@ -105,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 Projectile.netUpdate = true;
                 //}
             }
-            
+
             if (Projectile.ai[0] == 2f)
             {
                 Projectile.extraUpdates++;
@@ -131,7 +132,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             Projectile.ai[0] = 1f;
             return false;
         }

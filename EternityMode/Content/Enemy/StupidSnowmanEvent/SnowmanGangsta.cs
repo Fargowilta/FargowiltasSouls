@@ -1,15 +1,8 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +33,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.StupidSnowmanEvent
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, Speed.X, Speed.Y, ProjectileID.BulletSnowman, 20, 0f, Main.myPlayer);
                     }
                 }
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item38, npc.Center);
+                SoundEngine.PlaySound(SoundID.Item38, npc.Center);
             }
         }
 

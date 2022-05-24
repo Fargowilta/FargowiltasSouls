@@ -1,9 +1,7 @@
 ﻿using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
-using FargowiltasSouls.ItemDropRules.Conditions;
 
 namespace FargowiltasSouls.EternityMode
 {

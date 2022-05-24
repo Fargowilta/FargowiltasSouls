@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -61,8 +62,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
-                Projectile.scale = Main.rand.NextFloat(1f, 3f);
+                SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+                Projectile.scale *= Main.rand.NextFloat(1f, 3f);
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
             }
         }

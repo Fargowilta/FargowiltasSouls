@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
             if (!playedsound)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 122, 0.5f, -0.5f);
+                SoundEngine.PlaySound(SoundID.Item122 with { Volume = 0.5f, Pitch = -0.5f }, Projectile.Center);
                 playedsound = true;
             }
 
@@ -77,20 +77,20 @@ namespace FargowiltasSouls.Projectiles.Souls
                         return;
                     }
                 }
-                if (Main.rand.Next(Projectile.extraUpdates) != 0)
+                if (!Main.rand.NextBool(Projectile.extraUpdates))
                     return;
                 for (int index1 = 0; index1 < 2; ++index1)
                 {
-                    float num1 = Projectile.rotation + (float)((Main.rand.Next(2) == 1 ? -1.0 : 1.0) * 1.57079637050629);
+                    float num1 = Projectile.rotation + (float)((Main.rand.NextBool(2)? -1.0 : 1.0) * 1.57079637050629);
                     float num2 = (float)(Main.rand.NextDouble() * 0.800000011920929 + 1.0);
                     Vector2 vector2 = new Vector2((float)Math.Cos((double)num1) * num2, (float)Math.Sin((double)num1) * num2);
-                    int index2 = Dust.NewDust(Projectile.Center, 0, 0, 226, vector2.X, vector2.Y, 0, new Color(), 1f);
+                    int index2 = Dust.NewDust(Projectile.Center, 0, 0, DustID.Electric, vector2.X, vector2.Y, 0, new Color(), 1f);
                     Main.dust[index2].noGravity = true;
                     Main.dust[index2].scale = 1.2f;
                 }
-                if (Main.rand.Next(5) != 0)
+                if (!Main.rand.NextBool(5))
                     return;
-                int index3 = Dust.NewDust(Projectile.Center + Projectile.velocity.RotatedBy(1.57079637050629, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width - Vector2.One * 4f, 8, 8, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
+                int index3 = Dust.NewDust(Projectile.Center + Projectile.velocity.RotatedBy(1.57079637050629, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width - Vector2.One * 4f, 8, 8, DustID.Smoke, 0.0f, 0.0f, 100, new Color(), 1.5f);
                 Dust dust = Main.dust[index3];
                 dust.velocity = dust.velocity * 0.5f;
                 Main.dust[index3].velocity.Y = -Math.Abs(Main.dust[index3].velocity.Y);
@@ -176,12 +176,12 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void Kill(int timeLeft)
         {
-            float num2 = (float)(Projectile.rotation + 1.57079637050629 + (Main.rand.Next(2) == 1 ? -1.0 : 1.0) * 1.57079637050629);
+            float num2 = (float)(Projectile.rotation + 1.57079637050629 + (Main.rand.NextBool(2)? -1.0 : 1.0) * 1.57079637050629);
             float num3 = (float)(Main.rand.NextDouble() * 2.0 + 2.0);
             Vector2 vector2 = new Vector2((float)Math.Cos(num2) * num3, (float)Math.Sin(num2) * num3);
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                int index = Dust.NewDust(Projectile.oldPos[i], 0, 0, 229, vector2.X, vector2.Y, 0, new Color(), 1f);
+                int index = Dust.NewDust(Projectile.oldPos[i], 0, 0, DustID.Vortex, vector2.X, vector2.Y, 0, new Color(), 1f);
                 Main.dust[index].noGravity = true;
                 Main.dust[index].scale = 1.7f;
             }

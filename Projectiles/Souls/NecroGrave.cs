@@ -1,7 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using FargowiltasSouls.Toggler;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -39,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item2, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item2, Projectile.Center);
             }
 
             if (!player.GetModPlayer<FargoSoulsPlayer>().WizardEnchantActive && !player.GetModPlayer<FargoSoulsPlayer>().ShadowForce)

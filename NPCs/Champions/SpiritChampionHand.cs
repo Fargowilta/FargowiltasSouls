@@ -1,12 +1,13 @@
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Projectiles.Champions;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -80,14 +81,14 @@ namespace FargowiltasSouls.NPCs.Champions
                 NPC.active = false;
                 return;
             }
-            
+
             NPC.target = head.target;
             NPC.realLife = head.whoAmI;
             NPC.position += head.velocity * 0.75f;
 
             Player player = Main.player[NPC.target];
             Vector2 targetPos;
-            
+
             void Heal()
             {
                 if (++NPC.localAI[1] > 10) //heal 6 times per second
@@ -151,8 +152,8 @@ namespace FargowiltasSouls.NPCs.Champions
                         if (NPC.Hitbox.Intersects(player.Hitbox) && !player.HasBuff(ModContent.BuffType<Buffs.Boss.Grabbed>())
                             && player.GetModPlayer<FargoSoulsPlayer>().MashCounter <= 0) //GOTCHA
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
-                            
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+
                             NPC.ai[0] = 2;
                             NPC.netUpdate = true;
 
@@ -174,7 +175,7 @@ namespace FargowiltasSouls.NPCs.Champions
                             player.GetModPlayer<FargoSoulsPlayer>().MashCounter += 30;
                             player.velocity.X = player.Center.X < head.Center.X ? -15f : 15f;
                             player.velocity.Y = -10f;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         }
 
                         NPC.ai[0] = head.ai[0] == -3 ? 1 : 0;
@@ -232,7 +233,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         {
                             player.velocity.X = player.Center.X < head.Center.X ? -15f : 15f;
                             player.velocity.Y = -10f;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         }
 
                         NPC.life = 0;
@@ -254,12 +255,12 @@ namespace FargowiltasSouls.NPCs.Champions
             //dust tendrils connecting hands to base
             Vector2 dustHead = head.Center + head.DirectionTo(NPC.Center) * 50;
             Vector2 headOffset = NPC.Center - dustHead;
-            for (int i = 0; i < headOffset.Length(); i+= 16)
+            for (int i = 0; i < headOffset.Length(); i += 16)
             {
                 if (Main.rand.NextBool())
                     continue;
 
-                int d = Dust.NewDust(dustHead+ Vector2.Normalize(headOffset) * i, 0, 0, 54,
+                int d = Dust.NewDust(dustHead + Vector2.Normalize(headOffset) * i, 0, 0, 54,
                     head.velocity.X * 0.4f, head.velocity.Y * 0.4f, 0, default(Color), 1.5f);
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 3f;

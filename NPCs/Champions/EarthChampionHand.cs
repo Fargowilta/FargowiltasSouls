@@ -1,13 +1,13 @@
+using FargowiltasSouls.Projectiles.Champions;
+using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.Champions;
-using System.IO;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -100,7 +100,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
             NPC.direction = NPC.spriteDirection = (int)NPC.ai[3];
             NPC.localAI[3] = 0;
-            
+
             switch ((int)NPC.ai[0])
             {
                 case -1: //healing
@@ -222,7 +222,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         //passed player, prepare another dash
                         if ((++NPC.localAI[1] > 60 && NPC.Distance(player.Center) > 1000) ||
-                            (NPC.ai[3] > 0 ? 
+                            (NPC.ai[3] > 0 ?
                             NPC.Center.X > Math.Min(head.Center.X, player.Center.X) + 300 : NPC.Center.X < Math.Max(head.Center.X, player.Center.X) - 300))
                         {
                             NPC.ai[1] = head.localAI[2] == 1 ? 15 : 0;
@@ -277,7 +277,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         NPC.localAI[0] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX * NPC.ai[3], ModContent.ProjectileType<FlowerPetal>(), 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX * NPC.ai[3], ModContent.ProjectileType<FlowerPetal>(),
                                 FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, head.localAI[2] == 1 && FargoSoulsWorld.EternityMode ? 0 : 1);
                         }
                     }
@@ -346,7 +346,7 @@ namespace FargowiltasSouls.NPCs.Champions
                                 {
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ProjectileID.DD2ExplosiveTrapT3Explosion, 0, 0f, Main.myPlayer);
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<FuseBomb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
-                                    
+
                                     if (head.localAI[2] == 1 && FargoSoulsWorld.EternityMode)
                                     {
                                         for (int i = 0; i < 4; i++)
@@ -478,7 +478,7 @@ namespace FargowiltasSouls.NPCs.Champions
                         targetPos.X += 1000 * (float)Math.Sin(2 * Math.PI / 77 * NPC.ai[1]);
 
                         Movement(targetPos, 1.8f, 32f);
-                        
+
                         NPC.rotation = -(float)Math.PI / 2;
 
                         NPC.localAI[0] += 0.5f;

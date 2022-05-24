@@ -1,9 +1,10 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
 
                 Projectile.position = Projectile.Center;
                 Projectile.scale = Main.rand.NextFloat(1f, 3f);
@@ -145,13 +146,13 @@ namespace FargowiltasSouls.Projectiles.Champions
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
             Color color = Color.White;
-            if(Projectile.ai[1] > 3)
-                color = Color.Lerp(new Color(255, 255, 255, 0), new Color(255, 95, 46, 50), (7-Projectile.ai[1]) / 4);
+            if (Projectile.ai[1] > 3)
+                color = Color.Lerp(new Color(255, 255, 255, 0), new Color(255, 95, 46, 50), (7 - Projectile.ai[1]) / 4);
 
             else
-                color = Color.Lerp(new Color(255, 95, 46, 50), new Color(150, 35, 0, 100), (3-Projectile.ai[1]) / 3);
+                color = Color.Lerp(new Color(255, 95, 46, 50), new Color(150, 35, 0, 100), (3 - Projectile.ai[1]) / 3);
 
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color, 
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color,
                 Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }

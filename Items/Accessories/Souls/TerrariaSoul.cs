@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.Graphics.Shaders;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -17,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Soul of Terraria");
-            
+
             string tooltip =
 @"Summons fireballs, shadow orbs, icicles, leaf crystals, flameburst minion, hallowed sword and shield, and beetles
 Right Click to Guard
@@ -110,7 +109,7 @@ Effects of Flower Boots and Greedy Ring
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

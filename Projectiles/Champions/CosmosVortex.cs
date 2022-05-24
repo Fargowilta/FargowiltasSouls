@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -140,7 +141,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                     {
                         //Projectile.localAI[0] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -184,7 +185,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.rotation = Projectile.rotation - (float)Math.PI / 30f;
                 if (Projectile.alpha >= 255)
                     Projectile.Kill();
-                
+
                 Vector2 spinningpoint1 = Vector2.UnitY.RotatedByRandom(6.28318548202515) * Projectile.scale;
                 Dust dust1 = Main.dust[Dust.NewDust(Projectile.Center - spinningpoint1 * 30f, 0, 0, 229, 0.0f, 0.0f, 0, new Color(), 1f)];
                 dust1.noGravity = true;
@@ -229,7 +230,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             int type = 229;
             for (int index = 0; index < 80; ++index)
             {

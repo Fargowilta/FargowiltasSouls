@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,7 +34,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.aiStyle = -1;
             Projectile.scale = 2f;
         }
-        
+
         public override void AI()
         {
             if (Projectile.localAI[0] == 0)
@@ -93,7 +94,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.owner != Main.myPlayer)
                 return;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, spawnPos);
+            SoundEngine.PlaySound(SoundID.Item21, spawnPos);
             for (int i = 0; i < 8; i++)
             {
                 Vector2 vel = 14f * Vector2.Normalize(Projectile.velocity).RotatedBy(Math.PI / 4 * (i + 0.5));

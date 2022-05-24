@@ -1,11 +1,9 @@
-﻿using Terraria;
+﻿using FargowiltasSouls.Projectiles.Minions;
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.Projectiles.Minions;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {

@@ -33,7 +33,7 @@ namespace FargowiltasSouls.PlayerDrawLayers
             drawPos.Y += 48 * drawPlayer.gravDir;
 
             const float scale = 2f;
-            
+
             DrawData data = new DrawData(dpad, drawPos, rectangle, Color.White, drawPlayer.gravDir < 0 ? MathHelper.Pi : 0f, rectangle.Size() / 2, scale, SpriteEffects.None, 0);
             drawInfo.DrawDataCache.Add(data);
         }

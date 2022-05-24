@@ -1,8 +1,6 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Consumables
 {
@@ -41,7 +39,7 @@ namespace FargowiltasSouls.Items.Consumables
             if (player.itemAnimation > 0 && player.itemTime == 0)
             {
                 player.GetModPlayer<FargoSoulsPlayer>().MutantsCreditCard = true;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, player.Center);
             }
             return true;
         }

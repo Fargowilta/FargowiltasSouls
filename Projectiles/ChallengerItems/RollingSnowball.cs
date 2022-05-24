@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.DataStructures;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Player player = Main.player[Projectile.owner];
 
             if (player.dead || !player.active || player.HeldItem.type != ModContent.ItemType<SnowballStaff>() || !player.channel || !player.CheckMana(player.HeldItem.mana))
-            { 
+            {
                 Projectile.Kill();
                 return;
             }
@@ -116,7 +116,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             Dusts();
         }
 

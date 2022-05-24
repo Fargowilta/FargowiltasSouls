@@ -1,11 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -67,12 +68,12 @@ namespace FargowiltasSouls.Projectiles.Champions
                 vel = vel.RotatedBy(rotation);
                 Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier, speed);
             }
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
         }
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
 
             if (Main.LocalPlayer.active)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
@@ -118,7 +119,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.height = 250;
             Projectile.Center = Projectile.position;
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int index1 = 0; index1 < 20; ++index1)
             {

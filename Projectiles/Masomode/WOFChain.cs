@@ -1,11 +1,12 @@
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using Terraria.GameContent;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -88,7 +89,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (FargoSoulsWorld.MasochistModeReal) //if (Fargowiltas.Instance.MasomodeEXLoaded)
             {
                 if (!target.tongued)
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, target.Center, -1);
+                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, target.Center);
                 target.AddBuff(BuffID.TheTongue, 10);
             }
             target.AddBuff(BuffID.OnFire, 300);

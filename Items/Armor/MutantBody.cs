@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -68,7 +68,7 @@ Drastically increases life regen");
             .AddIngredient(null, "AbomEnergy", 15)
             .AddIngredient(null, "EternalEnergy", 15)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

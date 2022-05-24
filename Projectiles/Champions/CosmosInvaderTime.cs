@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Champions
@@ -15,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.localAI[1] = Projectile.velocity.Length();
                 Projectile.velocity = Vector2.Zero;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 7, 0.5f, 0);
+                SoundEngine.PlaySound(SoundID.NPCDeath7 with { Volume = 0.5f, Pitch = 0 }, Projectile.Center);
 
                 for (int index1 = 0; index1 < 4; ++index1)
                 {

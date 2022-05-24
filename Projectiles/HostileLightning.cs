@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.ID;
+using Terraria.Audio;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles
@@ -44,13 +45,13 @@ namespace FargowiltasSouls.Projectiles
                 DrawColor = new Color(231, 174, 254);
 
             int shadertype = (int)Projectile.localAI[1];
-            Lighting.AddLight(Projectile.Center, DrawColor.A/255, DrawColor.G / 255, DrawColor.G / 255);
+            Lighting.AddLight(Projectile.Center, DrawColor.A / 255, DrawColor.G / 255, DrawColor.G / 255);
             colorlerp += 0.15f;
             Projectile.localAI[0]++;
 
             if (!playedsound)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 122, 0.5f, -0.5f);
+                SoundEngine.PlaySound(SoundID.Item122 with { Volume = 0.5f, Pitch = -0.5f }, Projectile.Center);
 
                 playedsound = true;
             }
@@ -80,7 +81,7 @@ namespace FargowiltasSouls.Projectiles
 
             float num3 = Projectile.velocity.Length(); //take length of initial velocity
             Vector2 spinningpoint = Vector2.UnitX.RotatedBy(Projectile.ai[0]) * num3; //create a base velocity to modify for actual velocity of projectile
-            Vector2 rotationVector2 = spinningpoint.RotatedBy(Projectile.ai[1] * (Math.Floor(Math.Sin((Projectile.localAI[0]- MathHelper.Pi/4) * 2)) + 0.5f) * MathHelper.Pi/4); //math thing for zigzag pattern
+            Vector2 rotationVector2 = spinningpoint.RotatedBy(Projectile.ai[1] * (Math.Floor(Math.Sin((Projectile.localAI[0] - MathHelper.Pi / 4) * 2)) + 0.5f) * MathHelper.Pi / 4); //math thing for zigzag pattern
             Projectile.velocity = rotationVector2;
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.570796f;
 
@@ -140,7 +141,7 @@ namespace FargowiltasSouls.Projectiles
         public override Color? GetAlpha(Color lightColor)
         {
 
-            return Color.Lerp(Color.White, DrawColor, 0.66f + (float)Math.Sin(colorlerp)/3);
+            return Color.Lerp(Color.White, DrawColor, 0.66f + (float)Math.Sin(colorlerp) / 3);
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -151,7 +152,7 @@ namespace FargowiltasSouls.Projectiles
             Color color27 = Color.Lerp(Projectile.GetAlpha(lightColor), Color.Black, 0.4f);
             for (int i = 1; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
-                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i-1] == Projectile.oldPos[i])
+                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i - 1] == Projectile.oldPos[i])
                     continue;
                 Vector2 offset = Projectile.oldPos[i - 1] - Projectile.oldPos[i];
                 int length = (int)offset.Length();

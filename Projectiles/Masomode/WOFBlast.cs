@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.Kill();
                 return;
             }
-            
+
             Vector2 offset;
             if (Projectile.ai[0] == 0f)
             {
@@ -48,7 +49,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 offset = new Vector2(npc.width - 36, -6).RotatedBy(Projectile.rotation);
             }
             Projectile.Center = npc.Center + offset;
-            
+
             if (++Projectile.frameCounter >= 3)
             {
                 Projectile.frameCounter = 0;
@@ -58,11 +59,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.Kill();
                 }
             }
-            
+
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
             }
         }
 

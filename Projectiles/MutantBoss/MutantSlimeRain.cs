@@ -1,5 +1,4 @@
 using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

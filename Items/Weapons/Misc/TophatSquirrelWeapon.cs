@@ -1,8 +1,8 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
 using FargowiltasSouls.Projectiles;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.Misc
 {
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             .AddIngredient(ItemID.SoulofNight, 3)
             .AddTile(TileID.MythrilAnvil)
 
-            
+
             .Register();
         }
     }

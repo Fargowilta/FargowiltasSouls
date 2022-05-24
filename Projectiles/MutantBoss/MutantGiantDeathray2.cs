@@ -1,13 +1,14 @@
 ﻿using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
-using System;
+using FargowiltasSouls.Buffs.Souls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Souls;
-using System.IO;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -109,7 +110,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Main.player[Main.myPlayer].Center, 104);
+                SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Main.player[Main.myPlayer].Center);
             }
             float num801 = 10f;
             Projectile.localAI[0] += 1f;
@@ -118,11 +119,11 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.Kill();
                 return;
             }
-            
+
             Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 5f * num801;
             if (FargoSoulsWorld.MasochistModeReal)
                 Projectile.scale *= 5f;
-            
+
             if (Projectile.scale > num801)
                 Projectile.scale = num801;
             //float num804 = Projectile.velocity.ToRotation();
@@ -279,7 +280,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);
             target.ClearBuff(ModContent.BuffType<GoldenStasis>());
-            
+
             //if (FargowiltasSouls.Instance.MasomodeEXLoaded) target.AddBuff(ModLoader.GetMod("MasomodeEX").BuffType("MutantJudgement"), 3600);
 
             target.immune = false;

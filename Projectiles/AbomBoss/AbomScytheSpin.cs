@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }
 
             if (Projectile.timeLeft == 390)
@@ -45,7 +46,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             }
             else if (Projectile.timeLeft == 360)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             }
             else if (Projectile.timeLeft < 360)
             {
@@ -66,7 +67,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             for (int index1 = 0; index1 < 20; ++index1) //put some dust here ig
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, 0.0f, 0.0f, 0, new Color(), 1f);

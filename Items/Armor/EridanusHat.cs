@@ -1,9 +1,10 @@
 ﻿using FargowiltasSouls.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -58,7 +59,7 @@ Increases your max number of sentries by 4");
 
             if (fargoPlayer.EridanusTimer % (60 * 10) == 1) //make dust whenever changing classes
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, player.Center);
+                SoundEngine.PlaySound(SoundID.Item4, player.Center);
 
                 int type;
                 switch (fargoPlayer.EridanusTimer / (60 * 10))

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -86,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.alpha = 0;
                     if (target != -1)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item89, Projectile.Center);
                         Projectile.velocity = Main.player[target].Center - Projectile.Center;
                         float distance = Projectile.velocity.Length();
                         Projectile.velocity.Normalize();
@@ -163,7 +164,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             int type;
             switch ((int)Projectile.ai[0])
             {

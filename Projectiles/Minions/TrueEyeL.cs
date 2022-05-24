@@ -106,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             {
                                 if (Projectile.Distance(npc.Center) > 1500f) //give up if too far
                                 {
-                                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile,  1000);
+                                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000);
                                     Projectile.ai[1] = 0f;
                                     Projectile.localAI[1] = 0f;
                                 }
@@ -157,7 +157,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
                 else //forget target
                 {
-                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile,  1000);
+                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000);
                     Projectile.ai[1] = 0f;
                     Projectile.localAI[1] = 0f;
                 }
@@ -179,7 +179,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 if (Projectile.localAI[1]++ > 15f)
                 {
                     Projectile.localAI[0] = 0f;
-                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile,  1000);
+                    Projectile.ai[0] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000);
                     Projectile.ai[1] = 0f;
                     Projectile.localAI[1] = 0f;
                 }

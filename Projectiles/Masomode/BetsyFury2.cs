@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Masomode
@@ -18,7 +19,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         {
             if (Projectile.localAI[0] == 0)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_SkyDragonsFuryShot, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.DD2_SkyDragonsFuryShot, Projectile.Center);
             }
 
             if (++Projectile.localAI[0] < 120)
@@ -49,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         {
             int num1 = 3;
             int num2 = 10;
-            
+
             for (int index1 = 0; index1 < num1; ++index1)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, default, 1.5f);
@@ -61,8 +62,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Main.dust[index2].position = new Vector2(Projectile.width / 2, 0.0f).RotatedBy(6.28318548202515 * Main.rand.NextDouble()) * (float)Main.rand.NextDouble() + Projectile.Center;
                 Main.dust[index2].noGravity = true;
             }
-            
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_SkyDragonsFuryCircle, Projectile.Center);
+
+            SoundEngine.PlaySound(SoundID.DD2_SkyDragonsFuryCircle, Projectile.Center);
         }
     }
 }

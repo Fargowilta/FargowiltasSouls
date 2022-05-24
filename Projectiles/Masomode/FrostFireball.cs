@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -49,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Main.dust[index2].noGravity = true;
             Main.dust[index2].velocity.X *= 0.3f;
             Main.dust[index2].velocity.Y *= 0.3f;*/
-            
+
             if (Projectile.ai[0] >= 0 && Projectile.ai[0] < Main.maxNPCs)
             {
                 int ai0 = (int)Projectile.ai[0];
@@ -98,7 +99,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int index1 = 0; index1 < 10; ++index1)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 135, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, new Color(), 2f);

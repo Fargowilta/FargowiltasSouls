@@ -1,13 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.UI;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.UI;
-using FargowiltasSouls.UI;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria.ID;
-using ReLogic.Content;
 using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.UI;
 
 namespace FargowiltasSouls
 {
@@ -84,13 +84,13 @@ namespace FargowiltasSouls
             {
                 //Main.NewText("we opening");
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuOpen);
+                SoundEngine.PlaySound(SoundID.MenuOpen);
                 OpenToggler();
             }
             else if (IsTogglerOpen())
             {
                 //Main.NewText("we closing");
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuClose);
+                SoundEngine.PlaySound(SoundID.MenuClose);
                 CloseSoulToggler();
             }
         }

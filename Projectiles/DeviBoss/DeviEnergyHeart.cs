@@ -1,14 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.NPCs;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.DeviBoss
 {
     public class DeviEnergyHeart : ModProjectile
-    {   
+    {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Energy Heart");
@@ -41,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item44, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item44, Projectile.Center);
             }
 
             // Fade into 50 alpha from 150

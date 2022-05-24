@@ -2,13 +2,12 @@
 using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -92,7 +91,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                         }
                     }
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item36, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item36, npc.Center);
                 }
 
                 if (++Counter >= 80)

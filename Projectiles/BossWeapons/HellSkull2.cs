@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -48,7 +49,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.localAI[1] = 50;
                 targetRotation = Projectile.velocity.ToRotation();
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
                 for (int i = 0; i < 3; ++i)
                 {
                     int index2 = Dust.NewDust(Projectile.position, (int)(Projectile.width * Projectile.scale), (int)(Projectile.height * Projectile.scale),
@@ -71,13 +72,13 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.alpha -= 50;
             if (Projectile.alpha < 0)
                 Projectile.alpha = 0;
-            
+
             if (++Projectile.frameCounter >= 12)
                 Projectile.frameCounter = 0;
             Projectile.frame = Projectile.frameCounter / 2;
             if (Projectile.frame > 3)
                 Projectile.frame = 6 - Projectile.frame;
-            
+
             Lighting.AddLight(Projectile.Center, NPCID.Sets.MagicAuraColor[54].ToVector3());
 
             Projectile.spriteDirection = Projectile.direction = Projectile.velocity.X < 0 ? -1 : 1;
@@ -144,7 +145,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 52, 0.5f, 0.2f);
+            SoundEngine.PlaySound(SoundID.NPCDeath52 with { Volume = 0.5f, Pitch = 0.2f }, Projectile.Center);
 
             for (int i = 0; i < 15; i++)
             {
@@ -188,7 +189,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 scale *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i];
                 float num165 = Projectile.oldRot[i];
-                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
+                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                     color27, num165, origin2, scale, effects, 0);
             }
 

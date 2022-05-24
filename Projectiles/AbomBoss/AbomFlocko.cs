@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -73,7 +74,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 
             if (++Projectile.localAI[0] > 90 && ++Projectile.localAI[1] > (npc.localAI[3] > 1 ? 4 : 2)) //spray shards
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
                 Projectile.localAI[1] = 0f;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -89,7 +90,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                     }
                     if (Main.player[npc.target].active && !Main.player[npc.target].dead && Main.player[npc.target].Center.Y < Projectile.Center.Y)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                        SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             Vector2 vel = Projectile.DirectionTo(Main.player[npc.target].Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(-200, 201))) * 12f;

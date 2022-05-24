@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void OnSpawn(IEntitySource source)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
         }
 
         public override void AI()
@@ -69,7 +70,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
                     Projectile.velocity *= -1f;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
 
                     Projectile.ai[1] = 1;
                     Projectile.netUpdate = true;

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -134,13 +135,13 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     dust.fadeIn = 0.5f;
                     dust.customData = Projectile.Center;
                 }
-                
+
                 if (Projectile.ai[0] == 60 + time) //shoot lightning out
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
-                    
+                    SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
+
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                    { 
+                    {
                         Vector2 dir = Vector2.UnitY;
                         float ai1New = Main.rand.Next(100);
                         Vector2 vel = Vector2.Normalize(dir.RotatedByRandom(Math.PI / 4)) * 5f;
@@ -183,7 +184,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     }
                 }
             }
-            
+
             Dust dust3 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 229, 0f, 0f, 0, new Color(), 1f)];
             dust3.velocity *= 5f;
             dust3.fadeIn = 1f;

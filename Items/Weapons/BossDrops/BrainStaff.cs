@@ -1,12 +1,12 @@
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using FargowiltasSouls.Projectiles.Minions;
 //using FargowiltasSouls.Buffs.Minions;
 using Microsoft.Xna.Framework;
 using System.Linq;
+using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
 {
@@ -49,7 +49,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Vector2 spawnPos = Main.MouseWorld;
             float usedminionslots = 0;
             var minions = Main.projectile.Where(x => x.minionSlots > 0 && x.owner == player.whoAmI && x.active);
-            foreach(Projectile minion in minions)
+            foreach (Projectile minion in minions)
                 usedminionslots += minion.minionSlots;
             if (player.ownedProjectileCounts[type] == 0 && usedminionslots != player.maxMinions) //only spawn brain minion itself when the player doesnt have any, and if minion slots aren't maxxed out
             {

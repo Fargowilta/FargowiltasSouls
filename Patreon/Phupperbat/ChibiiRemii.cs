@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -45,7 +46,7 @@ namespace FargowiltasSouls.Patreon.Phupperbat
 
             if (!player.active || player.dead || player.ghost)
                 modPlayer.ChibiiRemii = false;
-            
+
             if (modPlayer.ChibiiRemii)
                 Projectile.timeLeft = 2;
 
@@ -115,7 +116,7 @@ namespace FargowiltasSouls.Patreon.Phupperbat
                             squeak = false;
 
                             if (!Main.dedServ)
-                                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, $"Sounds/SqueakyToy/squeak{Main.rand.Next(1, 7)}"), Projectile.Center);
+                                SoundEngine.PlaySound(new SoundStyle($"FargowiltasSouls/Sounds/SqueakyToy/squeak{Main.rand.Next(1, 7)}"), Projectile.Center);
                         }
                     }
                     else

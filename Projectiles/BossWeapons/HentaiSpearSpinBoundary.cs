@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -68,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (++Projectile.localAI[0] > 2)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
                 Projectile.localAI[0] = 0;
                 Projectile.localAI[1] += (float)Math.PI / 4 / 360 * ++Projectile.ai[1] * player.direction;
                 if (Projectile.localAI[1] > (float)Math.PI)

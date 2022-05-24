@@ -205,7 +205,7 @@ namespace FargowiltasSouls
             if (CompOrb && proj.DamageType != DamageClass.Magic && proj.DamageType != DamageClass.Summon)
             {
                 damage = (int)(damage * 1.25f);
-                
+
                 if (Player.manaSick)
                     damage = (int)(damage * Player.manaSickReduction);
 

@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -49,7 +48,7 @@ Effects of Sweetheart Necklace and Amber Horseshoe Balloon
 
             Item.value = 750000;
         }
-        
+
         protected override Color? nameColor => new Color(238, 0, 69);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -79,7 +78,7 @@ Effects of Sweetheart Necklace and Amber Horseshoe Balloon
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

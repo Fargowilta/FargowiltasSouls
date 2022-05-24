@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -56,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
             if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
             }
             float num801 = 0.15f;
             Projectile.localAI[0] += 1f;

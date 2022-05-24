@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -55,8 +55,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.position.X = Projectile.position.X + Projectile.width / 2;
                 Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
                 Projectile.scale = (num599 + num600 - Projectile.ai[1]) * num601 / (num600 + num599);
-                Projectile.width = (int) (num602 * Projectile.scale);
-                Projectile.height = (int) (num603 * Projectile.scale);
+                Projectile.width = (int)(num602 * Projectile.scale);
+                Projectile.height = (int)(num603 * Projectile.scale);
                 Projectile.position.X = Projectile.position.X - Projectile.width / 2;
                 Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
                 Projectile.netUpdate = true;
@@ -65,8 +65,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (Projectile.ai[1] != -1f)
             {
                 Projectile.scale = (num599 + num600 - Projectile.ai[1]) * num601 / (num600 + num599);
-                Projectile.width = (int) (num602 * Projectile.scale);
-                Projectile.height = (int) (num603 * Projectile.scale);
+                Projectile.width = (int)(num602 * Projectile.scale);
+                Projectile.height = (int)(num603 * Projectile.scale);
             }
 
             if (!Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
@@ -99,11 +99,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 float num608 = 0.104719758f;
                 float num609 = Projectile.width / 5f;
                 if (Projectile.type == 386) num609 *= 2f;
-                float num610 = (float) (Math.Cos(num608 * -(double) Projectile.ai[0]) - 0.5) * num609;
-                Projectile.position.X = Projectile.position.X - num610 * -(float) Projectile.direction;
+                float num610 = (float)(Math.Cos(num608 * -(double)Projectile.ai[0]) - 0.5) * num609;
+                Projectile.position.X = Projectile.position.X - num610 * -(float)Projectile.direction;
                 Projectile.ai[0] -= 1f;
-                num610 = (float) (Math.Cos(num608 * -(double) Projectile.ai[0]) - 0.5) * num609;
-                Projectile.position.X = Projectile.position.X + num610 * -(float) Projectile.direction;
+                num610 = (float)(Math.Cos(num608 * -(double)Projectile.ai[0]) - 0.5) * num609;
+                Projectile.position.X = Projectile.position.X + num610 * -(float)Projectile.direction;
             }
         }
 

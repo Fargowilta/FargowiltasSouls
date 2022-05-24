@@ -1,7 +1,8 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -29,7 +30,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             {
                 player.AddBuff(ModContent.BuffType<Neurotoxin>(), player.buffTime[buffIndex]);
                 player.buffTime[buffIndex] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, player.Center);
                 if (player.whoAmI == Main.myPlayer)
                     Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.IvyVenomTransform"), 175, 75, 255);
             }

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +27,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public int IllusionTimer;
 
         public bool EnteredPhase2;
-        
+
         public bool DroppedSummon;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
@@ -113,7 +114,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                     if (Main.player[npc.target].HasBuff(BuffID.Confused))
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center, -1);
+                        SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
                         TelegraphConfusion(npc.Center);
 
                         IllusionTimer = 120 + 90;
@@ -153,7 +154,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                     else
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                         Vector2 offset = npc.Center - Main.player[npc.target].Center;
                         Vector2 spawnPos = Main.player[npc.target].Center;
@@ -377,7 +378,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public override bool CheckDead(NPC npc)
         {
-            Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+            if (npc.DeathSound != null)
+                SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
             npc.active = false;
             return false;
         }

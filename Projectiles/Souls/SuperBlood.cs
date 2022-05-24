@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             Projectile.height = 12;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.penetrate = 4; 
+            Projectile.penetrate = 4;
             Projectile.aiStyle = 2;
             Projectile.timeLeft = 300;
             AIType = 48;

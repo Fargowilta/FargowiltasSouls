@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Projectiles
                 Projectile.netUpdate = true;
             }
             Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
-            
+
             Projectile.rotation += 1f;
         }
 

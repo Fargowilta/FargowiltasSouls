@@ -1,10 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -57,7 +58,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                         Projectile.ai[0] = 1f;
                         Projectile.netUpdate = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                     }
                     Projectile.ai[1] = Main.rand.Next(2); //now used for deciding platform collision
                 }
@@ -74,7 +75,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
 
             for (int i = 0; i < 16; ++i)
             {
@@ -91,7 +92,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 Projectile.velocity = Vector2.Zero;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
 
                 for (int i = 0; i < 10; ++i)
                 {

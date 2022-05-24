@@ -9,7 +9,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
 {
     public class Mimics : EModeNPCBehaviour
     {
-        public override NPCMatcher CreateMatcher() =>  new NPCMatcher().MatchTypeRange(
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.Mimic,
             NPCID.PresentMimic,
             NPCID.IceMimic,

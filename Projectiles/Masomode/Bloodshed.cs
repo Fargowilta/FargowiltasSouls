@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void Kill(int timeLeft)
         {
             if (Projectile.ai[1] == 1)
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath11, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.NPCDeath11, Projectile.Center);
 
             int max = Projectile.ai[1] == 1 ? 20 : 10;
             for (int i = 0; i < max; i++)

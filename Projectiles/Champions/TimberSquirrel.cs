@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -93,8 +94,8 @@ namespace FargowiltasSouls.Projectiles.Champions
                     {
                         Projectile.localAI[0] = 15;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item157, Projectile.Center);
-                        
+                        SoundEngine.PlaySound(SoundID.Item157, Projectile.Center);
+
                         int lasersToAddPerAttack = 3;
 
                         int modifier = (int)Projectile.localAI[1]; //scale up to halfway
@@ -105,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                         for (int i = 0; i < max; i++)
                         {
                             float ai0 = npc is NPC ? npc.whoAmI : -1;
-                            
+
                             const float speed = 20f / 5f;
 
                             float rotationBaseOffset = MathHelper.TwoPi / max;

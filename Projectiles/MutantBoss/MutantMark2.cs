@@ -3,6 +3,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -65,7 +66,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.netUpdate = true;
                 Player target = Main.player[Player.FindClosest(Projectile.position, Projectile.width, Projectile.height)];
                 Projectile.velocity = Projectile.DirectionTo(target.Center) * 15;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             }
         }
 

@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
+using FargowiltasSouls.NPCs.Challengers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs.Challengers;
 
 namespace FargowiltasSouls.Items.Summons
 {
@@ -14,6 +13,7 @@ namespace FargowiltasSouls.Items.Summons
             Tooltip.SetDefault("Summons squirrelly wrath");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
         }
 
         public override void SetDefaults()
@@ -22,8 +22,8 @@ namespace FargowiltasSouls.Items.Summons
             Item.height = 20;
             Item.rare = ItemRarityID.Blue;
             Item.maxStack = 20;
-            Item.useAnimation = 46;
-            Item.useTime = 46;
+            Item.useAnimation = 39;
+            Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
         }

@@ -1,16 +1,15 @@
-using Microsoft.Xna.Framework;
+using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Items.Accessories.Souls;
+using FargowiltasSouls.Items.Armor;
+using FargowiltasSouls.Items.Summons;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using FargowiltasSouls.Items.Summons;
-using FargowiltasSouls.Items.Armor;
-using FargowiltasSouls.Items.Accessories.Souls;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.Items.Accessories.Forces;
-using System.Linq;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -532,7 +531,7 @@ namespace FargowiltasSouls.Items.Misc
             GetBossHelp(ref dialogue, player);
             Main.NewText(dialogue);
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Meowmere, player.Center, 5 + Main.rand.Next(5)); //meow
+            SoundEngine.PlaySound(new SoundStyle($"Terraria/Sounds/Meowmere_{Main.rand.Next(5, 10)}"), player.Center); //meow
             return true;
         }
     }

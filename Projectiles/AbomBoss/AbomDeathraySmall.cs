@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 
 namespace FargowiltasSouls.Projectiles.AbomBoss
@@ -9,11 +9,11 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
         public AbomDeathraySmall() : base(30, "AbomDeathray") { }
 
         public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
+        {
+            base.SetStaticDefaults();
 
             DisplayName.SetDefault("Abominable Deathray");
-		}
+        }
 
         public override bool? CanDamage()
         {
@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
             }
             /*if (Projectile.localAI[0] == 0f)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 104);
+                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
             }*/
             float num801 = 0.3f;
             Projectile.localAI[0] += 1f;

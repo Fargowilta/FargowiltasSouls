@@ -1,11 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.timeLeft = 300;
-            
+
             CooldownSlot = 1;
         }
 
@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2;
 
-            int index = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 
+            int index = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height,
                 DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y, 100, new Color(), 1.2f);
             Main.dust[index].position = (Main.dust[index].position + Projectile.Center) / 2f;
             Main.dust[index].noGravity = true;

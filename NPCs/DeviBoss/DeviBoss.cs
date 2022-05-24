@@ -1,27 +1,28 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Items.BossBags;
+using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Items.Pets;
+using FargowiltasSouls.Items.Placeables.Relics;
+using FargowiltasSouls.Items.Placeables.Trophies;
+using FargowiltasSouls.Items.Summons;
+using FargowiltasSouls.Patreon.Phupperbat;
+using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Deathrays;
+using FargowiltasSouls.Projectiles.DeviBoss;
+using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Deathrays;
-using FargowiltasSouls.Projectiles.DeviBoss;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Items.Accessories.Masomode;
-using FargowiltasSouls.Items.Materials;
-using FargowiltasSouls.Items.Placeables.Trophies;
-using FargowiltasSouls.Items.Summons;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Items.Pets;
-using FargowiltasSouls.Items.BossBags;
-using FargowiltasSouls.Patreon.Phupperbat;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.Localization;
-using FargowiltasSouls.Items.Placeables.Relics;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.DeviBoss
 {
@@ -174,7 +175,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                 if (NPC.Distance(Main.player[NPC.target].Center) < 2000)
                 {
                     NPC.localAI[3] = 1;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                     do
                     {
@@ -264,7 +265,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     NPC.netUpdate = true;
                 }
                 TeleportDust();
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
             };
 
             switch ((int)NPC.ai[0])
@@ -330,7 +331,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     }
                     else if (NPC.ai[1] == 60)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     }
                     break;
 
@@ -382,7 +383,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             NPC.netUpdate = true;
                         }
                         TeleportDust();
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
 
                         if (NPC.ai[2] == NPC.localAI[1])
                         {
@@ -405,10 +406,10 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     if (NPC.ai[1] == 60) //finished all the prior teleports, now attack
                     {
                         NPC.netUpdate = true;
-                        
+
                         FargoSoulsUtil.DustRing(NPC.Center, 36, 246, 9f, default, 3f, true);
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient) //hammers
                         {
@@ -421,7 +422,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             float spazSpeed = 2 * (float)Math.PI * spazRad / spazTime;
                             float retiAcc = retiSpeed * retiSpeed / retiRad * NPC.direction;
                             float spazAcc = spazSpeed * spazSpeed / spazRad * -NPC.direction;
-                            
+
                             for (int i = 0; i < 4; i++)
                             {
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i) * retiSpeed, ModContent.ProjectileType<DeviHammer>(), projectileDamage, 0f, Main.myPlayer, retiAcc, retiTime);
@@ -490,7 +491,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                 case 3: //slow while shooting wyvern orb spirals
                     if (!AliveCheck(player) || Phase2Check())
                         break;
-                    
+
                     targetPos = player.Center + player.DirectionTo(NPC.Center) * 375;
                     if (NPC.Distance(targetPos) > 50)
                         Movement(targetPos, 0.15f);
@@ -537,7 +538,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         {
                             NPC.ai[2] = 0;
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
 
                             int delay = NPC.localAI[3] > 1 ? 45 : 60;
                             Vector2 target = player.Center;
@@ -564,7 +565,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     }
                     else if (NPC.ai[1] == 180) //big wave of mimics, aimed ahead of you
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
 
                         int modifier = 150;
                         if (player.velocity.X != 0)
@@ -665,7 +666,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                 case 6: //rune wizard
                     if (!AliveCheck(player) || Phase2Check())
                         break;
-                    
+
                     EModeGlobalNPC.Aura(NPC, 450, true, 74, Color.GreenYellow, ModContent.BuffType<Hexed>(), ModContent.BuffType<Crippled>(), BuffID.Dazed, BuffID.OgreSpit);
                     EModeGlobalNPC.Aura(NPC, 150, false, 73, default, ModContent.BuffType<Hexed>(), ModContent.BuffType<Crippled>(), BuffID.Dazed, BuffID.OgreSpit);
 
@@ -685,7 +686,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             NPC.netUpdate = true;
                         }
                         TeleportDust();
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
                     }
                     else if (NPC.ai[1] == 50)
                     {
@@ -751,8 +752,8 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         TeleportDust();
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -828,7 +829,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), 0, 0f, Main.myPlayer, 10, NPC.whoAmI);
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), 0, 0f, Main.myPlayer, 10, NPC.whoAmI);
                         }
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     }
                     else if (NPC.ai[1] < 120) //spam shadowbeams after delay
                     {
@@ -874,7 +875,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                         if (NPC.ai[1] == 300) //spray ragged caster bolts
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1); //eoc roar
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center); //eoc roar
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -915,7 +916,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             NPC.netUpdate = true;
                         }
                         TeleportDust();
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
                     }
 
                     if (++NPC.ai[1] < 180)
@@ -933,7 +934,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     {
                         NPC.netUpdate = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient) //shoot guardians
                         {
@@ -958,7 +959,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         if (++NPC.ai[2] > 3)
                         {
                             NPC.ai[2] = 0;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item21, NPC.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -977,7 +978,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                         if (NPC.localAI[3] > 1 && NPC.ai[1] == 270) //surprise!
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1); //eoc roar
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center); //eoc roar
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -1030,7 +1031,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         if (++NPC.ai[2] > 2)
                         {
                             NPC.ai[2] = 0;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item44, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Item44, NPC.Center);
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -1052,7 +1053,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             {
                                 Vector2 speed = 24 * Vector2.UnitY.RotatedBy(MathHelper.ToRadians(10) * NPC.ai[2]);
                                 int type = NPC.localAI[3] > 1 ? ModContent.ProjectileType<DeviRainHeart2>() : ModContent.ProjectileType<DeviRainHeart>();
-                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3 ): FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
                                 int range = NPC.localAI[3] > 1 ? 8 : 10;
                                 float spacing = 1200f / range;
                                 float offset = Main.rand.NextFloat(-spacing, spacing);
@@ -1083,7 +1084,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     if (NPC.localAI[0] == 0)
                     {
                         StrongAttackTeleport();
-                        
+
                         if (Main.netMode != NetmodeID.MultiplayerClient) //spawn ritual for strong attacks
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<DeviRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
 
@@ -1105,7 +1106,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                                 Vector2 speed = 2 * target / 90;
                                 float acceleration = -speed.Length() / 90;
 
-                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3 ): FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
                                 float rotation = FargoSoulsWorld.MasochistModeReal ? MathHelper.ToRadians(Main.rand.NextFloat(-10, 10)) : 0;
 
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(),
@@ -1137,12 +1138,12 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         StrongAttackTeleport();
 
                         NPC.ai[2] = 1;
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             float offset = Main.rand.NextFloat(600);
-                            int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3 ): FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                            int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
                             int max = 8;
                             for (int i = 0; i < max; i++) //make butterflies
                             {
@@ -1151,7 +1152,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                                    damage, 0f, Main.myPlayer, NPC.whoAmI, 300 / 4 * i + offset);
                             }
                         }
-                        
+
                         if (Main.netMode != NetmodeID.MultiplayerClient) //spawn ritual for strong attacks
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<DeviRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
@@ -1211,7 +1212,13 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                     }
 
-                    if (++NPC.ai[2] > (FargoSoulsWorld.MasochistModeReal ? 30 : 60))
+                    if (FargoSoulsWorld.MasochistModeReal && NPC.ai[3] < 7)
+                    {
+                        NPC.ai[1]++;
+                        NPC.ai[2]++;
+                    }
+
+                    if (++NPC.ai[2] > 60)
                     {
                         NPC.ai[2] = 0;
                         //only make rings in p2 and before firing ray
@@ -1220,7 +1227,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 const int max = 12;
-                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3 ): FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
                                 for (int i = 0; i < max; i++)
                                 {
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * NPC.DirectionTo(player.Center).RotatedBy(2 * Math.PI / max * i),
@@ -1232,7 +1239,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         if (++NPC.ai[3] < 4) //medusa warning
                         {
                             NPC.netUpdate = true;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1); //eoc roar
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center); //eoc roar
 
                             FargoSoulsUtil.DustRing(NPC.Center, 120, 228, 20f, default, 2f);
 
@@ -1241,7 +1248,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         else if (NPC.ai[3] == 4) //petrify
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, NPC.Center, 17);
+                            SoundEngine.PlaySound(SoundID.NPCDeath17, NPC.Center);
 
                             if (NPC.Distance(Main.LocalPlayer.Center) < 3000 && Collision.CanHitLine(NPC.Center, 0, 0, Main.LocalPlayer.Center, 0, 0)
                                 && Math.Sign(Main.LocalPlayer.direction) == Math.Sign(NPC.Center.X - Main.LocalPlayer.Center.X)
@@ -1265,7 +1272,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             NPC.netUpdate = true;
 
                             FargoSoulsUtil.DustRing(NPC.Center, 160, 86, 40f, default, 2.5f);
-                            
+
                             NPC.localAI[1] = NPC.DirectionTo(player.Center).ToRotation(); //store for aiming ray
 
                             if (NPC.ai[3] == 6 && Main.netMode != NetmodeID.MultiplayerClient) //final warning
@@ -1276,7 +1283,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         else if (NPC.ai[3] == 7) //fire deathray
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                             NPC.velocity = -3f * Vector2.UnitX.RotatedBy(NPC.localAI[1]);
 
@@ -1299,16 +1306,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                     }
 
-                    if (NPC.ai[3] >= 7) //firing laser dust
-                    {
-                        /*for (int i = 0; i < 5; i++)
-                        {
-                            int d = Dust.NewDust(NPC.position, NPC.width, NPC.height, 86, -NPC.velocity.X, -NPC.velocity.Y, 0, default(Color), 2.5f);
-                            Main.dust[d].noGravity = true;
-                            Main.dust[d].velocity *= 12f;
-                        }*/
-                    }
-                    else //charge up dust
+                    if (NPC.ai[3] < 7) //charge up dust
                     {
                         float num1 = 0.99f;
                         if (NPC.ai[3] >= 1f)
@@ -1356,7 +1354,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<DeviRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
                         }
                     }
-                    
+
                     if (++NPC.ai[1] < 150)
                     {
                         NPC.velocity = Vector2.Zero;
@@ -1401,7 +1399,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                                     Vector2 speed = 2 * target / 90;
                                     float acceleration = -speed.Length() / 90;
 
-                                    int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3 ): FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                                    int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
 
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(),
                                         damage, 0f, Main.myPlayer, 0, acceleration);
@@ -1421,7 +1419,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                         NPC.direction = NPC.spriteDirection = Math.Sign(NPC.ai[2]);
 
-                        if (Math.Sign(targetPos.X - NPC.Center.X) != Math.Sign(NPC.ai[2]))
+                        if (!FargoSoulsWorld.MasochistModeReal && Math.Sign(targetPos.X - NPC.Center.X) != Math.Sign(NPC.ai[2]))
                             NPC.velocity.X *= 0.5f; //worse movement if you're behind her
                     }
                     else if (NPC.ai[1] < 180)
@@ -1506,7 +1504,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             NPC.DelBuff(0);
 
                         Rectangle displayPoint = new Rectangle(NPC.Hitbox.Center.X, NPC.Hitbox.Center.Y - NPC.height / 4, 2, 2);
-                        
+
                         if (NPC.ai[1] == 0)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) //clear my arena
@@ -1553,7 +1551,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             {
                                 CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Reject2"), true);
 
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item28, player.Center);
+                                SoundEngine.PlaySound(SoundID.Item28, player.Center);
                                 Vector2 spawnPos = NPC.Center + Vector2.UnitX * NPC.width * 2 * (player.Center.X < NPC.Center.X ? -1 : 1);
                                 for (int i = 0; i < 30; i++)
                                 {

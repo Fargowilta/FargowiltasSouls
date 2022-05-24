@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
                 Projectile.ai[aislotHomingCooldown] = homingDelay; //cap this value 
-                
+
                 NPC n = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPC(Projectile.Center, 1000));
                 if (n != null)
                 {

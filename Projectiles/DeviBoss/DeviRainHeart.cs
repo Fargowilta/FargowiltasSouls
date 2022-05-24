@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                     Projectile.ai[0] = 1;
                     Projectile.netUpdate = true;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
                 }
             }
             else
@@ -53,7 +54,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 {
                     Projectile.velocity *= 1.06f;
                 }
-                
+
                 if (npc != null && Projectile.Center.Y > Main.player[npc.target].Center.Y + 280) //break when far below player
                 {
                     Projectile.Kill();
@@ -82,7 +83,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             //FargoSoulsUtil.HeartDust(Projectile.Center);
 

@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
 namespace FargowiltasSouls.Projectiles.ChallengerItems
 {
@@ -68,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.localAI[0]++;
 
             if (Projectile.localAI[0] % 20 == 0)
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
 
             Vector2 ownerMountedCenter = player.RotatedRelativePoint(player.MountedCenter);
             if (Projectile.ai[0] == 0 && player.velocity.X != 0)
@@ -94,7 +95,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 Projectile.velocity = Projectile.rotation.ToRotationVector2();
                 Projectile.position -= Projectile.velocity;
                 player.itemRotation = MathHelper.WrapAngle(Projectile.rotation);
-                
+
                 if (Projectile.localAI[0] == 40)
                 {
                     Projectile.ai[1] = 1f;
@@ -148,7 +149,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                     //if hits a solid surface, immediately rebound
                     if (Collision.SolidTiles(Projectile.Center, 2, 2, false) && Projectile.owner == Main.myPlayer)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+                        SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
                         Projectile.localAI[0] = maxTime - Projectile.localAI[0];
                         Projectile.netUpdate = true;
                     }
@@ -213,7 +214,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 }
             }
 
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), 
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle),
                 Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }

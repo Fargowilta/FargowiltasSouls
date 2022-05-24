@@ -71,7 +71,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 if (Projectile.velocity.Length() < 12f)
                     Projectile.velocity *= 1.05f;
             }
-            
+
             if (++Projectile.localAI[0] > 90) //spray shards
             {
                 if (Projectile.localAI[0] > (npc.localAI[3] > 1 ? 120 : 105))
@@ -104,7 +104,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                     }
                     if (Main.player[npc.target].active && !Main.player[npc.target].dead && Main.player[npc.target].Center.Y < Projectile.Center.Y)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
+                        SoundEngine.PlaySound(SoundID.Item120, Projectile.position);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             Vector2 vel = Projectile.DirectionTo(Main.player[npc.target].Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(-200, 201))) * 12f;

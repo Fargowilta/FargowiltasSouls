@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Patreon.Sam
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Squidward Door");
             AddMapEntry(new Color(200, 200, 200), name);
-            
+
             AdjTiles = new int[] { TileID.ClosedDoor };
             OpenDoorID = ModContent.TileType<SquidwardDoorOpen>();
         }

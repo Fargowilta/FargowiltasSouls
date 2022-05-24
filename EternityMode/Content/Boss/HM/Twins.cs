@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -23,11 +24,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
     public class Retinazer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Retinazer);
-        
+
         public int DeathrayState;
         public int AuraRadiusCounter;
         public int DarkStarTimer;
-        
+
         public bool StoredDirectionToPlayer;
 
         public bool ForcedPhase2OnSpawn;
@@ -58,7 +59,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
-            
+
             NPC spazmatism = FargoSoulsUtil.NPCExists(EModeGlobalNPC.spazBoss, NPCID.Spazmatism);
 
             if (!ForcedPhase2OnSpawn) //start phase 2
@@ -123,7 +124,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     //npc.ai[0] = 4f;
                     npc.ai[0] = 604f; //initiate spin immediately
                     npc.netUpdate = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), 0, 0f, Main.myPlayer, 11, npc.whoAmI);
@@ -218,7 +219,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, npc.type);
 
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center, -1); //eoc roar
+                                SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center); //eoc roar
                             }
                             npc.netUpdate = true;
                             NetSync(npc);
@@ -432,7 +433,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void SetDefaults(NPC npc)
         {
             base.SetDefaults(npc);
-            
+
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
@@ -442,7 +443,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
-            
+
             NPC retinazer = FargoSoulsUtil.NPCExists(EModeGlobalNPC.retiBoss, NPCID.Retinazer);
 
             float modifier = (float)npc.life / npc.lifeMax;
@@ -510,7 +511,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     npc.ai[0] = 4f;
                     npc.netUpdate = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                     int index = npc.FindBuffIndex(BuffID.CursedInferno);
                     if (index != -1)
@@ -577,7 +578,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             if (modifier < 0.5f / 4 * 1 || FargoSoulsWorld.MasochistModeReal)
                                 FlameWheelCount = 5;
                         }
-                        
+
                         if (++FlameWheelSpreadTimer < 30) //snap to reti, don't do contact damage
                         {
                             npc.rotation = npc.DirectionTo(retinazer.Center).ToRotation() - (float)Math.PI / 2;

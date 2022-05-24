@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.EternityMode;
+using FargowiltasSouls.EternityMode.Content.Boss.HM;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.EternityMode;
-using FargowiltasSouls.EternityMode.Content.Boss.HM;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -80,7 +80,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.netUpdate = true;
             }
             Projectile.rotation = Projectile.ai[0];
-            
+
             /*Projectile.frameCounter++;
             if (Projectile.frameCounter >= 6)
             {

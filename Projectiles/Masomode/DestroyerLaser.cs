@@ -1,17 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.NPCs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
     public class DestroyerLaser : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_658";
-        
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Death Laser");
@@ -44,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
             }
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2;
 
@@ -105,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Main.EntitySpriteDraw(hitboxindicator, Projectile.Center - Main.screenPosition, new Rectangle(0, 0, hitboxindicator.Width, hitboxindicator.Height),
                     new Color(255, 133, 149) * Projectile.Opacity, 0, hitboxindicator.Size() / 2, 0.25f, SpriteEffects.None, 0);
             }
-            
+
             return false;
         }
     }

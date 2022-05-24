@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs.Champions;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs.Champions;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {

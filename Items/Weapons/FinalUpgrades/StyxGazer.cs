@@ -122,7 +122,7 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             .AddIngredient(ModContent.ItemType<AbominableWand>())
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

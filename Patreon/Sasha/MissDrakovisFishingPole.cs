@@ -1,12 +1,10 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using FargowiltasSouls.Items;
+using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Sasha
 {
@@ -230,7 +228,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
                 .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-                
+
                 .Register();
             }
         }

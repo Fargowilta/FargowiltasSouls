@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Toggler;
 
 namespace FargowiltasSouls.Buffs.Souls
 {
@@ -54,7 +54,8 @@ namespace FargowiltasSouls.Buffs.Souls
                 }
             }
             //right
-            else */if ((player.controlRight && player.releaseRight))
+            else */
+            if ((player.controlRight && player.releaseRight))
             {
                 if (player.doubleTapCardinalTimer[2] > 0 && player.doubleTapCardinalTimer[2] != 15)
                 {

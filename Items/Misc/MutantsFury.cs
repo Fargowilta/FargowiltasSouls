@@ -1,9 +1,10 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
 {
@@ -40,7 +41,7 @@ namespace FargowiltasSouls.Items.Misc
             FargoSoulsUtil.PrintLocalization(text, 175, 75, 255);
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.Center);
             return true;
         }
 

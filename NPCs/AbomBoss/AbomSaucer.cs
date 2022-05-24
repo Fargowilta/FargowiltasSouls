@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -118,7 +119,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
                 if (NPC.ai[1] > 120) //attack and reset
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                    SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = 0; i < 5; i++)

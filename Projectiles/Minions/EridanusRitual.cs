@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 case 2: Projectile.frame = 0; break;
                 default: Projectile.frame = 3; break;
             }
-            
+
             //handle countdown between phase changes
             Projectile.localAI[0] = Main.player[Projectile.owner].GetModPlayer<FargoSoulsPlayer>().EridanusTimer % (float)(60 * 10) / (float)(60 * 10) * 12f - 1f;
         }

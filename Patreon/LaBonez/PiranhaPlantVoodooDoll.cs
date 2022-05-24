@@ -1,11 +1,7 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+using Terraria.Audio;
 using Terraria.ID;
-using FargowiltasSouls.Items;
-using Terraria.Chat;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.LaBonez
 {
@@ -41,7 +37,7 @@ namespace FargowiltasSouls.Patreon.LaBonez
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, player.Center, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.Center);
 
             return true;
         }

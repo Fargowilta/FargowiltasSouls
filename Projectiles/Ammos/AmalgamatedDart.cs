@@ -1,7 +1,4 @@
-﻿//using System;
-//using Microsoft.Xna.Framework;
-//using Terraria;
-//using Terraria.ID;
+﻿//using Terraria.ID;
 //using Terraria.ModLoader;
 
 //namespace FargowiltasSouls.Projectiles.Ammos
@@ -134,11 +131,11 @@
 //            Projectile.velocity.Y = -Projectile.velocity.Y;
 //           /* if (Projectile.velocity.X != velocity.X)
 //            {
-                
+
 //            }
 //            if (Projectile.velocity.Y != velocity.Y)
 //            {
-                
+
 //            }
 //            /*if (Projectile.penetrate > 0 && Projectile.owner == Main.myPlayer)
 //            {
@@ -226,7 +223,7 @@
 
 //        public void OnHit()
 //        {
-            
+
 //        }
 
 //        public override void Kill(int timeleft)

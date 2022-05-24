@@ -1,17 +1,17 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using FargowiltasSouls.Items.Accessories.Forces;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -214,7 +214,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
             Player player = Main.player[NPC.target];
             Vector2 targetPos;
-            
+
             if (NPC.HasValidTarget && NPC.Distance(player.Center) < 3000 && player.Center.Y >= Main.worldSurface * 16 && !player.ZoneUnderworldHeight)
                 NPC.timeLeft = 600;
 
@@ -222,7 +222,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 NPC.direction = NPC.spriteDirection = -1;
             else if (player.Center.X > NPC.position.X + NPC.width)
                 NPC.direction = NPC.spriteDirection = 1;
-            
+
             switch ((int)NPC.ai[0])
             {
                 case -1: //mourning wood movement
@@ -322,7 +322,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         void StompDust()
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                            SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                             for (int k = -2; k <= 2; k++) //explosions
                             {
@@ -458,14 +458,14 @@ namespace FargowiltasSouls.NPCs.Champions
                         {
                             if (Main.npc[targetHead].ai[0] != 0) //don't act on a head currently doing something
                                 return;
-                            
+
                             Main.npc[targetHead].ai[0] += Main.npc[targetHead].ai[3];
                             Main.npc[targetHead].localAI[0] = 0;
                             Main.npc[targetHead].ai[2] = 0;
                             Main.npc[targetHead].localAI[1] = 0;
                             Main.npc[targetHead].netUpdate = true;
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Main.npc[targetHead].Center, -1);
+                            SoundEngine.PlaySound(SoundID.ForceRoarPitched, Main.npc[targetHead].Center);
 
                             int glowType;
                             switch ((int)Main.npc[targetHead].ai[3])
@@ -485,7 +485,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                         NPC.ai[2] = 1;
                         NPC.netUpdate = true;
-                        
+
                         int set = Main.rand.Next(configurations.Length);
                         while (heads[configurations[set].Key] == heads[configurations[lastSet].Key] //don't reuse heads you just attacked with
                             || heads[configurations[set].Key] == heads[configurations[lastSet].Value]
@@ -545,7 +545,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         NPC.ai[2] = 1;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
                         for (int i = 0; i < heads.Length; i++) //activate all heads
                         {
@@ -599,7 +599,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     NPC.ai[3] = 1; //marks enrage jump
                     NPC.netUpdate = true;
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, player.Center, -1);
+                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, player.Center);
                 }
 
                 Vector2 dustOffset = Vector2.Normalize(player.Center - NPC.Center) * 1400;
@@ -692,7 +692,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     if (!Main.dedServ)
                         Gore.NewGore(NPC.GetSource_FromThis(), pos, NPC.velocity, ModContent.Find<ModGore>(Mod.Name, $"NatureGore{i}").Type, NPC.scale);
                 }
-                
+
                 for (int i = 0; i < Main.maxNPCs; i++) //find neck segments, place gores there
                 {
                     if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NatureChampionHead>() && Main.npc[i].ai[1] == NPC.whoAmI)

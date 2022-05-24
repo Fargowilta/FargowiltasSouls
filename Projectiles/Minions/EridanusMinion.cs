@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -129,7 +130,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                             (int)(Projectile.originalDamage * Main.player[Projectile.owner].GetDamage(DamageClass.Ranged).Additive * 1.5f), Projectile.knockBack * 2, Main.myPlayer, npc.whoAmI);
                                     }
                                 }
-                                
+
                                 if (player.HeldItem.DamageType == DamageClass.Ranged)
                                 {
                                     if (Projectile.localAI[0] < 15)
@@ -159,7 +160,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                                     if (Projectile.localAI[0] % 5 == 0 && player.HeldItem.DamageType == DamageClass.Magic) //rain lunar flares
                                     {
-                                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
+                                        SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
 
                                         if (Main.myPlayer == Projectile.owner)
                                         {
@@ -188,10 +189,10 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                                 Projectile.frame = 5;
 
-                                bool playerIsAttacking = player.controlUseItem 
-                                    && (player.HeldItem.DamageType == DamageClass.Melee 
-                                    || player.HeldItem.DamageType == DamageClass.Ranged 
-                                    || player.HeldItem.DamageType == DamageClass.Magic 
+                                bool playerIsAttacking = player.controlUseItem
+                                    && (player.HeldItem.DamageType == DamageClass.Melee
+                                    || player.HeldItem.DamageType == DamageClass.Ranged
+                                    || player.HeldItem.DamageType == DamageClass.Magic
                                     || player.HeldItem.DamageType == DamageClass.Throwing)
                                     && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0;
 
@@ -202,7 +203,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     {
                                         int modifier = Math.Sign(Projectile.Center.Y - npc.Center.Y);
                                         FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + 3000 * Projectile.DirectionFrom(npc.Center) * modifier,
-                                            Projectile.DirectionTo(npc.Center) * modifier, ModContent.ProjectileType<EridanusDeathray>(), 
+                                            Projectile.DirectionTo(npc.Center) * modifier, ModContent.ProjectileType<EridanusDeathray>(),
                                             Projectile.originalDamage, Projectile.knockBack / 4, Main.myPlayer);
                                     }
                                 }
@@ -233,7 +234,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 home.Y -= 40;
 
                 Projectile.direction = Projectile.spriteDirection = player.direction;
-                
+
                 if (Projectile.Distance(home) > 2000f)
                 {
                     Projectile.Center = player.Center;
@@ -244,7 +245,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     Projectile.Center = Vector2.Lerp(Projectile.Center, home, 0.25f);
                     Projectile.velocity *= 0.8f;
                 }
-                
+
                 if (++Projectile.localAI[1] > 6f)
                 {
                     Projectile.localAI[1] = 0f;
@@ -328,7 +329,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
             Main.EntitySpriteDraw(glowerTex, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glowColor, Projectile.rotation, origin2, Projectile.scale, flipper, 0);
-           
+
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
             return false;

@@ -14,7 +14,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
 {
     public class DemonEyes : EModeNPCBehaviour
     {
-        public override NPCMatcher CreateMatcher() => 
+        public override NPCMatcher CreateMatcher() =>
             new NPCMatcher().MatchTypeRange(
                 NPCID.DemonEye,
                 NPCID.DemonEye2,

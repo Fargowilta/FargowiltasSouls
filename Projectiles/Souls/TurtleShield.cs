@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -52,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 27, 1.5f);
+            SoundEngine.PlaySound(SoundID.Item27 with { Volume = 1.5f }, Projectile.Center);
         }
 
         public override Color? GetAlpha(Color lightColor)

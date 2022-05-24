@@ -1,10 +1,10 @@
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.AbomBoss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.NPCs.AbomBoss;
 
 namespace FargowiltasSouls.Sky
 {

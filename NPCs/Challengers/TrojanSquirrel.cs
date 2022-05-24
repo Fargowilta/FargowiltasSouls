@@ -1,21 +1,20 @@
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework.Graphics;
+using FargowiltasSouls.BossBars;
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Items.BossBags;
+using FargowiltasSouls.Items.Placeables.Trophies;
+using FargowiltasSouls.Items.Summons;
+using FargowiltasSouls.Items.Weapons.Challengers;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using Terraria.DataStructures;
-using System.IO;
-using FargowiltasSouls.Items.Summons;
-using FargowiltasSouls.Items.Placeables.Trophies;
-using FargowiltasSouls.Items.Weapons.Challengers;
-using FargowiltasSouls.Items.BossBags;
-using FargowiltasSouls.BossBars;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -104,21 +103,21 @@ namespace FargowiltasSouls.NPCs.Challengers
                 body = sourceNPC;
         }
 
-		public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
 
             writer.Write(body is NPC ? body.whoAmI : -1);
-		}
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			base.ReceiveExtraAI(reader);
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
 
             body = FargoSoulsUtil.NPCExists(reader.ReadInt32());
-		}
+        }
 
-		public override bool PreAI()
+        public override bool PreAI()
         {
             if (body != null)
                 body = FargoSoulsUtil.NPCExists(body.whoAmI, ModContent.NPCType<TrojanSquirrel>());
@@ -382,7 +381,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 
                 FargoSoulsUtil.GrossVanillaDodgeDust(NPC);
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, Main.player[NPC.target].Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, Main.player[NPC.target].Center);
             }
 
             Player player = Main.player[NPC.target];
@@ -439,7 +438,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                                 NPC.ai[3] = 1f;
                             }
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                            SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                             ExplodeAttack();
                         }
@@ -583,7 +582,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 
                             NPC.netUpdate = true;
 
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                            SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
                         }
                         else
                         {
@@ -723,7 +722,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 
         private void ExplodeDust(Vector2 center)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, center);
 
             const int width = 32;
             const int height = 32;
@@ -832,6 +831,7 @@ namespace FargowiltasSouls.NPCs.Challengers
             rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<TreeSword>(), ModContent.ItemType<MountedAcornGun>(), ModContent.ItemType<SnowballStaff>(), ModContent.ItemType<KamikazeSquirrelStaff>()));
             rule.OnSuccess(ItemDropRule.Common(ItemID.WoodenCrate, 1, 1, 5));
             rule.OnSuccess(ItemDropRule.Common(ItemID.HerbBag, 1, 1, 5));
+            rule.OnSuccess(ItemDropRule.Common(ItemID.Acorn, 1, 100, 100));
             rule.OnSuccess(ItemDropRule.Common(ModContent.Find<ModItem>("Fargowiltas", "LumberJaxe").Type, 10));
             npcLoot.Add(rule);
         }

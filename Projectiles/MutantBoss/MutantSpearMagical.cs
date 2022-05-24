@@ -1,10 +1,7 @@
-﻿using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.Projectiles.BossWeapons;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -38,7 +35,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
                 if (++Projectile.localAI[1] > attackTime)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
                     Projectile.ai[0] = 1f;
                     Projectile.velocity = flySpeed * Projectile.ai[1].ToRotationVector2();
                 }

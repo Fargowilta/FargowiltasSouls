@@ -3,14 +3,10 @@ using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -150,7 +146,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
 
                 if (!Main.dedServ && Main.rand.NextBool(1000))
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(mod, "Sounds/a"));
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/a"), npc.Center);
 
                     CombatText.NewText(npc.Hitbox, Color.Blue, "a", true);
 

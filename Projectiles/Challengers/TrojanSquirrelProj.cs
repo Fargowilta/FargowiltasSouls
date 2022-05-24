@@ -2,7 +2,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
 
             for (int k = 0; k < 20; k++)
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Blood, 0f, -1f);
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 Main.gore[g].rotation = Main.rand.NextFloat(MathHelper.TwoPi);
             }
 
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, Projectile.Center, 14);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
             for (int i = 0; i < 10; i++)
             {

@@ -1,8 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -43,7 +42,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
             }
 
             Projectile.rotation += 1f;
@@ -57,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
                 Projectile.ai[aislotHomingCooldown] = homingDelay; //cap this value 
-                
+
                 NPC n = FargoSoulsUtil.NPCExists(Projectile.ai[0]);
                 if (n != null)
                 {

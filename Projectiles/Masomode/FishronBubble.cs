@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.NPCs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Masomode
 {
@@ -63,8 +64,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit3, Projectile.Center);
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath3, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCHit3, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath3, Projectile.Center);
         }
 
         public override bool PreDraw(ref Color lightColor)

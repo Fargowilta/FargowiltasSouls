@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using FargowiltasSouls.Items;
-using System.Linq;
-using Terraria.DataStructures;
 
 namespace FargowiltasSouls.Patreon.Purified
 {
@@ -68,7 +66,7 @@ namespace FargowiltasSouls.Patreon.Purified
                     case 2: limbType = ModContent.ProjectileType<PrimeMinionLaserGun>(); break;
                     default: limbType = ModContent.ProjectileType<PrimeMinionCannon>(); break;
                 }
-                    
+
                 FargoSoulsUtil.NewSummonProjectile(source, spawnPos, Main.rand.NextVector2Circular(10, 10), limbType, Item.damage, knockback, player.whoAmI);
             }
             return false;

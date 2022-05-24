@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 if (npc.velocity.Y == 0f) //spawn smash
                 {
                     DoStompAttack = false;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, npc.Center, 14);
+                    SoundEngine.PlaySound(SoundID.Item14, npc.Center);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = -1; i <= 1; i++)
@@ -179,7 +180,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
 
                 if (IndividualAttackTimer % 10 == 0 && !Main.player[npc.target].ZoneRockLayerHeight)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item5, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item5, npc.Center);
 
                     Vector2 spawn = new Vector2(npc.Center.X + Main.rand.NextFloat(-100, 100), Main.player[npc.target].Center.Y - Main.rand.Next(600, 801));
                     Vector2 speed = 10f * Vector2.Normalize(Main.player[npc.target].Center + Main.rand.NextVector2Square(-100, 100) - spawn);
@@ -230,7 +231,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                               Main.rand.Next(-30, 31) * .1f, Main.rand.Next(-40, -15) * .1f, ModContent.ProjectileType<FakeHeart>(), 20, 0f, Main.myPlayer);
                     }
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, npc.Center, 14);
+                    SoundEngine.PlaySound(SoundID.Item14, npc.Center);
 
                     for (int i = 0; i < 30; i++)
                     {
@@ -267,7 +268,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 IndividualAttackTimer = 0;
                 if (npc.HasValidTarget)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Grass, npc.Center);
                     float speed = Main.player[npc.target].ZoneRockLayerHeight ? 9f : 14f;
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {

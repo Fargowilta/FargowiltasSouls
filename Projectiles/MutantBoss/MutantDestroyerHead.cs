@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using System.Linq;
 using Terraria;
-using Terraria.ModLoader;
+using Terraria.Audio;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -66,7 +67,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             //keep the head looking right
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             Projectile.spriteDirection = Projectile.velocity.X > 0f ? 1 : -1;
-            
+
             const int homingDelay = 60;
             float desiredFlySpeedInPixelsPerFrame = 10 * Projectile.ai[1];
             float amountOfFramesToLerpBy = 25 / Projectile.ai[1]; // minimum of 1, please keep in full numbers even though it's a float!
@@ -114,8 +115,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Main.dust[dust].velocity *= 2f;
             }
             //int g = Gore.NewGore(Projectile.Center, Projectile.velocity / 2, mod.GetGoreSlot("Gores/DestroyerGun/DestroyerHead"), Projectile.scale);
-           // Main.gore[g].timeLeft = 20;
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, Projectile.Center, 14);
+            // Main.gore[g].timeLeft = 20;
+            SoundEngine.PlaySound(SoundID.NPCDeath14, Projectile.Center);
         }
     }
 }

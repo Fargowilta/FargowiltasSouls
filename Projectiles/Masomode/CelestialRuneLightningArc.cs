@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -50,9 +51,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Lighting.AddLight(Projectile.Center, 0.3f, 0.45f, 0.5f);
             colorlerp += 0.05f;
 
-            if(!playedsound)
+            if (!playedsound)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 122, 0.5f, -0.5f);
+                SoundEngine.PlaySound(SoundID.Item122 with { Volume = 0.5f, Pitch = -0.5f }, Projectile.Center);
                 playedsound = true;
             }
 
@@ -73,20 +74,20 @@ namespace FargowiltasSouls.Projectiles.Masomode
                         return;
                     }
                 }
-                if (Main.rand.Next(Projectile.extraUpdates) != 0)
+                if (!Main.rand.NextBool(Projectile.extraUpdates))
                     return;
                 for (int index1 = 0; index1 < 2; ++index1)
                 {
-                    float num1 = Projectile.rotation + (float)((Main.rand.Next(2) == 1 ? -1.0 : 1.0) * 1.57079637050629);
+                    float num1 = Projectile.rotation + (float)((Main.rand.NextBool(2)? -1.0 : 1.0) * 1.57079637050629);
                     float num2 = (float)(Main.rand.NextDouble() * 0.800000011920929 + 1.0);
                     Vector2 vector2 = new Vector2((float)Math.Cos((double)num1) * num2, (float)Math.Sin((double)num1) * num2);
-                    int index2 = Dust.NewDust(Projectile.Center, 0, 0, 226, vector2.X, vector2.Y, 0, new Color(), 1f);
+                    int index2 = Dust.NewDust(Projectile.Center, 0, 0, DustID.Electric, vector2.X, vector2.Y, 0, new Color(), 1f);
                     Main.dust[index2].noGravity = true;
                     Main.dust[index2].scale = 1.2f;
                 }
-                if (Main.rand.Next(5) != 0)
+                if (!Main.rand.NextBool(5))
                     return;
-                int index3 = Dust.NewDust(Projectile.Center + Projectile.velocity.RotatedBy(1.57079637050629, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width - Vector2.One * 4f, 8, 8, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
+                int index3 = Dust.NewDust(Projectile.Center + Projectile.velocity.RotatedBy(1.57079637050629, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width - Vector2.One * 4f, 8, 8, DustID.Smoke, 0.0f, 0.0f, 100, new Color(), 1.5f);
                 Dust dust = Main.dust[index3];
                 dust.velocity = dust.velocity * 0.5f;
                 Main.dust[index3].velocity.Y = -Math.Abs(Main.dust[index3].velocity.Y);
@@ -128,9 +129,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.velocity = Vector2.Zero;
                 Projectile.localAI[1] = 1f;
                 goto label_3461;
-                label_3460:
+            label_3460:
                 spinningpoint = rotationVector2;
-                label_3461:
+            label_3461:
                 if (Projectile.velocity == Vector2.Zero || Projectile.velocity.Length() < 4f)
                 {
                     Projectile.velocity = Vector2.UnitX.RotatedBy(Projectile.ai[0]).RotatedByRandom(Math.PI / 4) * 7f;
@@ -172,12 +173,12 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeLeft)
         {
-            float num2 = (float)(Projectile.rotation + 1.57079637050629 + (Main.rand.Next(2) == 1 ? -1.0 : 1.0) * 1.57079637050629);
+            float num2 = (float)(Projectile.rotation + 1.57079637050629 + (Main.rand.NextBool(2)? -1.0 : 1.0) * 1.57079637050629);
             float num3 = (float)(Main.rand.NextDouble() * 2.0 + 2.0);
             Vector2 vector2 = new Vector2((float)Math.Cos(num2) * num3, (float)Math.Sin(num2) * num3);
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                int index = Dust.NewDust(Projectile.oldPos[i], 0, 0, 229, vector2.X, vector2.Y, 0, new Color(), 1f);
+                int index = Dust.NewDust(Projectile.oldPos[i], 0, 0, DustID.Vortex, vector2.X, vector2.Y, 0, new Color(), 1f);
                 Main.dust[index].noGravity = true;
                 Main.dust[index].scale = 1.7f;
             }
@@ -191,7 +192,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override Color? GetAlpha(Color lightColor)
         {
 
-            return Color.Lerp(Color.LightSkyBlue, Color.White, 0.5f + (float)Math.Sin(colorlerp)/2) * 0.5f;
+            return Color.Lerp(Color.LightSkyBlue, Color.White, 0.5f + (float)Math.Sin(colorlerp) / 2) * 0.5f;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -202,11 +203,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Color color27 = Projectile.GetAlpha(lightColor);
             for (int i = 1; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
-                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i-1] == Projectile.oldPos[i])
+                if (Projectile.oldPos[i] == Vector2.Zero || Projectile.oldPos[i - 1] == Projectile.oldPos[i])
                     continue;
                 Vector2 offset = Projectile.oldPos[i - 1] - Projectile.oldPos[i];
                 int length = (int)offset.Length();
-                float scale = Projectile.scale * (float)Math.Sin(i/MathHelper.Pi);
+                float scale = Projectile.scale * (float)Math.Sin(i / MathHelper.Pi);
                 offset.Normalize();
                 const int step = 3;
                 for (int j = 0; j < length; j += step)

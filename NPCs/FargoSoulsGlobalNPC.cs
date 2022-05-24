@@ -1,19 +1,19 @@
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.Items.Weapons.BossDrops;
+using FargowiltasSouls.Items.Weapons.Misc;
+using FargowiltasSouls.Projectiles.Masomode;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Toggler;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using Terraria.GameContent.ItemDropRules;
-using FargowiltasSouls.Items.Weapons.BossDrops;
-using FargowiltasSouls.Items.Weapons.Misc;
-using System.Linq;
-using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.Projectiles.Masomode;
 
 namespace FargowiltasSouls.NPCs
 {
@@ -73,7 +73,7 @@ namespace FargowiltasSouls.NPCs
         {
             BrokenArmor = false;
             TimeFrozen = false;
-            SBleed = false; 
+            SBleed = false;
             //            Shock = false;
             Rotting = false;
             LeadPoison = false;
@@ -765,8 +765,8 @@ namespace FargowiltasSouls.NPCs
         private bool lootMultiplierCheck;
         private static int[] illegalLootMultiplierNPCs => new int[] {
             NPCID.DD2Betsy,
-            NPCID.EaterofWorldsBody, 
-            NPCID.EaterofWorldsHead, 
+            NPCID.EaterofWorldsBody,
+            NPCID.EaterofWorldsHead,
             NPCID.EaterofWorldsTail
         };
 
@@ -870,7 +870,7 @@ namespace FargowiltasSouls.NPCs
                     break;
 
                 case NPCID.BigMimicJungle:
-                    npcLoot.Add(ItemDropRule.OneFromOptions(1, 
+                    npcLoot.Add(ItemDropRule.OneFromOptions(1,
                         ModContent.ItemType<Vineslinger>(),
                         ModContent.ItemType<Mahoguny>(),
                         ModContent.ItemType<OvergrownKey>()));
@@ -905,7 +905,7 @@ namespace FargowiltasSouls.NPCs
             //            /*if (npc.boss && FargoSoulsUtil.BossIsAlive(ref mutantBoss, ModContent.NPCType<MutantBoss.MutantBoss>()) && npc.type != ModContent.NPCType<MutantBoss.MutantBoss>())
             //            {
             //                npc.active = false;
-            //                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+            //                SoundEngine.PlaySound(npc.DeathSound, npc.Center);
             //                return false;
             //            }*/
 

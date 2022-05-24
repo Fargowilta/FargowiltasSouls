@@ -1,12 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 using System.IO;
+using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -48,23 +47,23 @@ namespace FargowiltasSouls.Projectiles.Champions
         public override void OnSpawn(IEntitySource source)
         {
             if (!Main.dedServ)
-                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(FargowiltasSouls.Instance, "Sounds/Thunder").WithVolume(0.5f), Projectile.Center);
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 0.5f }, Projectile.Center);
 
             if (source is EntitySource_Parent parent && parent.Entity is NPC sourceNPC)
                 npc = sourceNPC;
         }
 
-		public override void SendExtraAI(BinaryWriter writer)
-		{
+        public override void SendExtraAI(BinaryWriter writer)
+        {
             writer.Write(npc is NPC ? npc.whoAmI : -1);
-		}
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
             npc = FargoSoulsUtil.NPCExists(reader.ReadInt32());
-		}
+        }
 
-		public override void AI()
+        public override void AI()
         {
             Projectile.rotation += Main.rand.NextFloat(-0.2f, 0.2f);
 

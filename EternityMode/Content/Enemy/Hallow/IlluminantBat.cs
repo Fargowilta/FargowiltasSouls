@@ -2,14 +2,10 @@
 using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -77,7 +73,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
             if (IsFakeBat)
             {
                 npc.active = false;
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 return false;
             }
 

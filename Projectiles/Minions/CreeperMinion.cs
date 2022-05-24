@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             int Brain = -1;
             for (int i = 0; i < Main.projectile.Length; i++)
             {
-                if(Main.projectile[i].type == ModContent.ProjectileType<BrainMinion>() && Main.projectile[i].active && Main.projectile[i].owner == Projectile.owner)
+                if (Main.projectile[i].type == ModContent.ProjectileType<BrainMinion>() && Main.projectile[i].active && Main.projectile[i].owner == Projectile.owner)
                 {
                     Brain = i;
                 }
@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         }
                     }
                 }
-                
+
                 NPC targetnpc = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPC(Projectile.Center, 1000, true));
                 bool targetting = targetnpc != null;
                 if (!targetting || Projectile.ai[0] > 0)

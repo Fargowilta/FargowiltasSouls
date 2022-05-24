@@ -1,11 +1,10 @@
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.MutantBoss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.NPCs.MutantBoss;
-using Terraria.Graphics.Shaders;
 
 namespace FargowiltasSouls.Sky
 {

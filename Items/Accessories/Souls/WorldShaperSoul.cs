@@ -1,9 +1,8 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
 {
@@ -30,7 +29,7 @@ Effects of the Cell Phone and Royal Gel
 Summons a pet Magic Lantern
 'Limitless possibilities'");
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铸世者之魂");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
 @"增加50%物块和墙壁的放置速度
 近乎无限的放置和挖掘距离
 挖掘速度x3
@@ -57,7 +56,7 @@ Summons a pet Magic Lantern
             Item.UseSound = SoundID.Item6;
             Item.useAnimation = 1;
         }
-        
+
         protected override Color? nameColor => new Color(255, 239, 2);
 
         public override bool? UseItem(Player player)
@@ -120,7 +119,7 @@ Summons a pet Magic Lantern
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
-            
+
             .Register();
         }
     }

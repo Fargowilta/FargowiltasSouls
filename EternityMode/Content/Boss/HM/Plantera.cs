@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -127,7 +128,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                         foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<CrystalLeaf>() && n.ai[0] == npc.whoAmI && n.ai[1] == innerRingDistance)) //my crystal leaves
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, n.Center);
+                            SoundEngine.PlaySound(SoundID.Grass, n.Center);
                             Projectile.NewProjectile(npc.GetSource_FromThis(), n.Center, Vector2.Zero, ModContent.ProjectileType<PlanteraCrystalLeafRing>(), npc.defDamage / 4, 0f, Main.myPlayer, Main.projectile[p].identity, n.ai[3]);
 
                             n.life = 0;
@@ -262,14 +263,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     {
                         TentacleAttackAngleOffset = Main.rand.NextFloat(MathHelper.TwoPi);
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                         npc.netUpdate = true;
                         NetSync(npc);
 
                         foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<CrystalLeaf>() && n.ai[0] == npc.whoAmI && n.ai[1] > innerRingDistance)) //my crystal leaves
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Grass, n.Center);
+                            SoundEngine.PlaySound(SoundID.Grass, n.Center);
 
                             n.life = 0;
                             n.HitEffect();
@@ -279,7 +280,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n.whoAmI);
                         }
                     }
-                    
+
                     const int maxTime = 30;
                     const int interval = 3;
                     float maxDegreeCoverage = 45f; //on either side of the middle, the full coverage of one side is x2 this
@@ -289,7 +290,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         for (int i = -tentacleSpawnOffset; i <= tentacleSpawnOffset; i += tentacleSpawnOffset * 2)
                         {
                             float attackAngle = MathHelper.WrapAngle(
-                                TentacleAttackAngleOffset 
+                                TentacleAttackAngleOffset
                                 + MathHelper.ToRadians(maxDegreeCoverage / (maxTime / interval)) * (i + Main.rand.NextFloat(-0.5f, 0.5f))
                             );
 
@@ -375,7 +376,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void LoadSprites(NPC npc, bool recolor)
         {
             base.LoadSprites(npc, recolor);
-            
+
             LoadBossHeadSprite(recolor, 11);
             LoadBossHeadSprite(recolor, 12);
             LoadGoreRange(recolor, 378, 391);

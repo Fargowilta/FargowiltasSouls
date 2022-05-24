@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -23,23 +24,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
     public class SkeletronPrime : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.SkeletronPrime);
-        
+
         public int DungeonGuardianStartup;
-        public int ProjectileAttackTimer;
         public int MemorizedTarget;
-        
+
         public bool FullySpawnedLimbs;
         public bool HaveShotGuardians;
 
+        public int ProjectileAttackTimer;
+        public int RocketTimer;
         public bool DroppedSummon;
         public bool HasSaidEndure;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(DungeonGuardianStartup), IntStrategies.CompoundStrategy },
-                { new Ref<object>(ProjectileAttackTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(MemorizedTarget), IntStrategies.CompoundStrategy },
-                
+
                 { new Ref<object>(FullySpawnedLimbs), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(HaveShotGuardians), BoolStrategies.CompoundStrategy },
             };
@@ -118,9 +119,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     }
                 }
 
-                if (++ProjectileAttackTimer >= 360)
+                if (++RocketTimer >= 360)
                 {
-                    ProjectileAttackTimer = 0;
+                    RocketTimer = 0;
 
                     if (npc.HasPlayerTarget) //skeleton commando rockets LUL
                     {
@@ -138,7 +139,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 3f * speed.RotatedBy(MathHelper.ToRadians(-5f)), ProjectileID.RocketSkeleton, damage, 0f, Main.myPlayer);
                         }
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item11, npc.Center);
                     }
                 }
             }
@@ -167,7 +168,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     string text = Language.GetTextValue($"Mods.{mod.Name}.Message.SkeletronRegrow");
                     FargoSoulsUtil.PrintLocalization($"{npc.FullName} {text}", new Color(175, 75, 255));
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                    SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                     return result;
                 }
             }
@@ -185,7 +186,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         int damage = npc.defDamage / 3;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)npc.Center.X, (int)npc.Center.Y, 105, 2f, -0.3f);
+                            SoundEngine.PlaySound(SoundID.Item105 with { Volume = 2f }, npc.Center);
 
                             float modifier = (float)npc.life / npc.lifeMax;
                             if (FargoSoulsWorld.MasochistModeReal)
@@ -263,7 +264,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         npc.ai[3] = -1f;
                         npc.netUpdate = true;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -315,7 +316,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             if (npc.ai[1] != 2f && !FargoSoulsWorld.SwarmActive)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, npc.Center, 0);
+                SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                 npc.life = npc.lifeMax / 630;
                 if (npc.life < 100)
                     npc.life = 100;
@@ -558,8 +559,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         npc.velocity = (target - npc.Center) / 30;
                         if (npc.ai[2] == 140)
                         {
-                            float pitch = -0.3f + Main.rand.Next(-20, 21) / 100;
-                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)npc.Center.X, (int)npc.Center.Y, 15, 1.5f, pitch);
+                            SoundEngine.PlaySound(SoundID.Item15 with { Volume = 1.5f }, npc.Center);
+
                             for (int i = 0; i < 20; i++)
                             {
                                 int d = Dust.NewDust(npc.position, npc.width, npc.height, DustID.Clentaminator_Red, npc.velocity.X * .4f, npc.velocity.Y * .4f, 0, Color.White, 2);
@@ -578,7 +579,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     }
                     else if (npc.ai[2] == 180)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)npc.Center.X, (int)npc.Center.Y, 18, 1.25f, 1f);
+                        SoundEngine.PlaySound(SoundID.Item18 with { Volume = 1.25f }, npc.Center);
                         npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * 20f;
                         IdleOffsetX *= -1;
                         IdleOffsetY *= -1;
@@ -687,7 +688,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         AttackTimer = -30; //extra delay before initiating melee attacks after spin
 
                         NoContactDamageTimer = 60; //disable contact damage for 1sec after spin is over
-                        
+
                         npc.netUpdate = true;
                         NetSync(npc);
                     }
@@ -825,7 +826,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             }
                             else if (AttackTimer == 90)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)npc.Center.X, (int)npc.Center.Y, 18, 1.25f, -0.5f);
+                                SoundEngine.PlaySound(SoundID.Item18 with { Volume = 1.25f }, npc.Center);
                                 npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * (npc.dontTakeDamage ? 20f : 25f);
                                 npc.rotation = npc.velocity.ToRotation() - (float)Math.PI / 2;
 
@@ -863,7 +864,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             }
                             else if (AttackTimer == 90) //slash down
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)npc.Center.X, (int)npc.Center.Y, 1, 1.25f, 0.5f);
+                                SoundEngine.PlaySound(SoundID.Item1 with { Volume = 1.25f, Pitch = 0.5f }, npc.Center);
                                 Vector2 vel = Main.player[npc.target].Center - npc.Center;
                                 vel.Y += Math.Abs(vel.X) * 0.25f;
                                 vel.X *= 0.75f;
@@ -914,7 +915,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
         {
             base.OnHitPlayer(npc, target, damage, crit);
-            
+
             target.AddBuff(ModContent.BuffType<NanoInjection>(), 360);
         }
 
@@ -927,7 +928,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 npc.active = true;
                 npc.dontTakeDamage = true;
 
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, npc.Center, 14);
+                SoundEngine.PlaySound(SoundID.Item14, npc.Center);
                 for (int i = 0; i < 50; i++)
                 {
                     int dust = Dust.NewDust(npc.position, npc.width, npc.height, DustID.Smoke, 0f, 0f, 100, default(Color), 3f);
@@ -951,7 +952,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             return base.CheckDead(npc);
         }
-        
+
 
         public override void LoadSprites(NPC npc, bool recolor)
         {

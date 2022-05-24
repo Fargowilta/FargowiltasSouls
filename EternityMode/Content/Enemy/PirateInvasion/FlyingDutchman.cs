@@ -1,15 +1,8 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -87,7 +80,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.PirateInvasion
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ProjectileID.BulletDeadeye /*ModContent.ProjectileType<PirateDeadeyeBullet>()*/, 15, 0f, Main.myPlayer);
 
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11, npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item11, npc.Center);
                 }
             }
         }

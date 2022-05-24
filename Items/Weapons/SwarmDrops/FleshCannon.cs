@@ -49,7 +49,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             if (player.ownedProjectileCounts[type] < 1 && counter % (FACTOR / 2) == 0)
             {
                 Projectile.NewProjectile(source, position, velocity * 2f, type, damage, knockback, player.whoAmI, 0f, damage);
-                Terraria.Audio.SoundEngine.PlaySound(new LegacySoundStyle(4, 13), position);
+                SoundEngine.PlaySound(SoundID.NPCDeath13, position);
             }
 
             float rotation = MathHelper.ToRadians(10) * (float)Math.Sin((counter + 0.2) * Math.PI / (FACTOR / 2));
@@ -70,7 +70,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             .AddIngredient(ItemID.LunarBar, 10)
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

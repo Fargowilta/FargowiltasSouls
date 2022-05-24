@@ -1,20 +1,20 @@
+using FargowiltasSouls.BossBars;
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.ItemDropRules.Conditions;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles.Champions;
+using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.GameContent.Bestiary;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using FargowiltasSouls.Projectiles.Masomode;
-using FargowiltasSouls.Projectiles.Champions;
-using Terraria.GameContent.Bestiary;
-using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.ItemDropRules.Conditions;
-using FargowiltasSouls.Items.Accessories.Enchantments;
-using Terraria.DataStructures;
-using FargowiltasSouls.Items.Accessories.Forces;
-using FargowiltasSouls.BossBars;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
 {
@@ -229,7 +229,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                 if (!anyBallInvulnerable)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
+                    SoundEngine.PlaySound(SoundID.Item92, NPC.Center);
 
                     const int num226 = 80;
                     for (int num227 = 0; num227 < num226; num227++)
@@ -254,7 +254,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     if (NPC.ai[1] == 120)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     }
 
                     if (++NPC.ai[3] > 9 && NPC.ai[1] > 120)
@@ -394,7 +394,7 @@ namespace FargowiltasSouls.NPCs.Champions
 
                     if (++NPC.ai[1] == 120)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar, NPC.Center, 0);
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                     }
                     else if (NPC.ai[1] > 300)
                     {
@@ -422,7 +422,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         NPC.ai[2] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, NPC.Center, 14);
+                        SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -492,7 +492,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     {
                         NPC.ai[2] = 0;
 
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.Item8, NPC.Center);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -520,7 +520,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 6:
                     if (NPC.ai[1] == 1 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, NPC.Center, -1);
+                        SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.GlowRing>(), 0, 0f, Main.myPlayer, NPC.whoAmI, -5);
                     }
                     goto case 0;
@@ -528,7 +528,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 7: //dash for tentacles
                     if (++NPC.ai[2] == 1)
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit6, NPC.Center);
+                        SoundEngine.PlaySound(SoundID.NPCHit6, NPC.Center);
                         NPC.velocity = (player.Center - NPC.Center) / 30f * (1f + NPC.localAI[3] / 3f * 0.75f);
                         NPC.netUpdate = true;
                     }
@@ -731,10 +731,10 @@ namespace FargowiltasSouls.NPCs.Champions
                 Main.spriteBatch.End();
                 Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp/*.PointWrap*/, DepthStencilState.Default, RasterizerState.CullNone, null, Main.GameViewMatrix.ZoomMatrix);
             }
-            
+
             ArmorShaderData shader = GameShaders.Armor.GetShaderFromItemId(ItemID.VoidDye);
             shader.Apply(NPC, new DrawData?());
-            
+
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             for (int i = 0; i < NPCID.Sets.TrailCacheLength[NPC.type]; i++)

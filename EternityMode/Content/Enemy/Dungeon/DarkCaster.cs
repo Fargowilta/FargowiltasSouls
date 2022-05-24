@@ -1,15 +1,9 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
-using FargowiltasSouls.NPCs;
-using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
-using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -50,7 +44,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Dungeon
                 {
                     for (int i = 0; i < 5; i++) //spray water bolts
                     {
-                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item21, npc.Center);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Main.rand.NextVector2CircularEdge(-4.5f, 4.5f), ProjectileID.WaterBolt, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
@@ -69,7 +63,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Dungeon
                 npc.life = 0;
                 npc.HitEffect();
                 npc.active = false;
-                Terraria.Audio.SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+                if (npc.DeathSound != null)
+                    SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
                 return false;
             }
 

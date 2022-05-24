@@ -113,7 +113,7 @@ Right click pattern becomes denser with up to 12 empty minion slots
             .AddIngredient(ModContent.ItemType<SparklingAdoration>())
 
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

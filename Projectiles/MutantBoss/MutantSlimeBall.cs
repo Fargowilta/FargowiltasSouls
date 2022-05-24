@@ -1,5 +1,4 @@
 using FargowiltasSouls.Buffs.Boss;
-using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -36,7 +35,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.extraUpdates = 1;
             Projectile.timeLeft = 90 * (Projectile.extraUpdates + 1);
         }
-        
+
         public override void AI()
         {
             Projectile.rotation = Projectile.velocity.ToRotation() - (float)Math.PI / 2;

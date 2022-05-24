@@ -1,9 +1,9 @@
 using FargowiltasSouls.Projectiles.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
@@ -64,7 +64,7 @@ Mutant Bomb has a 60 second cooldown
 
                 if (fargoPlayer.MutantEyeCD == 0)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, player.Center);
+                    SoundEngine.PlaySound(SoundID.Item4, player.Center);
 
                     const int max = 50; //make some indicator dusts
                     for (int i = 0; i < max; i++)

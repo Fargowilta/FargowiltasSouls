@@ -1,7 +1,7 @@
-﻿using Terraria;
+﻿using FargowiltasSouls.Items.Materials;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Items.Materials;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -42,7 +42,7 @@ Increases your life regeneration");
             .AddIngredient(ItemID.LunarBar, 5)
             .AddIngredient(ModContent.ItemType<AbomEnergy>(), 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

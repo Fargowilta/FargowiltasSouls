@@ -4,11 +4,11 @@ using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
-using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -118,9 +118,10 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
 
     public class LunarTowerSolar : LunarTowers
     {
-        public override int ShieldStrength {
-            get => NPC.ShieldStrengthTowerSolar; 
-            set => NPC.ShieldStrengthTowerSolar = value; 
+        public override int ShieldStrength
+        {
+            get => NPC.ShieldStrengthTowerSolar;
+            set => NPC.ShieldStrengthTowerSolar = value;
         }
 
         public override NPCMatcher CreateMatcher() =>
@@ -258,7 +259,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                     Main.dust[d].noGravity = true;
                     Main.dust[d].scale += 1.5f;
                 }
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item8, npc.Center);
+                SoundEngine.PlaySound(SoundID.Item8, npc.Center);
                 npc.netUpdate = true;
             }
 
@@ -311,7 +312,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
             if (++AttackTimer > attackTime)
             {
                 AttackTimer = 0;
-                
+
                 npc.TargetClosest(false);
                 NetSync(npc);
 

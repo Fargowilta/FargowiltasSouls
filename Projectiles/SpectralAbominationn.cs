@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -47,8 +48,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
             {
                 Projectile.localAI[1] = Projectile.ai[1] + 1;
 
-                //SoundEngine.PlaySound(SoundID.Zombie, Projectile.Center, 20);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.ForceRoar, Projectile.Center, -1);
+                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_20"), Projectile.Center);
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
 
                 /*switch ((int)Projectile.ai[1])
                 {
@@ -212,7 +213,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void Kill(int timeleft)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
             if (Projectile.owner == Main.myPlayer)
             {
                 SpawnRazorbladeRing(12, 12.5f, 0.75f);

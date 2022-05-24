@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Materials
 {

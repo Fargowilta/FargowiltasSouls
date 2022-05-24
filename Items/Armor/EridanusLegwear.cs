@@ -1,7 +1,7 @@
 ﻿using FargowiltasSouls.Items.Materials;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Armor
 {
@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Items.Armor
             CreateRecipe()
             .AddIngredient(ModContent.ItemType<Eridanium>(), 5)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-            
+
             .Register();
         }
     }

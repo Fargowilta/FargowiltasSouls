@@ -1,10 +1,11 @@
+using FargowiltasSouls.Buffs.Masomode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Buffs.Masomode;
 
 namespace FargowiltasSouls.Projectiles.Champions
 {
@@ -108,7 +109,7 @@ namespace FargowiltasSouls.Projectiles.Champions
                 Projectile.localAI[1] = 1;
                 Projectile.penetrate = -1;
                 Projectile.position = Projectile.Center;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                 Projectile.width = Projectile.height = 120;
                 Projectile.Center = Projectile.position;
                 for (int index1 = 0; index1 < 2; ++index1)

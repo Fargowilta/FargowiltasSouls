@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
 {
@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             }
 
             //if (Main.rand.Next(60) == 1)
-               // SpawnLightning(player, ModContent.ProjectileType<LightningVortexHostile>(), 0);
+            // SpawnLightning(player, ModContent.ProjectileType<LightningVortexHostile>(), 0);
         }
 
         public override void Update(NPC npc, ref int buffIndex)
