@@ -167,11 +167,10 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             float num223 = Projectile.localAI[1];
             Microsoft.Xna.Framework.Color color44 = new Microsoft.Xna.Framework.Color(255, 0, 0, 0);
             color44 = Color.Lerp(Color.Transparent, color44, Math.Min(1f, Spinup));
-            SpriteBatch arg_ABD8_0 = Main.spriteBatch;
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
             Microsoft.Xna.Framework.Rectangle? sourceRectangle2 = null;
-            arg_ABD8_0.Draw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 1f);
+            Main.EntitySpriteDraw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 1);
             num223 -= (float)(texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
             Vector2 value20 = Projectile.Center;
             value20 += Projectile.velocity * Projectile.scale * (float)texture2D19.Height / 2f;
@@ -195,11 +194,10 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     }
                 }
             }
-            SpriteBatch arg_AE2D_0 = Main.spriteBatch;
             Texture2D arg_AE2D_1 = texture2D21;
             Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
             sourceRectangle2 = null;
-            arg_AE2D_0.Draw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 1f);
+            Main.EntitySpriteDraw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 1);
             return false;
         }
     }

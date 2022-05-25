@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -56,6 +57,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.lifeMax = (int)(npc.lifeMax * 1.5);
             npc.defense = 0;
             npc.HitSound = SoundID.NPCHit41;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.OnFire] = true;
             npc.buffImmune[BuffID.OnFire3] = true;
         }
@@ -392,9 +399,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             base.SetDefaults(npc);
 
             npc.lifeMax = (int)(npc.lifeMax * 1.5);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.OnFire] = true;
             npc.buffImmune[BuffID.OnFire3] = true;
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+            npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
         }
 
         public override bool PreAI(NPC npc)
@@ -577,9 +591,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.TheHungry, NPCID.TheHungryII);
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.OnFire] = true;
         }
@@ -624,9 +638,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.LeechBody, NPCID.LeechHead, NPCID.LeechTail);
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.OnFire] = true;
         }

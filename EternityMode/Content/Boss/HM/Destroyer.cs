@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,9 +51,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(PrepareToCoil), BoolStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.Chilled] = false;
@@ -722,11 +723,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.SetDefaults(npc);
 
+            ProbeReleaseTimer = -Main.rand.Next(360);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.Chilled] = false;
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = false;
-
-            ProbeReleaseTimer = -Main.rand.Next(360);
         }
 
         public override bool PreAI(NPC npc)
@@ -949,6 +955,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
                 npc.lifeMax = (int)(npc.lifeMax * 1.5);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 

@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,9 +46,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(IsEX), BoolStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Suffocation] = true;
 
@@ -57,6 +58,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 npc.GivenName = "Duke Fishron EX";
                 npc.damage = (int)(npc.damage * 3);// 1.5);
                 npc.defense *= 30;
+
                 npc.buffImmune[ModContent.BuffType<GodEater>()] = true;
                 npc.buffImmune[ModContent.BuffType<Sadism>()] = true;
                 npc.buffImmune[ModContent.BuffType<FlamesoftheUniverse>()] = true;
@@ -937,7 +939,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             base.SetDefaults(npc);
 
             npc.lifeMax *= 5;
-            npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+            npc.lavaImmune = true;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron))
             {
                 npc.lifeMax *= 5000;//20;//2;
@@ -946,7 +954,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
             npc.buffImmune[BuffID.OnFire] = true;
             npc.buffImmune[BuffID.Suffocation] = true;
-            npc.lavaImmune = true;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
@@ -977,10 +984,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             base.SetDefaults(npc);
 
             npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            npc.buffImmune[BuffID.Suffocation] = true;
             if (!NPC.downedBoss3)
                 npc.noTileCollide = false;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
+            npc.buffImmune[BuffID.OnFire] = true;
+            npc.buffImmune[BuffID.Suffocation] = true;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

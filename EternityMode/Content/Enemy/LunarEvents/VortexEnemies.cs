@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,10 +24,12 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
             NPCID.VortexRifleman
         );
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
+            npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

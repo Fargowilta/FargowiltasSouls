@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
@@ -83,12 +84,11 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 return false;
             }
             Texture2D texture2D19 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}2", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            Texture2D texture2D21 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}3", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            Texture2D texture2D20 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}2", AssetRequestMode.ImmediateLoad).Value;
+            Texture2D texture2D21 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}3", AssetRequestMode.ImmediateLoad).Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.95f;
             color44 = Color.Lerp(color44, Color.Transparent, transparency);
-            //SpriteBatch arg_ABD8_0 = Main.spriteBatch;
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
             Rectangle? sourceRectangle2 = null;
@@ -116,7 +116,6 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                     }
                 }
             }
-            //SpriteBatch arg_AE2D_0 = Main.spriteBatch;
             Texture2D arg_AE2D_1 = texture2D21;
             Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
             sourceRectangle2 = null;

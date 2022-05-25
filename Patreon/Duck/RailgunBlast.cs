@@ -9,9 +9,9 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Duck
 {
-    public class RailgunBlast : Projectiles.Deathrays.BaseDeathray
+    public class RailgunBlast : Projectiles.Deathrays.MutantSpecialDeathray
     {
-        public RailgunBlast() : base(20, "PhantasmalDeathrayML", hitboxModifier: 1.25f) { }
+        public RailgunBlast() : base(20, 1.25f) { }
 
         public override void SetStaticDefaults()
         {
@@ -34,6 +34,9 @@ namespace FargowiltasSouls.Patreon.Duck
 
         public override void AI()
         {
+            base.AI();
+            Projectile.frameCounter += 60;
+
             Player player = Main.player[Projectile.owner];
 
             if (!Main.dedServ && Main.LocalPlayer.active)
@@ -166,9 +169,6 @@ namespace FargowiltasSouls.Patreon.Duck
             Projectile.position -= Projectile.velocity;
             Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
 
-            if (++Projectile.frame > 15)
-                Projectile.frame = 0;
-
             const int increment = 75;
             for (int i = 0; i < array3[0]; i += increment)
             {
@@ -184,8 +184,6 @@ namespace FargowiltasSouls.Patreon.Duck
                 Main.dust[d].velocity += Projectile.velocity * 2f;
                 Main.dust[d].velocity *= Main.rand.NextFloat(12f, 24f) / 10f * Projectile.scale;
             }
-
-            Projectile.spriteDirection = Main.rand.NextBool() ? -1 : 1;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -221,61 +219,18 @@ namespace FargowiltasSouls.Patreon.Duck
 
         public override bool PreDraw(ref Color lightColor)
         {
-            if (Projectile.velocity == Vector2.Zero)
-            {
-                return false;
-            }
-
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
 
             ArmorShaderData shader = GameShaders.Armor.GetShaderFromItemId(ItemID.BrightYellowDye);
             shader.Apply(Projectile, new Terraria.DataStructures.DrawData?());
 
-            SpriteEffects spriteEffects = Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-
-            Texture2D texture2D19 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}2", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            Texture2D texture2D21 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}3", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            float num223 = Projectile.localAI[1];
-            Color color44 = new Color(255, 255, 255, 150) * 0.95f;
-            SpriteBatch arg_ABD8_0 = Main.spriteBatch;
-            Texture2D arg_ABD8_1 = texture2D19;
-            Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
-            Rectangle? sourceRectangle2 = null;
-            arg_ABD8_0.Draw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, spriteEffects, 0);
-            num223 -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
-            Vector2 value20 = Projectile.Center;
-            value20 += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;
-            if (num223 > 0f)
-            {
-                float num224 = 0f;
-                Rectangle rectangle7 = new Rectangle(0, 0, texture2D20.Width, 30);
-                while (num224 + 1f < num223)
-                {
-                    if (num223 - num224 < rectangle7.Height)
-                    {
-                        rectangle7.Height = (int)(num223 - num224);
-                    }
-
-                    Main.EntitySpriteDraw(texture2D20, value20 - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(rectangle7), color44, Projectile.rotation, new Vector2(rectangle7.Width / 2, 0f), Projectile.scale, spriteEffects, 0);
-                    num224 += rectangle7.Height * Projectile.scale;
-                    value20 += Projectile.velocity * rectangle7.Height * Projectile.scale;
-                    rectangle7.Y += 30;
-                    if (rectangle7.Y + rectangle7.Height > texture2D20.Height)
-                    {
-                        rectangle7.Y = 0;
-                    }
-                }
-            }
-            Texture2D arg_AE2D_1 = texture2D21;
-            Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
-            sourceRectangle2 = null;
-            Main.EntitySpriteDraw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, spriteEffects, 0);
+            bool retval = base.PreDraw(ref lightColor);
 
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            return false;
+
+            return retval;
         }
     }
 }

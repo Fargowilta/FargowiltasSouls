@@ -10,10 +10,8 @@ namespace FargowiltasSouls.Buffs.Souls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blood Geyser");
-            //Description.SetDefault("Spewing blood in self defense");
             Main.buffNoSave[Type] = true;
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大出血");
-            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "出于自卫而喷发出的血");
         }
 
         public override string Texture => "FargowiltasSouls/Buffs/PlaceholderBuff";

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -27,6 +28,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.hostile = true;
         }
 
+        bool hitATile;
         public override void AI()
         {
             if (Projectile.localAI[1] == 0)
@@ -74,6 +76,16 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Vector2 vel = Main.player[(int)Projectile.ai[0]].Center - Projectile.Center;
                     float targetAngle = vel.ToRotation();
                     Projectile.velocity = new Vector2(Projectile.velocity.Length(), 0f).RotatedBy(rotation.AngleLerp(targetAngle, 0.025f));
+                }
+
+                if (FargoSoulsWorld.MasochistModeReal && !hitATile && Collision.SolidTiles(Projectile.Center, 0, 0))
+                {
+                    hitATile = true;
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        for (int i = 0; i < 8; i++)
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY.RotatedBy(2 * Math.PI / 8 * i) * 4f, ProjectileID.CrimsonSpray, 0, 0f, Main.myPlayer, 8f);
+                    }
                 }
             }
             else //ai1 below 0 rn

@@ -6,6 +6,7 @@ using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,6 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             base.SetDefaults(npc);
 
             npc.lavaImmune = true;
-            npc.buffImmune[BuffID.Confused] = true;
 
             if (Main.hardMode)
             {
@@ -31,6 +31,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 npc.damage *= 2;
                 npc.defense *= 2;
             }
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
+            npc.buffImmune[BuffID.Confused] = true;
         }
 
         public override void AI(NPC npc)

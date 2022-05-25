@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,10 +27,14 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
             NPCID.SolarGoop
         );
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
+            npc.buffImmune[BuffID.OnFire] = true;
+            npc.buffImmune[BuffID.OnFire3] = true;
+            npc.buffImmune[BuffID.Ichor] = true;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
@@ -101,9 +106,6 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
         {
             base.SetDefaults(npc);
 
-            npc.buffImmune[BuffID.OnFire] = true;
-            npc.buffImmune[BuffID.Suffocation] = true;
-
             npc.noTileCollide = true;
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.cultBoss, NPCID.CultistBoss) && npc.Distance(Main.npc[EModeGlobalNPC.cultBoss].Center) < 3000)
             {
@@ -133,8 +135,6 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
             base.SetDefaults(npc);
 
             npc.noTileCollide = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            npc.buffImmune[BuffID.Suffocation] = true;
             npc.lavaImmune = true;
         }
 

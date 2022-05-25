@@ -53,6 +53,10 @@ namespace FargowiltasSouls.Projectiles
         public int ChilledTimer;
         public bool SilverMinion;
 
+        public int HuntressProj = -1; // -1 = non weapon proj, doesnt matter if it hits
+        //1 = marked as weapon proj
+        //2 = has successfully hit an enemy
+
         public Func<Projectile, bool> GrazeCheck = projectile =>
             projectile.Distance(Main.LocalPlayer.Center) < Math.Min(projectile.width, projectile.height) / 2 + Player.defaultHeight + Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().GrazeRadius
             && (projectile.ModProjectile == null ? true : projectile.ModProjectile.CanDamage() != false)
@@ -65,8 +69,6 @@ namespace FargowiltasSouls.Projectiles
         public bool TimeFreezeImmune;
         public bool TimeFreezeCheck;
         public int DeletionImmuneRank;
-
-        //        public int ModProjID;
 
         public bool canHurt = true;
 
@@ -312,6 +314,11 @@ namespace FargowiltasSouls.Projectiles
             {
                 if (player.whoAmI == Main.myPlayer && modPlayer.FishSoul2)
                     SplitProj(projectile, 11, MathHelper.Pi / 3, 1);
+            }
+
+            if (modPlayer.HuntressEnchantActive && source is EntitySource_ItemUse)
+            {
+                HuntressProj = 1;
             }
         }
 
@@ -964,42 +971,6 @@ namespace FargowiltasSouls.Projectiles
                 if (projectile.wet && projectile.ai[0] == 0 && projectile.ai[1] == 0 && projectile.localAI[1] < 655)
                     projectile.localAI[1] = 655; //quick catch. not 660 and up, may break things
             }
-
-            if (modPlayer.HuntressEnchantActive && projectile.arrow)
-            {
-                //stuck in enemy
-                if (projectile.localAI[0] == 1)
-                {
-                    projectile.aiStyle = -1;
-
-                    projectile.ignoreWater = true;
-                    projectile.tileCollide = false;
-
-                    bool kill = false;
-                    int npcIndex = (int)projectile.localAI[1];
-
-                    if (npcIndex < 0 || npcIndex >= 200 || projectile.timeLeft <= 5)
-                    {
-                        kill = true;
-                    }
-                    else if (Main.npc[npcIndex].active && !Main.npc[npcIndex].dontTakeDamage)
-                    {
-                        projectile.Center = Main.npc[npcIndex].Center - projectile.velocity * 2f;
-                        projectile.gfxOffY = Main.npc[npcIndex].gfxOffY;
-                    }
-                    else
-                    {
-                        kill = true;
-                    }
-
-                    if (kill)
-                    {
-                        //remove stack of bleed
-
-                        projectile.Kill();
-                    }
-                }
-            }
         }
 
         public override void PostAI(Projectile projectile)
@@ -1017,8 +988,7 @@ namespace FargowiltasSouls.Projectiles
             {
                 DeletionImmuneRank = 2;
 
-                if (!FargoSoulsUtil.IsSummonDamage(projectile))
-                    Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().WeaponUseTimer = 30;
+                Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().WeaponUseTimer = 30;
 
                 modPlayer.TryAdditionalAttacks(projectile.damage, projectile.DamageType);
             }
@@ -1073,6 +1043,14 @@ namespace FargowiltasSouls.Projectiles
                     }
                 }
             }
+
+            if (HuntressProj == 1 && projectile.Center.Distance(Main.player[projectile.owner].Center) > 1500) //goes off screen without hitting anything
+            {
+                modPlayer.HuntressStage = 0;
+                Main.NewText("MISS");
+                HuntressProj = -1;
+                //sound effect
+            }
         }
 
 
@@ -1114,6 +1092,9 @@ namespace FargowiltasSouls.Projectiles
 
         public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
+            Player player = Main.player[projectile.owner];
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
             if (AdamProj)
                 damage /= 2;
 
@@ -1186,20 +1167,6 @@ namespace FargowiltasSouls.Projectiles
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (projectile.owner == player.whoAmI && modPlayer.HuntressEnchantActive && projectile.arrow)
-            {
-                //start sticking in enemy
-                projectile.localAI[0] = 1;
-                projectile.localAI[1] = (float)target.whoAmI;
-                projectile.velocity = (Main.npc[target.whoAmI].Center - projectile.Center) * 0.5f; //distance it sticks out
-                projectile.aiStyle = -1;
-                projectile.damage = 0;
-                projectile.timeLeft = 305;
-                projectile.netUpdate = true;
-
-                //add stack of bleed
-            }
-
             if (AdamProj && !projectile.usesLocalNPCImmunity)
             {
                 if (projectile.usesIDStaticNPCImmunity)
@@ -1212,6 +1179,8 @@ namespace FargowiltasSouls.Projectiles
                     target.immune[projectile.owner] /= 2;
                 }
             }
+
+            
         }
 
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)
@@ -1228,54 +1197,12 @@ namespace FargowiltasSouls.Projectiles
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            //if (!projectile.npcProj && CanSplit && projectile.friendly && projectile.damage > 0 && !projectile.minion && projectile.aiStyle != 19)
-            //{
-            //if (modPlayer.CobaltEnchantActive)
-            //{
-            //    if (player.GetToggleValue("Cobalt") && player.whoAmI == Main.myPlayer && modPlayer.CobaltCD == 0 && Main.rand.NextBool(4))
-            //    {
-            //        SoundEngine.PlaySound(SoundID.Item27, player.Center);
-
-            //        int damage = (int)(25 * player.GetDamage(DamageClass.Ranged).Additive);
-
-            //        if (modPlayer.TerrariaSoul)
-            //        {
-            //            damage *= 5;
-            //            modPlayer.CobaltCD = 10;
-            //        }
-            //        else if (modPlayer.EarthForce || modPlayer.WizardEnchantActive)
-            //        {
-            //            damage *= 2;
-            //            modPlayer.CobaltCD = 20;
-            //        }
-            //        else
-            //        {
-            //            modPlayer.CobaltCD = 30;
-            //        }
-
-            //        for (int i = 0; i < 5; i++)
-            //        {
-            //            float velX = -projectile.velocity.X * Main.rand.Next(40, 70) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
-            //            float velY = -projectile.velocity.Y * Main.rand.Next(40, 70) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
-            //            int p = Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.position.X + velX, projectile.position.Y + velY, velX, velY, ProjectileID.CrystalShard, damage, 0f, projectile.owner);
-            //            if (p != Main.maxProjectiles)
-            //                Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
-            //        }
-            //    }
-            //}
-            //else if (modPlayer.AncientCobaltEnchantActive && !modPlayer.CobaltEnchantActive && player.GetToggleValue("AncientCobalt") && player.whoAmI == Main.myPlayer && modPlayer.CobaltCD == 0 && Main.rand.NextBool(5))
-            //{
-            //    Projectile[] projs = FargoSoulsUtil.XWay(3, projectile.GetSource_FromThis(), projectile.Center, ProjectileID.HornetStinger, 5f, projectile.damage / 2, 0);
-
-            //    for (int i = 0; i < projs.Length; i++)
-            //    {
-            //        projs[i].penetrate = 3;
-            //        projs[i].timeLeft /= 2;
-            //    }
-
-            //    modPlayer.CobaltCD = 60;
-            //}
-            //}
+            if (HuntressProj == 1) //dying without hitting anything
+            {
+                modPlayer.HuntressStage = 0;
+                Main.NewText("MISS");
+                //sound effect
+            }
         }
 
         //        public override void UseGrapple(Player player, ref int type)

@@ -1,6 +1,7 @@
 ﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy
@@ -29,12 +30,15 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
             NPCID.GoldFrog,
             NPCID.Grubby,
             NPCID.Sluggy,
-            NPCID.Buggy
+            NPCID.Buggy,
+            NPCID.Turtle,
+            NPCID.TurtleJungle,
+            NPCID.SeaTurtle
         );
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.GetGlobalNPC<EModeGlobalNPC>().isWaterEnemy = true;
         }

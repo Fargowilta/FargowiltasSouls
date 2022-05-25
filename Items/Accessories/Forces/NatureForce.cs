@@ -62,7 +62,7 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
             //regen, pets
             modPlayer.CrimsonEffect(hideVisual);
             //inferno and explode
-            modPlayer.MoltenEffect();
+            MoltenEnchant.MoltenEffect(player);
             //rain
             modPlayer.RainEffect(Item);
             //icicles, pets

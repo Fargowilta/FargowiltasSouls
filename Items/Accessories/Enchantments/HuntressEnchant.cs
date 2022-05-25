@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -12,27 +15,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Huntress Enchantment");
             Tooltip.SetDefault(
-@"Arrows will stick in enemies and apply a stacking bleed debuff per arrow
-Hit the enemy with a melee attack to deal bonus damage per arrow
-
-
-
-
-Arrows will periodically fall towards your cursor
-The arrow type is based on the first arrow in your inventory
-Double tap down to create a localized rain of arrows at the cursor's position for a few seconds
-This has a cooldown of 15 seconds
-Boosts Explosive Traps
-'The Hunt is On'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "女猎人魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"箭矢会定期落至你光标周围
-            // 箭矢的种类取决于你背包中第一个箭矢
-            // 双击'下'键后令箭雨倾斜在光标位置
-            // 此效果有15秒冷却时间
-            // 爆炸机关攻击速度更快且会造成涂油减益
-            // 点燃涂油的敌人以造成额外伤害
-            // '狩猎开始了'");
+@"Attacks ignore 10 enemy defense and deal 5 flat extra damage
+Each successive attack ignores an additonal 10 defense and deals 5 more damage
+Missing any attack will reset these bonuses
+'Accuracy brings power'");
         }
 
         protected override Color nameColor => new Color(122, 192, 76);
@@ -55,6 +41,11 @@ Boosts Explosive Traps
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             modPlayer.HuntressEnchantActive = true;
+
+            if (modPlayer.HuntressCD > 0)
+            {
+                modPlayer.HuntressCD--;
+            }
 
 
             //if (player.GetToggleValue("Huntress") && player.whoAmI == Main.myPlayer)
@@ -101,6 +92,29 @@ Boosts Explosive Traps
             //}
         }
 
+        public static void HuntressBonus(FargoSoulsPlayer modPlayer, Projectile proj, NPC target, ref int damage)
+        {
+            proj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj = 2;
+
+            if (modPlayer.HuntressCD == 0)
+            {
+                modPlayer.HuntressStage++;
+
+                if (modPlayer.HuntressStage >= 10)
+                {
+                    modPlayer.HuntressStage = 10;
+
+                    //apply bleed
+                    //target.AddBuff(ModContent.BuffType<HuntressBleed>(), 300);
+                }
+
+                modPlayer.HuntressCD = 30;
+            }
+
+            proj.ArmorPenetration = 10 * modPlayer.HuntressStage;
+            damage += 5 * modPlayer.HuntressStage;
+        }
+
         private static Item PickAmmo(Player player)
         {
             Item item = new Item();
@@ -142,12 +156,9 @@ Boosts Explosive Traps
             .AddIngredient(ItemID.HuntressWig)
             .AddIngredient(ItemID.HuntressJerkin)
             .AddIngredient(ItemID.HuntressPants)
-            .AddIngredient(ItemID.DD2ExplosiveTrapT2Popper)
-            //tendon bow
-            .AddIngredient(ItemID.DaedalusStormbow)
-            //shadiwflame bow
+            .AddIngredient(ItemID.IceBow)
+            .AddIngredient(ItemID.ShadowFlameBow)
             .AddIngredient(ItemID.DD2PhoenixBow)
-            //dog pet
 
             .AddTile(TileID.CrystalBall)
             .Register();

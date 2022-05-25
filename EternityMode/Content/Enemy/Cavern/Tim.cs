@@ -3,6 +3,7 @@ using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.NPCs;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,10 +18,16 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
         {
             base.SetDefaults(npc);
 
-            npc.buffImmune[BuffID.OnFire] = true;
             npc.lavaImmune = true;
             npc.lifeMax *= 2;
             npc.damage /= 2;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
+            npc.buffImmune[BuffID.OnFire] = true;
         }
 
         public override void OnFirstTick(NPC npc)

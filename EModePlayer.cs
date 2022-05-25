@@ -351,17 +351,14 @@ namespace FargowiltasSouls
             }
 
             if (WeaponUseTimer > 0)
-            {
-                MasomodeMinionNerfTimer += 1;
                 ShorterDebuffsTimer += 1;
-            }
-            else
-            {
-                if (MasomodeMinionNerfTimer > 0)
-                    MasomodeMinionNerfTimer -= 1;
-                if (ShorterDebuffsTimer > 0)
-                    ShorterDebuffsTimer -= 1;
-            }
+            else if (ShorterDebuffsTimer > 0)
+                ShorterDebuffsTimer -= 1;
+
+            if (WeaponUseTimer > 0 && Player.HeldItem.DamageType != DamageClass.Summon)
+                MasomodeMinionNerfTimer += 1;
+            else if (MasomodeMinionNerfTimer > 0)
+                MasomodeMinionNerfTimer -= 1;
 
             if (MasomodeMinionNerfTimer > MaxMasomodeMinionNerfTimer)
                 MasomodeMinionNerfTimer = MaxMasomodeMinionNerfTimer;

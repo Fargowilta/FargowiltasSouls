@@ -1,3 +1,5 @@
+using FargowiltasSouls.NPCs;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -12,19 +14,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Molten Enchantment");
             Tooltip.SetDefault(
-@"Grants immunity to fire and lava
-You have normal movement and can swim in lava
-Nearby enemies are ignited
-The closer they are to you the more damage they take
-
-While standing in lava or lava wet, your attacks spawn explosions
+@"Nearby enemies are ignited
+Enemies take 25% increased damage while inside the inferno ring
 'They shall know the fury of hell' ");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "熔融魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"引燃你附近的敌人
-            // 离你越近的敌人受到的伤害越高
-            // 你受到伤害时会剧烈爆炸并伤害附近的敌人
-            // '他们将感受到地狱的愤怒' ");
         }
 
         protected override Color nameColor => new Color(193, 43, 43);
@@ -39,7 +31,69 @@ While standing in lava or lava wet, your attacks spawn explosions
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().MoltenEffect();
+            MoltenEffect(player);
+        }
+
+        public static void MoltenEffect(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            modPlayer.MoltenEnchantActive = true;
+
+            if (player.GetToggleValue("Molten") && player.whoAmI == Main.myPlayer)
+            {
+                player.inferno = true;
+                Lighting.AddLight((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f), 0.65f, 0.4f, 0.1f);
+                int buff = BuffID.OnFire;
+                float distance = 200f;
+                int baseDamage = 25;
+
+                if (modPlayer.NatureForce)
+                {
+                    baseDamage *= 2;
+                }
+
+                int damage = FargoSoulsUtil.HighestDamageTypeScaling(player, baseDamage);
+
+                if (player.whoAmI == Main.myPlayer)
+                {
+                    for (int i = 0; i < Main.maxNPCs; i++)
+                    {
+                        NPC npc = Main.npc[i];
+                        if (npc.active && !npc.friendly && !npc.dontTakeDamage && !(npc.damage == 0 && npc.lifeMax == 5)) //critters
+                        {
+                            if (Vector2.Distance(player.Center, npc.Center) <= distance)
+                            {
+                                int dmgRate = 30;//60;
+
+                                if (npc.FindBuffIndex(buff) == -1)
+                                {
+                                    npc.AddBuff(buff, 120);
+                                }
+
+                                npc.GetGlobalNPC<FargoSoulsGlobalNPC>().MoltenAmplify = true;
+
+                                //if (Vector2.Distance(player.Center, npc.Center) <= 50)
+                                //{
+                                //    dmgRate /= 10;
+                                //}
+                                //else if (Vector2.Distance(player.Center, npc.Center) <= 100)
+                                //{
+                                //    dmgRate /= 5;
+                                //}
+                                //else if (Vector2.Distance(player.Center, npc.Center) <= 150)
+                                //{
+                                //    dmgRate /= 2;
+                                //}
+
+                                if (player.infernoCounter % dmgRate == 0)
+                                {
+                                    player.ApplyDamageToNPC(npc, damage, 0f, 0, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public override void AddRecipes()
@@ -49,10 +103,7 @@ While standing in lava or lava wet, your attacks spawn explosions
             .AddIngredient(ItemID.MoltenBreastplate)
             .AddIngredient(ItemID.MoltenGreaves)
             .AddIngredient(ItemID.Sunfury)
-            //.AddIngredient(ItemID.MoltenFury);
-            .AddIngredient(ItemID.PhoenixBlaster)
-            //.AddIngredient(ItemID.DarkLance);
-            .AddIngredient(ItemID.Lavafly)
+            .AddIngredient(ItemID.Flamarang)
             .AddIngredient(ItemID.DemonsEye)
 
             .AddTile(TileID.DemonAltar)

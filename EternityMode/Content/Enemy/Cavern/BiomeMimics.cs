@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,9 +33,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 { new Ref<object>(CanDoAttack), BoolStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }

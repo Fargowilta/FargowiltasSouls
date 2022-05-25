@@ -798,74 +798,6 @@ namespace FargowiltasSouls
             }
         }
 
-
-
-        public void MoltenEffect()
-        {
-            MoltenEnchantActive = true;
-
-            Player.lavaImmune = true;
-            Player.fireWalk = true;
-            Player.buffImmune[BuffID.OnFire] = true;
-
-            if (Player.GetToggleValue("Molten") && Player.whoAmI == Main.myPlayer)
-            {
-                Player.inferno = true;
-                Lighting.AddLight((int)(Player.Center.X / 16f), (int)(Player.Center.Y / 16f), 0.65f, 0.4f, 0.1f);
-                int buff = BuffID.OnFire;
-                float distance = 200f;
-
-                int baseDamage = 30;
-
-                if (NatureForce)
-                {
-                    baseDamage *= 2;
-                }
-
-                int damage = FargoSoulsUtil.HighestDamageTypeScaling(Player, baseDamage);
-
-                if (Player.whoAmI == Main.myPlayer)
-                {
-                    for (int i = 0; i < Main.maxNPCs; i++)
-                    {
-                        NPC npc = Main.npc[i];
-                        if (npc.active && !npc.friendly && !npc.dontTakeDamage && !(npc.damage == 0 && npc.lifeMax == 5)) //critters
-                        {
-                            if (Vector2.Distance(Player.Center, npc.Center) <= distance)
-                            {
-                                int dmgRate = 60;
-
-                                if (npc.FindBuffIndex(buff) == -1)
-                                {
-                                    npc.AddBuff(buff, 120);
-                                }
-
-                                if (Vector2.Distance(Player.Center, npc.Center) <= 50)
-                                {
-                                    dmgRate /= 10;
-                                }
-                                else if (Vector2.Distance(Player.Center, npc.Center) <= 100)
-                                {
-                                    dmgRate /= 5;
-                                }
-                                else if (Vector2.Distance(Player.Center, npc.Center) <= 150)
-                                {
-                                    dmgRate /= 2;
-                                }
-
-                                if (Player.infernoCounter % dmgRate == 0)
-                                {
-                                    Player.ApplyDamageToNPC(npc, damage, 0f, 0, false);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-
         public void MythrilEffect()
         {
             if (!Player.GetToggleValue("Mythril") || MythrilEnchantActive)
@@ -940,32 +872,6 @@ namespace FargowiltasSouls
                     NetMessage.SendData(MessageID.SyncItem, -1, -1, null, i);
                 }
             }
-        }
-
-        public void ObsidianEffect()
-        {
-            Player.buffImmune[BuffID.OnFire] = true;
-            Player.fireWalk = true;
-
-            Player.lavaImmune = true;
-
-            //that new acc effect e
-
-            //in lava effects
-            if (Player.lavaWet)
-            {
-                Player.gravity = Player.defaultGravity;
-                Player.ignoreWater = true;
-                Player.accFlipper = true;
-
-                if (Player.GetToggleValue("Obsidian"))
-                {
-                    Player.AddBuff(ModContent.BuffType<ObsidianLavaWetBuff>(), 600);
-                }
-
-            }
-
-            ObsidianEnchantActive = (TerraForce) || Player.lavaWet || LavaWet;
         }
 
         public void OrichalcumEffect()

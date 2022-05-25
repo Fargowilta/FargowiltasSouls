@@ -32,8 +32,8 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     ModContent.BuffType<ClippedWings>(),
                     ModContent.BuffType<MutantNibble>(),
                     ModContent.BuffType<OceanicMaul>(),
-                    ModContent.BuffType<LightningRod>()
-                }
+                    ModContent.BuffType<LightningRod>(),
+        }
             });
 
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, new NPCID.Sets.NPCBestiaryDrawModifiers(0)

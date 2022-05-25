@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.Martians
@@ -25,9 +26,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Martians
             NPCID.MartianSaucerTurret
         );
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Confused] = true;
             npc.buffImmune[BuffID.Electrified] = true;

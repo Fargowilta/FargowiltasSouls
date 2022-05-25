@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,6 +51,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             base.SetDefaults(npc);
 
             npc.lifeMax = (int)(npc.lifeMax * (FargoSoulsWorld.MasochistModeReal ? 2 : 1.5));
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
@@ -378,11 +385,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(MyRitualPosition), IntStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+            npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
@@ -480,6 +488,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             base.SetDefaults(npc);
 
             npc.lifeMax *= 4;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
@@ -533,14 +547,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.SetDefaults(npc);
 
-            npc.buffImmune[BuffID.Suffocation] = true;
-            npc.buffImmune[BuffID.OnFire] = true;
             npc.lavaImmune = true;
             //MoonLordAlive = FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.moonBoss, NPCID.MoonLordCore);
 
             npc.dontTakeDamage = true;
             npc.immortal = true;
             npc.chaseable = false;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
+            npc.buffImmune[BuffID.Suffocation] = true;
+            npc.buffImmune[BuffID.OnFire] = true;
         }
 
         public override bool PreAI(NPC npc)
@@ -627,9 +647,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public int DamageReductionTimer;
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -693,6 +713,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (!FargoSoulsWorld.MasochistModeReal)
                 npc.lifeMax /= 2;
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }

@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -53,6 +54,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             base.SetDefaults(npc);
 
             npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.4005);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Poisoned] = true;
         }

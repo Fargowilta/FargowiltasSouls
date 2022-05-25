@@ -24,6 +24,13 @@ namespace FargowiltasSouls.Buffs.Masomode
 
         public override void Update(NPC npc, ref int buffIndex)
         {
+            if (npc.boss)
+                return;
+
+            NPC realNPC = FargoSoulsUtil.NPCExists(npc.realLife);
+            if (realNPC != null && realNPC.boss)
+                return;
+
             npc.GetGlobalNPC<NPCs.FargoSoulsGlobalNPC>().Lethargic = true;
         }
     }

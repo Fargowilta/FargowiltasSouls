@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,12 +48,17 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.SetDefaults(npc);
 
+            npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25, MidpointRounding.ToEven);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Frostburn] = true;
             npc.buffImmune[BuffID.Frostburn2] = true;
             npc.buffImmune[BuffID.Chilled] = true;
             npc.buffImmune[BuffID.Frozen] = true;
-
-            npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25, MidpointRounding.ToEven);
         }
 
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot)

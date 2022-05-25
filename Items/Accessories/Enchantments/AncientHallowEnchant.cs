@@ -20,7 +20,6 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"You gain a shield that can reflect projectiles
 Summons a Terraprisma familiar that scales with minion damage
-Drastically increases minion speed
 'Hallowed be your sword and shield'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "远古神圣魔石");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
@@ -49,7 +48,7 @@ Drastically increases minion speed
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.AncientHallowEnchantActive = true;
-            modPlayer.SilverEnchantActive = true;
+            //modPlayer.SilverEnchantActive = true;
 
             modPlayer.AddMinion(item, player.GetToggleValue("Hallowed"), ModContent.ProjectileType<HallowSword>(), 50, 2);
 
@@ -132,10 +131,10 @@ Drastically increases minion speed
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup("FargowiltasSouls:AnyAncientHallowHead") //ancient
+                .AddRecipeGroup("FargowiltasSouls:AnyAncientHallowHead")
                 .AddIngredient(ItemID.AncientHallowedPlateMail)
                 .AddIngredient(ItemID.AncientHallowedGreaves)
-                .AddIngredient(ModContent.ItemType<SilverEnchant>())
+                //AddIngredient(ModContent.ItemType<SilverEnchant>())
                 .AddIngredient(ItemID.SwordWhip) //durendal
                 .AddIngredient(ItemID.BouncingShield) //sergent united
                 .AddTile(TileID.CrystalBall)

@@ -13,8 +13,6 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class HallowSword : ModProjectile
     {
-        //public override string Texture => "Terraria/Images/Projectile_946";
-
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("HallowSword");
@@ -29,9 +27,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.netImportant = true;
             Projectile.CloneDefaults(ProjectileID.EmpressBlade);
             AIType = -1;
-            //Projectile.width = 58;
-            //Projectile.height = 60;
-            //Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.minion = true;
             Projectile.timeLeft = 18000;
@@ -59,11 +54,11 @@ namespace FargowiltasSouls.Projectiles.Minions
             ai156_blacklistedTargets.Clear();
 
             //AI_156_Think
-            int num = 60;
-            int num2 = num - 1;
-            int num3 = num + 60;
-            int num4 = num3 - 1;
-            int num5 = num + 1;
+            int num;// = 60;
+            int num2;// = num - 1;
+            int num3;// = num + 60;
+            int num4;// = num3 - 1;
+            int num5;// = num + 1;
 
             num = 40;
             num2 = num - 1;
@@ -71,7 +66,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             num4 = num3 - 1;
             num5 = num + 1;
 
-            if (player.active && Vector2.Distance(player.Center, Projectile.Center) > 2000f)
+            if (player.active && Vector2.Distance(player.Center, Projectile.Center) > 1000f)
             {
                 Projectile.ai[0] = 0f;
                 Projectile.ai[1] = 0f;
@@ -79,14 +74,23 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             if (Projectile.ai[0] == -1f)
             {
-                int stackedIndex;
-                int totalIndexes;
-                AI_GetMyGroupIndexAndFillBlackList(ai156_blacklistedTargets, out stackedIndex, out totalIndexes);
+                //int stackedIndex;
+                //int totalIndexes;
+                //AI_GetMyGroupIndexAndFillBlackList(ai156_blacklistedTargets, out stackedIndex, out totalIndexes);
                 Vector2 vector;
                 float targetAngle;
-                AI_156_GetIdlePosition(stackedIndex, totalIndexes, out vector, out targetAngle);
+                AI_156_GetIdlePosition(1, 1, out vector, out targetAngle);
                 Projectile.velocity = Vector2.Zero;
-                Projectile.Center = Projectile.Center.MoveTowards(vector, 32f);
+
+                if (player.Center.X > Projectile.Center.X)
+                {
+                    Projectile.Center = Projectile.Center.MoveTowards(vector, 15f);
+                }
+                else
+                {
+                    Projectile.Center = Projectile.Center.MoveTowards(vector, 32f);
+                }
+
                 Projectile.rotation = Projectile.rotation.AngleLerp(targetAngle, 0.2f);
                 if (Projectile.Distance(vector) < 2f)
                 {
@@ -97,13 +101,12 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             else if (Projectile.ai[0] == 0f)
             {
-
                 int stackedIndex3;
                 int totalIndexes3;
-                AI_GetMyGroupIndexAndFillBlackList(ai156_blacklistedTargets, out stackedIndex3, out totalIndexes3);
+                //AI_GetMyGroupIndexAndFillBlackList(ai156_blacklistedTargets, out stackedIndex3, out totalIndexes3);
                 Vector2 value2;
                 float targetAngle2;
-                AI_156_GetIdlePosition(stackedIndex3, totalIndexes3, out value2, out targetAngle2);
+                AI_156_GetIdlePosition(1, 1, out value2, out targetAngle2);
                 Projectile.velocity = Vector2.Zero;
                 Projectile.Center = Vector2.SmoothStep(Projectile.Center, value2, 0.45f);
                 Projectile.rotation = Projectile.rotation.AngleLerp(targetAngle2, 0.45f);
@@ -114,8 +117,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                     {
                         Projectile.ai[0] = (float)Main.rand.NextFromList(new int[]
                         {
-                                num,
-                                num3
+                                             num,
+                                             num3
                         });
                         Projectile.ai[0] = (float)num3;
                         Projectile.ai[1] = (float)num8;
@@ -126,7 +129,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             else
             {
-
                 bool skipBodyCheck = true;
                 int num14 = 0;
                 int num15 = num2;
@@ -145,8 +147,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                     {
                         Projectile.ai[0] = (float)Main.rand.NextFromList(new int[]
                         {
-                                num,
-                                num3
+                                                 num,
+                                                 num3
                         });
                         Projectile.ai[1] = (float)num18;
                         Projectile.netUpdate = true;
@@ -167,8 +169,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                         {
                             Projectile.ai[0] = (float)Main.rand.NextFromList(new int[]
                             {
-                                    num,
-                                    num3
+                                                     num,
+                                                     num3
                             });
                             Projectile.ai[1] = (float)num19;
                             Projectile.netUpdate = true;
@@ -181,6 +183,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     }
                     else
                     {
+                        //actual attacking is here
                         Projectile.ai[0] -= 1f;
                         if (Projectile.ai[0] >= (float)num15)
                         {
@@ -192,6 +195,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                             }
                         }
                         float lerpValue2 = Utils.GetLerpValue((float)num15, (float)num16, Projectile.ai[0], true);
+
+                        //spinning attack
                         if (num14 == 0)
                         {
                             Vector2 vector3 = new Vector2(Projectile.localAI[0], Projectile.localAI[1]);
@@ -216,6 +221,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             Projectile.velocity = velocity2;
                             Projectile.position -= Projectile.velocity;
                         }
+                        //stab attack
                         if (num14 == 1)
                         {
                             Vector2 vector5 = new Vector2(Projectile.localAI[0], Projectile.localAI[1]);
@@ -240,8 +246,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                             {
                                 Projectile.ai[0] = (float)Main.rand.NextFromList(new int[]
                                 {
-                                        num,
-                                        num3
+                                                             num,
+                                                             num3
                                 });
                                 Projectile.ai[1] = (float)num24;
                                 Projectile.netUpdate = true;
@@ -257,29 +263,29 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         }
 
-        private void AI_GetMyGroupIndexAndFillBlackList(List<int> blackListedTargets, out int index, out int totalIndexesInGroup)
-        {
-            index = 0;
-            totalIndexesInGroup = 0;
-            for (int i = 0; i < 1000; i++)
-            {
-                Projectile projectile = Main.projectile[i];
-                if (projectile.active && projectile.owner == Projectile.owner && projectile.type == Projectile.type && (projectile.type != 759 || projectile.frame == Main.projFrames[projectile.type] - 1))
-                {
-                    if (Projectile.whoAmI > i)
-                    {
-                        index++;
-                    }
-                    totalIndexesInGroup++;
-                }
-            }
-        }
+        //private void AI_GetMyGroupIndexAndFillBlackList(List<int> blackListedTargets, out int index, out int totalIndexesInGroup)
+        //{
+        //    index = 0;
+        //    totalIndexesInGroup = 0;
+        //    for (int i = 0; i < 1000; i++)
+        //    {
+        //        Projectile projectile = Main.projectile[i];
+        //        if (projectile.active && projectile.owner == Projectile.owner && projectile.type == Projectile.type && (projectile.type != 759 || projectile.frame == Main.projFrames[projectile.type] - 1))
+        //        {
+        //            if (Projectile.whoAmI > i)
+        //            {
+        //                index++;
+        //            }
+        //            totalIndexesInGroup++;
+        //        }
+        //    }
+        //}
 
         private void AI_156_GetIdlePosition(int stackedIndex, int totalIndexes, out Vector2 idleSpot, out float idleRotation)
         {
             Player player = Main.player[Projectile.owner];
-            idleRotation = 0f;
-            idleSpot = Vector2.Zero;
+            //idleRotation = 0f;
+            //idleSpot = Vector2.Zero;
 
             int num2 = stackedIndex + 1;
             idleRotation = (float)num2 * 6.28318548f * 0.0166666675f * (float)player.direction + 1.57079637f;
@@ -293,6 +299,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         private int AI_156_TryAttackingNPCs(List<int> blackListedTargets, bool skipBodyCheck = false)
         {
+            float attackDistance = 750;
+
             Vector2 center = Main.player[Projectile.owner].Center;
             int result = -1;
             float num = -1f;
@@ -304,7 +312,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 {
                     flag = false;
                 }
-                if (ownerMinionAttackTargetNPC.Distance(center) > 1000f)
+                if (ownerMinionAttackTargetNPC.Distance(center) > attackDistance)
                 {
                     flag = false;
                 }
@@ -323,7 +331,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 if (npc.CanBeChasedBy(this, false) && (npc.boss || !blackListedTargets.Contains(i)))
                 {
                     float num2 = npc.Distance(center);
-                    if (num2 <= 1000f && (num2 <= num || num == -1f) && (skipBodyCheck || Projectile.CanHitWithOwnBody(npc)))
+                    if (num2 <= attackDistance && (num2 <= num || num == -1f) && (skipBodyCheck || Projectile.CanHitWithOwnBody(npc)))
                     {
                         num = num2;
                         result = i;

@@ -71,10 +71,19 @@ fargotten land wip:
 -Adamantite Enchant: updated tooltip to be more clear, changed to every weapon shot being split
 -Ancient Cobalt rework: now grants an explosion jump, updated recipe
 -Cobalt rework: grants a bigger more deadly explosion jump (which also effects vertical wing acceleration), also grants explosion on hit, updated recipe
--Molten Enchant: removed explosion on hit
--Palladium Enchant, replaced Palldium Sword with Bat Bat in recipe
+-Palladium Enchant, replaced Palladium Sword with Bat Bat in recipe
 -Titanium Enchant: now can grants up to 25 shards, updated recipe
 -Meteor Enchant: updated recipe
+
+
+
+
+-Removed Silver Enchant effects from Ancient Hallowed
+-Nerfed Ancient Hallowed Sword's attack range slightly. Fixed the sword not coming back to you when you were to the right of it
+-Huntress Enchant rework: accuracy brings power, updated recipe
+-Molten Enchant rework: no longer passively deals as much damage to enemies near you, now increases all damage done inside the inferno ring by 25%, updated recipe
+-Obsidian Enchant: fixed tooltip, keeping its old effect, updated recipe
+
 
 
 

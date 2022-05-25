@@ -1,6 +1,9 @@
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -12,7 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Obsidian Enchantment");
             Tooltip.SetDefault(
-@"
+@"Grants immunity to fire and lava
+You have normal movement and can swim in lava
+While standing in lava or lava wet, your attacks spawn explosions
 'The earth calls'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "黑曜石魔石");
             //@"使你免疫火与岩浆
@@ -33,7 +38,31 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().ObsidianEffect(); //add effect
+            ObsidianEffect(player);
+        }
+
+        public static void ObsidianEffect(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            player.lavaImmune = true;
+            player.fireWalk = true;
+            player.buffImmune[BuffID.OnFire] = true;
+
+            //in lava effects
+            if (player.lavaWet)
+            {
+                player.gravity = Player.defaultGravity;
+                player.ignoreWater = true;
+                player.accFlipper = true;
+
+                if (player.GetToggleValue("Obsidian"))
+                {
+                    player.AddBuff(ModContent.BuffType<ObsidianLavaWetBuff>(), 600);
+                }
+            }
+
+            modPlayer.ObsidianEnchantActive = (modPlayer.TerraForce) || player.lavaWet || modPlayer.LavaWet;
         }
 
         public override void AddRecipes()
@@ -42,13 +71,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.ObsidianHelm)
             .AddIngredient(ItemID.ObsidianShirt)
             .AddIngredient(ItemID.ObsidianPants)
-            .AddIngredient(ItemID.ObsidianRose) //molten skull rose
-            //.AddIngredient(ItemID.ObsidianHorseshoe);
+            .AddIngredient(ItemID.MoltenSkullRose) //molten skull rose
             .AddIngredient(ItemID.Cascade)
             .AddIngredient(ItemID.Fireblossom)
-            //magma snail
-            //obsidifsh
-            //mimic pet
 
             .AddTile(TileID.DemonAltar)
             .Register();

@@ -6,6 +6,7 @@ using FargowiltasSouls.Items.Accessories.Masomode;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,9 +26,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
                 { new Ref<object>(RayCounter), IntStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }

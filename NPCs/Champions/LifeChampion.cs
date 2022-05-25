@@ -34,12 +34,12 @@ namespace FargowiltasSouls.NPCs.Champions
             {
                 SpecificallyImmuneTo = new int[]
                 {
-                    BuffID.Confused,
                     BuffID.Chilled,
-                    BuffID.OnFire,
                     BuffID.Suffocation,
+                    BuffID.Daybreak,
+                    BuffID.StardustMinionBleed,
                     ModContent.BuffType<Lethargic>(),
-                    ModContent.BuffType<ClippedWings>()
+                    ModContent.BuffType<ClippedWings>(),
                 }
             });
 
@@ -85,14 +85,6 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.aiStyle = -1;
             NPC.value = Item.buyPrice(0, 15);
             NPC.boss = true;
-
-            NPC.buffImmune[BuffID.Chilled] = true;
-            NPC.buffImmune[BuffID.OnFire] = true;
-            NPC.buffImmune[BuffID.Suffocation] = true;
-            NPC.buffImmune[BuffID.Daybreak] = true;
-            NPC.buffImmune[BuffID.StardustMinionBleed] = true;
-            NPC.buffImmune[ModContent.BuffType<Lethargic>()] = true;
-            NPC.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
 
             Music = ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod)
                 ? MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Champions") : MusicID.OtherworldlyBoss1;

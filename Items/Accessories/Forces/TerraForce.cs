@@ -68,7 +68,7 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}]Your attacks spawn explosions\n" +
             LeadEnchant.LeadEffect(player);
             TungstenEnchant.TungstenEffect(player);
             //lava immune (obsidian)
-            modPlayer.ObsidianEffect();
+            ObsidianEnchant.ObsidianEffect(player);
 
             if (player.GetToggleValue("IronS"))
             {

@@ -62,6 +62,7 @@ namespace FargowiltasSouls.NPCs
 
         public bool Chilled;
         public bool Smite;
+        public bool MoltenAmplify;
         public bool Anticoagulation;
         public bool BloodDrinker;
 
@@ -91,6 +92,7 @@ namespace FargowiltasSouls.NPCs
             //            //SnowChilled = false;
             Chilled = false;
             Smite = false;
+            MoltenAmplify = false;
             Anticoagulation = false;
             BloodDrinker = false;
             FlamesoftheUniverse = false;
@@ -1013,6 +1015,11 @@ namespace FargowiltasSouls.NPCs
             if (Smite)
             {
                 damage *= 1.1;
+            }
+
+            if (MoltenAmplify)
+            {
+                damage *= 1.25;
             }
 
             if (OceanicMaul)

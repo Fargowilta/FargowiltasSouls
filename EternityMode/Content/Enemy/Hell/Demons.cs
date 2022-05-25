@@ -58,7 +58,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
 
                 if (npc.onFire || npc.onFire3)
                 {
-                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/NPCKilled_10") { PitchVariance = 0.5f }, npc.Center);
+                    SoundEngine.PlaySound(SoundID.NPCDeath10 with { Pitch = 0.5f }, npc.Center);
 
                     for (int i = 0; i < 3; i++) //NOTICE ME
                     {

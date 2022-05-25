@@ -10,11 +10,9 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
-    public class HentaiSpearBigDeathray : Deathrays.BaseDeathray
+    public class HentaiSpearBigDeathray : Deathrays.MutantSpecialDeathray
     {
-        public HentaiSpearBigDeathray() : base(60, "PhantasmalDeathrayML", hitboxModifier: 1.5f) { }
-
-        int dustTimer;
+        public HentaiSpearBigDeathray() : base(60, 1.5f) { }
 
         public override void SetStaticDefaults()
         {
@@ -56,6 +54,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void AI()
         {
+            base.AI();
+
             Player player = Main.player[Projectile.owner];
 
             if (!Main.dedServ && Main.LocalPlayer.active)
@@ -226,18 +226,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             //        Main.dust[index2].velocity = vector2 * 1.75f + speed * 2;
             //    }
             //}
-
-
-            Projectile.frameCounter += Main.rand.Next(3);
-            if (++Projectile.frameCounter > 3)
-            {
-                Projectile.frameCounter = 0;
-                if (++Projectile.frame > 15)
-                    Projectile.frame = 0;
-            }
-
-            if (Main.rand.NextBool(10))
-                Projectile.spriteDirection *= -1;
         }
 
         public override void PostAI()
@@ -256,57 +244,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             target.immune[Projectile.owner] = 1; //balanceing
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            if (Projectile.velocity == Vector2.Zero)
-            {
-                return false;
-            }
-
-            SpriteEffects spriteEffects = Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-
-            Texture2D texture2D19 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/Mutant/MutantDeathray_" + Projectile.frame.ToString(), ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/Mutant/MutantDeathray2_" + Projectile.frame.ToString(), ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            Texture2D texture2D21 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/" + texture + "3", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            float num223 = Projectile.localAI[1];
-            Color color44 = new Color(255, 255, 255, 100) * 0.9f;
-            SpriteBatch arg_ABD8_0 = Main.spriteBatch;
-            Texture2D arg_ABD8_1 = texture2D19;
-            Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
-            Rectangle? sourceRectangle2 = null;
-            arg_ABD8_0.Draw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
-            num223 -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
-            Vector2 value20 = Projectile.Center;
-            value20 += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;
-            if (num223 > 0f)
-            {
-                float num224 = 0f;
-                Rectangle rectangle7 = new Rectangle(0, 0, texture2D20.Width, 30);
-                while (num224 + 1f < num223)
-                {
-                    if (num223 - num224 < rectangle7.Height)
-                    {
-                        rectangle7.Height = (int)(num223 - num224);
-                    }
-
-                    Main.EntitySpriteDraw(texture2D20, value20 - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(rectangle7), color44, Projectile.rotation, new Vector2(rectangle7.Width / 2, 0f), Projectile.scale, spriteEffects, 0);
-                    num224 += rectangle7.Height * Projectile.scale;
-                    value20 += Projectile.velocity * rectangle7.Height * Projectile.scale;
-                    rectangle7.Y += 30;
-                    if (rectangle7.Y + rectangle7.Height > texture2D20.Height)
-                    {
-                        rectangle7.Y = 0;
-                    }
-                }
-            }
-            SpriteBatch arg_AE2D_0 = Main.spriteBatch;
-            Texture2D arg_AE2D_1 = texture2D21;
-            Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
-            sourceRectangle2 = null;
-            arg_AE2D_0.Draw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, spriteEffects, 0);
-            return false;
         }
     }
 }

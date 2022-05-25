@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -35,6 +36,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool DroppedSummon;
 
         public bool HasSaidEndure;
+        public int RespawnTimer;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
@@ -50,6 +52,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             base.SetDefaults(npc);
 
             npc.lifeMax = (int)(npc.lifeMax * 1.2);
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
@@ -61,6 +69,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return true;
 
             NPC spazmatism = FargoSoulsUtil.NPCExists(EModeGlobalNPC.spazBoss, NPCID.Spazmatism);
+
+            if (FargoSoulsWorld.MasochistModeReal && spazmatism == null && npc.HasValidTarget && ++RespawnTimer > 600)
+            {
+                RespawnTimer = 0;
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    int n = FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center + new Vector2(Main.rand.NextFloat(-1000, 1000), Main.rand.NextFloat(-800, -600)), NPCID.Spazmatism, target: npc.target);
+                    if (n != Main.maxNPCs)
+                    {
+                        Main.npc[n].life = Main.npc[n].lifeMax / 4;
+                        if (Main.netMode == NetmodeID.Server)
+                            NetMessage.SendData(MessageID.SyncNPC, number: n);
+                        string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
+                        FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                    }
+                }
+            }
 
             if (!ForcedPhase2OnSpawn) //start phase 2
             {
@@ -375,7 +400,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool CheckDead(NPC npc)
         {
-            if (FargoSoulsWorld.SwarmActive)
+            if (FargoSoulsWorld.SwarmActive || FargoSoulsWorld.MasochistModeReal)
                 return base.CheckDead(npc);
 
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.spazBoss, NPCID.Spazmatism) && Main.npc[EModeGlobalNPC.spazBoss].life > 1) //spaz still active
@@ -421,6 +446,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool ForcedPhase2OnSpawn;
         public bool HasSaidEndure;
+        public int RespawnTimer;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
@@ -430,9 +456,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(DarkStarTimer), IntStrategies.CompoundStrategy },
             };
 
-        public override void SetDefaults(NPC npc)
+        public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            base.SetDefaults(npc);
+            base.OnSpawn(npc, source);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -445,6 +471,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return true;
 
             NPC retinazer = FargoSoulsUtil.NPCExists(EModeGlobalNPC.retiBoss, NPCID.Retinazer);
+
+            if (FargoSoulsWorld.MasochistModeReal && retinazer == null && npc.HasValidTarget && ++RespawnTimer > 600)
+            {
+                RespawnTimer = 0;
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    int n = FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center + new Vector2(Main.rand.NextFloat(-1000, 1000), Main.rand.NextFloat(-800, -600)), NPCID.Retinazer, target: npc.target);
+                    if (n != Main.maxNPCs)
+                    {
+                        Main.npc[n].life = Main.npc[n].lifeMax / 4;
+                        if (Main.netMode == NetmodeID.Server)
+                            NetMessage.SendData(MessageID.SyncNPC, number: n);
+                        string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
+                        FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                    }
+                }
+            }
 
             float modifier = (float)npc.life / npc.lifeMax;
             if (FargoSoulsWorld.MasochistModeReal)
@@ -701,33 +744,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
             }
 
-            /*if (!retiAlive && npc.HasPlayerTarget && Main.player[npc.target].active)
-            {
-                Timer--;
-
-                if (Timer <= 0)
-                {
-                    Timer = 600;
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        int spawn = NPC.NewNPC((int)npc.position.X + Main.rand.Next(-1000, 1000), (int)npc.position.Y + Main.rand.Next(-400, -100), NPCID.Retinazer);
-                        if (spawn != 200)
-                        {
-                            Main.npc[spawn].life = Main.npc[spawn].lifeMax / 4;
-                            if (Main.netMode == NetmodeID.Server)
-                            {
-                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Retinazer has been revived!"), new Color(175, 75, 255));
-                                NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, spawn);
-                            }
-                            else
-                            {
-                                Main.NewText("Retinazer has been revived!", 175, 75, 255);
-                            }
-                        }
-                    }
-                }
-            }*/
-
             return true;
         }
 
@@ -763,7 +779,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool CheckDead(NPC npc)
         {
-            if (FargoSoulsWorld.SwarmActive)
+            if (FargoSoulsWorld.SwarmActive || FargoSoulsWorld.MasochistModeReal)
                 return base.CheckDead(npc);
 
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.retiBoss, NPCID.Retinazer) && Main.npc[EModeGlobalNPC.retiBoss].life > 1) //reti still active

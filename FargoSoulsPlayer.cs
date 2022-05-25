@@ -127,6 +127,7 @@ namespace FargowiltasSouls
         private int goldHP;
         public bool HallowEnchantActive;
         public bool HuntressEnchantActive;
+        public int HuntressStage;
         public int HuntressCD = 0;
         public bool IronEnchantActive;
         public bool GuardRaised;
@@ -1369,9 +1370,6 @@ namespace FargowiltasSouls
             if (DarkArtistEnchantActive)
                 Player.setApprenticeT3 = true;
 
-            if (HuntressEnchantActive)
-                Player.setHuntressT2 = true;
-
             if (RedEnchantActive)
                 Player.setHuntressT3 = true;
 
@@ -2099,6 +2097,11 @@ namespace FargowiltasSouls
             if (TungstenEnchantActive && proj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TungstenScale != 1)
             {
                 TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, proj.DamageType);
+            }
+
+            if (HuntressEnchantActive && proj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj == 1)
+            {
+                HuntressEnchant.HuntressBonus(this, proj, target, ref damage);
             }
 
             ModifyHitNPCBoth(target, ref damage, ref crit, proj.DamageType);

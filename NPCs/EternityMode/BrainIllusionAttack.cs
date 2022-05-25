@@ -25,6 +25,18 @@ namespace FargowiltasSouls.NPCs.EternityMode
             {
                 Hide = true
             });
+
+            NPCID.Sets.DebuffImmunitySets.Add(Type, new Terraria.DataStructures.NPCDebuffImmunityData 
+            {
+                SpecificallyImmuneTo = new int[]
+                {
+                    BuffID.OnFire,
+                    BuffID.Confused,
+                    BuffID.Suffocation,
+                    BuffID.CursedInferno,
+                    BuffID.Burning,
+                }
+            });
         }
 
         public override void SetDefaults()
@@ -42,12 +54,6 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.knockBackResist = 0f;
             NPC.lavaImmune = true;
             NPC.aiStyle = -1;
-
-            NPC.buffImmune[BuffID.OnFire] = true;
-            NPC.buffImmune[BuffID.Confused] = true;
-            NPC.buffImmune[BuffID.Suffocation] = true;
-            NPC.buffImmune[BuffID.CursedInferno] = true;
-            NPC.buffImmune[BuffID.Burning] = true;
         }
 
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)

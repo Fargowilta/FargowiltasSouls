@@ -1699,3 +1699,18 @@ fixed a bug that caused maso prime to shoot stars at double the intended rate
 fishron p3 emode heals to 33%, was 50%
 fishron p3 maso heals to 50%, was 100%
 added abom relic
+adjustments to abom/mutant special deathrays, test them and railgun
+fixed a sound issue with mutant rays
+fixed whips not losing use speed with mythril ench
+censored trojan squirrel
+proper item sprites for sibling relics
+updated timestop debuff icon
+maso twins revive instead of endure
+maso eow vile spit corrupts
+maso boc ichor crimsons
+maso qs bouncy ball hallows
+golem ray is now a pillar that inflicts stunned not burning and does more raw damage
+fixed turtles dying to water debuffs
+fixed enemies not having any debuff immunities added by this mod because tml good
+
+saucer control console buffed, the ray inflicts clipped wings and lethargic
