@@ -249,11 +249,6 @@ namespace FargowiltasSouls.NPCs.Challengers
             arms = FargoSoulsUtil.NPCExists(reader.ReadInt32());
         }
 
-        public override void DrawBehind(int index)
-        {
-            base.DrawBehind(index);
-        }
-
         private void TileCollision(bool fallthrough = false, bool dropDown = false)
         {
             bool onPlatforms = false;
@@ -829,10 +824,23 @@ namespace FargowiltasSouls.NPCs.Challengers
 
             LeadingConditionRule rule = new LeadingConditionRule(new Conditions.NotExpert());
             rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<TreeSword>(), ModContent.ItemType<MountedAcornGun>(), ModContent.ItemType<SnowballStaff>(), ModContent.ItemType<KamikazeSquirrelStaff>()));
+            rule.OnSuccess(ItemDropRule.OneFromOptions(1,
+                ItemID.Squirrel,
+                ItemID.SquirrelRed
+                //ItemID.SquirrelGold,
+                //ItemID.GemSquirrelAmber,
+                //ItemID.GemSquirrelAmethyst,
+                //ItemID.GemSquirrelDiamond,
+                //ItemID.GemSquirrelEmerald,
+                //ItemID.GemSquirrelRuby,
+                //ItemID.GemSquirrelSapphire,
+                //ItemID.GemSquirrelTopaz
+            ));
             rule.OnSuccess(ItemDropRule.Common(ItemID.WoodenCrate, 1, 1, 5));
             rule.OnSuccess(ItemDropRule.Common(ItemID.HerbBag, 1, 1, 5));
             rule.OnSuccess(ItemDropRule.Common(ItemID.Acorn, 1, 100, 100));
             rule.OnSuccess(ItemDropRule.Common(ModContent.Find<ModItem>("Fargowiltas", "LumberJaxe").Type, 10));
+
             npcLoot.Add(rule);
         }
 

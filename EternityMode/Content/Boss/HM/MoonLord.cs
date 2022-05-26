@@ -106,7 +106,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.SetDefaults(npc);
 
-            npc.lifeMax *= 2;
+            npc.lifeMax = (int)Math.Round(npc.lifeMax * 2.5);
         }
 
         public override bool PreAI(NPC npc)

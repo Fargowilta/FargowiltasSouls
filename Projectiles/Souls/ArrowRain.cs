@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             Projectile.height = 1;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 500;
+            Projectile.timeLeft = 330;
         }
 
         public override bool? CanDamage()
@@ -29,17 +29,16 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void AI()
         {
-            Player owner = Main.player[Projectile.owner];
+            NPC target = Main.npc[(int)Projectile.ai[1]];
 
-            //follow the cursor and double fire rate with red riding
-            if (owner.GetModPlayer<FargoSoulsPlayer>().RedEnchantActive)
+            if (target.active)
             {
-                Projectile.Center = new Vector2(Main.MouseWorld.X, Main.MouseWorld.Y - 400);
-                //launchArrow = true;
+                //follow the target
+                Projectile.Center = new Vector2(target.Center.X, target.Center.Y - 1000);
             }
 
             //delay
-            if (Projectile.timeLeft > 470)
+            if (Projectile.timeLeft > 300)
             {
                 return;
             }
@@ -47,13 +46,15 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (launchArrow)
             {
                 Vector2 position = new Vector2(Projectile.Center.X + Main.rand.Next(-100, 100), Projectile.Center.Y + Main.rand.Next(-75, 75));
-
-                float direction = Projectile.ai[1];
-                //Vector2 velocity;
-
-                Vector2 mouse = Main.MouseWorld;
-                //Vector2 pos = new Vector2(mouse.X - player.direction * 100, mouse.Y - 800);
-                Vector2 velocity = Vector2.Normalize(mouse - Projectile.position) * 25;
+                Vector2 velocity;
+                if (target.active)
+                {
+                    velocity = Vector2.Normalize(target.Center - Projectile.position) * 25;
+                }
+                else
+                {
+                    velocity = new Vector2(0, 5);
+                }
 
 
                 //if (direction == 1)

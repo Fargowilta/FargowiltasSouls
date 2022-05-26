@@ -103,6 +103,7 @@ namespace FargowiltasSouls
             AddToggle("GoldConfig", ModContent.ItemType<GoldEnchant>(), "e7b21c");
             AddToggle("GoldToPiggyConfig", ModContent.ItemType<GoldEnchant>(), "e7b21c");
             AddToggle("HuntressConfig", ModContent.ItemType<HuntressEnchant>(), "7ac04c");
+            AddToggle("RedRidingRainConfig", ModContent.ItemType<RedRidingEnchant>(), "7ac04c");
             AddToggle("ValhallaConfig", ModContent.ItemType<ValhallaKnightEnchant>(), "93651e");
             AddToggle("SquirePanicConfig", ModContent.ItemType<SquireEnchant>(), "948f8c");
 
@@ -118,6 +119,7 @@ namespace FargowiltasSouls
             AddToggle("ChlorophyteConfig", ModContent.ItemType<ChlorophyteEnchant>(), "248900");
             AddToggle("CrimsonConfig", ModContent.ItemType<CrimsonEnchant>(), "C8364B");
             AddToggle("RainConfig", ModContent.ItemType<RainEnchant>(), "ffec00");
+            AddToggle("RainInnerTubeConfig", ModContent.ItemType<RainEnchant>(), "ffec00");
             AddToggle("FrostConfig", ModContent.ItemType<FrostEnchant>(), "7abdb9");
             AddToggle("JungleConfig", ModContent.ItemType<JungleEnchant>(), "71971f");
             AddToggle("JungleDashConfig", ModContent.ItemType<JungleEnchant>(), "71971f");
@@ -137,6 +139,8 @@ namespace FargowiltasSouls
             AddToggle("ShinobiDashConfig", ModContent.ItemType<ShinobiEnchant>(), "935b18");
             AddToggle("ShinobiConfig", ModContent.ItemType<ShinobiEnchant>(), "935b18");
             AddToggle("SpookyConfig", ModContent.ItemType<SpookyEnchant>(), "644e74");
+            AddToggle("CrystalDashConfig", ModContent.ItemType<CrystalAssassinEnchant>(), "249dcf");
+            AddToggle("CrystalGelatinConfig", ModContent.ItemType<CrystalAssassinEnchant>(), "249dcf");
 
             AddToggle("SpiritHeader", ModContent.ItemType<SpiritForce>());
             AddToggle("FossilConfig", ModContent.ItemType<FossilEnchant>(), "8c5c3b");

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -56,25 +57,17 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         private int ritualID = -1;
 
+        float originalSpeed;
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+
+            originalSpeed = Projectile.velocity.Length();
+        }
+
         public override void AI()
         {
-            //float ratio = Projectile.timeLeft / 600f;
-            //Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[0] * ratio + Projectile.ai[1] * (1 - ratio));
-            /*Projectile.localAI[0] += Projectile.ai[0] * Projectile.timeLeft / 300f;
-            Projectile.velocity.X = (float)(Math.Cos(Projectile.localAI[0] + Projectile.ai[1]) - Projectile.localAI[0] * Math.Sin(Projectile.localAI[0] + Projectile.ai[1]));
-            Projectile.velocity.Y = (float)(Math.Sin(Projectile.localAI[0] + Projectile.ai[1]) + Projectile.localAI[0] * Math.Cos(Projectile.localAI[0] + Projectile.ai[1]));*/
-            //Projectile.velocity *= (Projectile.timeLeft > 300 ? Projectile.timeLeft / 300f : 1f);
-            //Main.NewText(Projectile.velocity.Length().ToString());
-            //Projectile.velocity *= 1f + Projectile.ai[0];
-            //Projectile.velocity += Projectile.velocity.RotatedBy(Math.PI / 2) * Projectile.ai[1];
-            /*if (spawn == Vector2.Zero)
-                spawn = Projectile.position;
-            Projectile.localAI[0] += Projectile.ai[0] * (Projectile.timeLeft > 300 ? Projectile.timeLeft / 300f : 1f);
-            Vector2 vel = new Vector2(Projectile.localAI[0] * (float)Math.Cos(Projectile.localAI[0] + Projectile.ai[1]) * 120f,
-                Projectile.localAI[0] * (float)Math.Sin(Projectile.localAI[0] + Projectile.ai[1]) * 120f);
-            Projectile.position = spawn + vel;
-            vel = Projectile.position - Projectile.oldPosition;*/
-            Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
+            Projectile.velocity = originalSpeed * Vector2.Normalize(Projectile.velocity).RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
 
             if (Projectile.alpha > 0)
             {

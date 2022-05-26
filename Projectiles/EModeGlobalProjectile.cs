@@ -9,6 +9,7 @@ using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
@@ -23,16 +24,30 @@ namespace FargowiltasSouls.Projectiles
         public override bool InstancePerEntity => true;
 
         public bool HasKillCooldown;
-        public bool NerfDamageBasedOnProjCount;
         public bool EModeCanHurt = true;
+        public int NerfDamageBasedOnProjTypeCount;
 
         private int counter;
         private bool altBehaviour;
         private bool preAICheckDone;
         private bool firstTickAICheckDone;
 
+        public static Dictionary<int, bool> IgnoreMinionNerf = new Dictionary<int, bool>();
+
+        public override void Unload()
+        {
+            base.Unload();
+
+            IgnoreMinionNerf.Clear();
+        }
+
         public override void SetStaticDefaults()
         {
+            IgnoreMinionNerf[ProjectileID.StardustDragon1] = true;
+            IgnoreMinionNerf[ProjectileID.StardustDragon2] = true;
+            IgnoreMinionNerf[ProjectileID.StardustDragon3] = true;
+            IgnoreMinionNerf[ProjectileID.StardustDragon4] = true;
+
             a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharpTears] = true;
             a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
             a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MeteorShot] = true;
@@ -85,11 +100,6 @@ namespace FargowiltasSouls.Projectiles
 
             switch (projectile.type)
             {
-                case ProjectileID.StardustCellMinionShot:
-                case ProjectileID.EmpressBlade:
-                    //NerfDamageBasedOnProjCount = true;
-                    break;
-
                 case ProjectileID.FinalFractal: //zenith
                     if (!FargoSoulsWorld.downedMutant)
                     {
@@ -134,7 +144,7 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.CrystalBullet:
                 case ProjectileID.HolyArrow:
                 case ProjectileID.HallowStar:
-                    //HasKillCooldown = true;
+                    HasKillCooldown = true;
                     break;
 
                 case ProjectileID.SaucerLaser:
@@ -198,6 +208,14 @@ namespace FargowiltasSouls.Projectiles
             Projectile sourceProj = null;
             if (source is EntitySource_Parent parent && parent.Entity is Projectile)
                 sourceProj = parent.Entity as Projectile;
+
+            if (FargoSoulsUtil.IsSummonDamage(projectile, true, false) && !(IgnoreMinionNerf.TryGetValue(projectile.type, out bool ignoreNerf) && ignoreNerf))
+            {
+                if (projectile.minion)
+                    NerfDamageBasedOnProjTypeCount = projectile.type;
+                else if (sourceProj is Projectile)
+                    NerfDamageBasedOnProjTypeCount = sourceProj.GetGlobalProjectile<EModeGlobalProjectile>().NerfDamageBasedOnProjTypeCount;
+            }
 
             switch (projectile.type)
             {
@@ -696,7 +714,6 @@ namespace FargowiltasSouls.Projectiles
                     break;
 
                 case ProjectileID.Fireball:
-                    if (!FargoSoulsWorld.MasochistModeReal)
                     {
                         NPC golem = FargoSoulsUtil.NPCExists(NPC.golemBoss, NPCID.Golem);
                         if (golem != null && !golem.dontTakeDamage)
@@ -1122,24 +1139,18 @@ namespace FargowiltasSouls.Projectiles
             //    }
             //}
 
-            if (NerfDamageBasedOnProjCount)
+            if (NerfDamageBasedOnProjTypeCount != 0 && Main.player[projectile.owner].ownedProjectileCounts[NerfDamageBasedOnProjTypeCount] > 0)
             {
-                int projTypeToCheck = projectile.type;
-                if (projectile.type == ProjectileID.StardustCellMinionShot)
-                    projTypeToCheck = ProjectileID.StardustCellMinion;
+                int projTypeToCheck = NerfDamageBasedOnProjTypeCount;
 
                 //note: projs needed to reach max nerf is the sum of these values
-                const int allowedBeforeNerfBegins = 5;
-                const int maxRampup = 10;
+                const int allowedBeforeNerfBegins = 3;
+                const int maxRampup = 6;
 
-                float modifier = (float)(Main.player[projectile.owner].ownedProjectileCounts[projTypeToCheck] - allowedBeforeNerfBegins) / maxRampup;
-                if (modifier < 0)
-                    modifier = 0;
-                if (modifier > 1)
-                    modifier = 1;
+                float modifier = Utils.Clamp((float)(Main.player[projectile.owner].ownedProjectileCounts[projTypeToCheck] - allowedBeforeNerfBegins) / maxRampup, 0f, 1f);
 
-                const float maxNerfStrength = 0.25f;
-                damage = (int)(damage * (1f - modifier * maxNerfStrength));
+                const double maxNerfStrength = 1.0 / 3.0;
+                damage = (int)(damage * (1.0 - modifier * maxNerfStrength));
             }
 
             //if (projectile.type == ProjectileID.ChlorophyteBullet)

@@ -38,6 +38,12 @@ Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
 
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.defense = 4;
+        }
+
         protected override Color? nameColor => new Color(255, 111, 6);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -53,8 +59,9 @@ Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
             {
                 player.magmaStone = true;
             }
-
             player.kbGlove = true;
+            player.autoReuseGlove = true;
+            player.meleeScaleGlove = true;
 
             if (player.GetToggleValue("YoyoBag", false))
             {
@@ -81,9 +88,6 @@ Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
             }
 
             player.lifeRegen += 2;
-            player.statDefense += 4;
-
-            //berserker glove effect, auto swing thing
         }
 
         public override void AddRecipes()

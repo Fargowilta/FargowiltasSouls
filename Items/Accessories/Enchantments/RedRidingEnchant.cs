@@ -1,6 +1,9 @@
+using FargowiltasSouls.Projectiles.Souls;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -12,20 +15,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Red Riding Enchantment");
             Tooltip.SetDefault(
-@"Arrows will periodically fall towards your cursor
-Double tap down to create a rain of arrows that follows the cursor's position for a few seconds
-The arrow type is based on the first arrow in your inventory
-This has a cooldown of 10 seconds
-Greatly enhances Explosive Traps effectiveness
+@"Attacks ignore 10 enemy defense and deal 5 flat extra damage
+Each successive attack ignores an additional 10 defense and deals 5 more damage
+Upon reaching 10 stacks, spawn a rain of arrows
+The arrow type defaults to Venom or whatever is first in your inventory
+Homing and minion attacks do not increase these bonuses
+Missing any attack will reset these bonuses
 'Big Bad Red Riding Hood'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "红色游侠魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"箭矢会定期落至你光标周围
-            // 双击'下'键后令箭雨倾斜在光标位置
-            // 箭矢的种类取决于你背包中第一个箭矢
-            // 此效果有10秒冷却时间
-            // 大幅强化爆炸陷阱的效果
-            // '大坏蛋红色骑术帽！'");
         }
 
         protected override Color nameColor => new Color(192, 27, 60);
@@ -40,9 +36,70 @@ Greatly enhances Explosive Traps effectiveness
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            modPlayer.RedRidingEffect(hideVisual);
+            RedRidingEffect(player, Item);
             HuntressEnchant.HuntressEffect(player);
+        }
+
+        public static void RedRidingEffect(Player player, Item item)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            if (modPlayer.RedRidingEnchantItem != null || !player.GetToggleValue("RedRidingRain"))
+                return;
+
+            modPlayer.RedRidingEnchantItem = item;
+
+            if (modPlayer.RedRidingArrowCD > 0)
+            {
+                modPlayer.RedRidingArrowCD--;
+            }
+        }
+
+        public static void SpawnArrowRain(Player player, NPC target)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            Item firstAmmo = PickAmmo(player);
+            int arrowType = firstAmmo.shoot;
+            //int damage = FargoSoulsUtil.HighestDamageTypeScaling(player, (int)(firstAmmo.damage * 5f));
+            int heatray = Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.RedRidingEnchantItem), player.Center, new Vector2(0, -6f), ProjectileID.HeatRay, 0, 0, Main.myPlayer);
+            Main.projectile[heatray].tileCollide = false;
+            //proj spawns arrows all around it until it dies
+            Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.RedRidingEnchantItem), target.Center.X, player.Center.Y - 500, 0f, 0f, ModContent.ProjectileType<ArrowRain>(), FargoSoulsUtil.HighestDamageTypeScaling(player, (int)(firstAmmo.damage * 5f)), 0f, player.whoAmI, arrowType, target.whoAmI);
+
+            modPlayer.RedRidingArrowCD = 360;
+        }
+
+        private static Item PickAmmo(Player player)
+        {
+            Item item = new Item();
+            bool flag = false;
+            for (int i = 54; i < 58; i++)
+            {
+                if (player.inventory[i].ammo == AmmoID.Arrow && player.inventory[i].stack > 0)
+                {
+                    item = player.inventory[i];
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                for (int j = 0; j < 54; j++)
+                {
+                    if (player.inventory[j].ammo == AmmoID.Arrow && player.inventory[j].stack > 0)
+                    {
+                        item = player.inventory[j];
+                        break;
+                    }
+                }
+            }
+
+            if (item.ammo != AmmoID.Arrow)
+            {
+                item.SetDefaults(ItemID.VenomArrow);
+            }
+
+            return item;
         }
 
         public override void AddRecipes()
@@ -52,10 +109,8 @@ Greatly enhances Explosive Traps effectiveness
             .AddIngredient(ItemID.HuntressAltShirt)
             .AddIngredient(ItemID.HuntressAltPants)
             .AddIngredient(null, "HuntressEnchant")
-            //eventide
             .AddIngredient(ItemID.Marrow)
             .AddIngredient(ItemID.DD2BetsyBow)
-            //.AddIngredient(ItemID.DogWhistle); //werewolf pet
 
             .AddTile(TileID.CrystalBall)
             .Register();

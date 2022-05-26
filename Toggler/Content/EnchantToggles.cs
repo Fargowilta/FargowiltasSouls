@@ -42,6 +42,7 @@ namespace FargowiltasSouls.Toggler.Content
         public string Gold;
         public string GoldToPiggy;
         public string Huntress;
+        public string RedRidingRain;
         public string Valhalla;
         public string SquirePanic;
 
@@ -62,6 +63,7 @@ namespace FargowiltasSouls.Toggler.Content
         public string Molten;
         public string MoltenE;
         public string Rain;
+        public string RainInnerTube;
         public string Shroomite;
         public string ShroomiteShroom;
 
@@ -76,6 +78,8 @@ namespace FargowiltasSouls.Toggler.Content
         public string Shinobi;
         public string ShinobiDash;
         public string Spooky;
+        public string CrystalDash;
+        public string CrystalGelatin;
 
         public int SpiritHeader = ModContent.ItemType<SpiritForce>();
         public string Fossil;

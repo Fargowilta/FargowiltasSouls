@@ -1713,4 +1713,53 @@ golem ray is now a pillar that inflicts stunned not burning and does more raw da
 fixed turtles dying to water debuffs
 fixed enemies not having any debuff immunities added by this mod because tml good
 
-saucer control console buffed, the ray inflicts clipped wings and lethargic
+more sound refactors
+saucer control console buffed, the ray inflicts clipped wings and lethargic(!)
+removed maso plant's funny meme bonus tentacle attack
+possibly fixed emode breaking eater swarm in sp
+removed maso golem's fireballs
+added numerous checks to huntress ench to fix meme proj kill reset issues
+huntress ench doesnt work on homing or minion (does work on whips)
+fixed toggle not working on huntress ench
+fixed earth force not having new mythril ench
+added mythril and huntress to min effects preset
+glowing chibi devi
+
+refactored sands of time and upgrades on how they're used and better implementation
+	check no bugs
+	deliberate: you can use them without dying. this just does nothing
+box of gizmos
+	recalculates speed penalty, effectively always +6 ticks
+	works from inv
+	wont nerf melee/whip if it gets autofire from feral glove instead
+carrot toggle renamed
+fixed berserker soul not having all effects of fire gauntlet
+updated localization for recipe groups
+trojan squrrl drops a squrrl item
+recovering is now rush job, cannot be removed until boss fight ends
+adjusted implementation of mutant's spiraling spheres
+the rings in mutant's maso p2 animation still track him while fading away
+reduced increased undead miner spawn rate from mining helmet
+-50% damage for all whips except leather
+all summons have diminishing returns
+	when over 3 minions of same type, damage decreases, max -33% nerf at 9 minions
+	applies to minion shots too
+	doesnt apply to stardust dragon and eater staff
+	doesnt apply to summon damage that isnt from true "minions" (e.g. destroyer guns)
+nerfs restored
+	stardust dragon
+	sdmg
+	last prism
+raised ml core life boost from x2 to x2.5 to compensate 1.4 power creep
+buffed staff of unleashed ocean, fishrons now use local iframes
+	nerfed base damage to compensate
+	reduced dust a bit
+buffed drakovi minion, water shot uses local iframes
+removed omniscience staff
+buffed big brain buster, now caps at 10 slots
+fixed bbb being able to eat slots with no benefit after capping out
+fixed stardust ench spawning guardian and it dying every tick when guardian toggle off
+added rain ench inner tube toggle
+added crystal ench effect toggles
+added red riding toggle
+removed huntress debug text

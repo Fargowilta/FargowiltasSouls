@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,20 +13,15 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Crystal Assassin Enchantment");
-            Tooltip.SetDefault(@"Allows the ability to dash
+            Tooltip.SetDefault(
+@"Allows the ability to dash
 Use Ninja hotkey to throw a smoke bomb, use it again to teleport to it and gain the First Strike Buff
 Using the Rod of Discord will also grant this buff
-When you teleport, you also spawn several homing blades
-Effects of Volatile Gel''");
-
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "水晶刺客魔石");
-            //             string tooltip_ch =
-            // @"拥有挥发明胶效果
-            // ''";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+Effects of Volatile Gel
+'Deceptively fragile'");
         }
 
-        protected override Color nameColor => new Color(231, 178, 28); //change e
+        protected override Color nameColor => new Color(36, 157, 207);
 
         public override void SetDefaults()
         {
@@ -37,7 +33,53 @@ Effects of Volatile Gel''");
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            //player.GetModPlayer<FargoSoulsPlayer>().ForbiddenEffect(); //effect tele on party girl bathwater, when tele slashes through enemies
+            NinjaEnchant.NinjaEffect(player);
+            CrystalAssassinEffect(player, Item);
+        }
+
+        public static void CrystalAssassinEffect(Player player, Item item)
+        {
+            if (player.GetToggleValue("CrystalDash", false))
+                player.dashType = 5;
+            if (player.GetToggleValue("CrystalGelatin"))
+                VolatileGelatin(player, item);
+        }
+
+        public static void VolatileGelatin(Player player, Item sourceItem)
+        {
+            if (Main.myPlayer != player.whoAmI)
+            {
+                return;
+            }
+            player.volatileGelatinCounter++;
+            if (player.volatileGelatinCounter > 50)
+            {
+                player.volatileGelatinCounter = 0;
+                int damage = 65;
+                float knockBack = 7f;
+                float num = 640f;
+                NPC npc = null;
+                for (int i = 0; i < 200; i++)
+                {
+                    NPC npc2 = Main.npc[i];
+                    if (npc2 != null && npc2.active && npc2.CanBeChasedBy(player, false) && Collision.CanHit(player, npc2))
+                    {
+                        float num2 = Vector2.Distance(npc2.Center, player.Center);
+                        if (num2 < num)
+                        {
+                            num = num2;
+                            npc = npc2;
+                        }
+                    }
+                }
+                if (npc != null)
+                {
+                    Vector2 vector = npc.Center - player.Center;
+                    vector = vector.SafeNormalize(Vector2.Zero) * 6f;
+                    vector.Y -= 2f;
+                    Projectile.NewProjectile(player.GetSource_Accessory(sourceItem), player.Center.X, player.Center.Y, vector.X, vector.Y, 937, damage, knockBack, player.whoAmI, 0f, 0f);
+                }
+            }
         }
 
         public override void AddRecipes()

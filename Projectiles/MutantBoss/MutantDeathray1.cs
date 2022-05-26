@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
@@ -30,7 +31,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return target.hurtCooldowns[1] == 0;
         }
 
-        static readonly SoundStyle RaySound = new SoundStyle("Terraria/Sounds/Zombie_104") { MaxInstances = 1, SoundLimitBehavior = SoundLimitBehavior.IgnoreNew };
+        //static readonly SoundStyle RaySound = new SoundStyle("Terraria/Sounds/Zombie_104") { MaxInstances = 1, SoundLimitBehavior = SoundLimitBehavior.IgnoreNew };
 
         public override void AI()
         {
@@ -56,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(RaySound, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);
                 Projectile.frame = Main.rand.Next(10);
             }
             float num801 = 1f;

@@ -34,12 +34,16 @@ namespace FargowiltasSouls.Patreon.DemonKing
             Projectile.penetrate = -1;
             Projectile.friendly = true;
             Projectile.minion = true;
+            Projectile.DamageType = DamageClass.Summon;
             Projectile.minionSlots = 2;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 10;
             Projectile.GetGlobalProjectile<Projectiles.FargoSoulsGlobalProjectile>().CanSplit = false;
             Projectile.scale *= 0.75f;
+
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
         }
 
         public override void SendExtraAI(BinaryWriter writer)

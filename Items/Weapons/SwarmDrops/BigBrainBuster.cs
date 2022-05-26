@@ -64,7 +64,7 @@ $"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n" +
                         if (proj.type == type)
                         {
                             brain = i;
-                            if (usedslots < player.maxMinions)
+                            if (usedslots < player.maxMinions && proj.minionSlots < Projectiles.Minions.BigBrainProj.MaxMinionSlots)
                                 proj.minionSlots++;
                         }
                     }

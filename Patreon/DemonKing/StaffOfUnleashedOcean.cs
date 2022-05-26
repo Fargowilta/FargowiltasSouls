@@ -14,12 +14,12 @@ namespace FargowiltasSouls.Patreon.DemonKing
             base.SetStaticDefaults();
             DisplayName.SetDefault("Staff of Unleashed Ocean");
             Tooltip.SetDefault("Summons Duke Fishron to fight for you\nNeeds 2 minion slots\n'Now channel your rage against them!'");
-            ItemID.Sets.StaffMinionSlotsRequired[Item.type] = 3;
+            ItemID.Sets.StaffMinionSlotsRequired[Item.type] = 2;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 375;
+            Item.damage = 328;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 26;
@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
             Item.noMelee = true;
             Item.knockBack = 4f;
             Item.rare = ItemRarityID.Purple;
-            Item.UseSound = new SoundStyle("Terraria/Sounds/Zombie_20");
+            Item.UseSound = SoundID.Zombie20;
             Item.shoot = ModContent.ProjectileType<DukeFishronMinion>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<DukeFishronBuff>();

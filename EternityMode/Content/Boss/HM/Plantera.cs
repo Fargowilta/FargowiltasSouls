@@ -53,7 +53,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int DicerTimer;
         public int RingTossTimer;
         public int TentacleTimer = 480; //line up first tentacles with ring toss lmao, 600
-        public int TentacleTimerMaso;
+        //public int TentacleTimerMaso;
 
         public float TentacleAttackAngleOffset;
 
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(DicerTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(RingTossTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(TentacleTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(TentacleTimerMaso), IntStrategies.CompoundStrategy },
+                //{ new Ref<object>(TentacleTimerMaso), IntStrategies.CompoundStrategy },
 
                 { new Ref<object>(IsVenomEnraged), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
@@ -326,23 +326,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     npc.position -= npc.velocity * (IsVenomEnraged ? 0.1f : 0.2f);
                 }
 
-                if (FargoSoulsWorld.MasochistModeReal && --TentacleTimerMaso < 0)
-                {
-                    TentacleTimerMaso = 420;
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        float angle = npc.DirectionTo(Main.player[npc.target].Center).ToRotation();
-                        for (int i = -1; i <= 1; i++)
-                        {
-                            float offset = MathHelper.ToRadians(6) * i;
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Main.rand.NextVector2CircularEdge(24, 24),
-                              ModContent.ProjectileType<PlanteraTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.whoAmI, angle + offset);
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Main.rand.NextVector2CircularEdge(24, 24),
-                                ModContent.ProjectileType<PlanteraTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.whoAmI, -angle + offset);
-                        }
-                    }
+                //if (FargoSoulsWorld.MasochistModeReal && --TentacleTimerMaso < 0)
+                //{
+                //    TentacleTimerMaso = 420;
+                //    if (Main.netMode != NetmodeID.MultiplayerClient)
+                //    {
+                //        float angle = npc.DirectionTo(Main.player[npc.target].Center).ToRotation();
+                //        for (int i = -1; i <= 1; i++)
+                //        {
+                //            float offset = MathHelper.ToRadians(6) * i;
+                //            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Main.rand.NextVector2CircularEdge(24, 24),
+                //              ModContent.ProjectileType<PlanteraTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.whoAmI, angle + offset);
+                //            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Main.rand.NextVector2CircularEdge(24, 24),
+                //                ModContent.ProjectileType<PlanteraTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.whoAmI, -angle + offset);
+                //        }
+                //    }
 
-                }
+                //}
             }
 
             EModeUtils.DropSummon(npc, "PlanterasFruit", NPC.downedPlantBoss, ref DroppedSummon, NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3);

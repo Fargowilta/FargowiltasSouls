@@ -83,6 +83,9 @@ namespace FargowiltasSouls
         public static float ActualClassCrit(this Player player, DamageClass damageClass)
             => player.GetTotalCritChance(damageClass);
 
+        public static bool FeralGloveReuse(this Player player, Item item)
+            => player.autoReuseGlove && (item.DamageType == DamageClass.Melee || item.DamageType == DamageClass.SummonMeleeSpeed);
+
         public static int HighestDamageTypeScaling(Player player, int dmg)
         {
             List<float> types = new List<float> {

@@ -96,6 +96,7 @@ namespace FargowiltasSouls.Projectiles
 
                 case ProjectileID.StardustGuardian:
                 case ProjectileID.StardustGuardianExplosion:
+                case ProjectileID.StardustPunch:
                     TimeFreezeImmune = true;
                     break;
 
@@ -265,7 +266,7 @@ namespace FargowiltasSouls.Projectiles
                 && CanSplit && Array.IndexOf(noSplit, projectile.type) <= -1)
             {
                 if (projectile.owner == Main.myPlayer
-                    && (source is EntitySource_ItemUse
+                    && (isProjSourceItemUseReal(projectile, source, player)
                     || (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.minion || sourceProj.sentry || (ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))))
                 {
                     AdamantiteEnchant.AdamantiteSplit(projectile);
@@ -316,10 +317,20 @@ namespace FargowiltasSouls.Projectiles
                     SplitProj(projectile, 11, MathHelper.Pi / 3, 1);
             }
 
-            if (modPlayer.HuntressEnchantActive && source is EntitySource_ItemUse)
+            if (modPlayer.HuntressEnchantActive && player.GetToggleValue("Huntress") 
+                && isProjSourceItemUseReal(projectile, source, player)
+                && projectile.damage > 0 && projectile.friendly && !projectile.hostile && !projectile.trap 
+                && projectile.DamageType != DamageClass.Default 
+                && !ProjectileID.Sets.CultistIsResistantTo[projectile.type] 
+                && !FargoSoulsUtil.IsSummonDamage(projectile, true, false))
             {
                 HuntressProj = 1;
             }
+        }
+
+        private bool isProjSourceItemUseReal(Projectile proj, IEntitySource source, Player player)
+        {
+            return source is EntitySource_ItemUse parent && parent.Item.type == player.HeldItem.type;
         }
 
         public static int[] noSplit => new int[] {
@@ -1047,7 +1058,7 @@ namespace FargowiltasSouls.Projectiles
             if (HuntressProj == 1 && projectile.Center.Distance(Main.player[projectile.owner].Center) > 1500) //goes off screen without hitting anything
             {
                 modPlayer.HuntressStage = 0;
-                Main.NewText("MISS");
+                //Main.NewText("MISS");
                 HuntressProj = -1;
                 //sound effect
             }
@@ -1200,7 +1211,7 @@ namespace FargowiltasSouls.Projectiles
             if (HuntressProj == 1) //dying without hitting anything
             {
                 modPlayer.HuntressStage = 0;
-                Main.NewText("MISS");
+                //Main.NewText("MISS");
                 //sound effect
             }
         }

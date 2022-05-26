@@ -8,8 +8,9 @@ namespace FargowiltasSouls.Items.Accessories.Expert
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Box of Gizmos");
-            Tooltip.SetDefault(@"Grants autofire to all items
-Reduces use speed of affected items by 20%");
+            Tooltip.SetDefault(@"Works in your inventory
+Grants autofire to all items
+Slightly reduces use speed of affected items");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -25,9 +26,13 @@ Reduces use speed of affected items by 20%");
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        void PassiveEffect(Player player)
         {
             player.GetModPlayer<FargoSoulsPlayer>().BoxofGizmos = true;
         }
+
+        public override void UpdateInventory(Player player) => PassiveEffect(player);
+        public override void UpdateVanity(Player player) => PassiveEffect(player);
+        public override void UpdateAccessory(Player player, bool hideVisual) => PassiveEffect(player);
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,9 +30,17 @@ namespace FargowiltasSouls.Projectiles.Champions
             CooldownSlot = 1;
         }
 
+        float originalSpeed;
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+
+            originalSpeed = Projectile.velocity.Length();
+        }
+
         public override void AI()
         {
-            Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
+            Projectile.velocity = originalSpeed * Vector2.Normalize(Projectile.velocity).RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
 
             //vanilla typhoon dust (ech)
             Vector2 vector2_2 = (Main.rand.NextFloat() * (float)Math.PI - (float)Math.PI / 2f).ToRotationVector2();

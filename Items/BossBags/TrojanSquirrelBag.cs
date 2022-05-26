@@ -23,6 +23,19 @@ namespace FargowiltasSouls.Items.BossBags
                 ModContent.ItemType<KamikazeSquirrelStaff>()
             }));
 
+            player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), Main.rand.Next(new int[] {
+                ItemID.Squirrel,
+                ItemID.SquirrelRed,
+                //ItemID.SquirrelGold,
+                //ItemID.GemSquirrelAmber,
+                //ItemID.GemSquirrelAmethyst,
+                //ItemID.GemSquirrelDiamond,
+                //ItemID.GemSquirrelEmerald,
+                //ItemID.GemSquirrelRuby,
+                //ItemID.GemSquirrelSapphire,
+                //ItemID.GemSquirrelTopaz
+            }));
+
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.WoodenCrate, 5);
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.HerbBag, 5);
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.Acorn, 100);

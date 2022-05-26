@@ -355,7 +355,7 @@ namespace FargowiltasSouls
             else if (ShorterDebuffsTimer > 0)
                 ShorterDebuffsTimer -= 1;
 
-            if (WeaponUseTimer > 0 && Player.HeldItem.DamageType != DamageClass.Summon)
+            if (WeaponUseTimer > 0 && Player.HeldItem.DamageType != DamageClass.Summon && Player.HeldItem.DamageType != DamageClass.SummonMeleeSpeed && Player.HeldItem.DamageType != DamageClass.Default)
                 MasomodeMinionNerfTimer += 1;
             else if (MasomodeMinionNerfTimer > 0)
                 MasomodeMinionNerfTimer -= 1;
@@ -445,7 +445,7 @@ namespace FargowiltasSouls
             if (!FargoSoulsWorld.EternityMode)
                 return;
 
-            damage *= MasoItemNerfs(item.type);
+            damage *= MasoItemNerfs(item);
 
             //if (item.DamageType == DamageClass.Ranged) //changes all of these to additive
             //{
@@ -481,14 +481,16 @@ namespace FargowiltasSouls
             return modifier;
         }
 
-        private float MasoItemNerfs(int type)
+        float AttackSpeed
         {
-            switch (type)
-            {
-                //case ItemID.BlizzardStaff:
-                //    AttackSpeed *= 0.5f;
-                //    return 2f / 3f;
+            get { return Player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed; }
+            set { Player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed = value; }
+        }
 
+        private float MasoItemNerfs(Item item)
+        {
+            switch (item.type)
+            {
                 //case ItemID.DemonScythe:
                 //    if (!NPC.downedBoss2)
                 //    {
@@ -506,6 +508,7 @@ namespace FargowiltasSouls
 
                 //case ItemID.Beenade:
                 //case ItemID.Razorpine:
+                //case ItemID.BlizzardStaff:
                 //    AttackSpeed *= 2f / 3f;
                 //    return 2f / 3f;
 
@@ -533,17 +536,16 @@ namespace FargowiltasSouls
                 //case ItemID.DartPistol:
                 //case ItemID.DartRifle:
                 //case ItemID.Megashark:
-                //case ItemID.BatScepter:
                 //case ItemID.ChainGun:
                 //case ItemID.VortexBeater:
                 //case ItemID.RavenStaff:
                 //case ItemID.XenoStaff:
-                //case ItemID.StardustDragonStaff:
                 //case ItemID.NebulaArcanum:
                 //case ItemID.Phantasm:
-                //case ItemID.SDMG:
-                //case ItemID.LastPrism:
-                //    return 0.85f;
+                case ItemID.StardustDragonStaff:
+                case ItemID.SDMG:
+                case ItemID.LastPrism:
+                    return 0.85f;
 
                 //case ItemID.BeeGun:
                 //case ItemID.Grenade:
@@ -564,12 +566,17 @@ namespace FargowiltasSouls
                 case ItemID.DD2LightningAuraT1Popper:
                 case ItemID.DD2LightningAuraT2Popper:
                 case ItemID.DD2LightningAuraT3Popper:
-                    Player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed *= 2f / 3f;
+                    AttackSpeed *= 2f / 3f;
                     return 1f;
 
                 default:
-                    return 1f;
+                    break;
             }
+
+            if (ProjectileID.Sets.IsAWhip[item.shoot] && item.type != ItemID.BlandWhip)
+                return 0.5f;
+
+            return 1f;
         }
     }
 }

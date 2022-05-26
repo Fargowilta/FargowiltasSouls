@@ -62,21 +62,24 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
             Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
 
-            //vanilla typhoon dust (ech)
-            Vector2 vector2_1 = Projectile.velocity;
-            vector2_1.Normalize();
-            vector2_1.X *= Projectile.width;
-            vector2_1.Y *= Projectile.height;
-            vector2_1 /= 2;
-            vector2_1 = vector2_1.RotatedBy(-1 * Math.PI / 6);
-            vector2_1 += Projectile.Center;
-            Vector2 vector2_2 = (Main.rand.NextFloat() * (float)Math.PI - (float)Math.PI / 2f).ToRotationVector2();
-            vector2_2 *= Main.rand.Next(3, 8);
-            int index2 = Dust.NewDust(vector2_1 + vector2_2, 0, 0, 172, vector2_2.X * 2f, vector2_2.Y * 2f, 100, new Color(), 1.4f);
-            Main.dust[index2].noGravity = true;
-            Main.dust[index2].noLight = true;
-            Main.dust[index2].velocity /= 4f;
-            Main.dust[index2].velocity -= Projectile.velocity;
+            if (Main.rand.NextBool(10))
+            {
+                //vanilla typhoon dust (ech)
+                Vector2 vector2_1 = Projectile.velocity;
+                vector2_1.Normalize();
+                vector2_1.X *= Projectile.width;
+                vector2_1.Y *= Projectile.height;
+                vector2_1 /= 2;
+                vector2_1 = vector2_1.RotatedBy(-1 * Math.PI / 6);
+                vector2_1 += Projectile.Center;
+                Vector2 vector2_2 = (Main.rand.NextFloat() * (float)Math.PI - (float)Math.PI / 2f).ToRotationVector2();
+                vector2_2 *= Main.rand.Next(3, 8);
+                int index2 = Dust.NewDust(vector2_1 + vector2_2, 0, 0, 172, vector2_2.X * 2f, vector2_2.Y * 2f, 100, new Color(), 1.4f);
+                Main.dust[index2].noGravity = true;
+                Main.dust[index2].noLight = true;
+                Main.dust[index2].velocity /= 4f;
+                Main.dust[index2].velocity -= Projectile.velocity;
+            }
 
             Projectile.rotation += 0.2f;// * (Projectile.velocity.X > 0f ? 1f : -1f);
             Projectile.frame++;

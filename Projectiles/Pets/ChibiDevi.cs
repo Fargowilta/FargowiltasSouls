@@ -22,8 +22,10 @@ namespace FargowiltasSouls.Projectiles.Pets
         {
             DisplayName.SetDefault("Chibi Devi");
             Main.projFrames[Projectile.type] = 6;
-            ProjectileID.Sets.LightPet[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 
         public override void SetDefaults()
@@ -126,7 +128,11 @@ namespace FargowiltasSouls.Projectiles.Pets
                     }
 
                     if (Projectile.Distance(Main.MouseWorld) > 30)
-                        Movement(Main.MouseWorld, 0.15f, 32f);
+                    {
+                        float ratio = Math.Min(Projectile.Distance(Main.MouseWorld) / 1200f, 1f);
+                        float accel = MathHelper.Lerp(0.1f, 0.8f, ratio);
+                        Movement(Main.MouseWorld, accel, 16f + Main.player[Projectile.owner].velocity.Length() / 2f);
+                    }
 
                     if (oldMouse == Main.MouseWorld)
                     {
@@ -289,6 +295,27 @@ namespace FargowiltasSouls.Projectiles.Pets
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
             SpriteEffects spriteEffects = Projectile.spriteDirection < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+            Color color26 = new Color(255, 51, 153, 50);
+            float speedRatio = Math.Min(Projectile.velocity.Length() / 16f / 2f, 1f);
+
+            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
+            {
+                Color color27 = color26 * 0.3f * speedRatio;
+                float fade = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+                color27 *= fade * fade;
+                int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
+                if (max0 < 0)
+                    continue;
+                float num165 = Projectile.oldRot[max0];
+                Vector2 center = Vector2.Lerp(Projectile.oldPos[(int)i], Projectile.oldPos[max0], 1 - i % 1);
+                center += Projectile.Size / 2;
+                Main.EntitySpriteDraw(texture2D13, center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, spriteEffects, 0);
+            }
+
+            color26 *= (float)Math.Sqrt(speedRatio);
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation, origin2, Projectile.scale * 1.25f, spriteEffects, 0);
+
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, spriteEffects, 0);
             return false;
         }
@@ -322,9 +349,9 @@ namespace FargowiltasSouls.Projectiles.Pets
             Count
         };
         private int[] MaxThingsToSay => new int[] {
-            5, //Spawn
+            7, //Spawn
             7, //Respawn
-            10, //Idle
+            12, //Idle
             5, //Sleep
             5, //Wake
             4, //ProjDeath

@@ -11,6 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
         {
             ModContent.ItemType<AncientShadowEnchant>(),
             ModContent.ItemType<NecroEnchant>(),
+            ModContent.ItemType<CrystalAssassinEnchant>(),
             ModContent.ItemType<SpookyEnchant>(),
             ModContent.ItemType<ShinobiEnchant>(),
             ModContent.ItemType<DarkArtistEnchant>()
@@ -28,13 +29,14 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 $"[i:{ModContent.ItemType<ShadowEnchant>()}] Four Shadow Orbs will orbit around you\n" +
 $"[i:{ModContent.ItemType<AncientShadowEnchant>()}] Your attacks may inflict Darkness on enemies\n" +
 $"[i:{ModContent.ItemType<NecroEnchant>()}] Slain enemies may drop a pile of bones\n" +
-$"[i:{ModContent.ItemType<SpookyEnchant>()}] All of your minions gain an extra scythe attack\n" +
 $"[i:{ModContent.ItemType<NinjaEnchant>()}] Throw a smoke bomb to teleport to it and gain the First Strike Buff\n" +
+
+$"[i:{ModContent.ItemType<SpookyEnchant>()}] All of your minions gain an extra scythe attack\n" +
 $"[i:{ModContent.ItemType<MonkEnchant>()}] Don't attack to gain a single use monk dash\n" +
 $"[i:{ModContent.ItemType<ShinobiEnchant>()}] Dash into any walls, to teleport through them to the next opening\n" +
-$"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion that will travel to your mouse after charging\n" +
 $"[i:{ModContent.ItemType<ApprenticeEnchant>()}] After attacking for 2 seconds you will be enveloped in flames\n" +
 $"[i:{ModContent.ItemType<ApprenticeEnchant>()}] Switching weapons will increase the next attack's damage by 150%\n" +
+$"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion that will travel to your mouse after charging\n" +
 "'Dark, Darker, Yet Darker'";
             Tooltip.SetDefault(tooltip);
 
@@ -56,24 +58,23 @@ $"[i:{ModContent.ItemType<ApprenticeEnchant>()}] Switching weapons will increase
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            //warlock, shade, plague accessory effect for all
             modPlayer.ShadowForce = true;
-            //shoot from where you were meme, pet
             modPlayer.DarkArtistEffect(hideVisual);
             modPlayer.ApprenticeEffect();
 
             NecroEnchant.NecroEffect(player, this.Item);
             //shadow orbs
             modPlayer.AncientShadowEffect();
-            //darkness debuff, pets
+            //darkness debuff
             modPlayer.ShadowEffect(hideVisual);
-            //tele thru walls, pet
+            //tele thru walls
             modPlayer.ShinobiEffect(hideVisual);
             //monk dash mayhem
             modPlayer.MonkEffect();
-            //smoke bomb nonsense, pet
-            //modPlayer.NinjaEffect(hideVisual);
-            //scythe doom, pets
+            //smoke bomb nonsense
+            NinjaEnchant.NinjaEffect(player);
+            CrystalAssassinEnchant.CrystalAssassinEffect(player, Item);
+            //scythe doom
             modPlayer.SpookyEffect(hideVisual);
         }
 

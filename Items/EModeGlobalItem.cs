@@ -1,3 +1,4 @@
+using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -80,10 +81,10 @@ namespace FargowiltasSouls.Items
                 //    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Grants additive damage instead of multiplicative"));
                 //    break;
 
-                //case ItemID.CrystalBullet:
-                //case ItemID.HolyArrow:
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Can only split 4 times per second"));
-                //    break;
+                case ItemID.CrystalBullet:
+                case ItemID.HolyArrow:
+                    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Can only split 4 times per second"));
+                    break;
 
                 case ItemID.ChlorophyteBullet:
                     tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced speed and duration"));
@@ -185,6 +186,7 @@ namespace FargowiltasSouls.Items
 
                 //case ItemID.Beenade:
                 //case ItemID.Razorpine:
+                //case ItemID.BlizzardStaff:
                 //    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
                 //    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
                 //    break;
@@ -196,23 +198,17 @@ namespace FargowiltasSouls.Items
                 //case ItemID.DartPistol:
                 //case ItemID.DartRifle:
                 //case ItemID.Megashark:
-                //case ItemID.BatScepter:
                 //case ItemID.ChainGun:
                 //case ItemID.VortexBeater:
                 //case ItemID.RavenStaff:
                 //case ItemID.XenoStaff:
-                //case ItemID.StardustDragonStaff:
                 //case ItemID.Phantasm:
-                //case ItemID.NebulaArcanum:
-                //case ItemID.SDMG:
-                //case ItemID.LastPrism:
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
-                //    break;
-
-                //case ItemID.BlizzardStaff:
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 50%"));
-                //    break;
+                //case ItemID.NebulaArcanum::
+                case ItemID.StardustDragonStaff:
+                case ItemID.SDMG:
+                case ItemID.LastPrism:
+                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                    break;
 
                 //case ItemID.DemonScythe:
                 //    if (NPC.downedBoss2)
@@ -301,17 +297,21 @@ namespace FargowiltasSouls.Items
                     break;
             }
 
-            if (item.DamageType == DamageClass.Summon)
+            if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
             {
-                if (ProjectileID.Sets.IsAWhip[item.shoot])
+                if (item.type != ItemID.BlandWhip)
+                    tooltips.Add(new TooltipLine(Mod, "masoWhipNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50%"));
+                tooltips.Add(new TooltipLine(Mod, "masoWhipNerf2", "[c/ff0000:Eternity Mode:] Does not benefit from melee speed bonuses"));
+                tooltips.Add(new TooltipLine(Mod, "masoWhipNerf3", "[c/ff0000:Eternity Mode:] Whip buffs/debuffs can't stack"));
+            }
+            else if (item.DamageType == DamageClass.Summon)
+            {
+                if (!(EModeGlobalProjectile.IgnoreMinionNerf.TryGetValue(item.shoot, out bool ignoreNerf) && ignoreNerf))
                 {
-                    tooltips.Add(new TooltipLine(Mod, "masoWhipNerf", "[c/ff0000:Eternity Mode:] Does not benefit from melee speed bonuses"));
-                    tooltips.Add(new TooltipLine(Mod, "masoWhipNerf2", "[c/ff0000:Eternity Mode:] Whip buffs/debuffs can't stack"));
+                    tooltips.Add(new TooltipLine(Mod, "masoMinionNerf", "[c/ff0000:Eternity Mode:] Minion damage diminishes when summoning over 3 copies (effect caps at 9)"));
+                    tooltips.Add(new TooltipLine(Mod, "masoMinionNerf2", "[c/ff0000:Eternity Mode:] Above does not apply to summon damage that is not from a true minion"));
                 }
-                else
-                {
-                    tooltips.Add(new TooltipLine(Mod, "masoMinionNerf", "[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes (except in OOA)"));
-                }
+                tooltips.Add(new TooltipLine(Mod, "masoMinionNerf3", "[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes (except in OOA)"));
             }
         }
     }

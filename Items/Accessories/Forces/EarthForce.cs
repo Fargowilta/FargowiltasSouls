@@ -54,12 +54,7 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacking generates a defensive b
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.EarthForce = true;
             //mythril
-            if (player.GetToggleValue("Mythril"))
-            {
-                modPlayer.MythrilEnchantActive = true;
-                if (!modPlayer.DisruptedFocus)
-                    modPlayer.AttackSpeed += .2f;
-            }
+            modPlayer.MythrilEffect();
             //shards
             modPlayer.CobaltEnchantItem = Item;
             //regen on hit, heals

@@ -919,20 +919,6 @@ namespace FargowiltasSouls
             }
         }
 
-        public void RainEffect(Item item)
-        {
-            Player.buffImmune[BuffID.Wet] = true;
-            RainEnchantActive = true;
-
-            AddMinion(item, Player.GetToggleValue("Rain"), ModContent.ProjectileType<RainCloud>(), 36, 0);
-        }
-
-        public void RedRidingEffect(bool hideVisual)
-        {
-            RedEnchantActive = true;
-            HuntressEnchantActive = true;
-        }
-
         public void ShadowEffect(bool hideVisual)
         {
             ShadowEnchantActive = true;
@@ -1377,7 +1363,7 @@ namespace FargowiltasSouls
         public void StardustEffect(Item item)
         {
             StardustEnchantActive = true;
-            if (Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1)
+            if (Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1 && Player.GetToggleValue("Stardust"))
             {
                 FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(item), Player.Center, Vector2.Zero, ProjectileID.StardustGuardian, 30, 10f, Main.myPlayer);
             }
@@ -1697,8 +1683,6 @@ namespace FargowiltasSouls
         {
             //darkness
             AncientShadowEnchantActive = true;
-
-
         }
 
         //        #endregion
@@ -2575,22 +2559,6 @@ namespace FargowiltasSouls
                 SpawnSphereRing(24, 12f, damage, -1f);
                 SpawnSphereRing(24, 12f, damage, 1f);
             }
-        }
-
-        public void BionomicPassiveEffect()
-        {
-            Player.buffImmune[BuffID.WindPushed] = true;
-            Player.buffImmune[BuffID.Suffocation] = true;
-            Player.buffImmune[ModContent.BuffType<Guilty>()] = true;
-            if (Player.GetToggleValue("ManaFlower", false))
-                Player.manaFlower = true;
-            Player.nightVision = true;
-            SandsofTime = true;
-            SecurityWallet = true;
-            TribalCharm = true;
-            NymphsPerfumeRespawn = true;
-            if (Player.GetToggleValue("MasoCarrot", false))
-                Player.scope = true;
         }
 
         int lihzahrdFallCD;

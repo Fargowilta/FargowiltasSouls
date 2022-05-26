@@ -74,17 +74,17 @@ fargotten land wip:
 -Palladium Enchant, replaced Palladium Sword with Bat Bat in recipe
 -Titanium Enchant: now can grants up to 25 shards, updated recipe
 -Meteor Enchant: updated recipe
-
-
-
-
 -Removed Silver Enchant effects from Ancient Hallowed
 -Nerfed Ancient Hallowed Sword's attack range slightly. Fixed the sword not coming back to you when you were to the right of it
 -Huntress Enchant rework: accuracy brings power, updated recipe
 -Molten Enchant rework: no longer passively deals as much damage to enemies near you, now increases all damage done inside the inferno ring by 25%, updated recipe
 -Obsidian Enchant: fixed tooltip, keeping its old effect, updated recipe
 
+-Crystal Assassain: added flavor text, implemented: inherits ninja effects, dash and volatile gel, added to Shadow Force
+-Rain Enchant: updated recipe, added Inner Tube effect, moved to pre hard mode, cloud now follows your cursor, no longer absorbs projectiles, occasionally shoots lightning downward
+-Red Riding Enchant rework: inherits Huntress, when you reach max stacks, spawns a rain of arrows over the last hit enemy, default arrow changed to venom
 
+-Fixed Adamantite, Huntress effects working on all accessory projectiles as well as weapon projectiles
 
 
 

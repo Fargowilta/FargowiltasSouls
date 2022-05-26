@@ -18,11 +18,14 @@ namespace FargowiltasSouls.Patreon.Sasha
             AIType = ProjectileID.WaterStream;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.penetrate = -1;
+
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 60;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.immune[Projectile.owner] = 7;
-        }
+        //public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        //{
+        //    target.immune[Projectile.owner] = 7;
+        //}
     }
 }

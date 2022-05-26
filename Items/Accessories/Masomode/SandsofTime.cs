@@ -34,59 +34,60 @@ Use to teleport to your last death point
             Item.rare = ItemRarityID.Pink;
             Item.value = Item.sellPrice(0, 4);
 
-            Item.useTime = 90;
-            Item.useAnimation = 90;
+            Item.useTime = 180;
+            Item.useAnimation = 180;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTurn = true;
             Item.UseSound = SoundID.Item6;
         }
 
-        public override void UpdateInventory(Player player)
+        void PassiveEffect(Player player)
         {
             player.buffImmune[BuffID.WindPushed] = true;
-
-            //respawn faster ech
             player.GetModPlayer<FargoSoulsPlayer>().SandsofTime = true;
         }
 
-        public override bool CanUseItem(Player player)
+        public override void UpdateInventory(Player player) => PassiveEffect(player);
+        public override void UpdateVanity(Player player) => PassiveEffect(player);
+        public override void UpdateAccessory(Player player, bool hideVisual) => PassiveEffect(player);
+
+        public static void Use(Player player)
         {
-            return player.lastDeathPostion != Vector2.Zero;
+            if (player.itemTime == player.itemTimeMax / 2 && player.lastDeathPostion != Vector2.Zero)
+            {
+                for (int index = 0; index < 70; ++index)
+                {
+                    int d = Dust.NewDust(player.position, player.width, player.height, DustID.GemTopaz, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
+                    Main.dust[d].velocity *= 4f;
+                    Main.dust[d].noGravity = true;
+                }
+
+                player.grappling[0] = -1;
+                player.grapCount = 0;
+                for (int index = 0; index < Main.maxProjectiles; ++index)
+                {
+                    if (Main.projectile[index].active && Main.projectile[index].owner == player.whoAmI && Main.projectile[index].aiStyle == 7)
+                        Main.projectile[index].Kill();
+                }
+
+                if (player.whoAmI == Main.myPlayer)
+                {
+                    player.Teleport(player.lastDeathPostion, 1);
+                    player.velocity = Vector2.Zero;
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                        NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1);
+                }
+
+                for (int index = 0; index < 70; ++index)
+                {
+                    int d = Dust.NewDust(player.position, player.width, player.height, DustID.GemTopaz, 0.0f, 0.0f, 150, new Color(), 1.5f);
+                    Main.dust[d].velocity *= 4f;
+                    Main.dust[d].noGravity = true;
+                }
+            }
         }
 
-        public override bool? UseItem(Player player)
-        {
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            player.grappling[0] = -1;
-            player.grapCount = 0;
-            for (int index = 0; index < Main.maxProjectiles; ++index)
-            {
-                if (Main.projectile[index].active && Main.projectile[index].owner == player.whoAmI && Main.projectile[index].aiStyle == 7)
-                    Main.projectile[index].Kill();
-            }
-
-            if (player.whoAmI == Main.myPlayer)
-            {
-                player.Teleport(player.lastDeathPostion, 1);
-                player.velocity = Vector2.Zero;
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1);
-            }
-
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, 0.0f, 0.0f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            return true;
-        }
+        public override void UseItemFrame(Player player) => Use(player);
+        public override bool? UseItem(Player player) => true;
     }
 }

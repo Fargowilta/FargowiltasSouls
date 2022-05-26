@@ -303,7 +303,7 @@ namespace FargowiltasSouls.NPCs
                         }
 
                         if (spawnInfo.Player.armor[0].type == ItemID.MiningHelmet)
-                            pool[NPCID.UndeadMiner] = .2f;
+                            pool[NPCID.UndeadMiner] = .05f;
 
                         if (NPC.downedGoblins && !NPC.savedGoblin && !NPC.AnyNPCs(NPCID.BoundGoblin))
                             pool[NPCID.BoundGoblin] = .5f;
@@ -592,7 +592,7 @@ namespace FargowiltasSouls.NPCs
                         }
 
                         if (spawnInfo.Player.armor[0].type == ItemID.MiningHelmet)
-                            pool[NPCID.UndeadMiner] = .2f;
+                            pool[NPCID.UndeadMiner] = .05f;
 
                         if (!NPC.savedWizard && !NPC.AnyNPCs(NPCID.BoundWizard))
                             pool[NPCID.BoundWizard] = .5f;
@@ -1205,10 +1205,10 @@ namespace FargowiltasSouls.NPCs
         {
             if (FargoSoulsWorld.EternityMode && npc.type == NPCID.Nurse && firstButton)
             {
-                if (Main.LocalPlayer.HasBuff(ModContent.BuffType<Recovering>()))
+                if (Main.LocalPlayer.HasBuff(ModContent.BuffType<RushJob>()))
                     return false;
                 else if (FargoSoulsUtil.AnyBossAlive())
-                    Main.LocalPlayer.AddBuff(ModContent.BuffType<Recovering>(), 7200);
+                    Main.LocalPlayer.AddBuff(ModContent.BuffType<RushJob>(), 10);
             }
             return true;
         }

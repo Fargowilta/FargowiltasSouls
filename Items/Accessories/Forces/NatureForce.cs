@@ -57,22 +57,21 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            //
             modPlayer.NatureForce = true;
-            //regen, pets
+            //regen
             modPlayer.CrimsonEffect(hideVisual);
             //inferno and explode
             MoltenEnchant.MoltenEffect(player);
             //rain
-            modPlayer.RainEffect(Item);
-            //icicles, pets
+            RainEnchant.RainEffect(player, Item);
+            //icicles
             modPlayer.FrostEffect(hideVisual);
             modPlayer.SnowEffect(hideVisual);
-            //crystal and pet
+            //crystal
             modPlayer.ChloroEffect(Item, hideVisual);
             //spores
             modPlayer.JungleEnchantActive = true;
-            //stealth, shrooms, pet
+            //stealth, shrooms
             modPlayer.ShroomiteEffect(hideVisual);
         }
 

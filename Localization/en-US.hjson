@@ -211,6 +211,8 @@ Mods: {
 			Spawn3: Onwards to the next big adventure!
 			Spawn4: I'll be in your care!
 			Spawn5: Hello world!
+			Spawn6: Chibi Devi is on the case!
+			Spawn7: Lead the way!
 
 			Respawn1: We won't let it end the same way again!
 			Respawn2: Time to run it back!
@@ -230,6 +232,8 @@ Mods: {
 			Idle8: Nothing to do? Murder something!
 			Idle9: Bet you there's a quality of life trick we could try out.
 			Idle10: Mind if I play with those accessory toggles of yours?
+			Idle11: Fun fact: my real name is... a secret! Gotcha!
+			Idle12: Wherever you go, I'll follow!
 
 			Sleep1: I feel asleep...
 			Sleep2: Good night...
@@ -329,6 +333,7 @@ Mods: {
 			GoldConfig: Gold Lucky Coin
 			GoldToPiggyConfig: Gold To Piggy Bank
 			HuntressConfig: Huntress Ability
+			RedRidingRainConfig: Red Riding Arrow Rain
 			ValhallaConfig: Squire/Valhalla Healing
 			SquirePanicConfig: Ballista Panic On Hit
 
@@ -344,6 +349,7 @@ Mods: {
 			ChlorophyteConfig: Chlorophyte Leaf Crystal
 			CrimsonConfig: Crimson Regen
 			RainConfig: Rain Clouds
+			RainInnerTubeConfig: Inner Tube
 			FrostConfig: Frost Icicles
 			JungleConfig: Jungle Spores
 			JungleDashConfig: Jungle Dash
@@ -363,6 +369,8 @@ Mods: {
 			ShinobiDashConfig: Shinobi Teleport Dash
 			ShinobiConfig: Shinobi Through Walls
 			SpookyConfig: Spooky Scythes
+			CrystalDashConfig: Crystal Assassin Dash
+			CrystalGelatinConfig: Volatile Gelatin
 
 			SpiritHeader: "{$Mods.FargowiltasSouls.ItemName.SpiritForce}"
 			FossilConfig: Fossil Bones On Hit
@@ -409,7 +417,7 @@ Mods: {
 
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: Tim's Concoction
-			MasoCarrotConfig: Carrot View
+			MasoCarrotConfig: Carrot Zoom
 			MasoRainbowConfig: Rainbow Slime Minion
 			MasoFrigidConfig: Frostfireballs
 			MasoNymphConfig: Attacks Spawn Hearts
@@ -885,6 +893,15 @@ Mods: {
 					Effects of Zenkai Charm
 					Effects of Aspera Crystallite
 					'''
+			}
+
+			RecipeGroups: {
+				Or: or
+				BonesBanner: Angry or Armored Bones Banner
+				Phasesaber: Phasesaber
+				Butterfly: Butterfly
+				CommonFish: Common Fish
+				FishingTrash: Fishing Trash
 			}
         }
 	}

@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles.Souls;
+using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -13,17 +16,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Rain Enchantment");
             Tooltip.SetDefault(
 @"Grants immunity to Wet
-Spawns a miniature storm to follow you around
-Shooting it will make it grow
-At maximum size, attacks will turn into lightning bolts
+Spawns a miniature storm that follows your cursor
+It only attacks if there is a clear line of sight between you
+Effects of Inner Tube
 'Come again some other day'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "雨云魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"使你免疫潮湿减益
-            // 召唤一个微型风暴跟着你
-            // 向其射击会使其变大
-            // 尺寸达到最大时攻击会转化为闪电
-            // '改日再来'");
         }
 
         protected override Color nameColor => new Color(255, 236, 0);
@@ -38,7 +34,17 @@ At maximum size, attacks will turn into lightning bolts
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().RainEffect(Item);
+            RainEffect(player, Item);
+        }
+
+        public static void RainEffect(Player player, Item item)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            player.buffImmune[BuffID.Wet] = true;
+            modPlayer.RainEnchantActive = true;
+            modPlayer.AddMinion(item, player.GetToggleValue("Rain"), ModContent.ProjectileType<RainCloud>(), 24, 0);
+            if (player.GetToggleValue("RainInnerTube"))
+                player.hasFloatingTube = true;
         }
 
         public override void AddRecipes()
@@ -48,15 +54,11 @@ At maximum size, attacks will turn into lightning bolts
             .AddIngredient(ItemID.RainHat)
             .AddIngredient(ItemID.RainCoat)
             .AddIngredient(ItemID.UmbrellaHat)
-            //inner tube
+            .AddIngredient(ItemID.FloatingTube) //inner tube
             .AddIngredient(ItemID.Umbrella)
-            //tragic umbrella
-            .AddIngredient(ItemID.NimbusRod)
             .AddIngredient(ItemID.WaterGun)
-            //.AddIngredient(ItemID.RainbowBrick, 50);
-            //volt bunny pet
 
-            .AddTile(TileID.CrystalBall)
+            .AddTile(TileID.DemonAltar)
             .Register();
         }
     }

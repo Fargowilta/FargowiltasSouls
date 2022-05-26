@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Items.Accessories.Masomode;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -115,25 +116,18 @@ This stacks up to 950 times until you get hit");
             Item.defense = 100;
 
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.useTime = 1;
+            Item.useTime = 180;
+            Item.useAnimation = 180;
             Item.UseSound = SoundID.Item6;
-            Item.useAnimation = 1;
         }
 
-        public override bool? UseItem(Player player)
+        public override void UseItemFrame(Player player) => SandsofTime.Use(player);
+        public override bool? UseItem(Player player) => true;
+
+        void PassiveEffect(Player player)
         {
-            player.Spawn(PlayerSpawnContext.RecallFromItem);
+            BionomicCluster.PassiveEffect(player);
 
-            for (int num348 = 0; num348 < 70; num348++)
-            {
-                Dust.NewDust(player.position, player.width, player.height, 15, 0f, 0f, 150, default(Color), 1.5f);
-            }
-
-            return base.UseItem(player);
-        }
-
-        public override void UpdateInventory(Player player)
-        {
             //cell phone
             player.accWatch = 3;
             player.accDepthMeter = 1;
@@ -149,8 +143,12 @@ This stacks up to 950 times until you get hit");
             player.accWeatherRadio = true;
         }
 
+        public override void UpdateInventory(Player player) => PassiveEffect(player);
+        public override void UpdateVanity(Player player) => PassiveEffect(player);
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            PassiveEffect(player);
+
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             //auto use, debuffs, mana up
             modPlayer.Eternity = true;

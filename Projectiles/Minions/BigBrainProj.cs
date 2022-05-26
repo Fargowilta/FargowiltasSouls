@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class BigBrainProj : ModProjectile
     {
-        public const int MaxMinionSlots = 7;
+        public const int MaxMinionSlots = 10;
 
         public override void SetStaticDefaults()
         {
@@ -18,6 +18,8 @@ namespace FargowiltasSouls.Projectiles.Minions
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+
+            EModeGlobalProjectile.IgnoreMinionNerf[Type] = true;
         }
 
         public override void SetDefaults()
@@ -51,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.frame = (Projectile.frame + 1) % 12;
             }
 
-            float slotsModifier = Math.Min(Projectile.minionSlots / MaxMinionSlots, 1f);
+            float slotsModifier = 10f / 7f * Math.Min(Projectile.minionSlots / MaxMinionSlots, 1f);
 
             Projectile.ai[0] += 0.1f + 0.3f * slotsModifier;
             Projectile.alpha = (int)(Math.Cos(Projectile.ai[0] / 0.4f * MathHelper.TwoPi / 180) * 60) + 60;

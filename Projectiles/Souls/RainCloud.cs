@@ -45,81 +45,76 @@ namespace FargowiltasSouls.Projectiles.Souls
                 Projectile.timeLeft = 2;
             }
 
-            //follow player
-            float dist = Vector2.Distance(Projectile.Center, player.Center);
+            //follow cursor
+            if (player == Main.LocalPlayer)
+            {
+                Vector2 mouse = Main.MouseWorld;
 
-            if (dist > 200)
-            {
-                Vector2 velocity = Vector2.Normalize(player.Center - Projectile.Center) * player.velocity.Length();
-                Projectile.position += velocity;
-            }
-            else
-            {
-                Projectile.velocity.Y = 0;
+                Projectile.Center = new Vector2(mouse.X, mouse.Y - 30);
             }
 
-            //always max size
+            //always max size in force
             if (modPlayer.NatureForce)
             {
                 Projectile.scale = 3f;
                 shrinkTimer = 1;
             }
 
-            //absorb Projectiles
-            if (Projectile.owner == Main.myPlayer)
-            {
-                for (int i = 0; i < Main.maxProjectiles; i++)
-                {
-                    Projectile proj = Main.projectile[i];
+            ////absorb Projectiles
+            //if (Projectile.owner == Main.myPlayer)
+            //{
+            //    for (int i = 0; i < Main.maxProjectiles; i++)
+            //    {
+            //        Projectile proj = Main.projectile[i];
 
-                    if (proj.active && proj.friendly && !proj.hostile && proj.owner == player.whoAmI && proj.damage > 0 && FargoSoulsUtil.CanDeleteProjectile(proj) && !FargoSoulsUtil.IsSummonDamage(proj, false) && proj.Hitbox.Intersects(Projectile.Hitbox)
-                        && proj.type != Projectile.type && proj.type != ProjectileID.RainFriendly && proj.type != ModContent.ProjectileType<LightningArc>() && proj.whoAmI != Main.player[proj.owner].heldProj
-                        && Array.IndexOf(FargoSoulsGlobalProjectile.noSplit, Projectile.type) <= -1 && proj.type != ModContent.ProjectileType<Chlorofuck>())
-                    {
-                        if (Projectile.scale < 3f)
-                        {
-                            Projectile.scale *= 1.1f;
-                        }
-                        else
-                        {
-                            Vector2 rotationVector2 = (proj.Center + proj.velocity * 25) - Projectile.Center;
-                            rotationVector2.Normalize();
+            //        if (proj.active && proj.friendly && !proj.hostile && proj.owner == player.whoAmI && proj.damage > 0 && FargoSoulsUtil.CanDeleteProjectile(proj) && !FargoSoulsUtil.IsSummonDamage(proj, false) && proj.Hitbox.Intersects(Projectile.Hitbox)
+            //            && proj.type != Projectile.type && proj.type != ProjectileID.RainFriendly && proj.type != ModContent.ProjectileType<LightningArc>() && proj.whoAmI != Main.player[proj.owner].heldProj
+            //            && Array.IndexOf(FargoSoulsGlobalProjectile.noSplit, Projectile.type) <= -1 && proj.type != ModContent.ProjectileType<Chlorofuck>())
+            //        {
+            //            if (Projectile.scale < 3f)
+            //            {
+            //                Projectile.scale *= 1.1f;
+            //            }
+            //            else
+            //            {
+            //                Vector2 rotationVector2 = (proj.Center + proj.velocity * 25) - Projectile.Center;
+            //                rotationVector2.Normalize();
 
-                            Vector2 vector2_3 = rotationVector2 * 10f;
-                            float ai_1 = Main.rand.Next(80);
-                            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Main.rand.NextFloat(Projectile.width), Projectile.position.Y + Main.rand.NextFloat(Projectile.height), vector2_3.X, vector2_3.Y,
-                                ModContent.ProjectileType<LightningArc>(), proj.maxPenetrate == 1 ? proj.damage * 2 : (int)(proj.damage * 1.2), Projectile.knockBack, Projectile.owner,
-                                rotationVector2.ToRotation(), ai_1);
-                            if (p != Main.maxProjectiles)
-                            {
-                                Main.projectile[p].DamageType = DamageClass.Magic;
-                                Main.projectile[p].usesIDStaticNPCImmunity = false;
-                                Main.projectile[p].idStaticNPCHitCooldown = 0;
-                                Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = false;
-                                if (proj.maxPenetrate == 1)
-                                    Main.projectile[p].penetrate = Main.projectile[p].maxPenetrate = 3;
-                            }
-                        }
+            //                Vector2 vector2_3 = rotationVector2 * 10f;
+            //                float ai_1 = Main.rand.Next(80);
+            //                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Main.rand.NextFloat(Projectile.width), Projectile.position.Y + Main.rand.NextFloat(Projectile.height), vector2_3.X, vector2_3.Y,
+            //                    ModContent.ProjectileType<LightningArc>(), proj.maxPenetrate == 1 ? proj.damage * 2 : (int)(proj.damage * 1.2), Projectile.knockBack, Projectile.owner,
+            //                    rotationVector2.ToRotation(), ai_1);
+            //                if (p != Main.maxProjectiles)
+            //                {
+            //                    Main.projectile[p].DamageType = DamageClass.Magic;
+            //                    Main.projectile[p].usesIDStaticNPCImmunity = false;
+            //                    Main.projectile[p].idStaticNPCHitCooldown = 0;
+            //                    Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = false;
+            //                    if (proj.maxPenetrate == 1)
+            //                        Main.projectile[p].penetrate = Main.projectile[p].maxPenetrate = 3;
+            //                }
+            //            }
 
-                        proj.active = false;
-                        shrinkTimer = 120;
+            //            proj.active = false;
+            //            shrinkTimer = 120;
 
-                        break;
-                    }
-                }
-            }
+            //            break;
+            //        }
+            //    }
+            //}
 
             //shrink over time if no Projectiles absorbed
-            if (shrinkTimer > 0 && Projectile.scale > 1f)
-            {
-                shrinkTimer--;
+            //if (shrinkTimer > 0 && Projectile.scale > 1f)
+            //{
+            //    shrinkTimer--;
 
-                if (shrinkTimer == 0)
-                {
-                    Projectile.scale *= 0.9f;
-                    shrinkTimer = 10;
-                }
-            }
+            //    if (shrinkTimer == 0)
+            //    {
+            //        Projectile.scale *= 0.9f;
+            //        shrinkTimer = 10;
+            //    }
+            //}
 
             //cancel normal rain
             Projectile.ai[0] = 0;
@@ -144,22 +139,51 @@ namespace FargowiltasSouls.Projectiles.Souls
                 Projectile.localAI[1]++;
             }
 
-            //do the rain
-            if (Projectile.localAI[1] >= 8)
+            //only attack when not in tiles 
+            if (Collision.CanHitLine(player.Center, 2, 2, Projectile.Center, 2, 2 ))
             {
-                Projectile.localAI[1] = 0;
-                if (Projectile.owner == Main.myPlayer)
+                //do the rain
+                if (Projectile.localAI[1] >= 8)
                 {
-                    int num414 = (int)(Projectile.Center.X + (float)Main.rand.Next((int)(-20 * Projectile.scale), (int)(20 * Projectile.scale)));
-                    int num415 = (int)(Projectile.position.Y + (float)Projectile.height + 4f);
-                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (float)num414, (float)num415, 0f, 5f, ProjectileID.RainFriendly, Projectile.damage / 4, 0f, Projectile.owner, 0f, 0);
-                    if (p != Main.maxProjectiles)
+                    Projectile.localAI[1] = 0;
+                    if (Projectile.owner == Main.myPlayer)
                     {
-                        Main.projectile[p].penetrate = 1;
-                        Main.projectile[p].timeLeft = 45 * Main.projectile[p].MaxUpdates;
+                        int num414 = (int)(Projectile.Center.X + (float)Main.rand.Next((int)(-20 * Projectile.scale), (int)(20 * Projectile.scale)));
+                        int num415 = (int)(Projectile.position.Y + (float)Projectile.height + 4f);
+                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (float)num414, (float)num415, 0f, 5f, ProjectileID.RainFriendly, Projectile.damage / 4, 0f, Projectile.owner, 0f, 0);
+                        if (p != Main.maxProjectiles)
+                        {
+                            Main.projectile[p].penetrate = 1;
+                            Main.projectile[p].timeLeft = 45 * Main.projectile[p].MaxUpdates;
+                        }
+
+                        //lightning
+                        if (Main.rand.Next(10) == 0)
+                        {
+                            Vector2 rotationVector2 = new Vector2(Main.rand.NextFloat(-2, 2), 5);
+                            rotationVector2.Normalize();
+                            Vector2 vector2_3 = rotationVector2 * 10f;
+                            float ai_1 = Main.rand.Next(80);
+
+                            p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Main.rand.NextFloat(Projectile.width), Projectile.Center.Y + Projectile.height / 2, vector2_3.X, vector2_3.Y,
+                                    ModContent.ProjectileType<LightningArc>(), Projectile.damage, Projectile.knockBack, Projectile.owner,
+                                    rotationVector2.ToRotation(), ai_1);
+
+                            if (p != Main.maxProjectiles)
+                            {
+                                Main.projectile[p].DamageType = DamageClass.Magic;
+                                Main.projectile[p].usesIDStaticNPCImmunity = false;
+                                Main.projectile[p].idStaticNPCHitCooldown = 0;
+                                Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = false;
+                                //if (proj.maxPenetrate == 1)
+                                //    Main.projectile[p].penetrate = Main.projectile[p].maxPenetrate = 3;
+                            }
+                        }
                     }
                 }
             }
+
+            
         }
     }
 }

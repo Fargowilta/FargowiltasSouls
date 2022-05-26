@@ -61,6 +61,7 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
             Item.value = 5000000;
             Item.rare = -12;
             Item.expert = true;
+            Item.defense = 4;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -79,13 +80,21 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
             player.maxMinions += 4;
             player.maxTurrets += 4;
 
-            //accessorys
+            if (player.GetToggleValue("MagmaStone"))
+            {
+                player.magmaStone = true;
+            }
+            player.kbGlove = true;
+            player.autoReuseGlove = true;
+            player.meleeScaleGlove = true;
+
             if (player.GetToggleValue("YoyoBag", false))
             {
                 player.counterWeight = 556 + Main.rand.Next(6);
                 player.yoyoGlove = true;
                 player.yoyoString = true;
             }
+
             //celestial shell
             if (player.GetToggleValue("MoonCharm"))
             {
@@ -96,6 +105,7 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
             {
                 player.accMerman = true;
             }
+
             if (hideVisual)
             {
                 player.hideMerman = true;
@@ -103,12 +113,12 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
             }
 
             player.lifeRegen += 2;
-            player.statDefense += 4;
 
             if (player.GetToggleValue("Sniper"))
             {
                 player.scope = true;
             }
+
             if (player.GetToggleValue("ManaFlower", false))
                 player.manaFlower = true;
             player.manaMagnet = true;

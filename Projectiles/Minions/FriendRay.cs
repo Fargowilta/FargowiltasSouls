@@ -72,7 +72,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (Projectile.localAI[0] == 0f)
             {
                 SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
+                //SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);
             }
             float num801 = 0.5f;
             Projectile.localAI[0] += 1f;

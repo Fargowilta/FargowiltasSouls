@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
             //if (Projectile.localAI[0] == 0f)
             //{
-            //   SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_104") with { Volume = 0.6f, Pitch = 0 }, Projectile.Center);
+            //   SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.6f, Pitch = 0 }, Projectile.Center);
             //}
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

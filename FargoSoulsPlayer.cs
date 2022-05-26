@@ -165,7 +165,8 @@ namespace FargowiltasSouls
         public int PearlwoodCD;
         public int PumpkinSpawnCD;
         public bool RainEnchantActive;
-        public bool RedEnchantActive;
+        public Item RedRidingEnchantItem;
+        public int RedRidingArrowCD;
         public bool ShadewoodEnchantActive;
         public int ShadewoodCD;
         public bool ShadowEnchantActive;
@@ -744,7 +745,7 @@ namespace FargowiltasSouls
             ShinobiEnchantActive = false;
             ValhallaEnchantActive = false;
             DarkArtistEnchantActive = false;
-            RedEnchantActive = false;
+            RedRidingEnchantItem = null;
             TungstenEnchantActive = false;
 
             MahoganyEnchantActive = false;
@@ -1300,9 +1301,6 @@ namespace FargowiltasSouls
             if (PalladEnchantActive)
                 PalladiumUpdate();
 
-            if (Player.armor.Any(i => i.active && (i.type == ModContent.ItemType<BionomicCluster>() || i.type == ModContent.ItemType<MasochistSoul>() || i.type == ModContent.ItemType<EternitySoul>())))
-                BionomicPassiveEffect();
-
             if (noDodge)
             {
                 Player.onHitDodge = false;
@@ -1369,9 +1367,6 @@ namespace FargowiltasSouls
 
             if (DarkArtistEnchantActive)
                 Player.setApprenticeT3 = true;
-
-            if (RedEnchantActive)
-                Player.setHuntressT3 = true;
 
             if (MonkEnchantActive)
                 Player.setMonkT2 = true;
@@ -1658,14 +1653,18 @@ namespace FargowiltasSouls
             int useTime = item.useTime;
             int useAnimate = item.useAnimation;
 
-            if (useTime == 0 || useAnimate == 0 || item.damage <= 0)
+            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
             {
-                return 1f;
+                return base.UseSpeedMultiplier(item);
             }
 
-            if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse)
+            if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
             {
-                AttackSpeed -= .2f;
+                int targetUseTime = useTime + 6;
+                while (useTime / AttackSpeed < targetUseTime)
+                {
+                    AttackSpeed -= .05f;
+                }
             }
 
             if (Berserked)

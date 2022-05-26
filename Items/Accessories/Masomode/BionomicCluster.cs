@@ -56,20 +56,40 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 6);
             Item.defense = 6;
-            Item.useTime = 90;
-            Item.useAnimation = 90;
+            Item.useTime = 180;
+            Item.useAnimation = 180;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTurn = true;
             Item.UseSound = SoundID.Item6;
         }
 
-        public override void UpdateInventory(Player player)
+        public static void PassiveEffect(Player player)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().BionomicPassiveEffect();
+            player.buffImmune[BuffID.WindPushed] = true;
+            player.buffImmune[BuffID.Suffocation] = true;
+            player.buffImmune[ModContent.BuffType<Guilty>()] = true;
+
+            player.nightVision = true;
+
+            if (player.GetToggleValue("ManaFlower", false))
+                player.manaFlower = true;
+            if (player.GetToggleValue("MasoCarrot", false))
+                player.scope = true;
+
+            FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            fargoPlayer.SandsofTime = true;
+            fargoPlayer.SecurityWallet = true;
+            fargoPlayer.TribalCharm = true;
+            fargoPlayer.NymphsPerfumeRespawn = true;
         }
+
+        public override void UpdateInventory(Player player) => PassiveEffect(player);
+        public override void UpdateVanity(Player player) => PassiveEffect(player);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            PassiveEffect(player);
+
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             // Concentrated rainbow matter
@@ -143,42 +163,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 player.GetModPlayer<FargoSoulsPlayer>().TimsConcoction = true;
         }
 
-        public override bool CanUseItem(Player player) => player.lastDeathPostion != Vector2.Zero;
-
-        public override bool? UseItem(Player player)
-        {
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            player.grappling[0] = -1;
-            player.grapCount = 0;
-            for (int index = 0; index < Main.maxProjectiles; ++index)
-            {
-                if (Main.projectile[index].active && Main.projectile[index].owner == player.whoAmI && Main.projectile[index].aiStyle == 7)
-                    Main.projectile[index].Kill();
-            }
-
-            if (player.whoAmI == Main.myPlayer)
-            {
-                player.Teleport(player.lastDeathPostion, 1);
-                player.velocity = Vector2.Zero;
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1);
-            }
-
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, 0.0f, 0.0f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            return true;
-        }
+        public override void UseItemFrame(Player player) => SandsofTime.Use(player);
+        public override bool? UseItem(Player player) => true;
 
         public override void AddRecipes()
         {

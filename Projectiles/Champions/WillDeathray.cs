@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_104"), Projectile.Center);
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104"), Projectile.Center);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

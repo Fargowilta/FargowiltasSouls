@@ -32,6 +32,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public override bool CheckDead(NPC npc)
         {
+            if (FargoSoulsWorld.SwarmActive)
+                return base.CheckDead(npc);
+
             int count = 0;
             for (int i = 0; i < Main.maxNPCs; i++)
             {

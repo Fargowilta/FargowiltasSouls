@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             {
                 Projectile.localAI[1] = Projectile.ai[1] + 1;
 
-                //SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_20"), Projectile.Center);
+                //SoundEngine.PlaySound(SoundID.Zombie20, Projectile.Center);
                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
 
                 /*switch ((int)Projectile.ai[1])

@@ -105,7 +105,7 @@ namespace FargowiltasSouls.Items
             if (modPlayer.TribalCharm && item.type != ItemID.RodofDiscord && item.fishingPole == 0)
                 return true;
 
-            if (modPlayer.BoxofGizmos && !item.autoReuse)
+            if (modPlayer.BoxofGizmos && item.damage > 0)
                 return true;
 
             return base.CanAutoReuseItem(item, player);
@@ -213,7 +213,7 @@ namespace FargowiltasSouls.Items
                 player.GetModPlayer<FargoSoulsPlayer>().WasHurtBySomething = true; //with abom rebirth, die to chaos state
             }
 
-            if (item.damage > 0 && (item.DamageType == DamageClass.Melee || item.DamageType == DamageClass.Ranged || item.DamageType == DamageClass.Magic) && item.pick == 0 && item.axe == 0 && item.hammer == 0)
+            if (item.damage > 0 && item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
                 player.GetModPlayer<FargoSoulsPlayer>().WeaponUseTimer = Math.Max(item.useTime + item.reuseDelay, 30);
 
             return true;

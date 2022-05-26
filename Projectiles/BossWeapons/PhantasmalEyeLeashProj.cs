@@ -74,7 +74,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         /*public override void Kill(int timeleft)
         {
-            SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/Zombie_103"), Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Zombie103, Projectile.Center);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 144;
             Projectile.position.X -= (float)(Projectile.width / 2);

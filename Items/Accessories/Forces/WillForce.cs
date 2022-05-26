@@ -56,7 +56,7 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 
             GladiatorEnchant.GladiatorEffect(player);
             modPlayer.WizardEnchantActive = true;
-            modPlayer.RedRidingEffect(hideVisual);
+            RedRidingEnchant.RedRidingEffect(player, Item);
             HuntressEnchant.HuntressEffect(player);
             modPlayer.ValhallaEffect(hideVisual);
         }

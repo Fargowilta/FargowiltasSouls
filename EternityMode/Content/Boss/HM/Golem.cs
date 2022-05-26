@@ -91,7 +91,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public int StompAttackCounter;
         public int SpikyBallTimer;
-        public int AntiAirTimer;
+        //public int AntiAirTimer;
 
         public bool DoStompBehaviour;
         public bool HaveBoostedJumpHeight;
@@ -103,7 +103,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(StompAttackCounter), IntStrategies.CompoundStrategy },
                 { new Ref<object>(SpikyBallTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AntiAirTimer), IntStrategies.CompoundStrategy },
+                //{ new Ref<object>(AntiAirTimer), IntStrategies.CompoundStrategy },
 
                 { new Ref<object>(DoStompBehaviour), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(HaveBoostedJumpHeight), BoolStrategies.CompoundStrategy },
@@ -355,35 +355,35 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
 
             //golem's anti-air fireball spray (when player is above)
-            if (FargoSoulsWorld.MasochistModeReal && ++AntiAirTimer > 240 && npc.velocity.Y == 0)
-            {
-                AntiAirTimer = 0;
-                if (npc.HasPlayerTarget && Main.player[npc.target].Center.Y < npc.Bottom.Y
-                    && Main.netMode != NetmodeID.MultiplayerClient) //shoutouts to arterius
-                {
-                    bool inTemple = Framing.GetTileSafely(npc.Center).WallType == WallID.LihzahrdBrickUnsafe;
+            //if (FargoSoulsWorld.MasochistModeReal && ++AntiAirTimer > 240 && npc.velocity.Y == 0)
+            //{
+            //    AntiAirTimer = 0;
+            //    if (npc.HasPlayerTarget && Main.player[npc.target].Center.Y < npc.Bottom.Y
+            //        && Main.netMode != NetmodeID.MultiplayerClient) //shoutouts to arterius
+            //    {
+            //        bool inTemple = Framing.GetTileSafely(npc.Center).WallType == WallID.LihzahrdBrickUnsafe;
 
-                    float gravity = -0.2f; //normally floats up
-                    if (Main.player[npc.target].Center.Y > npc.Bottom.Y)
-                        gravity *= -1f; //aim down if player below golem
+            //        float gravity = -0.2f; //normally floats up
+            //        if (Main.player[npc.target].Center.Y > npc.Bottom.Y)
+            //            gravity *= -1f; //aim down if player below golem
 
-                    const float time = 60f;
-                    Vector2 distance = Main.player[npc.target].Center - npc.Center;
-                    distance += Main.player[npc.target].velocity * 45f;
-                    distance.X = distance.X / time;
-                    distance.Y = distance.Y / time - 0.5f * gravity * time;
+            //        const float time = 60f;
+            //        Vector2 distance = Main.player[npc.target].Center - npc.Center;
+            //        distance += Main.player[npc.target].velocity * 45f;
+            //        distance.X = distance.X / time;
+            //        distance.Y = distance.Y / time - 0.5f * gravity * time;
 
-                    if (Math.Sign(distance.Y) != Math.Sign(gravity))
-                        distance.Y = 0f; //cannot arc shots to hit someone on the same elevation
+            //        if (Math.Sign(distance.Y) != Math.Sign(gravity))
+            //            distance.Y = 0f; //cannot arc shots to hit someone on the same elevation
 
-                    int max = inTemple ? 2 : 4;
-                    for (int i = -max; i <= max; i++)
-                    {
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, distance.X + i, distance.Y,
-                            ModContent.ProjectileType<GolemFireball>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, gravity, 0);
-                    }
-                }
-            }
+            //        int max = inTemple ? 2 : 4;
+            //        for (int i = -max; i <= max; i++)
+            //        {
+            //            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, distance.X + i, distance.Y,
+            //                ModContent.ProjectileType<GolemFireball>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, gravity, 0);
+            //        }
+            //    }
+            //}
 
             EModeUtils.DropSummon(npc, "LihzahrdPowerCell2", NPC.downedGolemBoss, ref DroppedSummon, NPC.downedPlantBoss);
 

@@ -61,8 +61,8 @@ Summons the aid of all Eternity Mode bosses to your side
 
             Item.value = 5000000;
             Item.defense = 30;
-            Item.useTime = 90;
-            Item.useAnimation = 90;
+            Item.useTime = 180;
+            Item.useAnimation = 180;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTurn = true;
             Item.UseSound = SoundID.Item6;
@@ -70,51 +70,15 @@ Summons the aid of all Eternity Mode bosses to your side
 
         protected override Color? nameColor => new Color(255, 51, 153, 0);
 
-        public override bool CanUseItem(Player player) => player.lastDeathPostion != Vector2.Zero;
+        public override void UseItemFrame(Player player) => SandsofTime.Use(player);
+        public override bool? UseItem(Player player) => true;
 
-        public override bool? UseItem(Player player)
-        {
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, player.velocity.X * 0.5f, player.velocity.Y * 0.5f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            player.grappling[0] = -1;
-            player.grapCount = 0;
-            for (int index = 0; index < Main.maxProjectiles; ++index)
-            {
-                if (Main.projectile[index].active && Main.projectile[index].owner == player.whoAmI && Main.projectile[index].aiStyle == 7)
-                    Main.projectile[index].Kill();
-            }
-
-            if (player.whoAmI == Main.myPlayer)
-            {
-                player.Teleport(player.lastDeathPostion, 1);
-                player.velocity = Vector2.Zero;
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, player.whoAmI, player.lastDeathPostion.X, player.lastDeathPostion.Y, 1);
-            }
-
-            for (int index = 0; index < 70; ++index)
-            {
-                int d = Dust.NewDust(player.position, player.width, player.height, 87, 0.0f, 0.0f, 150, new Color(), 1.5f);
-                Main.dust[d].velocity *= 4f;
-                Main.dust[d].noGravity = true;
-            }
-
-            return true;
-        }
-
-        public override void UpdateInventory(Player player)
-        {
-            player.GetModPlayer<FargoSoulsPlayer>().BionomicPassiveEffect();
-        }
-
-
+        public override void UpdateInventory(Player player) => BionomicCluster.PassiveEffect(player);
+        public override void UpdateVanity(Player player) => BionomicCluster.PassiveEffect(player);
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            BionomicCluster.PassiveEffect(player);
+
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.MasochistSoul = true;
 
