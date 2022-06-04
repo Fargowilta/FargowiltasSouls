@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
-    public class AnglerEnchantment : BaseEnchant
+    public class AnglerEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

@@ -47,7 +47,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.EmpressButterfly, 20));
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.EmpressButterfly, 100));
         }
     }
 }

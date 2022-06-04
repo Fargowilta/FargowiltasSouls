@@ -22,9 +22,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
             NPCID.DesertDjinn
         );
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Slow] = true;
             npc.buffImmune[BuffID.Weak] = true;

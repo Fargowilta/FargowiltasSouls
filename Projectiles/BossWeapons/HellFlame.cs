@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -45,6 +47,13 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.aiStyle = -1;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
+
+            Projectile.hide = true;
+        }
+
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
+        {
+            behindProjectiles.Add(index);
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -56,7 +65,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             if (Projectile.localAI[0] == 0)
             {
+                Projectile.frame = (int)Projectile.ai[0];
+                Projectile.ai[0] = -1;
+
                 Projectile.localAI[0] = Main.rand.NextFloat(0.25f, 2f); //used for random variation in homing
+                searchTimer = Main.rand.Next(18);
                 Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
             }
 

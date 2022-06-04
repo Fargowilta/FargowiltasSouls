@@ -44,19 +44,25 @@ namespace FargowiltasSouls.Projectiles.Champions
         public override void OnSpawn(IEntitySource source)
         {
             npc = FargoSoulsUtil.NPCExists(Projectile.ai[1]);
-
-            for (int i = 0; i < 50; i++)
-            {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.WoodFurniture, Scale: 3f);
-                Main.dust[d].noGravity = true;
-                Main.dust[d].velocity *= 3f;
-                Main.dust[d].velocity += Projectile.velocity * Main.rand.NextFloat(9f);
-            }
         }
+
+        bool spawned;
 
         public override void AI()
         {
             //NOTE: AI[1] CONTAINS NPC.WHOAMI (so boss knows to wait until this proj is gone)
+
+            if (!spawned)
+            {
+                spawned = true;
+                for (int i = 0; i < 50; i++)
+                {
+                    int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.WoodFurniture, Scale: 3f);
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity *= 3f;
+                    Main.dust[d].velocity += Projectile.velocity * Main.rand.NextFloat(9f);
+                }
+            }
 
             Projectile.spriteDirection = Math.Sign(Projectile.velocity.X);
             Projectile.rotation += 0.2f * Projectile.spriteDirection;

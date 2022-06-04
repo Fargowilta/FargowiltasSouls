@@ -77,13 +77,13 @@ namespace FargowiltasSouls.Projectiles
 
         public override void SetStaticDefaults()
         {
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DesertDjinnCurse] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SandnadoHostile] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DesertDjinnCurse] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SandnadoHostile] = true;
 
-            a_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
-            a_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.SharpTears] = true;
-            a_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.DeerclopsIceSpike] = true;
+            A_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
+            A_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.SharpTears] = true;
+            A_SourceNPCGlobalProjectile.DamagingSync[ProjectileID.DeerclopsIceSpike] = true;
         }
 
         public override void SetDefaults(Projectile projectile)
@@ -261,15 +261,26 @@ namespace FargowiltasSouls.Projectiles
                 TungstenEnchant.TungstenIncreaseProjSize(projectile, modPlayer, source);
             }
 
+            if (modPlayer.HuntressEnchantActive && player.GetToggleValue("Huntress")
+                && FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
+                && projectile.damage > 0 && projectile.friendly && !projectile.hostile && !projectile.trap
+                && projectile.DamageType != DamageClass.Default
+                && !ProjectileID.Sets.CultistIsResistantTo[projectile.type]
+                && !FargoSoulsUtil.IsSummonDamage(projectile, true, false))
+            {
+                HuntressProj = 1;
+            }
+
             if (modPlayer.AdamantiteEnchantItem != null && player.GetToggleValue("Adamantite")
                 && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, source)
                 && CanSplit && Array.IndexOf(noSplit, projectile.type) <= -1)
             {
                 if (projectile.owner == Main.myPlayer
-                    && (isProjSourceItemUseReal(projectile, source, player)
+                    && (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
                     || (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.minion || sourceProj.sentry || (ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))))
                 {
                     AdamantiteEnchant.AdamantiteSplit(projectile);
+                    projectile.type = ProjectileID.None;
                     projectile.timeLeft = 0;
                     projectile.active = false;
                     return;
@@ -316,40 +327,22 @@ namespace FargowiltasSouls.Projectiles
                 if (player.whoAmI == Main.myPlayer && modPlayer.FishSoul2)
                     SplitProj(projectile, 11, MathHelper.Pi / 3, 1);
             }
-
-            if (modPlayer.HuntressEnchantActive && player.GetToggleValue("Huntress") 
-                && isProjSourceItemUseReal(projectile, source, player)
-                && projectile.damage > 0 && projectile.friendly && !projectile.hostile && !projectile.trap 
-                && projectile.DamageType != DamageClass.Default 
-                && !ProjectileID.Sets.CultistIsResistantTo[projectile.type] 
-                && !FargoSoulsUtil.IsSummonDamage(projectile, true, false))
-            {
-                HuntressProj = 1;
-            }
-        }
-
-        private bool isProjSourceItemUseReal(Projectile proj, IEntitySource source, Player player)
-        {
-            return source is EntitySource_ItemUse parent && parent.Item.type == player.HeldItem.type;
         }
 
         public static int[] noSplit => new int[] {
-            ProjectileID.CrystalShard,
             ProjectileID.SandnadoFriendly,
             ProjectileID.LastPrism,
             ProjectileID.LastPrismLaser,
-            ProjectileID.FlowerPetal,
             ProjectileID.BabySpider,
-            ProjectileID.CrystalLeafShot,
             ProjectileID.Phantasm,
             ProjectileID.VortexBeater,
             ProjectileID.ChargedBlasterCannon,
-            ProjectileID.MedusaHead,
             ProjectileID.WireKite,
             ProjectileID.DD2PhoenixBow,
             ProjectileID.LaserMachinegun,
             ProjectileID.PiercingStarlight,
-            ProjectileID.Celeb2Weapon
+            ProjectileID.Celeb2Weapon,
+            ProjectileID.Xenopopper
         };
 
         public override bool PreAI(Projectile projectile)
@@ -787,73 +780,73 @@ namespace FargowiltasSouls.Projectiles
 
                 case ProjectileID.StardustGuardian:
                     KillPet(projectile, player, BuffID.StardustGuardianMinion, player.GetToggleValue("Stardust"), true);
-                    if (modPlayer.FreezeTime && modPlayer.freezeLength > 60) //throw knives in stopped time
-                    {
-                        if (projectile.owner == Main.myPlayer && counter % 20 == 0)
-                        {
-                            int target = -1;
+                    //if (modPlayer.FreezeTime && modPlayer.freezeLength > 60) //throw knives in stopped time
+                    //{
+                    //    if (projectile.owner == Main.myPlayer && counter % 20 == 0)
+                    //    {
+                    //        int target = -1;
 
-                            NPC minionAttackTargetNpc = projectile.OwnerMinionAttackTargetNPC;
-                            if (minionAttackTargetNpc != null && minionAttackTargetNpc.CanBeChasedBy())
-                            {
-                                target = minionAttackTargetNpc.whoAmI;
-                            }
-                            else
-                            {
-                                const float homingMaximumRangeInPixels = 1000;
-                                for (int i = 0; i < Main.maxNPCs; i++)
-                                {
-                                    NPC n = Main.npc[i];
-                                    if (n.CanBeChasedBy(projectile))
-                                    {
-                                        float distance = projectile.Distance(n.Center);
-                                        if (distance <= homingMaximumRangeInPixels &&
-                                            (target == -1 || //there is no selected target
-                                            projectile.Distance(Main.npc[target].Center) > distance)) //or we are closer to this target than the already selected target
-                                        {
-                                            target = i;
-                                        }
-                                    }
-                                }
-                            }
+                    //        NPC minionAttackTargetNpc = projectile.OwnerMinionAttackTargetNPC;
+                    //        if (minionAttackTargetNpc != null && minionAttackTargetNpc.CanBeChasedBy())
+                    //        {
+                    //            target = minionAttackTargetNpc.whoAmI;
+                    //        }
+                    //        else
+                    //        {
+                    //            const float homingMaximumRangeInPixels = 1000;
+                    //            for (int i = 0; i < Main.maxNPCs; i++)
+                    //            {
+                    //                NPC n = Main.npc[i];
+                    //                if (n.CanBeChasedBy(projectile))
+                    //                {
+                    //                    float distance = projectile.Distance(n.Center);
+                    //                    if (distance <= homingMaximumRangeInPixels &&
+                    //                        (target == -1 || //there is no selected target
+                    //                        projectile.Distance(Main.npc[target].Center) > distance)) //or we are closer to this target than the already selected target
+                    //                    {
+                    //                        target = i;
+                    //                    }
+                    //                }
+                    //            }
+                    //        }
 
-                            if (target != -1)
-                            {
-                                const int totalUpdates = 2 + 1;
-                                const int travelTime = TimeFreezeMoveDuration * totalUpdates;
+                    //        if (target != -1)
+                    //        {
+                    //            const int totalUpdates = 2 + 1;
+                    //            const int travelTime = TimeFreezeMoveDuration * totalUpdates;
 
-                                Vector2 spawnPos = projectile.Center + 16f * projectile.DirectionTo(Main.npc[target].Center);
+                    //            Vector2 spawnPos = projectile.Center + 16f * projectile.DirectionTo(Main.npc[target].Center);
 
-                                //adjust speed so it always lands just short of touching the enemy
-                                Vector2 vel = Main.npc[target].Center - spawnPos;
-                                float length = (vel.Length() - 0.6f * Math.Max(Main.npc[target].width, Main.npc[target].height)) / travelTime;
-                                if (length < 0.1f)
-                                    length = 0.1f;
+                    //            //adjust speed so it always lands just short of touching the enemy
+                    //            Vector2 vel = Main.npc[target].Center - spawnPos;
+                    //            float length = (vel.Length() - 0.6f * Math.Max(Main.npc[target].width, Main.npc[target].height)) / travelTime;
+                    //            if (length < 0.1f)
+                    //                length = 0.1f;
 
-                                float offset = 1f - (modPlayer.freezeLength - 60f) / 540f; //change how far they stop as time decreases
-                                if (offset < 0.1f)
-                                    offset = 0.1f;
-                                if (offset > 1f)
-                                    offset = 1f;
-                                length *= offset;
+                    //            float offset = 1f - (modPlayer.freezeLength - 60f) / 540f; //change how far they stop as time decreases
+                    //            if (offset < 0.1f)
+                    //                offset = 0.1f;
+                    //            if (offset > 1f)
+                    //                offset = 1f;
+                    //            length *= offset;
 
-                                const int max = 3;
-                                int damage = 100; //at time of writing, raw hellzone does 190 damage, 7.5 times per second, 1425 dps
-                                if (modPlayer.CosmoForce)
-                                    damage = 150;
-                                if (modPlayer.TerrariaSoul)
-                                    damage = 300;
-                                damage = (int)(damage * player.ActualClassDamage(DamageClass.Summon));
-                                float rotation = MathHelper.ToRadians(60) * Main.rand.NextFloat(0.2f, 1f);
-                                float rotationOffset = MathHelper.ToRadians(5) * Main.rand.NextFloat(-1f, 1f);
-                                for (int i = -max; i <= max; i++)
-                                {
-                                    Projectile.NewProjectile(projectile.GetSource_FromThis(), spawnPos, length * Vector2.Normalize(vel).RotatedBy(rotation / max * i + rotationOffset),
-                                        ModContent.ProjectileType<StardustKnife>(), damage, 4f, Main.myPlayer);
-                                }
-                            }
-                        }
-                    }
+                    //            const int max = 3;
+                    //            int damage = 100; //at time of writing, raw hellzone does 190 damage, 7.5 times per second, 1425 dps
+                    //            if (modPlayer.CosmoForce)
+                    //                damage = 150;
+                    //            if (modPlayer.TerrariaSoul)
+                    //                damage = 300;
+                    //            damage = (int)(damage * player.ActualClassDamage(DamageClass.Summon));
+                    //            float rotation = MathHelper.ToRadians(60) * Main.rand.NextFloat(0.2f, 1f);
+                    //            float rotationOffset = MathHelper.ToRadians(5) * Main.rand.NextFloat(-1f, 1f);
+                    //            for (int i = -max; i <= max; i++)
+                    //            {
+                    //                Projectile.NewProjectile(projectile.GetSource_FromThis(), spawnPos, length * Vector2.Normalize(vel).RotatedBy(rotation / max * i + rotationOffset),
+                    //                    ModContent.ProjectileType<StardustKnife>(), damage, 4f, Main.myPlayer);
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     break;
 
                 case ProjectileID.TikiSpirit:
@@ -925,7 +918,7 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.Flamelash:
                 case ProjectileID.MagicMissile:
                 case ProjectileID.RainbowRodBullet:
-                    if (counter > 300 && Main.player[projectile.owner].ownedProjectileCounts[projectile.type] > 1)
+                    if (projectile.ai[0] != -1 && projectile.ai[1] != -1 && counter > 900 && Main.player[projectile.owner].ownedProjectileCounts[projectile.type] > 1)
                     {
                         projectile.Kill();
                         Main.player[projectile.owner].ownedProjectileCounts[projectile.type] -= 1;
@@ -986,7 +979,8 @@ namespace FargowiltasSouls.Projectiles
 
         public override void PostAI(Projectile projectile)
         {
-            FargoSoulsPlayer modPlayer = Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>();
+            Player player = Main.player[projectile.owner];
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             if (!TimeFreezeCheck)
             {
@@ -995,13 +989,20 @@ namespace FargowiltasSouls.Projectiles
                     TimeFreezeImmune = true;
             }
 
-            if (projectile.whoAmI == Main.player[projectile.owner].heldProj)
+            if (projectile.whoAmI == player.heldProj || projectile.aiStyle == ProjAIStyleID.HeldProjectile)
             {
                 DeletionImmuneRank = 2;
 
-                Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().WeaponUseTimer = 30;
+                if (player.HeldItem.damage > 0 && player.HeldItem.pick == 0)
+                {
+                    modPlayer.WeaponUseTimer = 30;
 
-                modPlayer.TryAdditionalAttacks(projectile.damage, projectile.DamageType);
+                    modPlayer.TryAdditionalAttacks(projectile.damage, projectile.DamageType);
+
+                    //because the bow refuses to acknowledge changes in attack speed after initial spawning
+                    if (projectile.type == ProjectileID.DD2PhoenixBow && modPlayer.MythrilEnchantActive && modPlayer.MythrilTimer > -60 && counter > 60)
+                        projectile.Kill();
+                }
             }
 
             if (projectile.hostile && projectile.damage > 0 && canHurt && projectile.GetGlobalProjectile<EModeGlobalProjectile>().EModeCanHurt && Main.LocalPlayer.active && !Main.LocalPlayer.dead) //graze

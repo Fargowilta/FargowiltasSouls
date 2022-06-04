@@ -17,9 +17,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
         {
             base.AI(npc);
 
-            EModeGlobalNPC.Aura(npc, 80, BuffID.Obstructed, false, 199);
+            EModeGlobalNPC.Aura(npc, 80, BuffID.Obstructed, false, DustID.Clentaminator_Red);
 
-            npc.aiStyle = 5;
+            npc.aiStyle = NPCAIStyleID.Flying;
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

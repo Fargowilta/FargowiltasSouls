@@ -11,8 +11,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("The Queen's Stinger");
             Tooltip.SetDefault("Grants immunity to Infested" +
-                "\nIncreases armor penetration by 10" +
                 "\nYour attacks inflict Poisoned and spray honey that increases your life regeneration" +
+                "\nHoney buff increases your armor penetration by 10" +
                 "\nBees and weak Hornets become friendly" +
                 "\n'Ripped right off of a defeated foe'");
 
@@ -38,8 +38,6 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            //player.honey = true;
-            player.GetArmorPenetration(Terraria.ModLoader.DamageClass.Generic) += 10;
             player.buffImmune[Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Infested>()] = true;
 
             // Bees

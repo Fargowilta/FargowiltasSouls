@@ -57,7 +57,7 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(null, "AnglerEnchantment")
+            .AddIngredient(null, "AnglerEnchant")
             //inner tube
             .AddIngredient(ItemID.BalloonHorseshoeSharkron)
             .AddIngredient(ItemID.ArcticDivingGear)

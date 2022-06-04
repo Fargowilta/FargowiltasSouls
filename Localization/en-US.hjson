@@ -894,15 +894,47 @@ Mods: {
 					Effects of Aspera Crystallite
 					'''
 			}
-
-			RecipeGroups: {
-				Or: or
-				BonesBanner: Angry or Armored Bones Banner
-				Phasesaber: Phasesaber
-				Butterfly: Butterfly
-				CommonFish: Common Fish
-				FishingTrash: Fishing Trash
-			}
         }
+
+		RecipeGroups: {
+			Or: or
+			BonesBanner: Angry or Armored Bones Banner
+			Phasesaber: Phasesaber
+			Butterfly: Butterfly
+			CommonFish: Common Fish
+			FishingTrash: Fishing Trash
+		}
+
+		EModeBalance: {
+			Nerf: '[c/ff0000:Eternity Mode:]'
+			Buff: '[c/00ff00:Eternity Mode:]'
+			Neutral: '[c/ffff00:Eternity Mode:]'
+
+			Damage: Reduced damage by {0}%
+			Speed: Reduced speed by {0}%
+
+			RodofDiscord: During boss fights, every use takes life
+			Split: Reduced split frequency
+			ChlorophyteBullet: Reduced speed and duration
+			WaterBolt: Cannot be used until Skeletron is defeated
+			HolyDodge: Holy Dodge activation will temporarily reduce your attack speed
+			SpectreHood: Healing orbs move slower and disappear quickly
+			FrozenTurtleShell: Frozen barrier slightly reduces your damage dealt
+			BrainOfConfusion: Lowers your damage output on successful dodge
+
+			ZenithNone: No nerfs in effect
+			ZenithHitRate: "Vastly reduced hit rate, improves by defeating:"
+
+			VampireKnives: Reduced lifesteal rate when above 33% life
+			Zapinator: Cannot stack damage multipliers
+
+			OOASet: Set bonus increases minimum summon damage when you attack using other classes
+			MiningHelmet: Increases Undead Miner spawn rates
+
+			WhipSpeed: Does not benefit from melee speed bonuses
+			WhipStack: Whip buffs/debuffs can't stack
+			MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 9)
+			SummonMulticlass: Summon damage decreases when you attack using other classes (except in OOA)
+		}
 	}
 }

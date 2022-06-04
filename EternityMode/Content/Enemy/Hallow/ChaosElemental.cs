@@ -12,16 +12,11 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ChaosElemental);
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
-        {
-            base.OnSpawn(npc, source);
-
-            npc.buffImmune[BuffID.Confused] = true;
-        }
-
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
+
+            npc.buffImmune[BuffID.Confused] = true;
 
             if (Main.rand.NextBool(3))
                 EModeGlobalNPC.Horde(npc, Main.rand.Next(3, 10));

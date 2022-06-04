@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Grants immunity to Suffocation
 10% reduced magic damage
 Automatically use mana potions when needed
+Increases pickup range for mana stars
 'The quietly muttering head of a defeated foe'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "神秘头骨");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'被打败敌人的喃喃自语的脑袋'
@@ -43,6 +44,7 @@ Automatically use mana potions when needed
         public override void UpdateInventory(Player player)
         {
             player.buffImmune[BuffID.Suffocation] = true;
+            player.manaMagnet = true;
             if (player.GetToggleValue("ManaFlower", false))
             {
                 player.GetDamage(DamageClass.Magic) -= 0.1f;
@@ -53,6 +55,7 @@ Automatically use mana potions when needed
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.buffImmune[BuffID.Suffocation] = true;
+            player.manaMagnet = true;
             if (player.GetToggleValue("ManaFlower", false))
             {
                 player.GetDamage(DamageClass.Magic) -= 0.1f;

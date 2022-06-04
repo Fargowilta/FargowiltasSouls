@@ -55,7 +55,8 @@ namespace FargowiltasSouls.Projectiles
 
                 FargoSoulsUtil.XWay(16, Projectile.GetSource_FromThis(), Projectile.Center, proj2, Projectile.velocity.Length() * 2f, Projectile.damage * 4, Projectile.knockBack);
 
-                for (int i = 0; i < 50; i++)
+                int max = Main.player[Projectile.owner].ownedProjectileCounts[proj2] >= 50 ? 25 : 50;
+                for (int i = 0; i < max; i++)
                 {
                     Vector2 pos = Projectile.Center + Vector2.Normalize(Projectile.velocity) * Main.rand.NextFloat(600, 1800) +
                         Vector2.Normalize(Projectile.velocity.RotatedBy(MathHelper.Pi / 2)) * Main.rand.NextFloat(-900, 900);

@@ -40,8 +40,8 @@ namespace FargowiltasSouls.Buffs.Masomode
                 if ((tile.TileType == TileID.Platforms || tile.TileType == TileID.PlanterBox) && !tile.IsActuated)
                 {
                     tile.IsActuated = true;
-                    if (Main.netMode == NetmodeID.Server)
-                        NetMessage.SendTileSquare(-1, x, y, 1);
+                    //if (Main.netMode == NetmodeID.Server)
+                    //    NetMessage.SendTileSquare(-1, x, y, 1);
                 }
             }
         }

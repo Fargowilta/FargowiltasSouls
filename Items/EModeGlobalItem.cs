@@ -1,8 +1,10 @@
 using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items
@@ -26,7 +28,7 @@ namespace FargowiltasSouls.Items
             if (!FargoSoulsWorld.EternityMode)
                 return base.CanUseItem(item, player);
 
-            if (item.type == ItemID.RodofDiscord || item.type == ItemID.WireKite || item.type == ItemID.WireCutter || item.type == ItemID.Wrench || item.type == ItemID.BlueWrench || item.type == ItemID.GreenWrench || item.type == ItemID.MulticolorWrench || item.type == ItemID.YellowWrench || item.type == ItemID.Actuator)
+            if (item.damage <= 0 && (item.type == ItemID.RodofDiscord || item.type == ItemID.ActuationRod || item.type == ItemID.WireKite || item.type == ItemID.WireCutter || item.type == ItemID.Wrench || item.type == ItemID.BlueWrench || item.type == ItemID.GreenWrench || item.type == ItemID.MulticolorWrench || item.type == ItemID.YellowWrench || item.type == ItemID.Actuator))
             {
                 //either player is affected by lihzahrd curse, or cursor is targeting a place in temple (player standing outside)
                 if (player.GetModPlayer<FargoSoulsPlayer>().LihzahrdCurse || (Framing.GetTileSafely(Main.MouseWorld).WallType == WallID.LihzahrdBrickUnsafe && !player.buffImmune[ModContent.BuffType<Buffs.Masomode.LihzahrdCurse>()]))
@@ -57,6 +59,27 @@ namespace FargowiltasSouls.Items
             }
         }
 
+        enum EModeChange
+        {
+            Nerf,
+            Buff,
+            Neutral
+        }
+
+        void ItemBalance(List<TooltipLine> tooltips, EModeChange change, string key, int amount = 0)
+        {
+            string prefix = Language.GetTextValue($"Mods.FargowiltasSouls.EModeBalance.{change}");
+            string nerf = Language.GetTextValue($"Mods.FargowiltasSouls.EModeBalance.{key}", amount == 0 ? null : amount);
+            tooltips.Add(new TooltipLine(Mod, $"{change}{key}", $"{prefix} {nerf}"));
+        }
+
+        void ItemBalance(List<TooltipLine> tooltips, EModeChange change, string key, string extra)
+        {
+            string prefix = Language.GetTextValue($"Mods.FargowiltasSouls.EModeBalance.{change}");
+            string nerf = Language.GetTextValue($"Mods.FargowiltasSouls.EModeBalance.{key}");
+            tooltips.Add(new TooltipLine(Mod, $"{change}{key}", $"{prefix} {nerf} {extra}"));
+        }
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (!FargoSoulsWorld.EternityMode)
@@ -70,7 +93,7 @@ namespace FargowiltasSouls.Items
             switch (item.type)
             {
                 case ItemID.RodofDiscord:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] During boss fights, every use takes life"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "RodofDiscord");
                     break;
 
                 //case ItemID.ArcheryPotion:
@@ -83,17 +106,17 @@ namespace FargowiltasSouls.Items
 
                 case ItemID.CrystalBullet:
                 case ItemID.HolyArrow:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Can only split 4 times per second"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "Split");
                     break;
 
                 case ItemID.ChlorophyteBullet:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced speed and duration"));
+                    //ItemBalance(tooltips, EModeChange.Nerf, "ChlorophyteBullet");
                     //tooltips.Add(new TooltipLine(Mod, "masoNerf3", "[c/ff0000:Eternity Mode:] Further reduced damage"));
                     break;
 
                 case ItemID.WaterBolt:
                     if (!NPC.downedBoss3)
-                        tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Cannot be used until Skeletron is defeated"));
+                        ItemBalance(tooltips, EModeChange.Nerf, "WaterBolt");
                     break;
 
                 case ItemID.HallowedGreaves:
@@ -108,26 +131,26 @@ namespace FargowiltasSouls.Items
                 case ItemID.AncientHallowedHood:
                 case ItemID.AncientHallowedMask:
                 case ItemID.AncientHallowedPlateMail:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Holy Dodge activation will temporarily reduce your attack speed"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "HolyDodge");
                     break;
 
                 case ItemID.SpectreHood:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Healing orbs move slower and disappear quickly"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "SpectreHood");
                     break;
 
                 case ItemID.FrozenTurtleShell:
                 case ItemID.FrozenShield:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Frozen barrier slightly reduces your damage dealt"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "FrozenTurtleShell");
                     break;
 
                 case ItemID.BrainOfConfusion:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Lowers your damage output on successful dodge"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "BrainOfConfusion");
                     break;
 
                 case ItemID.Zenith:
                     if (FargoSoulsWorld.downedMutant)
                     {
-                        tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ffff00:Eternity Mode:] No nerfs in effect"));
+                        ItemBalance(tooltips, EModeChange.Neutral, "ZenithNone");
                     }
                     else
                     {
@@ -135,22 +158,23 @@ namespace FargowiltasSouls.Items
                         if (!FargoSoulsWorld.downedAbom)
                         {
                             if (!FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion])
-                                bossesToKill += " Eridanus,";
+                                bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.CosmosChampion")},";
 
-                            bossesToKill += " Abominationn,";
+                            bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.AbomBoss")},";
                         }
-                        bossesToKill += " Mutant";
-                        tooltips.Add(new TooltipLine(Mod, "masoNerf", $"[c/ffaa00:Eternity Mode:] Vastly reduced hit rate, improves by defeating:{bossesToKill}"));
+                        bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.MutantBoss")}";
+
+                        ItemBalance(tooltips, EModeChange.Nerf, "ZenithHitRate", bossesToKill);
                     }
                     break;
 
                 case ItemID.VampireKnives:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf3", "[c/ff0000:Eternity Mode:] Reduced lifesteal rate when above 33% life"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "VampireKnives");
                     break;
 
                 case ItemID.ZapinatorGray:
                 case ItemID.ZapinatorOrange:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf3", "[c/ff0000:Eternity Mode:] Cannot stack damage multipliers"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "Zapinator");
                     break;
 
                 //case ItemID.EmpressBlade:
@@ -185,11 +209,10 @@ namespace FargowiltasSouls.Items
                 //    break;
 
                 //case ItemID.Beenade:
-                //case ItemID.Razorpine:
-                //case ItemID.BlizzardStaff:
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 33%"));
-                //    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
-                //    break;
+                case ItemID.BlizzardStaff:
+                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
+                    ItemBalance(tooltips, EModeChange.Nerf, "Speed", 33);
+                    break;
 
                 //case ItemID.Tsunami:
                 //case ItemID.Flairon:
@@ -203,11 +226,12 @@ namespace FargowiltasSouls.Items
                 //case ItemID.RavenStaff:
                 //case ItemID.XenoStaff:
                 //case ItemID.Phantasm:
-                //case ItemID.NebulaArcanum::
+                //case ItemID.NebulaArcanum:
+                case ItemID.Razorpine:
                 case ItemID.StardustDragonStaff:
                 case ItemID.SDMG:
                 case ItemID.LastPrism:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 15%"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 15);
                     break;
 
                 //case ItemID.DemonScythe:
@@ -252,7 +276,7 @@ namespace FargowiltasSouls.Items
                 case ItemID.DD2LightningAuraT1Popper:
                 case ItemID.DD2LightningAuraT2Popper:
                 case ItemID.DD2LightningAuraT3Popper:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "Speed", 33);
                     break;
 
                 case ItemID.MonkAltHead:
@@ -282,15 +306,11 @@ namespace FargowiltasSouls.Items
                 case ItemID.AncientBattleArmorHat:
                 case ItemID.AncientBattleArmorPants:
                 case ItemID.AncientBattleArmorShirt:
-                    tooltips.Add(new TooltipLine(Mod, "masoBuff", "[c/00ff00:Eternity Mode:] Set bonus increases minimum summon damage when you attack using other classes"));
-                    break;
-
-                case ItemID.Meowmere:
-                    tooltips.Add(new TooltipLine(Mod, "masoBuff", "[c/00ff00:Eternity Mode:] Shoots more projectiles per swing"));
+                    ItemBalance(tooltips, EModeChange.Buff, "OOASet");
                     break;
 
                 case ItemID.MiningHelmet:
-                    tooltips.Add(new TooltipLine(Mod, "masoNerf", "[c/ffff00:Eternity Mode:] Increases Undead Miner spawn rates"));
+                    ItemBalance(tooltips, EModeChange.Neutral, "MiningHelmet");
                     break;
 
                 default:
@@ -300,18 +320,16 @@ namespace FargowiltasSouls.Items
             if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
             {
                 if (item.type != ItemID.BlandWhip)
-                    tooltips.Add(new TooltipLine(Mod, "masoWhipNerf", "[c/ff0000:Eternity Mode:] Reduced damage by 50%"));
-                tooltips.Add(new TooltipLine(Mod, "masoWhipNerf2", "[c/ff0000:Eternity Mode:] Does not benefit from melee speed bonuses"));
-                tooltips.Add(new TooltipLine(Mod, "masoWhipNerf3", "[c/ff0000:Eternity Mode:] Whip buffs/debuffs can't stack"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 50);
+                ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
+                ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
             }
             else if (item.DamageType == DamageClass.Summon)
             {
                 if (!(EModeGlobalProjectile.IgnoreMinionNerf.TryGetValue(item.shoot, out bool ignoreNerf) && ignoreNerf))
-                {
-                    tooltips.Add(new TooltipLine(Mod, "masoMinionNerf", "[c/ff0000:Eternity Mode:] Minion damage diminishes when summoning over 3 copies (effect caps at 9)"));
-                    tooltips.Add(new TooltipLine(Mod, "masoMinionNerf2", "[c/ff0000:Eternity Mode:] Above does not apply to summon damage that is not from a true minion"));
-                }
-                tooltips.Add(new TooltipLine(Mod, "masoMinionNerf3", "[c/ff0000:Eternity Mode:] Summon damage decreases when you attack using other classes (except in OOA)"));
+                    ItemBalance(tooltips, EModeChange.Nerf, "MinionStack");
+
+                ItemBalance(tooltips, EModeChange.Nerf, "SummonMulticlass");
             }
         }
     }

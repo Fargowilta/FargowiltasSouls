@@ -1,6 +1,8 @@
+using FargowiltasSouls.Buffs.Souls;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -13,13 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Crimson Enchantment");
             Tooltip.SetDefault(
 @"After taking a hit, regen is greatly increased until the half the hit is healed off
-If you take another hit before it's healed, you lose the heal in addition to normal damage
+If you take another hit before it's healed, the heal ends early
+This does not affect hits dealing less than 10 damage
 'The blood of your enemy is your rebirth'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "猩红魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"在你受到伤害后大幅增加你的生命恢复速度，直至你恢复的生命量等同于这次受到的伤害量的一半
-            // 如果你在恢复前再次受伤则不会触发增加生命恢复的效果
-            // '你从敌人的血中重生'");
         }
 
         protected override Color nameColor => new Color(200, 54, 75);
@@ -34,7 +32,30 @@ If you take another hit before it's healed, you lose the heal in addition to nor
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().CrimsonEffect(hideVisual);
+            CrimsonEffect(player);
+        }
+
+        public static void CrimsonEffect(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            modPlayer.CrimsonEnchantActive = true;
+        }
+
+        public static void CrimsonHurt(Player player, FargoSoulsPlayer modPlayer, ref int damage)
+        {
+            //if was already healing, stop the heal and do nothing
+            if (player.HasBuff(ModContent.BuffType<CrimsonRegen>()))
+            {
+                player.ClearBuff(ModContent.BuffType<CrimsonRegen>());
+            }
+            //start new heal
+            else if(damage >= 10)
+            {
+                player.AddBuff(ModContent.BuffType<CrimsonRegen>(), 300);
+
+                int totalToRegen = damage / 2;
+                modPlayer.CrimsonRegenAmount = (int)((float)totalToRegen / 5f * 2f);
+            }
         }
 
         public override void AddRecipes()
@@ -50,8 +71,6 @@ If you take another hit before it's healed, you lose the heal in addition to nor
 
             //blood rain bow
             //flesh catcher rod
-            //.AddIngredient(ItemID.BoneRattle);
-            //.AddIngredient(ItemID.CrimsonHeart);
 
             .AddTile(TileID.DemonAltar)
             .Register();

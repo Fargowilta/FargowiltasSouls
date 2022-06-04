@@ -15,7 +15,7 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
 
         public bool CanShowItemDropInUI()
         {
-            return true;
+            return !FargoSoulsWorld.EternityMode;
         }
 
         public string GetConditionDescription()

@@ -49,17 +49,15 @@ namespace FargowiltasSouls.Projectiles.Challengers
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(npc is NPC ? npc.whoAmI : -1);
-            writer.Write(offset.X);
-            writer.Write(offset.Y);
-            writer.Write(dir);
+            writer.WritePackedVector2(offset);
+            writer.Write((byte)dir);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             npc = FargoSoulsUtil.NPCExists(reader.ReadInt32());
-            offset.X = reader.ReadSingle();
-            offset.Y = reader.ReadSingle();
-            dir = reader.ReadInt32();
+            offset = reader.ReadPackedVector2();
+            dir = (int)reader.ReadByte();
         }
 
         public override void PostAI()

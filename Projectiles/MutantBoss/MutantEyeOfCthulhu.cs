@@ -47,14 +47,6 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return target.hurtCooldowns[1] == 0;
         }
 
-        public override void OnSpawn(IEntitySource source)
-        {
-            SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
-
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, NPCID.EyeofCthulhu);
-        }
-
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(Projectile.localAI[0]);
@@ -101,6 +93,14 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (p != Main.maxProjectiles)
                     Main.projectile[p].timeLeft = Projectile.timeLeft + 180 + 30 + 150; //+ 60 + 240;
             };
+
+            if (Projectile.ai[1] == 0)
+            {
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
+
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, NPCID.EyeofCthulhu);
+            }
 
             if (++Projectile.ai[1] < 120)
             {

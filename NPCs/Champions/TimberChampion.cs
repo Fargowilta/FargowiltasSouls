@@ -72,7 +72,7 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.knockBackResist = 0f;
             NPC.lavaImmune = true;
             NPC.aiStyle = -1;
-            //NPC.value = Item.buyPrice(0, 15);
+            NPC.value = Item.buyPrice(1);
             NPC.boss = true;
 
             Music = ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod)
@@ -656,7 +656,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             if (FargoSoulsWorld.EternityMode)
-                target.AddBuff(ModContent.BuffType<Buffs.Masomode.Guilty>(), 600);
+                target.AddBuff(ModContent.BuffType<Guilty>(), 600);
         }
 
         bool spawnPhase2 => Main.expertMode;
@@ -671,9 +671,6 @@ namespace FargowiltasSouls.NPCs.Champions
                     if (!Main.dedServ)
                         Gore.NewGore(NPC.GetSource_FromThis(), pos, NPC.velocity, ModContent.Find<ModGore>(Mod.Name, $"TimberGore{i}").Type, NPC.scale);
                 }
-
-                if (spawnPhase2)
-                    FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center, ModContent.NPCType<TimberChampionHead>(), NPC.whoAmI, target: NPC.target);
 
                 FargoSoulsUtil.GrossVanillaDodgeDust(NPC);
 
@@ -717,14 +714,21 @@ namespace FargowiltasSouls.NPCs.Champions
             }
         }
 
-        public override bool PreKill()
-        {
-            return !spawnPhase2;
-        }
-
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.SuperHealingPotion;
+        }
+
+        public override bool PreKill()
+        {
+            if (spawnPhase2)
+            {
+                NPC.value = 0;
+                FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center, ModContent.NPCType<TimberChampionHead>(), NPC.whoAmI, target: NPC.target);
+                return false;
+            }
+
+            return base.PreKill();
         }
 
         public override void OnKill()

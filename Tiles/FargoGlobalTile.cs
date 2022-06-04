@@ -211,13 +211,14 @@ namespace FargowiltasSouls.Tiles
 
         public override void NearbyEffects(int i, int j, int type, bool closer)
         {
-            if ((type == TileID.Platforms || type == TileID.PlanterBox) && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().LowGround && Framing.GetTileSafely(i, j).HasTile)
+            if ((type == TileID.Platforms || type == TileID.PlanterBox) && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().LowGround && Framing.GetTileSafely(i, j).IsActuated)
             {
                 float distance = Main.LocalPlayer.Distance(new Vector2(i * 16 + 8, j * 16 + 8));
                 if (distance > 100 && distance < 1000)
                 {
                     Framing.GetTileSafely(i, j).IsActuated = false;
-                    NetMessage.SendTileSquare(-1, i, j, 1);
+                    //if (Main.netMode == NetmodeID.Server)
+                    //    NetMessage.SendTileSquare(-1, i, j, 1);
                 }
             }
         }

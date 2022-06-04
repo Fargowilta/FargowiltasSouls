@@ -174,7 +174,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             //Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
 
             Projectile.position -= Projectile.velocity;
-            float oldRot = Projectile.rotation;
+            //float oldRot = Projectile.rotation;
             Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
 
             if (++Projectile.ai[0] > 60)

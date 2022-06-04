@@ -46,9 +46,6 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public override void OnSpawn(IEntitySource source)
         {
-            if (!Main.dedServ)
-                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 0.5f }, Projectile.Center);
-
             if (source is EntitySource_Parent parent && parent.Entity is NPC sourceNPC)
                 npc = sourceNPC;
         }
@@ -63,8 +60,18 @@ namespace FargowiltasSouls.Projectiles.Champions
             npc = FargoSoulsUtil.NPCExists(reader.ReadInt32());
         }
 
+        bool spawned;
+
         public override void AI()
         {
+            if (!spawned)
+            {
+                spawned = true;
+
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Thunder") { Volume = 0.5f }, Projectile.Center);
+            }
+
             Projectile.rotation += Main.rand.NextFloat(-0.2f, 0.2f);
 
 

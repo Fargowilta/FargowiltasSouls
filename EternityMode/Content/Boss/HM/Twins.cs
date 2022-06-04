@@ -54,9 +54,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.lifeMax = (int)(npc.lifeMax * 1.2);
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -209,7 +209,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 float auraDistance = 2000 - 1200 * AuraRadiusCounter / 180f;
                 if (FargoSoulsWorld.MasochistModeReal)
                     auraDistance *= 0.75f;
-                if (auraDistance < 2000)
+                if (auraDistance < 2000 - 1)
                     EModeGlobalNPC.Aura(npc, auraDistance, true, DustID.Torch, default, ModContent.BuffType<Oiled>(), BuffID.OnFire, BuffID.Burning);
 
                 //2*pi * (# of full circles) / (seconds to finish rotation) / (ticks per sec)
@@ -246,7 +246,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center); //eoc roar
                             }
-                            npc.netUpdate = true;
+
+                            if (Main.netMode == NetmodeID.Server)
+                                NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
                             NetSync(npc);
                         }
                         break;
@@ -349,33 +351,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 //}
             }
 
-            /*if (!FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.spazBoss, NPCID.Spazmatism) && targetAlive)
-            {
-                Timer--;
-
-                if (Timer <= 0)
-                {
-                    Timer = 600;
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        int spawn = NPC.NewNPC((int)npc.position.X + Main.rand.Next(-1000, 1000), (int)npc.position.Y + Main.rand.Next(-400, -100), NPCID.Spazmatism);
-                        if (spawn != 200)
-                        {
-                            Main.npc[spawn].life = Main.npc[spawn].lifeMax / 4;
-                            if (Main.netMode == NetmodeID.Server)
-                            {
-                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Spazmatism has been revived!"), new Color(175, 75, 255));
-                                NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, spawn);
-                            }
-                            else
-                            {
-                                Main.NewText("Spazmatism has been revived!", 175, 75, 255);
-                            }
-                        }
-                    }
-                }
-            }*/
-
             EModeUtils.DropSummon(npc, "MechEye", NPC.downedMechBoss2, ref DroppedSummon, Main.hardMode);
 
             return true;
@@ -456,9 +431,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(DarkStarTimer), IntStrategies.CompoundStrategy },
             };
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -593,7 +568,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         npc.ai[2] = 0;
                         npc.ai[3] = 0;
 
-                        npc.netUpdate = true;
+                        if (Main.netMode == NetmodeID.Server)
+                            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
                         NetSync(npc);
                         return false;
                     }
@@ -688,7 +664,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     FlameWheelCount = 0;
 
                     if (FlameWheelSpreadTimer > 75) //cooldown before attacking again
+                    {
                         FlameWheelSpreadTimer = 75;
+                        if (Main.netMode == NetmodeID.Server)
+                            NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
+                        NetSync(npc);
+                    }
                     if (FlameWheelSpreadTimer > 0)
                     {
                         FlameWheelSpreadTimer--;

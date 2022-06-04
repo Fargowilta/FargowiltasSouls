@@ -1,4 +1,5 @@
-﻿using Terraria.GameContent.ItemDropRules;
+﻿using Terraria;
+using Terraria.GameContent.ItemDropRules;
 
 namespace FargowiltasSouls.ItemDropRules.Conditions
 {
@@ -14,7 +15,7 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
 
         public bool CanShowItemDropInUI()
         {
-            return true;
+            return !Main.masterMode && FargoSoulsWorld.EternityMode;
         }
 
         public string GetConditionDescription()

@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using Terraria.IO;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.EternityMode.Net.Strategies
 {
@@ -10,7 +12,7 @@ namespace FargowiltasSouls.EternityMode.Net.Strategies
         {
             public void Send(object value, BinaryWriter writer)
             {
-                writer.Write((int)value);
+                writer.WriteVarInt((int)value);
             }
         }
 
@@ -18,7 +20,7 @@ namespace FargowiltasSouls.EternityMode.Net.Strategies
         {
             public void Recieve(ref object value, BinaryReader writer)
             {
-                value = writer.ReadInt32();
+                value = writer.ReadVarInt();
             }
         }
     }

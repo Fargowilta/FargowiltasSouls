@@ -11,6 +11,7 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Projectiles.Pets
 {
@@ -41,14 +42,12 @@ namespace FargowiltasSouls.Projectiles.Pets
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(Projectile.rotation);
-            writer.Write(Projectile.direction);
+            writer.WritePackedVector2(target);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            Projectile.rotation = reader.ReadSingle();
-            Projectile.direction = reader.ReadInt32();
+            target = reader.ReadPackedVector2();
         }
 
         private static bool haveDoneInitScramble;
@@ -72,6 +71,9 @@ namespace FargowiltasSouls.Projectiles.Pets
                 usePlayerDiedSpawnText = false;
         }
 
+        Vector2 target;
+        int syncTimer;
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -89,6 +91,17 @@ namespace FargowiltasSouls.Projectiles.Pets
             Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * 6f, 20f, DelegateMethods.CastLightOpen);
             Utils.PlotTileLine(Projectile.Left, Projectile.Right, 20f, DelegateMethods.CastLightOpen);
 
+            if (player.whoAmI == Main.myPlayer)
+            {
+                target = Main.MouseWorld;
+
+                if (++syncTimer > 30)
+                {
+                    syncTimer = 0;
+                    Projectile.netUpdate = true;
+                }
+            }
+
             bool asleep = Projectile.ai[0] == 1;
             if (asleep)
             {
@@ -101,81 +114,81 @@ namespace FargowiltasSouls.Projectiles.Pets
                 Projectile.velocity.X *= 0.95f;
                 Projectile.velocity.Y += 0.3f;
 
-                if (Projectile.owner == Main.myPlayer && Projectile.Distance(Main.MouseWorld) > 180)
+                if (Projectile.owner == Main.myPlayer && Projectile.Distance(target) > 180)
                 {
                     Projectile.ai[0] = 0;
+                    Projectile.netUpdate = true;
 
                     TryTalkWithCD(TalkType.Wake, ShortCD);
                 }
             }
             else
             {
-                if (Projectile.owner == Main.myPlayer)
+                Projectile.tileCollide = false;
+                Projectile.ignoreWater = true;
+
+                Projectile.direction = Projectile.Center.X < target.X ? 1 : -1;
+
+                float distance = 2500;
+                float possibleDist = Main.player[Projectile.owner].Distance(target) / 2 + 100;
+                if (distance < possibleDist)
+                    distance = possibleDist;
+                if (Projectile.Distance(Main.player[Projectile.owner].Center) > distance && Projectile.Distance(target) > distance)
                 {
-                    Projectile.tileCollide = false;
-                    Projectile.ignoreWater = true;
+                    Projectile.Center = player.Center;
+                    Projectile.velocity = Vector2.Zero;
+                }
 
-                    Projectile.direction = Projectile.Center.X < Main.MouseWorld.X ? 1 : -1;
+                if (Projectile.Distance(target) > 30)
+                {
+                    float ratio = Math.Min(Projectile.Distance(target) / 1200f, 1f);
+                    float accel = MathHelper.Lerp(0.1f, 0.8f, ratio);
+                    Movement(target, accel, 16f + Main.player[Projectile.owner].velocity.Length() / 2f);
+                }
 
-                    float distance = 2500;
-                    float possibleDist = Main.player[Projectile.owner].Distance(Main.MouseWorld) / 2 + 100;
-                    if (distance < possibleDist)
-                        distance = possibleDist;
-                    if (Projectile.Distance(Main.player[Projectile.owner].Center) > distance && Projectile.Distance(Main.MouseWorld) > distance)
+                if (oldMouse == target)
+                {
+                    Projectile.ai[1]++;
+                    if (Projectile.ai[1] > 600)
                     {
-                        Projectile.Center = player.Center;
-                        Projectile.velocity = Vector2.Zero;
-                    }
+                        bool okToRest = !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height);
 
-                    if (Projectile.Distance(Main.MouseWorld) > 30)
-                    {
-                        float ratio = Math.Min(Projectile.Distance(Main.MouseWorld) / 1200f, 1f);
-                        float accel = MathHelper.Lerp(0.1f, 0.8f, ratio);
-                        Movement(Main.MouseWorld, accel, 16f + Main.player[Projectile.owner].velocity.Length() / 2f);
-                    }
-
-                    if (oldMouse == Main.MouseWorld)
-                    {
-                        Projectile.ai[1]++;
-                        if (Projectile.ai[1] > 600)
+                        if (okToRest)
                         {
-                            bool okToRest = !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height);
+                            okToRest = false;
 
-                            if (okToRest)
+                            Vector2 targetPos = new Vector2(Projectile.Center.X, Projectile.position.Y + Projectile.height);
+                            for (int i = 0; i < 10; i++) //collision check below self
                             {
-                                okToRest = false;
-
-                                Vector2 targetPos = new Vector2(Projectile.Center.X, Projectile.position.Y + Projectile.height);
-                                for (int i = 0; i < 10; i++) //collision check below self
+                                targetPos.Y += 16;
+                                Tile tile = Framing.GetTileSafely(targetPos); //if solid, ok
+                                if (tile.HasUnactuatedTile && Main.tileSolid[tile.TileType])
                                 {
-                                    targetPos.Y += 16;
-                                    Tile tile = Framing.GetTileSafely(targetPos); //if solid, ok
-                                    if (tile.HasUnactuatedTile && Main.tileSolid[tile.TileType])
-                                    {
-                                        okToRest = true;
-                                        break;
-                                    }
+                                    okToRest = true;
+                                    break;
                                 }
                             }
+                        }
 
-                            if (okToRest) //not in solid tiles, but found tiles within a short distance below
-                            {
-                                Projectile.ai[0] = 1;
-                                Projectile.ai[1] = 0;
+                        if (okToRest) //not in solid tiles, but found tiles within a short distance below
+                        {
+                            Projectile.ai[0] = 1;
+                            Projectile.ai[1] = 0;
 
-                                TryTalkWithCD(TalkType.Sleep, ShortCD);
-                            }
-                            else //try again in a bit
-                            {
-                                Projectile.ai[1] = 540;
-                            }
+                            TryTalkWithCD(TalkType.Sleep, ShortCD);
+
+                            Projectile.netUpdate = true;
+                        }
+                        else //try again in a bit
+                        {
+                            Projectile.ai[1] = 540;
                         }
                     }
-                    else
-                    {
-                        Projectile.ai[1] = 0;
-                        oldMouse = Main.MouseWorld;
-                    }
+                }
+                else
+                {
+                    Projectile.ai[1] = 0;
+                    oldMouse = target;
                 }
 
                 if (++Projectile.frameCounter > 6)
@@ -188,7 +201,12 @@ namespace FargowiltasSouls.Projectiles.Pets
 
             Projectile.spriteDirection = Projectile.direction;
 
+
             bool bossAlive = FargoSoulsUtil.AnyBossAlive();
+            //only do idle talk when awake, not a boss fight, and not in danger
+            if (TalkCDs[(int)TalkType.Idle] < 60 && (bossAlive || asleep || player.statLife < player.statLifeMax2 / 2))
+                TalkCDs[(int)TalkType.Idle] = Math.Max(TalkCDs[(int)TalkType.Idle], 12 * 60);
+
             if (bossAlive)
             {
                 TryTalkWithCD(TalkType.BossSpawn, ShortCD);
@@ -198,11 +216,7 @@ namespace FargowiltasSouls.Projectiles.Pets
             }
             else
             {
-                //only do idle talk when awake, not a boss fight, and not in danger
-                if (asleep)
-                    TalkCDs[(int)TalkType.Idle] = Math.Max(TalkCDs[(int)TalkType.Idle], 12 * 60);
-                else if (player.statLife > player.statLifeMax2 / 2)
-                    TryTalkWithCD(TalkType.Idle, MediumCD);
+                TryTalkWithCD(TalkType.Idle, LongCD);
 
                 //wont cheer in boss fight unless over 30 seconds
                 const int timeRequirement = 30 * 60;
@@ -364,6 +378,7 @@ namespace FargowiltasSouls.Projectiles.Pets
 
         public int ShortCD => 600;
         public int MediumCD => Main.rand.Next(3600, 7200);
+        public int LongCD => MediumCD * 2;
 
         public void TryTalkWithCD(TalkType talkType, int CD)
         {
@@ -386,7 +401,7 @@ namespace FargowiltasSouls.Projectiles.Pets
                 int actualSay = TalkCounters[talkInt] + 1;
                 string text = Language.GetTextValue($"Mods.FargowiltasSouls.DeviChatter.{key}{actualSay}");
 
-                Vector2 pos = Vector2.Lerp(Main.MouseWorld, Projectile.Center, 0.5f);
+                Vector2 pos = Vector2.Lerp(target, Projectile.Center, 0.5f);
                 pos = Vector2.Lerp(pos, Main.player[Projectile.owner].Center, 0.5f);
 
                 PopupText.NewText(new AdvancedPopupRequest()

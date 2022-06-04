@@ -65,6 +65,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Dungeon
                     speed *= Main.rand.NextFloat(3f, 6f);
                     speed.Y -= Math.Abs(speed.X) * 0.2f;
                     speed.Y -= 3f;
+                    speed.Y *= Main.rand.NextFloat(1.5f);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ProjectileID.SkeletonBone, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
                 }

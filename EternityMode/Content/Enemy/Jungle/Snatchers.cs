@@ -37,9 +37,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
             npc.damage = (int)(2.0 / 3.0 * npc.damage);
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Poisoned] = true;
             npc.buffImmune[BuffID.Venom] = true;

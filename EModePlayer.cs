@@ -507,10 +507,9 @@ namespace FargowiltasSouls
                 //    return 2f / 3f;
 
                 //case ItemID.Beenade:
-                //case ItemID.Razorpine:
-                //case ItemID.BlizzardStaff:
-                //    AttackSpeed *= 2f / 3f;
-                //    return 2f / 3f;
+                case ItemID.BlizzardStaff:
+                    AttackSpeed *= 2f / 3f;
+                    return 2f / 3f;
 
                 //case ItemID.DD2BetsyBow:
                 //case ItemID.Uzi:
@@ -542,6 +541,7 @@ namespace FargowiltasSouls
                 //case ItemID.XenoStaff:
                 //case ItemID.NebulaArcanum:
                 //case ItemID.Phantasm:
+                case ItemID.Razorpine:
                 case ItemID.StardustDragonStaff:
                 case ItemID.SDMG:
                 case ItemID.LastPrism:
@@ -577,6 +577,29 @@ namespace FargowiltasSouls
                 return 0.5f;
 
             return 1f;
+        }
+
+        public override bool ModifyNurseHeal(NPC nurse, ref int health, ref bool removeDebuffs, ref string chatText)
+        {
+            if (!FargoSoulsWorld.EternityMode)
+                return base.ModifyNurseHeal(nurse, ref health, ref removeDebuffs, ref chatText);
+
+            if (Main.LocalPlayer.HasBuff(ModContent.BuffType<RushJob>()))
+            {
+                chatText = "I've done all I can in the time I have!";
+                return false;
+            }
+
+            return base.ModifyNurseHeal(nurse, ref health, ref removeDebuffs, ref chatText);
+        }
+
+        public override void PostNurseHeal(NPC nurse, int health, bool removeDebuffs, int price)
+        {
+            if (!FargoSoulsWorld.EternityMode)
+                return;
+
+            if (FargoSoulsUtil.AnyBossAlive())
+                Main.LocalPlayer.AddBuff(ModContent.BuffType<RushJob>(), 10);
         }
     }
 }

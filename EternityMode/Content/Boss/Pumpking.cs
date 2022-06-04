@@ -77,9 +77,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.Pumpking, NPCID.PumpkingBlade);
         
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }

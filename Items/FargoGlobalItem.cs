@@ -11,6 +11,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace FargowiltasSouls.Items
 {
@@ -372,9 +373,11 @@ namespace FargowiltasSouls.Items
             }*/
         }
 
+        static int infiniteLoopHackFix;
+
         public override bool AllowPrefix(Item item, int pre)
         {
-            if (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
+            if (!Main.gameMenu && Main.LocalPlayer.active && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
             {
                 switch (pre)
                 {
@@ -443,13 +446,18 @@ namespace FargowiltasSouls.Items
                     case PrefixID.Unpleasant:
 
                         #endregion mediocre
-
-                        return false;
+                        
+                        if (++infiniteLoopHackFix < 30)
+                            return false;
+                        else
+                            break;
 
                     default:
                         break;
                 }
             }
+            
+            infiniteLoopHackFix = 0;
 
             return base.AllowPrefix(item, pre);
         }

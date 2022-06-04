@@ -26,11 +26,6 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.scale = 1.5f;
         }
 
-        public override void OnSpawn(IEntitySource source)
-        {
-            Projectile.frame = Main.rand.Next(Main.projFrames[Projectile.type]);
-        }
-
         public override void AI()
         {
             NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0]);
@@ -46,6 +41,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             {
                 Projectile.localAI[0] = 1;
                 Dusts();
+                Projectile.frame = Main.rand.Next(Main.projFrames[Projectile.type]);
             }
         }
 

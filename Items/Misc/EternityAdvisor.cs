@@ -1,4 +1,5 @@
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.Items.Accessories.Expert;
 using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Accessories.Souls;
@@ -448,12 +449,14 @@ namespace FargowiltasSouls.Items.Misc
             {
                 summonType = ModContent.ItemType<AbomsCurse>();
                 build = GetBuildText(
-                    Main.rand.NextBool() ? ModContent.ItemType<CosmoForce>() : ModContent.ItemType<SupersonicSoul>(),
+                    ModContent.ItemType<CosmoForce>(),
+                    ModContent.ItemType<SupersonicSoul>(),
                     ModContent.ItemType<FlightMasterySoul>(),
                     ModContent.ItemType<ColossusSoul>(),
+                    ModContent.ItemType<UniverseCore>(),
                     Main.rand.Next(new int[] { ModContent.ItemType<BerserkerSoul>(), ModContent.ItemType<SnipersSoul>(), ModContent.ItemType<ArchWizardsSoul>(), ModContent.ItemType<ConjuristsSoul>() })
                 ) + GetBuildTextRandom(
-                    3,
+                    1,
                     ModContent.ItemType<HeartoftheMasochist>(),
                     ModContent.ItemType<PrecisionSeal>(),
                     ModContent.ItemType<SparklingAdoration>(),
@@ -527,11 +530,15 @@ namespace FargowiltasSouls.Items.Misc
 
         public override bool? UseItem(Player player)
         {
-            string dialogue = "";
-            GetBossHelp(ref dialogue, player);
-            Main.NewText(dialogue);
+            if (player.ItemTimeIsZero)
+            {
+                string dialogue = "";
+                GetBossHelp(ref dialogue, player);
+                if (player.whoAmI == Main.myPlayer)
+                    Main.NewText(dialogue);
 
-            SoundEngine.PlaySound(new SoundStyle($"Terraria/Sounds/Meowmere_{Main.rand.Next(5, 10)}"), player.Center); //meow
+                SoundEngine.PlaySound(SoundID.Meowmere, player.Center);
+            }
             return true;
         }
     }

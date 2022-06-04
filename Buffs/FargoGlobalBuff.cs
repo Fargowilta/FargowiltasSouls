@@ -3,6 +3,7 @@ using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -82,7 +83,8 @@ namespace FargowiltasSouls.Buffs
             }
 
             if (FargoSoulsWorld.EternityMode && player.buffTime[buffIndex] > 2 && Main.debuff[type] && player.GetModPlayer<EModePlayer>().ShorterDebuffsTimer <= 0
-                && !Main.buffNoTimeDisplay[type] && type != BuffID.Tipsy && (!BuffID.Sets.NurseCannotRemoveDebuff[type] || type == BuffID.ManaSickness || type == BuffID.PotionSickness))
+                && !Main.buffNoTimeDisplay[type] && type != BuffID.Tipsy && (!BuffID.Sets.NurseCannotRemoveDebuff[type] || type == BuffID.ManaSickness || type == BuffID.PotionSickness)
+                && !DebuffsToLetDecreaseNormally.Contains(type))
             {
                 player.buffTime[buffIndex] -= 1;
             }

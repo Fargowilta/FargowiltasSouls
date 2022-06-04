@@ -26,7 +26,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 
             Tooltip.SetDefault(
 $"[i:{ModContent.ItemType<CobaltEnchant>()}] Grants an explosion jump and you explode on hit\n" +
-$"[i:{ModContent.ItemType<MythrilEnchant>()}] 20% increased weapon use speed\n" +
+$"[i:{ModContent.ItemType<MythrilEnchant>()}] Temporarily increases attack speed after not attacking for a while\n" +
 $"[i:{ModContent.ItemType<PalladiumEnchant>()}] Greatly increases life regeneration after striking an enemy\n" +
 $"[i:{ModContent.ItemType<PalladiumEnchant>()}] You spawn an orb of damaging life energy every 80 life regenerated\n" +
 $"[i:{ModContent.ItemType<OrichalcumEnchant>()}] Flower petals will cause extra damage to your target\n" +

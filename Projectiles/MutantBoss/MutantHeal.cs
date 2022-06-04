@@ -110,9 +110,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     return;
                 }
 
-                Vector2 target = feedPlayer ? Main.player[ai0].Center : Main.npc[ai0].Center;
+                Entity target = feedPlayer ? Main.player[ai0] : Main.npc[ai0];
 
-                if (Projectile.Distance(target) < 5f)
+                if (Projectile.Distance(target.Center) < 5f)
                 {
                     if (feedPlayer) //die and feed player
                     {
@@ -143,9 +143,11 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 {
                     for (int i = 0; i < 2; i++) //make up for real spectre bolt having 3 extraUpdates
                     {
-                        Vector2 change = Projectile.DirectionTo(target) * 5f;
+                        Vector2 change = Projectile.DirectionTo(target.Center) * 5f;
                         Projectile.velocity = (Projectile.velocity * 29f + change) / 30f;
                     }
+
+                    Projectile.position += (target.position - target.oldPosition) / 2;
                 }
 
                 for (int i = 0; i < 3; i++) //make up for real spectre bolt having 3 extraUpdates

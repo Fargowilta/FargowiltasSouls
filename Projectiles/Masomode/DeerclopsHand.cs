@@ -31,13 +31,16 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.timeLeft = 300;
         }
 
-        public override void OnSpawn(IEntitySource source)
-        {
-            SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
-        }
+        bool spawned;
 
         public override void AI()
         {
+            if (!spawned)
+            {
+                spawned = true;
+                SoundEngine.PlaySound(SoundID.DD2_GhastlyGlaiveImpactGhost, Projectile.Center);
+            }
+
             if (Projectile.ai[1] == 0)
             {
                 Player player = FargoSoulsUtil.PlayerExists(Projectile.ai[0]);

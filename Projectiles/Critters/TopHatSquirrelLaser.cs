@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Projectiles
             AIType = ProjectileID.PurpleLaser;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
-            Projectile.timeLeft = 300;
+            Projectile.timeLeft = 180;
             Projectile.light = 0;
         }
 

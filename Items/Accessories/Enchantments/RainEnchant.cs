@@ -44,7 +44,10 @@ Effects of Inner Tube
             modPlayer.RainEnchantActive = true;
             modPlayer.AddMinion(item, player.GetToggleValue("Rain"), ModContent.ProjectileType<RainCloud>(), 24, 0);
             if (player.GetToggleValue("RainInnerTube"))
+            {
                 player.hasFloatingTube = true;
+                player.canFloatInWater = true;
+            }
         }
 
         public override void AddRecipes()

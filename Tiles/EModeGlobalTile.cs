@@ -22,25 +22,22 @@ namespace FargowiltasSouls.Tiles
             }
 
             if (type == TileID.LihzahrdAltar && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost
-                && Collision.CanHit(new Vector2(i * 16 + 8, j * 16 + 8), 0, 0, Main.LocalPlayer.Center, 0, 0)
                 && Main.LocalPlayer.Distance(new Vector2(i * 16 + 8, j * 16 + 8)) < 3000
+                && Collision.CanHit(new Vector2(i * 16 + 8, j * 16 + 8), 0, 0, Main.LocalPlayer.Center, 0, 0)
                 && Framing.GetTileSafely(Main.LocalPlayer.Center).WallType == WallID.LihzahrdBrickUnsafe)
             {
-                if (Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead)
+                if (!Main.LocalPlayer.HasBuff(ModContent.BuffType<LihzahrdBlessing>()))
                 {
-                    if (!Main.LocalPlayer.HasBuff(ModContent.BuffType<LihzahrdBlessing>()))
+                    Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.LihzahrdBlessing"), Color.Orange);
+                    SoundEngine.PlaySound(SoundID.Item4, Main.LocalPlayer.Center);
+                    for (int k = 0; k < 50; k++)
                     {
-                        Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.LihzahrdBlessing"), Color.Orange);
-                        SoundEngine.PlaySound(SoundID.Item4, Main.LocalPlayer.Center);
-                        for (int k = 0; k < 50; k++)
-                        {
-                            int d = Dust.NewDust(Main.LocalPlayer.position, Main.LocalPlayer.width, Main.LocalPlayer.height, DustID.Torch, 0f, 0f, 0, default(Color), Main.rand.NextFloat(3f, 6f));
-                            Main.dust[d].noGravity = true;
-                            Main.dust[d].velocity *= 9f;
-                        }
+                        int d = Dust.NewDust(Main.LocalPlayer.position, Main.LocalPlayer.width, Main.LocalPlayer.height, DustID.Torch, 0f, 0f, 0, default(Color), Main.rand.NextFloat(3f, 6f));
+                        Main.dust[d].noGravity = true;
+                        Main.dust[d].velocity *= 9f;
                     }
-                    Main.LocalPlayer.AddBuff(ModContent.BuffType<LihzahrdBlessing>(), 60 * 60 * 10 - 1); //10mins
                 }
+                Main.LocalPlayer.AddBuff(ModContent.BuffType<LihzahrdBlessing>(), 60 * 60 * 10 - 1); //10mins
             }
         }
 

@@ -103,7 +103,7 @@ namespace FargowiltasSouls
             AddToggle("GoldConfig", ModContent.ItemType<GoldEnchant>(), "e7b21c");
             AddToggle("GoldToPiggyConfig", ModContent.ItemType<GoldEnchant>(), "e7b21c");
             AddToggle("HuntressConfig", ModContent.ItemType<HuntressEnchant>(), "7ac04c");
-            AddToggle("RedRidingRainConfig", ModContent.ItemType<RedRidingEnchant>(), "7ac04c");
+            AddToggle("RedRidingRainConfig", ModContent.ItemType<RedRidingEnchant>(), "c01b3c");
             AddToggle("ValhallaConfig", ModContent.ItemType<ValhallaKnightEnchant>(), "93651e");
             AddToggle("SquirePanicConfig", ModContent.ItemType<SquireEnchant>(), "948f8c");
 

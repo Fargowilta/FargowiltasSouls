@@ -72,10 +72,10 @@ namespace FargowiltasSouls
         }
 
         public static NPC GetSourceNPC(this Projectile projectile)
-            => projectile.GetGlobalProjectile<a_SourceNPCGlobalProjectile>().sourceNPC;
+            => projectile.GetGlobalProjectile<A_SourceNPCGlobalProjectile>().sourceNPC;
 
         public static void SetSourceNPC(this Projectile projectile, NPC npc)
-            => projectile.GetGlobalProjectile<a_SourceNPCGlobalProjectile>().sourceNPC = npc;
+            => projectile.GetGlobalProjectile<A_SourceNPCGlobalProjectile>().sourceNPC = npc;
 
         public static float ActualClassDamage(this Player player, DamageClass damageClass)
             => player.GetTotalDamage(damageClass).Additive * player.GetTotalDamage(damageClass).Multiplicative;
@@ -514,11 +514,11 @@ namespace FargowiltasSouls
         {
             if (Main.netMode == NetmodeID.MultiplayerClient && playerTarget == Main.myPlayer)
             {
-                var packet = FargowiltasSouls.Instance.GetPacket();
-                packet.Write((byte)FargowiltasSouls.PacketID.SpawnBossTryFromNPC);
-                packet.Write(playerTarget);
-                packet.Write(originalType);
-                packet.Write(bossType);
+                //var packet = FargowiltasSouls.Instance.GetPacket();
+                //packet.Write((byte)FargowiltasSouls.PacketID.SpawnBossTryFromNPC);
+                //packet.Write(playerTarget);
+                //packet.Write(originalType);
+                //packet.Write(bossType);
                 return;
             }
 
@@ -526,12 +526,21 @@ namespace FargowiltasSouls
             if (npc != null)
             {
                 Vector2 pos = npc.Bottom;
-                npc.Transform(bossType);
-                npc.Bottom = pos;
+
+                npc.life = 0;
+                npc.active = false;
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
 
-                PrintText($"{npc.GivenOrTypeName} {Language.GetTextValue("Mods.FargowiltasSouls.Message.HasAwoken")}", new Color(175, 75, 255));
+                int n = NewNPCEasy(NPC.GetBossSpawnSource(playerTarget), pos, bossType);
+                if (n != Main.maxNPCs)
+                {
+                    Main.npc[n].Bottom = pos;
+                    if (Main.netMode == NetmodeID.Server)
+                        NetMessage.SendData(MessageID.SyncNPC, number: n);
+
+                    PrintText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[n].TypeName), new Color(175, 75, 255));
+                }
             }
             else
             {
@@ -543,6 +552,11 @@ namespace FargowiltasSouls
         {
             int type = ModContent.TryFind(originalType, out ModNPC modNPC) ? modNPC.Type : 0;
             SpawnBossTryFromNPC(playerTarget, type, bossType);
+        }
+
+        public static bool IsProjSourceItemUseReal(Projectile proj, IEntitySource source)
+        {
+            return source is EntitySource_ItemUse parent && parent.Item.type == Main.player[proj.owner].HeldItem.type;
         }
 
         #region npcloot

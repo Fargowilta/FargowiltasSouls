@@ -33,12 +33,21 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
             NPCID.Buggy,
             NPCID.Turtle,
             NPCID.TurtleJungle,
-            NPCID.SeaTurtle
+            NPCID.SeaTurtle,
+            NPCID.Duck,
+            NPCID.Duck2,
+            NPCID.DuckWhite,
+            NPCID.DuckWhite2,
+            NPCID.Grebe,
+            NPCID.Grebe2,
+            NPCID.Dolphin,
+            NPCID.Seagull,
+            NPCID.Seagull2
         );
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.GetGlobalNPC<EModeGlobalNPC>().isWaterEnemy = true;
         }

@@ -39,15 +39,16 @@ namespace FargowiltasSouls.Projectiles.Masomode
         }
 
         float originalSpeed;
-        public override void OnSpawn(IEntitySource source)
-        {
-            base.OnSpawn(source);
-
-            originalSpeed = Projectile.velocity.Length();
-        }
+        bool spawned;
 
         public override void AI()
         {
+            if (!spawned)
+            {
+                spawned = true;
+                originalSpeed = Projectile.velocity.Length();
+            }
+
             Projectile.velocity = originalSpeed * Vector2.Normalize(Projectile.velocity).RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
 
             //vanilla typhoon dust (ech)

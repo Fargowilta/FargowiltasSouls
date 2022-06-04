@@ -492,7 +492,7 @@ Mods: {
 			AncientCobaltEnchant: 远古钴魔石
 			AncientHallowEnchant: 远古神圣魔石
 			AncientShadowEnchant: 远古暗影魔石
-			AnglerEnchantment: 渔夫魔石
+			AnglerEnchant: 渔夫魔石
 			ApprenticeEnchant: 学徒魔石
 			BeeEnchant: 蜜蜂魔石
 			BeetleEnchant: 甲虫魔石
@@ -665,7 +665,7 @@ Mods: {
 				三颗暗影珠围绕着你旋转\n攻击暗影珠会使其释放追踪暗影能量
 				“十分古老，却非常实用”
 				'''
-			AnglerEnchantment:
+			AnglerEnchant:
 				'''
 				增加渔力
 				你几乎可以立即钓到鱼

@@ -1520,36 +1520,36 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         else if (NPC.ai[1] == 60)
                         {
-                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Line1"));
+                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Line1"));
                         }
                         else if (NPC.ai[1] == 150)
                         {
-                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Line2"), true);
+                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Line2"), true);
                         }
                         else if (NPC.ai[1] == 300)
                         {
-                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Line3"), true);
+                            CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Line3"), true);
                         }
                         else if (NPC.ai[1] == 450)
                         {
                             if (FargoSoulsWorld.downedDevi)
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Accept1"));
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Accept1"));
                             }
                             else
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Reject1"), true);
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Reject1"), true);
                             }
                         }
                         else if (NPC.ai[1] == 600)
                         {
                             if (FargoSoulsWorld.downedDevi)
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Accept2"), true);
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Accept2"), true);
                             }
                             else
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Reject2"), true);
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Reject2"), true);
 
                                 SoundEngine.PlaySound(SoundID.Item28, player.Center);
                                 Vector2 spawnPos = NPC.Center + Vector2.UnitX * NPC.width * 2 * (player.Center.X < NPC.Center.X ? -1 : 1);
@@ -1573,11 +1573,11 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         {
                             if (FargoSoulsWorld.downedDevi)
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Accept3"), true);
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Accept3"), true);
                             }
                             else
                             {
-                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("DeviBribe.Reject3"), true);
+                                CombatText.NewText(displayPoint, Color.HotPink, Language.GetTextValue("Mods.FargowiltasSouls.Message.DeviBribe.Reject3"), true);
                             }
                         }
 

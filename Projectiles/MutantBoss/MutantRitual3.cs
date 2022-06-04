@@ -48,7 +48,6 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (npc != null)
                     Projectile.Center = npc.Center;
 
-                Projectile.ai[1] = -1;
                 Projectile.velocity = Vector2.Zero;
                 Projectile.alpha += 9;
                 if (Projectile.alpha > 255)

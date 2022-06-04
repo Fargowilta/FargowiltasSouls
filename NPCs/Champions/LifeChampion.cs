@@ -36,8 +36,6 @@ namespace FargowiltasSouls.NPCs.Champions
                 {
                     BuffID.Chilled,
                     BuffID.Suffocation,
-                    BuffID.Daybreak,
-                    BuffID.StardustMinionBleed,
                     ModContent.BuffType<Lethargic>(),
                     ModContent.BuffType<ClippedWings>(),
                 }
@@ -83,7 +81,7 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.knockBackResist = 0f;
             NPC.lavaImmune = true;
             NPC.aiStyle = -1;
-            NPC.value = Item.buyPrice(0, 15);
+            NPC.value = Item.buyPrice(1);
             NPC.boss = true;
 
             Music = ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod)

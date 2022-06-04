@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.immune[Projectile.owner] = 8;
+            target.immune[Projectile.owner] = 6;
         }
 
         /*public override Color? GetAlpha(Color lightColor)

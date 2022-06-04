@@ -27,9 +27,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
     {
         public abstract int GetVulnerabilityState(NPC npc);
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
             npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
@@ -455,20 +455,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             case 2: //magic
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
-                                    for (int i = -1; i <= 1; i++)
+                                    //for (int i = -1; i <= 1; i++)
+                                    //{
+                                    int p = Projectile.NewProjectile(
+                                      npc.GetSource_FromThis(),
+                                      npc.Center, Vector2.Zero,
+                                      ModContent.ProjectileType<GlowLine>(),
+                                      0, 0f, Main.myPlayer, 17f, npc.whoAmI);
+                                    if (p != Main.maxProjectiles)
                                     {
-                                        int p = Projectile.NewProjectile(
-                                          npc.GetSource_FromThis(),
-                                          npc.Center, Vector2.Zero,
-                                          ModContent.ProjectileType<GlowLine>(),
-                                          0, 0f, Main.myPlayer, 17f, npc.whoAmI);
-                                        if (p != Main.maxProjectiles)
-                                        {
-                                            Main.projectile[p].localAI[0] = 950f * i;
-                                            if (Main.netMode == NetmodeID.Server)
-                                                NetMessage.SendData(MessageID.SyncProjectile, number: p);
-                                        }
+                                        //Main.projectile[p].localAI[0] = 950f * i;
+                                        if (Main.netMode == NetmodeID.Server)
+                                            NetMessage.SendData(MessageID.SyncProjectile, number: p);
                                     }
+                                    //}
                                 }
                                 break;
 

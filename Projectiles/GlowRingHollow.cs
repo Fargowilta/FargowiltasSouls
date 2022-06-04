@@ -73,6 +73,12 @@ namespace FargowiltasSouls.Projectiles
                         color = Color.Yellow;
                         maxTime = 180;
                         alphaModifier = 10;
+                        if (Projectile.localAI[0] > maxTime / 2)
+                        {
+                            alphaModifier = -1;
+                            Projectile.alpha = 0;
+                        }
+
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.AbomBoss.AbomBoss>());
                         if (npc != null)
                         {

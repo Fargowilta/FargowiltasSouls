@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Consumables
             Tooltip.SetDefault(
 @"Allows the ability to dash
 Double tap a direction
-Taking damage briefly freezes you
+Taking damage may briefly freeze you
 Crit damage multiplier ranges from x2 to x1.5, decreasing with your speed
 All effects negated if toggled off or another dash is already in use
 'Cold but twitching'");

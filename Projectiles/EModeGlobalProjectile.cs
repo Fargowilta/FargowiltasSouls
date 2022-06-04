@@ -48,48 +48,48 @@ namespace FargowiltasSouls.Projectiles
             IgnoreMinionNerf[ProjectileID.StardustDragon3] = true;
             IgnoreMinionNerf[ProjectileID.StardustDragon4] = true;
 
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharpTears] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MeteorShot] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.ShadowFlame] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MoonlordBullet] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.WaterBolt] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.WaterStream] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DeathSickle] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.IceSickle] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SwordBeam] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CultistBossFireBall] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CultistBossFireBallClone] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharknadoBolt] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BloodShot] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.HallowBossRainbowStreak] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.HallowBossLastingRainbow] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FairyQueenLance] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BulletDeadeye] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MeteorShot] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MoonlordBullet] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FlamesTrap] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FlamethrowerTrap] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.GeyserTrap] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.Fireball] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.EyeBeam] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalBolt] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalEye] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalSphere] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.ShadowBeamHostile] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.InfernoHostileBlast] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.InfernoHostileBolt] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.RuneBlast] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.EyeLaser] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.GoldenShowerHostile] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CursedFlameHostile] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.Skull] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.QueenSlimeGelAttack] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BombSkeletronPrime] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SandnadoHostile] = true;
-            a_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.NebulaSphere] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharpTears] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MeteorShot] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.ShadowFlame] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MoonlordBullet] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.WaterBolt] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.WaterStream] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DeathSickle] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.IceSickle] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SwordBeam] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CultistBossFireBall] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CultistBossFireBallClone] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharknadoBolt] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BloodShot] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.HallowBossRainbowStreak] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.HallowBossLastingRainbow] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FairyQueenLance] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BulletDeadeye] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MeteorShot] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.MoonlordBullet] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FlamesTrap] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.FlamethrowerTrap] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.GeyserTrap] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.Fireball] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.EyeBeam] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalBolt] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalEye] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.PhantasmalSphere] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.ShadowBeamHostile] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.InfernoHostileBlast] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.InfernoHostileBolt] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.RuneBlast] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.EyeLaser] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.GoldenShowerHostile] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.CursedFlameHostile] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.Skull] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.DD2ExplosiveTrapT3Explosion] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.QueenSlimeGelAttack] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.BombSkeletronPrime] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SandnadoHostile] = true;
+            A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.NebulaSphere] = true;
 
         }
 
@@ -221,11 +221,6 @@ namespace FargowiltasSouls.Projectiles
             {
                 case ProjectileID.ZapinatorLaser:
                     projectile.originalDamage = projectile.damage;
-                    break;
-
-                case ProjectileID.Meowmere:
-                    if (source is EntitySource_ItemUse && projectile.owner == Main.myPlayer)
-                        FargoSoulsGlobalProjectile.SplitProj(projectile, 3, MathHelper.ToRadians(30), 1f);
                     break;
 
                 case ProjectileID.FallingStar:
@@ -924,17 +919,19 @@ namespace FargowiltasSouls.Projectiles
                     break;
 
                 case ProjectileID.PhantasmalEye:
-                    if (!FargoSoulsWorld.MasochistModeReal && NonSwarmFight(projectile, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye))
+                    if (NonSwarmFight(projectile, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye))
                     {
                         if (projectile.ai[0] == 2 && counter > 60) //diving down and homing
                             projectile.velocity.Y = 9;
                         else
                             projectile.position.Y -= projectile.velocity.Y / 4;
 
-                        if (projectile.velocity.X > 1)
-                            projectile.velocity.X = 1;
-                        else if (projectile.velocity.X < -1)
-                            projectile.velocity.X = -1;
+                        float cap = FargoSoulsWorld.MasochistModeReal ? 2 : 1;
+
+                        if (projectile.velocity.X > cap)
+                            projectile.velocity.X = cap;
+                        else if (projectile.velocity.X < -cap)
+                            projectile.velocity.X = -cap;
                     }
                     break;
 

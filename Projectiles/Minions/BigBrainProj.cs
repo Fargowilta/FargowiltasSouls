@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class BigBrainProj : ModProjectile
     {
-        public const int MaxMinionSlots = 10;
+        public const int MaxMinionSlots = 11;
 
         public override void SetStaticDefaults()
         {
@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.frame = (Projectile.frame + 1) % 12;
             }
 
-            float slotsModifier = 10f / 7f * Math.Min(Projectile.minionSlots / MaxMinionSlots, 1f);
+            float slotsModifier = MaxMinionSlots / 7f * Math.Min(Projectile.minionSlots / MaxMinionSlots, 1f);
 
             Projectile.ai[0] += 0.1f + 0.3f * slotsModifier;
             Projectile.alpha = (int)(Math.Cos(Projectile.ai[0] / 0.4f * MathHelper.TwoPi / 180) * 60) + 60;
@@ -101,7 +101,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.immune[Projectile.owner] = 8;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

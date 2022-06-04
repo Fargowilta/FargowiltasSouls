@@ -248,33 +248,6 @@ namespace FargowiltasSouls
             }
         }
 
-
-        public void CrimsonEffect(bool hideVisual)
-        {
-            if (CrimsonRegen && ++CrimsonRegenTimer > 30)
-            {
-                CrimsonRegenTimer = 0;
-
-                int heal = 5;
-
-                HealPlayer(heal);
-
-                CrimsonRegenSoFar += heal;
-
-                //done regenning
-                if (CrimsonRegenSoFar >= CrimsonTotalToRegen)
-                {
-                    CrimsonTotalToRegen = 0;
-                    CrimsonRegenSoFar = 0;
-                    Player.ClearBuff(ModContent.BuffType<CrimsonRegen>());
-                }
-            }
-
-            //Player.crimsonRegen = true;
-
-            CrimsonEnchantActive = true;
-        }
-
         public void DarkArtistEffect(bool hideVisual)
         {
             if (Player.ownedProjectileCounts[ModContent.ProjectileType<FlameburstMinion>()] == 0)
@@ -1971,8 +1944,7 @@ namespace FargowiltasSouls
             if (Player.whoAmI == Main.myPlayer && Player.GetToggleValue("Builder"))
             {
                 BuilderMode = true;
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    NetMessage.SendData(MessageID.SyncPlayer, number: Player.whoAmI);
+                //if (Main.netMode == NetmodeID.MultiplayerClient) NetMessage.SendData(MessageID.SyncPlayer, number: Player.whoAmI);
 
                 for (int i = 0; i < TileLoader.TileCount; i++)
                 {
@@ -1982,11 +1954,17 @@ namespace FargowiltasSouls
                 //placing speed up
                 Player.tileSpeed += 0.5f;
                 Player.wallSpeed += 0.5f;
+
                 //toolbox
-                if (Player.HeldItem.createWall == 0)
+                if (Player.HeldItem.createWall == 0) //tiles
                 {
-                    Player.tileRangeX += 50;
-                    Player.tileRangeY += 50;
+                    Player.tileRangeX += 60;
+                    Player.tileRangeY += 60;
+                }
+                else //walls
+                {
+                    Player.tileRangeX += 20;
+                    Player.tileRangeY += 20;
                 }
             }
 
@@ -2286,7 +2264,7 @@ namespace FargowiltasSouls
 
                 if (Player.GetToggleValue("MasoEater") && (projectile == null || projectile.type != ProjectileID.TinyEater))
                 {
-                    SoundEngine.PlaySound(new SoundStyle("Terraria/Sounds/NPC_Hit_0"), Player.Center);
+                    SoundEngine.PlaySound(SoundID.NPCHit1, Player.Center);
                     for (int index1 = 0; index1 < 20; ++index1)
                     {
                         int index2 = Dust.NewDust(Player.position, Player.width, Player.height, 184, 0.0f, 0.0f, 0, new Color(), 1f);
@@ -2569,7 +2547,7 @@ namespace FargowiltasSouls
 
             if (Player.gravDir > 0 && Player.GetToggleValue("MasoGolem"))
             {
-                if (lihzahrdFallCD <= 0 && !Player.mount.Active && Player.controlDown && !Player.controlJump && Player.doubleTapCardinalTimer[3] > 0 && Player.doubleTapCardinalTimer[3] != 15)
+                if (lihzahrdFallCD <= 0 && !Player.mount.Active && Player.controlDown && Player.releaseDown && !Player.controlJump && Player.doubleTapCardinalTimer[0] > 0 && Player.doubleTapCardinalTimer[0] != 15)
                 {
                     if (Player.velocity.Y != 0f)
                     {
@@ -2577,13 +2555,16 @@ namespace FargowiltasSouls
                         {
                             Player.velocity.Y = 15f;
                         }
+
+                        lihzahrdFallCD = 60;
+
                         if (GroundPound <= 0)
                         {
                             GroundPound = 1;
-                            lihzahrdFallCD = 60;
                         }
                     }
                 }
+
                 if (GroundPound > 0)
                 {
                     if (Player.velocity.Y < 0f || Player.mount.Active)
@@ -2596,7 +2577,7 @@ namespace FargowiltasSouls
                         {
                             int x = (int)(Player.Center.X) / 16;
                             int y = (int)(Player.position.Y + Player.height + 8) / 16;
-                            if (GroundPound > 15 && x >= 0 && x < Main.maxTilesX && y >= 0 && y < Main.maxTilesY
+                            if (/*GroundPound > 15 && */x >= 0 && x < Main.maxTilesX && y >= 0 && y < Main.maxTilesY
                                 && Main.tile[x, y] != null && Main.tile[x, y].HasUnactuatedTile && Main.tileSolid[Main.tile[x, y].TileType])
                             {
                                 GroundPound = 0;
@@ -2630,6 +2611,13 @@ namespace FargowiltasSouls
                     {
                         Player.maxFallSpeed = 15f;
                         GroundPound++;
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int d = Dust.NewDust(Player.position, Player.width, Player.height, DustID.Torch, Scale: 1.5f);
+                            Main.dust[d].noGravity = true;
+                            Main.dust[d].velocity *= 0.2f;
+                        }
                     }
                 }
             }
@@ -2731,6 +2719,9 @@ namespace FargowiltasSouls
 
         public void DeerSinewEffect()
         {
+            if (DeerSinewFreezeCD > 0)
+                DeerSinewFreezeCD--;
+
             if (!Player.GetToggleValue("DeerSinewDash", false) || HasDash || Player.mount.Active || Player.whoAmI != Main.myPlayer)
                 return;
 
@@ -2836,6 +2827,28 @@ namespace FargowiltasSouls
         private const int DREAD_PARRY_WINDOW = 10;
         private const int DREAD_SHIELD_COOLDOWN = 360;
 
+        void RaisedShieldEffects()
+        {
+            if (DreadShellItem != null)
+            {
+                if (!MasochistSoul)
+                    DreadShellVulnerabilityTimer = 60;
+
+                Player.velocity.X *= 0.85f;
+                if (Player.velocity.Y < 0)
+                    Player.velocity.Y *= 0.85f;
+            }
+
+            int cooldown = IRON_SHIELD_COOLDOWN;
+            if (DreadShellItem != null)
+                cooldown = DREAD_SHIELD_COOLDOWN;
+            else if (IronEnchantShield)
+                cooldown = IRON_SHIELD_COOLDOWN;
+
+            if (shieldCD < cooldown)
+                shieldCD = cooldown;
+        }
+
         public void Shield()
         {
             GuardRaised = false;
@@ -2882,6 +2895,10 @@ namespace FargowiltasSouls
                     Player.itemTime = 0;
                     Player.reuseDelay = 0;
                 }
+                else //doing this so that on the first tick, these things DO NOT run
+                {
+                    RaisedShieldEffects();
+                }
 
                 if (shieldTimer == 1) //parry window over
                 {
@@ -2906,24 +2923,6 @@ namespace FargowiltasSouls
                         }
                     }
                 }
-
-                if (DreadShellItem != null)
-                {
-                    if (!MasochistSoul)
-                        DreadShellVulnerabilityTimer = 60;
-
-                    Player.velocity.X *= 0.85f;
-                    if (Player.velocity.Y < 0)
-                        Player.velocity.Y *= 0.85f;
-                }
-
-                int cooldown = IRON_SHIELD_COOLDOWN;
-                if (DreadShellItem != null)
-                    cooldown = DREAD_SHIELD_COOLDOWN;
-                else if (IronEnchantShield)
-                    cooldown = IRON_SHIELD_COOLDOWN;
-                if (shieldCD < cooldown)
-                    shieldCD = cooldown;
             }
             else
             {
@@ -2932,6 +2931,7 @@ namespace FargowiltasSouls
                 if (wasHoldingShield)
                 {
                     wasHoldingShield = false;
+
                     Player.shield_parry_cooldown = 0; //prevent that annoying tick noise
                     //Player.shieldParryTimeLeft = 0;
                     //ironShieldTimer = 0;

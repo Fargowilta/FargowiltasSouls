@@ -107,10 +107,10 @@ namespace FargowiltasSouls
         public bool CopperEnchantActive;
         public int CopperProcCD;
         public bool CrimsonEnchantActive;
-        public bool CrimsonRegen;
-        public int CrimsonTotalToRegen;
-        public int CrimsonRegenSoFar;
-        public int CrimsonRegenTimer;
+        public int CrimsonRegenAmount;
+        //public int CrimsonTotalToRegen;
+        //public int CrimsonRegenSoFar;
+        //public int CrimsonRegenTimer;
         public bool DarkArtistEnchantActive;
         public bool DarkArtistSpawn;
         public int DarkArtistSpawnCD;
@@ -262,6 +262,7 @@ namespace FargowiltasSouls
         public Item DeerclawpsItem;
         public int IsDashingTimer;
         public bool DeerSinewNerf;
+        public int DeerSinewFreezeCD;
         public bool PureHeart;
         public bool PungentEyeballMinion;
         public bool CrystalSkullMinion;
@@ -696,7 +697,7 @@ namespace FargowiltasSouls
             PetsActive = true;
             ShadowEnchantActive = false;
             CrimsonEnchantActive = false;
-            CrimsonRegen = false;
+            //CrimsonRegen = false;
             SpectreEnchantActive = false;
             BeeEnchantActive = false;
             SpiderEnchantActive = false;
@@ -1146,10 +1147,6 @@ namespace FargowiltasSouls
             //if ((CobaltEnchantActive || AncientCobaltEnchantActive) && CobaltCD > 0)
             //    CobaltCD--;
 
-
-            if (LihzahrdTreasureBoxItem != null)
-                LihzahrdTreasureBoxUpdate();
-
             //horizontal dash
             if (MonkDashing > 0)
             {
@@ -1247,8 +1244,14 @@ namespace FargowiltasSouls
             if (GaiaOffense && !GaiaSet)
                 GaiaOffense = false;
 
-            if (QueenStingerItem != null && QueenStingerCD > 0)
-                QueenStingerCD--;
+            if (QueenStingerItem != null)
+            {
+                if (Player.honey)
+                    Player.GetArmorPenetration(DamageClass.Generic) += 10;
+
+                if (QueenStingerCD > 0)
+                    QueenStingerCD--;
+            }
 
             if (BeetleEnchantDefenseTimer > 0)
                 BeetleEnchantDefenseTimer--;
@@ -1327,6 +1330,9 @@ namespace FargowiltasSouls
             if (DeerSinew)
                 DeerSinewEffect();
 
+            if (LihzahrdTreasureBoxItem != null)
+                LihzahrdTreasureBoxUpdate();
+
             #endregion dashes
 
             if (PrecisionSealNoDashNoJump)
@@ -1343,6 +1349,8 @@ namespace FargowiltasSouls
                 dashCD = 2;
                 IsDashingTimer = 0;
                 HasDash = false;
+                if (lihzahrdFallCD < 2)
+                    lihzahrdFallCD = 2;
             }
 
             if (DeerclawpsItem != null)
@@ -1699,6 +1707,9 @@ namespace FargowiltasSouls
                 AttackSpeed -= .1f;
             }
 
+            if (AttackSpeed < .1f)
+                AttackSpeed = .1f;
+
             return AttackSpeed;
         }
 
@@ -2023,9 +2034,9 @@ namespace FargowiltasSouls
             if (proj.hostile)
                 return;
 
-            if (SpiderEnchantActive && Player.GetToggleValue("Spider", false))
+            if (SpiderEnchantActive && FargoSoulsUtil.IsSummonDamage(proj) && Player.GetToggleValue("Spider", false))
             {
-                if (Main.rand.Next(100) < proj.CritChance)
+                if (Main.rand.Next(100) < Player.ActualClassCrit(DamageClass.Summon))
                     crit = true;
             }
 
@@ -2647,18 +2658,7 @@ namespace FargowiltasSouls
 
             if (CrimsonEnchantActive && Player.GetToggleValue("Crimson"))
             {
-                //if was already healing, kill it
-                if (Player.HasBuff(ModContent.BuffType<CrimsonRegen>()))
-                    damage += CrimsonRegenSoFar;
-                else
-                    Player.AddBuff(ModContent.BuffType<CrimsonRegen>(), 2);
-
-                CrimsonTotalToRegen = (damage - CrimsonRegenSoFar) / 2;
-
-                if (NatureForce)
-                    CrimsonTotalToRegen *= 2;
-
-                CrimsonRegenSoFar = 0;
+                CrimsonEnchant.CrimsonHurt(Player, this, ref damage);
             }
 
             if (StyxSet && !BetsyDashing && !GoldShell && damage > 1 && Player.ownedProjectileCounts[ModContent.ProjectileType<StyxArmorScythe>()] > 0)
@@ -2681,15 +2681,18 @@ namespace FargowiltasSouls
                 damage = (int)(damage * (1.0 - maxDR / maxSacrifice * scythesSacrificed));
             }
 
+            if (DeerSinewNerf && DeerSinewFreezeCD <= 0 && (damageSource.SourceNPCIndex != -1 || (damageSource.SourceProjectileIndex != -1 && Main.projectile[damageSource.SourceProjectileIndex].aiStyle != ProjAIStyleID.FallingTile)))
+            {
+                DeerSinewFreezeCD = 120;
+                FargoSoulsUtil.AddDebuffFixedDuration(Player, BuffID.Frozen, 20);
+            }
+
             return true;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
             WasHurtBySomething = true;
-
-            if (DeerSinewNerf)
-                FargoSoulsUtil.AddDebuffFixedDuration(Player, BuffID.Frozen, 20, false);
 
             if (BeetleEnchantActive)
                 BeetleHurt();

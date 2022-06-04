@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Supreme Deathbringer Fairy");
             Tooltip.SetDefault(@"Grants immunity to Slimed, Berserked, Lethargic, and Infested
 When below half HP, gain 10% increased damage, speed, and attack speed
-Increases armor penetration by 10
+Honey buff increases your armor penetration by 10
 Increased fall speed
 When you land after a jump, slime will fall from the sky over your cursor
 While dashing or running quickly you will create a trail of blood scythes
@@ -76,8 +76,6 @@ Summons 2 Skeletron arms to whack enemies
 
             //queen stinger
             player.buffImmune[ModContent.BuffType<Infested>()] = true;
-            //player.honey = true;
-            player.GetArmorPenetration(DamageClass.Generic) += 10;
             player.npcTypeNoAggro[210] = true;
             player.npcTypeNoAggro[211] = true;
             player.npcTypeNoAggro[42] = true;

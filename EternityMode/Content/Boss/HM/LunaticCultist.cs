@@ -53,9 +53,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.lifeMax = (int)(npc.lifeMax * (FargoSoulsWorld.MasochistModeReal ? 2 : 1.5));
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -385,9 +385,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(MyRitualPosition), IntStrategies.CompoundStrategy },
             };
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
             npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
@@ -490,9 +490,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.lifeMax *= 4;
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }
@@ -555,9 +555,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.chaseable = false;
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.OnFire] = true;
@@ -647,16 +647,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public int DamageReductionTimer;
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
-        {
-            base.OnSpawn(npc, source);
-
-            npc.buffImmune[BuffID.Suffocation] = true;
-        }
-
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
+
+            npc.buffImmune[BuffID.Suffocation] = true;
 
             if (npc.type == NPCID.CultistDragonHead)
             {
@@ -715,9 +710,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 npc.lifeMax /= 2;
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
         }

@@ -23,6 +23,7 @@ namespace FargowiltasSouls.Patreon.Duck
         public override void SetDefaults()
         {
             base.SetDefaults();
+
             CooldownSlot = -1;
             Projectile.hostile = false;
             Projectile.friendly = true;
@@ -30,7 +31,19 @@ namespace FargowiltasSouls.Patreon.Duck
 
             Projectile.hide = true;
             Projectile.penetrate = -1;
+
+            Projectile.GetGlobalProjectile<Projectiles.FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
         }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            if (Projectile.Distance(FargoSoulsUtil.ClosestPointInHitbox(targetHitbox, Projectile.Center)) < TipOffset.Length())
+                return true;
+
+            return base.Colliding(projHitbox, targetHitbox);
+        }
+
+        Vector2 TipOffset => 18f * Projectile.scale * Projectile.velocity;
 
         public override void AI()
         {
@@ -42,11 +55,7 @@ namespace FargowiltasSouls.Patreon.Duck
             if (!Main.dedServ && Main.LocalPlayer.active)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 20;
 
-            Vector2? vector78 = null;
-            if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
-            {
-                Projectile.velocity = -Vector2.UnitY;
-            }
+            Projectile.velocity = Projectile.velocity.SafeNormalize(-Vector2.UnitY);
 
             float num801 = 10f;
             Projectile.scale = (float)Math.Cos(Projectile.localAI[0] * MathHelper.PiOver2 / maxTime) * num801;
@@ -55,7 +64,7 @@ namespace FargowiltasSouls.Patreon.Duck
 
             if (player.active && !player.dead && !player.ghost)
             {
-                Projectile.Center = player.Center + (18f * Projectile.scale + 50f) * Projectile.velocity + Main.rand.NextVector2Circular(5, 5);
+                Projectile.Center = player.Center + 50f * Projectile.velocity + TipOffset + Main.rand.NextVector2Circular(5, 5);
             }
             else
             {
@@ -65,7 +74,6 @@ namespace FargowiltasSouls.Patreon.Duck
 
             if (Projectile.localAI[0] == 0f)
             {
-                Projectile.frame = Main.rand.Next(15);
                 if (!Main.dedServ)
                 {
                     SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Railgun"), Projectile.Center);
@@ -76,7 +84,7 @@ namespace FargowiltasSouls.Patreon.Duck
 
                 for (int i = 0; i < 40; i++)
                 {
-                    int dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, 31, 0f, 0f, 100, default(Color), 4f);
+                    int dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, DustID.Smoke, 0f, 0f, 100, default(Color), 4f);
                     Main.dust[dust].velocity -= Projectile.velocity * 2;
                     Main.dust[dust].velocity *= 3f;
                     Main.dust[dust].velocity += player.velocity / 2;
@@ -84,14 +92,14 @@ namespace FargowiltasSouls.Patreon.Duck
 
                 for (int i = 0; i < 50; i++)
                 {
-                    int dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, 6, 0f, 0f, 100, default(Color), 4f);
+                    int dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, DustID.Torch, 0f, 0f, 100, default(Color), 4f);
                     Main.dust[dust].scale *= Main.rand.NextFloat(1, 2.5f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity -= Projectile.velocity * 2;
                     Main.dust[dust].velocity = Main.dust[dust].velocity.RotatedByRandom(MathHelper.ToRadians(40)) * 6f;
                     Main.dust[dust].velocity *= Main.rand.NextFloat(1f, 3f);
                     Main.dust[dust].velocity += player.velocity / 2;
-                    dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, 6, 0f, 0f, 100, default(Color), 4f);
+                    dust = Dust.NewDust(dustPos - new Vector2(16, 16), 32, 32, DustID.Torch, 0f, 0f, 100, default(Color), 4f);
                     Main.dust[dust].velocity -= Projectile.velocity * 2;
                     Main.dust[dust].velocity *= 5f;
                     Main.dust[dust].velocity *= Main.rand.NextFloat(1f, 2f);
@@ -123,27 +131,8 @@ namespace FargowiltasSouls.Patreon.Duck
             //Projectile.rotation = num804;
             //num804 += 1.57079637f;
             //Projectile.velocity = num804.ToRotationVector2();
-            float num805 = 3f;
-            float num806 = (float)Projectile.width;
-            Vector2 samplingPoint = Projectile.Center;
-            if (vector78.HasValue)
-            {
-                samplingPoint = vector78.Value;
-            }
-            float[] array3 = new float[(int)num805];
-            //Collision.LaserScan(samplingPoint, Projectile.velocity, num806 * Projectile.scale, 3000f, array3);
-            for (int i = 0; i < array3.Length; i++)
-                array3[i] = 3000f;
-            float num807 = 0f;
-            int num3;
-            for (int num808 = 0; num808 < array3.Length; num808 = num3 + 1)
-            {
-                num807 += array3[num808];
-                num3 = num808;
-            }
-            num807 /= num805;
             float amount = 0.5f;
-            Projectile.localAI[1] = MathHelper.Lerp(Projectile.localAI[1], num807, amount);
+            Projectile.localAI[1] = MathHelper.Lerp(Projectile.localAI[1], 3000f, amount);
             /*Vector2 vector79 = Projectile.Center + Projectile.velocity * (Projectile.localAI[1] - 14f);
             for (int num809 = 0; num809 < 2; num809 = num3 + 1)
             {
@@ -170,16 +159,16 @@ namespace FargowiltasSouls.Patreon.Duck
             Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
 
             const int increment = 75;
-            for (int i = 0; i < array3[0]; i += increment)
+            for (int i = 0; i < 3000; i += increment)
             {
                 float offset = i + Main.rand.NextFloat(-increment, increment);
                 if (offset < 0)
                     offset = 0;
-                if (offset > array3[0])
-                    offset = array3[0];
+                if (offset > 3000)
+                    offset = 3000;
                 float spawnRange = Projectile.scale * 32f;
                 int d = Dust.NewDust(Projectile.position + Projectile.velocity * offset + Projectile.velocity.RotatedBy(MathHelper.PiOver2) * Main.rand.NextFloat(-spawnRange, spawnRange),
-                    Projectile.width, Projectile.height, 87, 0f, 0f, 0, new Color(255, 255, 255, 150), Main.rand.NextFloat(2f, 4f));
+                    Projectile.width, Projectile.height, DustID.GemTopaz, 0f, 0f, 0, new Color(255, 255, 255, 150), Main.rand.NextFloat(2f, 4f));
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity += Projectile.velocity * 2f;
                 Main.dust[d].velocity *= Main.rand.NextFloat(12f, 24f) / 10f * Projectile.scale;

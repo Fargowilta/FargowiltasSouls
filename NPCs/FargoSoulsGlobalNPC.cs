@@ -967,13 +967,10 @@ namespace FargowiltasSouls.NPCs
 
         public void OnHitByEither(NPC npc, Player player, int damage, float knockback, bool crit)
         {
-            if (Anticoagulation && Main.rand.NextBool(2))
+            if (Anticoagulation && Main.rand.NextBool(2) && player.whoAmI == Main.myPlayer)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    const float speed = 12f;
-                    Projectile.NewProjectile(npc.GetSource_OnHurt(player), npc.Center, Main.rand.NextVector2Circular(speed, speed), ModContent.ProjectileType<Bloodshed>(), 0, 0f, Main.myPlayer, 1f);
-                }
+                const float speed = 12f;
+                Projectile.NewProjectile(npc.GetSource_OnHurt(player), npc.Center, Main.rand.NextVector2Circular(speed, speed), ModContent.ProjectileType<Bloodshed>(), 0, 0f, Main.myPlayer, 1f);
             }
         }
 

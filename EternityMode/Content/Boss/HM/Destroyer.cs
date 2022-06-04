@@ -51,9 +51,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(PrepareToCoil), BoolStrategies.CompoundStrategy },
             };
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.Chilled] = false;
@@ -726,9 +726,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             ProbeReleaseTimer = -Main.rand.Next(360);
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Suffocation] = true;
             npc.buffImmune[BuffID.Chilled] = false;
@@ -957,13 +957,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 npc.lifeMax = (int)(npc.lifeMax * 1.5);
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
-        {
-            base.OnSpawn(npc, source);
-
-            npc.buffImmune[BuffID.Suffocation] = true;
-        }
-
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot)
         {
             return FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer);
@@ -972,6 +965,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
+
+            npc.buffImmune[BuffID.Suffocation] = true;
 
             if (Main.rand.NextBool(4) && !FargoSoulsUtil.AnyBossAlive())
                 EModeGlobalNPC.Horde(npc, 8);

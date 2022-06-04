@@ -27,7 +27,6 @@ namespace FargowiltasSouls.Patreon.Shucks
 
         public override bool MinionContactDamage() => true;
 
-        int lifestealCD;
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -42,9 +41,6 @@ namespace FargowiltasSouls.Patreon.Shucks
             {
                 Projectile.timeLeft = 2;
             }
-
-            if (--lifestealCD < 0)
-                lifestealCD = 0;
 
             if (++Projectile.frameCounter > 6)
             {
@@ -119,11 +115,8 @@ namespace FargowiltasSouls.Patreon.Shucks
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Projectile.owner == Main.myPlayer && lifestealCD == 0)
-            {
-                lifestealCD = 60;
-                Projectile.vampireHeal(1, Projectile.Center, target);
-            }
+            if (Projectile.owner == Main.myPlayer)
+                Projectile.vampireHeal((int)Math.Round(1.0 / 0.075, MidpointRounding.AwayFromZero) + 1, Projectile.Center, target);
         }
 
         public override bool PreDraw(ref Color lightColor)

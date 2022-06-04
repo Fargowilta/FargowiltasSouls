@@ -38,6 +38,10 @@ namespace FargowiltasSouls.Items.Armor
         {
             CreateRecipe()
             .AddIngredient(ModContent.ItemType<Eridanium>(), 5)
+            .AddIngredient(ItemID.FragmentSolar, 5)
+            .AddIngredient(ItemID.FragmentVortex, 5)
+            .AddIngredient(ItemID.FragmentNebula, 5)
+            .AddIngredient(ItemID.FragmentStardust, 5)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
 
             .Register();

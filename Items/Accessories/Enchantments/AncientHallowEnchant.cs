@@ -20,13 +20,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"You gain a shield that can reflect projectiles
 Summons a Terraprisma familiar that scales with minion damage
+Drastically increases minion speed
 'Hallowed be your sword and shield'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "远古神圣魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"使你获得一面可以反弹弹幕的盾牌
-            // 召唤一柄附魔剑，附魔剑的伤害取决于你的召唤伤害
-            // 召唤一只魔法仙灵
-            // '愿人都尊你的剑与盾为圣'");
         }
 
         protected override Color nameColor => new Color(150, 133, 100);
@@ -48,7 +43,7 @@ Summons a Terraprisma familiar that scales with minion damage
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.AncientHallowEnchantActive = true;
-            //modPlayer.SilverEnchantActive = true;
+            modPlayer.SilverEnchantActive = true;
 
             modPlayer.AddMinion(item, player.GetToggleValue("Hallowed"), ModContent.ProjectileType<HallowSword>(), 50, 2);
 
@@ -134,7 +129,7 @@ Summons a Terraprisma familiar that scales with minion damage
                 .AddRecipeGroup("FargowiltasSouls:AnyAncientHallowHead")
                 .AddIngredient(ItemID.AncientHallowedPlateMail)
                 .AddIngredient(ItemID.AncientHallowedGreaves)
-                //AddIngredient(ModContent.ItemType<SilverEnchant>())
+                .AddIngredient(ModContent.ItemType<SilverEnchant>())
                 .AddIngredient(ItemID.SwordWhip) //durendal
                 .AddIngredient(ItemID.BouncingShield) //sergent united
                 .AddTile(TileID.CrystalBall)

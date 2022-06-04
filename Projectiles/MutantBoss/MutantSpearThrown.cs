@@ -4,10 +4,13 @@ using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -37,6 +40,23 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.alpha = 0;
             CooldownSlot = 1;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
+        }
+
+        NPC npc;
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (source is EntitySource_Parent parent && parent.Entity is NPC sourceNPC)
+                npc = sourceNPC;
+        }
+
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.WriteVarInt(npc is NPC ? npc.whoAmI : -1);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            npc = FargoSoulsUtil.NPCExists(reader.ReadVarInt());
         }
 
         protected float scaletimer;
@@ -70,6 +90,28 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 target.AddBuff(ModContent.BuffType<MutantFang>(), 180);
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);
+
+            if (FargoSoulsWorld.MasochistModeReal && npc is NPC)
+            {
+                int totalHealPerHit = npc.lifeMax / 100 * 5;
+
+                const int max = 20;
+                for (int i = 0; i < max; i++)
+                {
+                    Vector2 vel = Main.rand.NextFloat(2f, 9f) * -Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi);
+                    float ai0 = npc.whoAmI;
+                    float ai1 = vel.Length() / Main.rand.Next(30, 90); //window in which they begin homing in
+
+                    int healPerOrb = (int)(totalHealPerHit / max * Main.rand.NextFloat(0.95f, 1.05f));
+
+                    if (target.whoAmI == Main.myPlayer && target.ownedProjectileCounts[ModContent.ProjectileType<MutantHeal>()] < 10)
+                    {
+                        Projectile.NewProjectile(Projectile.InheritSource(Projectile), target.Center, vel, ModContent.ProjectileType<MutantHeal>(), healPerOrb, 0f, Main.myPlayer, ai0, ai1);
+
+                        SoundEngine.PlaySound(SoundID.Item27, target.Center);
+                    }
+                }
+            }
         }
 
         public override Color? GetAlpha(Color lightColor)

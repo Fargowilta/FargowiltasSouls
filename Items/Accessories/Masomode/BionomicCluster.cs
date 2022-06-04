@@ -27,7 +27,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\nCertain enemies will drop potions when defeated" +
                 "\n[c/00FFFF:Following effects work passively from inventory or vanity slots:]" +
                 "\n    Grants immunity to Mighty Wind, Suffocation, and Guilty" +
-                "\n    You have autofire, improved night vision, and automatically use mana potions when needed" +
+                "\n    You have autofire and improved night vision" +
+                "\n    Automatically uses mana potions when needed and increases pickup range for mana stars" +
                 "\n    You respawn with more life and when no boss is alive, respawn faster" +
                 "\n    Right click to zoom and drastically improves reforges" +
                 "\n'The amalgamate born of a thousand common enemies'");
@@ -71,6 +72,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
             player.nightVision = true;
 
+            player.manaMagnet = true;
             if (player.GetToggleValue("ManaFlower", false))
                 player.manaFlower = true;
             if (player.GetToggleValue("MasoCarrot", false))
@@ -133,6 +135,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
             // Mystic skull
             player.buffImmune[BuffID.Suffocation] = true;
+            player.manaMagnet = true;
             if (player.GetToggleValue("ManaFlower", false))
                 player.manaFlower = true;
 

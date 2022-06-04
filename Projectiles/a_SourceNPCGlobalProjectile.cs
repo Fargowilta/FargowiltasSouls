@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles
 {
     //weird name so it goes before the other globalprojectiles
     //TODO: make this a proper inherited class and a modproj equivalent, axe the dictionary
-    public class a_SourceNPCGlobalProjectile : GlobalProjectile
+    public class A_SourceNPCGlobalProjectile : GlobalProjectile
     {
         public static Dictionary<int, bool> SourceNPCSync = new Dictionary<int, bool>();
         public static Dictionary<int, bool> DamagingSync = new Dictionary<int, bool>();

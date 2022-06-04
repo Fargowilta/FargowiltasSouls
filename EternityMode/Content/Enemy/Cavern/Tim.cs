@@ -23,16 +23,11 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             npc.damage /= 2;
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
-        {
-            base.OnSpawn(npc, source);
-
-            npc.buffImmune[BuffID.OnFire] = true;
-        }
-
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
+
+            npc.buffImmune[BuffID.OnFire] = true;
 
             for (int i = 0; i < 6; i++)
             {

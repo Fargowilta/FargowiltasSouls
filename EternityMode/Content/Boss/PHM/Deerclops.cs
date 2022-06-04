@@ -51,9 +51,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25, MidpointRounding.ToEven);
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Frostburn] = true;
             npc.buffImmune[BuffID.Frostburn2] = true;
@@ -101,7 +101,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             if (EnteredPhase3)
                 TeleportTimer++;
 
-            if (Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead && npc.Distance(Main.LocalPlayer.Center) < 1200)
+            if (Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead && npc.Distance(Main.LocalPlayer.Center) < 100)
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<LowGround>(), 2);
 
             switch ((int)npc.ai[0])
@@ -137,7 +137,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             npc.dontTakeDamage = true;
                             npc.localAI[1] = 0; //reset walls attack counter
 
-                            if (EnteredPhase2 && Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead)
+                            if (EnteredPhase2 && Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead && npc.Distance(Main.LocalPlayer.Center) < 1600)
                             {
                                 FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Darkness, 2);
                                 FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Blackout, 2);

@@ -17,21 +17,21 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public MutantSpecialDeathray(int maxTime, float hitboxModifier) : base(maxTime, "PhantasmalDeathrayML", hitboxModifier: hitboxModifier) { }
 
         const int sheetMax = 16;
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            base.OnSpawn(source);
-
-            Projectile.frame = Main.rand.Next(sheetMax);
-        }
+        bool spawned;
 
         public override void AI()
         {
+            if (!spawned)
+            {
+                spawned = true;
+                Projectile.frame = Main.rand.Next(sheetMax);
+            }
+
             Projectile.frameCounter += Main.rand.Next(3);
             if (++Projectile.frameCounter > 3)
             {
                 Projectile.frameCounter = 0;
-                if (++Projectile.frame > 15)
+                if (++Projectile.frame >= sheetMax)
                     Projectile.frame = 0;
             }
 
@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
             Rectangle? sourceRectangle2 = null;
-            Main.EntitySpriteDraw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, spriteEffects, 0);
             num223 -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
             Vector2 value20 = Projectile.Center;
             value20 += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;

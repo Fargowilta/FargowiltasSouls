@@ -33,9 +33,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             }
         }
 
-        public override void OnSpawn(NPC npc, IEntitySource source)
+        public override void OnFirstTick(NPC npc)
         {
-            base.OnSpawn(npc, source);
+            base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.Confused] = true;
         }

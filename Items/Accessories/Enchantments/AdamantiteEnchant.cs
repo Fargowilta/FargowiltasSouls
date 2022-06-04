@@ -44,7 +44,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public static void AdamantiteSplit(Projectile projectile)
         {
-            FargoSoulsGlobalProjectile.SplitProj(projectile, 3, MathHelper.ToRadians(8), 1f);
+            foreach (Projectile p in FargoSoulsGlobalProjectile.SplitProj(projectile, 3, MathHelper.ToRadians(8), 1f))
+            {
+                if (p != null && p.active)
+                {
+                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj;
+                }
+            }
         }
 
         public override void AddRecipes()

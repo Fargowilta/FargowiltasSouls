@@ -9,11 +9,9 @@ namespace FargowiltasSouls.Buffs.Minions
 {
     public class SouloftheMasochist : ModBuff
     {
-        public override string Texture => "FargowiltasSouls/Buffs/PlaceholderBuff";
-
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul of the Siblings");
+            DisplayName.SetDefault("Soul of the Master");
             Description.SetDefault("The power of Eternity Mode is with you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;

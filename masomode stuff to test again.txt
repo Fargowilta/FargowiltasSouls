@@ -1610,7 +1610,6 @@ refactor to death message from DOTs
 	god eater/mutant fang/curse of moon
 	shadowflame
 	nano injection
-updated localization files
 deerclawps no longer makes forever spikes if you grapple mid-dash
 	known: makes a few spikes when you release hook
 	i dont care enough to fix this (the fix would prob break even more things)
@@ -1763,3 +1762,80 @@ added rain ench inner tube toggle
 added crystal ench effect toggles
 added red riding toggle
 removed huntress debug text
+
+fixed rush job not having its name
+reimplemented rush job
+maso mutant p2 direct spear throw doubles spears thrown
+maso mutant final FINAL spark is harder
+sibling pets are available as emode nohit again in addition to master drop
+fixed eridanus lightning not working
+mutant sword smash is louder with explosions
+fixed huntress ench not working on adam ench split projs
+fixed rain ench inner tube not actually working
+corrected colour of red riding ench toggle name
+corrected earth force tooltip to match new tungsten ench
+fixed scientific railgun draw issue
+boc disables emode faster debuff removal
+attempted improving twins mp sync
+
+fixed spider ench crit not working properly
+removed stardust guardian throwing knives in timestop
+buffed bbb raw damage
+tried fixing eternity advisor text spam and sound bug
+improved(?) byte compression for emode npc behaviour for mp
+updated localization files
+abom p2 is at 66% life in emode now
+increased money dropped by post ml bosses
+adjusted dragons demise visuals
+RESTORED EMODE ALLOWING MASTER DROPS????
+
+fixed ml arena snapping to center itself on you in phase 1 when beginning all-classes subphase (should only do that in phase 2)
+flamelash and others dies 15sec later with autofire, was 5
+lightning rod can hit noclip enemies while theyre in tiles
+eternity advsior suggests universe core for abom
+updated thief cooldown
+deer sinew buff, has a cooldown on freezing you
+updated eri armour recipe
+attempted fixing sibling and squirrel boss spawners sometimes not working in mp
+fixed squirrel not selling angler enchantment
+adjusted angry bones bone spray
+iron/dread parry now dont begin cooldowns if you only held shield for 1 tick, meaning you can open chests
+scientific railgun is immune to timestop
+fixed devi bribery localization
+mystic skull contains celestial emblem effect
+
+rewrote onspawn calls for mp sync uggghhhhhhhhh
+moved random boss spawns to masomode
+added more checks to fix silent security wallet mp crash
+fixed phantom phoenix never losing mythril speedup
+attempted fixing mp client kick issue with low ground
+tims coc crab just drops crate potion now
+tims coc angler fish now drops fishing potion
+fixed anticoagulation not spawning boosters in mp
+changed wraith aura colour to be more obvious
+lowered pixie lacewing drop rate to 1%
+emode fishron p2 no longer spawns an extra sharknado with each cthulunado
+fixed crimetroid lifesteal not working
+
+attack speed cannot go negative
+halved drakovi fish damage
+buffed bbb hit rate
+nerfed ml homing eyes in maso
+tungsten ench only reduces melee speed with actual swords with a true melee hitbox
+
+fixed tungsten enlarging projs it shoudlnt e.g. agitatling lens
+fixed soul of the master buff still saying soul of siblings
+updated soul of master buff icon
+dragons demise flames draw behind other projectiles
+fixed scientific railgun not having a hitbox where the laser isnt at full size (close to player)
+removed erroneous claim of chloro bullets being nerfed (theyre not)
+refactor to a_sourcenpcglobproj to A_sourcenpcglobproj
+buffed gaia armor, gives additional 3 slots, 5 total
+fixed tiny eaters despawning npcs on hit
+blizzard staff -33% damage -33% speed
+razorpine -15% damage
+maso ml nerfed, magic phase has 1 distortion field
+maso mutant lifesteals on penetrator hits
+fixed mutant p2 direct throw operating at double speed in all modes
+fixed autofire magic missile stack fix despawning projs that are no longer following cursor
+queen stinger and sdf nerfed, you only get armor pen while you have honey buff

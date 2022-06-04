@@ -183,12 +183,20 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
 
         public override bool? CanDamage()
         {
-            return Projectile.ai[1] != 0f && Collision.CanHitLine(Main.player[Projectile.owner].Center, 0, 0, Projectile.Center, 0, 0);
+            return Projectile.ai[1] != 0f;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
             return Projectile.Distance(FargoSoulsUtil.ClosestPointInHitbox(targetHitbox, Projectile.Center)) <= Projectile.width / 2;
+        }
+
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (!target.noTileCollide && !Collision.CanHitLine(Projectile.Center, 0, 0, target.Center, 0, 0))
+                return false;
+
+            return base.CanHitNPC(target);
         }
 
         public override bool PreDraw(ref Color lightColor)
