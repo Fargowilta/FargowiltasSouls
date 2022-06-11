@@ -69,6 +69,14 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.localAI[2] = reader.ReadSingle();
         }
 
+        public override bool? CanBeHitByProjectile(Projectile projectile)
+        {
+            if (ProjectileID.Sets.IsAWhip[projectile.type])
+                return false;
+
+            return base.CanBeHitByProjectile(projectile);
+        }
+
         public override void AI()
         {
             if (NPC.buffType[0] != 0)

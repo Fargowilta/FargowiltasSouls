@@ -798,6 +798,13 @@ namespace FargowiltasSouls.NPCs
 
             if (npc.type == NPCID.Painter && FargoSoulsWorld.downedMutant && NPC.AnyNPCs(ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()))
                 Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ModContent.ItemType<ScremPainting>());
+
+            if (npc.boss && !FargoSoulsWorld.downedAnyBoss)
+            {
+                FargoSoulsWorld.downedAnyBoss = true;
+                if (Main.netMode == NetmodeID.Server)
+                    NetMessage.SendData(MessageID.WorldData);
+            }
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)

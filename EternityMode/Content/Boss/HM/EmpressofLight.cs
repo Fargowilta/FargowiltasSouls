@@ -627,7 +627,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
-            if (ProjectileID.Sets.CultistIsResistantTo[projectile.type])
+            if (ProjectileID.Sets.CultistIsResistantTo[projectile.type] && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * 0.75);
         }
 

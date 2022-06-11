@@ -1832,10 +1832,28 @@ removed erroneous claim of chloro bullets being nerfed (theyre not)
 refactor to a_sourcenpcglobproj to A_sourcenpcglobproj
 buffed gaia armor, gives additional 3 slots, 5 total
 fixed tiny eaters despawning npcs on hit
-blizzard staff -33% damage -33% speed
-razorpine -15% damage
 maso ml nerfed, magic phase has 1 distortion field
 maso mutant lifesteals on penetrator hits
 fixed mutant p2 direct throw operating at double speed in all modes
 fixed autofire magic missile stack fix despawning projs that are no longer following cursor
 queen stinger and sdf nerfed, you only get armor pen while you have honey buff
+fetid -33% speed
+tungsten no longer gives boosted damage on true melee hits
+goblin nerfs and event locks are now deactivated post-any boss properly
+fixed ml p2 nebula blaze and moon not doing damage
+pumkin/frost moon
+	mini/bosses drop no loot until late waves
+	dying has an actual penalty
+yeti/krampus dont jump from as far offscreen
+reduced how many frsot shards flockos makes on death
+fishron no longer goes invul/unchaseable by homing for 1 tick which completely fucked summoner
+whips -50% -> -33%
+minion depreciation max rampup point 9 -> 12
+
+updated mutant ray sprite
+plantera crystal leaves cant be hit (targeted) by whips
+empress doesnt have homing resist against minions
+fixed spirit champ having wrong color gores
+added trojan squirrel relic
+added eri trophy
+fixed destroyer divide by zero error

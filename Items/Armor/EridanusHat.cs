@@ -117,10 +117,10 @@ Increases your max number of sentries by 4");
 
                 if (damageClass == DamageClass.Summon)
                     fargoPlayer.SpiderEnchantActive = true;
-                else
-                    player.GetCritChance(damageClass) += 20;
+                
+                player.GetCritChance(damageClass) += 20;
 
-                if (player.HeldItem.DamageType == damageClass)
+                if (player.HeldItem.CountsAsClass(damageClass))
                     fargoPlayer.AttackSpeed += .3f;
             }
 

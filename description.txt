@@ -1,10 +1,13 @@
 Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls accessories, as well as a variety of bosses and minibosses.
 Features the highly challenging Eternity Mode!
 
+NEW UPDATE - V 1.4.0.1
+-Bug Fixes
+
 NEW UPDATE - V 1.4
 -Ported to 1.4
 -Tons of new Eternity Mode drops, boss changes, and adjustments
--Tons of Enchantment reworks and adjustements
+-Tons of accessory reworks and adjustements
 -Much more
 
 -See the wiki for full details!

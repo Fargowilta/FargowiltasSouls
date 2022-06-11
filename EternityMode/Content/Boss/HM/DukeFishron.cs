@@ -787,6 +787,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (npc.ai[0] >= 9) //phase 3
                     npc.damage = Math.Max(npc.damage, (int)(npc.defDamage * 1.3));
             }
+            else if (npc.ai[0] > 9)
+            {
+                npc.dontTakeDamage = false;
+                npc.chaseable = true;
+            }
 
             npc.defense = Math.Max(npc.defense, npc.defDefense);
         }

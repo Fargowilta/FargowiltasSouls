@@ -440,6 +440,17 @@ namespace FargowiltasSouls
             return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
 
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+        {
+            if ((Main.snowMoon && NPC.waveNumber < 20) || (Main.pumpkinMoon && NPC.waveNumber < 15))
+            {
+                NPC.waveNumber--;
+                NPC.waveKills = 0;
+
+                FargoSoulsUtil.PrintLocalization($"Mods.FargowiltasSouls.Message.MoonsDeathPenalty", new Color(175, 75, 255));
+            }
+        }
+
         public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
         {
             if (!FargoSoulsWorld.EternityMode)
@@ -507,9 +518,9 @@ namespace FargowiltasSouls
                 //    return 2f / 3f;
 
                 //case ItemID.Beenade:
-                case ItemID.BlizzardStaff:
-                    AttackSpeed *= 2f / 3f;
-                    return 2f / 3f;
+                //case ItemID.BlizzardStaff:
+                //    AttackSpeed *= 2f / 3f;
+                //    return 2f / 3f;
 
                 //case ItemID.DD2BetsyBow:
                 //case ItemID.Uzi:
@@ -541,7 +552,7 @@ namespace FargowiltasSouls
                 //case ItemID.XenoStaff:
                 //case ItemID.NebulaArcanum:
                 //case ItemID.Phantasm:
-                case ItemID.Razorpine:
+                //case ItemID.Razorpine:
                 case ItemID.StardustDragonStaff:
                 case ItemID.SDMG:
                 case ItemID.LastPrism:
@@ -551,9 +562,7 @@ namespace FargowiltasSouls
                 //case ItemID.Grenade:
                 //case ItemID.StickyGrenade:
                 //case ItemID.BouncyGrenade:
-                //    AttackSpeed *= 2f / 3f;
-                //    return 1f;
-
+                case ItemID.FetidBaghnakhs:
                 case ItemID.DD2BallistraTowerT1Popper:
                 case ItemID.DD2BallistraTowerT2Popper:
                 case ItemID.DD2BallistraTowerT3Popper:
@@ -574,7 +583,7 @@ namespace FargowiltasSouls
             }
 
             if (ProjectileID.Sets.IsAWhip[item.shoot] && item.type != ItemID.BlandWhip)
-                return 0.5f;
+                return 2f / 3f;
 
             return 1f;
         }

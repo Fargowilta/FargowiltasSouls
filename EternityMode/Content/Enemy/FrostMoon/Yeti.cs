@@ -55,6 +55,15 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
                 return false;
             }
 
+            if (JumpTimer == 300)
+            {
+                if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) >= 900)
+                {
+                    JumpTimer -= 120;
+                    NetSync(npc);
+                }
+            }
+
             if (JumpTimer > 300)
             {
                 npc.velocity.X = 0;

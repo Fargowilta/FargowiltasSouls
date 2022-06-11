@@ -1,6 +1,7 @@
 using FargowiltasSouls.BossBars;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Items.BossBags;
+using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Items.Placeables.Trophies;
 using FargowiltasSouls.Items.Summons;
 using FargowiltasSouls.Items.Weapons.Challengers;
@@ -821,6 +822,8 @@ namespace FargowiltasSouls.NPCs.Challengers
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TrojanSquirrelBag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrojanSquirrelTrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<TrojanSquirrelRelic>()));
 
             LeadingConditionRule rule = new LeadingConditionRule(new Conditions.NotExpert());
             rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<TreeSword>(), ModContent.ItemType<MountedAcornGun>(), ModContent.ItemType<SnowballStaff>(), ModContent.ItemType<KamikazeSquirrelStaff>()));

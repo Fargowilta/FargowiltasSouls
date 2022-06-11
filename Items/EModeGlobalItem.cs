@@ -209,10 +209,10 @@ namespace FargowiltasSouls.Items
                 //    break;
 
                 //case ItemID.Beenade:
-                case ItemID.BlizzardStaff:
-                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
-                    ItemBalance(tooltips, EModeChange.Nerf, "Speed", 33);
-                    break;
+                //case ItemID.BlizzardStaff:
+                //    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
+                //    ItemBalance(tooltips, EModeChange.Nerf, "Speed", 33);
+                //    break;
 
                 //case ItemID.Tsunami:
                 //case ItemID.Flairon:
@@ -227,7 +227,7 @@ namespace FargowiltasSouls.Items
                 //case ItemID.XenoStaff:
                 //case ItemID.Phantasm:
                 //case ItemID.NebulaArcanum:
-                case ItemID.Razorpine:
+                //case ItemID.Razorpine:
                 case ItemID.StardustDragonStaff:
                 case ItemID.SDMG:
                 case ItemID.LastPrism:
@@ -264,6 +264,7 @@ namespace FargowiltasSouls.Items
                 //    tooltips.Add(new TooltipLine(Mod, "masoNerf2", "[c/ff0000:Eternity Mode:] Reduced attack speed by 33%"));
                 //    break;
 
+                case ItemID.FetidBaghnakhs:
                 case ItemID.DD2BallistraTowerT1Popper:
                 case ItemID.DD2BallistraTowerT2Popper:
                 case ItemID.DD2BallistraTowerT3Popper:
@@ -313,6 +314,12 @@ namespace FargowiltasSouls.Items
                     ItemBalance(tooltips, EModeChange.Neutral, "MiningHelmet");
                     break;
 
+                case ItemID.PumpkinMoonMedallion:
+                case ItemID.NaughtyPresent:
+                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops");
+                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsWaves");
+                    break;
+
                 default:
                     break;
             }
@@ -320,11 +327,11 @@ namespace FargowiltasSouls.Items
             if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
             {
                 if (item.type != ItemID.BlandWhip)
-                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 50);
+                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
             }
-            else if (item.DamageType == DamageClass.Summon)
+            else if (item.CountsAsClass(DamageClass.Summon))
             {
                 if (!(EModeGlobalProjectile.IgnoreMinionNerf.TryGetValue(item.shoot, out bool ignoreNerf) && ignoreNerf))
                     ItemBalance(tooltips, EModeChange.Nerf, "MinionStack");

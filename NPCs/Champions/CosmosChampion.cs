@@ -5,6 +5,7 @@ using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.BossBags;
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Items.Placeables.Relics;
+using FargowiltasSouls.Items.Placeables.Trophies;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
@@ -1801,10 +1802,12 @@ namespace FargowiltasSouls.NPCs.Champions
         {
             npcLoot.Add(new ChampionEnchDropRule(CosmoForce.Enchants));
 
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<CosmosBag>()));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EridanusTrophy>(), 10));
+
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<EridanusRelic>()));
 
             npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Eridanium>(), 1, 5, 10));
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<CosmosBag>()));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

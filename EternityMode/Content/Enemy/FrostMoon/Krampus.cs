@@ -58,7 +58,17 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
             }
 
             if (JumpTimer == 540)
-                FargoSoulsUtil.DustRing(npc.Center, 64, DustID.RedTorch, 12f, default, 4f);
+            {
+                if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 900)
+                {
+                    FargoSoulsUtil.DustRing(npc.Center, 64, DustID.RedTorch, 12f, default, 4f);
+                }
+                else
+                {
+                    JumpTimer -= 120;
+                    NetSync(npc);
+                }
+            }
 
             if (JumpTimer > 540)
             {

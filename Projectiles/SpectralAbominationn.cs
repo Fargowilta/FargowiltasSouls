@@ -231,7 +231,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             for (int i = 0; i < max; i++)
             {
                 vel = vel.RotatedBy(rotation);
-                if (Projectile.DamageType == DamageClass.Summon)
+                if (Projectile.CountsAsClass(DamageClass.Summon))
                 {
                     FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, Projectile.originalDamage / 3,
                         Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);

@@ -128,6 +128,18 @@ namespace FargowiltasSouls.EternityMode
             }
         }
 
+        public override bool PreKill(NPC npc)
+        {
+            bool result = base.PreKill(npc);
+
+            foreach (EModeNPCBehaviour behaviour in EModeNpcBehaviours)
+            {
+                result &= behaviour.PreKill(npc);
+            }
+
+            return result;
+        }
+
         public override void OnKill(NPC npc)
         {
             base.OnKill(npc);

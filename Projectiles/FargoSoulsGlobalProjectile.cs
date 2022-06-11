@@ -470,13 +470,13 @@ namespace FargowiltasSouls.Projectiles
 
                 if (projectile.friendly && !projectile.hostile)
                 {
-                    if (modPlayer.Jammed && projectile.DamageType == DamageClass.Ranged && projectile.type != ProjectileID.ConfettiGun)
+                    if (modPlayer.Jammed && projectile.CountsAsClass(DamageClass.Ranged) && projectile.type != ProjectileID.ConfettiGun)
                     {
                         Projectile.NewProjectile(Terraria.Entity.InheritSource(projectile), projectile.Center, projectile.velocity, ProjectileID.ConfettiGun, 0, 0f, projectile.owner);
                         projectile.active = false;
                     }
 
-                    if (modPlayer.Atrophied && projectile.DamageType == DamageClass.Throwing)
+                    if (modPlayer.Atrophied && projectile.CountsAsClass(DamageClass.Throwing))
                     {
                         projectile.damage = 0;
                         projectile.Kill();

@@ -34,8 +34,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
         {
             base.OnFirstTick(npc);
 
-            if ((npc.type == NPCID.GoblinWarrior || npc.type == NPCID.GoblinThief || npc.type == NPCID.GoblinArcher)
-                && !Main.hardMode && !NPC.downedSlimeKing && !NPC.downedBoss1 && NPC.CountNPCS(npc.type) > 5)
+            if (!FargoSoulsWorld.downedAnyBoss && (npc.type == NPCID.GoblinWarrior || npc.type == NPCID.GoblinThief || npc.type == NPCID.GoblinArcher) && NPC.CountNPCS(npc.type) > 3)
             {
                 npc.Transform(NPCID.GoblinPeon);
             }

@@ -17,13 +17,5 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.PumpkinMoon
 
             target.AddBuff(ModContent.BuffType<Shadowflame>(), 360);
         }
-
-        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
-        {
-            base.ModifyNPCLoot(npc, npcLoot);
-
-            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.GoodieBag, 1, 1, 5));
-            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.BloodyMachete, 10));
-        }
     }
 }

@@ -325,13 +325,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.OnHitByItem(npc, player, item, damage, knockback, crit);
 
-            if (item.DamageType == DamageClass.Melee || item.DamageType == DamageClass.Throwing)
+            if (item.CountsAsClass(DamageClass.Melee) || item.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
-            if (item.DamageType == DamageClass.Ranged)
+            if (item.CountsAsClass(DamageClass.Ranged))
                 RangedDamageCounter += damage;
-            if (item.DamageType == DamageClass.Magic)
+            if (item.CountsAsClass(DamageClass.Magic))
                 MagicDamageCounter += damage;
-            if (item.DamageType == DamageClass.Summon)
+            if (item.CountsAsClass(DamageClass.Summon))
                 MinionDamageCounter += damage;
         }
 
@@ -339,11 +339,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
 
-            if (projectile.DamageType == DamageClass.Melee || projectile.DamageType == DamageClass.Throwing)
+            if (projectile.CountsAsClass(DamageClass.Melee) || projectile.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
-            if (projectile.DamageType == DamageClass.Ranged)
+            if (projectile.CountsAsClass(DamageClass.Ranged))
                 RangedDamageCounter += damage;
-            if (projectile.DamageType == DamageClass.Magic)
+            if (projectile.CountsAsClass(DamageClass.Magic))
                 MagicDamageCounter += damage;
             if (FargoSoulsUtil.IsSummonDamage(projectile))
                 MinionDamageCounter += damage;

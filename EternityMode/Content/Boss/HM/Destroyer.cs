@@ -413,7 +413,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                         for (int i = -maxStarsInOneWave; i <= maxStarsInOneWave; i++)
                                         {
                                             Vector2 offset = segment.DirectionTo(targetPos).RotatedBy(MathHelper.PiOver2);
-                                            float offsetLength = 1000 / maxStarsInOneWave * i;
+                                            float offsetLength = 1000 / Math.Max(maxStarsInOneWave, 1) * i;
                                             int travelTime = 30 + Math.Abs(i) * 5;
                                             Vector2 vel = (targetPos + offset * offsetLength - segment.Center) / travelTime;
                                             if (Main.netMode != NetmodeID.MultiplayerClient)

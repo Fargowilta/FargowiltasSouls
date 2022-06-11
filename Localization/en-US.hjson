@@ -194,6 +194,8 @@ Mods: {
 			TwinsEndure: endured the fatal blow to fight alongside its twin!
 			TwinsRevive: has been revived!
 			GelatinSubjects: Gelatin Subjects have awoken!
+
+			MoonsDeathPenalty: The wave progress has regressed!
 		}
 
 		DeathMessage: {
@@ -930,10 +932,12 @@ Mods: {
 
 			OOASet: Set bonus increases minimum summon damage when you attack using other classes
 			MiningHelmet: Increases Undead Miner spawn rates
+			MoonsDrops: Bosses and minibosses drop no items until late waves
+			MoonsWaves: Dying decreases wave progress
 
 			WhipSpeed: Does not benefit from melee speed bonuses
 			WhipStack: Whip buffs/debuffs can't stack
-			MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 9)
+			MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 12)
 			SummonMulticlass: Summon damage decreases when you attack using other classes (except in OOA)
 		}
 	}

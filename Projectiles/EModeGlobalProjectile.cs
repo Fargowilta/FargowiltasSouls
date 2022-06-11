@@ -47,6 +47,10 @@ namespace FargowiltasSouls.Projectiles
             IgnoreMinionNerf[ProjectileID.StardustDragon2] = true;
             IgnoreMinionNerf[ProjectileID.StardustDragon3] = true;
             IgnoreMinionNerf[ProjectileID.StardustDragon4] = true;
+            IgnoreMinionNerf[ProjectileID.StormTigerGem] = true;
+            IgnoreMinionNerf[ProjectileID.StormTigerTier1] = true;
+            IgnoreMinionNerf[ProjectileID.StormTigerTier2] = true;
+            IgnoreMinionNerf[ProjectileID.StormTigerTier3] = true;
 
             A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.SharpTears] = true;
             A_SourceNPCGlobalProjectile.SourceNPCSync[ProjectileID.JestersArrow] = true;
@@ -209,11 +213,11 @@ namespace FargowiltasSouls.Projectiles
             if (source is EntitySource_Parent parent && parent.Entity is Projectile)
                 sourceProj = parent.Entity as Projectile;
 
-            if (FargoSoulsUtil.IsSummonDamage(projectile, true, false) && !(IgnoreMinionNerf.TryGetValue(projectile.type, out bool ignoreNerf) && ignoreNerf))
+            if (FargoSoulsUtil.IsSummonDamage(projectile, true, false))
             {
-                if (projectile.minion)
+                if (projectile.minion && !(IgnoreMinionNerf.TryGetValue(projectile.type, out bool ignoreNerf1) && ignoreNerf1))
                     NerfDamageBasedOnProjTypeCount = projectile.type;
-                else if (sourceProj is Projectile)
+                else if (sourceProj is Projectile && !(IgnoreMinionNerf.TryGetValue(sourceProj.type, out bool ignoreNerf2) && ignoreNerf2))
                     NerfDamageBasedOnProjTypeCount = sourceProj.GetGlobalProjectile<EModeGlobalProjectile>().NerfDamageBasedOnProjTypeCount;
             }
 
@@ -1142,7 +1146,7 @@ namespace FargowiltasSouls.Projectiles
 
                 //note: projs needed to reach max nerf is the sum of these values
                 const int allowedBeforeNerfBegins = 3;
-                const int maxRampup = 6;
+                const int maxRampup = 9;
 
                 float modifier = Utils.Clamp((float)(Main.player[projectile.owner].ownedProjectileCounts[projTypeToCheck] - allowedBeforeNerfBegins) / maxRampup, 0f, 1f);
 

@@ -84,7 +84,7 @@ namespace FargowiltasSouls
             => player.GetTotalCritChance(damageClass);
 
         public static bool FeralGloveReuse(this Player player, Item item)
-            => player.autoReuseGlove && (item.DamageType == DamageClass.Melee || item.DamageType == DamageClass.SummonMeleeSpeed);
+            => player.autoReuseGlove && (item.CountsAsClass(DamageClass.Melee) || item.CountsAsClass(DamageClass.SummonMeleeSpeed));
 
         public static int HighestDamageTypeScaling(Player player, int dmg)
         {
@@ -145,7 +145,7 @@ namespace FargowiltasSouls
 
         public static bool IsSummonDamage(Projectile projectile, bool includeMinionShot = true, bool includeWhips = true)
         {
-            return projectile.DamageType == DamageClass.Summon || projectile.minion || projectile.sentry || projectile.minionSlots > 0 || ProjectileID.Sets.MinionSacrificable[projectile.type]
+            return projectile.CountsAsClass(DamageClass.Summon) || projectile.minion || projectile.sentry || projectile.minionSlots > 0 || ProjectileID.Sets.MinionSacrificable[projectile.type]
                 || (includeMinionShot && (ProjectileID.Sets.MinionShot[projectile.type] || ProjectileID.Sets.SentryShot[projectile.type]))
                 || (includeWhips && ProjectileID.Sets.IsAWhip[projectile.type]);
         }
@@ -557,6 +557,11 @@ namespace FargowiltasSouls
         public static bool IsProjSourceItemUseReal(Projectile proj, IEntitySource source)
         {
             return source is EntitySource_ItemUse parent && parent.Item.type == Main.player[proj.owner].HeldItem.type;
+        }
+
+        public static bool CountsAsClass(this DamageClass damageClass, DamageClass intendedClass)
+        {
+            return damageClass == intendedClass || damageClass.GetEffectInheritance(intendedClass);
         }
 
         #region npcloot

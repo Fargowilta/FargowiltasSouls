@@ -112,7 +112,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.Present, 1, 1, 5));
             FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ModContent.ItemType<IceQueensCrown>(), 5));
         }
     }

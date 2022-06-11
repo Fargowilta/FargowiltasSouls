@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip =
 @"150% increased weapon size but reduces melee speed
 Every half second a projectile will be doubled in size
-Enlarged swords and projectiles deal 10% more damage and have an additional chance to crit
+Enlarged projectiles deal 10% more damage and have an additional chance to crit
 'Bigger is always better'";
             Tooltip.SetDefault(tooltip);
 
@@ -53,7 +53,7 @@ Enlarged swords and projectiles deal 10% more damage and have an additional chan
 
             modPlayer.TungstenEnchantActive = true;
 
-            if (!modPlayer.TerrariaSoul && player.HeldItem.damage > 0 && player.HeldItem.DamageType == DamageClass.Melee && !player.HeldItem.noMelee && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0)
+            if (!modPlayer.TerrariaSoul && player.HeldItem.damage > 0 && player.HeldItem.CountsAsClass(DamageClass.Melee) && !player.HeldItem.noMelee && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0)
             {
                 modPlayer.Player.GetAttackSpeed(DamageClass.Melee) -= 0.5f;
             }

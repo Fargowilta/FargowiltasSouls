@@ -60,7 +60,7 @@ namespace FargowiltasSouls.Projectiles
             {
                 bits.WriteBit(projectile.friendly);
                 bits.WriteBit(projectile.hostile);
-                bits.WriteBit(projectile.DamageType == DamageClass.Default);
+                bits.WriteBit(projectile.CountsAsClass(DamageClass.Default));
             }
         }
 

@@ -53,6 +53,7 @@ namespace FargowiltasSouls
         public static bool spawnedDevi;
 
         public static bool[] downedBoss = new bool[Enum.GetValues(typeof(Downed)).Length];
+        public static bool downedAnyBoss;
 
         public override void Unload()
         {
@@ -83,6 +84,8 @@ namespace FargowiltasSouls
 
             for (int i = 0; i < downedBoss.Length; i++)
                 downedBoss[i] = false;
+
+            downedAnyBoss = false;
         }
 
         public override void OnWorldLoad()
@@ -112,6 +115,7 @@ namespace FargowiltasSouls
             if (haveForcedAbomFromGoblins) downed.Add("haveForcedAbomFromGoblins");
             if (ReceivedTerraStorage) downed.Add("ReceivedTerraStorage");
             if (spawnedDevi) downed.Add("spawnedDevi");
+            if (downedAnyBoss) downed.Add("downedAnyBoss");
 
             for (int i = 0; i < downedBoss.Length; i++)
             {
@@ -139,6 +143,7 @@ namespace FargowiltasSouls
             haveForcedAbomFromGoblins = downed.Contains("haveForcedAbomFromGoblins");
             ReceivedTerraStorage = downed.Contains("ReceivedTerraStorage");
             spawnedDevi = downed.Contains("spawnedDevi");
+            downedAnyBoss = downed.Contains("downedAnyBoss");
 
             for (int i = 0; i < downedBoss.Length; i++)
                 downedBoss[i] = downed.Contains($"downedBoss{i}") || downed.Contains($"downedChampion{i}");
@@ -167,6 +172,7 @@ namespace FargowiltasSouls
             MasochistModeReal = flags[2];
             CanPlayMaso = flags[3];
             ShouldBeEternityMode = flags[4];
+            downedAnyBoss = flags[5];
 
             for (int i = 0; i < downedBoss.Length; i++)
             {
@@ -200,7 +206,8 @@ namespace FargowiltasSouls
                 [1] = spawnedDevi,
                 [2] = MasochistModeReal,
                 [3] = CanPlayMaso,
-                [4] = ShouldBeEternityMode
+                [4] = ShouldBeEternityMode,
+                [5] = downedAnyBoss
             });
 
             BitsByte bitsByte = new BitsByte();
@@ -258,10 +265,10 @@ namespace FargowiltasSouls
             {
                 NPC.LunarShieldPowerExpert = 50;
 
-                if (!haveForcedAbomFromGoblins && !NPC.downedSlimeKing && !NPC.downedBoss1 && !Main.hardMode //pre boss, disable some events
-                    && ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC abom) && !NPC.AnyNPCs(abom.Type))
+                if (Main.raining || Sandstorm.Happening || Main.bloodMoon)
                 {
-                    if (Main.raining || Sandstorm.Happening || Main.bloodMoon)
+                    if (!haveForcedAbomFromGoblins && !downedAnyBoss //pre boss, disable some events
+                        && ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC abom) && !NPC.AnyNPCs(abom.Type))
                     {
                         Main.raining = false;
                         Main.rainTime = 0;

@@ -17,7 +17,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     Vector2 speed = new Vector2(Main.rand.Next(-1000, 1001), Main.rand.Next(-1000, 1001));
                     speed.Normalize();

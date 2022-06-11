@@ -20,7 +20,10 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override bool? CanDamage()
         {
-            return base.CanDamage() == true && counter > 30 * Projectile.MaxUpdates;
+            if (base.CanDamage() == false)
+                return false;
+
+            return counter > 30 * Projectile.MaxUpdates;
         }
 
         public int counter;

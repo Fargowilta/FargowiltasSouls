@@ -2366,7 +2366,7 @@ namespace FargowiltasSouls
             Vector2 position = Player.Center;
             Vector2 velocity = Vector2.Normalize(Main.MouseWorld - position);
 
-            if (damageType == DamageClass.Melee) //fireball
+            if (damageType.CountsAsClass(DamageClass.Melee)) //fireball
             {
                 SoundEngine.PlaySound(SoundID.Item34, position);
                 for (int i = 0; i < 3; i++)
@@ -2375,7 +2375,7 @@ namespace FargowiltasSouls
                         ModContent.ProjectileType<CelestialRuneFireball>(), (int)(50f * Player.ActualClassDamage(DamageClass.Melee)), 9f, Player.whoAmI);
                 }
             }
-            if (damageType == DamageClass.Ranged) //lightning
+            if (damageType.CountsAsClass(DamageClass.Ranged)) //lightning
             {
                 for (int i = -1; i <= 1; i++)
                 {
@@ -2385,11 +2385,11 @@ namespace FargowiltasSouls
                         (int)(50f * Player.ActualClassDamage(DamageClass.Ranged)), 1f, Player.whoAmI, velocity.ToRotation(), ai1);
                 }
             }
-            if (damageType == DamageClass.Magic) //ice mist
+            if (damageType.CountsAsClass(DamageClass.Magic)) //ice mist
             {
                 Projectile.NewProjectile(Player.GetSource_Accessory(CelestialRuneItem), position, velocity * 4.25f, ModContent.ProjectileType<CelestialRuneIceMist>(), (int)(50f * Player.ActualClassDamage(DamageClass.Magic)), 4f, Player.whoAmI);
             }
-            if (damageType == DamageClass.Summon) //ancient vision
+            if (damageType.CountsAsClass(DamageClass.Summon)) //ancient vision
             {
                 FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(CelestialRuneItem), position, velocity * 16f, ModContent.ProjectileType<CelestialRuneAncientVision>(), 50, 3f, Player.whoAmI);
             }
@@ -2400,7 +2400,7 @@ namespace FargowiltasSouls
             Vector2 position = Player.Center;
             Vector2 velocity = Vector2.Normalize(Main.MouseWorld - position);
 
-            if (damageType == DamageClass.Melee) //flaming jack
+            if (damageType.CountsAsClass(DamageClass.Melee)) //flaming jack
             {
                 float distance = 2000f;
                 int target = -1;
@@ -2419,11 +2419,11 @@ namespace FargowiltasSouls
                 if (target != -1)
                     Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, velocity * 8f, ProjectileID.FlamingJack, (int)(75f * Player.ActualClassDamage(DamageClass.Melee)), 7.5f, Player.whoAmI, target, 0);
             }
-            if (damageType == DamageClass.Ranged) //jack o lantern
+            if (damageType.CountsAsClass(DamageClass.Ranged)) //jack o lantern
             {
                 Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, velocity * 11f, ProjectileID.JackOLantern, (int)(65f * Player.ActualClassDamage(DamageClass.Ranged)), 8f, Player.whoAmI);
             }
-            if (damageType == DamageClass.Magic) //bat scepter
+            if (damageType.CountsAsClass(DamageClass.Magic)) //bat scepter
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -2433,7 +2433,7 @@ namespace FargowiltasSouls
                     Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, newVel, ProjectileID.Bat, (int)(45f * Player.ActualClassDamage(DamageClass.Magic)), 3f, Player.whoAmI);
                 }
             }
-            if (damageType == DamageClass.Summon)
+            if (damageType.CountsAsClass(DamageClass.Summon))
             {
                 const int max = 6;
                 for (int i = 0; i < max; i++)

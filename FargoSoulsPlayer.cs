@@ -1680,12 +1680,12 @@ namespace FargowiltasSouls
                 AttackSpeed += .1f;
             }
 
-            if (MagicSoul && item.DamageType == DamageClass.Magic)
+            if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
             {
                 AttackSpeed += .2f;
             }
 
-            if (item.DamageType == DamageClass.Summon && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
+            if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
             {
                 AttackSpeed *= 0.75f;
             }
@@ -2065,7 +2065,7 @@ namespace FargowiltasSouls
                 Projectile.NewProjectile(Player.GetSource_Misc(""), target.Center, Vector2.Zero, ProjectileID.InfernoFriendlyBlast, blastDamage, 0, Player.whoAmI);
             }
 
-            if (Hexed || (ReverseManaFlow && proj.DamageType == DamageClass.Magic))
+            if (Hexed || (ReverseManaFlow && proj.CountsAsClass(DamageClass.Magic)))
             {
                 target.life += damage;
                 target.HealEffect(damage);
@@ -2097,7 +2097,7 @@ namespace FargowiltasSouls
                 crit = false;
             }
 
-            if (Atrophied && (proj.DamageType == DamageClass.Melee || proj.DamageType == DamageClass.Throwing))
+            if (Atrophied && (proj.CountsAsClass(DamageClass.Melee) || proj.CountsAsClass(DamageClass.Throwing)))
             {
                 damage = 0;
                 knockback = 0;
@@ -2119,7 +2119,7 @@ namespace FargowiltasSouls
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            if (Hexed || (ReverseManaFlow && item.DamageType == DamageClass.Magic))
+            if (Hexed || (ReverseManaFlow && item.CountsAsClass(DamageClass.Magic)))
             {
                 target.life += damage;
                 target.HealEffect(damage);
@@ -2151,10 +2151,10 @@ namespace FargowiltasSouls
                 crit = false;
             }
 
-            if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
-            {
-                TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
-            }
+            //if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
+            //{
+            //    TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
+            //}
 
             ModifyHitNPCBoth(target, ref damage, ref crit, item.DamageType);
         }
@@ -3063,7 +3063,7 @@ namespace FargowiltasSouls
 
         public override bool CanConsumeAmmo(Item weapon, Item ammo)
         {
-            if (weapon.DamageType == DamageClass.Ranged)
+            if (weapon.CountsAsClass(DamageClass.Ranged))
             {
                 if (RangedEssence && Main.rand.NextBool(10))
                     return false;

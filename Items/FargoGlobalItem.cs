@@ -59,7 +59,7 @@ namespace FargowiltasSouls.Items
 
         public override void PickAmmo(Item weapon, Item ammo, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
         {
-            if (weapon.DamageType == DamageClass.Ranged && player.GetModPlayer<FargoSoulsPlayer>().Jammed)
+            if (weapon.CountsAsClass(DamageClass.Ranged) && player.GetModPlayer<FargoSoulsPlayer>().Jammed)
                 type = ProjectileID.ConfettiGun;
         }
 
@@ -133,7 +133,7 @@ namespace FargowiltasSouls.Items
                     return false;
             }
 
-            if (item.DamageType == DamageClass.Magic && player.GetModPlayer<FargoSoulsPlayer>().ReverseManaFlow)
+            if (item.CountsAsClass(DamageClass.Magic) && player.GetModPlayer<FargoSoulsPlayer>().ReverseManaFlow)
             {
                 int damage = (int)(item.mana / (1f - player.endurance) + player.statDefense);
                 player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was destroyed by their own magic."), damage, 0);

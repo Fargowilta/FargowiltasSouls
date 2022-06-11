@@ -70,7 +70,6 @@ This does not affect hits dealing less than 10 damage
             .AddIngredient(ItemID.CrimsonHeart)
 
             //blood rain bow
-            //flesh catcher rod
 
             .AddTile(TileID.DemonAltar)
             .Register();

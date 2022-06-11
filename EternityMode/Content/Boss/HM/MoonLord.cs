@@ -44,7 +44,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool? CanBeHitByItem(NPC npc, Player player, Item item)
         {
             int masoStateML = GetVulnerabilityState(npc);
-            if (item.DamageType == DamageClass.Melee && masoStateML > 0 && masoStateML < 4 && !player.buffImmune[ModContent.BuffType<NullificationCurse>()] && !FargoSoulsWorld.SwarmActive)
+            if (item.CountsAsClass(DamageClass.Melee) && masoStateML > 0 && masoStateML < 4 && !player.buffImmune[ModContent.BuffType<NullificationCurse>()] && !FargoSoulsWorld.SwarmActive)
                 return false;
 
             return base.CanBeHitByItem(npc, player, item);
@@ -56,9 +56,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             {
                 switch (GetVulnerabilityState(npc))
                 {
-                    case 0: if (projectile.DamageType != DamageClass.Melee) return false; break;
-                    case 1: if (projectile.DamageType != DamageClass.Ranged) return false; break;
-                    case 2: if (projectile.DamageType != DamageClass.Magic) return false; break;
+                    case 0: if (!projectile.CountsAsClass(DamageClass.Melee)) return false; break;
+                    case 1: if (!projectile.CountsAsClass(DamageClass.Ranged)) return false; break;
+                    case 2: if (!projectile.CountsAsClass(DamageClass.Magic)) return false; break;
                     case 3: if (!FargoSoulsUtil.IsSummonDamage(projectile)) return false; break;
                     default: break;
                 }

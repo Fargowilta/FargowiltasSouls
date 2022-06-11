@@ -116,6 +116,8 @@ namespace FargowiltasSouls.EternityMode
         /// <param name="npcLoot"></param>
         public virtual void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) { }
 
+        public virtual bool PreKill(NPC npc) => true;
+
         public virtual void OnKill(NPC npc) { }
 
         public virtual bool SpecialOnKill(NPC npc) => false;

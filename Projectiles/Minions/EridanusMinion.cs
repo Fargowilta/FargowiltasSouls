@@ -98,7 +98,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 if (++Projectile.localAI[0] > 5) //spam close range fists
                                 {
                                     Projectile.localAI[0] = 0;
-                                    if (Main.myPlayer == Projectile.owner && player.HeldItem.DamageType == DamageClass.Melee)
+                                    if (Main.myPlayer == Projectile.owner && player.HeldItem.CountsAsClass(DamageClass.Melee))
                                     {
                                         const float maxRange = 700;
                                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.DirectionTo(npc.Center) * 40, 16f * Projectile.DirectionTo(npc.Center).RotatedByRandom(MathHelper.ToRadians(15)),
@@ -106,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     }
                                 }
 
-                                Projectile.frame = player.HeldItem.DamageType == DamageClass.Melee ? 6 : 5;
+                                Projectile.frame = player.HeldItem.CountsAsClass(DamageClass.Melee) ? 6 : 5;
                                 Projectile.rotation = Projectile.DirectionTo(npc.Center).ToRotation();
                                 if (Projectile.spriteDirection < 0)
                                     Projectile.rotation += (float)Math.PI;
@@ -124,14 +124,14 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 if (++Projectile.localAI[0] > 65) //shoot giant homing bullet
                                 {
                                     Projectile.localAI[0] = 0;
-                                    if (Main.myPlayer == Projectile.owner && player.HeldItem.DamageType == DamageClass.Ranged)
+                                    if (Main.myPlayer == Projectile.owner && player.HeldItem.CountsAsClass(DamageClass.Ranged))
                                     {
                                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 12f * Projectile.DirectionTo(npc.Center), ModContent.ProjectileType<EridanusBullet>(),
                                             (int)(Projectile.originalDamage * Main.player[Projectile.owner].GetDamage(DamageClass.Ranged).Additive * 1.5f), Projectile.knockBack * 2, Main.myPlayer, npc.whoAmI);
                                     }
                                 }
 
-                                if (player.HeldItem.DamageType == DamageClass.Ranged)
+                                if (player.HeldItem.CountsAsClass(DamageClass.Ranged))
                                 {
                                     if (Projectile.localAI[0] < 15)
                                         Projectile.frame = 8;
@@ -147,7 +147,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 Projectile.Center = Vector2.Lerp(Projectile.Center, home, 0.15f);
                                 Projectile.velocity *= 0.8f;
 
-                                if (player.HeldItem.DamageType == DamageClass.Magic && Projectile.localAI[0] > 45)
+                                if (player.HeldItem.CountsAsClass(DamageClass.Magic) && Projectile.localAI[0] > 45)
                                     Projectile.frame = 7;
 
                                 if (++Projectile.localAI[0] > 60)
@@ -155,10 +155,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     if (Projectile.localAI[0] > 90)
                                         Projectile.localAI[0] = 0;
 
-                                    if (player.HeldItem.DamageType == DamageClass.Magic)
+                                    if (player.HeldItem.CountsAsClass(DamageClass.Magic))
                                         Projectile.frame = 8;
 
-                                    if (Projectile.localAI[0] % 5 == 0 && player.HeldItem.DamageType == DamageClass.Magic) //rain lunar flares
+                                    if (Projectile.localAI[0] % 5 == 0 && player.HeldItem.CountsAsClass(DamageClass.Magic)) //rain lunar flares
                                     {
                                         SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);
 
@@ -190,10 +190,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 Projectile.frame = 5;
 
                                 bool playerIsAttacking = player.controlUseItem
-                                    && (player.HeldItem.DamageType == DamageClass.Melee
-                                    || player.HeldItem.DamageType == DamageClass.Ranged
-                                    || player.HeldItem.DamageType == DamageClass.Magic
-                                    || player.HeldItem.DamageType == DamageClass.Throwing)
+                                    && (player.HeldItem.CountsAsClass(DamageClass.Melee)
+                                    || player.HeldItem.CountsAsClass(DamageClass.Ranged)
+                                    || player.HeldItem.CountsAsClass(DamageClass.Magic)
+                                    || player.HeldItem.CountsAsClass(DamageClass.Throwing))
                                     && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0;
 
                                 if (++Projectile.localAI[0] > 15)
