@@ -2549,14 +2549,14 @@ namespace FargowiltasSouls
 
         public override bool CanBeHitByNPC(NPC npc, ref int CooldownSlot)
         {
-            if (BetsyDashing)
+            if (BetsyDashing || GoldShell)
                 return false;
             return true;
         }
 
         public override bool CanBeHitByProjectile(Projectile proj)
         {
-            if (BetsyDashing)
+            if (BetsyDashing || GoldShell)
                 return false;
             return true;
         }

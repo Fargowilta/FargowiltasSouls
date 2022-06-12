@@ -559,9 +559,9 @@ namespace FargowiltasSouls
         public void GoldUpdate()
         {
             Player.immune = true;
-            Player.immuneTime = 2;
-            Player.hurtCooldowns[0] = 2;
-            Player.hurtCooldowns[1] = 2;
+            Player.immuneTime = 90;
+            Player.hurtCooldowns[0] = 90;
+            Player.hurtCooldowns[1] = 90;
             Player.stealth = 1;
 
             //immune to DoT
@@ -2556,8 +2556,6 @@ namespace FargowiltasSouls
                             Player.velocity.Y = 15f;
                         }
 
-                        lihzahrdFallCD = 60;
-
                         if (GroundPound <= 0)
                         {
                             GroundPound = 1;
@@ -2567,11 +2565,23 @@ namespace FargowiltasSouls
 
                 if (GroundPound > 0)
                 {
-                    if (Player.velocity.Y < 0f || Player.mount.Active)
+                    lihzahrdFallCD = 60;
+
+                    if (Player.velocity.Y == 0f && Player.controlDown)
+                    {
+                        Vector2 vec = Collision.TileCollision(Player.position, 15f * Vector2.UnitY, Player.width, Player.height, true, true, (int)Player.gravDir);
+                        if (vec != Vector2.Zero)
+                        {
+                            Player.position += vec;
+                            Player.velocity.Y = 15f;
+                        }
+                    }
+
+                    if (Player.velocity.Y < 0f || Player.mount.Active || (Player.controlJump && !Player.controlDown))
                     {
                         GroundPound = 0;
                     }
-                    else if (Player.velocity.Y == 0f)
+                    else if (Player.velocity.Y == 0f && Player.oldVelocity.Y == 0f)
                     {
                         if (Player.whoAmI == Main.myPlayer)
                         {
@@ -2609,6 +2619,11 @@ namespace FargowiltasSouls
                     }
                     else
                     {
+                        if (Player.controlDown && Player.velocity.Y < 15f)
+                        {
+                            Player.velocity.Y = 15f;
+                        }
+
                         Player.maxFallSpeed = 15f;
                         GroundPound++;
 

@@ -43,8 +43,8 @@ namespace FargowiltasSouls.Patreon.Sasha
             ChaseAccel = 12f;
             Inertia = 20f;
             ShootSpeed = 20f;
-            ShootCool = 30;
-            ViewDist = 250;
+            ShootCool = 45;
+            ViewDist = 600;
         }
 
         public override void CheckActive()
@@ -72,7 +72,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.immune[Projectile.owner] = 7;
+            target.immune[Projectile.owner] = 10;
         }
 
         public override bool PreDraw(ref Color lightColor)

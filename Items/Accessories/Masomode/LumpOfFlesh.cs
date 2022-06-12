@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Lump of Flesh");
             Tooltip.SetDefault(@"Grants immunity to knockback, Anticoagulation, Blackout, Obstructed, Dazed, Slow, Frozen, and Stunned
-Increases damage dealt by 15% and damage taken by 10%
+Increases damage dealt by 15%
 Increases your max number of minions and sentries by 1
 Right Click to parry attacks with extremely tight timing
 Defense and damage reduction drastically decreased while and shortly after guarding
@@ -53,7 +53,6 @@ Enemies are less likely to target you
             player.buffImmune[BuffID.Dazed] = true;
             player.buffImmune[ModContent.BuffType<Stunned>()] = true;
             player.GetDamage(DamageClass.Generic) += 0.15f;
-            player.endurance -= 0.10f;
             player.aggro -= 400;
             player.GetModPlayer<FargoSoulsPlayer>().SkullCharm = true;
             player.GetModPlayer<FargoSoulsPlayer>().LumpOfFlesh = true;

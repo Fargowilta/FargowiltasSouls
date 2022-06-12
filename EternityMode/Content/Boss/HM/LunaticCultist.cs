@@ -62,7 +62,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool? CanBeHitByProjectile(NPC npc, Projectile projectile)
         {
-            if (npc.ai[3] == -1f && FargoSoulsUtil.IsSummonDamage(projectile, includeWhips: false))
+            if (npc.ai[3] == -1f && FargoSoulsUtil.IsSummonDamage(projectile) && !ProjectileID.Sets.IsAWhip[projectile.type])
                 return false;
 
             return base.CanBeHitByProjectile(npc, projectile);
@@ -396,7 +396,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool? CanBeHitByProjectile(NPC npc, Projectile projectile)
         {
-            if (FargoSoulsUtil.IsSummonDamage(projectile, includeWhips: false))
+            if (FargoSoulsUtil.IsSummonDamage(projectile) && !ProjectileID.Sets.IsAWhip[projectile.type])
                 return false;
 
             return base.CanBeHitByProjectile(npc, projectile);

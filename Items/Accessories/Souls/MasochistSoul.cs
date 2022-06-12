@@ -363,7 +363,6 @@ Summons the aid of all Eternity Mode bosses to your side
             .AddIngredient(ModContent.ItemType<LumpOfFlesh>())
             .AddIngredient(ModContent.ItemType<ChaliceoftheMoon>())
             .AddIngredient(ModContent.ItemType<HeartoftheMasochist>())
-            .AddIngredient(ModContent.ItemType<PrecisionSeal>())
             .AddIngredient(ModContent.ItemType<AbomEnergy>(), 15)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 15)
 

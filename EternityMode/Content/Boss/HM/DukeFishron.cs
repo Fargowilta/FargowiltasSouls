@@ -442,12 +442,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 0.014035f * Vector2.Normalize(npc.velocity).RotatedBy(-Math.PI / 2),
                                 ModContent.ProjectileType<RazorbladeTyphoon2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, .08f);
 
-                            if (/*Fargowiltas.Instance.MasomodeEXLoaded ||*/ FargoSoulsWorld.MasochistModeReal) //lol
-                            {
-                                FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center,
-                                    ModContent.NPCType<NPCs.EternityMode.DetonatingBubble>(),
-                                    velocity: Vector2.Normalize(npc.velocity.RotatedBy(Math.PI / 2)) * -npc.spriteDirection);
-                            }
+                            //if (/*Fargowiltas.Instance.MasomodeEXLoaded ||*/ FargoSoulsWorld.MasochistModeReal) //lol
+                            //{
+                            //    FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center,
+                            //        ModContent.NPCType<NPCs.EternityMode.DetonatingBubble>(),
+                            //        velocity: Vector2.Normalize(npc.velocity.RotatedBy(Math.PI / 2)) * -npc.spriteDirection);
+                            //}
                         }
                     }
                     break;
@@ -563,8 +563,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         {
                             SpectralFishronRandom = Main.rand.NextBool();
 
-                            if (FargoSoulsWorld.MasochistModeReal && Main.netMode != NetmodeID.MultiplayerClient)
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ProjectileID.SharknadoBolt, 0, 0f, Main.myPlayer, 1f, npc.target + 1);
+                            //if (FargoSoulsWorld.MasochistModeReal && Main.netMode != NetmodeID.MultiplayerClient)
+                            //    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ProjectileID.SharknadoBolt, 0, 0f, Main.myPlayer, 1f, npc.target + 1);
                         }
 
                         if (++P3Timer < 150)
@@ -730,6 +730,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (EXTornadoTimer < 0)
             {
                 EXTornadoTimer = 10 * 60;
+
+                SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
+
                 for (int i = -1; i <= 1; i += 2)
                 {
                     int tilePosX = (int)Main.player[npc.target].Center.X / 16;
@@ -767,7 +770,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     Vector2 spawn = new Vector2(tilePosX * 16 + 8, tilePosY * 16 + 8);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, Vector2.UnitX * -i * 6f, ProjectileID.Cthulunado, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 10, 24);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, Vector2.UnitX * -i * 6f, ProjectileID.Cthulunado, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 10, 25);
                 }
             }
 
@@ -787,7 +790,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (npc.ai[0] >= 9) //phase 3
                     npc.damage = Math.Max(npc.damage, (int)(npc.defDamage * 1.3));
             }
-            else if (npc.ai[0] > 9)
+
+            if (npc.ai[0] > 9)
             {
                 npc.dontTakeDamage = false;
                 npc.chaseable = true;
@@ -957,6 +961,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron))
             {
                 npc.lifeMax *= 5000;//20;//2;
+            }
+        }
+
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            base.OnSpawn(npc, source);
+
+            //alt behaviour cthulunado no spawn sharky
+            if (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj
+                && sourceProj.type == ProjectileID.Cthulunado && sourceProj.GetGlobalProjectile<Projectiles.EModeGlobalProjectile>().altBehaviour)
+            {
+                npc.type = NPCID.None;
+                npc.active = false;
             }
         }
 

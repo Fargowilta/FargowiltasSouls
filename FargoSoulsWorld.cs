@@ -28,7 +28,7 @@ namespace FargowiltasSouls
             TrojanSquirrel
         }
 
-        public static bool SwarmActive => ModLoader.TryGetMod("Fargowiltas", out Mod fargo) && (bool)fargo.Call("SwarmActive");
+        public static bool SwarmActive;
 
         public static bool downedBetsy;
 
@@ -64,6 +64,7 @@ namespace FargowiltasSouls
 
         private void ResetFlags()
         {
+            SwarmActive = false;
             downedBetsy = false;
 
             ShouldBeEternityMode = false;
@@ -224,6 +225,11 @@ namespace FargowiltasSouls
                 bitsByte[bit] = downedBoss[i];
             }
             writer.Write(bitsByte);
+        }
+
+        public override void PreUpdateNPCs()
+        {
+            SwarmActive = ModLoader.TryGetMod("Fargowiltas", out Mod fargo) && (bool)fargo.Call("SwarmActive");
         }
 
         public override void PostUpdateWorld()

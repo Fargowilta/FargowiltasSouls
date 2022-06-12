@@ -306,7 +306,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         {
                             if (AttackTimer > 30)
                             {
-                                AttackTimer -= 360;
+                                AttackTimer -= 420;
 
                                 for (int i = 0; i < 3; i++)
                                 {
@@ -402,9 +402,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
             else //moon lord isn't dead
             {
-                int increment = (int)Math.Max(1, (1f - (float)npc.life / npc.lifeMax) * 4);
+                const float maxRampup = 4;
+                float lerp = (float)npc.life / npc.lifeMax;
                 if (FargoSoulsWorld.MasochistModeReal)
-                    increment++;
+                    lerp *= lerp;
+                int increment = (int)Math.Round(MathHelper.Lerp(maxRampup, 1, lerp));
 
                 VulnerabilityTimer += increment;
                 AttackTimer += increment;
@@ -593,6 +595,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool SpawnSynchronized;
         public bool SlowMode;
 
+        public float LastState;
+
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(OnSpawnCounter), IntStrategies.CompoundStrategy },
@@ -612,7 +616,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (core == null)
                 return true;
 
-            if (!SpawnSynchronized && ++OnSpawnCounter > 2 && !FargoSoulsWorld.MasochistModeReal) //sync to other eyes of same core when spawned
+            if (!SpawnSynchronized && ++OnSpawnCounter > 2) //sync to other eyes of same core when spawned
             {
                 SpawnSynchronized = true;
                 OnSpawnCounter = 0;
@@ -642,6 +646,22 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
                 npc.netUpdate = true;
                 NetSync(npc);
+            }
+
+            if (FargoSoulsWorld.MasochistModeReal && LastState != npc.ai[0])
+            {
+                LastState = npc.ai[0];
+
+                for (int i = 0; i < Main.maxNPCs; i++) //gradually desync from each other
+                {
+                    if (Main.npc[i].active && Main.npc[i].type == NPCID.MoonLordFreeEye && Main.npc[i].ai[3] == npc.ai[3])
+                    {
+                        if (i == npc.whoAmI)
+                            break;
+
+                        npc.ai[1] += 1;
+                    }
+                }
             }
 
             if (core.dontTakeDamage && !FargoSoulsWorld.MasochistModeReal) //behave slower until p2 proper

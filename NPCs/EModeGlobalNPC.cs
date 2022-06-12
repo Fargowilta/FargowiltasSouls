@@ -454,9 +454,9 @@ namespace FargowiltasSouls.NPCs
                                     }
 
                                     //if (!spawnInfo.player.GetModPlayer<FargoSoulsPlayer>().SkullCharm)
-                                    pool[NPCID.SkeletonSniper] = .02f;
-                                    pool[NPCID.SkeletonCommando] = .02f;
-                                    pool[NPCID.TacticalSkeleton] = .02f;
+                                    pool[NPCID.SkeletonSniper] = .005f;
+                                    pool[NPCID.SkeletonCommando] = .005f;
+                                    pool[NPCID.TacticalSkeleton] = .005f;
                                 }
                             }
 

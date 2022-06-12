@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Heart of the Master");
             Tooltip.SetDefault(@"Grants immunity to Living Wasteland, Hypothermia, Oozed, Withered Weapon, and Withered Armor
 Grants immunity to Feral Bite, Mutant Nibble, Flipped, Unstable, Distorted, and Curse of the Moon
-Grants immunity to Wet, Electrified, Oceanic Maul, Moon Leech, Nullification Curse, and water debuffs
+Grants immunity to Wet, Electrified, Oceanic Maul, Smite, Moon Leech, Nullification Curse, and water debuffs
 Increases damage and critical strike chance by 10% and increases damage reduction by 5%
 Increases flight time by 100%
 You may periodically fire additional attacks depending on weapon type
@@ -27,6 +27,8 @@ Your critical strikes inflict Rotting and Betsy's Curse
 Press the Fireball Dash key to perform a short invincible dash
 Grants effects of Wet debuff while riding Cute Fishron and gravity control
 Freeze nearby enemies when hurt
+Reduces your hurtbox size for projectiles
+Hold the Precision Seal key to disable dashes and double jumps
 Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
 'Warm, beating, and no body needed'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒者之心");
@@ -110,6 +112,12 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
             fargoPlayer.GravityGlobeEXItem = Item;
             fargoPlayer.WingTimeModifier += 1f;
 
+            //precision seal
+            player.buffImmune[ModContent.BuffType<Smite>()] = true;
+            fargoPlayer.PrecisionSeal = true;
+            if (player.GetToggleValue("PrecisionSealHurtbox", false))
+                fargoPlayer.PrecisionSealHurtbox = true;
+
             //heart of maso
             player.buffImmune[BuffID.MoonLeech] = true;
             player.buffImmune[ModContent.BuffType<NullificationCurse>()] = true;
@@ -124,6 +132,7 @@ Summons a friendly super Flocko, Mini Saucer, and true eyes of Cthulhu
             .AddIngredient(ModContent.ItemType<SaucerControlConsole>())
             .AddIngredient(ModContent.ItemType<BetsysHeart>())
             .AddIngredient(ModContent.ItemType<MutantAntibodies>())
+            .AddIngredient(ModContent.ItemType<PrecisionSeal>())
             .AddIngredient(ModContent.ItemType<GalacticGlobe>())
             .AddIngredient(ItemID.LunarBar, 15)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 10)

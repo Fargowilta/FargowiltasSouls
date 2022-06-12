@@ -26,9 +26,9 @@ namespace FargowiltasSouls.Projectiles
         public bool HasKillCooldown;
         public bool EModeCanHurt = true;
         public int NerfDamageBasedOnProjTypeCount;
+        public bool altBehaviour;
 
         private int counter;
-        private bool altBehaviour;
         private bool preAICheckDone;
         private bool firstTickAICheckDone;
 
@@ -242,6 +242,14 @@ namespace FargowiltasSouls.Projectiles
                         Main.player[projectile.owner].lifeSteal -= projectile.ai[1];
                     break;
 
+                case ProjectileID.Cthulunado:
+                    if (NonSwarmFight(projectile, NPCID.DukeFishron) && FargoSoulsWorld.MasochistModeReal)
+                    {
+                        if (projectile.ai[1] == 25 || (sourceProj is Projectile && sourceProj.GetGlobalProjectile<EModeGlobalProjectile>().altBehaviour))
+                            altBehaviour = true;
+                    }
+                    break;
+
                 case ProjectileID.DeerclopsIceSpike: //note to future self: these are all mp compatible apparently?
                     if (FargoSoulsWorld.SwarmActive)
                         break;
@@ -402,7 +410,7 @@ namespace FargowiltasSouls.Projectiles
                         break;
 
                     case ProjectileID.PhantasmalBolt:
-                        if (!FargoSoulsWorld.MasochistModeReal && NonSwarmFight(projectile, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye))
+                        if (NonSwarmFight(projectile, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye))
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -940,7 +948,7 @@ namespace FargowiltasSouls.Projectiles
                     break;
 
                 case ProjectileID.PhantasmalSphere:
-                    if (!FargoSoulsWorld.SwarmActive && !FargoSoulsWorld.MasochistModeReal)
+                    if (!FargoSoulsWorld.SwarmActive)
                     {
                         EModeCanHurt = projectile.alpha == 0;
 
@@ -957,7 +965,7 @@ namespace FargowiltasSouls.Projectiles
                                     projectile.localAI[0] = 1;
                                     projectile.velocity.Normalize();
 
-                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                    if (Main.netMode != NetmodeID.MultiplayerClient && !FargoSoulsWorld.MasochistModeReal)
                                     {
                                         Projectile.NewProjectile(Terraria.Entity.InheritSource(projectile), projectile.Center, projectile.velocity, ModContent.ProjectileType<PhantasmalSphereDeathray>(),
                                             0, 0f, Main.myPlayer, 0f, projectile.identity);
