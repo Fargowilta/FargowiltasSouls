@@ -938,7 +938,7 @@ namespace FargowiltasSouls.NPCs
                     TimsConcoctionDrop(ItemDropRule.Common(ItemID.CratePotion, 1, 1, 3));
                     break;
 
-                case NPCID.AnglerFish:
+                case NPCID.FlyingFish:
                     TimsConcoctionDrop(ItemDropRule.Common(ItemID.FishingPotion, 1, 1, 3));
                     break;
 

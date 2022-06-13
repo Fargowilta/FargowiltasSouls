@@ -13,7 +13,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Adamantite Enchantment");
             Tooltip.SetDefault("Every weapon shot will split into 2" +
-                "\nAll weapon shots deal 50% damage and hit twice as fast" +
+                "\nAll weapon shots deal 50% damage" +
+                "\nThey hit twice as fast and gain armor penetration equal to 50% damage" +
                 "\n'Chaos'");
 
             // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "精金魔石");

@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             string tooltip =
 @"Your minions and sentries can crit
-Summon crits do x1.25 damage instead of x2
+Summon crits do x1.5 damage instead of x2
 'Arachnophobia is punishable by arachnid induced death'";
             Tooltip.SetDefault(tooltip);
 

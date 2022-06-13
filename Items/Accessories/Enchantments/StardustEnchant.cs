@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Stardust Enchantment");
             Tooltip.SetDefault(
 @"A stardust guardian will protect you from nearby enemies
-Press the Freeze Key to freeze time
+Press the Freeze Key to freeze time for 5 seconds
 While time is frozen, your minions will continue to attack
 There is a 60 second cooldown for this effect
 'The power of the Stand is yours'");

@@ -179,6 +179,8 @@ namespace FargowiltasSouls.Projectiles
 
                 case ProjectileID.QueenSlimeMinionBlueSpike:
                     projectile.scale *= 1.5f;
+                    projectile.timeLeft = 180;
+                    projectile.tileCollide = false;
                     break;
 
                 case ProjectileID.BloodShot:
@@ -202,7 +204,14 @@ namespace FargowiltasSouls.Projectiles
             }
         }
 
-        private bool NonSwarmFight(Projectile projectile, params int[] types) => !FargoSoulsWorld.SwarmActive && projectile.GetSourceNPC() is NPC && types.Contains(projectile.GetSourceNPC().type);
+        private bool NonSwarmFight(Projectile projectile, params int[] types)
+        {
+            if (FargoSoulsWorld.SwarmActive)
+                return false;
+
+            NPC npc = projectile.GetSourceNPC();
+            return projectile.GetSourceNPC() is NPC && types.Contains(npc.type);
+        }
 
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
@@ -337,41 +346,12 @@ namespace FargowiltasSouls.Projectiles
             }
         }
 
-        public override bool CanHitPlayer(Projectile projectile, Player target)
+        //separate from OnSpawn for multiplayer sync
+        public void OnFirstTick(Projectile projectile)
         {
-            if (!FargoSoulsWorld.EternityMode)
-                return base.CanHitPlayer(projectile, target);
-
-            if (!EModeCanHurt)
-                return false;
-
-            return base.CanHitPlayer(projectile, target);
-        }
-
-        public override bool? CanHitNPC(Projectile projectile, NPC target)
-        {
-            if (!FargoSoulsWorld.EternityMode)
-                return base.CanHitNPC(projectile, target);
-
-            if (!EModeCanHurt)
-                return false;
-
-            return base.CanHitNPC(projectile, target);
-        }
-
-        public override bool PreAI(Projectile projectile)
-        {
-            if (!FargoSoulsWorld.EternityMode)
+            if (A_SourceNPCGlobalProjectile.NeedsSync(A_SourceNPCGlobalProjectile.SourceNPCSync, projectile.type))
             {
-                preAICheckDone = true;
-                return base.PreAI(projectile);
-            }
-
-            NPC sourceNPC = projectile.GetSourceNPC();
-
-            if (!preAICheckDone)
-            {
-                preAICheckDone = true;
+                NPC sourceNPC = projectile.GetSourceNPC();
 
                 switch (projectile.type)
                 {
@@ -495,6 +475,33 @@ namespace FargowiltasSouls.Projectiles
                     default:
                         break;
                 }
+            }
+        }
+
+        public override bool? CanDamage(Projectile projectile)
+        {
+            if (!FargoSoulsWorld.EternityMode)
+                return base.CanDamage(projectile);
+
+            if (!EModeCanHurt)
+                return false;
+
+            return base.CanDamage(projectile);
+        }
+
+        public override bool PreAI(Projectile projectile)
+        {
+            if (!FargoSoulsWorld.EternityMode)
+            {
+                preAICheckDone = true;
+                return base.PreAI(projectile);
+            }
+
+            if (!preAICheckDone)
+            {
+                preAICheckDone = true;
+
+                OnFirstTick(projectile);
             }
 
             counter++;

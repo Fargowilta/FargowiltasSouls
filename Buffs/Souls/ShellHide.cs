@@ -13,10 +13,10 @@ namespace FargowiltasSouls.Buffs.Souls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shell Hide");
-            Description.SetDefault("Projectiles are being blocked,");
+            Description.SetDefault("Projectiles are being blocked");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "缩壳");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "阻挡抛射物,但受到双倍接触伤害");
         }
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Buffs.Souls
 
             if (modPlayer.TurtleCounter > 80)
             {
-                Main.projectile.Where(x => x.active && x.hostile && x.damage > 0 && Vector2.Distance(x.Center, player.Center) <= distance && FargoSoulsUtil.CanDeleteProjectile(x)).ToList().ForEach(x =>
+                Main.projectile.Where(x => x.active && x.hostile && x.damage > 0 && Vector2.Distance(x.Center, player.Center) <= distance && ProjectileLoader.CanDamage(x) != false && ProjectileLoader.CanHitPlayer(x, player) && FargoSoulsUtil.CanDeleteProjectile(x)).ToList().ForEach(x =>
                 {
                     int dustId = Dust.NewDust(new Vector2(x.position.X, x.position.Y + 2f), x.width, x.height + 5, DustID.GoldFlame, x.velocity.X * 0.2f, x.velocity.Y * 0.2f, 100,
                         default(Color), 2f);

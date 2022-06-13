@@ -42,21 +42,15 @@ namespace FargowiltasSouls.Projectiles
             }
         }
 
-        private bool NeedsNPCSync(Projectile projectile)
-            => SourceNPCSync.TryGetValue(projectile.type, out bool value) && value;
-
-        private bool NeedsDmgSync(Projectile projectile)
-            => DamagingSync.TryGetValue(projectile.type, out bool value) && value;
-
-        private bool NeedsSync(Dictionary<int, bool> dict, Projectile projectile)
-            => dict.TryGetValue(projectile.type, out bool value) && value;
+        public static bool NeedsSync(Dictionary<int, bool> dict, int projectileType)
+            => dict.TryGetValue(projectileType, out bool value) && value;
 
         public override void SendExtraAI(Projectile projectile, BitWriter bits, BinaryWriter writer)
         {
-            if (NeedsSync(SourceNPCSync, projectile))
-                writer.Write(sourceNPC is NPC ? sourceNPC.whoAmI : -1);
+            if (NeedsSync(SourceNPCSync, projectile.type))
+                writer.WriteVarInt(sourceNPC is NPC ? sourceNPC.whoAmI : Main.maxNPCs);
 
-            if (NeedsSync(DamagingSync, projectile))
+            if (NeedsSync(DamagingSync, projectile.type))
             {
                 bits.WriteBit(projectile.friendly);
                 bits.WriteBit(projectile.hostile);
@@ -66,10 +60,10 @@ namespace FargowiltasSouls.Projectiles
 
         public override void ReceiveExtraAI(Projectile projectile, BitReader bits, BinaryReader reader)
         {
-            if (NeedsSync(SourceNPCSync, projectile))
-                sourceNPC = FargoSoulsUtil.NPCExists(reader.ReadInt32());
+            if (NeedsSync(SourceNPCSync, projectile.type))
+                sourceNPC = FargoSoulsUtil.NPCExists(reader.ReadVarInt());
 
-            if (NeedsSync(DamagingSync, projectile))
+            if (NeedsSync(DamagingSync, projectile.type))
             {
                 projectile.friendly = bits.ReadBit();
                 projectile.hostile = bits.ReadBit();

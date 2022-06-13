@@ -18,12 +18,11 @@ namespace FargowiltasSouls.Projectiles.Souls
         {
             Projectile.width = 106;
             Projectile.height = 84;
-            Projectile.aiStyle = 0;
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.penetrate = 10;
+            Projectile.penetrate = 3;
             Projectile.timeLeft = 50;
-            AIType = ProjectileID.CrystalBullet;
             Projectile.tileCollide = false;
             Projectile.scale *= .5f;
             Projectile.timeLeft = 300;
@@ -39,6 +38,9 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void AI()
         {
+            if (!Projectile.tileCollide && !Collision.SolidTiles(Projectile.Center, 0, 0))
+                Projectile.tileCollide = true;
+
             //dust!
             int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 55, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default(Color), 1f);
@@ -48,11 +50,6 @@ namespace FargowiltasSouls.Projectiles.Souls
             Main.dust[dustId3].noGravity = true;
 
             Projectile.rotation += 0.4f;
-
-            if (Projectile.penetrate < 10)
-            {
-                Projectile.timeLeft = 10;
-            }
         }
 
         public override void Kill(int timeLeft)

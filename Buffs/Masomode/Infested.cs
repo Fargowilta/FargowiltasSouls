@@ -40,10 +40,5 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             npc.GetGlobalNPC<FargoSoulsGlobalNPC>().Infested = true;
         }
-
-        public override bool ReApply(NPC npc, int time, int buffIndex)
-        {
-            return true;
-        }
     }
 }

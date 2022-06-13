@@ -186,11 +186,11 @@ namespace FargowiltasSouls
         public bool squireReduceIframes;
         public bool StardustEnchantActive;
         public bool FreezeTime;
-        public int freezeLength = TIMESTOP_DURATION;
+        public int freezeLength;
         public const int TIMESTOP_DURATION = 540; //300
         public bool ChillSnowstorm;
-        public int chillLength = CHILL_DURATION;
-        public const int CHILL_DURATION = 600;
+        public int chillLength;
+        public int CHILL_DURATION => FrostEnchantActive ? 900 : 600;
         public bool TikiEnchantActive;
         public bool TikiMinion;
         public int actualMinions;
@@ -1004,10 +1004,10 @@ namespace FargowiltasSouls
             NoUsingItems = false;
 
             FreezeTime = false;
-            freezeLength = TIMESTOP_DURATION;
+            freezeLength = 0;
 
             ChillSnowstorm = false;
-            chillLength = CHILL_DURATION;
+            chillLength = 0;
 
             SlimyShieldFalling = false;
             DarkenedHeartCD = 60;
@@ -1661,11 +1661,6 @@ namespace FargowiltasSouls
             int useTime = item.useTime;
             int useAnimate = item.useAnimation;
 
-            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
-            {
-                return base.UseSpeedMultiplier(item);
-            }
-
             if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
             {
                 int targetUseTime = useTime + 6;
@@ -1680,20 +1675,27 @@ namespace FargowiltasSouls
                 AttackSpeed += .1f;
             }
 
-            if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
+            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
             {
-                AttackSpeed += .2f;
+                
             }
-
-            if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
+            else
             {
-                AttackSpeed *= 0.75f;
-            }
+                if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
+                {
+                    AttackSpeed += .2f;
+                }
 
-            if (MythrilEnchantActive && item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
-            {
-                float ratio = Math.Max((float)MythrilTimer / MythrilMaxTime, 0);
-                AttackSpeed += MythrilMaxSpeedBonus * ratio;
+                if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
+                {
+                    AttackSpeed *= 0.75f;
+                }
+
+                if (MythrilEnchantActive && item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
+                {
+                    float ratio = Math.Max((float)MythrilTimer / MythrilMaxTime, 0);
+                    AttackSpeed += MythrilMaxSpeedBonus * ratio;
+                }
             }
 
             //checks so weapons dont break
@@ -2168,8 +2170,8 @@ namespace FargowiltasSouls
                 else if (UniverseCore)
                     damage = (int)Math.Round(damage * 2.5);
 
-                if (SpiderEnchantActive && damageClass == DamageClass.Summon && !TerrariaSoul)
-                    damage = (int)Math.Round(damage * (LifeForce ? 0.75 : 0.625));
+                if (SpiderEnchantActive && damageClass.CountsAsClass(DamageClass.Summon) && !TerrariaSoul)
+                    damage = (int)Math.Round(damage * 0.75);
 
                 if (DeerSinewNerf)
                 {
@@ -2557,6 +2559,8 @@ namespace FargowiltasSouls
         public override bool CanBeHitByProjectile(Projectile proj)
         {
             if (BetsyDashing || GoldShell)
+                return false;
+            if (PrecisionSealHurtbox && !proj.Colliding(proj.Hitbox, GetPrecisionHurtbox()))
                 return false;
             return true;
         }

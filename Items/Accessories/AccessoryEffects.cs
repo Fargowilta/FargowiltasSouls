@@ -1649,6 +1649,21 @@ namespace FargowiltasSouls
 
                 if (--chillLength <= 0)
                     ChillSnowstorm = false;
+
+                const int warning = 180;
+                if (chillLength <= warning && chillLength % 60 == 0)
+                {
+                    float rampup = MathHelper.Lerp(1.5f, 0.5f, (float)chillLength / warning);
+
+                    SoundEngine.PlaySound(SoundID.Item27 with { Volume = rampup }, Player.Center);
+
+                    for (int i = 0; i < 20; i++)
+                    {
+                        int d = Dust.NewDust(Player.position, Player.width, Player.height, DustID.GemSapphire, 0, 0, 0, default, 2f * rampup);
+                        Main.dust[d].noGravity = true;
+                        Main.dust[d].velocity *= 6f * rampup;
+                    }
+                }
             }
         }
 
@@ -2448,8 +2463,11 @@ namespace FargowiltasSouls
             if (BetsyDashCD <= 0)
             {
                 BetsyDashCD = 180;
+
                 if (Player.whoAmI == Main.myPlayer)
                 {
+                    Player.RemoveAllGrapplingHooks();
+
                     /*Player.controlLeft = false;
                     Player.controlRight = false;
                     Player.controlJump = false;

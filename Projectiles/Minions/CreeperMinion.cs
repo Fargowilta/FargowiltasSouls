@@ -54,7 +54,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.Kill();
             else
             {
-                for (int index = 0; index < 1000; ++index)
+                for (int index = 0; index < Main.maxProjectiles; ++index)
                 {
                     if (index != Projectile.whoAmI && Main.projectile[index].active && (Main.projectile[index].owner == Projectile.owner && Main.projectile[index].type == Projectile.type) && (double)Math.Abs((float)(Projectile.position.X - Main.projectile[index].position.X)) + (double)Math.Abs((float)(Projectile.position.Y - Main.projectile[index].position.Y)) < (double)Projectile.width)
                     {
@@ -77,7 +77,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     }
                 }
 
-                NPC targetnpc = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPC(Projectile.Center, 1000, true));
+                NPC targetnpc = FargoSoulsUtil.NPCExists(FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000, true));
                 bool targetting = targetnpc != null;
                 if (!targetting || Projectile.ai[0] > 0)
                 {

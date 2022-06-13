@@ -23,7 +23,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SolarEclipse
         {
             base.AI(npc);
 
-            const int timeToBeginAttack = 360;
+            const int timeToBeginAttack = 420;
 
             if (++Counter == timeToBeginAttack)
             {
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SolarEclipse
                     Spray();
             }
 
-            if (Counter > timeToBeginAttack + 45 + 150)
+            if (Counter > timeToBeginAttack + 45 + 90)
             {
                 Counter = 0;
                 npc.netUpdate = true;
