@@ -101,7 +101,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             if (EnteredPhase3)
                 TeleportTimer++;
 
-            if (Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead && npc.Distance(Main.LocalPlayer.Center) < 100)
+            if (Main.LocalPlayer.active && !Main.LocalPlayer.ghost && !Main.LocalPlayer.dead && npc.Distance(Main.LocalPlayer.Center) < 1000)
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<LowGround>(), 2);
 
             switch ((int)npc.ai[0])

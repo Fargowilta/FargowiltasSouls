@@ -246,7 +246,6 @@ namespace FargowiltasSouls.Items.Misc
                     ItemID.CharmofMyths,
                     ModContent.ItemType<SupremeDeathbringerFairy>(),
                     ModContent.ItemType<FrostEnchant>(),
-                    ModContent.ItemType<MeteorEnchant>(),
                     ModContent.ItemType<PalladiumEnchant>(),
                     ModContent.ItemType<DreadShell>(),
                     Main.rand.Next(new int[] { ItemID.WarriorEmblem, ItemID.RangerEmblem, ItemID.SorcererEmblem, ItemID.SummonerEmblem })

@@ -14,6 +14,9 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Cannot stand on platforms or liquids");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
+            Main.buffNoTimeDisplay[Type] = true;
+
+            Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "低地");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "不能站在平台或液体上");
         }

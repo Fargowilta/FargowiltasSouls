@@ -1864,3 +1864,33 @@ lowered surface spawn rate of gun skeletons
 gold ench gives more iframes when exiting
 heart of master includes precision seal
 nerfed drakovi minion contact damage hit rate, water shoot rate
+refactors to graze, ancient hallowed shield, turtle shell
+	check they still work at all
+	check that hallowed shield doesnt reflect fishron's spectral fishron before they attack
+precision seal hurtbox reimplementation
+spooky ench scythes pierce reduced to 3, now is destroyed on hitting a tile (but not when spawned inside one)
+betsy dash and penetrator remove your hook now
+qs nerfed, spawns 4 subjects per wave (was 6)
+infested can stack duration again
+fixed certain debuffs having a "flickering" effect when applied as aura
+nerfed nailhead duration and frequency of attack
+frost ench now upgrades chill duration to 15 seconds
+fixed nature force having outdated snow descirption
+snow ench has a warning when about to end
+emode ml nerfed, null curse no longer disables dodges
+qs spikes ignore tiles
+fixed jungle mimic coins having wrong damage type
+tims coc fishing potion is now from flying fish, was angler fish
+fixed mind break ignoring summon enemy focus
+fixed silver ench giving armor pierce to things it shouldnt
+adam ench buffed, affected projs gain armor pierce = half damage
+fixed silver ench speeding up timber squirrel's explosion jumps
+fixed mutant's gift revealing maso exists before it's actually unlocked
+fixed low ground being removeable by nurse
+fixed deerclops inflicting low ground at 100 units range, not 1000 as intended
+maso eoc no longer spawns servants in p3
+dune splicer drops oasis crate
+wyvern drops sky crate if killed phm
+some adjustments to copper lightning to nerf it
+terra lightning targets 5 at once, was 10
+fixed box of gizmos not actually giving all items autofire

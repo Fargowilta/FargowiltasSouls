@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Buffs.Masomode
 
         public override bool ReApply(Player player, int time, int buffIndex)
         {
-            return time > 2;
+            return time > 3;
         }
     }
 }

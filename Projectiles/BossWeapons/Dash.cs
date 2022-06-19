@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
@@ -24,6 +25,12 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             Projectile.extraUpdates = 5; //more granular movement, less likely to clip through surfaces
             Projectile.timeLeft = 15 * (Projectile.extraUpdates + 1);
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (Projectile.owner == Main.myPlayer)
+                Main.player[Projectile.owner].RemoveAllGrapplingHooks();
         }
 
         public override bool? CanDamage()

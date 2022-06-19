@@ -287,23 +287,28 @@ namespace FargowiltasSouls.Projectiles
                 }
 
                 AdamProj = true;
+
+                projectile.ArmorPenetration += projectile.damage / 2;
             }
 
-            if (modPlayer.SilverEnchantActive && FargoSoulsUtil.IsSummonDamage(projectile, true, false) && player.GetToggleValue("SilverSpeed"))
+            if (modPlayer.SilverEnchantActive && projectile.friendly && FargoSoulsUtil.IsSummonDamage(projectile, true, false) && player.GetToggleValue("SilverSpeed"))
             {
                 SilverMinion = true;
                 projectile.extraUpdates++;
 
-                int armorPen = 20;
-                if (modPlayer.SpiritForce)
-                    armorPen *= 2;
-                if (modPlayer.TerrariaSoul)
-                    armorPen *= 3;
+                if (NeedsSilverNerf(projectile))
+                {
+                    int armorPen = 20;
+                    if (modPlayer.SpiritForce)
+                        armorPen *= 2;
+                    if (modPlayer.TerrariaSoul)
+                        armorPen *= 3;
 
-                projectile.ArmorPenetration += armorPen;
+                    projectile.ArmorPenetration += armorPen;
+                }
             }
 
-            if (modPlayer.TikiEnchantActive)
+            if (modPlayer.TikiEnchantActive && projectile.friendly)
             {
                 if (FargoSoulsUtil.IsSummonDamage(projectile) && (projectile.sentry ? modPlayer.TikiSentry : modPlayer.TikiMinion))
                 {
@@ -1005,12 +1010,14 @@ namespace FargowiltasSouls.Projectiles
                 }
             }
 
-            if (projectile.hostile && projectile.damage > 0 && canHurt && projectile.GetGlobalProjectile<EModeGlobalProjectile>().EModeCanHurt && Main.LocalPlayer.active && !Main.LocalPlayer.dead) //graze
+            //graze
+            if (projectile.hostile && projectile.damage > 0 
+                && Main.LocalPlayer.active && !Main.LocalPlayer.dead)
             {
                 FargoSoulsPlayer fargoPlayer = Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>();
                 if (fargoPlayer.Graze && --GrazeCD < 0 && !Main.LocalPlayer.immune && Main.LocalPlayer.hurtCooldowns[0] <= 0 && Main.LocalPlayer.hurtCooldowns[1] <= 0)
                 {
-                    if (GrazeCheck(projectile))
+                    if (ProjectileLoader.CanDamage(projectile) != false && ProjectileLoader.CanHitPlayer(projectile, Main.LocalPlayer) && GrazeCheck(projectile))
                     {
                         double grazeCap = 0.25;
                         if (fargoPlayer.MutantEyeItem != null)
@@ -1082,24 +1089,22 @@ namespace FargowiltasSouls.Projectiles
             return base.TileCollideStyle(projectile, ref width, ref height, ref fallThrough, ref hitboxCenterFrac);
         }
 
-        public override bool CanHitPlayer(Projectile projectile, Player target)
+        public override bool? CanDamage(Projectile projectile)
         {
             if (!canHurt)
                 return false;
             if (TimeFrozen > 0 && counter > TimeFreezeMoveDuration * projectile.MaxUpdates)
                 return false;
-            if (target.GetModPlayer<FargoSoulsPlayer>().PrecisionSealHurtbox && !projectile.Colliding(projectile.Hitbox, target.GetModPlayer<FargoSoulsPlayer>().GetPrecisionHurtbox()))
-                return false;
-            return true;
+
+            return base.CanDamage(projectile);
         }
 
-        public override bool? CanHitNPC(Projectile projectile, NPC target)
+        public override bool CanHitPlayer(Projectile projectile, Player target)
         {
-            if (!canHurt)
+            if (target.GetModPlayer<FargoSoulsPlayer>().PrecisionSealHurtbox && !projectile.Colliding(projectile.Hitbox, target.GetModPlayer<FargoSoulsPlayer>().GetPrecisionHurtbox()))
                 return false;
-            if (TimeFrozen > 0 && counter > TimeFreezeMoveDuration * projectile.MaxUpdates)
-                return false;
-            return null;
+
+            return true;
         }
 
         public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -1125,11 +1130,8 @@ namespace FargowiltasSouls.Projectiles
                     damage = newDamage;
             }
 
-            if (SilverMinion)
-            {
-                if (projectile.maxPenetrate == 1 || projectile.usesLocalNPCImmunity || projectile.type == ProjectileID.StardustCellMinionShot)
-                    damage /= 2;
-            }
+            if (SilverMinion && NeedsSilverNerf(projectile))
+                damage /= 2;
 
             if (projectile.type == ProjectileID.SharpTears && !projectile.usesLocalNPCImmunity && projectile.usesIDStaticNPCImmunity && projectile.idStaticNPCHitCooldown == 60 && noInteractionWithNPCImmunityFrames)
             {
@@ -1275,5 +1277,7 @@ namespace FargowiltasSouls.Projectiles
                 Main.EntitySpriteDraw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), new Color(255, 255, 255, 0), projectile.rotation, origin2, projectile.scale, effects, 0);
             }
         }
+
+        private bool NeedsSilverNerf(Projectile projectile) => projectile.maxPenetrate == 1 || projectile.usesLocalNPCImmunity || projectile.type == ProjectileID.StardustCellMinionShot;
     }
 }

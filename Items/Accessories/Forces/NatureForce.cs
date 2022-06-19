@@ -31,7 +31,7 @@ $"[i:{ModContent.ItemType<MoltenEnchant>()}] Nearby enemies are ignited\n" +
 $"[i:{ModContent.ItemType<MoltenEnchant>()}] When you are hurt, you violently explode to damage nearby enemies\n" +
 $"[i:{ModContent.ItemType<RainEnchant>()}] Spawns a miniature storm to follow you around\n" +
 $"[i:{ModContent.ItemType<FrostEnchant>()}] Icicles will start to appear around you\n" +
-$"[i:{ModContent.ItemType<SnowEnchant>()}] You have a small area around you that will slow projectiles to 1/2 speed\n" +
+$"[i:{ModContent.ItemType<SnowEnchant>()}] Press the Freeze Key to chill everything for 15 seconds\n" +
 $"[i:{ModContent.ItemType<ChlorophyteEnchant>()}] Summons a ring of leaf crystals to shoot at nearby enemies\n" +
 $"[i:{ModContent.ItemType<JungleEnchant>()}] Grants a double spore jump\n" +
 $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] Not moving puts you in stealth\n" +

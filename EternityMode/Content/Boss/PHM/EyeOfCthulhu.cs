@@ -258,8 +258,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             npc.velocity.Y = npc.Center.Y < Main.player[npc.target].Center.Y ? ySpeed : -ySpeed; //alternate this every dash
 
                             ScytheSpawnTimer = 30;
-                            if (FargoSoulsWorld.MasochistModeReal)
-                                SpawnServants();
+                            //if (FargoSoulsWorld.MasochistModeReal)
+                            //    SpawnServants();
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                                 FargoSoulsUtil.XWay(8, npc.GetSource_FromThis(), npc.Center, ModContent.ProjectileType<BloodScythe>(), 1f, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0);
 

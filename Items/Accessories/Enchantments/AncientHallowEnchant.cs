@@ -69,7 +69,7 @@ Drastically increases minion speed
                     dust.noGravity = true;
                 }
 
-                Main.projectile.Where(x => x.active && x.hostile && x.damage > 0 && Vector2.Distance(x.Center, player.Center) <= focusRadius + Math.Min(x.width, x.height) / 2 && FargoSoulsUtil.CanDeleteProjectile(x)).ToList().ForEach(x =>
+                Main.projectile.Where(x => x.active && x.hostile && x.damage > 0 && Vector2.Distance(x.Center, player.Center) <= focusRadius + Math.Min(x.width, x.height) / 2 && ProjectileLoader.CanDamage(x) != false && ProjectileLoader.CanHitPlayer(x, player) && FargoSoulsUtil.CanDeleteProjectile(x)).ToList().ForEach(x =>
                 {
                     for (int i = 0; i < 5; i++)
                     {

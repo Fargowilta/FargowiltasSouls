@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Projectiles.JungleMimic
             Projectile.height = 4;
             Projectile.aiStyle = 1;
             Projectile.friendly = true;
-            Projectile.minion = true;
+            Projectile.DamageType = DamageClass.Summon;
             Projectile.timeLeft = 600;
             Projectile.extraUpdates = 1;
             Projectile.alpha = 255;

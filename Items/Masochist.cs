@@ -32,17 +32,21 @@ Cannot be used while a boss is alive
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
+        bool canPlaymaso => FargoSoulsWorld.CanPlayMaso || (Main.LocalPlayer.active && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Toggler.CanPlayMaso);
+
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
             base.SafeModifyTooltips(tooltips);
 
-            TooltipLine line = new TooltipLine(Mod, "tooltip", Language.GetTextValue($"Mods.{Mod.Name}.Message.{Name}ExtraTooltip"));
-            tooltips.Add(line);
+            if (canPlaymaso)
+            {
+                TooltipLine line = new TooltipLine(Mod, "tooltip", Language.GetTextValue($"Mods.{Mod.Name}.Message.{Name}ExtraTooltip"));
+                tooltips.Add(line);
+            }
         }
 
         public override bool PreDrawTooltipLine(DrawableTooltipLine line, ref int yOffset)
         {
-            bool canPlaymaso = FargoSoulsWorld.CanPlayMaso || (Main.LocalPlayer.active && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Toggler.CanPlayMaso);
             if (canPlaymaso)
             {
                 if ((line.Mod == "Terraria" && line.Name == "ItemName") || (line.Mod == Mod.Name && line.Name == "tooltip"))

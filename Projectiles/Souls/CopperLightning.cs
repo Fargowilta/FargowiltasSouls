@@ -192,7 +192,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
             if (!target.HasBuff(BuffID.Electrified))
             {
-                target.AddBuff(BuffID.Electrified, 90);
+                target.AddBuff(BuffID.Electrified, 120);
 
                 float closestDist = 1000f;
                 NPC closestNPC = null;
@@ -201,7 +201,8 @@ namespace FargowiltasSouls.Projectiles.Souls
                 {
                     NPC npc = Main.npc[j];
 
-                    if (npc.active && npc.CanBeChasedBy() && npc.whoAmI != target.whoAmI && npc.Distance(target.Center) < closestDist && !npc.HasBuff(BuffID.Electrified))
+                    if (npc.active && npc.CanBeChasedBy() && npc.whoAmI != target.whoAmI && npc.Distance(target.Center) < closestDist && !npc.HasBuff(BuffID.Electrified)
+                        && Collision.CanHitLine(npc.Center, 0, 0, target.Center, 0, 0))
                     {
                         closestNPC = npc;
                         closestDist = npc.Distance(target.Center);
@@ -217,10 +218,16 @@ namespace FargowiltasSouls.Projectiles.Souls
                     Projectile.ai[0] = ai.ToRotation();
                     Projectile.ai[1] = ai2;
                     Projectile.velocity = velocity;
-                    Projectile.Center = target.Center;
+                    Projectile.Center = Vector2.Lerp(target.Center, closestNPC.Center, 0.5f); //help ensure it hits
+                    Projectile.netUpdate = true;
+
+                    if (Projectile.owner == Main.myPlayer) //fake lightning for visuals
+                    {
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Projectile.velocity, Projectile.type, 0, 0f, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
+                    }
 
                     //ensure it hits.. ?
-                    closestNPC.StrikeNPC(Projectile.damage, 0, Projectile.direction);
+                    //closestNPC.StrikeNPC(Projectile.damage, 0, Projectile.direction);
                 }
             }
         }
