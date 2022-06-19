@@ -29,7 +29,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
     {
         public bool playerInvulTriggered;
         private bool droppedSummon = false;
-        public int ritualProj, ringProj, spriteProj;
+        public int ritualProj, ringProj, spriteProj, ritualProjMaso;
 
         public override void SetStaticDefaults()
         {
@@ -161,6 +161,9 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                 if (NPC.localAI[3] == 2 && FargoSoulsUtil.ProjectileExists(ritualProj, ModContent.ProjectileType<AbomRitual>()) == null)
                     ritualProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
 
+                if (FargoSoulsUtil.ProjectileExists(ritualProjMaso, ModContent.ProjectileType<AbomRitualMaso>()) == null)
+                    ritualProjMaso = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitualMaso>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
+
                 if (FargoSoulsUtil.ProjectileExists(ringProj, ModContent.ProjectileType<AbomRitual2>()) == null)
                     ringProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitual2>(), 0, 0f, Main.myPlayer, 0f, NPC.whoAmI);
 
@@ -217,7 +220,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
             float speedModifier;
             switch ((int)NPC.ai[0])
             {
-                case -3: //ACTUALLY dead
+                case -4: //ACTUALLY dead
                     NPC.velocity *= 0.9f;
                     NPC.dontTakeDamage = true;
                     for (int i = 0; i < 5; i++)
@@ -247,6 +250,19 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         NPC.life = 0;
                         NPC.dontTakeDamage = false;
                         NPC.checkDead();
+                    }
+                    break;
+
+                case -3: //pause to let arena recenter, then proceed
+                    if (!AliveCheck(player))
+                        break;
+                    NPC.velocity *= 0.9f;
+                    NPC.dontTakeDamage = true;
+                    if (++NPC.ai[1] > 120)
+                    {
+                        NPC.netUpdate = true;
+                        NPC.ai[0] = 15;
+                        NPC.ai[1] = 0;
                     }
                     break;
 
@@ -769,16 +785,17 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         if (++NPC.localAI[2] > 60) //shoot rockets
                         {
                             NPC.localAI[2] = 0;
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                Vector2 vel = NPC.DirectionTo(player.Center).RotatedBy(MathHelper.PiOver2);
-                                vel *= NPC.localAI[3] > 1 ? 5 : 8;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel.RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 2.0), ModContent.ProjectileType<AbomRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.target, 30f);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel.RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 2.0), ModContent.ProjectileType<AbomRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.target, 30f);
 
-                                Vector2 speed = NPC.DirectionTo(player.Center).RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 2.0);
-                                speed *= NPC.localAI[3] > 1 ? 5 : 8;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed, ModContent.ProjectileType<AbomRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.target, 60f);
+                            const int max = 5;
+                            for (int i = 1; i < max; i++)
+                            {
+                                Vector2 vel = NPC.DirectionTo(player.Center).RotatedBy(MathHelper.TwoPi / max * i);
+                                vel *= NPC.localAI[3] > 1 ? 5 : 8;
+                                vel *= Main.rand.NextFloat(0.9f, 1.1f);
+                                vel = vel.RotatedByRandom(MathHelper.TwoPi / max / 3);
+
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<AbomRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.target, Main.rand.Next(25, 36));
                             }
                         }
                     }
@@ -1066,7 +1083,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     if (++NPC.ai[1] > 60)
                     {
                         NPC.netUpdate = true;
-                        NPC.ai[0] = NPC.dontTakeDamage ? NPC.ai[0] + 1 : 0;
+                        NPC.ai[0] = NPC.dontTakeDamage ? -3 : 0;
                         NPC.ai[1] = 0;
                     }
                     break;
@@ -1123,6 +1140,8 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         ai0 *= MathHelper.ToRadians(270) / 120;
                         Vector2 vel = NPC.DirectionTo(player.Center).RotatedBy(-ai0 * 60);
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<AbomSword>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f * 3 / 8), 0f, Main.myPlayer, ai0, NPC.whoAmI);
+                        if (FargoSoulsWorld.MasochistModeReal)
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<AbomSword>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f * 3 / 8), 0f, Main.myPlayer, ai0, NPC.whoAmI);
                     }
                     break;
 
@@ -1240,6 +1259,8 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
                             float ai0 = horizontalModifier * MathHelper.Pi / 60 * verticalModifier;
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX * -horizontalModifier, ModContent.ProjectileType<AbomSword>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f * 3 / 8), 0f, Main.myPlayer, ai0, NPC.whoAmI);
+                            if (FargoSoulsWorld.MasochistModeReal)
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -Vector2.UnitX * -horizontalModifier, ModContent.ProjectileType<AbomSword>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f * 3 / 8), 0f, Main.myPlayer, ai0, NPC.whoAmI);
                         }
                     }
 
@@ -1277,7 +1298,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     if (++NPC.ai[1] > 60)
                     {
                         NPC.netUpdate = true;
-                        NPC.ai[0] = NPC.dontTakeDamage ? -3 : 0;
+                        NPC.ai[0] = NPC.dontTakeDamage ? -4 : 0;
                         NPC.ai[1] = 0;
                         NPC.ai[2] = 0;
                         NPC.ai[3] = 0;
@@ -1453,7 +1474,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
         public override bool CheckDead()
         {
-            if (NPC.ai[0] == -3 && NPC.ai[1] >= 180)
+            if (NPC.ai[0] == -4 && NPC.ai[1] >= 180)
                 return true;
 
             NPC.life = 1;
@@ -1468,7 +1489,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
             }
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] > -2)
             {
-                NPC.ai[0] = FargoSoulsWorld.MasochistModeReal ? -2 : -3;
+                NPC.ai[0] = FargoSoulsWorld.MasochistModeReal ? -2 : -4;
                 NPC.ai[1] = 0;
                 NPC.ai[2] = 0;
                 NPC.ai[3] = 0;

@@ -1894,3 +1894,39 @@ wyvern drops sky crate if killed phm
 some adjustments to copper lightning to nerf it
 terra lightning targets 5 at once, was 10
 fixed box of gizmos not actually giving all items autofire
+qb does stinger rings in phase 2 as well, but nerfed rate and speed (and not during bee swarm)
+fixed every single fucking projectile in the mod having no crit/armor pen when spawned by armor/accs
+
+pungent eyeball reworked
+	removed slots from it and upgrades
+	mousing over enemies increases their damage taken, scales the longer you mouse over
+fixed? atrophied killing whips
+abom rockets adjusted
+abom scythe spin becomes just accel sickles immediately
+fixed hallowed mask not being valid for crafting hallowed ench
+fixed nymph/devi lovestruck healing not working in mp
+fixed squirrel coat of arms sometimes summoning the boss twice when stacked
+nerfed trojan squirrel explosion hitbox height
+nerfed trojan squirrel explosion jump, doesnt explode on landing outside maso
+fixed precision seal making graze not work
+maso devi
+	hammers cover a lot more space
+	spawns way more fake hearts at once
+	light balls come out faster and move slower (tighter space)
+	mimics cover a lot more space
+	circles you during frostfireballs
+	rune wizard attack is faster, aura is tighter, more balls in ring
+	also shoots cross ray hearts when dashing
+	shadowbeam can bounce and devi has a shotgun
+	shoots rockets with inferno fork
+	pulls out a sniper rifle during spectre soul burst
+	baby guardian walls are a lot taller
+	now does rainbow spike rain during moth attack
+	sparkling axe burst is a lot denser
+maso abom
+	has a second arena
+	wields two styx gazer swords at once
+	that's it
+maso mutant
+	all spears have the up+down+m1 trail
+	eoc buffed, less delay between the sickles moving

@@ -76,23 +76,42 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.Center = mutant.Center + mutant.velocity;
                 if ((Projectile.ai[1] <= 0f || FargoSoulsWorld.MasochistModeReal) && --Projectile.localAI[0] < 0)
                 {
-                    Projectile.localAI[0] = Projectile.ai[1] < 0f ? 1 : 2;
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Projectile.ai[1] == -2)
                     {
-                        if (Projectile.ai[1] == -2)
+                        Projectile.localAI[0] = 1;
+
+                        for (int i = -1; i <= 1; i += 2)
                         {
-                            for (int i = -1; i <= 1; i += 2)
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 int p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, 16f * Vector2.Normalize(mutant.velocity).RotatedBy(MathHelper.PiOver2 * i),
-                                  ModContent.ProjectileType<MutantSphereSmall>(), Projectile.damage, 0f, Projectile.owner, -1);
+                                ModContent.ProjectileType<MutantSphereSmall>(), Projectile.damage, 0f, Projectile.owner, -1);
                                 if (p != Main.maxProjectiles)
                                     Main.projectile[p].timeLeft = 15;
                             }
                         }
-                        else
+                    }
+                    else if (FargoSoulsWorld.MasochistModeReal)
+                    {
+                        Projectile.localAI[0] = 2;
+
+                        for (int i = -1; i <= 1; i += 2)
                         {
-                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantSphereSmall>(), Projectile.damage, 0f, Projectile.owner, mutant.target);
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                int p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, 16f / 2f * Vector2.Normalize(mutant.velocity).RotatedBy(MathHelper.PiOver2 * i),
+                                ModContent.ProjectileType<MutantSphereSmall>(), Projectile.damage, 0f, Projectile.owner, -1);
+                                if (p != Main.maxProjectiles)
+                                    Main.projectile[p].timeLeft = 15;
+                            }
                         }
+                    }
+                    else
+                    {
+                        Projectile.localAI[0] = 2;
+
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantSphereSmall>(), Projectile.damage, 0f, Projectile.owner, mutant.target);
                     }
                 }
             }

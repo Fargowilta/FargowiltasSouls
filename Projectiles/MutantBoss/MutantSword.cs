@@ -32,6 +32,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.alpha = 255;
             Projectile.penetrate = -1;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
         }
 
         public override void AI()

@@ -271,6 +271,7 @@ namespace FargowiltasSouls
         public bool Probes;
         public bool MagicalBulb;
         public bool SkullCharm;
+        public bool PungentEyeball;
         public bool LumpOfFlesh;
         public Item PumpkingsCapeItem;
         public Item LihzahrdTreasureBoxItem;
@@ -808,6 +809,7 @@ namespace FargowiltasSouls
             Probes = false;
             MagicalBulb = false;
             SkullCharm = false;
+            PungentEyeball = false;
             LumpOfFlesh = false;
             PumpkingsCapeItem = null;
             LihzahrdTreasureBoxItem = null;
@@ -1195,6 +1197,33 @@ namespace FargowiltasSouls
 
         public override void PostUpdateEquips()
         {
+            if (PungentEyeball && Player.whoAmI == Main.myPlayer && Player.GetToggleValue("MasoPungentCursor"))
+            {
+                const float distance = 16 * 5;
+
+                foreach (NPC n in Main.npc.Where(n => n.active && !n.dontTakeDamage && n.lifeMax > 5 && !n.friendly))
+                {
+                    if (Vector2.Distance(Main.MouseWorld, FargoSoulsUtil.ClosestPointInHitbox(n.Hitbox, Main.MouseWorld)) < distance)
+                    {
+                        n.AddBuff(ModContent.BuffType<PungentGaze>(), 2, true);
+                    }
+                }
+
+                for (int i = 0; i < 32; i++)
+                {
+                    Vector2 spawnPos = Main.MouseWorld + Main.rand.NextVector2CircularEdge(distance, distance);
+                    Dust dust = Main.dust[Dust.NewDust(spawnPos, 0, 0, DustID.GemRuby, 0, 0, 100, Color.White)];
+                    dust.scale = 0.5f;
+                    dust.velocity = Vector2.Zero;
+                    if (Main.rand.NextBool(3))
+                    {
+                        dust.velocity += Vector2.Normalize(Main.MouseWorld - dust.position) * Main.rand.NextFloat(5f);
+                        dust.position += dust.velocity * 5f;
+                    }
+                    dust.noGravity = true;
+                }
+            }
+
             if (DarkenedHeartItem != null)
             {
                 if (!IsStillHoldingInSameDirectionAsMovement)

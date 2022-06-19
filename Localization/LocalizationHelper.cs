@@ -215,6 +215,7 @@ namespace FargowiltasSouls
 
             //lump of flesh
             AddToggle("LumpofFleshHeader", ModContent.ItemType<LumpOfFlesh>());
+            AddToggle("MasoPungentCursorConfig", ModContent.ItemType<PungentEyeball>());
             AddToggle("MasoPugentConfig", ModContent.ItemType<LumpOfFlesh>());
             AddToggle("DreadShellParryConfig", ModContent.ItemType<DreadShell>());
             AddToggle("DeerclawpsConfig", ModContent.ItemType<Deerclawps>());

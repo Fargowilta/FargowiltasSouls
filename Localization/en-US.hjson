@@ -437,7 +437,8 @@ Mods: {
 			MasoBrainConfig: Creeper Shield
 
 			LumpofFleshHeader: "{$Mods.FargowiltasSouls.ItemName.LumpOfFlesh}"
-			MasoPugentConfig: Pungent Eye Minion
+			MasoPungentCursorConfig: Pungent Eye Cursor
+			MasoPugentConfig: Lump of Flesh Minion
 			DeerclawpsConfig: Deerclawps Spike Dash Trail
 			DreadShellParryConfig: Dread Shell Parry
 

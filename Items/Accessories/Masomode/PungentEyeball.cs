@@ -11,8 +11,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Pungent Eyeball");
             Tooltip.SetDefault(@"Grants immunity to Blackout and Obstructed
-Increases your max number of minions by 2
-Increases your max number of sentries by 2
+Your cursor causes nearby enemies to take increased damage
+Effect intensifies the longer you track them
 'It's fermenting'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "辛辣的眼球");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'它在发酵'
@@ -36,8 +36,7 @@ Increases your max number of sentries by 2
         {
             player.buffImmune[BuffID.Blackout] = true;
             player.buffImmune[BuffID.Obstructed] = true;
-            player.maxMinions += 2;
-            player.maxTurrets += 2;
+            player.GetModPlayer<FargoSoulsPlayer>().PungentEyeball = true;
         }
     }
 }

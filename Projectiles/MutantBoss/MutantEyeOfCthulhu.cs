@@ -91,7 +91,11 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
                 int p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), position, Vector2.Zero, ModContent.ProjectileType<MutantScythe1>(), Projectile.damage, 0, Main.myPlayer, accel, angle);
                 if (p != Main.maxProjectiles)
+                {
                     Main.projectile[p].timeLeft = Projectile.timeLeft + 180 + 30 + 150; //+ 60 + 240;
+                    if (FargoSoulsWorld.MasochistModeReal)
+                        Main.projectile[p].timeLeft -= 30;
+                }
             };
 
             if (Projectile.ai[1] == 0)

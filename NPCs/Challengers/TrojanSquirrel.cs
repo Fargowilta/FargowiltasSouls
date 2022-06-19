@@ -434,9 +434,12 @@ namespace FargowiltasSouls.NPCs.Challengers
                                 NPC.ai[3] = 1f;
                             }
 
-                            SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
+                            if (FargoSoulsWorld.MasochistModeReal)
+                            {
+                                SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
 
-                            ExplodeAttack();
+                                ExplodeAttack();
+                            }
                         }
 
                         bool goFast = despawn || NPC.localAI[0] > 0;
@@ -522,10 +525,8 @@ namespace FargowiltasSouls.NPCs.Challengers
                                 threshold -= 20;
                             if (head == null && arms == null)
                                 threshold -= 30;
-                            if (NPC.localAI[3] >= 2)
-                                threshold -= 20;
                         }
-                        if (FargoSoulsWorld.MasochistModeReal)
+                        if (FargoSoulsWorld.MasochistModeReal || NPC.localAI[3] >= 2)
                             threshold -= 20;
 
                         if (++NPC.localAI[0] > threshold)

@@ -82,8 +82,8 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
                 int p = Player.FindClosest(Projectile.Center, 0, 0);
                 if (p != -1)
                 {
-                    Vector2 speed = 15f * Projectile.DirectionTo(Main.player[p].Center);
-                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<AbomSickle3>(), Projectile.damage, Projectile.knockBack, Projectile.owner, p);
+                    Vector2 speed = /*15f * */ Projectile.DirectionTo(Main.player[p].Center);
+                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<AbomSickle>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                 }
             }
         }

@@ -7,6 +7,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
@@ -36,12 +37,12 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(Projectile.timeLeft);
+            writer.WriteVarInt(Projectile.timeLeft);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            Projectile.timeLeft = reader.ReadInt32();
+            Projectile.timeLeft = reader.ReadVarInt();
         }
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)

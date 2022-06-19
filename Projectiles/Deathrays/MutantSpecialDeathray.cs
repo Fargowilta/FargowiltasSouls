@@ -35,7 +35,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                     Projectile.frame = 0;
             }
 
-            if (Main.rand.NextBool(10))
+            if (Main.rand.NextBool(6))
                 Projectile.spriteDirection *= -1;
         }
 

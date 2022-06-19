@@ -19,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-//using FargowiltasSouls.ModCompatibilities;
 using Terraria;
 using Terraria.Chat;
 using Terraria.GameContent;
@@ -755,7 +754,7 @@ namespace FargowiltasSouls
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyTitaHead", group);
 
             //hallowed head
-            group = new RecipeGroup(() => AnyItem(ItemID.HallowedHelmet), ItemID.HallowedHelmet, ItemID.HallowedHeadgear, ItemID.HallowedHeadgear, ItemID.HallowedHood);
+            group = new RecipeGroup(() => AnyItem(ItemID.HallowedHelmet), ItemID.HallowedHelmet, ItemID.HallowedMask, ItemID.HallowedHeadgear, ItemID.HallowedHood);
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyHallowHead", group);
 
             //ancient hallow

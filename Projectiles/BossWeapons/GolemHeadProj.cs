@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
 {
@@ -41,9 +42,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) => behindProjectiles.Add(index);
 
-        public override void SendExtraAI(BinaryWriter writer) => writer.Write(headsStacked);
+        public override void SendExtraAI(BinaryWriter writer) => writer.WriteVarInt(headsStacked);
 
-        public override void ReceiveExtraAI(BinaryReader reader) => headsStacked = reader.ReadInt32();
+        public override void ReceiveExtraAI(BinaryReader reader) => headsStacked = reader.ReadVarInt();
 
         public override void AI()
         {

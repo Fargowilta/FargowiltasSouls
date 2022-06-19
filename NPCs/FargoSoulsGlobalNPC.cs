@@ -68,6 +68,9 @@ namespace FargowiltasSouls.NPCs
 
         public int NecroDamage;
 
+        public bool PungentGazeWasApplied;
+        public int PungentGazeTime;
+
         //        public static bool Revengeance => CalamityMod.World.CalamityWorld.revenge;
 
         public override void ResetEffects(NPC npc)
@@ -96,6 +99,7 @@ namespace FargowiltasSouls.NPCs
             Anticoagulation = false;
             BloodDrinker = false;
             FlamesoftheUniverse = false;
+            PungentGazeTime = 0;
         }
 
         //        public override void SetDefaults(NPC npc)
@@ -472,6 +476,18 @@ namespace FargowiltasSouls.NPCs
                 if (!Main.rand.NextBool(3))
                 {
                     int d = Dust.NewDust(npc.position, npc.width, npc.height, DustID.LifeDrain, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 0, Color.White, 2.5f);
+                    Main.dust[d].noGravity = true;
+                }
+            }
+
+            if (PungentGazeTime > 0)
+            {
+                if (Main.rand.NextBool())
+                {
+                    float ratio = (float)PungentGazeTime / PungentGaze.MAX_TIME;
+                    int d = Dust.NewDust(npc.Center, 0, 0, DustID.GemRuby, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 0, Color.White);
+                    Main.dust[d].scale = MathHelper.Lerp(0.5f, 3f, ratio);
+                    Main.dust[d].velocity *= Main.dust[d].scale;
                     Main.dust[d].noGravity = true;
                 }
             }
@@ -1017,6 +1033,11 @@ namespace FargowiltasSouls.NPCs
             if (MoltenAmplify)
             {
                 damage *= 1.25;
+            }
+
+            if (PungentGazeTime > 0)
+            {
+                damage *= 1.0 + 0.15 * PungentGazeTime / PungentGaze.MAX_TIME;
             }
 
             if (OceanicMaul)

@@ -5,6 +5,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Patreon.GreatestKraken
 {
@@ -61,8 +62,8 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(Projectile.width);
-            writer.Write(Projectile.height);
+            writer.WriteVarInt(Projectile.width);
+            writer.WriteVarInt(Projectile.height);
             writer.Write(Projectile.scale);
             writer.Write(mousePos.X);
             writer.Write(mousePos.Y);
@@ -70,8 +71,8 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            Projectile.width = reader.ReadInt32();
-            Projectile.height = reader.ReadInt32();
+            Projectile.width = reader.ReadVarInt();
+            Projectile.height = reader.ReadVarInt();
             Projectile.scale = reader.ReadSingle();
 
             Vector2 buffer;

@@ -46,7 +46,7 @@ namespace FargowiltasSouls.Projectiles
                         Projectile.velocity = (Projectile.velocity * 29f + change) / 30f;
                     }
 
-                    if (Projectile.Colliding(Projectile.Hitbox, n.Hitbox)) //die and feed it
+                    if (Projectile.Distance(n.Center) < 16) //die and feed it
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {

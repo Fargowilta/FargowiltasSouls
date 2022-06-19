@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             Tooltip.SetDefault(
 @"Increases wing time by 200%, armor penetration by 50, and movement speed by 20%
 Increases max life by 100%, damage by 50%, and damage reduction by 10%
-Increases life regen drastically, increases max number of minions and sentries by 2
+Increases life regen drastically, your cursor causes nearby enemies to take increased damage
 Grants gravity control, fastfall, and immunity to knockback, almost all Eternity Mode debuffs, and more
 Grants autofire to all weapons and you automatically use mana potions when needed
 Your attacks create additional attacks, hearts, and inflict a cocktail of Eternity Mode debuffs
@@ -87,8 +87,6 @@ Summons the aid of all Eternity Mode bosses to your side
             //stat modifiers
             player.GetDamage(DamageClass.Generic) += 0.5f;
             player.endurance += 0.1f;
-            player.maxMinions += 2;
-            player.maxTurrets += 2;
             player.GetArmorPenetration(DamageClass.Generic) += 50;
             player.statLifeMax2 += player.statLifeMax;
             if (!fargoPlayer.MutantPresence)
@@ -161,6 +159,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[BuffID.Dazed] = true;
             fargoPlayer.SkullCharm = true;
             fargoPlayer.LumpOfFlesh = true;
+            fargoPlayer.PungentEyeball = true;
             player.buffImmune[ModContent.BuffType<CrystalSkull>()] = true;
             /*if (!player.ZoneDungeon)
             {

@@ -88,18 +88,12 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
 
             if (player.loveStruck)
             {
-                /*npc.life += damage;
-                if (npc.life > npc.lifeMax)
-                    npc.life = npc.lifeMax;
-                CombatText.NewText(npc.Hitbox, CombatText.HealLife, damage);*/
-
                 Vector2 speed = Main.rand.NextFloat(1, 2) * Vector2.UnitX.RotatedByRandom(Math.PI * 2);
                 float ai1 = 30 + Main.rand.Next(30);
                 Projectile.NewProjectile(npc.GetSource_FromThis(), player.Center, speed, ModContent.ProjectileType<HostileHealingHeart>(), damage, 0f, Main.myPlayer, npc.whoAmI, ai1);
 
                 damage = 0;
                 crit = false;
-                npc.netUpdate = true;
             }
         }
 

@@ -167,21 +167,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 }
             }
 
-            if (!InPhase2 || FargoSoulsWorld.MasochistModeReal)
-            {
-                if (npc.ai[0] == 3f || npc.ai[0] == 1f) //only when in stationary modes
-                {
-                    if (++StingerRingTimer > 90 * 3)
-                        StingerRingTimer = 0;
-
-                    if (StingerRingTimer % 90 == 0)
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient)
-                            FargoSoulsUtil.XWay(StingerRingTimer == 90 * 3 ? 16 : 8, npc.GetSource_FromThis(), npc.Center, ProjectileID.QueenBeeStinger, 6, 11, 1);
-                    }
-                }
-            }
-
             if (InPhase2)
             {
                 if (++HiveThrowTimer > 570 && BeeSwarmTimer <= 600 && (npc.ai[0] == 3f || npc.ai[0] == 1f)) //lobs hives below 50%, not dashing
@@ -279,6 +264,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
                     }
                     return false;
+                }
+
+                int threshold = FargoSoulsWorld.MasochistModeReal ? 90 : 120;
+
+                if (++StingerRingTimer > threshold * 3)
+                    StingerRingTimer = 0;
+
+                if (StingerRingTimer % threshold == 0)
+                {
+                    float speed = FargoSoulsWorld.MasochistModeReal ? 6 : 5;
+
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        FargoSoulsUtil.XWay(StingerRingTimer == threshold * 3 ? 16 : 8, npc.GetSource_FromThis(), npc.Center, ProjectileID.QueenBeeStinger, speed, 11, 1);
                 }
             }
 

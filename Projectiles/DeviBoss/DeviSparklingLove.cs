@@ -107,14 +107,6 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    /*for (int i = 0; i < 8; i++)
-                    {
-                        Vector2 target = 400 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i + Math.PI / 8);
-                        Vector2 speed = 2 * target / 90;
-                        float acceleration = -speed.Length() / 90;
-                        float rotation = speed.ToRotation() + (float)Math.PI / 2;
-                        Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(), Projectile.damage, 0f, Main.myPlayer, rotation, acceleration);
-                    }*/
                     for (int i = 0; i < 8; i++)
                     {
                         Vector2 target = 600 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i);
@@ -127,6 +119,23 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                         Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation);
                         Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation + MathHelper.PiOver2);
                         Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation - MathHelper.PiOver2);
+                    }
+
+                    if (FargoSoulsWorld.MasochistModeReal)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            Vector2 target = 300 * Vector2.UnitX.RotatedBy(Math.PI / 4 * (i + 0.5f));
+                            Vector2 speed = 2 * target / 90;
+                            float acceleration = -speed.Length() / 90;
+                            float rotation = speed.ToRotation();
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(),
+                                (int)(Projectile.damage * 0.75), 0f, Main.myPlayer, rotation + MathHelper.PiOver2, acceleration);
+
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation);
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation + MathHelper.PiOver2);
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, speed, ModContent.ProjectileType<GlowLine>(), Projectile.damage, 0f, Main.myPlayer, 2, rotation - MathHelper.PiOver2);
+                        }
                     }
                 }
             }

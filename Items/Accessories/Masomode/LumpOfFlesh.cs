@@ -17,7 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Lump of Flesh");
             Tooltip.SetDefault(@"Grants immunity to knockback, Anticoagulation, Blackout, Obstructed, Dazed, Slow, Frozen, and Stunned
 Increases damage dealt by 15%
-Increases your max number of minions and sentries by 1
+Your cursor causes nearby enemies to take increased damage
+Effect intensifies the longer you track them
 Right Click to parry attacks with extremely tight timing
 Defense and damage reduction drastically decreased while and shortly after guarding
 Dashing leaves a trail of blood spikes
@@ -68,8 +69,7 @@ Enemies are less likely to target you
                 player.npcTypeNoAggro[NPCID.RaggedCaster] = true;
                 player.npcTypeNoAggro[NPCID.RaggedCasterOpenCoat] = true;
             }*/
-            player.maxMinions += 1;
-            player.maxTurrets += 1;
+            player.GetModPlayer<FargoSoulsPlayer>().PungentEyeball = true;
             if (player.GetToggleValue("MasoPugent"))
             {
                 player.buffImmune[ModContent.BuffType<Buffs.Minions.CrystalSkull>()] = true;
