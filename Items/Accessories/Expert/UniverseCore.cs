@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Expert
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Universe Core");
-            Tooltip.SetDefault(@"Crits deal 5x instead of 2x
+            Tooltip.SetDefault(@"Crits deal 4x instead of 2x
 All attacks inflict Flames of the Universe
 'Bursting with ultra-high-energy cosmic rays'");
 
