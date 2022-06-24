@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 50% increased use speed for all weapons
 50% increased shoot speed
 25% increased all critical chance
-Crits deal 5x instead of 2x
+Crits deal 4x instead of 2x
 All weapons have double knockback
 Increases your maximum mana by 300
 Increases your max number of minions by 4
