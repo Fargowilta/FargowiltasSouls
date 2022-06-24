@@ -83,7 +83,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 2)
             {
-                Color color27 = color26;
+                Color color27 = new Color(255, 255, 255, 50) * 0.75f * Projectile.Opacity;
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i];
                 float num165 = Projectile.oldRot[i];

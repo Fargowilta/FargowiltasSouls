@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
             NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.DeviBoss.DeviBoss>());
             if (Projectile.ai[0] == 0)
             {
-                if (npc != null && Projectile.position.Y >= npc.position.Y)
+                if (npc != null && npc.HasPlayerTarget && Projectile.position.Y >= Main.player[npc.target].position.Y - 350)
                 {
                     Projectile.velocity.Normalize();
                     Projectile.ai[0] = 1;
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
                 if (++Projectile.ai[0] < 61)
                 {
-                    Projectile.velocity *= 1.06f;
+                    Projectile.velocity *= FargoSoulsWorld.MasochistModeReal ? 1.06f : 1.05f;
                 }
 
                 if (npc != null && Projectile.Center.Y > Main.player[npc.target].Center.Y + 280) //break when far below player

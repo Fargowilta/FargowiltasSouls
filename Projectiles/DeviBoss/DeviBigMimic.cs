@@ -35,8 +35,12 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 for (int i = 0; i < 5; i++)
-                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.position.X + Main.rand.Next(Projectile.width), Projectile.position.Y + Main.rand.Next(Projectile.height),
+                {
+                    int p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.position.X + Main.rand.Next(Projectile.width), Projectile.position.Y + Main.rand.Next(Projectile.height),
                         Main.rand.Next(-30, 31) * .1f, Main.rand.Next(-40, -15) * .1f, Terraria.ModLoader.ModContent.ProjectileType<FakeHeart>(), 20, 0f, Main.myPlayer);
+                    if (p != Main.maxProjectiles && !FargoSoulsWorld.MasochistModeReal)
+                        Main.projectile[p].timeLeft = 120 + Main.rand.Next(60);
+                }
             }
 
             Projectile.position = Projectile.Center;
