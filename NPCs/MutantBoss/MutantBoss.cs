@@ -82,9 +82,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             NPC.damage = 444;
             NPC.defense = 255;
             NPC.value = Item.buyPrice(7);
-            NPC.lifeMax = Main.expertMode ? 7000000 : 3500000;
-            if (FargoSoulsWorld.MasochistModeReal)
-                NPC.lifeMax = 7700000;
+            NPC.lifeMax = Main.expertMode ? 7700000 : 3500000;
             NPC.HitSound = SoundID.NPCHit57;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
