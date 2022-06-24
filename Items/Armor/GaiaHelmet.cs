@@ -55,7 +55,8 @@ Increases max number of minions and sentries by 1");
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.SetBonus.Gaia");
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Gaia", key);
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.GaiaSet = true;
