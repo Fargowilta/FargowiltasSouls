@@ -112,11 +112,11 @@ namespace FargowiltasSouls.Projectiles
 
                         projectile.usesIDStaticNPCImmunity = true;
                         if (FargoSoulsWorld.downedAbom)
-                            projectile.idStaticNPCHitCooldown = 4;
+                            projectile.idStaticNPCHitCooldown = 3;
                         else if (FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion])
-                            projectile.idStaticNPCHitCooldown = 6;
+                            projectile.idStaticNPCHitCooldown = 5;
                         else
-                            projectile.idStaticNPCHitCooldown = 7;
+                            projectile.idStaticNPCHitCooldown = 6;
 
                         projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
                     }
@@ -148,7 +148,7 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.CrystalBullet:
                 case ProjectileID.HolyArrow:
                 case ProjectileID.HallowStar:
-                    HasKillCooldown = true;
+                    //HasKillCooldown = true;
                     break;
 
                 case ProjectileID.SaucerLaser:
@@ -1155,7 +1155,7 @@ namespace FargowiltasSouls.Projectiles
             //    }
             //}
 
-            if (NerfDamageBasedOnProjTypeCount != 0 && Main.player[projectile.owner].ownedProjectileCounts[NerfDamageBasedOnProjTypeCount] > 0)
+            /*if (NerfDamageBasedOnProjTypeCount != 0 && Main.player[projectile.owner].ownedProjectileCounts[NerfDamageBasedOnProjTypeCount] > 0)
             {
                 int projTypeToCheck = NerfDamageBasedOnProjTypeCount;
 
@@ -1167,7 +1167,7 @@ namespace FargowiltasSouls.Projectiles
 
                 const double maxNerfStrength = 1.0 / 3.0;
                 damage = (int)(damage * (1.0 - modifier * maxNerfStrength));
-            }
+            }*/
 
             //if (projectile.type == ProjectileID.ChlorophyteBullet)
             //{
