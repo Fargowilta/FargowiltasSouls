@@ -38,21 +38,23 @@ Use to teleport to your last death point
 Summons the aid of all Eternity Mode bosses to your side
 'Embrace mastery, embrace eternity'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐之魂");
+            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大师之魂");
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
 @"延长200%飞行时间，增加50点护甲穿透和20%移动速度
 增加100%最大生命值、50%伤害和10%伤害减免
-大幅增加生命恢复速度，+10最大召唤和哨兵栏
-允许你控制重力，使你免疫击退、摔落伤害和近乎所有的永恒模式减益
+大幅增加生命恢复速度，你的光标会导致附近的敌怪受到更多伤害
+允许你控制重力、快速下落，使你免疫击退、摔落伤害和近乎所有的永恒模式减益
 允许所有武器自动挥舞且在需要时自动使用魔力药水
-在地牢外减少武装和魔法骷髅对你的敌意，右键缩放视域
-你的攻击会额外生成心, 并造成混合的永恒模式减益
-按下'火球冲刺'键后会进行短距离无敌冲刺
-大多敌人在死亡时会掉落随机的药水，减少50%重铸价格，你在重生时以更多生命重生
-重生速度翻倍，攻击时会释放蜜蜂，增强夜视效果，受到伤害时释放各种攻击
+你的攻击会进行额外攻击，额外生成心, 并造成混合的永恒模式减益
+按下'火球冲刺'键后会进行短距离无敌冲刺，右键缩放视域
+大多敌人在死亡时会掉落随机的药水，大幅改善重铸结果，你在重生时以更多生命重生
+重生速度翻倍，攻击时会释放蜂蜜，增强夜视效果，受到伤害时释放各种攻击
 阻止Boss自然生成，增加刷怪率，敌人死亡后会掉落更多战利品，你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
+缩小你对于敌对弹幕的碰撞判定，按下“玲珑圣印”键禁用冲刺和二段跳
+右键以及其严格的时机格挡攻击
+使用以传送到你上一次死亡的地点
 召唤所有永恒模式Boss的援助到你身边
-'拥抱永恒'");
+'拥抱精通，拥抱永恒'");
         }
 
         public override void SetDefaults()
