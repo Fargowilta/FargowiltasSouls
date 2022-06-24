@@ -313,7 +313,7 @@ Mods: {
 
 			EarthHeader: "{$Mods.FargowiltasSouls.ItemName.EarthForce}"
 			AdamantiteConfig: 精金 弹幕分裂
-			CobaltConfig: 钴蓝 碎片（开关没有效果）
+			CobaltConfig: 钴蓝 受击爆炸
 			AncientCobaltConfig: 远古钴蓝 爆炸跳跃
 			MythrilConfig: 秘银 速度加成
 			OrichalcumConfig: 山铜 花瓣
@@ -1574,7 +1574,7 @@ Mods: {
 
 			UniverseCore:
 				'''
-				暴击造成4倍伤害，而不是倍
+				暴击造成4倍伤害，而不是2倍
 				所有的攻击都会造成宇宙之火减益
 				“爆发出超高能宇宙射线”
 				'''
