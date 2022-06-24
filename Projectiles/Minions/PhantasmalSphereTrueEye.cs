@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.alpha = 255;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.timeLeft = 120;
+            Projectile.timeLeft = 300;
             Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 20;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
@@ -40,22 +40,40 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void AI()
         {
-            Projectile eye = FargoSoulsUtil.ProjectileExists(Projectile.ai[0], ModContent.ProjectileType<TrueEyeR>());
+            Projectile eye = FargoSoulsUtil.ProjectileExists(FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, Projectile.ai[0], ModContent.ProjectileType<TrueEyeR>()));
             if (eye != null)
             {
-                if (Projectile.timeLeft > 55)
+                if (Projectile.localAI[0] == 0 && Projectile.localAI[1] == 0)
                 {
-                    if (eye.ai[1] == 0f) //stop following true eye if true eye lost target & isn't preparing to charge
-                    {
-                        Projectile.ai[0] = -1f;
-                        Projectile.velocity = Vector2.Zero;
-                        Projectile.netUpdate = true;
-                    }
-                    else
-                    {
-                        Projectile.velocity = eye.velocity;
-                    }
+                    Vector2 offset = Projectile.Center - eye.Center;
+                    Projectile.localAI[0] = offset.X;
+                    Projectile.localAI[1] = offset.Y;
                 }
+
+                if (eye.ai[1] == 0f) //stop following true eye if true eye lost target & isn't preparing to charge
+                {
+                    Projectile.ai[0] = -1f;
+                    Projectile.velocity = Vector2.Zero;
+                    Projectile.netUpdate = true;
+                }
+                else
+                {
+                    Projectile.velocity = eye.velocity;
+                }
+
+                if (eye.ai[1] == 2f && eye.localAI[0] > 1)
+                {
+                    Projectile.ai[0] = -1f;
+                }
+                else
+                {
+                    Projectile.Center = eye.Center + new Vector2(Projectile.localAI[0], Projectile.localAI[1]);
+                    Projectile.position -= Projectile.velocity;
+                }
+            }
+            else if (Projectile.timeLeft > 60)
+            {
+                Projectile.timeLeft = 60;
             }
 
             Projectile.velocity *= 1.01f;

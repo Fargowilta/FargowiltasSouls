@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     Vector2 spawnPos = Projectile.Center - Vector2.UnitY * 6f + new Vector2(distance, 0f).RotatedBy(rotation * i);
                                     if (Projectile.owner == Main.myPlayer)
                                         FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), spawnPos, Vector2.Zero, ModContent.ProjectileType<PhantasmalSphereTrueEye>(),
-                                            Projectile.originalDamage / 3 * 11, 10f, Projectile.owner, Projectile.whoAmI, i);
+                                            Projectile.originalDamage / 3 * 11, 10f, Projectile.owner, Projectile.identity, i);
                                 }
                             }
                             Projectile.velocity *= 0.95f;
