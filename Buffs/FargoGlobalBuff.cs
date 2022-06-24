@@ -66,10 +66,32 @@ namespace FargowiltasSouls.Buffs
                         SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/DizzyBird"));
                     break;
 
-                case BuffID.SwordWhipPlayerBuff:
-                case BuffID.CoolWhipPlayerBuff:
-                case BuffID.ScytheWhipPlayerBuff:
+
                 case BuffID.ThornWhipPlayerBuff:
+                    if (FargoSoulsWorld.EternityMode)
+                    {
+                        player.GetAttackSpeed(DamageClass.Melee) -= 0.20f;
+                        player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.20f;
+                    }
+                    goto case BuffID.CoolWhipPlayerBuff;
+
+                case BuffID.SwordWhipPlayerBuff:
+                    if (FargoSoulsWorld.EternityMode)
+                    {
+                        player.GetAttackSpeed(DamageClass.Melee) -= 0.35f;
+                        player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.35f;
+                    }
+                    goto case BuffID.CoolWhipPlayerBuff;
+
+                case BuffID.ScytheWhipPlayerBuff:
+                    if (FargoSoulsWorld.EternityMode)
+                    {
+                        player.GetAttackSpeed(DamageClass.Melee) -= 0.50f;
+                        player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.50f;
+                    }
+                    goto case BuffID.CoolWhipPlayerBuff;
+
+                case BuffID.CoolWhipPlayerBuff:
                     if (FargoSoulsWorld.EternityMode)
                     {
                         if (player.GetModPlayer<EModePlayer>().HasWhipBuff)
@@ -82,7 +104,7 @@ namespace FargowiltasSouls.Buffs
                     break;
             }
 
-            if (FargoSoulsWorld.EternityMode && player.buffTime[buffIndex] > 2 && Main.debuff[type] && player.GetModPlayer<EModePlayer>().ShorterDebuffsTimer <= 0
+            if (FargoSoulsWorld.EternityMode && player.buffTime[buffIndex] > 5 && Main.debuff[type] && player.GetModPlayer<EModePlayer>().ShorterDebuffsTimer <= 0
                 && !Main.buffNoTimeDisplay[type] && type != BuffID.Tipsy && (!BuffID.Sets.NurseCannotRemoveDebuff[type] || type == BuffID.ManaSickness || type == BuffID.PotionSickness)
                 && !DebuffsToLetDecreaseNormally.Contains(type))
             {
