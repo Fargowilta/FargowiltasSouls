@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.BossWeapons
@@ -8,6 +9,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
     public class DarkStarFriendly : Masomode.DarkStar
     {
         public override string Texture => "Terraria/Images/Projectile_12";
+
+        bool hasIframes = true;
 
         public override void SetDefaults()
         {
@@ -17,6 +20,15 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = -1;
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && sourceProj.type == ModContent.ProjectileType<RefractorBlaster2Held>())
+            {
+                Projectile.penetrate = 1;
+                hasIframes = false;
+            }
         }
 
         public override void AI()
@@ -33,7 +45,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.immune[Projectile.owner] = 6;
+            if (hasIframes)
+                target.immune[Projectile.owner] = 6;
         }
 
         public override bool PreKill(int timeleft)
