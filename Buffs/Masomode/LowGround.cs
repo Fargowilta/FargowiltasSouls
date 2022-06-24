@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Buffs.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Low Ground");
-            Description.SetDefault("Cannot stand on platforms or liquids");
+            Description.SetDefault("No hooks, cannot stand on platforms or liquids");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
@@ -24,6 +24,9 @@ namespace FargowiltasSouls.Buffs.Masomode
         public override void Update(Player player, ref int buffIndex)
         {
             player.GetModPlayer<FargoSoulsPlayer>().LowGround = true;
+
+            if (player.grapCount > 0)
+                player.RemoveAllGrapplingHooks();
 
             if (player.mount.Active)
                 player.mount.Dismount(player);
