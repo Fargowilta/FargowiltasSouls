@@ -52,13 +52,10 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
         public override void Kill(int timeLeft)
         {
-            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
-
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 86, 0f, 0f, 0, default(Color), 2.5f);
+                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 86, 0f, 0f, 0, default(Color), 0.9f);
                 Main.dust[d].noGravity = true;
-                Main.dust[d].velocity *= 8f;
             }
         }
 

@@ -46,7 +46,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
             {
                 Projectile.velocity.X = 0;
 
-                float minSpeed = Projectile.type == ModContent.ProjectileType<DeviMimic>() ? 5f : 10f;
+                float minSpeed = Projectile.type == ModContent.ProjectileType<DeviMimic>() ? 3f : 4.5f;
                 if (FargoSoulsWorld.MasochistModeReal)
                     minSpeed *= 2;
                 if (Projectile.velocity.Y < minSpeed)
@@ -130,7 +130,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 2)
             {
-                Color color27 = color26;
+                Color color27 = color26 * 0.5f;
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i];
                 float num165 = Projectile.oldRot[i];

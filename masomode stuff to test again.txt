@@ -1930,3 +1930,65 @@ maso abom
 maso mutant
 	all spears have the up+down+m1 trail
 	eoc buffed, less delay between the sickles moving
+attempted a silver ench reimplmentation to affect some projs that werent affected before
+	test medallion of fallen king
+	test minions in general are affected still
+	fixed silver ench not working on minions spawned by buffs (almost all emode acc minions)
+fixed aeolus boot granting flipper for some reason
+devi emode
+	buffed moth light balls p2
+	buffed fake hearts attack
+	ray light balls have faster rate
+	mimics spread further behind you too
+	nerfed big mimic fake heart duration
+	orbits you during frost balls
+	rune wizard tps are faster
+	does energy hearts during axe swing dashes
+	buffed baby guardian walls a lot
+	launches energy hearts during irisu rain and irisu rain looks different
+	energy heart strong attack can randomly use a different angle offset
+	medusa ray is faster
+	sparkling love ray pattern is denser
+	increased hammer range
+	removed contact damage except when dashing
+	visual updates
+fixed gaia set bonus tooltip not saying up if you use double tap up
+lihzahrd curse only takes away dangersense/wire vision while actually in temple
+diffractor buff, stars do -66% damage but dont pierce
+devi has no p2 heal, instead emode just has more life
+low ground disables hooks
+mutant ray flashes faster
+iron ench can trigger some on hit effects
+	celes rune
+	cobalt ench
+	fossil ench
+	ice queens crown
+ice queens crown buff, longer duration and it FREEZES things too
+tragic umbrella, umbrella hat, and eyebrella block wet debuff from rain
+universe core reduced from x5 crits to x4 crits
+pre-abom weapon tier
+	all weapons buffed x1.2 base damage
+abom and eri health adjustments to compensate
+raised mutant life to 7.7M, was 7M
+buffed all mutant tier weapons by x1.375 (1.25*1.1) to compensate
+	except destroyer gun idk what to do with this just ignore it for now
+removed nerfs on crystal bullet and holy arrow
+fixed whip buffs in emode not working (they now give whip speed, not melee speed)
+removed multiclass nerf
+removed summon depreciation nerf
+removed nerfs on stardust dragon, last prism, sdmg
+removed speed nerfs on ooa sentry staves
+fetid nerf -33% to -25% speed
+slightly nerfed bbb, drakovi fish, unleashed ocean to compensate being summoner
+yes, zenith was adjusted for these too
+
+qs
+	x1.5 life -> x1.25
+	p2 25% DR -> 20% DR
+	4 subjects -> 7
+forgor gift can be used to reset mutant p1
+fixed devi and abom spawning their arenas outside emode
+fixed abom spawning his maso arena in emode
+
+unleashed ocean slight nerf
+fixed blender homing counterweights not critting

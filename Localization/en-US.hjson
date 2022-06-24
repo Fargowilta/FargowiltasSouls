@@ -15,7 +15,7 @@ Mods: {
 				Reduces mana usage by 10%
 				10% chance to not consume ammo
 				Increases max number of minions and sentries by 4
-				Double tap down to toggle offensive mode, which has the following effects:
+				Double tap {0} to toggle offensive mode, which has the following effects:
 				30% increased damage and 15% increased critical strike chance
 				Increases armor penetration by 20
 				Reduces defense by 20, max life by 10%, and damage reduction by 15%

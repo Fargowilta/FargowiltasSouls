@@ -76,7 +76,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
             NPC.height = 120;
             NPC.damage = 260;
             NPC.defense = 80;
-            NPC.lifeMax = FargoSoulsWorld.MasochistModeReal ? 650000 : 600000;
+            NPC.lifeMax = FargoSoulsWorld.MasochistModeReal ? 624000 : 576000;
             if (Main.expertMode) //compensate universe core
                 NPC.lifeMax *= 2;
             NPC.value = Item.buyPrice(5);
@@ -158,10 +158,10 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (NPC.localAI[3] == 2 && FargoSoulsUtil.ProjectileExists(ritualProj, ModContent.ProjectileType<AbomRitual>()) == null)
+                if (FargoSoulsWorld.EternityMode && NPC.localAI[3] == 2 && FargoSoulsUtil.ProjectileExists(ritualProj, ModContent.ProjectileType<AbomRitual>()) == null)
                     ritualProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitual>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
 
-                if (FargoSoulsUtil.ProjectileExists(ritualProjMaso, ModContent.ProjectileType<AbomRitualMaso>()) == null)
+                if (FargoSoulsWorld.MasochistModeReal && FargoSoulsUtil.ProjectileExists(ritualProjMaso, ModContent.ProjectileType<AbomRitualMaso>()) == null)
                     ritualProjMaso = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AbomRitualMaso>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0f, NPC.whoAmI);
 
                 if (FargoSoulsUtil.ProjectileExists(ringProj, ModContent.ProjectileType<AbomRitual2>()) == null)

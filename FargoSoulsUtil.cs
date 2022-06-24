@@ -145,6 +145,12 @@ namespace FargowiltasSouls
 
         public static bool IsSummonDamage(Projectile projectile, bool includeMinionShot = true, bool includeWhips = true)
         {
+            if (!includeWhips && ProjectileID.Sets.IsAWhip[projectile.type])
+                return false;
+
+            if (!includeMinionShot && (ProjectileID.Sets.MinionShot[projectile.type] || ProjectileID.Sets.SentryShot[projectile.type]))
+                return false;
+
             return projectile.CountsAsClass(DamageClass.Summon) || projectile.minion || projectile.sentry || projectile.minionSlots > 0 || ProjectileID.Sets.MinionSacrificable[projectile.type]
                 || (includeMinionShot && (ProjectileID.Sets.MinionShot[projectile.type] || ProjectileID.Sets.SentryShot[projectile.type]))
                 || (includeWhips && ProjectileID.Sets.IsAWhip[projectile.type]);

@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
         public override void SetDefaults()
         {
-            Item.damage = 300;
+            Item.damage = 360;
             Item.width = 24;
             Item.height = 28;
             Item.value = Item.sellPrice(0, 15);
@@ -104,7 +104,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
                 //summon
                 case 4:
-                    FargoSoulsUtil.NewSummonProjectile(source, position, velocity, ModContent.ProjectileType<FishMinion>(), Item.damage / 2, knockback, player.whoAmI);
+                    FargoSoulsUtil.NewSummonProjectile(source, position, velocity, ModContent.ProjectileType<FishMinion>(), (int)(Item.damage / 2 / 1.1), knockback, player.whoAmI);
                     break;
 
                 //throwing

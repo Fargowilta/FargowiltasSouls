@@ -141,10 +141,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     int type = ModContent.ProjectileType<DarkStarFriendly>();
                     const int max = 10;
                     double spread = MathHelper.PiOver4 / max;
+                    int damage = Projectile.damage / 3;
                     for (int i = -max; i <= max; i++)
                     {
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + HoldOffset * 2, 22f * Projectile.velocity.RotatedBy(spread * i),
-                            type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+                            type, damage, Projectile.knockBack, Projectile.owner);
                     }
                     SoundEngine.PlaySound(SoundID.Item105 with { Pitch = -0.3f }, Projectile.Center);
                     /*int p = Projectile.NewProjectile(Projectile.Center + HoldOffset * 2, Projectile.velocity * 22, type, Projectile.damage, Projectile.knockBack, player.whoAmI);

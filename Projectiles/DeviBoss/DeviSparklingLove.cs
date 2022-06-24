@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sparkling Love");
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 
@@ -107,9 +107,17 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    for (int i = 0; i < 8; i++)
+                    float baseRotation = FargoSoulsWorld.EternityMode ? Main.rand.NextFloat(MathHelper.TwoPi) : 0;
+
+                    int max = 8;
+                    if (FargoSoulsWorld.EternityMode)
+                        max = 12;
+                    if (FargoSoulsWorld.MasochistModeReal)
+                        max = 8; //lowered because maso doubles down on it
+
+                    for (int i = 0; i < max; i++)
                     {
-                        Vector2 target = 600 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i);
+                        Vector2 target = 600 * Vector2.UnitX.RotatedBy(MathHelper.TwoPi / max * i + baseRotation);
                         Vector2 speed = 2 * target / 90;
                         float acceleration = -speed.Length() / 90;
                         float rotation = speed.ToRotation();
@@ -123,9 +131,9 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
                     if (FargoSoulsWorld.MasochistModeReal)
                     {
-                        for (int i = 0; i < 8; i++)
+                        for (int i = 0; i < max; i++)
                         {
-                            Vector2 target = 300 * Vector2.UnitX.RotatedBy(Math.PI / 4 * (i + 0.5f));
+                            Vector2 target = 300 * Vector2.UnitX.RotatedBy(MathHelper.TwoPi / max * (i + 0.5f) + baseRotation);
                             Vector2 speed = 2 * target / 90;
                             float acceleration = -speed.Length() / 90;
                             float rotation = speed.ToRotation();
@@ -211,13 +219,17 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             SpriteEffects effects = Projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
+            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0], ModContent.NPCType<NPCs.DeviBoss.DeviBoss>());
+            if (npc != null && npc.velocity != Vector2.Zero)
             {
-                Color color27 = color26 * 0.5f;
-                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-                Vector2 value4 = Projectile.oldPos[i];
-                float num165 = Projectile.oldRot[i];
-                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, effects, 0);
+                for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
+                {
+                    Color color27 = color26 * 0.5f;
+                    color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+                    Vector2 value4 = Projectile.oldPos[i];
+                    float num165 = Projectile.oldRot[i];
+                    Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, effects, 0);
+                }
             }
 
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, effects, 0);

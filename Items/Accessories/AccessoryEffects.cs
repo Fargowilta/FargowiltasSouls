@@ -2344,19 +2344,22 @@ namespace FargowiltasSouls
                 if (MasochistSoul)
                     freezeRange = 16 * 60;
 
-                int freezeDuration = MasochistHeart || MasochistSoul ? 90 : 60;
+                int freezeDuration = 30;
+                int slowDuration = freezeDuration + (MasochistHeart || MasochistSoul ? 120 : 60);
 
-                foreach (NPC n in Main.npc.Where(n => n.active && !n.friendly && n.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(n, Player.Center)) < freezeRange && !n.dontTakeDamage))
+                foreach (NPC n in Main.npc.Where(n => n.active && !n.friendly && n.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(n, Player.Center)) < freezeRange && !n.dontTakeDamage && !n.buffImmune[ModContent.BuffType<TimeFrozen>()]))
                 {
+                    n.AddBuff(ModContent.BuffType<TimeFrozen>(), freezeDuration);
                     n.GetGlobalNPC<FargoSoulsGlobalNPC>().SnowChilled = true;
-                    n.GetGlobalNPC<FargoSoulsGlobalNPC>().SnowChilledTimer = freezeDuration;
+                    n.GetGlobalNPC<FargoSoulsGlobalNPC>().SnowChilledTimer = slowDuration;
                     n.netUpdate = true;
                 }
 
-                foreach (Projectile p in Main.projectile.Where(p => p.active && p.hostile && p.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(p, Player.Center)) < freezeRange && FargoSoulsUtil.CanDeleteProjectile(p)))
+                foreach (Projectile p in Main.projectile.Where(p => p.active && p.hostile && p.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(p, Player.Center)) < freezeRange && FargoSoulsUtil.CanDeleteProjectile(p) && !p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune && p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFrozen == 0))
                 {
+                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFrozen = freezeDuration;
                     p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().ChilledProj = true;
-                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().ChilledTimer = freezeDuration;
+                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().ChilledTimer = slowDuration;
                     p.netUpdate = true;
                 }
 

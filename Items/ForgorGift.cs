@@ -10,7 +10,11 @@ namespace FargowiltasSouls.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Forgor Gift");
-            Tooltip.SetDefault("[c/ff0000:Debug item]\nResets vanilla and Souls mod invasion/boss flags, INCLUDING hardmode (Wall of Flesh downed flag)\nRight click allows getting a new gift from Deviantt, resets credit/discount card, resets your emode slot, rabies vaccine, sinew dash, etc.\ni forgor");
+            Tooltip.SetDefault(@"[c/ff0000:Debug item]
+Resets vanilla and Souls mod invasion/boss flags, INCLUDING hardmode (Wall of Flesh downed flag)
+Right click allows getting a new gift from Deviantt, resets credit/discount card, resets your emode slot, rabies vaccine, sinew dash, etc.
+Right click on the item in inventory to reset Mutant phase 1 skip
+i forgor");
         }
 
         public override void SetDefaults()
@@ -26,6 +30,19 @@ namespace FargowiltasSouls.Items
         }
 
         public override bool AltFunctionUse(Player player) => true;
+
+        public override bool CanRightClick() => true;
+
+        public override void RightClick(Player player)
+        {
+            base.RightClick(player);
+
+            FargoSoulsWorld.skipMutantP1 = 0;
+
+            FargoSoulsUtil.PrintText("forgor");
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.WorldData);
+        }
 
         public override bool? UseItem(Player player)
         {

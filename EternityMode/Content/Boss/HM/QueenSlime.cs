@@ -54,7 +54,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.SetDefaults(npc);
 
-            npc.lifeMax = (int)Math.Round(npc.lifeMax * 3.0 / 2.0, MidpointRounding.ToEven);
+            npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25, MidpointRounding.ToEven);
 
             StompTimer = -360;
         }
@@ -215,7 +215,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.GelatinSubjects", new Color(175, 75, 255));
 
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < 7; i++)
                     {
                         FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, ModContent.NPCType<GelatinSubject>(), npc.whoAmI, target: npc.target,
                             velocity: Main.rand.NextFloat(8f) * npc.DirectionFrom(Main.player[npc.target].Center).RotatedByRandom(MathHelper.PiOver2));
@@ -440,7 +440,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
             if (npc.life < npc.lifeMax / 2)
-                damage *= 0.75;
+                damage *= 0.8;
 
             if (GelatinSubjectDR)
                 damage *= 0.5;

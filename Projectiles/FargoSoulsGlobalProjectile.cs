@@ -51,7 +51,7 @@ namespace FargowiltasSouls.Projectiles
         //        public bool SuperBee;
         public bool ChilledProj;
         public int ChilledTimer;
-        public bool SilverMinion;
+        public int SilverMinion;
 
         public int HuntressProj = -1; // -1 = non weapon proj, doesnt matter if it hits
         //1 = marked as weapon proj
@@ -306,8 +306,7 @@ namespace FargowiltasSouls.Projectiles
 
             if (modPlayer.SilverEnchantActive && projectile.friendly && FargoSoulsUtil.IsSummonDamage(projectile, true, false) && player.GetToggleValue("SilverSpeed"))
             {
-                SilverMinion = true;
-                projectile.extraUpdates++;
+                SilverMinion = projectile.extraUpdates + 1;
 
                 if (NeedsSilverNerf(projectile))
                 {
@@ -398,15 +397,14 @@ namespace FargowiltasSouls.Projectiles
                     case ProjectileID.PurpleCounterweight:
                     case ProjectileID.YellowCounterweight:
                         {
-                            if (player.HeldItem.type == ModContent.ItemType<Blender>())
+                            if (projectile.owner == Main.myPlayer && player.HeldItem.type == ModContent.ItemType<Blender>())
                             {
-                                projectile.localAI[0]++;
-                                if (projectile.localAI[0] > 60)
+                                if (++projectile.localAI[0] > 60)
                                 {
-                                    projectile.Kill();
                                     SoundEngine.PlaySound(SoundID.NPCDeath11 with { Volume = 0.5f }, projectile.Center);
                                     int proj2 = ModContent.ProjectileType<BlenderProj3>();
                                     Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, projectile.DirectionFrom(player.Center) * 8, proj2, projectile.damage, projectile.knockBack, projectile.owner);
+                                    projectile.Kill();
                                 }
                             }
                         }
@@ -627,7 +625,7 @@ namespace FargowiltasSouls.Projectiles
                 {
                     if (projectile.GetSourceNPC() is NPC sourceNPC && sourceNPC.type == ModContent.NPCType<NPCs.DeviBoss.DeviBoss>())
                     {
-                        projectile.timeLeft = FargoSoulsWorld.MasochistModeReal ? 1200 : 600;
+                        projectile.timeLeft = FargoSoulsWorld.MasochistModeReal ? 1200 : 420;
                     }
                 }
 
@@ -999,9 +997,11 @@ namespace FargowiltasSouls.Projectiles
                 projectile.position -= projectile.velocity * 0.5f;
             }
 
-            if (SilverMinion && projectile.owner == Main.myPlayer)
+            if (SilverMinion > 0)
             {
-                if (!(modPlayer.SilverEnchantActive && player.GetToggleValue("SilverSpeed")))
+                projectile.extraUpdates = Math.Max(projectile.extraUpdates, SilverMinion);
+
+                if (projectile.owner == Main.myPlayer && !(modPlayer.SilverEnchantActive && player.GetToggleValue("SilverSpeed")))
                     projectile.Kill();
             }
 
@@ -1158,7 +1158,7 @@ namespace FargowiltasSouls.Projectiles
                     damage = newDamage;
             }
 
-            if (SilverMinion && NeedsSilverNerf(projectile))
+            if (SilverMinion > 0 && NeedsSilverNerf(projectile))
                 damage /= 2;
 
             if (projectile.type == ProjectileID.SharpTears && !projectile.usesLocalNPCImmunity && projectile.usesIDStaticNPCImmunity && projectile.idStaticNPCHitCooldown == 60 && noInteractionWithNPCImmunityFrames)
