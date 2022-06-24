@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
 
         public override void SetDefaults()
         {
-            Item.damage = 295;
+            Item.damage = 340;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
