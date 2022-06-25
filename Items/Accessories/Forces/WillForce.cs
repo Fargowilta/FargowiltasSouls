@@ -40,7 +40,7 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 [i:{0}] 捡起钱币时，自动将它们存进猪猪存钱罐中
 [i:{1}] 敌人死亡时有20%的几率获得五倍的战利品
 [i:{2}] 长矛将倾泄在被攻击的敌人身上
-[i:{3}] 双击'下'键后令箭雨倾斜在光标位置
+[i:{3}] 连续攻击命中会获得额外伤害加成
 [i:{4}] 回复生命值时，治疗量增加50%
 “坚不可摧的决心”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));

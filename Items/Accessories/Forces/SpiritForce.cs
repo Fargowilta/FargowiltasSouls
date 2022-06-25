@@ -41,7 +41,7 @@ $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damag
 
             string tooltip_ch =
 @"[i:{0}] 受到致死伤害时会以50生命值重生并爆出几根骨头
-[i:{0}] 接触停止移动的骨头时会回复15点生命值
+[i:{0}] 接触停止移动的骨头时会回复20点生命值
 [i:{1}] 双击“下”键会在光标位置召唤远古风暴
 [i:{1}] 穿过远古风暴的弹幕会额外获得60%伤害
 [i:{2}] 使你获得一面可以反弹弹幕的盾牌
