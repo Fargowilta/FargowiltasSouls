@@ -18,11 +18,11 @@ namespace FargowiltasSouls.Items.Armor
 Increases max number of minions and sentries by 10
 25% reduced mana usage
 25% chance not to consume ammo");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "真·突变之颅");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"增加50%伤害和20%暴击率
-增加10最大召唤栏和哨兵栏
-减少25%法力消耗
-25%概率不消耗弹药");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "真·突变之颅");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"增加50%伤害和20%暴击率
+//增加10最大召唤栏和哨兵栏
+//减少25%法力消耗
+//25%概率不消耗弹药");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
