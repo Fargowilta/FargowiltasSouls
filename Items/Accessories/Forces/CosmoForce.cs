@@ -43,7 +43,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
 [i:{2}] 双击“下”键切换至隐形模式，生成一个旋涡
 [i:{3}] 对敌人造成伤害时有几率生成强化焰
 [i:{4}] 星尘守卫将保护你不受附近敌人的伤害
-[i:{4}] 按下“冻结”键后会冻结时间，持续5秒，有60秒冷却时间
+[i:{4}] 按下“冻结”键后会冻结时间，持续9秒，有60秒冷却时间
 “自宇宙大爆炸以来就一直存在”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4]));
         }
