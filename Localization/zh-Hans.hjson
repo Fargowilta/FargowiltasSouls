@@ -110,6 +110,32 @@ Mods: {
 			TrojanSquirrelDespawn: 特洛伊松鼠回到了它的松鼠聚落中……
 		}
 
+		NPCName:{
+			AbomBoss: 憎恶
+			DeviBoss: 戴薇安
+			MutantBoss: 突变体
+			TrojanSquirrel: 特洛伊松鼠
+			TrojanSquirrelArms: 特洛伊松鼠
+			TrojanSquirrelHead: 特洛伊松鼠
+			CosmosChampion: 厄里达诺斯，宇宙英灵
+			EarthChampion: 大地英灵
+			EarthChampionHand: 大地英灵
+			LesserFairy: 小精灵
+			LesserSquirrel: 小松鼠
+			LifeChampion: 生命英灵
+			NatureChampion: 自然英灵
+			NatureChampionHead: 自然英灵
+			ShadowChampion: 暗影英灵
+			ShadowOrb: 暗影珠
+			SpiritChampion: 心灵英灵
+			SpiritChampionHand: 心灵英灵
+			TerraChampion: 泰拉英灵
+			TerraChampionBody: 泰拉英灵
+			TimberChampion: 木英灵
+			TimberChampionHead: 木英灵
+			WillChampion: 意志英灵
+		}
+
 		Message: {
 			HasAwoken:已苏醒！
 			SquirrelCoatofArms: "{$Mods.FargowiltasSouls.NPCName.TrojanSquirrel}{$Mods.FargowiltasSouls.Message.HasAwoken}"
@@ -953,6 +979,31 @@ Mods: {
 			Eridanium: 波江水晶
 			EternalEnergy: 永恒能量
 			PhantasmalEnergy: 幻象能量
+
+			// == Armors ==
+
+			EridanusBattleplate: 波江战甲
+			EridanusHat: 波江帽
+			EridanusLegwear: 波江护腿
+			GaiaGreaves: 盖亚护胫
+			GaiaHelmet: 盖亚头盔
+			GaiaPlate: 盖亚护板
+			MutantBody: 真·突变之躯
+			MutantMask: 真·突变之颅
+			MutantPants: 真·突变之靴
+			StyxChestplate: 冥河胸甲
+			StyxCrown: 冥河王冠
+			StyxLeggings: 冥河护腿
+
+			// == Consumables ==
+
+			DeerSinew: 鹿筋
+			MutantsCreditCard: 突变体的信用卡
+			MutantsDiscountCard: 突变体的优惠卡
+			MutantsPact: 突变体契约
+			OrdinaryCarrot: 普通的胡萝卜
+			RabiesShot: 狂犬疫苗
+			RabiesVaccine: 狂犬病疫苗
 
 			// == Souls ==
 			ArchWizardsSoul: 巫师之魂
@@ -2023,6 +2074,126 @@ Mods: {
 				增加跳跃高度并免疫摔落伤害
 				“如风般狂奔”
 				'''
+
+			// == Armors ==
+			EridanusBattleplate:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			所受伤害减少10%
+			增加生命恢复
+			'''
+			EridanusHat:
+			'''
+			增加5%伤害
+			增加5%暴击率
+			+4最大召唤栏
+			+4最大哨兵栏
+			'''
+			EridanusLegwear:
+			'''
+			增加5%伤害
+			增加5%暴击率
+			增加10%移动速度
+			'''
+			GaiaGreaves:
+			'''
+			增加10%伤害
+			增加5%暴击率
+			增加10%移动速度
+			'''
+			GaiaHelmet:
+			'''
+			增加10%伤害
+			增加5%暴击率
+			+1最大召唤、哨兵栏
+			'''
+			GaiaPlate:
+			'''
+			增加10%伤害
+			增加5%暴击率
+			所受伤害减少10%
+			增加生命恢复
+			'''
+			MutantBody:
+			'''
+			增加70%伤害和30%暴击率
+			最大生命值和魔力值增加200
+			所受伤害减少50%
+			极大提升生命恢复
+			'''
+			MutantMask:
+			'''
+			增加50%伤害和20%暴击率
+			+10最大召唤、哨兵栏
+			魔力使用率减少25%
+			25%的几率不消耗弹药
+			'''
+			MutantPants:
+			'''
+			增加50%伤害和20%暴击率
+			增加40%移动和近战攻击速度
+			'''
+			StyxChestplate:
+			'''
+			增加15%伤害
+			增加10%暴击率
+			所受伤害减少10%
+			增加你的生命恢复
+			'''
+			StyxCrown:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			+3最大召唤、哨兵栏
+			'''
+			StyxLeggings:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			增加20%移动速度
+			'''
+
+			// == Consumables ==
+			DeerSinew:
+			'''
+			获得冲刺能力
+			双击一个方向
+			受到伤害有几率会短暂地冻住你
+			暴击伤害从2倍降到1.5倍，还会随着你的速度降低
+			所有效果在被关闭或已经在使用另一个冲刺取消
+			“冰冷但抽搐着”
+			'''
+			MutantsCreditCard:
+			'''
+			永久将突变体的商店价格降低30%
+			“等下，你怎么拿到这个东西的？”
+			'''
+			MutantsDiscountCard:
+			'''
+			永久将突变体的商店价格降低20%
+			“它不是照你想的那么用的”
+			'''
+			MutantsPact:
+			'''
+			永久增加配饰栏数量
+			'''
+			OrdinaryCarrot:
+			'''
+			提高夜视能力
+			所有属性小幅提升
+			1分钟持续时间
+			放在物品栏中时，右键点击可以增加视野
+			“从被打败的敌人的脸上拔下来的”
+			'''
+			RabiesShot:
+			'''
+			治愈野性咬噬
+			'''
+			RabiesVaccine:
+			'''
+			永久免疫野性咬噬
+			'''
 
 			// === Souls ===
 
