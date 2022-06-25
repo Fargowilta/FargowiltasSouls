@@ -55,7 +55,7 @@ Efectos del Saco de esporas, Escudo de paladín, Caparazón de tortuga congelado
 Efectos del Spray de pintura, Pulsificador, Móvil, Globo gravitacional, Botas floridas, Equipo de maestro ninja, Anillo codicioso, Caparazón celestial, y Piedra brillante
 Efectos de pociones de Brillo, Espeleólogo, Cazador, y Sentido del peligro; Efectos del Modo Constructor, Reliquia del Infinito y atraes objectos desde más lejos";
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒之魂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒之魂");
             DisplayName.AddTranslation((int)GameCulture.CultureName.Spanish, "Alma de la Eternidad");
             Tooltip.AddTranslation((int)GameCulture.CultureName.Spanish, tooltip_sp);
 
