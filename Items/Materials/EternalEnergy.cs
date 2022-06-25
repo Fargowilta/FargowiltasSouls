@@ -14,10 +14,10 @@ namespace FargowiltasSouls.Items.Materials
             DisplayName.SetDefault("Eternal Energy");
             Tooltip.SetDefault(@"Grants immunity to almost all Eternity Mode debuffs
 'Proof of having embraced eternity'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "施虐狂");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-@"'受苦的证明'
-免疫几乎所有受虐模式的Debuff");
+        //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "施虐狂");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
+//@"'受苦的证明'
+//免疫几乎所有受虐模式的Debuff");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 30;
         }
