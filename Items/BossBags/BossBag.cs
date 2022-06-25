@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Items.BossBags
             DisplayName.SetDefault("Treasure Bag");
             Tooltip.SetDefault("Right click to open");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体的摸彩袋");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "右键打开");
+            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宝藏袋");
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "右键点击可打开");
 
             ItemID.Sets.BossBag[Item.type] = true;
             if (IsPreHMBag)
