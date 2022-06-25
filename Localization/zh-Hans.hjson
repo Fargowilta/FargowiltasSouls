@@ -969,6 +969,10 @@ Mods: {
 		}
 
 		ItemName: {
+			
+			ForgorGift: 失忆之礼
+			Masochist: 突变体的礼物
+			MasochistReal: 被遗忘的礼物
 
 			// == Materials ==
 
@@ -1005,7 +1009,47 @@ Mods: {
 			RabiesShot: 狂犬疫苗
 			RabiesVaccine: 狂犬病疫苗
 
-			// == Souls ==
+			// === Boss Summoning ===
+
+			AbominationnVoodooDoll: 憎恶巫毒娃娃
+			AbomsCurse: 憎恶诅咒
+			DevisCurse: 戴薇安的诅咒
+			MutantsCurse: 突变体的诅咒
+			SigilOfChampions: 唤灵魔符
+			SquirrelCoatofArms: 松鼠手臂的皮毛
+
+			// == Placables ==
+
+			MutantStatue: 突变体雕像
+			MutantStatueGift: 拿着礼物的突变体雕像
+			ScremPainting: 尖叫猫猫
+			TophatSquirrelBanner: 高顶礼帽松鼠旗
+			TwentyTwoPainting: 22号画作
+			
+			// === Trophies ===
+
+			AbomTrophy: 憎恶纪念章
+			DeviTrophy: 戴薇安纪念章
+			EridanusTrophy: 宇宙英灵纪念章
+			MutantTrophy: 突变体纪念章
+			TrojanSquirrelTrophy: 特洛伊松鼠纪念章
+
+			// === Relics ===
+
+			AbomRelic: 憎恶圣物
+			DeviRelic: 戴薇安圣物
+			EridanusRelic: 宇宙英灵圣物
+			MutantRelic: 突变体圣物
+			TrojanSquirrelRelic: 特洛伊松鼠圣物
+
+			// == Dyes ==
+			GaiaDye: 盖亚染料
+			LifeDye: 天堂染料
+			WillDye: 意志力染料
+
+			// == Accessories ==
+			// === Souls ===
+
 			ArchWizardsSoul: 巫师之魂
 			BerserkerSoul: 狂战士之魂
 			ColossusSoul: 巨像之魂
@@ -1021,8 +1065,7 @@ Mods: {
 			UniverseSoul: 寰宇之魂
 			VoidSoul: 虚空之魂
 			WorldShaperSoul: 铸世者之魂
-			
-			// == Accessories ==
+
 			// === Enchantments ===
 
 			AdamantiteEnchant: 精金魔石
@@ -1173,6 +1216,31 @@ Mods: {
 		}
 
 		ItemTooltip: {
+
+			ForgorGift:
+			'''
+			[c/ff0000:调 试 用 物 品]
+			重置原版和魂石Mod中的事件与Boss进度，包括困难模式（击败血肉墙）
+			右键允许从戴薇安处再拿一次新手礼包，重置突变体的信用卡/优惠卡、你的永恒模式饰品栏、狂犬病疫苗、鹿筋冲刺等等
+			在物品栏内对物品右键来重置突变体的一阶段跳过机制
+			我忘啦！
+			'''
+			Masochist:
+			'''
+			世界必须是专家模式
+			开关永恒模式
+			戴薇安会给予你一个新手礼包，并提供一些基于进度的建议
+			增强玩家的基础属性
+			不能在任意Boss存活时使用
+			[i:1612][c/00ff00:推荐与Fargo突变模组的减益显示一起使用（在config里打开）]
+			[c/ff0000:不被预期可以和其他内容型模组和其他模组难度一起使用！！！]
+			'''
+			MasochistReal:
+			'''
+			[c/ff0000:调 试 用 物 品]
+			左键：开关个人角色开关受虐模式的权力
+			右键：开关世界开关受虐模式的权力
+			'''
 
 			// == Materials ==
 
@@ -2195,6 +2263,29 @@ Mods: {
 			永久免疫野性咬噬
 			'''
 
+			// === Boss Summoning ===
+
+			AbominationnVoodooDoll:
+			'''
+			召唤憎恶到你的城镇
+			“你可真是个坏东西”
+			'''
+			MutantsCurse:
+			'''
+			“至少不需要用娃娃了”
+			'''
+			SigilOfChampions:
+			'''
+			召唤英灵
+			根据所处环境和时间召唤不同的英灵
+			右键使用以查看可能召唤出的英灵
+			不消耗
+			'''
+			SquirrelCoatofArms:
+			'''
+			召唤无法平息的松鼠之怒！
+			'''
+			
 			// === Souls ===
 
 			ArchWizardsSoul:
