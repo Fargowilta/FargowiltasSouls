@@ -24,7 +24,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Shadow");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影英灵");
             Main.npcFrameCount[NPC.type] = 5;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;

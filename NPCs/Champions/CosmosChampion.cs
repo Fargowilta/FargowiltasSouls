@@ -31,7 +31,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eridanus, Champion of Cosmos");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "厄里达诺斯, 宇宙英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "厄里达诺斯, 宇宙英灵");
 
             Main.npcFrameCount[NPC.type] = 9;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;

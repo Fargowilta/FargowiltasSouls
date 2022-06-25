@@ -43,7 +43,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Nature");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "自然英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "自然英灵");
             Main.npcFrameCount[NPC.type] = 14;
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type);
 

@@ -16,7 +16,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Spirit");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "魂灵英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "魂灵英灵");
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;

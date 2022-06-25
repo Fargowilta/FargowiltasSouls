@@ -23,7 +23,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Timber");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "木英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "木英灵");
             Main.npcFrameCount[NPC.type] = 8;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
