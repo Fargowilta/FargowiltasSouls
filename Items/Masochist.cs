@@ -26,8 +26,8 @@ Debuffs wear off faster when not attacking
 Cannot be used while a boss is alive
 [i:1612][c/00ff00:Recommended to use Fargo's Mutant Mod Debuff Display (in config)]
 [c/ff0000:NOT INTENDED FOR USE WITH OTHER CONTENT MODS OR MODDED DIFFICULTIES]");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体的礼物");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'用开/关受虐模式'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体的礼物");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'用开/关受虐模式'");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
