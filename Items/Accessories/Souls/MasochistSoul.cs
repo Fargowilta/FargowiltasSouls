@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             DisplayName.SetDefault("Soul of the Master");
             Tooltip.SetDefault(
 @"Increases wing time by 200%, armor penetration by 50, and movement speed by 20%
-Increases max life by 100%, damage by 50%, and damage reduction by 10%
+Increases max life by 100%, damage for your current weapon class by 50%, and damage reduction by 10%
 Increases life regen drastically, your cursor causes nearby enemies to take increased damage
 Grants gravity control, fastfall, and immunity to knockback, almost all Eternity Mode debuffs, and more
 Grants autofire to all weapons and you automatically use mana potions when needed
@@ -85,7 +85,8 @@ Summons the aid of all Eternity Mode bosses to your side
             player.AddBuff(ModContent.BuffType<SouloftheMasochist>(), 2);
 
             //stat modifiers
-            player.GetDamage(DamageClass.Generic) += 0.5f;
+            DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
+            player.GetDamage(damageClass) += 0.5f;
             player.endurance += 0.1f;
             player.GetArmorPenetration(DamageClass.Generic) += 50;
             player.statLifeMax2 += player.statLifeMax;
