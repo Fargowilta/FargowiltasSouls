@@ -570,6 +570,24 @@ namespace FargowiltasSouls
             return damageClass == intendedClass || damageClass.GetEffectInheritance(intendedClass);
         }
 
+        public static DamageClass ProcessDamageTypeFromHeldItem(this Player player)
+        {
+            if (player.HeldItem.damage <= 0 || player.HeldItem.pick > 0 || player.HeldItem.axe > 0 || player.HeldItem.hammer > 0)
+                return DamageClass.Summon;
+            else if (player.HeldItem.DamageType.CountsAsClass(DamageClass.Melee))
+                return DamageClass.Melee;
+            else if (player.HeldItem.DamageType.CountsAsClass(DamageClass.Ranged))
+                return DamageClass.Ranged;
+            else if (player.HeldItem.DamageType.CountsAsClass(DamageClass.Magic))
+                return DamageClass.Magic;
+            else if (player.HeldItem.DamageType.CountsAsClass(DamageClass.Summon))
+                return DamageClass.Summon;
+            else if (player.HeldItem.DamageType != DamageClass.Generic && player.HeldItem.DamageType != DamageClass.Default)
+                return player.HeldItem.DamageType;
+            else
+                return DamageClass.Summon;
+        }
+
         #region npcloot
 
         public static bool LockEarlyBirdDrop(NPCLoot npcLoot, IItemDropRule rule)
