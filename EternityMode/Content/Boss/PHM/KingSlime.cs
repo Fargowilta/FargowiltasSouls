@@ -203,6 +203,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 }
             }*/
 
+            if (npc.ai[1] == 5) //when teleporting
+            {
+                Vector2 tpPos = new Vector2(npc.localAI[1], npc.localAI[2]);
+                tpPos.X -= npc.width / 2;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    int d = Dust.NewDust(tpPos, npc.width, npc.height / 2, DustID.t_Slime, 0, 0, 75, new Color(78, 136, 255, 80), 2.5f);
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.Y -= 3f;
+                    Main.dust[d].velocity *= 3f;
+                }
+            }
+
             if (npc.life < npc.lifeMax / 2)
             {
                 if (npc.ai[1] == 5) //when teleporting
