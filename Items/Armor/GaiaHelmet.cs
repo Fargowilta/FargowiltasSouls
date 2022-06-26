@@ -89,8 +89,9 @@ Increases max number of minions and sentries by 1");
 
             if (fargoPlayer.GaiaOffense)
             {
-                player.GetDamage(DamageClass.Generic) += 0.30f;
-                player.GetCritChance(DamageClass.Generic) += 15;
+                DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
+                player.GetDamage(damageClass) += 0.30f;
+                player.GetCritChance(damageClass) += 15;
                 player.GetArmorPenetration(DamageClass.Generic) += 20;
                 player.statDefense -= 20;
                 player.statLifeMax2 -= player.statLifeMax / 10;
