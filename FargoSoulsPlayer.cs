@@ -65,6 +65,10 @@ namespace FargowiltasSouls
         //        public bool SquirrelMount;
 
         //pet
+        public bool SeekerOfAncientTreasures;
+        public bool AccursedSarcophagus;
+        public bool BabySilhouette;
+        public bool BiteSizeBaron;
         public bool ChibiDevi;
         public bool MutantSpawn;
         public bool BabyAbom;
@@ -690,6 +694,10 @@ namespace FargowiltasSouls
 
             //            SquirrelMount = false;
 
+            SeekerOfAncientTreasures = false;
+            AccursedSarcophagus = false;
+            BabySilhouette = false;
+            BiteSizeBaron = false;
             ChibiDevi = false;
             MutantSpawn = false;
             BabyAbom = false;
