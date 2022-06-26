@@ -16,7 +16,7 @@ Mods: {
 				10% chance to not consume ammo
 				Increases max number of minions and sentries by 4
 				Double tap {0} to toggle offensive mode, which has the following effects:
-				30% increased damage and 15% increased critical strike chance
+				30% increased damage and 15% increased critical strike chance for your current weapon class
 				Increases armor penetration by 20
 				Reduces defense by 20, max life by 10%, and damage reduction by 15%
 				'''
@@ -31,7 +31,7 @@ Mods: {
 
 			Styx:
 				'''
-				20% increased damage
+				20% increased damage for your current weapon class
 				Attack enemies to charge energy
 				Reduces damage taken at the cost of some energy
 				Double tap {0} to release energy as homing shots
