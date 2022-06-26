@@ -1,6 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Placeables.Relics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,6 +10,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -748,6 +750,8 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(NatureForce.Enchants));
+            
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<NatureChampionRelic>()));
         }
 
         public Vector2 position, oldPosition;
