@@ -84,9 +84,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (n != Main.maxNPCs)
                     Main.npc[n].localAI[0] = 60f;
 
-                string name = Language.GetTextValue($"Mods.{mod.Name}.NPCName.RoyalSubject");
-                string hasAwoken = Language.GetTextValue($"Mods.{mod.Name}.Message.HasAwoken");
-                FargoSoulsUtil.PrintText($"{name} {hasAwoken}", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
 
                 npc.netUpdate = true;
                 NetSync(npc);
@@ -106,9 +104,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (n != Main.maxNPCs)
                     Main.npc[n].localAI[0] = 60f;
 
-                string name = Language.GetTextValue($"Mods.{mod.Name}.NPCName.RoyalSubject");
-                string hasAwoken = Language.GetTextValue($"Mods.{mod.Name}.Message.HasAwoken");
-                FargoSoulsUtil.PrintText($"{name} {hasAwoken}", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
 
                 NPC.SpawnOnPlayer(npc.target, ModContent.NPCType<RoyalSubject>()); //so that both dont stack for being spawned from qb
 
