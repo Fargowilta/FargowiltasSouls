@@ -19,7 +19,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Royal Subject");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "皇家工蜂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "皇家工蜂");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.QueenBee];
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.DebuffImmunitySets.Add(NPC.type, new Terraria.DataStructures.NPCDebuffImmunityData
