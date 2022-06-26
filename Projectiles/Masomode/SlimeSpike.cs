@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.alpha = 0;
             if (Projectile.alpha == 0 && Main.rand.NextBool(3) && (Projectile.tileCollide || !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height)))
             {
-                int d = Dust.NewDust(Projectile.position - Projectile.velocity * 3f, Projectile.width, Projectile.height, 4, 0f, 0f, 50, default(Color), 1.2f);
+                int d = Dust.NewDust(Projectile.position - Projectile.velocity * 3f, Projectile.width, Projectile.height, 4, 0f, 0f, 150, new Color(78, 136, 255, 80), 1.2f);
                 Main.dust[d].velocity *= 0.3f;
                 Main.dust[d].velocity += Projectile.velocity * 0.3f;
                 Main.dust[d].noGravity = true;
