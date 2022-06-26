@@ -786,8 +786,8 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         {
                             NPC.localAI[2] = 0;
 
-                            const int max = 5;
-                            for (int i = 1; i < max; i++)
+                            int max = FargoSoulsWorld.EternityMode ? 5 : 3;
+                            for (int i = 0; i < max; i++)
                             {
                                 Vector2 vel = NPC.DirectionTo(player.Center).RotatedBy(MathHelper.TwoPi / max * i);
                                 vel *= NPC.localAI[3] > 1 ? 5 : 8;
