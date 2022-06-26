@@ -1,6 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.Challengers;
 using FargowiltasSouls.Projectiles.Champions;
@@ -10,6 +11,7 @@ using System;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -679,6 +681,8 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(TimberForce.Enchants));
+            
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<TimberChampionRelic>()));
         }
 
         public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)
