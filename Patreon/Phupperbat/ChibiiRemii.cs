@@ -61,7 +61,7 @@ namespace FargowiltasSouls.Patreon.Phupperbat
                     && System.Math.Abs(player.Center.X - Projectile.Center.X) < 16 * (Projectile.velocity.X == 0 ? 1 : 3)
                     && sitTimer < sitTime)
                 {
-                    Projectile.velocity.X += 0.1f * System.Math.Sign(Projectile.Center.X - player.Center.X);
+                    Projectile.velocity.X += 0.1f * (Projectile.Center.X == player.Center.X ? -player.direction : Math.Sign(Projectile.Center.X - player.Center.X));
                 }
 
                 //faster
@@ -191,6 +191,8 @@ namespace FargowiltasSouls.Patreon.Phupperbat
 
             Vector2 drawoffset = -2 * Vector2.UnitY;
 
+            float scale = Projectile.scale * (Main.mouseTextColor / 200f - 0.35f) * 0.45f + 0.8f;
+
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.25f)
             {
                 Color color27 = color26 * 0.3f;
@@ -202,11 +204,10 @@ namespace FargowiltasSouls.Patreon.Phupperbat
                 float num165 = Projectile.oldRot[max0];
                 Vector2 center = Vector2.Lerp(Projectile.oldPos[(int)i], Projectile.oldPos[max0], 1 - i % 1);
                 center += Projectile.Size / 2;
-                Main.EntitySpriteDraw(texture2D13, center + drawoffset - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, effects, 0);
+                Main.EntitySpriteDraw(texture2D13, center + drawoffset - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, scale, effects, 0);
             }
 
-            //float scale = Projectile.scale * (Main.mouseTextColor / 200f - 0.35f) * 0.3f + 1f;
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center + drawoffset - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation, origin2, Projectile.scale * 1.2f, effects, 0);
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center + drawoffset - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation, origin2, scale, effects, 0);
 
             Main.EntitySpriteDraw(texture2D13, Projectile.Center + drawoffset - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, effects, 0);
             return false;
