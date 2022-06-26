@@ -446,8 +446,9 @@ namespace FargowiltasSouls
         {
             if ((Main.snowMoon && NPC.waveNumber < 20) || (Main.pumpkinMoon && NPC.waveNumber < 15))
             {
-                NPC.waveNumber--;
-                NPC.waveKills = 0;
+                if (NPC.waveNumber > 1)
+                    NPC.waveNumber--;
+                //NPC.waveKills = 0;
 
                 FargoSoulsUtil.PrintLocalization($"Mods.FargowiltasSouls.Message.MoonsDeathPenalty", new Color(175, 75, 255));
             }
