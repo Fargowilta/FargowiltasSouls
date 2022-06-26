@@ -2,6 +2,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Projectiles.Champions;
+using FargowiltasSouls.Items.Placeables.Relics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -734,6 +735,8 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(WillForce.Enchants));
+            
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WillChampionRelic>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Dyes.WillDye>()));
         }
