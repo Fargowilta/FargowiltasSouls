@@ -19,22 +19,9 @@ namespace FargowiltasSouls.Items.Pets
 
         public override void SetDefaults()
         {
-            Item.CloneDefaults(ItemID.WispinaBottle);
-            Item.value = Item.sellPrice(0, 5);
-            Item.rare = -13;
+            Item.CloneDefaults(ItemID.DukeFishronPetItem);
             Item.shoot = ModContent.ProjectileType<ChibiDevi>();
             Item.buffType = ModContent.BuffType<ChibiDeviBuff>();
-        }
-
-        public override void SafeModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = Main.DiscoColor;
-                }
-            }
         }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)
@@ -43,7 +30,7 @@ namespace FargowiltasSouls.Items.Pets
 
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(Item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600);
             }
         }
     }

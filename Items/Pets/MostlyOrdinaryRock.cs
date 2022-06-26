@@ -8,24 +8,25 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Pets
 {
-    public class BabyScythe : SoulsItem
+    public class MostlyOrdinaryRock : SoulsItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baby Scythe");
-            Tooltip.SetDefault("Summons Baby Abom\n'Don't worry, it's dull'");
+            Tooltip.SetDefault("Summons a seeker of treasures\n'Freshly hatched from a... rock?'");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.DukeFishronPetItem);
-            Item.shoot = ModContent.ProjectileType<BabyAbom>();
-            Item.buffType = ModContent.BuffType<BabyAbomBuff>();
+            Item.shoot = ModContent.ProjectileType<SeekerOfTreasures>();
+            Item.buffType = ModContent.BuffType<SeekerOfTreasuresBuff>();
         }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
+            base.UseStyle(player, heldItemFrame);
+
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
                 player.AddBuff(Item.buffType, 3600);
