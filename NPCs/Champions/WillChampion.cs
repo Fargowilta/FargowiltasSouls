@@ -1,6 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Pets;
 using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Items.Placeables.Relics;
 using Microsoft.Xna.Framework;
