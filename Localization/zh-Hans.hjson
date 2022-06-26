@@ -16,7 +16,7 @@ Mods: {
 				10%几率不消耗弹药
 				增加4个召唤栏位和4个哨兵栏位
 				双击{0}键以开关进攻模式，进攻模式具有如下效果：
-				增加30%伤害和15%暴击几率
+				增加30%你手持武器职业的伤害和15%该职业暴击几率
 				增加20点护甲穿透
 				降低20点防御、10%最大生命值和15%伤害减免
 				'''
@@ -31,7 +31,7 @@ Mods: {
 
 			Styx:
 				'''
-				增加20%伤害
+				增加20%你手持武器职业的伤害
 				攻击敌人以积蓄冥河能量
 				受伤时消耗冥河能量，减免一部分伤害
 				双击{0}键以消耗能量，释放追踪镰刀
@@ -114,6 +114,18 @@ Mods: {
 			AbomBoss: 憎恶
 			DeviBoss: 戴薇安
 			MutantBoss: 突变体
+			GelatinSubject: 圣凝史莱姆
+			RoyalSubject: 皇家工蜂
+			TophatSquirrelCritter: 高顶礼帽松鼠
+			BrainClone: 克苏鲁之脑
+			BrainIllusion: 克苏鲁之脑
+			BrainIllusion2: 克苏鲁之脑
+			CreeperGutted: 爬行者
+			DetonatingBubble: 爆炸泡泡
+			DetonatingBubbleEX: 爆炸泡泡
+			CrystalLeaf: 叶绿水晶
+			GelatinSlime: 水晶史莱姆
+			AbomSaucer: 小飞碟
 			TrojanSquirrel: 特洛伊松鼠
 			TrojanSquirrelArms: 特洛伊松鼠
 			TrojanSquirrelHead: 特洛伊松鼠
@@ -131,6 +143,7 @@ Mods: {
 			SpiritChampionHand: 心灵英灵
 			TerraChampion: 泰拉英灵
 			TerraChampionBody: 泰拉英灵
+			TerraChampionTail: 泰拉英灵
 			TimberChampion: 木英灵
 			TimberChampionHead: 木英灵
 			WillChampion: 意志英灵
@@ -220,6 +233,7 @@ Mods: {
 			TwinsEndure: 挺住了致命攻击，它还能帮着它的兄弟打三百回合！
 			TwinsRevive: 复活了！
 			GelatinSubjects: 圣凝史莱姆已苏醒！
+			RoyalSubject: 皇家工蜂已苏醒！
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
 		}
@@ -1013,6 +1027,7 @@ Mods: {
 
 			AbominationnVoodooDoll: 憎恶巫毒娃娃
 			AbomsCurse: 憎恶诅咒
+			ChampionySigil: 英灵证章
 			DevisCurse: 戴薇安的诅咒
 			MutantsCurse: 突变体的诅咒
 			SigilOfChampions: 唤灵魔符
@@ -1038,9 +1053,17 @@ Mods: {
 
 			AbomRelic: 憎恶圣物
 			DeviRelic: 戴薇安圣物
+			EarthChampionRelic: 大地英灵圣物
 			EridanusRelic: 宇宙英灵圣物
+			LifeChampionRelic: 生命英灵圣物
 			MutantRelic: 突变体圣物
+			NatureChampionRelic: 自然英灵圣物
+			ShadowChampionRelic: 暗影英灵圣物
+			SpiritChampionRelic: 心灵英灵圣物
+			TerraChampionRelic: 泰拉英灵圣物
+			TimberChampionRelic: 木英灵圣物
 			TrojanSquirrelRelic: 特洛伊松鼠圣物
+			WillChampionRelic: 意志英灵圣物
 
 			// == Dyes ==
 			GaiaDye: 盖亚染料
@@ -2166,7 +2189,7 @@ Mods: {
 			'''
 			GaiaGreaves:
 			'''
-			增加10%伤害
+			增加10%你手持武器职业的伤害
 			增加5%暴击率
 			增加10%移动速度
 			'''
@@ -2270,6 +2293,10 @@ Mods: {
 			召唤憎恶到你的城镇
 			“你可真是个坏东西”
 			'''
+			ChampionySigil:
+			'''
+			召唤英灵
+			'''
 			MutantsCurse:
 			'''
 			“至少不需要用娃娃了”
@@ -2363,7 +2390,7 @@ Mods: {
 			MasochistSoul:
 			'''
 			延长200%飞行时间，增加50点护甲穿透和20%移动速度
-			增加100%最大生命值、50%伤害和10%伤害减免
+			增加100%最大生命值和10%伤害减免，增加50%你手持武器职业的伤害
 			大幅增加生命恢复速度，你的光标会导致附近的敌怪受到更多伤害
 			允许你控制重力、快速下落，使你免疫击退、摔落伤害和近乎所有的永恒模式减益
 			允许所有武器自动挥舞且在需要时自动使用魔力药水
@@ -2434,9 +2461,8 @@ Mods: {
 			'''
 			UniverseSoul:
 			'''
-			增加66%伤害
+			增加66%你手持武器职业的伤害以及25%该职业暴击率
 			增加50%武器使用速度
-			增加25%暴击率
 			暴击伤害变为4倍而不是2倍
 			武器击退翻倍
 			增加300点最大法力值
