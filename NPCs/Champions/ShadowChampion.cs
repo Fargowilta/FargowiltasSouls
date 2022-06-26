@@ -2,6 +2,7 @@ using FargowiltasSouls.BossBars;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Pets;
 using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Projectiles.Masomode;
@@ -710,6 +711,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npcLoot.Add(new ChampionEnchDropRule(ShadowForce.Enchants));
             
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<ShadowChampionRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<PortableFogMachine>(), 4));
         }
 
         public override Color? GetAlpha(Color drawColor)
