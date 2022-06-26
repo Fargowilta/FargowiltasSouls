@@ -2,6 +2,7 @@ using FargowiltasSouls.BossBars;
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
@@ -11,6 +12,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
@@ -706,6 +708,8 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(ShadowForce.Enchants));
+            
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<ShadowChampionRelic>()));
         }
 
         public override Color? GetAlpha(Color drawColor)
