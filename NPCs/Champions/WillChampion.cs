@@ -737,6 +737,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npcLoot.Add(new ChampionEnchDropRule(WillForce.Enchants));
             
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WillChampionRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<EnerGear>(), 4));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Dyes.WillDye>()));
         }
