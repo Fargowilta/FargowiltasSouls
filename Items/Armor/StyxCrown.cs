@@ -59,7 +59,7 @@ Increases max number of minions and sentries by 3");
             string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
             player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Styx", key);
 
-            player.GetDamage(DamageClass.Generic) += 0.20f;
+            player.GetDamage(player.ProcessDamageTypeFromHeldItem()) += 0.20f;
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.StyxSet = true;
