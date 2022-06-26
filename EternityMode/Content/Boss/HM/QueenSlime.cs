@@ -577,12 +577,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             target.AddBuff(BuffID.Slimed, 180);
             target.AddBuff(ModContent.BuffType<Smite>(), 360);
         }
-        
+
         public override void LoadSprites(NPC npc, bool recolor)
         {
             base.LoadSprites(npc, recolor);
 
             LoadExtra(recolor, 177);
+            LoadBossHeadSprite(recolor, 38);
         }
     }
 }
