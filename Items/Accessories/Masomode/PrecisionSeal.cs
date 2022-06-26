@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,8 +9,6 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 {
     public class PrecisionSeal : SoulsItem
     {
-        public override string Texture => "FargowiltasSouls/Items/Placeholder";
-
         public override bool Eternity => true;
 
         public override void SetStaticDefaults()
@@ -37,7 +36,9 @@ Hold the Precision Seal key to disable dashes and double jumps
             Item.rare = ItemRarityID.Red;
             Item.value = Item.sellPrice(0, 8);
         }
-
+        
+        public override Color? GetAlpha(Color lightColor) => Color.White;
+        
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
