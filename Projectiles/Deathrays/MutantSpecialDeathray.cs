@@ -27,15 +27,15 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Projectile.frame = Main.rand.Next(sheetMax);
             }
 
-            //Projectile.frameCounter += Main.rand.Next(3);
-            //if (++Projectile.frameCounter > 3)
-            //{
-            //    Projectile.frameCounter = 0;
-            if (++Projectile.frame >= sheetMax)
-                Projectile.frame = 0;
-            //}
+            Projectile.frameCounter += Main.rand.Next(3);
+            if (++Projectile.frameCounter > 3)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= sheetMax)
+                    Projectile.frame = 0;
+            }
 
-            if (Main.rand.NextBool(4))
+            if (Main.rand.NextBool(10))
                 Projectile.spriteDirection *= -1;
         }
 
