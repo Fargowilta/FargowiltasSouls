@@ -86,8 +86,6 @@ namespace FargowiltasSouls.NPCs.DeviBoss
             NPC.lifeMax = 5000;
             if (FargoSoulsWorld.EternityMode)
                 NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5);
-            if (FargoSoulsWorld.MasochistModeReal)
-                NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.2);
             NPC.HitSound = SoundID.NPCHit9;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
@@ -319,14 +317,14 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             Main.dust[d].velocity *= 8f;
                         }
                         NPC.localAI[3] = 2; //npc marks p2
-                        //if (FargoSoulsWorld.EternityMode)
-                        //{
-                        //    int heal = (int)(NPC.lifeMax / 90 * Main.rand.NextFloat(1f, 1.5f));
-                        //    NPC.life += heal;
-                        //    if (NPC.life > NPC.lifeMax)
-                        //        NPC.life = NPC.lifeMax;
-                        //    CombatText.NewText(NPC.Hitbox, CombatText.HealLife, heal);
-                        //}
+                        if (FargoSoulsWorld.MasochistModeReal)
+                        {
+                            int heal = (int)(NPC.lifeMax / 90 * Main.rand.NextFloat(1f, 1.5f));
+                            NPC.life += heal;
+                            if (NPC.life > NPC.lifeMax)
+                                NPC.life = NPC.lifeMax;
+                            CombatText.NewText(NPC.Hitbox, CombatText.HealLife, heal);
+                        }
                         if (NPC.ai[1] > 240)
                         {
                             RefreshAttackQueue();
