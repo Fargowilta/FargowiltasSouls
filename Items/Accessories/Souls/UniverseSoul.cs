@@ -18,10 +18,10 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "寰宇之魂");
 
             string tooltip =
-@"66% increased all damage
+@"66% increased all damage for your current weapon class
+25% increased critical chance for your current weapon class
 50% increased use speed for all weapons
 50% increased shoot speed
-25% increased all critical chance
 Crits deal 4x instead of 2x
 All weapons have double knockback
 Increases your maximum mana by 300
@@ -66,8 +66,9 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetDamage(DamageClass.Generic) += .66f;
-            player.GetCritChance(DamageClass.Generic) += 25;
+            DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
+            player.GetDamage(damageClass) += .66f;
+            player.GetCritChance(damageClass) += 25;
 
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             //use speed, velocity, debuffs, crit dmg, mana up, double knockback
