@@ -1,6 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Items.Pets;
 using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Projectiles.Champions;
 using Microsoft.Xna.Framework;
@@ -981,6 +982,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npcLoot.Add(new ChampionEnchDropRule(SpiritForce.Enchants));
             
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<SpiritChampionRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<AccursedRags>(), 4));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
