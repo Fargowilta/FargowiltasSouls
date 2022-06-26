@@ -87,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.Pets
                 Projectile.timeLeft = 2;
             }
 
-            DelegateMethods.v3_1 = new Vector3(1f, 0.5f, 0.9f) * 0.75f;
+            DelegateMethods.v3_1 = new Vector3(1f, 0.5f, 0.9f);
             Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * 6f, 20f, DelegateMethods.CastLightOpen);
             Utils.PlotTileLine(Projectile.Left, Projectile.Right, 20f, DelegateMethods.CastLightOpen);
 
@@ -315,7 +315,7 @@ namespace FargowiltasSouls.Projectiles.Pets
 
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
             {
-                Color color27 = color26 * 0.3f * speedRatio;
+                Color color27 = color26 * 0.4f * speedRatio;
                 float fade = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 color27 *= fade * fade;
                 int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
@@ -391,7 +391,8 @@ namespace FargowiltasSouls.Projectiles.Pets
             TalkCDs[talkInt] = CD;
             universalTalkCD = 0;
 
-            if (Projectile.owner == Main.myPlayer && ModContent.GetInstance<SoulConfig>().DeviChatter)
+            if (Projectile.owner == Main.myPlayer && ModContent.GetInstance<SoulConfig>().DeviChatter
+                && Projectile.Distance(Main.player[Projectile.owner].Center) < 16 * 22)
             {
                 if (!Main.player[Projectile.owner].dead && !Main.player[Projectile.owner].ghost)
                     EmoteBubble.MakeLocalPlayerEmote(EmoteID.EmotionLove);
