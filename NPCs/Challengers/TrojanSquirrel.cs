@@ -53,6 +53,12 @@ namespace FargowiltasSouls.NPCs.Challengers
             NPC.knockBackResist = 0f;
             NPC.lavaImmune = true;
             NPC.aiStyle = -1;
+
+            if (Main.getGoodWorld)
+            {
+                NPC.scale *= 2;
+                NPC.defense += 10;
+            }
         }
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
