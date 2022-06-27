@@ -188,7 +188,7 @@ namespace FargowiltasSouls
 
                 if (!fargoSoulsPlayer.PureHeart && Main.raining && (Player.ZoneOverworldHeight || Player.ZoneSkyHeight) 
                     && Player.HeldItem.type != ItemID.Umbrella && Player.HeldItem.type != ItemID.TragicUmbrella
-                    && Player.armor[0].type != ItemID.UmbrellaHat && Player.HeldItem.type != ItemID.Eyebrella)
+                    && Player.armor[0].type != ItemID.UmbrellaHat && Player.armor[0].type != ItemID.Eyebrella)
                 {
                     Tile currentTile = Framing.GetTileSafely(Player.Center);
                     if (currentTile.WallType == WallID.None)
@@ -448,7 +448,7 @@ namespace FargowiltasSouls
             {
                 if (NPC.waveNumber > 1)
                     NPC.waveNumber--;
-                //NPC.waveKills = 0;
+                NPC.waveKills /= 2;
 
                 FargoSoulsUtil.PrintLocalization($"Mods.FargowiltasSouls.Message.MoonsDeathPenalty", new Color(175, 75, 255));
             }
