@@ -417,9 +417,10 @@ namespace FargowiltasSouls
             Item.NewItem(null, player.Center, ItemID.SilverAxe);
             Item.NewItem(null, player.Center, ItemID.SilverHammer);
 
-            Item.NewItem(null, player.Center, ItemID.Torch, 100);
+            Item.NewItem(null, player.Center, ItemID.Torch, 200);
             Item.NewItem(null, player.Center, ItemID.LifeCrystal, 4);
             Item.NewItem(null, player.Center, ItemID.ManaCrystal, 4);
+            Item.NewItem(null, player.Center, ItemID.LesserHealingPotion, 15);
             Item.NewItem(null, player.Center, ItemID.RecallPotion, 15);
             if (Main.netMode != NetmodeID.SinglePlayer)
                 Item.NewItem(null, player.Center, ItemID.WormholePotion, 15);
