@@ -1070,6 +1070,16 @@ Mods: {
 			LifeDye: 天堂染料
 			WillDye: 意志力染料
 
+			// == Misc ==
+			EternityAdvisor: 永恒顾问
+			GalacticReformer: 银河重构器
+			MutantsFury: 突变之狂怒
+			TopHatSquirrelCaught: 高顶礼帽松鼠
+			UniversalCollapse: 宇宙坍缩
+
+			// == Pets ==
+			AccursedRags: 被诅咒的破布
+
 			// == Accessories ==
 			// === Souls ===
 
@@ -2311,6 +2321,25 @@ Mods: {
 			SquirrelCoatofArms:
 			'''
 			召唤无法平息的松鼠之怒！
+			'''
+
+			// == Misc ==
+			EternityAdvisor:
+			'''
+			基于当前进度，为你提供永恒模式的配装建议
+			'''
+			GalacticReformer:
+			'''
+			破坏一片难以置信的巨大区域
+			风险自负
+			'''
+			MutantsFury:
+			'''
+			“真 正 激怒突变体...也许并不”
+			'''
+			UniversalCollapse:
+			'''
+			毁灭宇宙
 			'''
 			
 			// === Souls ===
