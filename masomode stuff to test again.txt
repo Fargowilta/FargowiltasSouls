@@ -1853,6 +1853,7 @@ minion depreciation max rampup point 9 -> 12
 updated mutant ray sprite
 plantera crystal leaves cant be hit (targeted) by whips
 empress doesnt have homing resist against minions
+
 fixed spirit champ having wrong color gores
 added trojan squirrel relic
 added eri trophy
@@ -1990,5 +1991,36 @@ forgor gift can be used to reset mutant p1
 fixed devi and abom spawning their arenas outside emode
 fixed abom spawning his maso arena in emode
 
-unleashed ocean slight nerf
 fixed blender homing counterweights not critting
+
+reduced penalty for dying on pumpkin/frost moon
+fixed resetting to negative waves by dying on wave 1 of pumpkin/frost moon
+adjusted abom rockets, 3 in expert-, 5 in emode+
+these now only buff the damage class of your held item*
+	gaia offense
+	styx set bonus
+	soul of universe
+	soul of siblings
+maso devi p2 heals
+slight nerfs to blender and unleashed ocean
+sprites
+	deer sinew
+	deerclawps
+	precision seal
+	shadow force
+	spirit force
+	eri trophy item
+	eow
+	queen slime crown
+	queen slime boss icon
+ks makes dust at teleport location
+added relics to every champ
+prime visual adjusted, attacking arms now have a trail instead of spraying dust
+added accursed rags
+added energear
+added mostly ordinary rock
+added portable fog machine
+
+ftw squrrl is bigger and more defense
+added lesser healing potion and more torches to devi gift
+slightly nerfed unleashed ocean again
