@@ -310,7 +310,7 @@ namespace FargowiltasSouls.Projectiles
 
                 if (NeedsSilverNerf(projectile))
                 {
-                    int armorPen = 20;
+                    int armorPen = 10;
                     if (modPlayer.SpiritForce)
                         armorPen *= 2;
                     if (modPlayer.TerrariaSoul)
