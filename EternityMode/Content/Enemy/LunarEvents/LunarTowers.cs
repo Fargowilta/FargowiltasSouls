@@ -63,22 +63,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                 npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
             }
 
-            if (SpawnedDuringLunarEvent)
+            if (SpawnedDuringLunarEvent && ShieldStrength > NPC.LunarShieldPowerExpert)
+                ShieldStrength = NPC.LunarShieldPowerExpert;
+
+            void Aura(int debuff)
             {
-                if (ShieldStrength > NPC.LunarShieldPowerExpert)
-                    ShieldStrength = NPC.LunarShieldPowerExpert;
-
-                void Aura(int debuff)
-                {
-                    if (DebuffNotToInflict != debuff)
-                        EModeGlobalNPC.Aura(npc, 5000, debuff, dustid: AuraDust);
-                }
-
-                Aura(ModContent.BuffType<Atrophied>());
-                Aura(ModContent.BuffType<Jammed>());
-                Aura(ModContent.BuffType<ReverseManaFlow>());
-                Aura(ModContent.BuffType<Antisocial>());
+                if (DebuffNotToInflict != debuff)
+                    EModeGlobalNPC.Aura(npc, 5000, debuff, dustid: AuraDust);
             }
+
+            Aura(ModContent.BuffType<Atrophied>());
+            Aura(ModContent.BuffType<Jammed>());
+            Aura(ModContent.BuffType<ReverseManaFlow>());
+            Aura(ModContent.BuffType<Antisocial>());
 
             if (npc.dontTakeDamage)
             {
