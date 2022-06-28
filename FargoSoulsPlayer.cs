@@ -1700,6 +1700,9 @@ namespace FargowiltasSouls
             int useTime = item.useTime;
             int useAnimate = item.useAnimation;
 
+            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
+                return base.UseSpeedMultiplier(item);
+
             if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
             {
                 int targetUseTime = useTime + 6;
@@ -1714,27 +1717,20 @@ namespace FargowiltasSouls
                 AttackSpeed += .1f;
             }
 
-            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
+            if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
             {
-                
+                AttackSpeed += .2f;
             }
-            else
+
+            if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
             {
-                if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
-                {
-                    AttackSpeed += .2f;
-                }
+                AttackSpeed *= 0.75f;
+            }
 
-                if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
-                {
-                    AttackSpeed *= 0.75f;
-                }
-
-                if (MythrilEnchantActive && item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
-                {
-                    float ratio = Math.Max((float)MythrilTimer / MythrilMaxTime, 0);
-                    AttackSpeed += MythrilMaxSpeedBonus * ratio;
-                }
+            if (MythrilEnchantActive && item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
+            {
+                float ratio = Math.Max((float)MythrilTimer / MythrilMaxTime, 0);
+                AttackSpeed += MythrilMaxSpeedBonus * ratio;
             }
 
             //checks so weapons dont break
