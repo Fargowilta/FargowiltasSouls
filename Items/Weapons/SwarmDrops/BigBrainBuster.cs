@@ -23,7 +23,7 @@ $"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n" +
 
         public override void SetDefaults()
         {
-            Item.damage = 272;
+            Item.damage = 408;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 26;
