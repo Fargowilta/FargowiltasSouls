@@ -1106,6 +1106,26 @@ namespace FargowiltasSouls.NPCs
             //{
             int allowedRecursionDepth = 10;
 
+            void AddDrop(IItemDropRule dropRule)
+            {
+                if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
+                {
+                    LeadingConditionRule noTwin = new LeadingConditionRule(new Conditions.MissingTwin());
+                    noTwin.OnSuccess(dropRule);
+                    npcLoot.Add(noTwin);
+                }
+                else if (npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail)
+                {
+                    LeadingConditionRule lastEater = new LeadingConditionRule(new Conditions.LegacyHack_IsABoss());
+                    lastEater.OnSuccess(dropRule);
+                    npcLoot.Add(lastEater);
+                }
+                else
+                {
+                    npcLoot.Add(dropRule);
+                }
+            }
+
             void CheckMasterDropRule(IItemDropRule dropRule)
             {
                 if (--allowedRecursionDepth > 0)
@@ -1147,7 +1167,7 @@ namespace FargowiltasSouls.NPCs
                         itemDropWithCondition.chanceNumerator
                     );
                     //itemDropWithCondition.OnFailedConditions(emodeDropRule, true);
-                    npcLoot.Add(emodeDropRule);
+                    AddDrop(emodeDropRule);
                 }
                 else if (dropRule is DropPerPlayerOnThePlayer dropPerPlayer && dropPerPlayer.condition is Conditions.IsMasterMode)
                 {
@@ -1160,7 +1180,7 @@ namespace FargowiltasSouls.NPCs
                         dropPerPlayer.chanceNumerator
                     );
                     //dropPerPlayer.OnFailedConditions(emodeDropRule, true);
-                    npcLoot.Add(emodeDropRule);
+                    AddDrop(emodeDropRule);
                 }
                 //}
             }
