@@ -387,12 +387,14 @@ namespace FargowiltasSouls.Projectiles.Pets
             if (TalkCDs[talkInt] > 0 || universalTalkCD > 0)
                 return;
 
+            if (Projectile.Distance(Main.player[Projectile.owner].Center) > 16 * 22)
+                return;
+
             TalkCounters[talkInt] = (TalkCounters[talkInt] + 1) % MaxThingsToSay[talkInt];
             TalkCDs[talkInt] = CD;
             universalTalkCD = 0;
 
-            if (Projectile.owner == Main.myPlayer && ModContent.GetInstance<SoulConfig>().DeviChatter
-                && Projectile.Distance(Main.player[Projectile.owner].Center) < 16 * 22)
+            if (Projectile.owner == Main.myPlayer && ModContent.GetInstance<SoulConfig>().DeviChatter)
             {
                 if (!Main.player[Projectile.owner].dead && !Main.player[Projectile.owner].ghost)
                     EmoteBubble.MakeLocalPlayerEmote(EmoteID.EmotionLove);
