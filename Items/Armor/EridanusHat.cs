@@ -92,18 +92,18 @@ Increases your max number of sentries by 4");
                     Main.dust[d].velocity *= 24f;
                 }
 
-                if (Main.myPlayer == player.whoAmI)
-                {
-                    for (int i = 0; i < Main.maxProjectiles; i++) //clear minions
-                    {
-                        if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI
-                            && Main.projectile[i].type != ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()
-                            && Main.projectile[i].minionSlots > 0)
-                        {
-                            Main.projectile[i].Kill();
-                        }
-                    }
-                }
+                //if (Main.myPlayer == player.whoAmI)
+                //{
+                //    for (int i = 0; i < Main.maxProjectiles; i++) //clear minions
+                //    {
+                //        if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI
+                //            && Main.projectile[i].type != ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()
+                //            && Main.projectile[i].minionSlots > 0)
+                //        {
+                //            Main.projectile[i].Kill();
+                //        }
+                //    }
+                //}
             }
 
             if (++fargoPlayer.EridanusTimer > 60 * 10 * 4) //handle loop
