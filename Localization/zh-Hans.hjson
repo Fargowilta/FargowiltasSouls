@@ -1090,7 +1090,7 @@ Mods: {
 
 			MedallionoftheFallenKing: 陨落王者的护符
 			ComputationOrb: 演算宝珠
-			StaffofUnleashedOcean: 怒海狂涛
+			StaffOfUnleashedOcean: 怒海狂涛
 			DeviousAestheticus: 艳岚谲锋
 			ScientificRailgun: 某科学的超电磁炮
 			RoombaPet: 扫地机器人
@@ -2415,7 +2415,7 @@ Mods: {
 			非魔法或召唤武器需要10魔力攻击
 			“在核心内，仍然闪烁着希望的火花。”
 			'''
-			StaffofUnleashedOcean:
+			StaffOfUnleashedOcean:
 			'''
 			召唤猪龙鱼公爵来为你战斗
 			每个需要2召唤栏
