@@ -17,7 +17,6 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.SetDefault(@"Grants immunity to Lovestruck and Fake Hearts
 Graze projectiles to gain up to 25% increased critical damage
 Critical damage bonus decreases over time and is fully lost on hit
-This damage bonus can apply to summon damage even without a critical hit
 Your attacks periodically summon life-draining hearts
 'With all of your emotion!'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 11));
