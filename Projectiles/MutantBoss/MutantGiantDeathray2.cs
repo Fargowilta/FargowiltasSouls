@@ -208,12 +208,13 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             //    }
             //}
 
-            if (Main.LocalPlayer.active && Projectile.Colliding(Projectile.Hitbox, Main.LocalPlayer.Hitbox))
+            if (Projectile.damage > 0 && Main.LocalPlayer.active && Projectile.Colliding(Projectile.Hitbox, Main.LocalPlayer.Hitbox))
             {
                 Main.LocalPlayer.immune = false;
                 Main.LocalPlayer.immuneTime = 0;
                 Main.LocalPlayer.hurtCooldowns[0] = 0;
                 Main.LocalPlayer.hurtCooldowns[1] = 0;
+                Main.LocalPlayer.ClearBuff(ModContent.BuffType<GoldenStasis>());
             }
         }
 
@@ -254,7 +255,6 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 target.AddBuff(ModContent.BuffType<MutantFang>(), 180);
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);
-            target.ClearBuff(ModContent.BuffType<GoldenStasis>());
 
             //if (FargowiltasSouls.Instance.MasomodeEXLoaded) target.AddBuff(ModLoader.GetMod("MasomodeEX").BuffType("MutantJudgement"), 3600);
 
