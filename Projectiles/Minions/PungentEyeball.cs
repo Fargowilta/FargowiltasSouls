@@ -42,8 +42,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             if (player.active && !player.dead && player.GetModPlayer<FargoSoulsPlayer>().PungentEyeballMinion)
                 Projectile.timeLeft = 2;
 
-            if (Projectile.damage == 0)
-                Projectile.damage = (int)(50f * player.GetDamage(DamageClass.Summon).Additive);
+            //if (Projectile.damage == 0) Projectile.damage = (int)(50f * player.GetDamage(DamageClass.Summon).Additive);
 
             Vector2 vector2_1 = new Vector2(0f, -85f); //movement code
             Vector2 vector2_2 = player.MountedCenter + vector2_1;
