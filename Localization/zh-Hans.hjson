@@ -66,7 +66,7 @@ Mods: {
 			Silhouette: 一个难以捉摸的存在，总是在黑雾掩护下于黑夜中移动。当真实形态暴露时，它会变得十分敏感。
 			FrigidHydrangaea: 这只龙形野兽在冰封的洞穴中冬眠，只有在被激怒时才会醒来。它真的应该生活在这寒冷中吗？
 			BanishedBaron: 被驱逐出群落后，它一边隐藏着，一边试图自我修复。效果并不好，这给它的力量和速度拖了后腿。
-			MagmaConstruct: 行星核心的监督者。在这片地狱的前任主人消失时，它接管了这块土地。它全身都由无机物组成
+			MagmaConstruct: 行星核心的监督者。在这片地狱的前任主人消失时，它接管了这块土地。它全身都由无机物组成。
 			
 			TimberChampion: 森林之力赋予了这个木制装置神奇的力量。但驾驶舱里的那只松鼠是不是很眼熟？
 			TerraChampion: 这条巨蛇只剩大脑是有机体。化身为附魔岩石和金属的聚合体，它的身体无法受到攻击。
@@ -1079,6 +1079,30 @@ Mods: {
 
 			// == Pets ==
 			AccursedRags: 被诅咒的破布
+			BabyScythe: 小镰刀
+			ChibiHat: 小不点帽子
+			EnerGear: 能量齿轮
+			MostlyOrdinaryRock: 最普通的岩石
+			PortableFogMachine: 便携式烟雾机
+			SpawnSack: 卵袋
+
+			// == Patreon ==
+
+			MedallionoftheFallenKing: 陨落王者的护符
+			ComputationOrb: 演算宝珠
+			StaffofUnleashedOcean: 怒海狂涛
+			DeviousAestheticus: 艳岚谲锋
+			ScientificRailgun: 某科学的超电磁炮
+			RoombaPet: 扫地机器人
+			VortexMagnetRitual: 星旋圣仪
+			PiranhaPlantVoodooDoll: 食人花巫毒娃娃
+			FigBranch: 无花果树枝
+			ParadoxWolfSoul: 悖论狼魂
+			VermillionTopHat: 猩红高顶礼帽
+			PrimeStaff: 机械骷髅王法杖
+			SquidwardDoor: 章鱼哥的大门
+			MissDrakovisFishingPole: Drakovi小姐的钓竿
+			CrimetroidEgg: 血水母的蛋
 
 			// == Accessories ==
 			// === Souls ===
@@ -2339,6 +2363,109 @@ Mods: {
 			UniversalCollapse:
 			'''
 			毁灭宇宙
+			'''
+
+			// == Pets ==
+			AccursedRags:
+			'''
+			召唤一口被诅咒的石棺
+			“那就是为什么你的布子被诅咒了，你——”
+			'''
+			BabyScythe:
+			'''
+			召唤憎恶宝宝
+			“别担心，它很迟钝”
+			'''
+			ChibiHat:
+			'''
+			召唤小不点德薇
+			她紧跟着你的鼠标
+			“可爱！可爱！太可爱了！”
+			'''
+			EnerGear:
+			'''
+			召唤一位小小的公爵
+			“100%防锈，不然就拿回你的钱”
+			'''
+			MostlyOrdinaryRock:
+			'''
+			召唤一位宝藏探索者
+			“刚刚孵化，从一块...石头里？”
+			'''
+			PortableFogMachine:
+			'''
+			召唤一个宝宝暗影生物
+			“于黑暗诞生，由黑暗塑造”
+			'''
+			SpawnSack:
+			'''
+			召唤突变体的卵
+			“你以为你安全了？”
+			'''
+
+			// == Patreon ==
+
+			MedallionoftheFallenKing:
+			'''
+			召唤一个史莱姆王仆从，其伤害接受召唤伤害加成
+			'''
+			ComputationOrb:
+			'''
+			非魔法或召唤攻击将额外造成25%伤害，但会被魔力病所影响
+			非魔法或召唤武器需要10魔力攻击
+			“在核心内，仍然闪烁着希望的火花。”
+			'''
+			StaffofUnleashedOcean:
+			'''
+			召唤猪龙鱼公爵来为你战斗
+			每个需要2召唤栏
+			“现在，发泄你海涛一般的愤怒对抗他们吧！”
+			'''
+			DeviousAestheticus:
+			'''
+			攻击道数随着召唤栏的增加而增加，上限为6道（使用6个召唤栏）
+			“如果你看到了这条消息，说明你已经沉睡了二十年了。我不知道这条消息会发送到哪里，但请醒来”
+			'''
+			ScientificRailgun:
+			'''
+			将钱币用作弹药
+			钱币价值越高，造成伤害越高
+			“特别又具体”
+			'''
+			RoombaPet:
+			'''
+			召唤一个扫地机器人跟随你，它希望清洁整个世界
+			'''
+			VortexMagnetRitual:
+			'''
+			“力量在你的手中波动着”
+			'''
+			PiranhaPlantVoodooDoll:
+			'''
+			开关使所有敌怪可以造成随机减益
+			“在受虐EX的爱之回忆中，我一直讨厌你。”
+			'''
+			FigBranch:
+			'''
+			召唤一只鸽子同伴
+			'''
+			ParadoxWolfSoul:
+			'''
+			'''
+			VermillionTopHat:
+			'''
+			'''
+			PrimeStaff:
+			'''
+			'''
+			SquidwardDoor:
+			'''
+			'''
+			MissDrakovisFishingPole:
+			'''
+			'''
+			CrimetroidEgg:
+			'''
 			'''
 			
 			// === Souls ===
