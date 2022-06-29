@@ -969,7 +969,7 @@ Mods: {
 			ZenithHitRate: "造成伤害的频率大幅降低，通过击败下列Boss可提高其输出能力: "
 
 			VampireKnives: 生命值高于33%时削弱吸血能力
-			Zapinator: 弹幕伤害不会变化
+			Zapinator: 无法堆叠弹幕伤害
 
 			OOASet: 当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
 			MiningHelmet: 提高不死矿工的刷新率
