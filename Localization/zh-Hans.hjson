@@ -1104,6 +1104,27 @@ Mods: {
 			MissDrakovisFishingPole: Drakovi小姐的钓竿
 			CrimetroidEgg: 血水母的蛋
 
+			// == Weapons ==
+
+			// === Boss Drops ===
+			
+			BoneZone: 骸骨领域
+			BrainStaff: 精神崩坏
+			DestoryerGun: 毁灭者之枪
+			Dicer: 切肉机
+			DragonBreath: 巨龙之息
+			EaterStaff: 世界吞噬怪法杖
+			FishStick: 鱼杖
+			FleshHand: 血肉之手
+			LeashOfCthulhu: 克苏鲁连枷
+			RefractorBlaster: 变轨激光炮
+			RockSlide: 山崩
+			SlimeKingsSlasher: 史莱姆王屠戮者
+			TheSmallSting: 小刺
+			TwinRangs: 双子
+
+			// === Challengers ===
+
 			// == Accessories ==
 			// === Souls ===
 
@@ -2479,6 +2500,76 @@ Mods: {
 			不要与不道德的安卓混淆
 			'''
 			
+			// == Weapons ==
+			// === Boss Drops ===
+
+			BoneZone:
+			'''
+			使用骨头作为弹药
+			33%的几率不消耗弹药
+			“被击败的敌人的残骸...”
+			'''
+			BrainStaff:
+			'''
+			“一个被迫屈服的老对手..”
+			'''
+			DestoryerGun:
+			'''
+			随着召唤栏数量提升而提升长度和速度，上限为3召唤栏
+			“一个被迫屈服的老对手..”
+			'''
+			Dicer:
+			'''
+			“一个被击败的敌人的攻击，用线拴着”
+			'''
+			DragonBreath:
+			'''
+			使用凝胶作为弹药
+			33%的几率不消耗弹药
+			“一个被打败的敌人的缩小版尸体..”
+			'''
+			EaterStaff:
+			'''
+			每个召唤栏召唤4段身体
+			“一个被迫屈服的老对手..”
+			'''
+			FishStick:
+			'''
+			“一个被打败的敌人的尸体，用棍子粗暴地串起来..”
+			'''
+			FleshHand:
+			'''
+			“战败敌人的仆从..”
+			'''
+			LeashOfCthulhu:
+			'''
+			“被打败的敌人的残尸...”
+			'''
+			RefractorBlaster:
+			'''
+			“由一个被击败的敌人的手臂改装而来..”
+			'''
+			RockSlide:
+			'''
+			“被击败的敌人的破碎残骸..”
+			'''
+			SlimeKingsSlasher:
+			'''
+			“撕裂被击败的敌人内部而得来的..”
+			'''
+			TheSmallSting:
+			'''
+			使用飞镖作为弹药
+			50%的几率不消耗弹药
+			毒刺会扎在敌怪身上，在同样的位置再击中一次会造成额外伤害
+			“重新改动自被击败的敌人的腹部..”
+			'''
+			TwinRangs:
+			'''
+			根据鼠标左右键点击射出不同的双子回旋镖
+            “被打败的敌人的压缩形态..”
+			'''
+
 			// === Souls ===
 
 			ArchWizardsSoul:
