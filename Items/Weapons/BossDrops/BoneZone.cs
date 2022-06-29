@@ -19,8 +19,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 "\n33% chance to not consume ammo" +
                 "\n'The shattered remains of a defeated foe..'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "骸骨领域");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被击败的敌人的残骸..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "骸骨领域");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被击败的敌人的残骸..'");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
