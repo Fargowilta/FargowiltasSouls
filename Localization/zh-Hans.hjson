@@ -1110,7 +1110,7 @@ Mods: {
 			
 			BoneZone: 骸骨领域
 			BrainStaff: 精神崩坏
-			DestoryerGun: 毁灭者之枪
+			DestroyerGun: 毁灭者之枪
 			Dicer: 切肉机
 			DragonBreath: 巨龙之息
 			EaterStaff: 世界吞噬怪法杖
@@ -2513,7 +2513,7 @@ Mods: {
 			'''
 			“一个被迫屈服的老对手..”
 			'''
-			DestoryerGun:
+			DestroyerGun:
 			'''
 			随着召唤栏数量提升而提升长度和速度，上限为3召唤栏
 			“一个被迫屈服的老对手..”
