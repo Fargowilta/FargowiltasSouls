@@ -23,7 +23,11 @@ $"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n" +
 
         public override void SetDefaults()
         {
+<<<<<<< HEAD
             Item.damage = 408;
+=======
+            Item.damage = 371;
+>>>>>>> 001238c45 (buffed big sting)
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 26;
