@@ -1128,7 +1128,7 @@ Mods: {
 			KamikazeSquirrelStaff: 神风松鼠杖
 			MountedAcornGun: 安装好的橡实枪
 			SnowballStaff: 雪球法杖
-			TheLightntingRod: 避雷针
+			TheLightningRod: 避雷针
 			TreeSword: 树剑
 
 			// === Final Upgrades
@@ -2606,7 +2606,7 @@ Mods: {
 			长按左键才能维持雪球
 			右键点击可以让雪球回到你身上
 			'''
-			TheLightntingRod:
+			TheLightningRod:
 			'''
 			旋转时蓄力
 			扔出时，每次击中都会降低伤害
