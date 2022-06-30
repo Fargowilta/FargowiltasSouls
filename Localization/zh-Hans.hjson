@@ -1149,6 +1149,24 @@ Mods: {
 			TophatSquirrelWeapon: 高顶礼帽松鼠
 			Vineslinger: 藤蔓抛环
 
+			// === Swarm Drops ===
+
+			BigBrainBuster: 大脑克星
+			Blender: 绞肉机
+			DestroyerGun2: 湮灭者之炮
+			DragonBreath2: 龙之终焉
+			EaterLauncher: 吞噬者发射器
+			FleshCannon: 反叛者
+			GeminiGlaives: 双子座飞轮刃
+			GolemTome2: 山崩EX
+			GuardianTome: 守卫者
+			HellZone: 地狱领域
+			MechanicalLeashOfCthulhu: 机械克苏鲁连枷
+			NukeFishron: 核子猪鲨
+			RefractorBlaster2: 衍射暗星炮
+			SlimeSlingingSlasher: 史莱姆王抛射屠戮者
+			TheBigSting: 大螯刺
+
 			// == Accessories ==
 			// === Souls ===
 
@@ -2554,7 +2572,7 @@ Mods: {
 			'''
 			使用凝胶作为弹药
 			33%的几率不消耗弹药
-			“一个被打败的敌人的缩小版尸体..”
+			“一个被击败的敌人的缩小版尸体..”
 			'''
 			EaterStaff:
 			'''
@@ -2563,15 +2581,15 @@ Mods: {
 			'''
 			FishStick:
 			'''
-			“一个被打败的敌人的尸体，用棍子粗暴地串起来..”
+			“一个被击败的敌人的尸体，用棍子粗暴地串起来..”
 			'''
 			FleshHand:
 			'''
-			“战败敌人的仆从..”
+			“被击败敌人的仆从..”
 			'''
 			LeashOfCthulhu:
 			'''
-			“被打败的敌人的残尸...”
+			“被击败的敌人的残尸...”
 			'''
 			RefractorBlaster:
 			'''
@@ -2595,7 +2613,7 @@ Mods: {
 			TwinRangs:
 			'''
 			根据鼠标左右键点击射出不同的双子回旋镖
-			“被打败的敌人的压缩形态..”
+			“被击败的敌人的压缩形态..”
 			'''
 
 			// === Challengers ===
@@ -2674,6 +2692,84 @@ Mods: {
 			Vineslinger:
 			'''
 			击中敌怪会射出树叶
+			'''
+
+			// === Swarm Drops ===
+
+			BigBrainBuster:
+			'''
+			重复召唤会增加召唤物的大小和伤害
+			上限为11个召唤栏
+			“屠戮众多的奖励...”
+			'''
+			Blender:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			DestroyerGun2:
+			'''
+			随着召唤栏数量提升而提升长度和速度，上限为5个召唤栏
+			“屠戮众多的奖励...”
+			'''
+			DragonBreath2:
+			'''
+			使用凝胶作为弹药
+			66%的几率不消耗弹药
+			“屠戮众多的奖励..”
+			'''
+			EaterLauncher:
+			'''
+			使用火箭作为弹药
+			50%的几率不消耗弹药
+			对指定范围内的敌怪造成更多伤害
+			“屠戮众多的奖励..”
+			'''
+			FleshCannon:
+			'''
+			“被击败敌人的奴役面孔...”
+			'''
+			GeminiGlaives:
+			'''
+			根据鼠标左右键点击射出不同的飞轮刃
+			左右键交替攻击会增强攻击
+			“被击败的敌人的压缩形态..”
+			'''
+			GolemTome2:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			GuardianTome:
+			'''
+			“现在轮到他们跑了”
+			'''
+			HellZone:
+			'''
+			使用骨头作为弹药
+			80%的几率不消耗弹药
+			“屠戮众多的奖励...”
+			'''
+			MechanicalLeashOfCthulhu:
+			'''
+			“屠戮众多的奖励..”
+			'''
+			NukeFishron:
+			'''
+			使用火箭作为弹药
+			“被击败敌人的高度武器化遗骸...”
+			'''
+			RefractorBlaster2:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			SlimeSlingingSlasher:
+			'''
+			“屠戮众多的奖励..”
+			'''
+			TheBigSting:
+			'''
+			使用飞镖作为弹药
+			66%的几率不消耗弹药
+			“屠戮众多的奖励..”
 			'''
 
 			// === Souls ===

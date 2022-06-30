@@ -15,8 +15,8 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Slime Slinging Slasher");
             Tooltip.SetDefault("'The reward for slaughtering many..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆抛射屠戮者");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'屠戮众多的奖励..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆抛射屠戮者");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'屠戮众多的奖励..'");
         }
 
         public override void SetDefaults()
