@@ -1124,11 +1124,20 @@ Mods: {
 			TwinRangs: 双子
 
 			// === Challengers ===
+			
 			KamikazeSquirrelStaff: 神风松鼠杖
 			MountedAcornGun: 安装好的橡实枪
 			SnowballStaff: 雪球法杖
 			TheLightntingRod: 避雷针
 			TreeSword: 树剑
+
+			// === Final Upgrades
+			
+			HentaiSpear: 洞察者
+			PhantasmalLeashOfCthulhu: 幻影克苏鲁连枷
+			SlimeRain: 史莱姆雨
+			SparklingLove: 闪闪发光的爱
+			StyxGazer: 冥河凝视
 
 			// == Accessories ==
 			// === Souls ===
@@ -2226,6 +2235,7 @@ Mods: {
 				'''
 
 			// == Armors ==
+			
 			EridanusBattleplate:
 			'''
 			增加10%伤害
@@ -2305,6 +2315,7 @@ Mods: {
 			'''
 
 			// == Consumables ==
+			
 			DeerSinew:
 			'''
 			获得冲刺能力
@@ -2392,6 +2403,7 @@ Mods: {
 			'''
 
 			// == Pets ==
+			
 			AccursedRags:
 			'''
 			召唤一口被诅咒的石棺
@@ -2576,6 +2588,7 @@ Mods: {
 			'''
 
 			// === Challengers ===
+			
 			KamikazeSquirrelStaff:
 			'''
 			召唤出友善的松鼠，拥抱你的敌人
@@ -2601,6 +2614,34 @@ Mods: {
 			TreeSword:
 			'''
 			射出橡实
+			'''
+
+			// === Final Upgrades
+			
+			HentaiSpear:
+			'''
+			根据鼠标左右键点击放出不同的攻击
+			在按住“上”“下”或同时按住可放出不同的攻击
+			“拥抱永恒的奖励...”
+			'''
+			PhantasmalLeashOfCthulhu:
+			'''
+			“克苏鲁真眼的灵魂被永恒地困住了..”
+			'''
+			SlimeRain:
+			'''
+			“史莱姆王的内脏撒得遍地都是..”
+			'''
+			SparklingLove:
+			'''
+			右键点击召唤戴薇安的灵魂
+			右键攻击的激光图案会随着召唤栏数量提升而提高密度，上限为12召唤栏
+			“一位被击败的敌人的恶魔之斧，吞噬着灵魂，象征着爱与正义...”
+			'''
+			StyxGazer:
+			'''
+			右键点击挥舞冥狱魔刃
+			“灼灼镰刀，破灭狱刃，合二为一，取自敌手...”
 			'''
 
 			// === Souls ===
