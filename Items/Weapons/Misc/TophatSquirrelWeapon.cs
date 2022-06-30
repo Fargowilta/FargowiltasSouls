@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Top Hat Squirrel");
             Tooltip.SetDefault("'Who knew this squirrel had phenomenal cosmic power?'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "高顶礼帽松鼠");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'谁能知道,这只松鼠竟然有着非凡的宇宙力量呢?'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "高顶礼帽松鼠");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'谁能知道,这只松鼠竟然有着非凡的宇宙力量呢?'");
         }
 
         public override void SetDefaults()
