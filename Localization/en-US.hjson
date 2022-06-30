@@ -941,6 +941,10 @@ Mods: {
 			WhipStack: Whip buffs/debuffs can't stack
 			MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 12)
 			SummonMulticlass: Summon damage decreases when you attack using other classes (except in OOA)
+
+			ShadowDodge: Eternity Mode: Dodging will reduce your attack speed
+			IceBarrier: Eternity Mode: 10% reduced damage
+			ManaSickness: Eternity Mode: Halved attack speed
 		}
 	}
 }

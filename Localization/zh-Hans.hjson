@@ -960,7 +960,7 @@ Mods: {
 			Split: 降低分裂频率
 			ChlorophyteBullet: 速度减慢，存在时间降低
 			WaterBolt: 在骷髅王被击败前无法使用
-			HolyDodge: 神圣防护激活后，一段时间内你的伤害会降低
+			HolyDodge: 神圣防护激活后，一段时间内你的攻击速度会降低
 			SpectreHood: 治疗幽魂珠飞行变慢，会更快消失
 			FrozenTurtleShell: 冰盾会略微降低你的攻击伤害
 			BrainOfConfusion: 成功躲避后，你的伤害会降低
@@ -980,6 +980,10 @@ Mods: {
 			WhipStack: 鞭子的增益/减益不能堆叠
 			MinionStack: 同时召唤超过3个相同召唤物时，它们的伤害会降低（超过12个后不再降低）
 			SummonMulticlass: 当你使用其他职业的武器攻击时，召唤伤害降低（在撒旦军队中除外）
+
+			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
+			IceBarrier: 永恒模式：你造成的伤害减少10%
+			ManaSickness: 永恒模式：攻击速度减半
 		}
 
 		ItemName: {
