@@ -469,10 +469,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.LoadSprites(npc, recolor);
 
-            //LoadNPCSprite(recolor, npc.type);
-            //LoadBossHeadSprite(recolor, 37);
-            //LoadGoreRange(recolor, 1262, 1268);
-            //extra_177, 180, 185, 186
+            LoadBossHeadSprite(recolor, 38);
+            LoadGore(recolor, 1258);
+            LoadGore(recolor, 1259);
+            LoadExtra(recolor, 177);
+            LoadExtra(recolor, 180);
+            LoadExtra(recolor, 185);
         }
     }
 
@@ -582,8 +584,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.LoadSprites(npc, recolor);
 
-            LoadExtra(recolor, 177);
-            LoadBossHeadSprite(recolor, 38);
+            LoadNPCSprite(recolor, npc.type);
+            LoadGore(recolor, 1260);
         }
     }
 }

@@ -2023,4 +2023,28 @@ added portable fog machine
 
 ftw squrrl is bigger and more defense
 added lesser healing potion and more torches to devi gift
-slightly nerfed unleashed ocean again
+nerfed unleashed ocean again
+nerfed mech leash
+buffed slime slinging slasher
+adjusted? big sting
+nerfed vortex ritual
+buffed bbb
+fixed gold stasis working on mutant final spark
+attack speed modifiers dont work on items with no damage again
+fixed(?) pillar auras not working in mp
+nerfed eater staff hit rate
+halved armor pen gained from silver ench
+eridanus armor no longer removes minions on phase switch
+fixed twins dropping extra relics in emode
+
+fixed abom saucer lasers doing no damage
+buffed big sting
+nerfed bbb
+buffed drakovi fish
+
+resprited-ish qs and minions
+resprited deerclops
+drakovi gun sometimes shoots 5 bullets instead of 4
+buffed big sting
+buffed vortex ritual
+nerfed sss

@@ -69,10 +69,10 @@ namespace FargowiltasSouls.Patreon.Sasha
                     {
                         Vector2 speed = velocity;
 
-                        int numBullets = 4;
+                        int numBullets = Main.rand.NextBool() ? 5 : 4;
                         for (int num130 = 0; num130 < numBullets; num130++) //shotgun blast
                         {
-                            Vector2 bulletSpeed = speed;
+                            Vector2 bulletSpeed = speed * Main.rand.NextFloat(0.95f, 1.05f);
                             bulletSpeed.X += Main.rand.NextFloat(-1f, 1f);
                             bulletSpeed.Y += Main.rand.NextFloat(-1f, 1f);
                             Projectile.NewProjectile(source, position, bulletSpeed, type, damage, knockback, player.whoAmI);

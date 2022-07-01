@@ -363,6 +363,24 @@ namespace FargowiltasSouls.Items.Misc
                     ModContent.ItemType<BeetleEnchant>()
                 );
             }
+            else if (!NPC.downedEmpressOfLight)
+            {
+                summonType = ModContent.TryFind("Fargowiltas", "PrismaticPrimrose", out ModItem modItem) ? modItem.Type : ItemID.EmpressButterfly;
+                build = GetBuildText(
+                    ModContent.ItemType<AeolusBoots>(),
+                    Main.rand.Next(new int[] { ItemID.BetsyWings, ItemID.FishronWings })
+                ) + GetBuildTextRandom(
+                    4,
+                    Main.rand.Next(new int[] { ItemID.Tabi, ModContent.ItemType<ShinobiEnchant>(), ModContent.ItemType<ChlorophyteEnchant>() }),
+                    Main.rand.Next(new int[] { ItemID.AnkhShield, ModContent.ItemType<DubiousCircuitry>(), ModContent.ItemType<LumpOfFlesh>() }),
+                    ItemID.CharmofMyths,
+                    ModContent.ItemType<BionomicCluster>(),
+                    ModContent.ItemType<PureHeart>(),
+                    ModContent.ItemType<MutantAntibodies>(),
+                    ModContent.ItemType<BetsysHeart>(),
+                    ModContent.ItemType<SparklingAdoration>()
+                );
+            }
             else if (!NPC.downedAncientCultist)
             {
                 summonType = ModContent.TryFind("Fargowiltas", "CultistSummon", out ModItem modItem) ? modItem.Type : ItemID.BossMaskCultist;
@@ -379,25 +397,6 @@ namespace FargowiltasSouls.Items.Misc
                     ModContent.ItemType<MutantAntibodies>(),
                     ModContent.ItemType<LihzahrdTreasureBox>(),
                     ModContent.ItemType<BetsysHeart>()
-                );
-            }
-            else if (!NPC.downedEmpressOfLight)
-            {
-                summonType = ModContent.TryFind("Fargowiltas", "PrismaticPrimrose", out ModItem modItem) ? modItem.Type : ItemID.EmpressButterfly;
-                build = GetBuildText(
-                    ModContent.ItemType<AeolusBoots>(),
-                    Main.rand.Next(new int[] { ItemID.BetsyWings, ItemID.FishronWings })
-                ) + GetBuildTextRandom(
-                    5,
-                    Main.rand.Next(new int[] { ItemID.Tabi, ModContent.ItemType<ShinobiEnchant>(), ModContent.ItemType<ChlorophyteEnchant>() }),
-                    Main.rand.Next(new int[] { ItemID.AnkhShield, ModContent.ItemType<DubiousCircuitry>(), ModContent.ItemType<LumpOfFlesh>() }),
-                    ItemID.CharmofMyths,
-                    ModContent.ItemType<BionomicCluster>(),
-                    ModContent.ItemType<ChaliceoftheMoon>(),
-                    ModContent.ItemType<PureHeart>(),
-                    ModContent.ItemType<MutantAntibodies>(),
-                    ModContent.ItemType<BetsysHeart>(),
-                    ModContent.ItemType<SparklingAdoration>()
                 );
             }
             else if (!NPC.downedMoonlord)
