@@ -149,6 +149,55 @@ Mods: {
 			WillChampion: 意志英灵
 		}
 
+		MapObject: {
+			FMMBanner: 旗帜
+			MutantStatue: 突变体雕像
+			SquidwardDoorClosed: 章鱼哥的大门
+			SquidwardDoorOpen: 章鱼哥的大门
+		}
+
+		BuffName: {
+			
+			// == BossDebuffs ==
+			
+			AbomFang: 憎恶毒牙
+			AbomPresence: 憎恶驾到
+			DeviPresence: 戴薇安驾到
+			Grabbed: 抓住你了！
+			MutantFang: 突变毒牙
+			MutantPresence: 突变驾到
+		}
+
+		BuffDescription: {
+
+			// == BossDebuffs ==
+			
+			AbomFang:
+			'''
+			永恒模式的力量压迫着你
+			'''
+			AbomPresence:
+			'''
+			减少防御、伤害减免和生命恢复速度，附带月蛭凝块效果
+			'''
+			DeviPresence:
+			'''
+			大幅增加友方NPC受到的伤害
+			'''
+			Grabbed:
+			'''
+			狂敲你的移动键来逃离！
+			'''
+			MutantFang:
+			'''
+			永恒模式的力量压迫着你
+			'''
+			MutantPresence:
+			'''
+			减少防御、伤害减免和生命恢复速度，关闭几乎所有魂的效果，减小擦弹范围
+			'''
+		}
+
 		Message: {
 			HasAwoken:已苏醒！
 			SquirrelCoatofArms: "{$Mods.FargowiltasSouls.NPCName.TrojanSquirrel}{$Mods.FargowiltasSouls.Message.HasAwoken}"

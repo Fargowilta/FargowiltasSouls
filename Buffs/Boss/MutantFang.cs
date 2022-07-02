@@ -10,8 +10,8 @@ namespace FargowiltasSouls.Buffs.Boss
         {
             DisplayName.SetDefault("Mutant Fang");
             Description.SetDefault("The power of Eternity Mode compels you");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变毒牙");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒模式的力量压迫着你");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变毒牙");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒模式的力量压迫着你");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
