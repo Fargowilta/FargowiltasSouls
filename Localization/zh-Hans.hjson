@@ -152,6 +152,7 @@ Mods: {
 		MapObject: {
 			FMMBanner: 旗帜
 			MutantStatue: 突变体雕像
+			MutantStatueGift: 突变体雕像
 			SquidwardDoorClosed: 章鱼哥的大门
 			SquidwardDoorOpen: 章鱼哥的大门
 		}
