@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋重击");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "降低防御力和最大生命值");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋重击");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "降低防御力和最大生命值");
         }
 
         public override void Update(Player player, ref int buffIndex)

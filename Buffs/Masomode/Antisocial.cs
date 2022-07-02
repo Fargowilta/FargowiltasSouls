@@ -12,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You have no friends and no summon damage");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "反社交");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你没有朋友");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "反社交");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你没有朋友");
 
         }
 

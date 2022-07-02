@@ -10,8 +10,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Shadowflame");
             Description.SetDefault("Losing life");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影烈焰");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "流失生命");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影烈焰");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "流失生命");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
         }

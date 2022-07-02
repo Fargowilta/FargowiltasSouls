@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("This can only get worse");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "感染");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "这只会变得更糟");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "感染");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "这只会变得更糟");
         }
 
         public override void Update(Player player, ref int buffIndex)

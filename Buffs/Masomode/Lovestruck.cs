@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "热恋");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "坠入爱河!");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "热恋");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "坠入爱河!");
         }
 
         public override void Update(Player player, ref int buffIndex)

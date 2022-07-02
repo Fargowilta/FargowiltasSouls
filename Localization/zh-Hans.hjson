@@ -167,36 +167,131 @@ Mods: {
 			Grabbed: 抓住你了！
 			MutantFang: 突变毒牙
 			MutantPresence: 突变驾到
+
+			// == Masomode ==
+			AbomCooldown: 憎恶冷却
+			AbomRebirth: 憎恶重生
+			Anticoagulation: 凝血失效
+			Antisocial: 反社交
+			Atrophied: 萎缩
+			Berserked: 狂暴
+			BloodDrinker: 饮血者
+			Bloodthirsty: 嗜血
+			BrainOfConfusionDebuff: 理智崩溃
+			ClippedWings: 剪除羽翼
+			Crippled: 残废
+			CurseoftheMoon: 月之诅咒
+			Defenseless: 毫无防御
+			FlamesoftheUniverse: 宇宙之火
+			Flipped: 翻转
+			FlippedHallow: 翻转
+			Fused: 导火线
+			GodEater: 噬神者
+			Guilty: 内疚
+			Hexed: 着魔
+			HolyPrice: 神圣代价
+			Hypothermia: 低温症
+			Infested: 感染
+			IvyVenom: 常春藤毒
+			Jammed: 卡壳
+			Lethargic: 昏昏欲睡
+			LightningRod: 避雷针
+			LihzahrdBlessing: 蜥蜴祝福
+			LihzahrdCurse: 蜥蜴诅咒
+			LivingWasteland: 人形废土
+			Lovestruck: 热恋
+			LowGround: 低地
+			MarkedforDeath: 死亡标记
+			Midas: 迈达斯
+			MutantNibble: 突变啃啄
+			NanoInjection: 纳米灌注
+			Neurotoxin: 神经毒素
+			NullificationCurse: 无效诅咒
+			OceanicMaul: 海洋重击
+			OceanicSeal: 海洋印记
+			Oiled: 浸油
+			PungentGaze: 尖刻注视
+			Purged: 涤荡
+			Purified: 净化
+			ReverseManaFlow: 反魔法流
+			Rotting: 腐败
+			RushJob: 急活
+			Sadism: 永恒
+			Shadowflame: 暗影焰
+			Smite: 惩戒
+			SqueakyToy: 吱吱响的玩具
+			Stunned: 昏迷
+			Swarming: 蜂群
+			ThiefCD: 偷窃冷却
+			Unstable: 不稳定
 		}
 
 		BuffDescription: {
 
 			// == BossDebuffs ==
 			
-			AbomFang:
-			'''
-			永恒模式的力量压迫着你
-			'''
-			AbomPresence:
-			'''
-			减少防御、伤害减免和生命恢复速度，附带月蛭凝块效果
-			'''
-			DeviPresence:
-			'''
-			大幅增加友方NPC受到的伤害
-			'''
-			Grabbed:
-			'''
-			狂敲你的移动键来逃离！
-			'''
-			MutantFang:
-			'''
-			永恒模式的力量压迫着你
-			'''
-			MutantPresence:
-			'''
-			减少防御、伤害减免和生命恢复速度，关闭几乎所有魂的效果，减小擦弹范围
-			'''
+			AbomFang: '''永恒模式的力量压迫着你'''
+			AbomPresence: '''减少防御、伤害减免和生命恢复速度，附带月蛭凝块效果'''
+			DeviPresence: '''大幅增加友方NPC受到的伤害'''
+			Grabbed: '''狂敲你的移动键来逃离！'''
+			MutantFang: '''永恒模式的力量压迫着你'''
+			MutantPresence: '''减少防御、伤害减免和生命恢复速度，关闭几乎所有魂的效果，减小擦弹范围'''
+
+			// == Masomode ==
+			AbomCooldown: '''还不能承受另一次攻击'''
+			AbomRebirth: '''除非受击，你无法死亡'''
+			Anticoagulation: '''生命流失，受伤时鲜血四溅，敌怪会吸收你溅出的鲜血并变得更强'''
+			Antisocial: '''你没有朋友，也无法造成召唤伤害'''
+			Atrophied: '''你的肌肉正在退化'''
+			Berserked: '''增加10%伤害和攻击速度，但你控几不住你记己'''
+			BloodDrinker: '''增加30%伤害'''
+			Bloodthirsty: '''极大提高刷怪速率'''
+			BrainOfConfusionDebuff: '''造成的伤害降低30%'''
+			ClippedWings: '''无法飞行或使用火箭靴'''
+			Crippled: '''你无法奔跑'''
+			CurseoftheMoon: '''月亮的愤怒正在吞噬你'''
+			Defenseless: '''你的防御完全崩溃了'''
+			FlamesoftheUniverse: '''来自诸天的亲自审判'''
+			Flipped: '''你的重力被颠倒了'''
+			FlippedHallow: '''你的重力被颠倒了'''
+			Fused: '''你和爆炸有个约会'''
+			GodEater: '''你的灵魂被神明的忿怒所诅咒'''
+			Guilty: '''杀害无辜动物产生的内疚使你的武器变得迟钝'''
+			Hexed: '''你的攻击会治愈敌人'''
+			HolyPrice: '''减少30%攻击速度'''
+			Hypothermia: '''你会多承受10%来自冷系攻击的伤害'''
+			Infested: '''这只会变得更糟'''
+			IvyVenom: '''流失生命, 持续时间超过20秒时变为神经毒素'''
+			Jammed: '''你的远程武器出故障了'''
+			Lethargic: '''你感觉你的武器变得缓慢'''
+			LightningRod: '''你会吸引雷电'''
+			LihzahrdBlessing: '''电线重新受你的掌控，降低丛林神庙内的刷怪速率'''
+			LihzahrdCurse: '''丛林神庙内，你不能拆除或放置电线'''
+			LivingWasteland: '''你周围的每个人都开始腐烂'''
+			Lovestruck: '''坠入爱河！'''
+			LowGround: '''钩爪被禁止，不能站在平台或液体上'''
+			MarkedforDeath: '''别被打到'''
+			Midas: '''受击时掉落钱币'''
+			MutantNibble: '''无法恢复生命'''
+			NanoInjection: '''降低生命恢复和综合属性'''
+			Neurotoxin: '''你的身体正在停歇关闭'''
+			NullificationCurse: '''月亮领主正在循环他的伤害免疫类型！'''
+			OceanicMaul: '''防御力和最大生命值被大幅降低'''
+			OceanicSeal: '''无法闪避，无法吸血，无法使用超音速之魂快速移动，无法逃脱'''
+			Oiled: '''着火时受到更多伤害'''
+			Purged: '''闪避效果不会生效'''
+			Purified: '''你被净化了'''
+			ReverseManaFlow: '''你的魔法武器消耗生命而不是魔力'''
+			Rotting: '''你的身体逐渐衰弱'''
+			RushJob: '''护士现在还不能再次治疗你'''
+			Sadism: '''永恒模式的力量与你同在'''
+			Shadwoflame: '''流失生命'''
+			Smite: '''降低生命恢复速度，受到的伤害增加10%'''
+			SqueakyToy: '''你的攻击如同玩具一般作响！'''
+			Stunned: '''你头晕目眩，动弹不得'''
+			Swarming: '''蜂群正从四面八方向你发起进攻！'''
+			ThiefCD: '''你的物品现在不会再次被偷了'''
+			Unstable: '''现实似乎在排斥你'''
 		}
 
 		Message: {

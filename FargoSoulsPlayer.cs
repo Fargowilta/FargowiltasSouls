@@ -2808,7 +2808,14 @@ namespace FargowiltasSouls
         private PlayerDeathReason DeathByLocalization(string key)
         {
             string death = Language.GetTextValue($"Mods.FargowiltasSouls.DeathMessage.{key}");
-            return PlayerDeathReason.ByCustomReason($"{Player.name} {death}");
+            if (Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese)
+            {
+                return PlayerDeathReason.ByCustomReason($"{Player.name}{death}");
+            }
+            else
+            {
+                return PlayerDeathReason.ByCustomReason($"{Player.name} {death}");
+            }
         }
 
         public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)

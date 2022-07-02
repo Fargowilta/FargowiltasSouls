@@ -15,8 +15,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.buffNoTimeDisplay[Type] = true;
 
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "无效诅咒");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,并且月球领主进行循环伤害免疫!");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "无效诅咒");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,并且月球领主进行循环伤害免疫!");
         }
     }
 }

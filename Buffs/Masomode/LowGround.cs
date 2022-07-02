@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.buffNoTimeDisplay[Type] = true;
 
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "低地");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "不能站在平台或液体上");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "低地");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "不能站在平台或液体上");
         }
 
         public override void Update(Player player, ref int buffIndex)
