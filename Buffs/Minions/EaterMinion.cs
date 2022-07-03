@@ -1,6 +1,5 @@
 using FargowiltasSouls.Projectiles.Minions;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Minions
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Minions
             Description.SetDefault("The mini Eater of Worlds will fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "世界吞噬者");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "迷你世界吞噬者将会为你而战");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "世界吞噬者");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "迷你世界吞噬者将会为你而战");
         }
 
         public override void Update(Player player, ref int buffIndex)

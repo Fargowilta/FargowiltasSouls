@@ -227,6 +227,25 @@ Mods: {
 
 			// == Minions ==
 			BigBrainMinion: 克苏鲁大脑
+			BrainMinion: 克苏鲁之脑
+			CrystalSkull: 水晶头骨
+			EaterMinion: 世界吞噬者
+			JungleMimicSummonBuff: 丛林宝箱怪
+			LunarCultist: 拜月教徒
+			MutantPower: 突变之力
+			PlanterasChild: 世纪之花的孩子
+			Probes: 探测器
+			PungentEyeball: 尖刻眼球
+			RainbowSlime: 彩虹史莱姆
+			SaucerMinion: 迷你飞碟
+			SkeletronArms: 骷髅王之手
+			SouloftheMasochist: 大师之魂
+			SuperFlocko: 超级雪花怪
+			TrueEyes: 克苏鲁真眼
+			TwinsEX: 双子EX
+
+			// == Pets ==
+			AccursedSarcophagusBuff: 被诅咒的石棺
 		}
 
 		BuffDescription: {
@@ -295,6 +314,27 @@ Mods: {
 			Swarming: '''蜂群正从四面八方向你发起进攻！'''
 			ThiefCD: '''你的物品现在不会再次被偷了'''
 			Unstable: '''现实似乎在排斥你'''
+
+			// == Minions ==
+			BigBrainMinion: '''克苏鲁的大脑将为你而战'''
+			BrainMinion: '''迷你克苏鲁之脑将为你而战'''
+			CrystalSkull: '''尖刻眼球将会保护你'''
+			EaterMinion: '''迷你世界吞噬者将为你而战'''
+			JungleMimicSummonBuff: '''丛林宝箱怪将为你而战'''
+			LunarCultist: '''拜月教徒将会保护你'''
+			MutantPower: '''突变之力与你同在'''
+			PlanterasChild: '''世纪之花的孩子将会保护你'''
+			Probes: '''探测器将会保护你'''
+			PungentEyeball: '''尖刻眼球将会保护你'''
+			RainbowSlime: '''彩虹史莱姆将会保护你'''
+			SaucerMinion: '''迷你飞碟将会保护你'''
+			SkeletronArms: '''骷髅王之手将会保护你'''
+			SouloftheMasochist: '''永恒模式的力量与你同在'''
+			SuperFlocko: '''超级雪花怪将会保护你'''
+			TrueEyes: '''克苏鲁的几只眼睛将会保护你'''
+			TwinsEX: '''真正的双子魔眼将为你而战'''
+
+			// == Pets ==
 		}
 
 		Message: {

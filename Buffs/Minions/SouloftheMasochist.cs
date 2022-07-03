@@ -2,7 +2,6 @@
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Minions
@@ -15,8 +14,8 @@ namespace FargowiltasSouls.Buffs.Minions
             Description.SetDefault("The power of Eternity Mode is with you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐之魂");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐模式的力量与你同在");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐之魂");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐模式的力量与你同在");
         }
 
         public override void Update(Player player, ref int buffIndex)
