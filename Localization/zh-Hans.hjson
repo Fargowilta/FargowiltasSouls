@@ -224,6 +224,9 @@ Mods: {
 			Swarming: 蜂群
 			ThiefCD: 偷窃冷却
 			Unstable: 不稳定
+
+			// == Minions ==
+			BigBrainMinion: 克苏鲁大脑
 		}
 
 		BuffDescription: {
