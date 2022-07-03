@@ -227,6 +227,7 @@ Mods: {
 
 			// == Minions ==
 			BigBrainMinion: 克苏鲁大脑
+			BrainMinion: 克苏鲁之脑
 		}
 
 		BuffDescription: {

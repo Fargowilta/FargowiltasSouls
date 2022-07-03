@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Minions
             Description.SetDefault("The mini Brain of Cthulhu will fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
             Description.AddTranslation((int)GameCulture.CultureName.Chinese, "迷你克苏鲁之脑将会为你而战");
         }
 
