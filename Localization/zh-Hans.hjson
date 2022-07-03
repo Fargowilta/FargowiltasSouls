@@ -246,6 +246,12 @@ Mods: {
 
 			// == Pets ==
 			AccursedSarcophagusBuff: 被诅咒的石棺
+			BabyAbomBuff: 憎恶宝宝
+			BabySilhouetteBuff: 黑雾宝宝
+			BiteSizeBaronBuff: 小小公爵
+			ChibiDeviBuff: 小不点德薇
+			MutantSpawnBuff: 突变体的卵
+			SeekerOfTreasuresBuff: 宝藏探索者
 		}
 
 		BuffDescription: {
@@ -336,6 +342,12 @@ Mods: {
 
 			// == Pets ==
 			AccursedSarcophagusBuff: '''它会把手拿开的'''
+			BabyAbomBuff: '''在镰刀上踢翻镰刀'''
+			BabySilhouetteBuff: '''见不到一点亮光，直到它已经成长完全'''
+			BiteSizeBaronBuff: '''不包括EX阶段'''
+			ChibiDeviBuff: '''她对“你”很感兴趣'''
+			MutantSpawnBuff: '''突变体的卵'''
+			SeekerOfTreasuresBuff: '''再给它几千年时间来长大'''
 		}
 
 		Message: {
