@@ -1,7 +1,6 @@
 using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc

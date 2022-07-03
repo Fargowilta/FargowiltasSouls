@@ -1147,6 +1147,10 @@ Mods: {
 			EternalEnergy: 永恒能量
 			PhantasmalEnergy: 幻象能量
 
+			// == Ammo ==
+			FargoBullet: 混合子弹袋
+			FargoArrow: 混合箭袋
+
 			// == Armors ==
 
 			EridanusBattleplate: 波江战甲
@@ -1522,6 +1526,21 @@ Mods: {
 				免疫几乎所有永恒模式减益
 				“拥抱过永恒的证明”
 				'''
+			
+			// == Ammo ==
+			FargoBullet:
+			'''
+			追踪敌怪
+			反弹多次
+			每次撞击都会造成魔晶碎块爆炸
+			造成多种减益
+			'''
+			FargoArrow:
+			'''
+			反弹多次
+			每次撞击都会爆炸，召唤落星并发射激光箭
+			造成多种减益
+			'''
 			
 			// == Accessories ==
 			// === Enchantments ===

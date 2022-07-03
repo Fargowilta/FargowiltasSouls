@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.Audio;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
