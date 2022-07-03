@@ -335,6 +335,7 @@ Mods: {
 			TwinsEX: '''真正的双子魔眼将为你而战'''
 
 			// == Pets ==
+			AccursedSarcophagusBuff: '''它会把手拿开的'''
 		}
 
 		Message: {
