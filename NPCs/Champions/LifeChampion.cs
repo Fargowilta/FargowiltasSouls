@@ -740,8 +740,6 @@ namespace FargowiltasSouls.NPCs.Champions
             
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<LifeChampionRelic>()));
 
-            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<LifeChampionRelic>()));
-
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Dyes.LifeDye>()));
         }
 
