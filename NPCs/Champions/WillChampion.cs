@@ -2,6 +2,10 @@ using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Pets;
+<<<<<<< HEAD
+=======
+using FargowiltasSouls.Items.Placeables.Relics;
+>>>>>>> 9634fb7430f555ad0b8c4bdfb7a2b0801e073a3e
 using FargowiltasSouls.Projectiles.Champions;
 using FargowiltasSouls.Items.Placeables.Relics;
 using Microsoft.Xna.Framework;
@@ -737,6 +741,9 @@ namespace FargowiltasSouls.NPCs.Champions
         {
             npcLoot.Add(new ChampionEnchDropRule(WillForce.Enchants));
             
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WillChampionRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<EnerGear>(), 4));
+
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WillChampionRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<EnerGear>(), 4));
 
