@@ -16,6 +16,7 @@ using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 {
@@ -63,33 +64,33 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     Rectangle rectangle = new Rectangle((int)Main.screenPosition.X + Main.screenWidth / 3, (int)Main.screenPosition.Y + Main.screenHeight / 3, Main.screenWidth / 3, Main.screenHeight / 3);
                     CombatText.NewText(rectangle, new Color(100 + Main.rand.Next(150), 100 + Main.rand.Next(150), 100 + Main.rand.Next(150)), Main.rand.Next(new List<string> {
-                    "CRINGE",
-                    "NOT POGGERS",
-                    "MONKAS",
-                    "SHOW WINGS",
-                    "AERIAL BANE POG",
-                    "REAL BOSS WHEN?",
-                    "#NOTMYMASOMODE",
-                    "OOA BAD ANYWAY",
-                    "COPE MALD SEETHE",
-                    "GET REAL",
-                    "GET FAKE",
-                    "POGGERS",
-                    "ResidentSleeper",
-                    "If you can read this say 22",
-                    "GuraSit",
-                    "play calamity",
-                    "play thorium",
-                    "hardcore 1hp challenge when?",
-                    "now do it with a copper shortsword",
-                    "Zenith Yoyo?",
-                    "guys how do i beat moon lord",
-                    "GUYS I GOT TERRAPRISMA",
-                    "how do i install this update",
-                    "Hi YouTube!",
-                    "<Message was deleted by staff>",
-                    $"<User {Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)} was banned>",
-                    $"<User {Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)} was muted>",
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy1"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy2"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy3"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy4"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy5"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy6"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy7"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy8"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy9"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy10"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy11"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy12"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy13"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy14"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy15"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy16"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy17"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy18"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy19"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy20"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy21"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy22"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy23"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy24"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy25"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy26") + $"{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}" + Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy27"),
+                    Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy26") + $"{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}{Main.rand.Next(10)}" + Language.GetTextValue("Mods.FargowiltasSouls.EternityMode.Betsy28"),
                     }), Main.rand.NextBool(), Main.rand.NextBool());
                 }
 
