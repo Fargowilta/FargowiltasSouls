@@ -43,7 +43,7 @@ Mods: {
 				召唤会向周围的敌怪发射激光的幻影眼球
 				召唤幽灵憎恶与你一同战斗
 				你的攻击会造成地狱火和噬神者减益
-				你复活时会发射出巨大的幻影死光射线
+				你复活时会发射出巨大的幻影致命光射线
 				增加20%武器使用速度
 				'''
 		}
@@ -158,6 +158,10 @@ Mods: {
 		}
 
 		BuffName: {
+
+			BetsyDash: 火球冲刺
+			HellFire: 狱火
+			MutantRebirth: 突变重生
 			
 			// == BossDebuffs ==
 			
@@ -252,9 +256,45 @@ Mods: {
 			ChibiDeviBuff: 小不点德薇
 			MutantSpawnBuff: 突变体的卵
 			SeekerOfTreasuresBuff: 宝藏探索者
+
+			// == Souls ==
+			BrokenShell: 破损龟壳
+			CrimsonRegen: 猩红再生
+			FirstStrike: 先发制人
+			FossilReviveCD: 已复活
+			Frozen: 冻结
+			GoldenStatis: 不动金身
+			GoldenStatisCD: 金身冷却
+			HallowCooldown: 神圣之盾冷却
+			HuntressBleed: 女猎人流血
+			HuntressCD: 箭雨冷却
+			LeadPoison: 铅中毒
+			MonkBuff: 冥想
+			ObsidianLavaWetBuff: 熔岩之润
+			OriPoison: 山铜中毒
+			ShellHide: 缩壳
+			SnowstormCD: 暴雪冷却
+			SolarFlare: 耀斑
+			SuperBleed: 血如泉涌
+			TimeFrozen: 时间冻结
+			TimeStopCD: 时停冷却
+			VortexCD: 星旋冷却
+
+			// == Patreon ==
+			KingSlimeMinionBuff: 迷你史莱姆王
+			DukeFishronBuff: 猪龙鱼公爵
+			RoombaPetBuff: 扫地机器人
+			DoveBuff: 鸽子
+			ChibiiRemiiBuff: 小不点蕾米
+			PrimeMinionBuff: 迷你机械骷髅王
+			FishMinionBuff: 鱼
+			CrimetroidBuff: 宝宝血水母
 		}
 
 		BuffDescription: {
+
+			BetsyDash: '''不受敌怪攻击的影响'''
+			MutantRebirth: '''复活致命光蓄力中'''
 
 			// == BossDebuffs ==
 			
@@ -343,11 +383,39 @@ Mods: {
 			// == Pets ==
 			AccursedSarcophagusBuff: '''它会把手拿开的'''
 			BabyAbomBuff: '''在镰刀上踢翻镰刀'''
-			BabySilhouetteBuff: '''见不到一点亮光，直到它已经成长完全'''
+			BabySilhouetteBuff: '''见不到一点亮光，直到它成长完全'''
 			BiteSizeBaronBuff: '''不包括EX阶段'''
 			ChibiDeviBuff: '''她对“你”很感兴趣'''
 			MutantSpawnBuff: '''突变体的卵'''
 			SeekerOfTreasuresBuff: '''再给它几千年时间来长大'''
+
+			// == Souls ==
+			BrokenShell: '''暂时无法缩壳'''
+			CrimsonRegen: '''你正在自愈你上次的伤口'''
+			FirstStrike: '''你的下一次攻击将会得到增强'''
+			FossilReviveCD: '''你无法再次复活'''
+			Frozen: '''你无法移动'''
+			GoldenStatis: '''免疫所有伤害，但无法移动'''
+			GoldenStatisCD: '''你还不能进入金身'''
+			HallowCooldown: '''你的护盾现在无法反弹弹幕'''
+			HuntressCD: '''你现在无法触发另一次箭雨'''
+			MonkBuff: '''你的武僧冲刺已就绪'''
+			ObsidianLavaWetBuff: '''你的身上滴着熔岩'''
+			ShellHide: '''阻挡弹幕'''
+			SnowstormCD: '''你现在不能冻结一切'''
+			TimeFrozen: '''你停止了时间'''
+			TimeStopCD: '''你现在不能停止时间'''
+			VortexCD: '''你现在不能生成另一个星旋旋涡'''
+
+			// == Patreon ==
+			KingSlimeMinionBuff: '''迷你史莱姆王将会保护你'''
+			DukeFishronBuff: '''猪龙鱼公爵将为你而战'''
+			RoombaPetBuff: '''这个扫地机器人在跟着你'''
+			DoveBuff: '''一只鸽子在跟着你'''
+			ChibiiRemiiBuff: '''恶魔「蕾米莉亚·斯特睐赤」'''
+			PrimeMinionBuff: '''机械骷髅王将为你而战'''
+			FishMinionBuff: '''这些鱼将为你而战'''
+			CrimetroidBuff: '''宝宝血水母在跟着你'''
 		}
 
 		Message: {
@@ -706,7 +774,7 @@ Mods: {
 			MutantArmorHeader: 真·突变体套装
 			MasoAbomConfig: 幽灵憎恶
 			MasoRingConfig: 幻影球仆从
-			MasoReviveDeathrayConfig: 复活死光
+			MasoReviveDeathrayConfig: 复活致命光
 
 
 			UniverseHeader: "{$Mods.FargowiltasSouls.ItemName.UniverseSoul}"
@@ -1759,7 +1827,7 @@ Mods: {
 				攻击忽略10点敌怪防御并造成5点额外伤害
 				每次连续攻击会额外忽略10点防御并多造成5点伤害
 				追踪武器和召唤物不会增加这些加成
-				空任何一枪都会重置这些加成
+				任何一次攻击没有击中都会重置这些加成
 				“精确带来力量”
 				'''			
 			IronEnchant:
@@ -1838,7 +1906,7 @@ Mods: {
 				'''
 				使你免疫火块与熔岩
 				你可以在熔岩中正常移动和游泳
-				在熔岩中会获得“浸入熔岩”增益
+				在熔岩中会获得“熔岩之润”增益
 				拥有该增益时，你的攻击会引发爆炸
 				“大地在呼唤”
 				'''
@@ -1891,7 +1959,7 @@ Mods: {
 				在累计10次攻击后，生成一阵箭雨
 				箭的种类默认是毒液箭，如果背包内有箭那么选择物品栏中的第一个箭
 				追踪武器和召唤物不会增加这些加成
-				空任何一枪都会重置加成
+				任何一次攻击没有击中都会重置加成
 				“小红帽，大坏蛋！”
 				'''
 			RichMahoganyEnchant:

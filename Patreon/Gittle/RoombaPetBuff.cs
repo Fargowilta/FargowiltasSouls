@@ -1,7 +1,5 @@
 ﻿using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
-
 
 namespace FargowiltasSouls.Patreon.Gittle
 {
@@ -13,8 +11,8 @@ namespace FargowiltasSouls.Patreon.Gittle
             Description.SetDefault("This Roomba is following you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "扫地机器人");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "这个扫地机器人在跟着你");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "扫地机器人");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "这个扫地机器人在跟着你");
         }
 
         public override void Update(Player player, ref int buffIndex)

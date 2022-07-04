@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -11,8 +10,8 @@ namespace FargowiltasSouls.Buffs.Souls
             DisplayName.SetDefault("First Strike");
             Description.SetDefault("Your next attack will be enhanced");
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "先发制人");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的下一次攻击将会得到增强");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "先发制人");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的下一次攻击将会得到增强");
             Main.buffNoTimeDisplay[Type] = true;
         }
 

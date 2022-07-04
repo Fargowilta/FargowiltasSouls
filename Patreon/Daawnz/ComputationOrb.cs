@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.Localization;
 
 namespace FargowiltasSouls.Patreon.Daawnz
 {

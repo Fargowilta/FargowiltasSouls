@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -19,8 +18,8 @@ namespace FargowiltasSouls.Buffs.Souls
             Main.pvpBuff[Type] = false;
 
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "时间冻结");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你停止了时间");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "时间冻结");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你停止了时间");
         }
 
         public override void Update(Player player, ref int buffIndex)

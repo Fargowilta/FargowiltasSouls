@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Souls
             Description.SetDefault("You are immune to all damage, but cannot move");
             Main.buffNoSave[Type] = true;
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "不动金身");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "免疫所有伤害,但无法移动");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "不动金身");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "免疫所有伤害,但无法移动");
         }
 
         public override void Update(Player player, ref int buffIndex)
