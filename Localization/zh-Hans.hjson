@@ -418,6 +418,63 @@ Mods: {
 			CrimetroidBuff: '''宝宝血水母在跟着你'''
 		}
 
+		ProjectileName: {
+			AbomScytheFriendly: 憎恶镰刀
+			BetsyDash: 冲刺
+			CreeperHitbox: 飞眼怪
+			Explosion: 爆炸
+			ExplosionSmall: 爆炸
+			GalacticReformerProj: 核弹
+			GeyserFriendly: 喷泉
+			GiantDeathray: 幻影致命光
+			GlowLine: 预警光线
+			GlowRing: 预警光环
+			GlowRingHallow: 预警光环
+			GrazeRing: 擦弹光环
+			HostileLightning: 电弧
+			LightningArc: 电弧
+			LightningVortex: 星旋旋涡
+			LightningVortexHostile: 星旋旋涡
+			LihzahrdSpikyBallFriendly: 尖球
+			PhantasmalSphere: 幻影球
+			SpectralAbominationn: 幽灵憎恶
+			StyxArmorScythe: 冥河镰刀
+			StyxArmorScythe2: 冥河镰刀
+			StyxGazerArmor: 冥河凝视
+			UniversalCollapseProj: 核弹
+
+			// == AbomBoss ==
+			AbomBlast: 幻象爆炸
+			AbomBoss: 憎恶
+			AbomDeathray: 憎恶致命光
+			AbomDeathrayMark: 致命光
+			AbomDeathraySmall: 憎恶致命光
+			AbomDeathraySmall2: 致命光
+			AbomDeathScythe: 憎恶镰刀
+			AbomFlocko: 超级雪花怪
+			AbomFlocko2: 超级雪花怪
+			AbomFlocko3: 超级雪花怪
+			AbomFrostShard: 寒霜碎块
+			AbomFrostWave: 寒霜波
+			AbomLaser: 激光
+			AbomReticle: 憎恶瞄准点
+			AbomRitual: 憎恶空间边缘
+			AbomRitual2: 憎恶空间边缘
+			AbomRitualMaso: 憎恶空间边缘
+			AbomRocket: 火箭
+			AbomScytheFlaming: 憎恶镰刀
+			AbomScytheSpin: 憎恶镰刀
+			AbomScytheSplit: 憎恶镰刀
+			AbomSickle: 憎恶镰刀
+			AbomSickle2: 憎恶镰刀
+			AbomSickle3: 憎恶镰刀
+			AbomSickleSplit1: 憎恶镰刀
+			AbomSickleSplit2: 憎恶镰刀
+			AbomStyxGazer: 冥河凝视
+			AbomSword: 冥河凝视之刃
+			AbomSwordHandle: 冥河凝视之刃
+		}
+
 		Message: {
 			HasAwoken:已苏醒！
 			SquirrelCoatofArms: "{$Mods.FargowiltasSouls.NPCName.TrojanSquirrel}{$Mods.FargowiltasSouls.Message.HasAwoken}"
