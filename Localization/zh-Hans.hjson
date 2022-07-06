@@ -473,6 +473,112 @@ Mods: {
 			AbomStyxGazer: 冥河凝视
 			AbomSword: 冥河凝视之刃
 			AbomSwordHandle: 冥河凝视之刃
+
+			// == Ammos ===
+			FargoArrowProj: 混合之箭
+			FargoBulletProj: 混合子弹
+			
+			// == BossWeapons ==
+			BigSting22: 大螯刺工蜂
+			BigStinger: 大螯刺
+			BlenderOrbital: 绞肉机
+			BlenderPetal: 绞肉机
+			BlenderProj3: 绞肉机
+			BlenderYoyoProj: 绞肉机
+			Bonez: 骸骨
+			DarkStarFriendly: 暗星
+			DicerYoyo: 切肉机
+			DragonBreathProj: 巨龙之息
+			DragonFireball: 火球
+			DragonFireballBoom: 火球
+			DungeonGuardian: 地牢守卫
+			EaterRocket: 吞噬者火箭
+			EyeFireFriendly: 魔眼烈火
+			EyeProjectile: 眼球
+			FishNuke: 猪鲨核弹
+			FishNukeExplosion: 猪鲨核弹
+			FishStickProj: 鱼杖
+			FishStickShark: 鲨鱼
+			FleshLaser: 红色激光
+			GibExplosion: 爆炸
+			GolemGib: 石巨人碎片
+			GolemHeadProj: 石巨人头
+			HellBone: 地狱之骨
+			HellBonez: 地狱骸骨
+			HellFlame: 地狱烈焰
+			HellSkeletron: 地狱骷髅
+			HellSkull2: 地狱头骨
+			HentaiNuke: 幻象爆炸
+			HentaiSpear: 洞察者
+			HentaiSpearArc: 电弧
+			HentaiSpearBigDeathray: 幻影致命光
+			HentaiSpearDash: 洞察者
+			HentaiSpearDeathray: 幻影致命光
+			HentaiSpearDeathray2: 幻影致命光
+			HentaiSpearDive: 洞察者
+			HentaiSpearHeld: 洞察者
+			HentaiSpearSpin: 洞察者
+			HentaiSpearSpinBoundary: 洞察者
+			HentaiSpearSpinThrown: 洞察者
+			HentaiSpearThrown: 洞察者
+			HentaiSpearWand: 洞察者
+			HentaiSpearRing: 洞察者
+			Hungry: 饿鬼
+			Hungry2: 饿鬼
+			LeashFlail: 克苏鲁连枷
+			MechEyeProjectile: 机械眼球
+			MechFlail: 机械克苏鲁连枷
+			PhantasmalBlast: 幻象爆炸
+			PhantasmalBolt: 幻影矢
+			PhantasmalEyeBoundary: 幻影眼
+			PhantasmalEyeHoming: 幻影眼
+			PhantasmalEyeLeashProj: 幻影眼
+			PhantasmalFlail: 幻影克苏鲁连枷
+			PhantasmalSphere2: 幻影球
+			PrimeDeathray: 烈焰致命光
+			PrimeLaser: 机械激光
+			RazorbladeTyphoonFriendly: 利刃台风
+			RefractorBlaster2Held: 衍射暗星炮
+			RetiDeathray: 烈焰致命光
+			Retiglaive: 激光飞轮刃
+			Retirang: 激光回旋镖
+			SlimeBall: 粘液球
+			SlimeBallHoming: 粘液球
+			SlimeRainBall: 史莱姆雨
+			SlimeSpikeFriendly: 史莱姆尖刺
+			SmallStinger: 小刺
+			SparklingDevi: 戴薇安
+			SparklingLove: 闪闪发光的爱
+			SparklingLoveBig: 闪闪发光的爱
+			SparklingLoveDeathray: 爱之光
+			SparklingLoveDeathray2: 爱之光
+			SparklingLoveEnergyHeart: 能量爱心
+			SparklingLoveHeart: 友善爱心
+			SparklingLoveHeart2: 友善爱心
+			Spazmaglaive: 魔焰飞轮刃
+			SpazmaglaiveExplosion: 诅咒狱火
+			Spazmarang: 魔焰回旋镖
+			Stinger: 毒刺
+			StyxGazer: 冥河凝视
+			StyxGazerHandle: 冥河凝视
+			StyxScythe: 冥河镰刀
+			StyxSickle: 冥河镰刀
+			Whirlpool: 旋涡
+			WhirlpoolBase: 旋涡
+
+			// == Challenger Items ==
+			Acorn: 橡实
+			RollingSnowball: 雪球
+			Sprout: 新芽
+			SproutingAcorn: 橡实
+			TheLightning: 电弧
+			TheLightningRodProj: 避雷针
+
+			// == Challengers ==
+			TrojanAcorn: 橡实
+			TrojanHook: 松鼠钩
+			TrojanSnowball: 雪球
+			TrojanSquirrelProj: 高顶礼帽松鼠
 		}
 
 		Message: {
