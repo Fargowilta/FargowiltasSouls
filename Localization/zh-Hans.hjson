@@ -566,7 +566,7 @@ Mods: {
 			Whirlpool: 旋涡
 			WhirlpoolBase: 旋涡
 
-			// == Challenger Items ==
+			// == ChallengerItems ==
 			Acorn: 橡实
 			RollingSnowball: 雪球
 			Sprout: 新芽
@@ -579,6 +579,121 @@ Mods: {
 			TrojanHook: 松鼠钩
 			TrojanSnowball: 雪球
 			TrojanSquirrelProj: 高顶礼帽松鼠
+			
+			// == Critters ==
+			TopHatSquirrelLaser: 松鼠审判
+			TopHatSquirrelProj: 高顶礼帽松鼠
+
+			// == Deathrays ==
+			ChainDeathrayWOFS: 神圣致命光
+			CursedDeathrayWOFS: 诅咒致命光
+			DeerclopsDeathray: 冰冻光束
+			DeviBigDeathray: 爱之光
+			DeviDeathray: 爱之光
+			DeviDeathraySmall: 爱之光
+			DeviLightBeam: 光束
+			GolemBeam: 烈焰致命光
+			PhantasmalDeathray: 烈焰致命光
+			PhantasmalDeathrayML: 幻影致命光II型
+			PhantasmalDeathrayMLSmall: 幻影致命光II型
+			PhantasmalDeathrayWOF: 神圣致命光
+			PhantasmalDeathrayWOFS: 神圣致命光
+
+			// == DeviBoss ==
+			DeviAxe: 闪闪发光的爱
+			DeviBigMimic: 群系宝箱怪
+			DeviBoss: 戴薇安
+			DeviButterfly: 蛾
+			DeviEnergyHeart: 能量爱心
+			DeviGuardian: 宝宝守卫
+			DeviHammer: 圣骑士之锤
+			DeviHammerHeld: 圣骑士之锤
+			DeviHeart: 假心
+			DeviLightBall: 光球
+			DeviLightBall2: 光球
+			DeviLostSoul: 迷失灵魂
+			DeviMedusa: 美杜莎之头
+			DeviMimic: 宝箱怪
+			DeviRainHeart: 假心
+			DeviRainHeart2: 假心
+			DeviRingHeart: 能量爱心
+			DeviRitual: 戴薇安空间边缘
+			DeviRitual2: 戴薇安空间边缘
+			DeviSparklingLove: 闪闪发光的爱
+			DeviSparklingLoveSmall: 闪闪发光的爱
+			DeviVisualHeart: 假心
+
+			// == JungleMimic ==
+			AcornProjectile: 橡实
+			AcornProjectileExplosion: 橡实爆炸
+			JungleMimicSummon: 丛林宝箱怪
+			JungleMimicSummonCoin: 钱币
+			VineslingerBall: 藤蔓抛环
+			VineslingerProjectileFriendly: 活树叶
+
+			// == Masomode == 
+			AncientVision: 远古幻影妖
+			AncientVisionLunarCultist: 远古幻影妖
+			Bee: 蜜蜂
+			Beehive: 蜂巢
+			BetsyElectrosphere: 天龙之怒
+			BetsyElectrosphere2: 天龙之怒
+			BetsyFury: 天龙之怒
+			BetsyFury2: 天龙之怒
+			BetsyPhoenix: 幽灵凤凰
+			BigMimicExplosion: 爆炸
+			BloodScythe: 月之镰刀
+			BloodScytheFriendly: 血镰刀
+			Bloodshed: 血流
+			BloodThornMissile: 血荆棘
+			BrainIllusionProj: 克苏鲁之脑
+			BrainofConfusion: 混乱之脑
+			BubbleHostile: 泡泡
+			CelestialFragment: 天界碎片
+			CelestialPillar: 天界柱
+			CelestialRuneAncientVision: 远古幻影妖
+			CelestialRuneFireball: 火球
+			CelestialRuneIceMist: 冰雪雾
+			CelestialRuneIceSpike: 冰刺
+			CelestialRuneLightningArc: 电弧
+			ClingerFlame: 诅咒焰
+			ClownBomb: 小丑炸弹
+			CrystalLeafShot: 叶状水晶
+			CultistArrow: 教徒之箭
+			CultistFireball: 火球
+			CultistRitual: 教徒仪式
+			CultistVortex: 星旋旋涡
+			CursedFireballHoming: 诅咒焰
+			CursedFlameHostile2: 诅咒焰
+			CursedFlamethrowner: 魔眼烈火
+			DarkStar: 暗星
+			DarkStarDestroyer: 暗星
+			DarkStarHoming: 暗星
+			DarkStarTwins: 暗星
+			DeathSkull: 死亡标记头骨
+			DeerclopsHand: 暗影之手
+			DestroyerLaser: 死亡激光
+			DrakanianDaybreak: 破晓之光
+			ElfArcherArrow: 霜冻箭
+			ElfCopterBullet: 爆炸子弹
+			ElfCopterBulletExplosion: 爆炸子弹
+			EyeBeam2: 魔眼光束
+			EyeFire2: 魔眼烈火
+			FakeHeart: 假心
+			FakeHeart2: 假心
+			FishronBubble: 爆炸泡泡
+			FishronFishron: 幽灵猪龙鱼
+			FishronRitual: 海洋仪式
+			FishronRitual2: 海洋仪式
+			FlamingJack: 烈焰杰克南瓜
+			FragmentRitual: 月亮仪式
+			FriendHeart: 友善爱心
+			FrostFireball: 霜火球
+			FrostfireballHostile: 霜火球
+			FuseBomb: 导火线炸弹
+			FusedExplosion: 导火线爆炸
+			GelicWingSpike: 水晶尖刺
+			GoblinSpikyBall: 尖球
 		}
 
 		Message: {
