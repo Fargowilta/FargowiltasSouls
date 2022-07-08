@@ -579,6 +579,90 @@ Mods: {
 			TrojanHook: 松鼠钩
 			TrojanSnowball: 雪球
 			TrojanSquirrelProj: 高顶礼帽松鼠
+
+			// == Champions ==
+			CactusMine: 仙人掌雷
+			ChampionBee: 蜜蜂
+			ChampionBeetle: 甲虫
+			CosmosBolt: 宇宙矢
+			CosmosDeathray: 宇宙致命光
+			CosmosDeathray2: 宇宙致命光
+			CosmosFireball: 宇宙火球
+			CosmicFireball2: 宇宙火球
+			CosmosGlowything: 宇宙入侵怪仆从
+			CosmosInvader: 宇宙入侵怪仆从
+			CosmosInvaderTime: 宇宙入侵怪仆从
+			CosmosLightning: 电弧
+			CosmosLightningOrb: 闪电珠
+			CosmosMeteor: 宇宙流星
+			CosmosMoon: 宇宙之月
+			CosmosNebulaBlaze: 星云烈焰
+			CosmosReticle: 宇宙瞄准点
+			CosmosRitual: 宇宙空间边缘
+			CosmicSphere: 宇宙球
+			CosmosVortex: 星旋旋涡
+			CrystalBomb: 水晶炸弹
+			CrystalBombShard: 水晶碎块
+			EarthChainBlast: 连锁爆炸
+			EarthChainBlast2: 连锁爆炸
+			EarthGeyser: 喷泉
+			EatrhPalladOrb: 钯金治疗珠
+			FlowerPetal: 花瓣
+			LifeDeathray: 神圣致命光
+			LifeDeathray2: 神圣致命光
+			LifeDeathraySmall: 神圣致命光
+			LifeDeathraySmall2: 神圣致命光
+			LifeFireball: 火球
+			LifeRitual: 生命英灵空间边缘
+			NatureBullet: 自然子弹
+			NatureCloudMoving: 自然雨云
+			NatureCloudRaining: 自然雨云
+			NatureCrystalLeaf: 叶状水晶
+			NatureDeathray: 自然致命光
+			NatureDeathraySmall: 自然致命光
+			NatureExplosion: 自然爆炸
+			NatureFireball: 火球
+			NatureIcicle: 自然冰锥
+			NatureRain: 自然之雨
+			ShadowClone: 暗影英灵
+			ShadowDeathraySmall: 暗影致命光
+			ShadowFlameburst: 爆炸烈焰
+			ShadowFlamingScythe: 烈焰镰刀
+			ShadowGuardian: 地牢守卫
+			ShadowOrb: 暗影珠
+			SpiritCrossBone: 交叉骨头
+			SpiritCrossBoneReverse: 交叉骨头
+			SpiritHand: 心灵英灵之手
+			SpiritHeal: 幽魂珠
+			SpiritSpirit: 幽魂珠
+			SpiritSword: 心灵断钢剑
+			TerraFireball: 火球
+			TerraLightningOrb: 闪电珠
+			TerraLightningOrb2: 闪电珠
+			TerraLightningOrbDeathray: 闪电致命光
+			TimberAcorn: 橡实
+			TimberHook: 松鼠钩
+			TimberHook2: 松鼠钩
+			TimberJumpMark: 森林爆炸
+			TimberLaser: 激光
+			TimberLightningOrb: 闪电珠
+			TimerPalmTree: 棕榈树
+			TimberSnowball: 雪球
+			TimberSnowball2: 雪球
+			TimberTree: 树
+			TimberTreeAcorn: 橡实
+			WillBomb: 意志英灵炸弹
+			WillDeathray: 意志致命光
+			WillDeathray2: 意志致命光
+			WillDeathraySmall: 意志致命光
+			WillFireball: 火球
+			WireFireball2: 火球
+			WillJavelin: 标枪
+			WillJavelin2: 标枪
+			WillJavelin3: 标枪
+			WillRitual: 意志空间边缘
+			WillShell: 意志外壳
+			WillTyphoon: 意志台风
 			
 			// == Critters ==
 			TopHatSquirrelLaser: 松鼠审判
@@ -694,6 +778,66 @@ Mods: {
 			FusedExplosion: 导火线爆炸
 			GelicWingSpike: 水晶尖刺
 			GoblinSpikyBall: 尖球
+			GoldenShowerHoming: 黄金雨
+			GoldenShowerWOF: 黄金雨
+			GolemBoulder: 巨石
+			GolemDeathraySmall: 烈焰致命光
+			GolemFireball: 火球
+			GolemGeyser: 喷泉
+			GolemGeyser2: 喷泉
+			GolemSpikeBallBig: 尖球
+			GolemSpikyBall: 尖球
+			GuardianDeathraySmall: 暗影致命光
+			HoneyDrop: 蜂蜜滴
+			HorsemansBlade: 无头骑士剑
+			HostileHealingHeart: 敌方治疗爱心
+			JungleTentacle: 丛林触手
+			LightBall: 光球
+			LihzahrdBoulderFriendly: 巨石
+			LunarRitual: 月亮仪式
+			MimicCoin: 钱币
+			MoonLordFireball: 火球
+			MoonLordMoon: 月亮
+			MoonLordMoonBlast: 月光爆炸
+			MoonLordNebulaBlaze: 星云烈焰
+			MoonLordNebulaBlaze2: 星云烈焰
+			MoonLordSun: 太阳
+			MoonLordSunBlast: 太阳爆炸
+			MoonLordVortex: 星旋旋涡
+			MoonLordVortexOld: 星旋旋涡
+			MothDust: 蛾尘
+			MothronZenith: 天顶剑
+			PhantasmalBolt2: 幻影矢
+			PhantasmalSphereDeathray: 幻影致命光
+			PhantasmalSphereRing: 幻影球
+			PlanteraCrystalLeafRing: 叶状水晶
+			PlanteraTentacle: 植物触手
+			PrimeGuardian: 机械地牢守卫
+			PrimeTrail: 轨迹
+			PumpkingFlamingScythe: 烈焰镰刀
+			QueenFlocko: 超级雪花怪
+			RainbowSlimeSpike: 彩虹史莱姆尖刺
+			RazorbaldeTyphoon: 利刃台风
+			RazorbaldeTyphoon2: 利刃台风
+			ShadowflamePortal: 暗影焰传送门
+			ShadowflameTentacle: 暗影焰触手
+			SkeletonArcherArrow: 毒液箭
+			SkeletronBone: 骨头
+			SkeletronGuardian: 宝宝守卫
+			SkeletronGuardian2: 宝宝守卫
+			SlimeBallHostile: 粘液球
+			SlimeSpike: 史莱姆尖刺
+			SlimeSpike2: 史莱姆尖刺
+			SniperBullet: 高速水晶子弹
+			SniperBulletShard: 高速水晶子弹
+			StardustRain: 宇宙入侵怪仆从
+			TargetingReticle: 瞄准点
+			TorchGodFlame: 火把神
+			VenomSpit: 毒唾沫
+			VultureFeather: 秃鹰羽毛
+			WOFBlast: 神圣爆炸
+			WOFChain: 饿鬼
+			WOFReticle: 血肉墙瞄准点
 		}
 
 		Message: {
