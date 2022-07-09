@@ -458,9 +458,9 @@ Mods: {
 			AbomFrostWave: 寒霜波
 			AbomLaser: 激光
 			AbomReticle: 憎恶瞄准点
-			AbomRitual: 憎恶空间边缘
-			AbomRitual2: 憎恶空间边缘
-			AbomRitualMaso: 憎恶空间边缘
+			AbomRitual: 憎恶结界
+			AbomRitual2: 憎恶结界
+			AbomRitualMaso: 憎恶结界
 			AbomRocket: 火箭
 			AbomScytheFlaming: 憎恶镰刀
 			AbomScytheSpin: 憎恶镰刀
@@ -598,7 +598,7 @@ Mods: {
 			CosmosMoon: 宇宙之月
 			CosmosNebulaBlaze: 星云烈焰
 			CosmosReticle: 宇宙瞄准点
-			CosmosRitual: 宇宙空间边缘
+			CosmosRitual: 宇宙结界
 			CosmicSphere: 宇宙球
 			CosmosVortex: 星旋旋涡
 			CrystalBomb: 水晶炸弹
@@ -613,7 +613,7 @@ Mods: {
 			LifeDeathraySmall: 神圣致命光
 			LifeDeathraySmall2: 神圣致命光
 			LifeFireball: 火球
-			LifeRitual: 生命英灵空间边缘
+			LifeRitual: 生命结界
 			NatureBullet: 自然子弹
 			NatureCloudMoving: 自然雨云
 			NatureCloudRaining: 自然雨云
@@ -660,7 +660,7 @@ Mods: {
 			WillJavelin: 标枪
 			WillJavelin2: 标枪
 			WillJavelin3: 标枪
-			WillRitual: 意志空间边缘
+			WillRitual: 意志结界
 			WillShell: 意志外壳
 			WillTyphoon: 意志台风
 			
@@ -701,8 +701,8 @@ Mods: {
 			DeviRainHeart: 假心
 			DeviRainHeart2: 假心
 			DeviRingHeart: 能量爱心
-			DeviRitual: 戴薇安空间边缘
-			DeviRitual2: 戴薇安空间边缘
+			DeviRitual: 戴薇安结界
+			DeviRitual2: 戴薇安结界
 			DeviSparklingLove: 闪闪发光的爱
 			DeviSparklingLoveSmall: 闪闪发光的爱
 			DeviVisualHeart: 假心
