@@ -43,7 +43,7 @@ Mods: {
 				召唤会向周围的敌怪发射激光的幻影眼球
 				召唤幽灵憎恶与你一同战斗
 				你的攻击会造成地狱火和噬神者减益
-				你复活时会发射出巨大的幻影致命光射线
+				你复活时会发射出巨大的幻影死亡射线
 				增加20%武器使用速度
 				'''
 		}
@@ -294,7 +294,7 @@ Mods: {
 		BuffDescription: {
 
 			BetsyDash: '''不受敌怪攻击的影响'''
-			MutantRebirth: '''复活致命光蓄力中'''
+			MutantRebirth: '''复活死亡射线蓄力中'''
 
 			// == BossDebuffs ==
 			
@@ -426,7 +426,7 @@ Mods: {
 			ExplosionSmall: 爆炸
 			GalacticReformerProj: 核弹
 			GeyserFriendly: 喷泉
-			GiantDeathray: 幻影致命光
+			GiantDeathray: 幻影死亡射线
 			GlowLine: 预警光线
 			GlowRing: 预警光环
 			GlowRingHallow: 预警光环
@@ -446,10 +446,10 @@ Mods: {
 			// == AbomBoss ==
 			AbomBlast: 幻象爆炸
 			AbomBoss: 憎恶
-			AbomDeathray: 憎恶致命光
-			AbomDeathrayMark: 致命光
-			AbomDeathraySmall: 憎恶致命光
-			AbomDeathraySmall2: 致命光
+			AbomDeathray: 憎恶死亡射线
+			AbomDeathrayMark: 死亡射线
+			AbomDeathraySmall: 憎恶死亡射线
+			AbomDeathraySmall2: 死亡射线
 			AbomDeathScythe: 憎恶镰刀
 			AbomFlocko: 超级雪花怪
 			AbomFlocko2: 超级雪花怪
@@ -458,9 +458,9 @@ Mods: {
 			AbomFrostWave: 寒霜波
 			AbomLaser: 激光
 			AbomReticle: 憎恶瞄准点
-			AbomRitual: 憎恶空间边缘
-			AbomRitual2: 憎恶空间边缘
-			AbomRitualMaso: 憎恶空间边缘
+			AbomRitual: 憎恶结界
+			AbomRitual2: 憎恶结界
+			AbomRitualMaso: 憎恶结界
 			AbomRocket: 火箭
 			AbomScytheFlaming: 憎恶镰刀
 			AbomScytheSpin: 憎恶镰刀
@@ -511,10 +511,10 @@ Mods: {
 			HentaiNuke: 幻象爆炸
 			HentaiSpear: 洞察者
 			HentaiSpearArc: 电弧
-			HentaiSpearBigDeathray: 幻影致命光
+			HentaiSpearBigDeathray: 幻影死亡射线
 			HentaiSpearDash: 洞察者
-			HentaiSpearDeathray: 幻影致命光
-			HentaiSpearDeathray2: 幻影致命光
+			HentaiSpearDeathray: 幻影死亡射线
+			HentaiSpearDeathray2: 幻影死亡射线
 			HentaiSpearDive: 洞察者
 			HentaiSpearHeld: 洞察者
 			HentaiSpearSpin: 洞察者
@@ -535,11 +535,11 @@ Mods: {
 			PhantasmalEyeLeashProj: 幻影眼
 			PhantasmalFlail: 幻影克苏鲁连枷
 			PhantasmalSphere2: 幻影球
-			PrimeDeathray: 烈焰致命光
+			PrimeDeathray: 烈焰死亡射线
 			PrimeLaser: 机械激光
 			RazorbladeTyphoonFriendly: 利刃台风
 			RefractorBlaster2Held: 衍射暗星炮
-			RetiDeathray: 烈焰致命光
+			RetiDeathray: 烈焰死亡射线
 			Retiglaive: 激光飞轮刃
 			Retirang: 激光回旋镖
 			SlimeBall: 粘液球
@@ -585,8 +585,8 @@ Mods: {
 			ChampionBee: 蜜蜂
 			ChampionBeetle: 甲虫
 			CosmosBolt: 宇宙矢
-			CosmosDeathray: 宇宙致命光
-			CosmosDeathray2: 宇宙致命光
+			CosmosDeathray: 宇宙死亡射线
+			CosmosDeathray2: 宇宙死亡射线
 			CosmosFireball: 宇宙火球
 			CosmicFireball2: 宇宙火球
 			CosmosGlowything: 宇宙入侵怪仆从
@@ -598,7 +598,7 @@ Mods: {
 			CosmosMoon: 宇宙之月
 			CosmosNebulaBlaze: 星云烈焰
 			CosmosReticle: 宇宙瞄准点
-			CosmosRitual: 宇宙空间边缘
+			CosmosRitual: 宇宙结界
 			CosmicSphere: 宇宙球
 			CosmosVortex: 星旋旋涡
 			CrystalBomb: 水晶炸弹
@@ -608,24 +608,24 @@ Mods: {
 			EarthGeyser: 喷泉
 			EatrhPalladOrb: 钯金治疗珠
 			FlowerPetal: 花瓣
-			LifeDeathray: 神圣致命光
-			LifeDeathray2: 神圣致命光
-			LifeDeathraySmall: 神圣致命光
-			LifeDeathraySmall2: 神圣致命光
+			LifeDeathray: 神圣死亡射线
+			LifeDeathray2: 神圣死亡射线
+			LifeDeathraySmall: 神圣死亡射线
+			LifeDeathraySmall2: 神圣死亡射线
 			LifeFireball: 火球
-			LifeRitual: 生命英灵空间边缘
+			LifeRitual: 生命结界
 			NatureBullet: 自然子弹
 			NatureCloudMoving: 自然雨云
 			NatureCloudRaining: 自然雨云
 			NatureCrystalLeaf: 叶状水晶
-			NatureDeathray: 自然致命光
-			NatureDeathraySmall: 自然致命光
+			NatureDeathray: 自然死亡射线
+			NatureDeathraySmall: 自然死亡射线
 			NatureExplosion: 自然爆炸
 			NatureFireball: 火球
 			NatureIcicle: 自然冰锥
 			NatureRain: 自然之雨
 			ShadowClone: 暗影英灵
-			ShadowDeathraySmall: 暗影致命光
+			ShadowDeathraySmall: 暗影死亡射线
 			ShadowFlameburst: 爆炸烈焰
 			ShadowFlamingScythe: 烈焰镰刀
 			ShadowGuardian: 地牢守卫
@@ -639,7 +639,7 @@ Mods: {
 			TerraFireball: 火球
 			TerraLightningOrb: 闪电珠
 			TerraLightningOrb2: 闪电珠
-			TerraLightningOrbDeathray: 闪电致命光
+			TerraLightningOrbDeathray: 闪电死亡射线
 			TimberAcorn: 橡实
 			TimberHook: 松鼠钩
 			TimberHook2: 松鼠钩
@@ -652,15 +652,15 @@ Mods: {
 			TimberTree: 树
 			TimberTreeAcorn: 橡实
 			WillBomb: 意志英灵炸弹
-			WillDeathray: 意志致命光
-			WillDeathray2: 意志致命光
-			WillDeathraySmall: 意志致命光
+			WillDeathray: 意志死亡射线
+			WillDeathray2: 意志死亡射线
+			WillDeathraySmall: 意志死亡射线
 			WillFireball: 火球
 			WireFireball2: 火球
 			WillJavelin: 标枪
 			WillJavelin2: 标枪
 			WillJavelin3: 标枪
-			WillRitual: 意志空间边缘
+			WillRitual: 意志结界
 			WillShell: 意志外壳
 			WillTyphoon: 意志台风
 			
@@ -669,19 +669,19 @@ Mods: {
 			TopHatSquirrelProj: 高顶礼帽松鼠
 
 			// == Deathrays ==
-			ChainDeathrayWOFS: 神圣致命光
-			CursedDeathrayWOFS: 诅咒致命光
+			ChainDeathrayWOFS: 神圣死亡射线
+			CursedDeathrayWOFS: 诅咒死亡射线
 			DeerclopsDeathray: 冰冻光束
 			DeviBigDeathray: 爱之光
 			DeviDeathray: 爱之光
 			DeviDeathraySmall: 爱之光
 			DeviLightBeam: 光束
-			GolemBeam: 烈焰致命光
-			PhantasmalDeathray: 烈焰致命光
-			PhantasmalDeathrayML: 幻影致命光II型
-			PhantasmalDeathrayMLSmall: 幻影致命光II型
-			PhantasmalDeathrayWOF: 神圣致命光
-			PhantasmalDeathrayWOFS: 神圣致命光
+			GolemBeam: 烈焰死亡射线
+			PhantasmalDeathray: 烈焰死亡射线
+			PhantasmalDeathrayML: 幻影死亡射线II型
+			PhantasmalDeathrayMLSmall: 幻影死亡射线II型
+			PhantasmalDeathrayWOF: 神圣死亡射线
+			PhantasmalDeathrayWOFS: 神圣死亡射线
 
 			// == DeviBoss ==
 			DeviAxe: 闪闪发光的爱
@@ -701,8 +701,8 @@ Mods: {
 			DeviRainHeart: 假心
 			DeviRainHeart2: 假心
 			DeviRingHeart: 能量爱心
-			DeviRitual: 戴薇安空间边缘
-			DeviRitual2: 戴薇安空间边缘
+			DeviRitual: 戴薇安结界
+			DeviRitual2: 戴薇安结界
 			DeviSparklingLove: 闪闪发光的爱
 			DeviSparklingLoveSmall: 闪闪发光的爱
 			DeviVisualHeart: 假心
@@ -781,13 +781,13 @@ Mods: {
 			GoldenShowerHoming: 黄金雨
 			GoldenShowerWOF: 黄金雨
 			GolemBoulder: 巨石
-			GolemDeathraySmall: 烈焰致命光
+			GolemDeathraySmall: 烈焰死亡射线
 			GolemFireball: 火球
 			GolemGeyser: 喷泉
 			GolemGeyser2: 喷泉
 			GolemSpikeBallBig: 尖球
 			GolemSpikyBall: 尖球
-			GuardianDeathraySmall: 暗影致命光
+			GuardianDeathraySmall: 暗影死亡射线
 			HoneyDrop: 蜂蜜滴
 			HorsemansBlade: 无头骑士剑
 			HostileHealingHeart: 敌方治疗爱心
@@ -808,7 +808,7 @@ Mods: {
 			MothDust: 蛾尘
 			MothronZenith: 天顶剑
 			PhantasmalBolt2: 幻影矢
-			PhantasmalSphereDeathray: 幻影致命光
+			PhantasmalSphereDeathray: 幻影死亡射线
 			PhantasmalSphereRing: 幻影球
 			PlanteraCrystalLeafRing: 叶状水晶
 			PlanteraTentacle: 植物触手
@@ -838,6 +838,79 @@ Mods: {
 			WOFBlast: 神圣爆炸
 			WOFChain: 饿鬼
 			WOFReticle: 血肉墙瞄准点
+
+			// == Minions ==
+			AbomMinion: 憎恶
+			AbomMinionScythe: 憎恶镰刀
+			AbomMinionSickle: 憎恶镰刀
+			BigBrainIllusion: 克苏鲁大脑
+			BigBrainProj: 克苏鲁大脑
+			BrainMinion: 克苏鲁之脑
+			CreeperMinion: 飞眼怪
+			CrystalSkull: 水晶头骨
+			DarkStarHomingFriendly: 暗星
+			DestroyerBody: 毁灭者身体
+			DestroyerBody2: 毁灭者身体
+			DestroyerHead: 毁灭者头
+			DestroyerHead2: 毁灭者头
+			DestroyerTail: 毁灭者尾
+			DestroyerTail2: 毁灭者尾
+			EaterBody: 吞噬者身体
+			EaterHead: 吞噬者头
+			EaterTail: 吞噬者尾
+			EridanusBullet: 厄里达诺斯之能量弹
+			EridanusDeathray: 厄里达诺斯之死亡射线
+			EridanusFist: 厄里达诺斯之拳
+			EridanusMinion: 厄里达诺斯
+			EridanusRitual: 月之仪式
+			FlameburstMinion: 爆炸烈焰仆从
+			FriendRay: 爱心射线
+			FrostShard: 寒霜碎块
+			FrostWave: 寒霜波
+			HallowSword: 泰拉棱镜
+			KamikazeSquirrel: 神风松鼠
+			LunarCultist: 拜月教邪教徒
+			LunarCultistFireball: 火球
+			LunarCultistIceMist: 冰雪雾
+			LunarCultistIceSpike: 冰雪尖刺
+			LunarCultistLight: 远古光明妖
+			LunarCultistLightningArc: 闪电珠弧
+			LunarCultistLightningOrb: 闪电珠
+			MiniSaucer: 迷你飞碟
+			OpticFlame: 魔眼烈火
+			OpticLaser: 死亡激光
+			OpticRetinazer: 激光眼
+			OpticSpazmatism: 魔焰眼
+			PalmTreeSentry: 棕榈树
+			PhantasmalBoltTrueEye: 幻影矢
+			PhantasmalDeathrayPungent: 神圣死亡射线
+			PhantasmalDeathrayTrueEye: 幻影死亡射线
+			PhantasmalRing: 幻影之环
+			PhantasmalRing2: 幻影之环
+			PhantasmalSphereTrueEye: 幻影球
+			PlanterasChild: 世纪之花的孩子
+			PoisonSeedPlanterasChild: 毒种子
+			Probe1: 探测怪
+			Probe2: 探测怪
+			ProbeLaser: 迷你激光
+			PungentEyeball: 尖刻眼球
+			RainbowSlime: 彩虹史莱姆宝宝
+			RainbowSlimeSpikeFriendly: 彩虹史莱姆尖刺
+			RingDeathray: 幻影死亡射线
+			SaucerDeathray: 飞碟死亡射线
+			SaucerLaser: 激光
+			SaucerRocket: 火箭
+			SeedPlanterasChild: 种子
+			ShadowflamesFriendly: 暗影焰
+			SilverSword: 银剑
+			SkeletronArmL: 骷髅王之手
+			SkeletronArmR: 骷髅王之手
+			SpikyBallPlanterasChild: 刺球
+			SuperFlocko: 超级雪花怪
+			TrueEyeL: 克苏鲁真眼
+			TrueEyeR: 克苏鲁真眼
+			TrueEyeS: 克苏鲁真眼
+
 		}
 
 		Message: {
@@ -1196,7 +1269,7 @@ Mods: {
 			MutantArmorHeader: 真·突变体套装
 			MasoAbomConfig: 幽灵憎恶
 			MasoRingConfig: 幻影球仆从
-			MasoReviveDeathrayConfig: 复活致命光
+			MasoReviveDeathrayConfig: 复活死亡射线
 
 
 			UniverseHeader: "{$Mods.FargowiltasSouls.ItemName.UniverseSoul}"
