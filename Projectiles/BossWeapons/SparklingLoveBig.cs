@@ -145,12 +145,47 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void Kill(int timeleft)
         {
             if (!Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
+                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 60;
 
             MakeDust();
 
-            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
-            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            for (int i = -1; i <= 1; i += 2)
+            {
+                for (int j = 0; j < 50; j++)
+                {
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.Smoke, i * 3f, 0f, 50, default, 3f);
+                    Main.dust[d].noGravity = Main.rand.NextBool();
+                    Main.dust[d].velocity *= Main.rand.NextFloat(3f);
+                }
+
+                for (int j = 0; j < 15; j++)
+                {
+                    int gore = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, default(Vector2), Main.rand.Next(61, 64));
+                    Main.gore[gore].velocity.X += j / 3f * i;
+                    Main.gore[gore].velocity.Y += Main.rand.NextFloat(2f);
+                }
+            }
+
+            for (int j = 0; j < 15; j++)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.Smoke, 0, 0f, 50, default, 4f);
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.Y -= 3f;
+                    Main.dust[d].velocity *= Main.rand.NextFloat(3f);
+                }
+
+                if (Main.rand.NextBool(3))
+                {
+                    int gore = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, default(Vector2), Main.rand.Next(61, 64), 0.5f);
+                    Main.gore[gore].velocity.Y -= 3f;
+                    Main.gore[gore].velocity *= Main.rand.NextFloat(2f);
+                }
+            }
+
+            SoundEngine.PlaySound(SoundID.NPCDeath6 with { Volume = 1.5f }, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92 with { Volume = 1.5f }, Projectile.Center);
 
             if (Projectile.owner == Main.myPlayer)
             {

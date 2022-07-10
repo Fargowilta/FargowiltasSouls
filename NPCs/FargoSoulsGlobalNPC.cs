@@ -2,6 +2,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Weapons.BossDrops;
 using FargowiltasSouls.Items.Weapons.Misc;
 using FargowiltasSouls.Projectiles.Masomode;
@@ -70,6 +71,8 @@ namespace FargowiltasSouls.NPCs
 
         public bool PungentGazeWasApplied;
         public int PungentGazeTime;
+
+        public int GrazeCD;
 
         //        public static bool Revengeance => CalamityMod.World.CalamityWorld.revenge;
 
@@ -234,7 +237,7 @@ namespace FargowiltasSouls.NPCs
             return retval;
         }
 
-        public override void AI(NPC npc)
+        public override void PostAI(NPC npc)
         {
             if (BrokenArmor)
             {
@@ -252,6 +255,31 @@ namespace FargowiltasSouls.NPCs
             SuffocationTimer += Suffocation ? 1 : -3;
             if (SuffocationTimer < 0)
                 SuffocationTimer = 0;
+
+            if (!npc.friendly && npc.damage > 0
+                && Main.LocalPlayer.active && !Main.LocalPlayer.dead)
+            {
+                if (--GrazeCD < 0) //managed by the npc itself so worm segments dont make it count down faster
+                    GrazeCD = 6;
+
+                NPC realLifeNPC = FargoSoulsUtil.NPCExists(npc.realLife);
+                FargoSoulsGlobalNPC npcForGrazeCD = realLifeNPC is NPC ? realLifeNPC.GetGlobalNPC<FargoSoulsGlobalNPC>() : npc.GetGlobalNPC<FargoSoulsGlobalNPC>();
+
+                if (npcForGrazeCD.GrazeCD == 0)
+                {
+                    FargoSoulsPlayer fargoPlayer = Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>();
+                    if (fargoPlayer.Graze && !Main.LocalPlayer.immune && Main.LocalPlayer.hurtCooldowns[0] <= 0 && Main.LocalPlayer.hurtCooldowns[1] <= 0)
+                    {
+                        Vector2 point = FargoSoulsUtil.ClosestPointInHitbox(npc.Hitbox, Main.LocalPlayer.Center);
+                        if (Main.LocalPlayer.Distance(point) < fargoPlayer.GrazeRadius && (npc.noTileCollide || Collision.CanHitLine(point, 0, 0, Main.LocalPlayer.Center, 0, 0)))
+                        {
+                            npcForGrazeCD.GrazeCD = 30;
+
+                            SparklingAdoration.OnGraze(fargoPlayer, npc.damage);
+                        }
+                    }
+                }
+            }
         }
 
         public override void DrawEffects(NPC npc, ref Color drawColor)

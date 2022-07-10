@@ -37,8 +37,10 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
 
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 30;
+            Projectile.localNPCHitCooldown = 0;
         }
+
+        public override bool? CanDamage() => Projectile.timeLeft < 5;
 
         public override void AI()
         {
@@ -127,8 +129,6 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
         }
 
-        public override bool? CanDamage() => Projectile.timeLeft < 5;
-
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             if (Projectile.timeLeft < 15)
@@ -182,8 +182,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
             }
 
-            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
-            SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.NPCDeath6 with { Volume = 1.5f }, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item92 with { Volume = 1.5f }, Projectile.Center);
 
             if (Projectile.owner == Main.myPlayer)
             {

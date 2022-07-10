@@ -2793,7 +2793,7 @@ namespace FargowiltasSouls
                 int heartsToConsume = NekomiMeter / meterPerHeart;
                 if (heartsToConsume > heartsLost)
                     heartsToConsume = heartsLost;
-                Player.AddBuff(BuffID.RapidHealing, heartsToConsume * 60 * 5);
+                Player.AddBuff(BuffID.RapidHealing, heartsToConsume * 60 * 5 / heartsLost);
 
                 NekomiMeter -= meterLost;
                 if (NekomiMeter < 0)

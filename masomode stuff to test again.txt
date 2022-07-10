@@ -35,3 +35,10 @@ updated eow gores and icon
 update prime and gores
 emode recolors off wont override texture packs? turn off emode recolors to get texture pack textures, test this
 added nekomi armor
+
+sparkling adoration can graze enemies
+nekomi
+	hearts begin wearing off and despawning MUCH faster
+	nerfed meter gain in general
+	axe does its previous damage across 4 hits instead
+fixed qs minions being immune to knockback

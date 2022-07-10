@@ -1042,59 +1042,21 @@ namespace FargowiltasSouls.Projectiles
             }
 
             //graze
-            if (projectile.hostile && projectile.damage > 0 
-                && Main.LocalPlayer.active && !Main.LocalPlayer.dead)
+            if (projectile.hostile && projectile.damage > 0 && --GrazeCD < 0)
             {
-                FargoSoulsPlayer fargoPlayer = Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>();
-                if (fargoPlayer.Graze && --GrazeCD < 0 && !Main.LocalPlayer.immune && Main.LocalPlayer.hurtCooldowns[0] <= 0 && Main.LocalPlayer.hurtCooldowns[1] <= 0)
+                GrazeCD = 6; //don't check per tick ech
+
+                if (Main.LocalPlayer.active && !Main.LocalPlayer.dead)
                 {
-                    if (ProjectileLoader.CanDamage(projectile) != false && ProjectileLoader.CanHitPlayer(projectile, Main.LocalPlayer) && GrazeCheck(projectile))
+                    FargoSoulsPlayer fargoPlayer = Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>();
+                    if (fargoPlayer.Graze && !Main.LocalPlayer.immune && Main.LocalPlayer.hurtCooldowns[0] <= 0 && Main.LocalPlayer.hurtCooldowns[1] <= 0)
                     {
-                        double grazeCap = 0.25;
-                        if (fargoPlayer.MutantEyeItem != null)
-                            grazeCap += 0.25;
-
-                        double grazeGain = 0.0125;
-                        if (fargoPlayer.AbomWandItem != null)
-                            grazeGain *= 2;
-
-                        GrazeCD = 30 * projectile.MaxUpdates;
-                        fargoPlayer.GrazeBonus += grazeGain;
-                        if (fargoPlayer.GrazeBonus > grazeCap)
+                        if (ProjectileLoader.CanDamage(projectile) != false && ProjectileLoader.CanHitPlayer(projectile, Main.LocalPlayer) && GrazeCheck(projectile))
                         {
-                            fargoPlayer.GrazeBonus = grazeCap;
-                            if (fargoPlayer.StyxSet)
-                                fargoPlayer.StyxMeter += FargoSoulsUtil.HighestDamageTypeScaling(Main.LocalPlayer, projectile.damage * 4) * 5; //as if gaining the projectile's damage, times SOU crit
-                        }
-                        fargoPlayer.GrazeCounter = -1; //reset counter whenever successful graze
+                            GrazeCD = 30 * projectile.MaxUpdates;
 
-                        if (fargoPlayer.NekomiSet)
-                        {
-                            fargoPlayer.NekomiTimer = Math.Clamp(fargoPlayer.NekomiTimer + 60, 0, 420 * 2);
+                            SparklingAdoration.OnGraze(fargoPlayer, projectile.damage * 4);
                         }
-
-                        if (!Main.dedServ)
-                        {
-                            SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Graze") { Volume = 0.5f }, Main.LocalPlayer.Center);
-                        }
-
-                        Vector2 baseVel = Vector2.UnitX.RotatedByRandom(2 * Math.PI);
-                        const int max = 64; //make some indicator dusts
-                        for (int i = 0; i < max; i++)
-                        {
-                            Vector2 vector6 = baseVel * 3f;
-                            vector6 = vector6.RotatedBy((i - (max / 2 - 1)) * 6.28318548f / max) + Main.LocalPlayer.Center;
-                            Vector2 vector7 = vector6 - Main.LocalPlayer.Center;
-                            //changes color when bonus is maxed
-                            int d = Dust.NewDust(vector6 + vector7, 0, 0, fargoPlayer.GrazeBonus >= grazeCap ? 86 : 228, 0f, 0f, 0, default(Color));
-                            Main.dust[d].scale = fargoPlayer.GrazeBonus >= grazeCap ? 1f : 0.75f;
-                            Main.dust[d].noGravity = true;
-                            Main.dust[d].velocity = vector7;
-                        }
-                    }
-                    else
-                    {
-                        GrazeCD = 6; //don't check per tick ech
                     }
                 }
             }

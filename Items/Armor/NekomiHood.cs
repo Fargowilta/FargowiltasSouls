@@ -57,22 +57,24 @@ namespace FargowiltasSouls.Items.Armor
             fargoPlayer.NekomiSet = true;
             fargoPlayer.GrazeRadius *= 1.5f;
 
+            const int decayTime = 420 / 2;
             if (fargoPlayer.NekomiTimer > 0)
             {
-                int increment = fargoPlayer.NekomiTimer / 60 + 1;
+                const int bonusSpeedPoint = 90;
+                int increment = fargoPlayer.NekomiTimer / bonusSpeedPoint + 1;
                 fargoPlayer.NekomiTimer -= increment;
                 fargoPlayer.NekomiMeter += increment;
 
                 if (fargoPlayer.NekomiMeter > MAX_METER)
                     fargoPlayer.NekomiMeter = MAX_METER;
             }
-            else if (--fargoPlayer.NekomiTimer < -420)
+            else if (--fargoPlayer.NekomiTimer < -decayTime)
             {
-                if (fargoPlayer.NekomiTimer < -420 * 2)
-                    fargoPlayer.NekomiTimer = -420 * 2;
+                if (fargoPlayer.NekomiTimer < -decayTime * 2)
+                    fargoPlayer.NekomiTimer = -decayTime * 2;
 
-                int depreciation = -420 - fargoPlayer.NekomiTimer; //starts at 0
-                fargoPlayer.NekomiMeter -= (int)MathHelper.Lerp(1, MAX_METER / 420, depreciation / 420f);
+                int depreciation = -decayTime - fargoPlayer.NekomiTimer;
+                fargoPlayer.NekomiMeter -= (int)MathHelper.Lerp(1, MAX_METER / decayTime, depreciation / decayTime);
                 if (fargoPlayer.NekomiMeter < 0)
                     fargoPlayer.NekomiMeter = 0;
             }
@@ -92,8 +94,8 @@ namespace FargowiltasSouls.Items.Armor
                     bool superAttack = fargoPlayer.NekomiMeter >= MAX_METER;
                     if (superAttack)
                     {
-                        int baseDamage = 2222;
-                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 3f, player.whoAmI);
+                        int baseDamage = 2222 / 4;
+                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);
                         SoundEngine.PlaySound(SoundID.Item43, player.Center);
                         fargoPlayer.NekomiMeter = 0;
                     }
