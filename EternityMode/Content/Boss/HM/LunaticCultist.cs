@@ -50,7 +50,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         {
             base.SetDefaults(npc);
 
-            npc.lifeMax = (int)(npc.lifeMax * (FargoSoulsWorld.MasochistModeReal ? 2 : 1.5));
+            npc.lifeMax *= 2;
         }
 
         public override void OnFirstTick(NPC npc)

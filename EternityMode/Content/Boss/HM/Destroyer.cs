@@ -351,12 +351,15 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     }
                                 }
 
-                                int maxDarkStarIntervals = 3;
-                                if (npc.life < npc.lifeMax * 0.66)
+                                int maxDarkStarIntervals = 4;
+                                if (npc.life < npc.lifeMax * 0.75)
                                     maxDarkStarIntervals = 5;
-                                if (npc.life < npc.lifeMax * 0.33)
+                                if (npc.life < npc.lifeMax * 0.5)
+                                    maxDarkStarIntervals = 6;
+                                if (npc.life < npc.lifeMax * 0.25)
                                     maxDarkStarIntervals = 7;
-                                const int darkStarPause = 60;
+
+                                const int darkStarPause = 50;
                                 int upperDarkStarTime = darkStarThreshold + maxDarkStarIntervals * darkStarPause;
                                 if (AttackModeTimer == darkStarThreshold)
                                     SecondaryAttackTimer = 0;
@@ -364,8 +367,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 {
                                     if (FargoSoulsWorld.MasochistModeReal)
                                     {
-                                        num15 /= 2f;
-                                        num16 /= 2f;
+                                        num15 *= 0.75f;
+                                        num16 *= 0.75f;
                                     }
                                     else
                                     {
@@ -407,8 +410,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                                         double maxStarModifier = 0.5 + 0.5 * Math.Sin(MathHelper.Pi / (maxDarkStarIntervals - 1) * SecondaryAttackTimer++);
                                         int maxStarsInOneWave = (int)(maxStarModifier * (8.0 - 7.0 * npc.life / npc.lifeMax));
-                                        if (maxStarsInOneWave > 5)
-                                            maxStarsInOneWave = 5;
+                                        if (maxStarsInOneWave > 6)
+                                            maxStarsInOneWave = 6;
                                         //Main.NewText($"{Counter3} {maxStarModifier} {maxStarsInOneWave} {maxDarkStarIntervals}");
                                         for (int i = -maxStarsInOneWave; i <= maxStarsInOneWave; i++)
                                         {
@@ -461,12 +464,15 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     }
                                     else
                                     {
-                                        if (maxSpeed > 4)
+                                        if (FargoSoulsWorld.MasochistModeReal)
+                                            maxSpeed /= 2;
+                                        else if (maxSpeed > 4)
                                             maxSpeed = 4;
+
                                         if (npc.velocity.Length() > maxSpeed)
                                             npc.velocity *= 0.986f;
 
-                                        int turnModifier = FargoSoulsWorld.MasochistModeReal ? 2 : 15;
+                                        float turnModifier = FargoSoulsWorld.MasochistModeReal ? 1.5f : 15f;
                                         num15 /= turnModifier; //garbage turning
                                         num16 /= turnModifier;
 
@@ -503,7 +509,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                                         }
                                                     }
                                                 }
-                                                if (Main.rand.NextBool(3))
+
+                                                flip = !flip;
+                                                if (Main.rand.NextBool(5))
                                                     flip = !flip;
                                             }
                                         }
@@ -836,8 +844,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         Vector2 distance = Main.player[npc.target].Center - npc.Center;
 
                         float modifier = 28f * (1f - (float)Main.npc[npc.realLife].life / Main.npc[npc.realLife].lifeMax);
-                        if (modifier < 7)
-                            modifier = 7;
+                        if (modifier < 12)
+                            modifier = 12;
 
                         int delay = (int)(distance.Length() / modifier) / 2;
                         if (delay < 0)
@@ -977,6 +985,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             bool result = base.PreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
+                return result;
+
+            if (FargoSoulsWorld.MasochistModeReal && !ShootLaser)
                 return result;
 
             if (npc.localAI[0] > 30)

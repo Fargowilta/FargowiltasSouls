@@ -1068,6 +1068,11 @@ namespace FargowiltasSouls.Projectiles
                         }
                         fargoPlayer.GrazeCounter = -1; //reset counter whenever successful graze
 
+                        if (fargoPlayer.NekomiSet)
+                        {
+                            fargoPlayer.NekomiTimer = Math.Clamp(fargoPlayer.NekomiTimer + 60, 0, 420 * 2);
+                        }
+
                         if (!Main.dedServ)
                         {
                             SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Graze") { Volume = 0.5f }, Main.LocalPlayer.Center);
@@ -1227,6 +1232,12 @@ namespace FargowiltasSouls.Projectiles
 
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)
         {
+            NPC sourceNPC = projectile.GetSourceNPC();
+            if (sourceNPC is NPC && sourceNPC.GetGlobalNPC<FargoSoulsGlobalNPC>().BloodDrinker)
+            {
+                damage = (int)Math.Round(damage * 1.3);
+            }
+
             if (squeakyToy)
             {
                 damage = 1;

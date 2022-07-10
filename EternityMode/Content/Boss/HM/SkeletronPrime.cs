@@ -601,6 +601,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     {
                         npc.ai[2] = head.ai[1] == 1 || head.ai[1] == 2 ? 0 : -90;
 
+                        if (FargoSoulsWorld.MasochistModeReal)
+                            npc.ai[2] += 60;
+
                         npc.netUpdate = true;
                     }
 

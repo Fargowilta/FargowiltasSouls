@@ -54,7 +54,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             //NPC.damage = (int)(NPC.damage * 0.5f);
-            NPC.lifeMax = (int)(NPC.lifeMax * Math.Sqrt(bossLifeScale));
+            NPC.lifeMax = (int)(NPC.lifeMax * bossLifeScale);
         }
 
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)

@@ -17,6 +17,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.BloodNautilus);
 
+        public override void OnFirstTick(NPC npc)
+        {
+            base.OnFirstTick(npc);
+
+            npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
+        }
+
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot)
         {
             if (npc.ai[0] == 1)
@@ -129,8 +136,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
                     break;
             }
 
-            //suck in and kill blood squids
-            foreach (NPC n in Main.npc.Where(n => n.active && !n.boss && n.lifeMax <= 1500 && n.life < n.lifeMax * 0.6 && npc.Distance(n.Center) < 600 && Collision.CanHitLine(n.Center, 0, 0, npc.Center, 0, 0)))
+            //suck in and kill other enemies
+            foreach (NPC n in Main.npc.Where(n => n.active && !n.boss && n.lifeMax <= 1000 && /*n.life < n.lifeMax * 0.6 &&*/ npc.Distance(n.Center) < 666 && Collision.CanHitLine(n.Center, 0, 0, npc.Center, 0, 0)))
             {
                 if (npc.Distance(n.Center) < npc.width / 4)
                 {

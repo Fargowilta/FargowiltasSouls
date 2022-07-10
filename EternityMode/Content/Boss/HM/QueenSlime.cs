@@ -97,7 +97,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     npc.ai[1] = 1f;
 
                     Vector2 target = Main.player[npc.target].Center;
-                    for (int i = 0; i < 50; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         Tile tile = Framing.GetTileSafely(target);
                         if (tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]))
@@ -175,7 +175,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 const int max = 12;
                                 for (int i = 0; i < max; i++)
                                 {
-                                    Vector2 vel = Main.rand.NextFloat(9f, 15f) * j * baseVel.RotatedBy(MathHelper.PiOver4 * 0.8f / max * i * -j);
+                                    Vector2 vel = Main.rand.NextFloat(5f, 15f) * j * baseVel.RotatedBy(MathHelper.PiOver4 * 0.8f / max * i * -j);
+                                    vel *= FargoSoulsWorld.MasochistModeReal ? 2f : 1.5f;
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ProjectileID.QueenSlimeMinionBlueSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
                                 }
                             }
@@ -443,7 +444,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 damage *= 0.8;
 
             if (GelatinSubjectDR)
-                damage *= 0.5;
+                damage *= 0.25;
 
             return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }

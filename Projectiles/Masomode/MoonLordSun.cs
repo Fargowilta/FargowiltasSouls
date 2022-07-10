@@ -74,9 +74,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override void AI()
         {
-            int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0f, 0f, 0, Color.White, 6f);
-            Main.dust[d].noGravity = true;
-            Main.dust[d].velocity *= 4f;
+            //int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0f, 0f, 0, Color.White, 6f);
+            //Main.dust[d].noGravity = true;
+            //Main.dust[d].velocity *= 4f;
 
             NPC core = FargoSoulsUtil.NPCExists(Projectile.ai[0], NPCID.MoonLordCore);
             NPC socket = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.MoonLordHand);
@@ -119,67 +119,10 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.velocity = Vector2.Normalize(Projectile.velocity) * (Projectile.velocity.Length() - Projectile.localAI[1]);
                 Projectile.alpha = 0;
             }
+
+            Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
+            Projectile.scale = Main.rand.NextFloat(0.95f, 1.05f);
         }
-
-        /*public void Dusts()
-        {
-            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
-            for (int index1 = 0; index1 < 15; ++index1)
-            {
-                int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
-                Main.dust[index2].position = new Vector2((float)(Projectile.width / 2), 0.0f).RotatedBy(6.28318548202515 * Main.rand.NextDouble(), new Vector2()) * (float)Main.rand.NextDouble() + Projectile.Center;
-            }
-            for (int index1 = 0; index1 < 50; ++index1)
-            {
-                int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0.0f, 0.0f, 0, new Color(), 2.5f);
-                Main.dust[index2].position = new Vector2((float)(Projectile.width / 2), 0.0f).RotatedBy(6.28318548202515 * Main.rand.NextDouble(), new Vector2()) * (float)Main.rand.NextDouble() + Projectile.Center;
-                Main.dust[index2].noGravity = true;
-                Dust dust1 = Main.dust[index2];
-                dust1.velocity = dust1.velocity * 1f;
-                int index3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0.0f, 0.0f, 100, new Color(), 1.5f);
-                Main.dust[index3].position = new Vector2((float)(Projectile.width / 2), 0.0f).RotatedBy(6.28318548202515 * Main.rand.NextDouble(), new Vector2()) * (float)Main.rand.NextDouble() + Projectile.Center;
-                Dust dust2 = Main.dust[index3];
-                dust2.velocity = dust2.velocity * 1f;
-                Main.dust[index3].noGravity = true;
-            }
-
-            for (int i = 0; i < 50; i++)
-            {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3f);
-                Main.dust[dust].velocity *= 1.4f;
-            }
-
-            for (int i = 0; i < 50; i++)
-            {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 3.5f);
-                Main.dust[dust].noGravity = true;
-                Main.dust[dust].velocity *= 7f;
-                dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 1.5f);
-                Main.dust[dust].velocity *= 3f;
-            }
-
-            for (int index1 = 0; index1 < 100; ++index1)
-            {
-                int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, new Color(), 2f);
-                Main.dust[index2].noGravity = true;
-                Main.dust[index2].velocity *= 21f * Projectile.scale;
-                Main.dust[index2].noLight = true;
-                int index3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, new Color(), 1f);
-                Main.dust[index3].velocity *= 12f;
-                Main.dust[index3].noGravity = true;
-                Main.dust[index3].noLight = true;
-            }
-
-            for (int i = 0; i < 100; i++)
-            {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, Main.rand.NextFloat(2f, 3.5f));
-                if (Main.rand.NextBool(3))
-                    Main.dust[d].noGravity = true;
-                Main.dust[d].velocity *= Main.rand.NextFloat(9f, 12f);
-                Main.dust[d].position = Projectile.Center;
-            }
-        }*/
-
         public override void Kill(int timeLeft)
         {
             NPC core = FargoSoulsUtil.NPCExists(Projectile.ai[0], NPCID.MoonLordCore);
@@ -221,7 +164,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return Color.White * Projectile.Opacity;
+            Color color = Color.LightYellow;
+            color.A = 0;
+            return color;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -231,27 +176,19 @@ namespace FargowiltasSouls.Projectiles.Masomode
             int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
-            Color glow = new Color(255, Main.DiscoG + 105, Main.DiscoB / 2 + 105) * Projectile.Opacity;
-            Color glow2 = new Color(255, Main.DiscoG + 25, Main.DiscoB / 2 + 25) * Projectile.Opacity;
+            Color glow = Projectile.GetAlpha(lightColor);
 
-            Main.spriteBatch.End();
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
-            {
-                Vector2 value4 = Projectile.oldPos[i];
-                float num165 = Projectile.oldRot[i];
-                Main.spriteBatch.Draw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glow2 * 0.35f, num165, origin2, Projectile.scale, SpriteEffects.None, 0);
-            }
-            Main.spriteBatch.End();
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White * Projectile.Opacity, Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
-
-            Main.spriteBatch.End();
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glow2 * 0.35f, Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
-
-            Main.spriteBatch.End();
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+            //for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
+            //{
+            //    Vector2 value4 = Projectile.oldPos[i];
+            //    float num165 = Projectile.oldRot[i];
+            //    float ratio = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+            //    Color color = glow * ratio;
+            //    float scale = Projectile.scale * ratio;
+            //    Main.spriteBatch.Draw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color, num165, origin2, scale, SpriteEffects.None, 0);
+            //}
+            Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glow * Projectile.Opacity, Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
+            Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), glow * 0.35f, Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }
     }

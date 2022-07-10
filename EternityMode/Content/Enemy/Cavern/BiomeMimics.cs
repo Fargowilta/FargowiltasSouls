@@ -113,6 +113,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
 
             target.AddBuff(BuffID.CursedInferno, 180);
         }
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            base.ModifyNPCLoot(npc, npcLoot);
+
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.CorruptFishingCrateHard));
+        }
     }
 
     public class CrimsonMimic : BiomeMimics
@@ -160,6 +167,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(BuffID.Ichor, 180);
+        }
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            base.ModifyNPCLoot(npc, npcLoot);
+
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.CrimsonFishingCrateHard));
         }
     }
 
@@ -211,6 +225,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(BuffID.Confused, 180);
+        }
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            base.ModifyNPCLoot(npc, npcLoot);
+
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.HallowedFishingCrateHard));
         }
     }
 
@@ -293,6 +314,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.JungleFishingCrateHard));
             FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ModContent.ItemType<TribalCharm>(), 5));
         }
     }

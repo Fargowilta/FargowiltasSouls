@@ -2,6 +2,7 @@
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.Projectiles.Masomode;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -48,6 +49,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<Midas>(), 600);
+        }
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            base.ModifyNPCLoot(npc, npcLoot);
+
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.GoldenCrate));
         }
 
         public override void OnKill(NPC npc)

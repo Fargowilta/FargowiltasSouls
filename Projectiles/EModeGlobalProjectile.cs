@@ -1108,10 +1108,11 @@ namespace FargowiltasSouls.Projectiles
                                 continue;
 
                             Vector2 baseVel = Vector2.UnitX.RotatedBy(MathHelper.ToRadians(10 * j));
-                            const int max = 10;
+                            const int max = 12;
                             for (int i = 0; i < max; i++)
                             {
-                                Vector2 vel = Main.rand.NextFloat(12f, 18f) * j * baseVel.RotatedBy(MathHelper.PiOver4 * 0.8f / max * i * -j);
+                                Vector2 vel = Main.rand.NextFloat(6f, 18f) * j * baseVel.RotatedBy(MathHelper.PiOver4 / max * (i + 0.5f) * -j);
+                                vel *= FargoSoulsWorld.MasochistModeReal ? 2f : 1.5f;
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     Projectile.NewProjectile(Terraria.Entity.InheritSource(projectile), projectile.Center, vel, ProjectileID.QueenSlimeMinionBlueSpike, projectile.damage, 0f, Main.myPlayer);
                             }

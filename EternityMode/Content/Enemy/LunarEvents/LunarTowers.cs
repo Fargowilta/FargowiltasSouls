@@ -32,6 +32,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
 
         public int AttackTimer;
         public int HealCounter;
+        public int AuraSync;
         public bool SpawnedDuringLunarEvent;
 
         public bool spawned;
@@ -39,6 +40,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
+                { new Ref<object>(SpawnedDuringLunarEvent), BoolStrategies.CompoundStrategy },
             };
 
         public override void OnFirstTick(NPC npc)
@@ -72,10 +74,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                     EModeGlobalNPC.Aura(npc, 5000, debuff, dustid: AuraDust);
             }
 
-            Aura(ModContent.BuffType<Atrophied>());
-            Aura(ModContent.BuffType<Jammed>());
-            Aura(ModContent.BuffType<ReverseManaFlow>());
-            Aura(ModContent.BuffType<Antisocial>());
+            if (SpawnedDuringLunarEvent)
+            {
+                Aura(ModContent.BuffType<Atrophied>());
+                Aura(ModContent.BuffType<Jammed>());
+                Aura(ModContent.BuffType<ReverseManaFlow>());
+                Aura(ModContent.BuffType<Antisocial>());
+
+                if (++AuraSync > 60)
+                {
+                    AuraSync -= 600;
+                    NetSync(npc);
+                }
+            }
 
             if (npc.dontTakeDamage)
             {

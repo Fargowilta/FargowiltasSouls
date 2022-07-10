@@ -1,0 +1,132 @@
+﻿using FargowiltasSouls.Items.Materials;
+using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.Masomode;
+using FargowiltasSouls.Projectiles.Minions;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+
+namespace FargowiltasSouls.Items.Armor
+{
+    [AutoloadEquip(EquipType.Head)]
+    public class NekomiHood : SoulsItem
+    {
+        public override void SetStaticDefaults()
+        {
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            DisplayName.SetDefault("Nekomi Hood");
+            Tooltip.SetDefault(@"Increases max number of minions by 1");
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+        }
+
+        public override void SetDefaults()
+        {
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = Item.sellPrice(0, 1, 50);
+            Item.defense = 7;
+        }
+
+        public override void UpdateEquip(Player player)
+        {
+            player.maxMinions += 1;
+        }
+
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<NekomiHoodie>() && legs.type == ModContent.ItemType<NekomiLeggings>();
+        }
+
+        public const int MAX_METER = 60 * 60;
+        public const int MAX_HEARTS = 9;
+
+        public override void UpdateArmorSet(Player player)
+        {
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Nekomi", key);
+
+            DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
+            player.GetDamage(damageClass) += 0.07f;
+            player.GetCritChance(damageClass) += 7;
+
+            FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            fargoPlayer.NekomiSet = true;
+            fargoPlayer.GrazeRadius *= 1.5f;
+
+            if (fargoPlayer.NekomiTimer > 0)
+            {
+                int increment = fargoPlayer.NekomiTimer / 60 + 1;
+                fargoPlayer.NekomiTimer -= increment;
+                fargoPlayer.NekomiMeter += increment;
+
+                if (fargoPlayer.NekomiMeter > MAX_METER)
+                    fargoPlayer.NekomiMeter = MAX_METER;
+            }
+            else if (--fargoPlayer.NekomiTimer < -420)
+            {
+                if (fargoPlayer.NekomiTimer < -420 * 2)
+                    fargoPlayer.NekomiTimer = -420 * 2;
+
+                int depreciation = -420 - fargoPlayer.NekomiTimer; //starts at 0
+                fargoPlayer.NekomiMeter -= (int)MathHelper.Lerp(1, MAX_METER / 420, depreciation / 420f);
+                if (fargoPlayer.NekomiMeter < 0)
+                    fargoPlayer.NekomiMeter = 0;
+            }
+
+            if (player.whoAmI == Main.myPlayer)
+            {
+                int ritualType = ModContent.ProjectileType<NekomiRitual>();
+                if (player.ownedProjectileCounts[ritualType] < 1)
+                    Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ritualType, 0, 0f, player.whoAmI);
+
+                bool doubleTap = Main.ReversedUpDownArmorSetBonuses
+                    ? player.controlUp && player.releaseUp && player.doubleTapCardinalTimer[1] > 0 && player.doubleTapCardinalTimer[1] != 15
+                    : player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] > 0 && player.doubleTapCardinalTimer[0] != 15;
+
+                if (doubleTap)
+                {
+                    bool superAttack = fargoPlayer.NekomiMeter >= MAX_METER;
+                    if (superAttack)
+                    {
+                        int baseDamage = 2222;
+                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 3f, player.whoAmI);
+                        SoundEngine.PlaySound(SoundID.Item43, player.Center);
+                        fargoPlayer.NekomiMeter = 0;
+                    }
+                    else
+                    {
+                        int hearts = (int)((double)fargoPlayer.NekomiMeter / MAX_METER * MAX_HEARTS);
+                        for (int i = 0; i < hearts; i++)
+                        {
+                            Vector2 offset = -150f * Vector2.UnitY.RotatedBy(MathHelper.TwoPi / hearts * i);
+                            Vector2 spawnPos = player.Center + offset;
+                            const float speed = 12;
+                            Vector2 vel = speed * player.DirectionFrom(spawnPos);
+                            int baseHeartDamage = 17;
+                            const float ai1 = 150 / speed;
+                            FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), spawnPos, vel, ModContent.ProjectileType<FriendHeart>(), baseHeartDamage, 3f, player.whoAmI, -1, ai1);
+                        }
+
+                        if (hearts > 0)
+                            fargoPlayer.NekomiMeter = 0;
+                    }
+                }
+            }
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient(ItemID.Silk, 10)
+            .AddIngredient(ItemID.Leather, 5)
+            .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 5)
+            .AddTile(TileID.Loom)
+
+            .Register();
+        }
+    }
+}

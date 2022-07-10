@@ -176,6 +176,9 @@ namespace FargowiltasSouls.EternityMode
 
         protected static void LoadSpriteBuffered(bool recolor, int type, Asset<Texture2D>[] vanillaTexture, Dictionary<int, Asset<Texture2D>> fargoBuffer, string texturePrefix)
         {
+            if (!recolor)
+                return;
+
             if (!fargoBuffer.ContainsKey(type))
                 fargoBuffer[type] = vanillaTexture[type];
 
@@ -184,6 +187,9 @@ namespace FargowiltasSouls.EternityMode
 
         protected static void LoadSpecial(bool recolor, ref Asset<Texture2D> vanillaResource, ref Asset<Texture2D> fargoSoulsBuffer, string name)
         {
+            if (!recolor)
+                return;
+
             if (fargoSoulsBuffer == null)
                 fargoSoulsBuffer = vanillaResource;
 

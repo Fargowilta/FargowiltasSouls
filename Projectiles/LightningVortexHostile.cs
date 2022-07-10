@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,6 +32,17 @@ namespace FargowiltasSouls.Projectiles
             return false;
         }
         Color DrawColor = Color.Cyan;
+
+        bool useVanillaLightning;
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+
+            if (source is EntitySource_Parent parent && parent.Entity is NPC sourceNPC && sourceNPC.type == NPCID.MoonLordCore)
+            {
+                useVanillaLightning = true;
+            }
+        }
 
         public override void AI()
         {
@@ -121,10 +133,12 @@ namespace FargowiltasSouls.Projectiles
                 {
                     Vector2 vector2_3 = 24f * (player != null && Projectile.ai[0] == 0 ? Projectile.DirectionTo(player.Center) : Projectile.ai[1].ToRotationVector2());
                     float ai1New = (Main.rand.NextBool()) ? 1 : -1; //randomize starting direction
+                    int type = useVanillaLightning ? ProjectileID.VortexLightning : ModContent.ProjectileType<HostileLightning>();
                     int p = Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, vector2_3,
-                        ModContent.ProjectileType<HostileLightning>(), Projectile.damage, Projectile.knockBack, Projectile.owner,
+                        type, Projectile.damage, Projectile.knockBack, Projectile.owner,
                         vector2_3.ToRotation(), ai1New * 0.75f);
-                    Main.projectile[p].localAI[1] = shadertype; //change projectile's ai if the recolored vortex portal is being used, so that purple ones always fire purple lightning
+                    if (p != Main.maxProjectiles && !useVanillaLightning)
+                        Main.projectile[p].localAI[1] = shadertype; //change projectile's ai if the recolored vortex portal is being used, so that purple ones always fire purple lightning
                 }
             }
             else if (Projectile.localAI[0] <= 120)

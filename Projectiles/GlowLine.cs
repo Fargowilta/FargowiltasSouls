@@ -321,12 +321,16 @@ namespace FargowiltasSouls.Projectiles
                             return;
                         }
 
-                        color = npc.ai[2] == 0 ? Color.Red : Color.Yellow;
-                        Projectile.Center = npc.Center;
-                        Projectile.rotation = Projectile.localAI[1];
-
                         if (counter == 0)
                             Projectile.localAI[0] = Main.rand.NextFloat(0.9f, 1.1f);
+
+                        color = npc.ai[2] == 0 ? Color.Red : Color.Yellow;
+                        Projectile.Center = npc.Center;
+
+                        float rotationModifier = (1f - Projectile.localAI[0]) * 10f;
+                        float maxDegreeVariance = FargoSoulsWorld.MasochistModeReal ? 60 : 30;
+                        Projectile.localAI[1] += MathHelper.ToRadians(maxDegreeVariance) * rotationModifier / maxTime;
+                        Projectile.rotation = Projectile.localAI[1];
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
@@ -453,7 +457,7 @@ namespace FargowiltasSouls.Projectiles
                 case 16: //destroyer blue laser line up true telegraph
                     {
                         color = Color.SkyBlue;
-                        maxTime = 45;
+                        maxTime = 30;
                         alphaModifier = 3;
 
                         Projectile.rotation = Projectile.velocity.ToRotation();

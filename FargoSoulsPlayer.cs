@@ -54,6 +54,9 @@ namespace FargowiltasSouls
         public bool StyxSet;
         public int StyxMeter;
         public int StyxTimer;
+        public bool NekomiSet;
+        public int NekomiMeter;
+        public int NekomiTimer;
 
         //        //minions
         public bool BrainMinion;
@@ -686,6 +689,7 @@ namespace FargowiltasSouls
             EridanusEmpower = false;
             GaiaSet = false;
             StyxSet = false;
+            NekomiSet = false;
 
             BrainMinion = false;
             EaterMinion = false;
@@ -996,6 +1000,9 @@ namespace FargowiltasSouls
             StyxSet = false;
             StyxMeter = 0;
             StyxTimer = 0;
+            NekomiSet = false;
+            NekomiMeter = 0;
+            NekomiTimer = 0;
 
             //debuffs
             Hexed = false;
@@ -2662,10 +2669,14 @@ namespace FargowiltasSouls
                 else if (proj != null)
                     source = proj;
 
+                int type = ModContent.ProjectileType<Bloodshed>();
                 for (int i = 0; i < 6; i++)
                 {
-                    const float speed = 12f;
-                    Projectile.NewProjectile(Player.GetSource_OnHurt(source), Player.Center, Main.rand.NextVector2Circular(speed, speed), ModContent.ProjectileType<Bloodshed>(), 0, 0f, Main.myPlayer, 0f);
+                    if (Main.rand.NextBool(Player.ownedProjectileCounts[type] + 2))
+                    {
+                        const float speed = 12f;
+                        Projectile.NewProjectile(Player.GetSource_OnHurt(source), Player.Center, Main.rand.NextVector2Circular(speed, speed), type, 0, 0f, Main.myPlayer, 0f);
+                    }
                 }
             }
         }
@@ -2772,6 +2783,22 @@ namespace FargowiltasSouls
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
             WasHurtBySomething = true;
+
+            if (NekomiSet)
+            {
+                const int heartsLost = 1;
+                int meterPerHeart = NekomiHood.MAX_METER / NekomiHood.MAX_HEARTS;
+                int meterLost = meterPerHeart * heartsLost;
+
+                int heartsToConsume = NekomiMeter / meterPerHeart;
+                if (heartsToConsume > heartsLost)
+                    heartsToConsume = heartsLost;
+                Player.AddBuff(BuffID.RapidHealing, heartsToConsume * 60 * 5);
+
+                NekomiMeter -= meterLost;
+                if (NekomiMeter < 0)
+                    NekomiMeter = 0;
+            }
 
             if (BeetleEnchantActive)
                 BeetleHurt();

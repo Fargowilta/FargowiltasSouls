@@ -6,9 +6,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace FargowiltasSouls.Projectiles.BossWeapons
+namespace FargowiltasSouls.Projectiles.Minions
 {
-    public class SparklingLoveBig : ModProjectile
+    public class NekomiAxe : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Items/Weapons/FinalUpgrades/SparklingLove";
 
@@ -34,15 +34,17 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Projectile.scale = 4f;
             Projectile.penetrate = -1;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
-            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
+
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 30;
         }
 
         public override void AI()
         {
             //the important part
             int ai1 = (int)Projectile.ai[1];
-            int byIdentity = FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, ai1, ModContent.ProjectileType<SparklingDevi>());
+            int byIdentity = FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, ai1, ModContent.ProjectileType<NekomiDevi>());
             if (byIdentity != -1)
             {
                 Projectile devi = Main.projectile[byIdentity];
@@ -125,11 +127,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
         }
 
-        public override bool? CanDamage()
-        {
-            Projectile.maxPenetrate = 1;
-            return true;
-        }
+        public override bool? CanDamage() => Projectile.timeLeft < 5;
 
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -145,9 +143,44 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void Kill(int timeleft)
         {
             if (!Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
+                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 60;
 
             MakeDust();
+
+            for (int i = -1; i <= 1; i += 2)
+            {
+                for (int j = 0; j < 50; j++)
+                {
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.Smoke, i * 3f, 0f, 50, default, 3f);
+                    Main.dust[d].noGravity = Main.rand.NextBool();
+                    Main.dust[d].velocity *= Main.rand.NextFloat(3f);
+                }
+
+                for (int j = 0; j < 15; j++)
+                {
+                    int gore = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, default(Vector2), Main.rand.Next(61, 64));
+                    Main.gore[gore].velocity.X += j / 3f * i;
+                    Main.gore[gore].velocity.Y += Main.rand.NextFloat(2f);
+                }
+            }
+
+            for (int j = 0; j < 15; j++)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.Smoke, 0, 0f, 50, default, 4f);
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.Y -= 3f;
+                    Main.dust[d].velocity *= Main.rand.NextFloat(3f);
+                }
+
+                if (Main.rand.NextBool(3))
+                {
+                    int gore = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, default(Vector2), Main.rand.Next(61, 64), 0.5f);
+                    Main.gore[gore].velocity.Y -= 3f;
+                    Main.gore[gore].velocity *= Main.rand.NextFloat(2f);
+                }
+            }
 
             SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
@@ -156,37 +189,6 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -14);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileID.DD2OgreSmash, 0, 0f, Main.myPlayer);
-            }
-
-            if (Projectile.owner == Main.myPlayer)
-            {
-                float minionSlotsUsed = 0;
-                for (int i = 0; i < Main.maxProjectiles; i++)
-                {
-                    if (Main.projectile[i].active && !Main.projectile[i].hostile && Main.projectile[i].owner == Projectile.owner && Main.projectile[i].minionSlots > 0)
-                        minionSlotsUsed += Main.projectile[i].minionSlots;
-                }
-
-                float modifier = Main.player[Projectile.owner].maxMinions - minionSlotsUsed;
-                if (modifier < 0)
-                    modifier = 0;
-                if (modifier > 12)
-                    modifier = 12;
-
-                int max = (int)modifier + 4;
-                for (int i = 0; i < max; i++)
-                {
-                    Vector2 target = 600 * -Vector2.UnitY.RotatedBy(2 * Math.PI / max * i + Projectile.localAI[1]);
-                    Vector2 speed = 2 * target / 90;
-                    float acceleration = -speed.Length() / 90;
-                    float rotation = speed.ToRotation() + (float)Math.PI / 2;
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed, ModContent.ProjectileType<SparklingLoveEnergyHeart>(),
-                        Projectile.originalDamage, Projectile.knockBack, Projectile.owner, rotation, acceleration);
-
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 14f * Vector2.UnitY.RotatedBy(2 * Math.PI / max * (i + 0.5) + Projectile.localAI[1]),
-                        ModContent.ProjectileType<SparklingLoveHeart2>(), Projectile.originalDamage, Projectile.knockBack,
-                        Projectile.owner, -1, 45);
-                }
             }
         }
 
