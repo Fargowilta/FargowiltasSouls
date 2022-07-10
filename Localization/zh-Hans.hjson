@@ -9,6 +9,15 @@
 Mods: {
 	FargowiltasSouls: {
 		SetBonus: {
+			Nekomi:
+				'''
+				增加7%你手持武器职业的伤害和暴击率
+				增加闪烁祟心的擦弹半径
+				擦弹以暂时积蓄能量
+				受伤时消耗能量，增加生命恢复速度
+				双击{0}以消耗能量，释放吸血爱心
+				能量蓄满时会挥舞象征着爱与正义的恶魔之斧
+				'''
 			Gaia:
 				'''
 				增加10%近战攻速
@@ -125,7 +134,7 @@ Mods: {
 			DetonatingBubbleEX: 爆炸泡泡
 			CrystalLeaf: 叶绿水晶
 			GelatinSlime: 水晶史莱姆
-			AbomSaucer: 小飞碟
+			AbomSaucer: 迷你飞碟
 			TrojanSquirrel: 特洛伊松鼠
 			TrojanSquirrelArms: 特洛伊松鼠
 			TrojanSquirrelHead: 特洛伊松鼠
@@ -263,8 +272,8 @@ Mods: {
 			FirstStrike: 先发制人
 			FossilReviveCD: 已复活
 			Frozen: 冻结
-			GoldenStatis: 不动金身
-			GoldenStatisCD: 金身冷却
+			GoldenStasis: 不动金身
+			GoldenStasisCD: 金身冷却
 			HallowCooldown: 神圣之盾冷却
 			HuntressBleed: 女猎人流血
 			HuntressCD: 箭雨冷却
@@ -341,7 +350,7 @@ Mods: {
 			MarkedforDeath: '''别被打到'''
 			Midas: '''受击时掉落钱币'''
 			MutantNibble: '''无法恢复生命'''
-			NanoInjection: '''降低生命恢复和综合属性'''
+			NanoInjection: '''降低生命恢复速度和综合属性'''
 			Neurotoxin: '''你的身体正在停歇关闭'''
 			NullificationCurse: '''月亮领主正在循环他的伤害免疫类型！'''
 			OceanicMaul: '''防御力和最大生命值被大幅降低'''
@@ -395,8 +404,8 @@ Mods: {
 			FirstStrike: '''你的下一次攻击将会得到增强'''
 			FossilReviveCD: '''你无法再次复活'''
 			Frozen: '''你无法移动'''
-			GoldenStatis: '''免疫所有伤害，但无法移动'''
-			GoldenStatisCD: '''你还不能进入金身'''
+			GoldenStasis: '''免疫所有伤害，但无法移动'''
+			GoldenStasisCD: '''你还不能进入金身'''
 			HallowCooldown: '''你的护盾现在无法反弹弹幕'''
 			HuntressCD: '''你现在无法触发另一次箭雨'''
 			MonkBuff: '''你的武僧冲刺已就绪'''
@@ -431,8 +440,8 @@ Mods: {
 			GlowRing: 预警光环
 			GlowRingHallow: 预警光环
 			GrazeRing: 擦弹光环
-			HostileLightning: 电弧
-			LightningArc: 电弧
+			HostileLightning: 闪电弧
+			LightningArc: 闪电弧
 			LightningVortex: 星旋旋涡
 			LightningVortexHostile: 星旋旋涡
 			LihzahrdSpikyBallFriendly: 尖球
@@ -510,7 +519,7 @@ Mods: {
 			HellSkull2: 地狱头骨
 			HentaiNuke: 幻象爆炸
 			HentaiSpear: 洞察者
-			HentaiSpearArc: 电弧
+			HentaiSpearArc: 闪电弧
 			HentaiSpearBigDeathray: 幻影死亡射线
 			HentaiSpearDash: 洞察者
 			HentaiSpearDeathray: 幻影死亡射线
@@ -571,7 +580,7 @@ Mods: {
 			RollingSnowball: 雪球
 			Sprout: 新芽
 			SproutingAcorn: 橡实
-			TheLightning: 电弧
+			TheLightning: 闪电弧
 			TheLightningRodProj: 避雷针
 
 			// == Challengers ==
@@ -592,7 +601,7 @@ Mods: {
 			CosmosGlowything: 宇宙入侵怪仆从
 			CosmosInvader: 宇宙入侵怪仆从
 			CosmosInvaderTime: 宇宙入侵怪仆从
-			CosmosLightning: 电弧
+			CosmosLightning: 闪电弧
 			CosmosLightningOrb: 闪电珠
 			CosmosMeteor: 宇宙流星
 			CosmosMoon: 宇宙之月
@@ -739,7 +748,7 @@ Mods: {
 			CelestialRuneFireball: 火球
 			CelestialRuneIceMist: 冰雪雾
 			CelestialRuneIceSpike: 冰刺
-			CelestialRuneLightningArc: 电弧
+			CelestialRuneLightningArc: 闪电弧
 			ClingerFlame: 诅咒焰
 			ClownBomb: 小丑炸弹
 			CrystalLeafShot: 叶状水晶
@@ -877,6 +886,9 @@ Mods: {
 			LunarCultistLightningArc: 闪电珠弧
 			LunarCultistLightningOrb: 闪电珠
 			MiniSaucer: 迷你飞碟
+			NekomiAxe: 闪闪发光的爱
+			NekomiDevi: 戴薇安
+			NekomiRitual: 猫猫睡衣仪式
 			OpticFlame: 魔眼烈火
 			OpticLaser: 死亡激光
 			OpticRetinazer: 激光眼
@@ -911,6 +923,103 @@ Mods: {
 			TrueEyeR: 克苏鲁真眼
 			TrueEyeS: 克苏鲁真眼
 
+			// == MutantBoss ==
+			BossRush: 突变结界
+			MutantBomb: 幻象爆炸
+			MutantBombSmall: 幻象爆炸
+			MutantBoss: 突变体
+			MutantCrystalLeaf: 叶状水晶
+			MutantDeathray1: 幻影死亡射线
+			MutantDeathray2: 幻影死亡射线
+			MutantDeathray3: 烈焰死亡射线
+			MutantDeathrayAim: 幻影死亡射线
+			MutantDeathraySmall: 幻影死亡射线
+			MutantDestroyerBody: 毁灭者
+			MutantDestroyerHead: 毁灭者
+			MutantDestroyerTail: 毁灭者
+			MutantEye: 幻影眼
+			MutantEyeHoming: 幻影眼
+			MutantEyeOfCthulhu: 克苏鲁之眼
+			MutantEyeWavy: 幻影眼
+			MutantFishron: 幽灵猪龙鱼
+			MutantFishronRitual: 猪鲨核弹
+			MutantFragment: 天界碎片
+			MutantGiantDeathray2: 幻影死亡射线
+			MutantGlowything: 魔眼激光预警
+			MutantGuardian: 机械骷髅王
+			MutantHeal: 突变治疗
+			MutantMark1: 幻影球
+			MutantMark2: 叶状水晶
+			MutantNuke: 猪鲨核弹
+			MutantPillar: 天界柱
+			MutantReticle: 突变瞄准点
+			MutantReticle2: 突变瞄准点
+			MutantRetirang: 激光回旋镖
+			MutantRitual: 突变结界
+			MutantRitual2: 突变结界
+			MutantRitual3: 突变结界
+			MutantRitual4: 突变结界
+			MutantRitual5: 突变结界
+			MutantScythe1: 突变镰刀
+			MutantScythe2: 突变镰刀
+			MutantSlimeBall: 史莱姆雨
+			MutantSlimeBall2: 史莱姆雨
+			MutantSlimeRain: 史莱姆雨
+			MutantSpazmarang: 魔焰回旋镖
+			MutantSpearAim: 洞察者
+			MutantSpearDash: 洞察者
+			MutantSpearMagical: 洞察者
+			MutantSpearSpin: 洞察者
+			MutantSpearThrown: 洞察者
+			MutantSpearThrownFriendly: 洞察者
+			MutantSphereRing: 幻影球
+			MutantSphereSmall: 幻影球
+			MutantSword: 幻影球
+			MutantTrueEyeDeathray: 幻影死亡射线
+			MutantTrueEyeL: 突变真眼
+			MutantTrueEyeR: 突变真眼
+			MutantTrueEyeS: 突变真眼
+			MutantTrueEyeSphere: 幻影球
+			MutantTyphoon: 利刃台风
+
+			// == Pets ==
+			AccursedSarcophagus: 被诅咒的石棺
+			BabyAbom: 憎恶宝宝
+			BabySilhouette: 黑雾宝宝
+			BiteSizeBaron: 小小公爵
+			ChibiDevi: 小不点德薇
+			MutantSpawn: 突变体的卵
+			SeekerOfTreasures: 宝藏探索者
+
+			// == Souls ==
+			ArrowRain: 箭雨
+			CactusNeedle: 仙人掌刺
+			Chlorofuck: 叶绿水晶
+			CobaltExplosion: 爆炸
+			CopperLightning: 闪电弧
+			DungeonGuardianNecro: 地牢守卫
+			ForbiddenTornado: 禁戒风暴
+			FossilBone: 化石骨头
+			FrostIcicle: 寒霜冰锥
+			GladiatorJavelin: 标枪
+			GoldShellProj: 黄金壳
+			GrowingPumpkin: 南瓜
+			IronParry: 铁魔石格挡
+			MegaFlameburst: 超级爆炸烈焰
+			NecroGrave: 死灵骨堆
+			PalladOrb: 钯金治疗珠
+			PumpkinFlame: 火焰
+			RainCloud: 雨云
+			ShadowBall: 暗影球
+			ShadowEnchantOrb: 暗影珠
+			ShroomiteShroom: 蘑菇
+			Snowstorm: 暴雪
+			SpookyScythe: 镰刀
+			StardustKnife: 星尘飞刀
+			SuperBlood: 大出血
+			TitaniumShard: 钛金碎片
+			TurtleShield: 龟壳
+			Void: 虚空
 		}
 
 		Message: {
@@ -1427,7 +1536,7 @@ Mods: {
 					攻击有几率召唤心
 					攻击有几率召唤迷你雨云
 					攻击有几率召唤强化焰
-					击中敌人能提高生命恢复
+					击中敌人能提高生命恢复速度
 					击中敌人能获得暗影闪避增益
 					攻击会额外发射爆炸火焰
 					攻击会额外发射南瓜弹幕
@@ -1781,6 +1890,9 @@ Mods: {
 			MutantBody: 真·突变之躯
 			MutantMask: 真·突变之颅
 			MutantPants: 真·突变之靴
+			NekomiHood: 猫猫睡衣兜帽
+			NekomiHoodie: 猫猫睡衣连帽衫
+			NekomiLeggings: 猫猫睡衣紧身裤
 			StyxChestplate: 冥河胸甲
 			StyxCrown: 冥河王冠
 			StyxLeggings: 冥河护腿
@@ -2711,7 +2823,7 @@ Mods: {
 				'''
 				免疫酸性毒液、常春藤毒素、燃烧、导火索、下陷和死亡标记减益
 				免疫蜂群、萎缩、卡壳、魔力逆流和社恐减益
-				增加生命恢复
+				增加生命恢复速度
 				在空中按“下”键快速下落
 				在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
 				落地时生成一连串巨石
@@ -2860,7 +2972,7 @@ Mods: {
 				使你免疫潮湿、野性咬噬、突变啃啄和海洋重击减益
 				免疫大多数由水造成的减益
 				骑乘猪龙鱼坐骑时获得潮湿状态效果
-				增加20%伤害，但是降低生命恢复速度
+				增加20%你手持武器职业的伤害，但是降低生命恢复速度
 				“很健康的药物，十个医生中有零个会推荐使用它”
 				'''
 			MutantEye:
@@ -2880,6 +2992,7 @@ Mods: {
 				免疫窒息减益
 				魔法伤害降低10%
 				需要时自动使用魔力药水
+				扩大魔力星的拾取范围
 				“被打败敌人的喃喃自语的脑袋”
 				'''
 			NecromanticBrew:
@@ -2991,7 +3104,7 @@ Mods: {
 			SparklingAdoration:
 				'''
 				免疫热恋减益和假心的伤害
-				擦弹能提高暴击伤害，最高可增加25%
+				擦弹（擦过弹幕和敌怪本体）能提高暴击伤害，最高可增加25%
 				暴击伤害加成会随时间流逝而减少，被击中时清零
 				你的攻击会周期性地生成能吸血的红心
 				“饱含情感！”
@@ -3056,7 +3169,7 @@ Mods: {
 			增加10%伤害
 			增加10%暴击率
 			所受伤害减少10%
-			增加生命恢复
+			增加生命恢复速度
 			'''
 			EridanusHat:
 			'''
@@ -3088,14 +3201,14 @@ Mods: {
 			增加10%伤害
 			增加5%暴击率
 			所受伤害减少10%
-			增加生命恢复
+			增加生命恢复速度
 			'''
 			MutantBody:
 			'''
 			增加70%伤害和30%暴击率
 			最大生命值和魔力值增加200
 			所受伤害减少50%
-			极大提升生命恢复
+			极大提升生命恢复速度
 			'''
 			MutantMask:
 			'''
@@ -3109,12 +3222,25 @@ Mods: {
 			增加50%伤害和20%暴击率
 			增加40%移动和近战攻击速度
 			'''
+			NekomiHood:
+			'''
+			增加1个召唤栏位
+			'''
+			NekomiHoodie:
+			'''
+			小幅增加生命恢复速度
+			所受伤害减少5%
+			'''
+			NekomiLeggings:
+			'''
+			增加10%移动速度
+			'''
 			StyxChestplate:
 			'''
 			增加15%伤害
 			增加10%暴击率
 			所受伤害减少10%
-			增加你的生命恢复
+			增加你的生命恢复速度
 			'''
 			StyxCrown:
 			'''
