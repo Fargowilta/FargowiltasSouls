@@ -125,13 +125,13 @@ namespace FargowiltasSouls
 
             SkyManager.Instance["FargowiltasSouls:MoonLordSky"] = new MoonLordSky();
 
-            FreezeKey = KeybindLoader.RegisterKeybind(this, "Freeze", "P");
-            GoldKey = KeybindLoader.RegisterKeybind(this, "Turn Gold", "O");
-            SmokeBombKey = KeybindLoader.RegisterKeybind(this, "Throw Smoke Bomb", "I");
-            BetsyDashKey = KeybindLoader.RegisterKeybind(this, "Fireball Dash", "C");
-            MutantBombKey = KeybindLoader.RegisterKeybind(this, "Mutant Bomb", "Z");
-            SoulToggleKey = KeybindLoader.RegisterKeybind(this, "Open Soul Toggler", ".");
-            PrecisionSealKey = KeybindLoader.RegisterKeybind(this, "Precision Movement", "LeftShift");
+            FreezeKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "冻结" : "Freeze", "P");
+            GoldKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "金身" : "Turn Gold", "O");
+            SmokeBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "投掷烟雾弹" : "Throw Smoke Bomb", "I");
+            BetsyDashKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "火球冲刺" : "Fireball Dash", "C");
+            MutantBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Mutant Bomb", "Z");
+            SoulToggleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "打开魂石效果设置" : "Open Soul Toggler", ".");
+            PrecisionSealKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "玲珑圣印精确模式" : "Precision Movement", "LeftShift");
 
             ToggleLoader.Load();
 
@@ -942,7 +942,7 @@ namespace FargowiltasSouls
                             EModeGlobalNPC.spawnFishronEX = true;
                             NPC.NewNPC(NPC.GetBossSpawnSource(target), x, y, NPCID.DukeFishron, 0, 0f, 0f, 0f, 0f, target);
                             EModeGlobalNPC.spawnFishronEX = false;
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Duke Fishron EX has awoken!"), new Color(50, 100, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(FargoSoulsUtil.IsChinese() ? "猪龙鱼公爵EX已苏醒！" : "Duke Fishron EX has awoken!"), new Color(50, 100, 255));
                         }
                         break;
 
