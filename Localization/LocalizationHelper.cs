@@ -45,21 +45,42 @@ namespace FargowiltasSouls
 
             #region boss spawn info
 
-            AddBossSpawnInfo("DeviBoss", $"Spawn by using [i:{ModContent.ItemType<DevisCurse>()}]");
-            AddBossSpawnInfo("AbomBoss", $"Spawn by using [i:{ModContent.ItemType<AbomsCurse>()}]");
-            AddBossSpawnInfo("MutantBoss", $"Throw [i:{ModContent.ItemType<AbominationnVoodooDoll>()}] into a pool of lava while Abominationn is alive in Mutant's presence.");
+            if (FargoSoulsUtil.IsChinese())
+            {
+                AddBossSpawnInfo("DeviBoss", $"使用[i:{ModContent.ItemType<DevisCurse>()}]召唤");
+                AddBossSpawnInfo("AbomBoss", $"使用[i:{ModContent.ItemType<AbomsCurse>()}]召唤");
+                AddBossSpawnInfo("MutantBoss", $"在突变体和憎恶存活时将[i:{ModContent.ItemType<AbominationnVoodooDoll>()}]投入岩浆池中。");
 
-            AddBossSpawnInfo("TimberChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] on the surface during day.");
-            AddBossSpawnInfo("TerraChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] underground.");
-            AddBossSpawnInfo("EarthChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underworld.");
-            AddBossSpawnInfo("NatureChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in underground snow.");
-            AddBossSpawnInfo("LifeChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Hallow at day.");
-            AddBossSpawnInfo("ShadowChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Corruption or Crimson at night.");
-            AddBossSpawnInfo("SpiritChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underground desert.");
-            AddBossSpawnInfo("WillChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] at the ocean.");
-            AddBossSpawnInfo("CosmosChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in space.");
+                AddBossSpawnInfo("TimberChampion", $"白天时在地表使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("TerraChampion", $"在地下使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("EarthChampion", $"在地狱使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("NatureChampion", $"在地下雪原使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("LifeChampion", $"白天时在神圣之地使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("ShadowChampion", $"夜晚时在腐化之地或猩红之地使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("SpiritChampion", $"在地下沙漠使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("WillChampion", $"在海洋使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
+                AddBossSpawnInfo("CosmosChampion", $"在太空使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
 
-            AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
+                AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
+            }
+            else
+            {
+                AddBossSpawnInfo("DeviBoss", $"Spawn by using [i:{ModContent.ItemType<DevisCurse>()}]");
+                AddBossSpawnInfo("AbomBoss", $"Spawn by using [i:{ModContent.ItemType<AbomsCurse>()}]");
+                AddBossSpawnInfo("MutantBoss", $"Throw [i:{ModContent.ItemType<AbominationnVoodooDoll>()}] into a pool of lava while Abominationn is alive in Mutant's presence.");
+
+                AddBossSpawnInfo("TimberChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] on the surface during day.");
+                AddBossSpawnInfo("TerraChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] underground.");
+                AddBossSpawnInfo("EarthChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underworld.");
+                AddBossSpawnInfo("NatureChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in underground snow.");
+                AddBossSpawnInfo("LifeChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Hallow at day.");
+                AddBossSpawnInfo("ShadowChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the Corruption or Crimson at night.");
+                AddBossSpawnInfo("SpiritChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in the underground desert.");
+                AddBossSpawnInfo("WillChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] at the ocean.");
+                AddBossSpawnInfo("CosmosChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in space.");
+
+                AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
+            }
 
             #endregion boss spawn info
 
