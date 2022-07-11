@@ -586,13 +586,6 @@ Mods: {
             SoulTogglerButton: Configure Accessory Effects
             EternityEnabled: Eternity Mode is enabled
             MasochistEnabled: Masochist Mode is enabled
-
-			SoulToggler: {
-				SetAllFalse: Turn all toggles off
-				SetAllTrue: Turn all toggles on
-				MinimalEffects: Minimal effects preset
-				SearchBar: Search...
-			}
         }
 
         ItemExtra: {

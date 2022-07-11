@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Buffs.Masomode
                 player.immune = false;
                 player.immuneTime = 0;
                 int damage = (int)(Math.Max(player.statLife, player.statLifeMax) * 2.0 / 3.0);
-                if (Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese)
+                if (FargoSoulsUtil.IsChinese())
                 {
                     player.Hurt(PlayerDeathReason.ByCustomReason(player.name + "被炸成了碎片。"), damage, 0, false, false, true);
                 }

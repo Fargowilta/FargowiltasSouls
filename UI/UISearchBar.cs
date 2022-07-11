@@ -10,7 +10,7 @@ namespace FargowiltasSouls.UI
     public class UISearchBar : UIElement
     {
         public const int CharacterLimit = 16;
-        public const string HintText = "Search...";
+        public string HintText = FargoSoulsUtil.IsChinese() ? "搜索..." : "Search...";
 
         public bool IsEmpty => string.IsNullOrEmpty(Input);
 

@@ -94,21 +94,21 @@ namespace FargowiltasSouls.UI
             OffButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOffButton.Value, (toggles) =>
             {
                 toggles.SetAll(false);
-            }, Language.GetTextValue("Mods.FargowiltasSouls.UI.SoulToggler.SetAllFalse"));
+            }, FargoSoulsUtil.IsChinese() ? "关闭所有饰品效果" : "Turn all toggles off");
             OffButton.Top.Set(6, 0);
             OffButton.Left.Set(8, 0);
 
             OnButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOnButton.Value, (toggles) =>
             {
                 toggles.SetAll(true);
-            }, Language.GetTextValue("Mods.FargowiltasSouls.UI.SoulToggler.SetAllTrue"));
+            }, FargoSoulsUtil.IsChinese() ? "开启所有饰品效果" : "Turn all toggles on");
             OnButton.Top.Set(6, 0);
             OnButton.Left.Set(30, 0);
 
             MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.MinimalEffects();
-            }, Language.GetTextValue("Mods.FargowiltasSouls.UI.SoulToggler.MinimalEffects"));
+            }, FargoSoulsUtil.IsChinese() ? "最小化影响预设" : "Minimal effects preset");
             MinimalButton.Top.Set(6, 0);
             MinimalButton.Left.Set(52, 0);
 

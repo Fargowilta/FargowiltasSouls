@@ -1488,14 +1488,7 @@ Mods: {
 			SoulTogglerButton: 设置饰品效果
 			EternityEnabled: 永恒模式已开启
 			MasochistEnabled: 受虐模式已开启
-
-			SoulToggler: {
-				SetAllFalse: 关闭所有饰品效果
-				SetAllTrue: 开启所有饰品效果
-				MinimalEffects: 最小化影响预设
-				SearchBar: 搜索...
 			}
-		}
 
 		ItemExtra: {
 			WoodenDiscount: 当前折扣：{0}%
