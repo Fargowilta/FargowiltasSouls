@@ -181,6 +181,10 @@ namespace FargowiltasSouls
                 #endregion shaders
             }
 
+            ModLoader.TryGetMod("Wikithis", out Mod wikithis);
+            if (wikithis != null && !Main.dedServ)
+                wikithis.Call(0, this, "terrariamods.fandom.com$Fargo%27s_Mod");
+
             //            PatreonMiscMethods.Load(this);
 
             //On.Terraria.GameContent.ItemDropRules.Conditions.IsMasterMode.CanDrop += IsMasterModeOrEMode_CanDrop;
