@@ -2835,7 +2835,7 @@ namespace FargowiltasSouls
         private PlayerDeathReason DeathByLocalization(string key)
         {
             string death = Language.GetTextValue($"Mods.FargowiltasSouls.DeathMessage.{key}");
-            if (Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese)
+            if (FargoSoulsUtil.IsChinese())
             {
                 return PlayerDeathReason.ByCustomReason($"{Player.name}{death}");
             }
