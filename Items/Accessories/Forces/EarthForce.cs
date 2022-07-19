@@ -47,7 +47,7 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacking generates a defensive b
 “盖亚的祝福照耀着你”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
 
-			string tooltip_pt =
+            string tooltip_pt =
 @"[i:{0}] Oferece um pulo explosivo e você explode ao ser atingido
 [i:{2}] Temporariamente aumenta a velocidade de uso depois de não atacar por um tempo
 [i:{1}] Aumenta bastante a regeneração de vida depois de atacar um inimigo
