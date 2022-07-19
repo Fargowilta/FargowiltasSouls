@@ -53,7 +53,7 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
 “走遍荒野的每一个秘密角落”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], ModContent.ItemType<SnowEnchant>(), Enchants[4], ModContent.ItemType<JungleEnchant>(), Enchants[5]));
 
-			string tooltip_pt =
+            string tooltip_pt =
 @"[i:{0}] Após receber um golpe, a regeneração é aumentada consideravelmente até que o golpe seja curado
 [i:{1}] Inimigos próximos são incendiados
 [i:{1}] Quando você sofre danos, você explode violentamente para causar dano aos inimigos próximos
