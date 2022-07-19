@@ -477,6 +477,14 @@ Mods: {
 			StyxCrown: Coroa de Styx
 			StyxLeggings: Calças de Styx
 			
+			// Boss Bags
+			
+			AbomBag: Bolsa do Tesouro
+			CosmosBag: Bolsa do Tesouro
+			DeviBag: Bolsa do Tesouro
+			MutantBag: Bolsa do Tesouro
+			TrojanSquirrelBag: Bolsa do Tesouro
+			
 			// Consumables
 			
 			DeerSinew: Tendão de Cervo
@@ -643,6 +651,8 @@ Mods: {
 			SquidwardDoor: Porta do Lula Molusco
 			MissDrakovisFishingPole: Vara de Pesca da Senhorita Drakovi
 			CrimetroidEgg: Ovo Crimetroid
+			
+			
 			
 		}
 		
@@ -1973,6 +1983,13 @@ Mods: {
 				20% de aumento na velocidade dos movimentos
 				'''
 			
+			// Boss Bags
+			
+			AbomBag: Clique com o botão direito para abrir
+			CosmosBag: Clique com o botão direito para abrir
+			DeviBag: Clique com o botão direito para abrir
+			MutantBag: Clique com o botão direito para abrir
+			TrojanSquirrelBag: Clique com o botão direito para abrir
 			// Consumables
 			
 			DeerSinew:
@@ -3654,7 +3671,7 @@ Mods: {
 			PatreonPrime: Cajado Alfa
 			PatreonCrimetroid: Crimetroid
 		}
-
+		
 		UI: {
             SoulTogglerButton: Configurar Efeitos de Acessórios
             EternityEnabled: Modo Eternidade está ativado
@@ -4030,6 +4047,3 @@ Mods: {
 		}
 	}
 }
-
-
-
