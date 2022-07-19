@@ -3653,6 +3653,12 @@ Mods: {
 			PatreonPrime: Cajado Alfa
 			PatreonCrimetroid: Crimetroid
 		}
+
+		UI: {
+            SoulTogglerButton: Configurar Efeitos de Acessórios
+            EternityEnabled: Modo Eternidade está ativado
+            MasochistEnabled: Modo Masoquista está ativado
+        }
 		
 		ItemExtra: {
             WoodenDiscount: Desconto atual: {0}%
