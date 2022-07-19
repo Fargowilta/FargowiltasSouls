@@ -44,6 +44,16 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 [i:{4}] 回复生命值时，治疗量增加50%
 “坚不可摧的决心”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));
+
+            string tooltip_pt =
+@"[i:{0}] Aperte a hotkey de Ouro para ser envolto em um Casco Dourado
+[i:{0}] Envia moedas ao seu porquinho automaticamente quando coletadas
+[i:{1}] 20% de chance de que os inimigos deixem cair 5x os espólios
+[i:{2}] Lanças choverão em inimigos atingidos
+[i:{3}] Toque duas vezes para baixo para criar uma chuva de flechas localizada
+[i:{4}] Aumenta a eficiência de fontes de cura em 50%
+'Uma mente de determinação inquebrável'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
