@@ -43,7 +43,7 @@ $"[i:{ModContent.ItemType<BeetleEnchant>()}] Beetles aid both offense and defens
 “罕有生灵敢违背你的意愿”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], ModContent.ItemType<CactusEnchant>(), Enchants[1], Enchants[2], Enchants[3], Enchants[4]));
 
-			string tooltip_pt =
+            string tooltip_pt =
 @"[i:{0}] Você crescerá abóboras enquanto anda no chão
 [i:{1}] Inimigos podem explodir em agulhas na morte
 [i:{2}] Acertos físicos e a maioria dos ataques perfurantes invocam abelhas
