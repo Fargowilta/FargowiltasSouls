@@ -49,7 +49,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
 
             string tooltip_pt =
 @"[i:{0}] Uma chuva de meteoros é iniciada a cada poucos segundos enquanto você ataca
-[i:{1}] O escudo solar permite fazer uma investida através dos inimigos
+[i:{1}] O escudo solar permite fazer uma corrida através dos inimigos
 [i:{1}] Ataques podem infligir o efeito negativo Chamas do Sol
 [i:{2}] Aperte duas vezes para baixo para entrar no modo sorrateiro e invocar um vórtice
 [i:{3}] Ferir inimigos tem uma chance de gerar impulsos de reforços
