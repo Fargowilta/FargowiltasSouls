@@ -52,6 +52,20 @@ $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damag
 [i:{5}] 对敌人造成伤害时有几率生成幽灵珠
 “飘飘乎如遗世独立，羽化而登仙”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
+
+            string tooltip_pt =
+@"[i:{0}] Se você chegar a zero PV, você reviverá com 50 PV e invocará vários ossos
+[i:{0}] Colete os ossos quando eles pararem de se mover para ser curado em 15 PV cada
+[i:{1}] Toque duas vezes para baixo para chamar uma tempestade antiga até o local do cursor
+[i:{1}] Projéteis disparados através de sua tempestade ganham 60% a mais de dano
+[i:{2}] Você ganha um escudo que pode refletir projéteis
+[i:{2}] Invoca uma Terraprisma familiar
+[i:{2}] Aumenta consideravelmente a velocidade dos lacaios
+[i:{3}] Fique imune depois de atacar um inimigo
+[i:{4}] Você pode continuar invocando lacaios temporários depois de chegar no limite de seus espaços
+[i:{5}] Os danos têm uma chance de invocar esferas que causam dano e de cura
+'Ascenda deste reino mortal'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
