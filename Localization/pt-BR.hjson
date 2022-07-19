@@ -3376,6 +3376,7 @@ Mods: {
 		Config: {
 			HideToggler: Mostrar o alternador de efeitos apenas quando o inventário estiver aberto
 			HideTogglerTooltip: Se verdadeiro, o alternador de efeitos é escondido automaticamente quando o seu inventário está fechado.
+			DeviChatter: Devi Chibi pode falar
 			MasoHeader: Modo Eternidade
 			MasoBossRecolors: Os chefes usam sprites alternativos
 			OncomingMutantX: Posição X do ícone no inventário do Modo Eternidade
