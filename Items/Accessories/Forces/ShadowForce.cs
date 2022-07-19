@@ -62,7 +62,7 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
 [i:{4}] Efeitos da Gelatina Volátil
 [i:{5}] Todos os seus lacaios ganham um ataque de foices adicional
 [i:{6}] Não ataque para ganhar uma corrida de monge de uso único
-[i:{7}] Faça uma investida em qualquer parede para teleportar através dela até a próxima abertura
+[i:{7}] Faça uma corrida em qualquer parede para teleportar através dela até a próxima abertura
 [i:{8}] Depois de atacar por 2 segundos você será envolvido em chamas
 [i:{8}] Trocar de armas aumentará o dano do próximo ataque em 150%
 [i:{9}] Invoca um lacaio de Chamas Explosivas que viajará para o seu mouse depois de carregar
