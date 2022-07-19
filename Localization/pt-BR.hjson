@@ -2540,6 +2540,14 @@ Mods: {
 			MutantIllusion: Ilusão do Mutant
 			
 		}
+
+		MapObject: {
+			FMMBanner: Bandeira
+			MutantStatue: Estátua do Mutante
+			MutantStatueGift: Estátua do Mutante
+			SquidwardDoorClosed: Porta do Lula Molusco
+			SquidwardDoorOpen: Porta do Lula Molusco
+		}
 		
 		ProjectileName: {
 			AbomBoss: Abominationn
