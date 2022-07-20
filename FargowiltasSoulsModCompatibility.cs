@@ -78,7 +78,7 @@ namespace FargowiltasSouls
                 Add("Boss",
                     "AbomBoss",
                     new List<int> { ModContent.NPCType<AbomBoss>() },
-                    17.01f,
+                    20f,
                     () => FargoSoulsWorld.downedAbom,
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -95,7 +95,7 @@ namespace FargowiltasSouls
                 Add("Boss",
                     "MutantBoss",
                     new List<int> { ModContent.NPCType<MutantBoss>() },
-                    17.02f,
+                    23f,
                     () => FargoSoulsWorld.downedMutant,
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -115,7 +115,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "TimberChampion",
                     new List<int> { ModContent.NPCType<TimberChampion>() },
-                    17.001f,
+                    18.1f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.TimberChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -128,7 +128,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "TerraChampion",
                     new List<int> { ModContent.NPCType<TerraChampion>(), ModContent.NPCType<TerraChampionBody>(), ModContent.NPCType<TerraChampionTail>() },
-                    17.002f,
+                    18.15f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.TerraChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -142,7 +142,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "EarthChampion",
                     new List<int> { ModContent.NPCType<EarthChampion>(), ModContent.NPCType<EarthChampionHand>() },
-                    17.003f,
+                    18.2f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.EarthChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -156,7 +156,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "NatureChampion",
                     new List<int> { ModContent.NPCType<NatureChampion>(), ModContent.NPCType<NatureChampionHead>() },
-                    17.004f,
+                    18.25f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.NatureChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -170,7 +170,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "LifeChampion",
                     new List<int> { ModContent.NPCType<LifeChampion>() },
-                    17.005f,
+                    18.3f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.LifeChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -184,7 +184,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "ShadowChampion",
                     new List<int> { ModContent.NPCType<ShadowChampion>() },
-                    17.006f,
+                    18.35f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.ShadowChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -197,7 +197,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "SpiritChampion",
                     new List<int> { ModContent.NPCType<SpiritChampion>(), ModContent.NPCType<SpiritChampionHand>() },
-                    17.007f,
+                    18.4f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.SpiritChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -211,7 +211,7 @@ namespace FargowiltasSouls
                 Add("MiniBoss",
                     "WillChampion",
                     new List<int> { ModContent.NPCType<WillChampion>() },
-                    17.008f,
+                    18.45f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.WillChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
@@ -225,7 +225,7 @@ namespace FargowiltasSouls
                 Add("Boss",
                     "CosmosChampion",
                     new List<int> { ModContent.NPCType<CosmosChampion>() },
-                    17.009f,
+                    18.5f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion],
                     () => true,
                     TryAddMusicBoxToCollectibles(
