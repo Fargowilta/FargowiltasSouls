@@ -43,6 +43,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
             };
 
+        int BabyGuardianTimerRefresh(NPC npc) => !FargoSoulsWorld.MasochistModeReal && NPC.AnyNPCs(NPCID.SkeletronHand) && npc.life > npc.lifeMax * 0.25 ? 240 : 180;
+
         public override bool PreAI(NPC npc)
         {
             bool result = base.PreAI(npc);
@@ -52,7 +54,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             if (FargoSoulsWorld.SwarmActive)
                 return result;
 
-            if (!SpawnedArms && npc.life < npc.lifeMax * .25)
+            if (!SpawnedArms && npc.life < npc.lifeMax * .5)
             {
                 SpawnedArms = true;
 
@@ -78,9 +80,15 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (npc.ai[1] == 1f || npc.ai[1] == 2f) //spinning or DG mode
             {
-                //force targeted player back to the one i telegraphed with reticle (otherwise, may target another player when spin starts)
+                //only runs once per spin
                 if (ReticleTarget > -1 && ReticleTarget < Main.maxPlayers)
                 {
+                    //ensure consistency
+                    int threshold = BabyGuardianTimerRefresh(npc);
+                    if (BabyGuardianTimer > threshold)
+                        BabyGuardianTimer = threshold;
+
+                    //force targeted player back to the one i telegraphed with reticle (otherwise, may target another player when spin starts)
                     npc.target = ReticleTarget;
                     ReticleTarget = -1;
 
@@ -141,12 +149,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                 }
 
-                if (BabyGuardianTimer > 180)
-                    BabyGuardianTimer = 180;
-
                 if (npc.life < npc.lifeMax * .75 && npc.ai[1] == 1f && --BabyGuardianTimer < 0)
                 {
-                    BabyGuardianTimer = 180;
+                    BabyGuardianTimer = BabyGuardianTimerRefresh(npc);
 
                     SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
 
@@ -182,7 +187,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 if (npc.life < npc.lifeMax * .75) //phase 2
                 {
-                    if (npc.ai[2] <= 60 && npc.ai[2] % 10 == 0) //vomit skeletons
+                    //vomit skeletons
+                    if (npc.ai[2] <= 60 && npc.ai[2] % 15 == 0 && !NPC.AnyNPCs(NPCID.SkeletronHand))
                     {
                         int[] skeletons = {
                             NPCID.BoneThrowingSkeleton,
@@ -211,7 +217,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                     if (--BabyGuardianTimer < 0)
                     {
-                        BabyGuardianTimer = FargoSoulsWorld.MasochistModeReal ? 180 : 240;
+                        BabyGuardianTimer = BabyGuardianTimerRefresh(npc);
+                        if (!FargoSoulsWorld.MasochistModeReal)
+                            BabyGuardianTimer += 60;
 
                         SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
 

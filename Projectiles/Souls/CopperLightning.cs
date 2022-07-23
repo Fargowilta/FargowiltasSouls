@@ -190,7 +190,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             if (Projectile.numHits > 5 && Projectile.damage > spawnedDamage / 3)
                 Projectile.damage = (int)Math.Min(Projectile.damage - 1, Projectile.damage * 0.95);
 
-            if (!target.HasBuff(BuffID.Electrified))
+            if (Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] < 60 && !target.buffImmune[BuffID.Electrified] && !target.HasBuff(BuffID.Electrified))
             {
                 target.AddBuff(BuffID.Electrified, 120);
 

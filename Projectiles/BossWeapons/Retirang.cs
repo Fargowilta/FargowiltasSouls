@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -34,35 +35,40 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             return false;
         }
 
+        int counter;
+
         public override bool PreAI()
         {
+            //fire lasers at cursor
+            if (++counter > 12)
+            {
+                counter = 0;
+
+                if (Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 cursor = Main.MouseWorld;
+                    Vector2 velocity = Vector2.Normalize(cursor - Projectile.Center) * 20;
+
+                    SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+
+                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<PrimeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                    if (p != Main.maxProjectiles)
+                    {
+                        Main.projectile[p].DamageType = DamageClass.Melee;
+                    }
+                }
+            }
+
             if (Projectile.ai[0] == 1)
             {
                 Projectile.ai[1]++;
 
                 //stay in place
                 Projectile.position = Projectile.oldPosition;
-                Projectile.velocity = Vector2.Zero;
-                Projectile.rotation += Projectile.direction * -0.4f;
+                Projectile.velocity *= 0.1f;
+                Projectile.rotation += Projectile.direction * 0.4f;
 
-                //fire lasers at cursor
-                if (Projectile.ai[1] % 5 == 0)
-                {
-                    Vector2 cursor = Main.MouseWorld;
-                    Vector2 velocity = Vector2.Normalize(cursor - Projectile.Center) * 20;
-                    Player player = Main.player[Projectile.owner];
-
-                    if (Projectile.owner == Main.myPlayer)
-                    {
-                        SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
-                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<PrimeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-
-                        if (p != Main.maxProjectiles)
-                        {
-                            Main.projectile[p].DamageType = DamageClass.Melee;
-                        }
-                    }
-                }
+                counter += 2;
 
                 if (Projectile.ai[1] > 15)
                 {
@@ -92,16 +98,17 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             //travel back to player
             else if (Projectile.ai[0] == 2)
             {
-                Projectile.extraUpdates = 0;
-                Projectile.velocity = Vector2.Normalize(Main.player[Projectile.owner].Center - Projectile.Center) * 15;
+                float speed = Math.Max(Projectile.velocity.Length() * 1.02f, 20f);
+                Projectile.velocity = Vector2.Normalize(Main.player[Projectile.owner].Center - Projectile.Center);
+                Projectile.velocity *= speed;
 
                 //kill when back to player
-                if (Projectile.Distance(Main.player[Projectile.owner].Center) <= 30)
+                if (Projectile.Distance(Main.player[Projectile.owner].Center) <= speed * 2)
                     Projectile.Kill();
             }
 
             //spin
-            Projectile.rotation += Projectile.direction * -0.4f;
+            Projectile.rotation += Projectile.direction * 0.4f;
 
             //dust!
             int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 60, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);

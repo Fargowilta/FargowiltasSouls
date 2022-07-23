@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Projectiles
         public override void SendExtraAI(Projectile projectile, BitWriter bits, BinaryWriter writer)
         {
             if (NeedsSync(SourceNPCSync, projectile.type))
-                writer.WriteVarInt(sourceNPC is NPC ? sourceNPC.whoAmI : Main.maxNPCs);
+                writer.Write7BitEncodedInt(sourceNPC is NPC ? sourceNPC.whoAmI : Main.maxNPCs);
 
             if (NeedsSync(DamagingSync, projectile.type))
             {
@@ -61,7 +61,7 @@ namespace FargowiltasSouls.Projectiles
         public override void ReceiveExtraAI(Projectile projectile, BitReader bits, BinaryReader reader)
         {
             if (NeedsSync(SourceNPCSync, projectile.type))
-                sourceNPC = FargoSoulsUtil.NPCExists(reader.ReadVarInt());
+                sourceNPC = FargoSoulsUtil.NPCExists(reader.Read7BitEncodedInt());
 
             if (NeedsSync(DamagingSync, projectile.type))
             {

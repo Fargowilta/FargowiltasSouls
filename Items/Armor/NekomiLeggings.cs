@@ -33,7 +33,6 @@ namespace FargowiltasSouls.Items.Armor
         {
             CreateRecipe()
             .AddIngredient(ItemID.Silk, 10)
-            .AddIngredient(ItemID.Leather, 5)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 5)
             .AddTile(TileID.Loom)
 

@@ -27,6 +27,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.height = 110;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
+            Projectile.minion = true; //block tungsten
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 65;

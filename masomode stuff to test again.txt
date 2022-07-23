@@ -42,3 +42,23 @@ nekomi
 	nerfed meter gain in general
 	axe does its previous damage across 4 hits instead
 fixed qs minions being immune to knockback
+
+ported to preview tmodloader
+	test mp sync isnt completely broken, e.g. devi boss
+updated dread shell tooltip
+nerfed skeletron skeletons burped, 6->4 and not when hands alive
+nekomi axe cant use tungsten
+made it harder to skip destroyer p3 especially with nekomi
+twinrangs m1 velocity nerfed
+twinrangs m2 buffed
+	increased velocity of the rang
+	shoots lasers at slower pace while moving
+	accelerates when returning to player (so you cant stack infinite number of them)
+removed leather from nekomi recipe
+plat ench no longer dupes any money you throw at the enemy
+
+skeletron hand respawn is at 50%, was 33%
+skeletron has reduced attack rate when hands alive UNLESS below 25%
+neither of above apply to maso
+copper lightning no longer rebounds infinitely if it keeps hitting enemies immune to electrified
+copper lightning capped at 60

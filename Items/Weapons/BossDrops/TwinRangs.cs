@@ -48,12 +48,12 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             if (player.altFunctionUse == 2)
             {
                 Item.shoot = ModContent.ProjectileType<Retirang>();
-                Item.shootSpeed = 15f;
+                Item.shootSpeed = 20f;
             }
             else
             {
                 Item.shoot = ModContent.ProjectileType<Spazmarang>();
-                Item.shootSpeed = 45f;
+                Item.shootSpeed = 30f;
             }
             return true;
         }

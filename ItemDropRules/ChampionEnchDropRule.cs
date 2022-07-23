@@ -41,7 +41,7 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
                 enchesToDrop.RemoveAt(info.rng.Next(enchesToDrop.Count));
 
             foreach (int itemType in enchesToDrop)
-                CommonCode.DropItemFromNPC(info.npc, itemType, 1);
+                CommonCode.DropItem(info, itemType, 1);
 
             return new ItemDropAttemptResult()
             {
