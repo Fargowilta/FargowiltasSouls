@@ -897,7 +897,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     damage = (int)(damage * 0.1);
                 }
             }
-            else if (destroyerEmode.PrepareToCoil || destroyerEmode.AttackModeTimer >= Destroyer.P2_COIL_BEGIN_TIME - 120 || npc.life < npc.lifeMax / 10)
+            else if (destroyerEmode.PrepareToCoil || destroyerEmode.AttackModeTimer >= Destroyer.P2_COIL_BEGIN_TIME - 120 || destroyer.life < destroyer.lifeMax / 10)
             {
                 damage = (int)(damage * 0.1);
             }

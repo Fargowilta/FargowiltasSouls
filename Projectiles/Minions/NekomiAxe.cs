@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -37,8 +38,9 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
 
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 0;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 1;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
         }
 
         public override bool? CanDamage() => Projectile.timeLeft < 5;
@@ -139,6 +141,14 @@ namespace FargowiltasSouls.Projectiles.Minions
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(BuffID.Lovestruck, 300);
+
+            if (FargoSoulsUtil.NPCExists(target.realLife) != null)
+            {
+                foreach (NPC n in Main.npc.Where(n => n.active && (n.realLife == target.realLife || n.whoAmI == target.realLife) && n.whoAmI != target.whoAmI))
+                {
+                    Projectile.perIDStaticNPCImmunity[Projectile.type][n.whoAmI] = Main.GameUpdateCount + (uint)Projectile.idStaticNPCHitCooldown;
+                }
+            }
         }
 
         public override void Kill(int timeleft)

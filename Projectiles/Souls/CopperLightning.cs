@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             Projectile.penetrate = -1;
 
             Projectile.usesIDStaticNPCImmunity = true;
-            Projectile.idStaticNPCHitCooldown = 10;
+            Projectile.idStaticNPCHitCooldown = 180;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
         }
 
@@ -50,9 +50,11 @@ namespace FargowiltasSouls.Projectiles.Souls
             Lighting.AddLight(Projectile.Center, 0.3f, 0.45f, 0.5f);
             colorlerp += 0.05f;
 
-
             if (spawnedDamage == 0)
-                spawnedDamage = Projectile.damage;
+            {
+                spawnedDamage = (int)Projectile.ai[1];
+                Projectile.ai[1] = Main.rand.Next(100);
+            }
 
             if (!playedsound)
             {
@@ -135,7 +137,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             label_3461:
                 if (Projectile.velocity == Vector2.Zero || Projectile.velocity.Length() < 4f)
                 {
-                    Projectile.velocity = Vector2.UnitX.RotatedBy(Projectile.ai[0]).RotatedByRandom(Math.PI / 4) * 7f;
+                    Projectile.velocity = Vector2.UnitX.RotatedBy(Projectile.ai[0]).RotatedByRandom(Math.PI / 4) * 20f;
                     Projectile.ai[1] = Main.rand.Next(100);
                     return;
                 }
@@ -169,6 +171,14 @@ namespace FargowiltasSouls.Projectiles.Souls
                 if (myRect.Intersects(targetHitbox))
                     return true;
             }
+
+            if (Projectile.oldPosition != Vector2.Zero && Projectile.oldPosition != Projectile.position)
+            {
+                float dummy = 0;
+                if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.oldPosition + projHitbox.Size() / 2, 8f * Projectile.scale, ref dummy))
+                    return true;
+            }
+
             return false;
         }
 
@@ -187,10 +197,14 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Projectile.numHits > 5 && Projectile.damage > spawnedDamage / 3)
+            if (Projectile.damage > spawnedDamage / 3)
                 Projectile.damage = (int)Math.Min(Projectile.damage - 1, Projectile.damage * 0.95);
 
-            if (Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] < 60 && !target.buffImmune[BuffID.Electrified] && !target.HasBuff(BuffID.Electrified))
+            Projectile.velocity = Projectile.velocity.RotatedByRandom(MathHelper.TwoPi);
+            Projectile.ai[0] = Projectile.velocity.ToRotation();
+            Projectile.netUpdate = true;
+
+            if (Projectile.owner == Main.myPlayer && Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] < 30)
             {
                 target.AddBuff(BuffID.Electrified, 120);
 
@@ -202,7 +216,8 @@ namespace FargowiltasSouls.Projectiles.Souls
                     NPC npc = Main.npc[j];
 
                     if (npc.active && npc.CanBeChasedBy() && npc.whoAmI != target.whoAmI && npc.Distance(target.Center) < closestDist && !npc.HasBuff(BuffID.Electrified)
-                        && Collision.CanHitLine(npc.Center, 0, 0, target.Center, 0, 0))
+                        && Collision.CanHitLine(npc.Center, 0, 0, target.Center, 0, 0)
+                        && Projectile.perIDStaticNPCImmunity[Projectile.type][npc.whoAmI] < Main.GameUpdateCount)
                     {
                         closestNPC = npc;
                         closestDist = npc.Distance(target.Center);
@@ -211,20 +226,13 @@ namespace FargowiltasSouls.Projectiles.Souls
 
                 if (closestNPC != null)
                 {
-                    Vector2 ai = closestNPC.Center - target.Center;
-                    float ai2 = Main.rand.Next(100);
-                    Vector2 velocity = Vector2.Normalize(ai) * 20;
+                    Vector2 velocity = target.DirectionTo(closestNPC.Center) * 20f;
+                    float ai0 = velocity.ToRotation();
+                    //Projectile.Center = closestNPC.Center; //help ensure it hits
+                    //Projectile.netUpdate = true;
 
-                    Projectile.ai[0] = ai.ToRotation();
-                    Projectile.ai[1] = ai2;
-                    Projectile.velocity = velocity;
-                    Projectile.Center = Vector2.Lerp(target.Center, closestNPC.Center, 0.5f); //help ensure it hits
-                    Projectile.netUpdate = true;
-
-                    if (Projectile.owner == Main.myPlayer) //fake lightning for visuals
-                    {
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Projectile.velocity, Projectile.type, 0, 0f, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
-                    }
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, velocity, Projectile.type, Projectile.damage, Projectile.knockBack, Projectile.owner, ai0, spawnedDamage);
+                    Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type]++;
 
                     //ensure it hits.. ?
                     //closestNPC.StrikeNPC(Projectile.damage, 0, Projectile.direction);

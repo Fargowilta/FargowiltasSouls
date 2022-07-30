@@ -42,7 +42,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.lifeMax = 120;
             NPC.damage = 50;
 
-            NPC.lifeMax *= 15;
+            NPC.lifeMax *= 10;
             NPC.timeLeft = NPC.activeTime * 30;
             NPC.scale *= 1.5f;
             NPC.width = NPC.height = (int)(NPC.height * 0.9);

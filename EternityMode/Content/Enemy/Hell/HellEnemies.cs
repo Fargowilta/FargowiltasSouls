@@ -21,7 +21,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
             NPCID.BurningSphere,
             NPCID.Lavafly,
             NPCID.MagmaSnail,
-            NPCID.HellButterfly
+            NPCID.HellButterfly,
+            NPCID.DemonTaxCollector
         );
 
         public override void OnFirstTick(NPC npc)

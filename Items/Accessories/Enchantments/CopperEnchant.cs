@@ -94,10 +94,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                         npcIndexes.Add(closestNPC.whoAmI);
 
                         Vector2 ai = closestNPC.Center - target.Center;
-                        float ai2 = Main.rand.Next(100);
                         Vector2 velocity = Vector2.Normalize(ai) * 20;
 
-                        FargoSoulsUtil.NewProjectileDirectSafe(modPlayer.Player.GetSource_ItemUse(modPlayer.Player.HeldItem), target.Center, velocity, ModContent.ProjectileType<CopperLightning>(), FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, dmg), 0f, modPlayer.Player.whoAmI, ai.ToRotation(), ai2);
+                        int damage = FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, dmg);
+                        FargoSoulsUtil.NewProjectileDirectSafe(modPlayer.Player.GetSource_ItemUse(modPlayer.Player.HeldItem), target.Center, velocity, ModContent.ProjectileType<CopperLightning>(), damage, 0f, modPlayer.Player.whoAmI, ai.ToRotation(), damage);
                     }
                     else
                     {

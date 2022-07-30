@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles.Masomode;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -101,10 +102,10 @@ namespace FargowiltasSouls.Projectiles.Champions
             {
                 for (int index = 0; index < 6; ++index)
                 {
-                    float SpeedX = Projectile.velocity.Length() * Main.rand.Next(-60, 61) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
-                    float SpeedY = Projectile.velocity.Length() * Main.rand.Next(-60, 61) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
+                    float SpeedX = -Projectile.velocity.X * Main.rand.Next(30, 60) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
+                    float SpeedY = -Projectile.velocity.Y * Main.rand.Next(30, 60) * 0.01f + Main.rand.Next(-20, 21) * 0.4f;
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, SpeedX, SpeedY,
-                        ModContent.ProjectileType<CrystalBombShard>(), Projectile.damage, 0f, Projectile.owner);
+                        ModContent.ProjectileType<SniperBulletShard>(), 0, 0f, Projectile.owner);
                 }
             }
         }

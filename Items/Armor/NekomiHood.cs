@@ -95,6 +95,8 @@ namespace FargowiltasSouls.Items.Armor
                     if (superAttack)
                     {
                         int baseDamage = 2222 / 4;
+                        if (!Main.hardMode)
+                            baseDamage /= 2;
                         FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);
                         SoundEngine.PlaySound(SoundID.Item43, player.Center);
                         fargoPlayer.NekomiMeter = 0;
