@@ -152,6 +152,7 @@ Mods: {
 			MasochistWrongDifficulty: World must be Expert difficulty or harder!
 			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist} surges with new power...!"
 			MasochistPreTooltip: Enables Masochist Mode when used in Master Mode
+			ForgottenGift: '''world is currently maso: '''
 
 			FargoSoulsWorld: {
 				EternityOn: Eternity Mode activated!

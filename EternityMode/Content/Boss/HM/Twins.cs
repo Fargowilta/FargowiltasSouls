@@ -81,7 +81,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, number: n);
                         string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
-                        FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                        if (FargoSoulsUtil.IsChinese())
+                        {
+                            FargoSoulsUtil.PrintText($"{Main.npc[n].FullName}{text}", new Color(175, 75, 255));
+                        }
+                        else
+                        {
+                            FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                        }
                     }
                 }
             }
@@ -388,7 +395,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     HasSaidEndure = true;
                     string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsEndure");
-                    FargoSoulsUtil.PrintText($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    if (FargoSoulsUtil.IsChinese())
+                    {
+                        FargoSoulsUtil.PrintText($"{npc.FullName}{text}", new Color(175, 75, 255));
+                    }
+                    else
+                    {
+                        FargoSoulsUtil.PrintText($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    }
                 }
                 return false;
             }
@@ -458,7 +472,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, number: n);
                         string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
-                        FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                        if (FargoSoulsUtil.IsChinese())
+                        {
+                            FargoSoulsUtil.PrintText($"{Main.npc[n].FullName}{text}", new Color(175, 75, 255));
+                        }
+                        else
+                        {
+                            FargoSoulsUtil.PrintText($"{Main.npc[n].FullName} {text}", new Color(175, 75, 255));
+                        }
                     }
                 }
             }
@@ -773,7 +794,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     HasSaidEndure = true;
                     string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsEndure");
-                    FargoSoulsUtil.PrintText($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    if (FargoSoulsUtil.IsChinese())
+                    {
+                        FargoSoulsUtil.PrintText($"{npc.FullName}{text}", new Color(175, 75, 255));
+                    }
+                    else
+                    {
+                        FargoSoulsUtil.PrintText($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    }
                 }
                 return false;
             }

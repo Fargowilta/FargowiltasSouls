@@ -1055,6 +1055,7 @@ Mods: {
 			MasochistWrongDifficulty: 世界必须是专家模式或更高难度！
 			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist}随着新涌现的能量而波动……！"
 			MasochistPreTooltip: 使用以在大师模式下开启受虐模式
+			ForgottenGift: '''目前世界的受虐模式开关状态：'''
 
 			FargoSoulsWorld: {
 				EternityOn: 永恒模式已开启！
@@ -1102,8 +1103,10 @@ Mods: {
 			PatreonItem: ">> 捐赠者物品 <<"
 			PatreonNameEffect: 你的特殊捐赠者效果已激活！
 
-			SkeletronRegrow: 的手臂又长出来了！
-			SkeletronGuardian: 进入了地牢守卫阶段！
+			SkeletronRegrow: "{$NPCName.SkeletronHead}的手臂又长出来了！"
+			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime}的手臂又长出来了！"
+			SkeletronGuardian: "{$NPCName.SkeletronHead}进入了地牢守卫阶段！"
+			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime}进入了地牢守卫阶段！"
 			TwinsEndure: 挺住了致命攻击，它还能帮着它的兄弟打三百回合！
 			TwinsRevive: 复活了！
 			GelatinSubjects: 圣凝史莱姆已苏醒！
