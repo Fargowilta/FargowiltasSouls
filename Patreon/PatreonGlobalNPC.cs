@@ -23,7 +23,8 @@ namespace FargowiltasSouls.Patreon
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            string patreonDescription = $"[i:{ModContent.ItemType<Gittle.RoombaPet>()}]Patreon Drop";
+            string patreonDrop = FargoSoulsUtil.IsChinese() ? "捐赠者掉落" : "Patreon Drop";
+            string patreonDescription = $"[i:{ModContent.ItemType<Gittle.RoombaPet>()}]{patreonDrop}";
 
             void AddPatreonDrop(Func<bool> condition, int item, int chanceDenominator = 1, string extra = default)
             {
@@ -62,12 +63,13 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonCrimetroid && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<Catsounds.MedallionoftheFallenKing>(),
                         100,
-                        "in Eternity Mode");
+                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
                     break;
 
                 case NPCID.Dryad:
+                    string PatreonPlantDropCondition = FargoSoulsUtil.IsChinese() ? "在血月的丛林" : " in Jungle on Blood Moon";
                     npcLoot.Add(ItemDropRule.ByCondition(
-                        new PatreonPlantDropCondition(patreonDescription + " in Jungle on Blood Moon"),
+                        new PatreonPlantDropCondition(patreonDescription + $"{PatreonPlantDropCondition}"),
                         ModContent.ItemType<LaBonez.PiranhaPlantVoodooDoll>()));
                     break;
 
@@ -76,7 +78,7 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonDevious && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<DevAesthetic.DeviousAestheticus>(),
                         20,
-                        "in Eternity Mode");
+                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
                     break;
 
                 case NPCID.SkeletronPrime:
@@ -84,7 +86,7 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonPrime && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<Purified.PrimeStaff>(),
                         20,
-                        "in Eternity Mode");
+                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
                     break;
 
                 default:
