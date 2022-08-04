@@ -69,3 +69,5 @@ nekomi can no longer hit worm segments individually (can't 1shot destroyer to p3
 fixed nature champ bullets creating crystal spikes on impact
 nerfed gelatin subject life
 adjusted implementation of copper lightning chain
+
+golem fists can no longer be hit by whips (no longer draws minion focus away from body)
