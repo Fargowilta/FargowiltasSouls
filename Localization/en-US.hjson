@@ -200,8 +200,10 @@ Mods: {
 			PatreonItem: ">> Patreon Item <<"
 			PatreonNameEffect: Your special patreon effects are active
 
-			SkeletronRegrow: has regrown its arms!
-			SkeletronGuardian: has entered Dungeon Guardian form!
+			SkeletronRegrow: "{$NPCName.SkeletronHead} has regrown its arms!"
+			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime} has regrown its arms!"
+			SkeletronGuardian: "{$NPCName.SkeletronHead} has entered Dungeon Guardian form!"
+			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime} has entered Dungeon Guardian form!"
 			TwinsEndure: endured the fatal blow to fight alongside its twin!
 			TwinsRevive: has been revived!
 			GelatinSubjects: Gelatin Subjects have awoken!
