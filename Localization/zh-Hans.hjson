@@ -1850,7 +1850,7 @@ Mods: {
 
 			OOASet: 当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
 			MiningHelmet: 提高不死矿工的刷新率
-			MoonsDrops: Boss和迷你Boss在15波前不会掉落物品
+			MoonsDrops: Boss和迷你Boss在{0}波前不会掉落物品
 			MoonsWaves: 死亡会降低当前波数
 
 			WhipSpeed: 不接受近战攻速加成
