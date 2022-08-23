@@ -290,7 +290,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                     else
                     {
-                        bool mustRest = FinalPhaseAttackCounter >= 5;
+                        bool mustRest = FinalPhaseAttackCounter >= 3;
 
                         const int restingTime = 240;
 

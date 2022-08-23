@@ -26,6 +26,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             CooldownSlot = -1; //iframe interaction with prime lol
         }
 
+        float displayMaxTime;
+
         public override void AI()
         {
             Vector2? vector78 = null;
@@ -57,6 +59,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             {
                 if (!Main.dedServ)
                     SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104") { Volume = 0.5f }, Projectile.Center);
+
+                displayMaxTime = Math.Min(maxTime, Projectile.timeLeft + 2);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;
@@ -68,7 +72,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Projectile.Kill();
                 return;
             }
-            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 6f * num801;
+            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / displayMaxTime) * 6f * num801;
             if (Projectile.scale > num801)
                 Projectile.scale = num801;
             float num804 = Projectile.velocity.ToRotation();

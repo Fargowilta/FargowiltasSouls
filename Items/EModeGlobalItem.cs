@@ -316,8 +316,8 @@ namespace FargowiltasSouls.Items
 
                 case ItemID.PumpkinMoonMedallion:
                 case ItemID.NaughtyPresent:
-                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops");
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsWaves");
+                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops", item.type == ItemID.PumpkinMoonMedallion ? 12 : 15);
                     break;
 
                 default:

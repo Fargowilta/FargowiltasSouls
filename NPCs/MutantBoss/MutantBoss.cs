@@ -38,6 +38,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         public Queue<float> attackHistory = new Queue<float>();
         public int attackCount;
 
+        public float endTimeVariance;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant");
@@ -162,6 +164,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             writer.Write(NPC.localAI[0]);
             writer.Write(NPC.localAI[1]);
             writer.Write(NPC.localAI[2]);
+            writer.Write(endTimeVariance);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -169,6 +172,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             NPC.localAI[0] = reader.ReadSingle();
             NPC.localAI[1] = reader.ReadSingle();
             NPC.localAI[2] = reader.ReadSingle();
+            endTimeVariance = reader.ReadSingle();
         }
 
         public override void AI()
@@ -490,18 +494,20 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int maxMemory = 16;
+                int maxMemory = 12;
 
-                if (++attackCount > maxMemory * 1.25) //after doing this many attacks, shorten queue so i can be more random again
+                if (attackCount++ > maxMemory * 1.25) //after doing this many attacks, shorten queue so i can be more random again
                 {
                     attackCount = 0;
-                    maxMemory /= 2;
+                    maxMemory /= 4;
                 }
 
                 attackHistory.Enqueue(NPC.ai[2]);
                 while (attackHistory.Count > maxMemory)
                     attackHistory.Dequeue();
             }
+
+            endTimeVariance = FargoSoulsWorld.MasochistModeReal ? Main.rand.NextFloat() : 0;
 
             /*text = "";
             foreach (float f in attackHistory)
@@ -573,11 +579,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         bool AliveCheck(Player p, bool forceDespawn = false)
         {
-            if (FargoSoulsWorld.SwarmActive || forceDespawn || ((!p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f) && NPC.localAI[3] > 0))
+            if (FargoSoulsWorld.SwarmActive || forceDespawn || ((!p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f || p.Center.Y / 16f > Main.worldSurface) && NPC.localAI[3] > 0))
             {
                 NPC.TargetClosest();
                 p = Main.player[NPC.target];
-                if (FargoSoulsWorld.SwarmActive || forceDespawn || !p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f)
+                if (FargoSoulsWorld.SwarmActive || forceDespawn || !p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f || p.Center.Y / 16f > Main.worldSurface)
                 {
                     if (NPC.timeLeft > 30)
                         NPC.timeLeft = 30;
@@ -1304,7 +1310,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 {
                     P1NextAttackOrMasoOptions(NPC.ai[0]);
                 }
-                else if (FargoSoulsWorld.MasochistModeReal && NPC.localAI[2] < 3)
+                else if (FargoSoulsWorld.MasochistModeReal && NPC.localAI[2] < 5 * endTimeVariance)
                 {
                     NPC.ai[0]--;
                     NPC.ai[1] = 0;
@@ -1459,10 +1465,15 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(2, 0).RotatedBy(NPC.ai[2]), ModContent.ProjectileType<MutantMark1>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
                 NPC.ai[1] = 3;
                 NPC.ai[2] += NPC.ai[3];
+
                 if (NPC.localAI[0]++ == 20 || NPC.localAI[0] == 40)
                 {
                     NPC.netUpdate = true;
                     NPC.ai[2] -= NPC.ai[3] / (FargoSoulsWorld.MasochistModeReal ? 3 : 2);
+
+                    if ((NPC.localAI[0] == 21 && endTimeVariance > 0.75f) //sometimes skip to end
+                    || (NPC.localAI[0] == 41 && endTimeVariance < 0.25f))
+                        NPC.localAI[0] = 60;
                 }
                 else if (NPC.localAI[0] >= 60)
                 {
@@ -1631,9 +1642,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            int endTime = 360 + 60;
-            if (FargoSoulsWorld.MasochistModeReal)
-                endTime += 180;
+            int endTime = 360 + 60 + (int)(240 * endTimeVariance);
             if (++NPC.ai[3] > endTime)
             {
                 ChooseNextAttack(11, 13, 19, 20, 21, 24, FargoSoulsWorld.MasochistModeReal ? 31 : 26, 33, 41, 44);
@@ -2063,25 +2072,32 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
+            int endTime = 60 + 180 + 150;
+
             if (NPC.ai[3] > (FargoSoulsWorld.MasochistModeReal ? 45 : 60) && NPC.ai[3] < 60 + 180 && ++NPC.ai[1] > 10)
             {
                 NPC.ai[1] = 0;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float rotation = MathHelper.ToRadians(245) * NPC.ai[2] / 80f;
+                    int timeBeforeAttackEnds = endTime - (int)NPC.ai[3] - 10;
 
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, MathHelper.ToRadians(8 * NPC.ai[2]).ToRotationVector2(),
-                        ModContent.ProjectileType<MutantDeathray3>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, rotation, NPC.whoAmI);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -MathHelper.ToRadians(-8 * NPC.ai[2]).ToRotationVector2(),
-                        ModContent.ProjectileType<MutantDeathray3>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, -rotation, NPC.whoAmI);
+                    void SpawnRay(Vector2 pos, float angleInDegrees, float turnRotation)
+                    {
+                        int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, MathHelper.ToRadians(angleInDegrees).ToRotationVector2(),
+                            ModContent.ProjectileType<MutantDeathray3>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, turnRotation, NPC.whoAmI);
+                        if (p != Main.maxProjectiles && Main.projectile[p].timeLeft > timeBeforeAttackEnds)
+                            Main.projectile[p].timeLeft = timeBeforeAttackEnds;
+                    };
+
+                    SpawnRay(NPC.Center, 8 * NPC.ai[2], rotation);
+                    SpawnRay(NPC.Center, -8 * NPC.ai[2] + 180, -rotation);
 
                     if (FargoSoulsWorld.MasochistModeReal)
                     {
                         Vector2 spawnPos = NPC.Center + NPC.ai[2] * -1200 * Vector2.UnitY;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, MathHelper.ToRadians(-8 * NPC.ai[2]).ToRotationVector2(),
-                        ModContent.ProjectileType<MutantDeathray3>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, -rotation, NPC.whoAmI);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, -MathHelper.ToRadians(8 * NPC.ai[2]).ToRotationVector2(),
-                            ModContent.ProjectileType<MutantDeathray3>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, rotation, NPC.whoAmI);
+                        SpawnRay(spawnPos, 8 * NPC.ai[2] + 180, rotation);
+                        SpawnRay(spawnPos, -8 * NPC.ai[2], -rotation);
                     }
                 }
             }
@@ -2103,7 +2119,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            if (++NPC.ai[3] > 60 + 180 + 270)
+            if (++NPC.ai[3] > endTime)
             {
                 if (FargoSoulsWorld.EternityMode) //use full moveset
                 {
@@ -2226,10 +2242,14 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
                 NPC.ai[0]++;
                 NPC.ai[1] = 0;
+                
                 if (Math.Sign(player.Center.X - NPC.Center.X) == Math.Sign(NPC.velocity.X))
                     NPC.velocity.X *= -1f;
                 if (NPC.velocity.Y < 0)
                     NPC.velocity.Y *= -1f;
+                NPC.velocity.Normalize();
+                NPC.velocity *= 3f;
+
                 NPC.netUpdate = true;
                 //NPC.TargetClosest();
             }
@@ -2240,8 +2260,15 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             if (!AliveCheck(player))
                 return;
 
-            NPC.velocity.Normalize();
-            NPC.velocity *= FargoSoulsWorld.MasochistModeReal ? 4f : 3f;
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                Vector2 target = NPC.Bottom.Y < player.Top.Y
+                    ? player.Center + 300f * Vector2.UnitX * Math.Sign(NPC.Center.X - player.Center.X)
+                    : NPC.Center + 30 * NPC.DirectionFrom(player.Center).RotatedBy(MathHelper.ToRadians(60) * Math.Sign(player.Center.X - NPC.Center.X));
+                Movement(target, 0.1f);
+                if (NPC.velocity.Length() > 1.75f)
+                    NPC.velocity = Vector2.Normalize(NPC.velocity) * 1.75f;
+            }
 
             if (NPC.ai[1] > (FargoSoulsWorld.MasochistModeReal ? 120 : 180))
             {
@@ -2267,7 +2294,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            if (++NPC.ai[1] > 360)
+            if (++NPC.ai[1] > 360 + 240 * endTimeVariance)
             {
                 ChooseNextAttack(11, 13, 16, 19, 24, FargoSoulsWorld.MasochistModeReal ? 26 : 29, 31, 35, 37, 39, 41, 42);
             }
@@ -2412,7 +2439,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 if (NPC.ai[2] == 180 * 3 - 60)
                     SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
 
-                if (NPC.ai[2] > 180 * 3)
+                if (NPC.ai[2] > 180 * 3 - 30)
                 {
                     if (NPC.ai[1] > 170) //let the balls keep falling
                         NPC.ai[1] -= 30;
@@ -2428,7 +2455,9 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            int endTime = FargoSoulsWorld.MasochistModeReal ? 180 * 3 + timeToMove : 180 * 3;
+            int endTime = 180 * 3;
+            if (FargoSoulsWorld.MasochistModeReal)
+                endTime += timeToMove + (int)(120 * endTimeVariance) - 30;
             if (++NPC.ai[2] > endTime)
             {
                 ChooseNextAttack(11, 16, 19, 20, FargoSoulsWorld.MasochistModeReal ? 26 : 29, 31, 33, 37, 39, 41, 42, 45);
@@ -2479,9 +2508,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         {
             NPC.velocity = Vector2.Zero;
 
-            int endTime = 420;
-            if (FargoSoulsWorld.MasochistModeReal)
-                endTime += 180;
+            int endTime = 420 + (int)(240 * endTimeVariance);
 
             if (++NPC.ai[1] > 10 && NPC.ai[3] > 60 && NPC.ai[3] < endTime - 60)
             {
@@ -2691,7 +2718,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             NPC.velocity = Vector2.Zero;
 
             int attackThreshold = FargoSoulsWorld.MasochistModeReal ? 48 : 60;
-            int timesToAttack = FargoSoulsWorld.MasochistModeReal ? 5 : 4;
+            int timesToAttack = FargoSoulsWorld.MasochistModeReal ? 3 + (int)(endTimeVariance * 5) : 4;
             int startup = 90;
 
             if (NPC.ai[1] == 0)
@@ -2702,8 +2729,6 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             void Sword(Vector2 pos, float ai0, float ai1, Vector2 vel)
             {
-                if (FargoSoulsWorld.MasochistModeReal)
-                    vel *= 1.5f;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), pos - vel * 60f, vel,
@@ -2753,13 +2778,17 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     Vector2 spawnPos = focusPoint + spawnOffset * spawnDistance + spawnOffset.RotatedBy(MathHelper.PiOver2) * gap * i;
                     float Ai1 = swordCounter++ / (max * 2f + 1);
 
-                    Sword(spawnPos, attackAngle + MathHelper.PiOver4, Ai1, Main.rand.NextVector2Unit());
-                    Sword(spawnPos, attackAngle - MathHelper.PiOver4, Ai1, Main.rand.NextVector2Unit());
+                    Vector2 randomOffset = Main.rand.NextVector2Unit();
+                    if (FargoSoulsWorld.MasochistModeReal)
+                        randomOffset *= 3f;
+
+                    Sword(spawnPos, attackAngle + MathHelper.PiOver4, Ai1, randomOffset);
+                    Sword(spawnPos, attackAngle - MathHelper.PiOver4, Ai1, randomOffset);
 
                     if (FargoSoulsWorld.MasochistModeReal)
                     {
-                        Sword(spawnPos + mirrorLength * (attackAngle + MathHelper.PiOver4).ToRotationVector2(), attackAngle + MathHelper.PiOver4 + MathHelper.Pi, Ai1, Main.rand.NextVector2Unit());
-                        Sword(spawnPos + mirrorLength * (attackAngle - MathHelper.PiOver4).ToRotationVector2(), attackAngle - MathHelper.PiOver4 + MathHelper.Pi, Ai1, Main.rand.NextVector2Unit());
+                        Sword(spawnPos + mirrorLength * (attackAngle + MathHelper.PiOver4).ToRotationVector2(), attackAngle + MathHelper.PiOver4 + MathHelper.Pi, Ai1, randomOffset);
+                        Sword(spawnPos + mirrorLength * (attackAngle - MathHelper.PiOver4).ToRotationVector2(), attackAngle - MathHelper.PiOver4 + MathHelper.Pi, Ai1, randomOffset);
                     }
                 }
 
