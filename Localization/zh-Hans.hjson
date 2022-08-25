@@ -1031,6 +1031,7 @@ Mods: {
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss}{$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "突变体的兄弟死了，突变体被激怒了！"
+			AbominationnVoodooDollFail: "娃娃传送回了你的手中。也许不应该在地下使用它..."
 			
 			SigilOfChampions: {
 				Timber: 林叶沙沙，环绕四周……
@@ -2018,7 +2019,7 @@ Mods: {
 			
 			KamikazeSquirrelStaff: 神风松鼠杖
 			MountedAcornGun: 安装好的橡实枪
-			SnowballStaff: 雪球法杖
+			SnowballStaff: 雪球效应
 			TheLightningRod: 避雷针
 			TreeSword: 树剑
 
@@ -3316,6 +3317,7 @@ Mods: {
 			'''
 			MutantsCurse:
 			'''
+			必须在地表使用
 			“至少不需要用娃娃了”
 			'''
 			SigilOfChampions:
@@ -3328,6 +3330,10 @@ Mods: {
 			SquirrelCoatofArms:
 			'''
 			召唤无法平息的松鼠之怒！
+			'''
+			AbomsCurse:
+			'''
+			必须在地表使用
 			'''
 
 			// == Misc ==
