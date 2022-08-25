@@ -345,7 +345,7 @@ namespace FargowiltasSouls.Projectiles.Pets
         public static int[] TalkCounters = new int[(int)TalkType.Count];
         public static int[] TalkCDs = new int[(int)TalkType.Count];
 
-        int universalTalkCD;
+        int universalTalkCD = 30;
 
         public enum TalkType
         {

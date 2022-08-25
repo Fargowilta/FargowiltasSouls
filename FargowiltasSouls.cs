@@ -365,6 +365,10 @@ namespace FargowiltasSouls
                     case "MutantsDiscountCard":
                         return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().MutantsDiscountCard;
 
+                    case "NekomiArmor":
+                    case "NekomiArmour":
+                        return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().NekomiSet;
+
                     case "EridanusArmor":
                     case "EridanusArmour":
                         return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().EridanusEmpower;

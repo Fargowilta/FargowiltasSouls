@@ -1089,7 +1089,7 @@ namespace FargowiltasSouls
             MaxLifeReduction = 0;
             CurrentLifeReduction = 0;
 
-            MythrilTimer = 0;
+            MythrilTimer = MythrilMaxTime;
         }
 
         public override void PreUpdate()
@@ -2305,7 +2305,7 @@ namespace FargowiltasSouls
 
                         float beeKB = projectile != null ? projectile.knockBack : item != null ? item.knockBack : knockback;
 
-                        int p = Projectile.NewProjectile(Player.GetSource_Misc(""), target.Center.X, target.Center.Y, Main.rand.Next(-35, 36) * 0.2f, Main.rand.Next(-35, 36) * 0.2f,
+                        int p = Projectile.NewProjectile(item != null ? Player.GetSource_ItemUse(item) : projectile.GetSource_FromThis(), target.Center.X, target.Center.Y, Main.rand.Next(-35, 36) * 0.2f, Main.rand.Next(-35, 36) * 0.2f,
                             force ? ProjectileID.GiantBee : Player.beeType(), beeDamage, Player.beeKB(beeKB), Player.whoAmI);
 
                         if (p != Main.maxProjectiles)
@@ -2910,9 +2910,6 @@ namespace FargowiltasSouls
             //killed by damage over time
             if (damage == 10.0 && hitDirection == 0 && damageSource.SourceOtherIndex == 8)
             {
-                if (GodEater || FlamesoftheUniverse || CurseoftheMoon || MutantFang)
-                    damageSource = DeathByLocalization("DivineWrath");
-
                 if (Infested)
                     damageSource = DeathByLocalization("Infested");
 
@@ -2927,6 +2924,9 @@ namespace FargowiltasSouls
 
                 if (NanoInjection)
                     damageSource = DeathByLocalization("NanoInjection");
+
+                if (GodEater || FlamesoftheUniverse || CurseoftheMoon || MutantFang)
+                    damageSource = DeathByLocalization("DivineWrath");
             }
 
             /*if (MutantPresence)

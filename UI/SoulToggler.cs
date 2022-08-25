@@ -34,6 +34,7 @@ namespace FargowiltasSouls.UI
         public UIPresetButton OffButton;
         public UIPresetButton OnButton;
         public UIPresetButton MinimalButton;
+        public UIPresetButton SomeEffectsButton;
 
         public override void OnInitialize()
         {
@@ -105,12 +106,19 @@ namespace FargowiltasSouls.UI
             OnButton.Top.Set(6, 0);
             OnButton.Left.Set(30, 0);
 
+            SomeEffectsButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
+            {
+                toggles.SomeEffects();
+            }, "Some effects preset");
+            SomeEffectsButton.Top.Set(6, 0);
+            SomeEffectsButton.Left.Set(52, 0);
+
             MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.MinimalEffects();
             }, FargoSoulsUtil.IsChinese() ? "最小化影响预设" : "Minimal effects preset");
             MinimalButton.Top.Set(6, 0);
-            MinimalButton.Left.Set(52, 0);
+            MinimalButton.Left.Set(74, 0);
 
             Append(BackPanel);
             BackPanel.Append(InnerPanel);
@@ -120,6 +128,7 @@ namespace FargowiltasSouls.UI
             InnerPanel.Append(ToggleList);
             PresetPanel.Append(OffButton);
             PresetPanel.Append(OnButton);
+            PresetPanel.Append(SomeEffectsButton);
             PresetPanel.Append(MinimalButton);
 
             base.OnInitialize();

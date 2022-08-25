@@ -302,7 +302,7 @@ namespace FargowiltasSouls.NPCs.Champions
                     break;
 
                 case -3: //final phase
-                    if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 2500f || player.Center.Y * 16f > Main.worldSurface) //despawn code
+                    if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 2500f || player.Center.Y / 16f > Main.worldSurface) //despawn code
                     {
                         NPC.TargetClosest(false);
                         if (NPC.timeLeft > 30)
@@ -715,7 +715,7 @@ namespace FargowiltasSouls.NPCs.Champions
                 case 0: //float near player, skip next attack and wait if not p2
                     NPC.rotation = 0;
 
-                    if ((!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 2500f || player.Center.Y * 16f > Main.worldSurface)
+                    if ((!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 2500f || player.Center.Y / 16f > Main.worldSurface)
                         && NPC.localAI[3] != 0) //despawn code
                     {
                         NPC.TargetClosest(false);

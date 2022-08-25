@@ -71,6 +71,9 @@ Drastically increases minion speed
 
                 Main.projectile.Where(x => x.active && x.hostile && x.damage > 0 && Vector2.Distance(x.Center, player.Center) <= focusRadius + Math.Min(x.width, x.height) / 2 && ProjectileLoader.CanDamage(x) != false && ProjectileLoader.CanHitPlayer(x, player) && FargoSoulsUtil.CanDeleteProjectile(x)).ToList().ForEach(x =>
                 {
+                    if (x.aiStyle == ProjAIStyleID.FallingTile && x.velocity.X == 0)
+                        return;
+
                     for (int i = 0; i < 5; i++)
                     {
                         int dustId = Dust.NewDust(new Vector2(x.position.X, x.position.Y + 2f), x.width, x.height + 5, DustID.WhiteTorch, x.velocity.X * 0.2f, x.velocity.Y * 0.2f, 100, fairyQueenWeaponsColor, 3f);

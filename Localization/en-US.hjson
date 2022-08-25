@@ -128,6 +128,7 @@ Mods: {
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "Mutant has been enraged by the death of his brother!"
+			AbominationnVoodooDollFail: "The doll teleports back into your hands. Maybe it shouldn't be used underground..."
 			
 			SigilOfChampions: {
 				Timber: You are surrounded by the rustling of trees...
