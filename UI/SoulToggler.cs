@@ -109,7 +109,7 @@ namespace FargowiltasSouls.UI
             SomeEffectsButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.SomeEffects();
-            }, "Some effects preset");
+            }, FargoSoulsUtil.IsChinese() ? "部分效果预设" : "Some effects preset");
             SomeEffectsButton.Top.Set(6, 0);
             SomeEffectsButton.Left.Set(52, 0);
 
