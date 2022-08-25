@@ -77,6 +77,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().GrazeCD = grazeCD;
         }
 
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 0) * 0.95f;
+
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.velocity == Vector2.Zero)
@@ -87,7 +89,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             Texture2D texture2D20 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}2", AssetRequestMode.ImmediateLoad).Value;
             Texture2D texture2D21 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}3", AssetRequestMode.ImmediateLoad).Value;
             float num223 = Projectile.localAI[1];
-            Color color44 = new Color(255, 255, 255, 0) * 0.95f;
+            Color color44 = Projectile.GetAlpha(lightColor);
             color44 = Color.Lerp(color44, Color.Transparent, transparency);
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;

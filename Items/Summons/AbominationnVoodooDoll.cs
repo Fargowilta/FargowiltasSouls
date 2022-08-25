@@ -46,25 +46,41 @@ namespace FargowiltasSouls.Items.Summons
             return true;
         }
 
+        bool hasTeleported;
+
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            if (Item.lavaWet)
+            if (Item.lavaWet && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient && ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC a))
+                if (ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC a))
                 {
                     int p = Player.FindClosest(Item.Center, 0, 0);
                     NPC abom = FargoSoulsUtil.NPCExists(NPC.FindFirstNPC(a.Type));
-                    if (p != -1 && abom != null)
+                    if (p != -1)
                     {
-                        abom.life = 0;
-                        abom.StrikeNPC(9999, 0f, 0);
+                        if (Main.player[p].Center.Y / 16 > Main.worldSurface)
+                        {
+                            if (!hasTeleported)
+                            {
+                                hasTeleported = true;
 
-                        FargoSoulsUtil.SpawnBossTryFromNPC(p, "Fargowiltas/Mutant", ModContent.NPCType<MutantBoss>());
+                                Item.Center = Main.player[p].Center;
+                                Item.noGrabDelay = 0;
+                                FargoSoulsUtil.PrintLocalization("Mods.FargowiltasSouls.Message.AbominationnVoodooDollFail", new Color(175, 75, 255));
+                            }
+                        }
+                        else if (abom != null)
+                        {
+                            abom.life = 0;
+                            abom.StrikeNPC(9999, 0f, 0);
+
+                            FargoSoulsUtil.SpawnBossTryFromNPC(p, "Fargowiltas/Mutant", ModContent.NPCType<MutantBoss>());
+
+                            Item.active = false;
+                            Item.type = 0;
+                            Item.stack = 0;
+                        }
                     }
-
-                    Item.active = false;
-                    Item.type = 0;
-                    Item.stack = 0;
                 }
             }
         }

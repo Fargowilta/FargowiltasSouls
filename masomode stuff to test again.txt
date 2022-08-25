@@ -73,12 +73,24 @@ adjusted implementation of copper lightning chain
 golem fists can no longer be hit by whips (no longer draws minion focus away from body)
 buffed nuke fishron damage from 577 to 634, x1.1 from before
 nerfed big sting use speed from 5 to 6
-mythril speed resets to full when killed
 pumpkin/frost moon items specify the wave when loot begins dropping
 fixed nekomi armor visual issues
 adjusted how mutant remembers and forgets which attacks he's used before
 shortened mutant endlag after fan ray
 randomized duration of some maso mutant attacks
 maso mutant eoc has a second wave of golden sickles
-eri, abom, and mutant despawn if you go underground
-eoc p3 rests after 3 dashes
+eoc p3 rests after 3 dashes, was 5
+
+mythril speed resets to full when killed (actually)
+eri, abom, and mutant despawn if you go underground (actually)
+renamed snowball staff to snowball effect
+abom doll will tp back to you if thrown in lava underground
+mutant/abom curse cant be used underground
+fixed? dying to mutant fang DOT having "couldnt find antidote" death message
+added some effects preset (more than minimal effects)
+changed how deathrays are drawn so that they work with mutant mod transparent projs config
+adjusted mutant ray fan, both in and out maso
+mutant's health drains to 1 in desperation if he somehow regains any
+ancient hallow ench wont reflect falling sand or w/e
+ml p2 vortexes now consistently move to the same spots
+fixed bee ench crit i think

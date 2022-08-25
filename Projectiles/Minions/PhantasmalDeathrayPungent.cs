@@ -10,11 +10,11 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Minions
 {
-    public class PhantasmalDeathrayPungent : ModProjectile
+    public class PhantasmalDeathrayPungent : Deathrays.BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayWOF";
 
-        private const float maxTime = 120;
+        public PhantasmalDeathrayPungent() : base(120, "PhantasmalDeathrayWOF") { }
 
         public override void SetStaticDefaults()
         {
@@ -26,15 +26,11 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void SetDefaults()
         {
-            Projectile.width = 48;
-            Projectile.height = 48;
+            base.SetDefaults();
+
             Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.alpha = 255;
-            Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
-            Projectile.timeLeft = 600;
-            Projectile.hide = true;
 
             Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 6;
@@ -132,72 +128,6 @@ namespace FargowiltasSouls.Projectiles.Minions
         {
             if (Projectile.ai[1] != 0f)
                 crit = true;
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            if (Projectile.velocity == Vector2.Zero)
-            {
-                return false;
-            }
-            Texture2D texture2D19 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/PhantasmalDeathrayWOF2", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            Texture2D texture2D21 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/PhantasmalDeathrayWOF3", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            float num223 = Projectile.localAI[1];
-            Microsoft.Xna.Framework.Color color44 = new Microsoft.Xna.Framework.Color(255, 255, 255, 0) * 0.9f;
-            Texture2D arg_ABD8_1 = texture2D19;
-            Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
-            Microsoft.Xna.Framework.Rectangle? sourceRectangle2 = null;
-            Main.EntitySpriteDraw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
-            num223 -= (float)(texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
-            Vector2 value20 = Projectile.Center;
-            value20 += Projectile.velocity * Projectile.scale * (float)texture2D19.Height / 2f;
-            if (num223 > 0f)
-            {
-                float num224 = 0f;
-                Microsoft.Xna.Framework.Rectangle rectangle7 = new Microsoft.Xna.Framework.Rectangle(0, 16 * (Projectile.timeLeft / 3 % 5), texture2D20.Width, 16);
-                while (num224 + 1f < num223)
-                {
-                    if (num223 - num224 < (float)rectangle7.Height)
-                    {
-                        rectangle7.Height = (int)(num223 - num224);
-                    }
-                    Main.EntitySpriteDraw(texture2D20, value20 - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(rectangle7), color44, Projectile.rotation, new Vector2((float)(rectangle7.Width / 2), 0f), Projectile.scale, SpriteEffects.None, 0);
-                    num224 += (float)rectangle7.Height * Projectile.scale;
-                    value20 += Projectile.velocity * (float)rectangle7.Height * Projectile.scale;
-                    rectangle7.Y += 16;
-                    if (rectangle7.Y + rectangle7.Height > texture2D20.Height)
-                    {
-                        rectangle7.Y = 0;
-                    }
-                }
-            }
-            Texture2D arg_AE2D_1 = texture2D21;
-            Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
-            sourceRectangle2 = null;
-            Main.EntitySpriteDraw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 0);
-            return false;
-        }
-
-        public override void CutTiles()
-        {
-            DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-            Vector2 unit = Projectile.velocity;
-            Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, DelegateMethods.CutTiles);
-        }
-
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
-        {
-            if (projHitbox.Intersects(targetHitbox))
-            {
-                return true;
-            }
-            float num6 = 0f;
-            if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], 22f * Projectile.scale, ref num6))
-            {
-                return true;
-            }
-            return false;
         }
     }
 }

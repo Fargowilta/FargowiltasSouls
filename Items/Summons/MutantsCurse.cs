@@ -12,7 +12,8 @@ namespace FargowiltasSouls.Items.Summons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant's Curse");
-            Tooltip.SetDefault("'At least this way, you don't need that doll'");
+            Tooltip.SetDefault(@"Must be used on the surface
+'At least this way, you don't need that doll'");
             //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体的诅咒");
             //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'至少不需要用娃娃了'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(3, 11));
@@ -34,6 +35,8 @@ namespace FargowiltasSouls.Items.Summons
             Item.consumable = true;
             Item.value = Item.buyPrice(1);
         }
+
+        public override bool CanUseItem(Player player) => player.Center.Y / 16 < Main.worldSurface;
 
         public override bool? UseItem(Player player)
         {
