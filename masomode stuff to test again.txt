@@ -94,3 +94,15 @@ mutant's health drains to 1 in desperation if he somehow regains any
 ancient hallow ench wont reflect falling sand or w/e
 ml p2 vortexes now consistently move to the same spots
 fixed bee ench crit i think
+
+zenith
+	no longer upgrades after beating eri, only abom and mutant
+	old post-eri stats are now the default for pre-abom
+	i.e. now, pre-eri has same stats as post-eri (net buff)
+devi gift contains 1 water candle
+adjusted devi curse recipe to be more relevant to her
+eridanus armor has a simple mode
+slightly buffed eri blessing mode
+berserked also causes -10% DR
+nerfed the twinrang retirang fire rate from 6 per second to 5 per second
+nerfed mythril ench, its pre-nerf strength is now in force

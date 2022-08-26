@@ -47,6 +47,7 @@ namespace FargowiltasSouls
         //        public bool Wood;
         public Item QueenStingerItem;
         public int QueenStingerCD;
+        public bool EridanusSet;
         public bool EridanusEmpower;
         public int EridanusTimer;
         public bool GaiaSet;
@@ -153,8 +154,8 @@ namespace FargowiltasSouls
         private int monkTimer;
 
         public int MythrilTimer;
-        private int MythrilMaxTime => /*EarthForce ? 360 :*/ 300;
-        private float MythrilMaxSpeedBonus => /*EarthForce ? 3.0f :*/ 2.0f;
+        private int MythrilMaxTime => EarthForce ? 300 : 180;
+        private float MythrilMaxSpeedBonus => EarthForce ? 2.0f : 1.5f;
 
         public bool NecroEnchantActive;
         public int NecroCD;
@@ -686,7 +687,7 @@ namespace FargowiltasSouls
             WingTimeModifier = 1f;
 
             QueenStingerItem = null;
-            EridanusEmpower = false;
+            EridanusSet = false;
             GaiaSet = false;
             StyxSet = false;
             NekomiSet = false;
@@ -993,6 +994,7 @@ namespace FargowiltasSouls
             if (Screenshake > 0)
                 Screenshake--;
 
+            EridanusSet = false;
             EridanusEmpower = false;
             EridanusTimer = 0;
             GaiaSet = false;
@@ -1289,8 +1291,11 @@ namespace FargowiltasSouls
                 StyxTimer = 0;
             }
 
-            if (GaiaOffense && !GaiaSet)
+            if (!GaiaSet)
                 GaiaOffense = false;
+
+            if (!EridanusSet)
+                EridanusEmpower = false;
 
             if (QueenStingerItem != null)
             {

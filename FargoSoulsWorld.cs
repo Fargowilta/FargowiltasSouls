@@ -660,6 +660,10 @@ namespace FargowiltasSouls
             //vanilla rotten chunk/vertebrae
             group = new RecipeGroup(() => ItemXOrY(ItemID.RottenChunk, ItemID.Vertebrae), ItemID.RottenChunk, ItemID.Vertebrae);
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyRottenChunk", group);
+
+            //vanilla gold and plat ore
+            group = new RecipeGroup(() => ItemXOrY(ItemID.GoldOre, ItemID.PlatinumOre), ItemID.GoldOre, ItemID.PlatinumOre);
+            RecipeGroup.RegisterGroup("FargowiltasSouls:AnyGoldOre", group);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace FargowiltasSouls.Items.Summons
             return true;
         }
 
-        bool hasTeleported;
+        bool hasDeclaredTeleport;
 
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
@@ -60,14 +60,14 @@ namespace FargowiltasSouls.Items.Summons
                     {
                         if (Main.player[p].Center.Y / 16 > Main.worldSurface)
                         {
-                            if (!hasTeleported)
+                            if (!hasDeclaredTeleport)
                             {
-                                hasTeleported = true;
-
-                                Item.Center = Main.player[p].Center;
-                                Item.noGrabDelay = 0;
+                                hasDeclaredTeleport = true;
                                 FargoSoulsUtil.PrintLocalization("Mods.FargowiltasSouls.Message.AbominationnVoodooDollFail", new Color(175, 75, 255));
                             }
+                                
+                            Item.Center = Main.player[p].Center;
+                            Item.noGrabDelay = 0;
                         }
                         else if (abom != null)
                         {
@@ -83,6 +83,11 @@ namespace FargowiltasSouls.Items.Summons
                     }
                 }
             }
+        }
+
+        public override void UpdateInventory(Player player)
+        {
+            hasDeclaredTeleport = false;
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)

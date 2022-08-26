@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override bool PreAI()
         {
             //fire lasers at cursor
-            if (++counter > 12)
+            if (++counter > 15)
             {
                 counter = 0;
 

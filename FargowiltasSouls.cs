@@ -371,7 +371,7 @@ namespace FargowiltasSouls
 
                     case "EridanusArmor":
                     case "EridanusArmour":
-                        return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().EridanusEmpower;
+                        return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().EridanusSet;
 
                     case "GiftsReceived":
                         return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().ReceivedMasoGift;
@@ -420,6 +420,8 @@ namespace FargowiltasSouls
             Item.NewItem(null, player.Center, ItemID.SilverPickaxe);
             Item.NewItem(null, player.Center, ItemID.SilverAxe);
             Item.NewItem(null, player.Center, ItemID.SilverHammer);
+
+            Item.NewItem(null, player.Center, ItemID.WaterCandle);
 
             Item.NewItem(null, player.Center, ItemID.Torch, 200);
             Item.NewItem(null, player.Center, ItemID.LifeCrystal, 4);

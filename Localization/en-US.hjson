@@ -33,10 +33,11 @@ Mods: {
 
 			Eridanus:
 				'''
-				The blessing of Eridanus empowers your attacks
+				Double tap {0} to toggle Eridanus' blessing and empower a weapon class
 				The empowered class changes every 10 seconds
 				Eridanus fights alongside you when you use the empowered class
-				75% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class
+				80% increased damage, 30% increased critical strike chance, and 30% increased attack speed for the empowered class
+				When Eridanus' blessing is off, 20% increased damage and 10% increased critical strike chance for your current weapon class
 				'''
 
 			Styx:

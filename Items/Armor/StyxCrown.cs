@@ -80,10 +80,7 @@ Increases max number of minions and sentries by 3");
                 fargoPlayer.StyxTimer = 0;
             }
 
-            bool doubleTap = Main.ReversedUpDownArmorSetBonuses ?
-                player.controlUp && player.releaseUp && player.doubleTapCardinalTimer[1] > 0 && player.doubleTapCardinalTimer[1] != 15
-                : player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] > 0 && player.doubleTapCardinalTimer[0] != 15;
-            if (player.whoAmI == Main.myPlayer && doubleTap
+            if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap
                 && player.ownedProjectileCounts[ModContent.ProjectileType<StyxGazerArmor>()] <= 0)
             {
                 bool superAttack = player.ownedProjectileCounts[scytheType] >= MAX_SCYTHES;

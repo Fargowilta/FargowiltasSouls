@@ -52,96 +52,110 @@ Increases your max number of sentries by 4");
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.SetBonus.Eridanus");
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.SetBonus.Eridanus", key);
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            fargoPlayer.EridanusEmpower = true;
+            fargoPlayer.EridanusSet = true;
 
-            if (fargoPlayer.EridanusTimer % (60 * 10) == 1) //make dust whenever changing classes
+            if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap)
+                fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
+
+            if (fargoPlayer.EridanusEmpower)
             {
-                SoundEngine.PlaySound(SoundID.Item4, player.Center);
-
-                int type;
-                switch (fargoPlayer.EridanusTimer / (60 * 10))
+                if (fargoPlayer.EridanusTimer % (60 * 10) == 1) //make dust whenever changing classes
                 {
-                    case 0: type = 127; break; //solar
-                    case 1: type = 229; break; //vortex
-                    case 2: type = 242; break; //nebula
-                    default: //stardust
-                        type = 135;
-                        player.GetModPlayer<EModePlayer>().MasomodeMinionNerfTimer = 0; //so that player isn't punished for using weapons during prior phase
-                        break;
+                    SoundEngine.PlaySound(SoundID.Item4, player.Center);
+
+                    int type;
+                    switch (fargoPlayer.EridanusTimer / (60 * 10))
+                    {
+                        case 0: type = 127; break; //solar
+                        case 1: type = 229; break; //vortex
+                        case 2: type = 242; break; //nebula
+                        default: //stardust
+                            type = 135;
+                            player.GetModPlayer<EModePlayer>().MasomodeMinionNerfTimer = 0; //so that player isn't punished for using weapons during prior phase
+                            break;
+                    }
+
+                    const int max = 100; //make some indicator dusts
+                    for (int i = 0; i < max; i++)
+                    {
+                        Vector2 vector6 = Vector2.UnitY * 20f;
+                        vector6 = vector6.RotatedBy((i - (max / 2 - 1)) * 6.28318548f / max) + player.Center;
+                        Vector2 vector7 = vector6 - player.Center;
+                        int d = Dust.NewDust(vector6 + vector7, 0, 0, type, 0f, 0f, 0, default(Color), 3f);
+                        Main.dust[d].noGravity = true;
+                        Main.dust[d].velocity = vector7;
+                    }
+
+                    for (int i = 0; i < 50; i++) //make some indicator dusts
+                    {
+                        int d = Dust.NewDust(player.position, player.width, player.height, type, 0f, 0f, 0, default(Color), 2.5f);
+                        Main.dust[d].noGravity = true;
+                        Main.dust[d].noLight = true;
+                        Main.dust[d].velocity *= 24f;
+                    }
+
+                    //if (Main.myPlayer == player.whoAmI)
+                    //{
+                    //    for (int i = 0; i < Main.maxProjectiles; i++) //clear minions
+                    //    {
+                    //        if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI
+                    //            && Main.projectile[i].type != ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()
+                    //            && Main.projectile[i].minionSlots > 0)
+                    //        {
+                    //            Main.projectile[i].Kill();
+                    //        }
+                    //    }
+                    //}
                 }
 
-                const int max = 100; //make some indicator dusts
-                for (int i = 0; i < max; i++)
+                if (++fargoPlayer.EridanusTimer > 60 * 10 * 4) //handle loop
                 {
-                    Vector2 vector6 = Vector2.UnitY * 20f;
-                    vector6 = vector6.RotatedBy((i - (max / 2 - 1)) * 6.28318548f / max) + player.Center;
-                    Vector2 vector7 = vector6 - player.Center;
-                    int d = Dust.NewDust(vector6 + vector7, 0, 0, type, 0f, 0f, 0, default(Color), 3f);
-                    Main.dust[d].noGravity = true;
-                    Main.dust[d].velocity = vector7;
+                    fargoPlayer.EridanusTimer = 0;
                 }
 
-                for (int i = 0; i < 50; i++) //make some indicator dusts
+                void Bonuses(DamageClass damageClass)
                 {
-                    int d = Dust.NewDust(player.position, player.width, player.height, type, 0f, 0f, 0, default(Color), 2.5f);
-                    Main.dust[d].noGravity = true;
-                    Main.dust[d].noLight = true;
-                    Main.dust[d].velocity *= 24f;
+                    player.GetDamage(damageClass) += 0.80f;
+
+                    if (damageClass == DamageClass.Summon)
+                        fargoPlayer.SpiderEnchantActive = true;
+
+                    player.GetCritChance(damageClass) += 30;
+
+                    if (player.HeldItem.CountsAsClass(damageClass))
+                        fargoPlayer.AttackSpeed += .3f;
                 }
 
-                //if (Main.myPlayer == player.whoAmI)
-                //{
-                //    for (int i = 0; i < Main.maxProjectiles; i++) //clear minions
-                //    {
-                //        if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI
-                //            && Main.projectile[i].type != ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()
-                //            && Main.projectile[i].minionSlots > 0)
-                //        {
-                //            Main.projectile[i].Kill();
-                //        }
-                //    }
-                //}
+                switch (fargoPlayer.EridanusTimer / (60 * 10)) //damage boost according to current class
+                {
+                    case 0: Bonuses(DamageClass.Melee); break;
+                    case 1: Bonuses(DamageClass.Ranged); break;
+                    case 2: Bonuses(DamageClass.Magic); break;
+                    default: Bonuses(DamageClass.Summon); break;
+                }
+
+                if (player.whoAmI == Main.myPlayer)
+                {
+                    if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()] < 1)
+                    {
+                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>(), 300, 12f, player.whoAmI, -1);
+                    }
+                    if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>()] < 1)
+                    {
+                        Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>(), 0, 0f, player.whoAmI);
+                    }
+                }
             }
-
-            if (++fargoPlayer.EridanusTimer > 60 * 10 * 4) //handle loop
+            else //eridanus off, give weaker boosts
             {
-                fargoPlayer.EridanusTimer = 0;
-            }
+                DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
 
-            void Bonuses(DamageClass damageClass)
-            {
-                player.GetDamage(damageClass) += 0.75f;
-
-                if (damageClass == DamageClass.Summon)
-                    fargoPlayer.SpiderEnchantActive = true;
-                
-                player.GetCritChance(damageClass) += 20;
-
-                if (player.HeldItem.CountsAsClass(damageClass))
-                    fargoPlayer.AttackSpeed += .3f;
-            }
-
-            switch (fargoPlayer.EridanusTimer / (60 * 10)) //damage boost according to current class
-            {
-                case 0: Bonuses(DamageClass.Melee); break;
-                case 1: Bonuses(DamageClass.Ranged); break;
-                case 2: Bonuses(DamageClass.Magic); break;
-                default: Bonuses(DamageClass.Summon); break;
-            }
-
-            if (player.whoAmI == Main.myPlayer)
-            {
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()] < 1)
-                {
-                    FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>(), 300, 12f, player.whoAmI, -1);
-                }
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>()] < 1)
-                {
-                    Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>(), 0, 0f, player.whoAmI);
-                }
+                player.GetDamage(damageClass) += 0.20f;
+                player.GetCritChance(damageClass) += 10;
             }
         }
 

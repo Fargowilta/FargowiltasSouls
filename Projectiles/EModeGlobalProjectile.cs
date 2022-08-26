@@ -113,10 +113,8 @@ namespace FargowiltasSouls.Projectiles
                         projectile.usesIDStaticNPCImmunity = true;
                         if (FargoSoulsWorld.downedAbom)
                             projectile.idStaticNPCHitCooldown = 3;
-                        else if (FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion])
-                            projectile.idStaticNPCHitCooldown = 5;
                         else
-                            projectile.idStaticNPCHitCooldown = 6;
+                            projectile.idStaticNPCHitCooldown = 5;
 
                         projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
                     }

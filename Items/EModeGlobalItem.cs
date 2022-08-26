@@ -157,9 +157,6 @@ namespace FargowiltasSouls.Items
                         string bossesToKill = "";
                         if (!FargoSoulsWorld.downedAbom)
                         {
-                            if (!FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion])
-                                bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.CosmosChampion")},";
-
                             bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.AbomBoss")},";
                         }
                         bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.MutantBoss")}";
