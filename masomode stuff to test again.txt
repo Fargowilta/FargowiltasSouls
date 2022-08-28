@@ -104,5 +104,10 @@ adjusted devi curse recipe to be more relevant to her
 eridanus armor has a simple mode
 slightly buffed eri blessing mode
 berserked also causes -10% DR
+
 nerfed the twinrang retirang fire rate from 6 per second to 5 per second
 nerfed mythril ench, its pre-nerf strength is now in force
+deer sinew nerfs your damage in general, not just on crit
+fixed mutant's fury use message
+
+implemented chibi devi mp mouse detection rollback

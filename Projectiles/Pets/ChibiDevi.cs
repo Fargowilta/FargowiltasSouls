@@ -42,12 +42,16 @@ namespace FargowiltasSouls.Projectiles.Pets
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.WritePackedVector2(target);
+            writer.Write7BitEncodedInt((int)target.X);
+            writer.Write7BitEncodedInt((int)target.Y);
+            writer.WritePackedVector2(targetSpeed);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            target = reader.ReadPackedVector2();
+            target.X = reader.Read7BitEncodedInt();
+            target.Y = reader.Read7BitEncodedInt();
+            targetSpeed = reader.ReadPackedVector2();
         }
 
         private static bool haveDoneInitScramble;
@@ -72,6 +76,7 @@ namespace FargowiltasSouls.Projectiles.Pets
         }
 
         Vector2 target;
+        Vector2 targetSpeed;
         int syncTimer;
 
         public override void AI()
@@ -94,13 +99,17 @@ namespace FargowiltasSouls.Projectiles.Pets
             if (player.whoAmI == Main.myPlayer)
             {
                 target = Main.MouseWorld;
+                if (oldMouse != Vector2.Zero)
+                    targetSpeed = target - oldMouse;
 
-                if (++syncTimer > 30)
+                if (++syncTimer > 20)
                 {
                     syncTimer = 0;
                     Projectile.netUpdate = true;
                 }
             }
+
+            target += targetSpeed;
 
             bool asleep = Projectile.ai[0] == 1;
             if (asleep)

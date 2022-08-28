@@ -2221,12 +2221,12 @@ namespace FargowiltasSouls
 
                 if (SpiderEnchantActive && damageClass.CountsAsClass(DamageClass.Summon) && !TerrariaSoul)
                     damage = (int)Math.Round(damage * 0.75);
+            }
 
-                if (DeerSinewNerf)
-                {
-                    float ratio = Math.Min(Player.velocity.Length() / 20f, 1f);
-                    damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.75f, ratio));
-                }
+            if (DeerSinewNerf)
+            {
+                float ratio = Math.Min(Player.velocity.Length() / 20f, 1f);
+                damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.75f, ratio));
             }
 
             if (CerebralMindbreak)
