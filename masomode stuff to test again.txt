@@ -111,3 +111,4 @@ deer sinew nerfs your damage in general, not just on crit
 fixed mutant's fury use message
 
 implemented chibi devi mp mouse detection rollback
+deer sinew effect is x0.85 at most, was x0.75

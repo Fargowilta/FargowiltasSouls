@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Consumables
 @"Allows the ability to dash
 Double tap a direction
 Taking damage may briefly freeze you
-Reduces damage when your speed increases, up to 0.75x
+Reduces damage when your speed increases, down to 0.85x at max
 All effects negated if toggled off or another dash is already in use
 'Cold but twitching'");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;

@@ -2226,7 +2226,7 @@ namespace FargowiltasSouls
             if (DeerSinewNerf)
             {
                 float ratio = Math.Min(Player.velocity.Length() / 20f, 1f);
-                damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.75f, ratio));
+                damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.85f, ratio));
             }
 
             if (CerebralMindbreak)
