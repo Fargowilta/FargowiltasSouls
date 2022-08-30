@@ -13,6 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Mythril Enchantment");
             Tooltip.SetDefault(
 @"Temporarily increases attack speed after not attacking for a while
+Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
 'You feel the knowledge of your weapons seep into your mind'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "秘银魔石");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,

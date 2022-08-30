@@ -63,19 +63,26 @@ namespace FargowiltasSouls.Items
                 type = ProjectileID.ConfettiGun;
         }
 
-        //        public override bool ConsumeItem(Item item, Player player)
-        //        {
-        //            FargoSoulsPlayer p = player.GetModPlayer<FargoSoulsPlayer>();
+        public override bool ConsumeItem(Item item, Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-        //            if (item.makeNPC > 0 && (p.WoodForce || p.WizardEnchant) && Main.rand.NextBool())
-        //            {
-        //                return false;
-        //            }
+            //if (item.makeNPC > 0 && (p.WoodForce || p.WizardEnchant) && Main.rand.NextBool())
+            //{
+            //    return false;
+            //}
 
-        //            if (p.BuilderMode && (item.createTile != -1 || item.createWall != -1) && item.type != ItemID.PlatinumCoin && item.type != ItemID.GoldCoin)
-        //                return false;
-        //            return true;
-        //        }
+            //if (p.BuilderMode && (item.createTile != -1 || item.createWall != -1) && item.type != ItemID.PlatinumCoin && item.type != ItemID.GoldCoin)
+            //    return false;
+            //return true;
+
+            if (item.healLife > 0)
+            {
+                modPlayer.StatLifePrevious += modPlayer.getHealMultiplier(item.healLife);
+            }
+
+            return base.ConsumeItem(item, player);
+        }
 
         public override void ModifyItemScale(Item item, Player player, ref float scale)
         {
@@ -222,8 +229,6 @@ namespace FargowiltasSouls.Items
 
         public override bool? UseItem(Item item, Player player)
         {
-            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-
             if (item.type == ItemID.RodofDiscord)
                 player.ClearBuff(ModContent.BuffType<GoldenStasis>());
 

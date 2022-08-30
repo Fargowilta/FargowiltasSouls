@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Bionomic Cluster");
             Tooltip.SetDefault("Grants immunity to Frostburn, Shadowflame, Squeaky Toy, Guilty" +
                 "\nGrants immunity to Flames of the Universe, Clipped Wings, Crippled, Webbed, and Purified" +
-                "\nGrants immunity to Lovestruck, Stinky, Midas, Hexed, cactus damage, and enemies that steal items" +
+                "\nGrants immunity to Lovestruck, Stinky, Midas, Hexed, and Loose Pockets" +
                 "\nUse to teleport to your last death point" +
                 "\nYour attacks can inflict Clipped Wings, spawn Frostfireballs, and produce hearts" +
                 "\nAttacks have a chance to squeak and deal 1 damage to you" +
@@ -69,6 +69,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             player.buffImmune[BuffID.WindPushed] = true;
             player.buffImmune[BuffID.Suffocation] = true;
             player.buffImmune[ModContent.BuffType<Guilty>()] = true;
+            player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
 
             player.nightVision = true;
 

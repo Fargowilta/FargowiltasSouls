@@ -1102,7 +1102,7 @@ namespace FargowiltasSouls.NPCs
             //                damage *= 1.5;
             //            }
 
-            if (crit && modPlayer.Graze)
+            if (modPlayer.Graze)
             {
                 damage *= 1.0 + modPlayer.GrazeBonus;
             }

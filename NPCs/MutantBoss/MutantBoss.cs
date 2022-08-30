@@ -146,6 +146,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
         {
             CooldownSlot = 1;
+            if (!FargoSoulsWorld.MasochistModeReal)
+                return false;
             return NPC.Distance(FargoSoulsUtil.ClosestPointInHitbox(target, NPC.Center)) < Player.defaultHeight && NPC.ai[0] > -1;
         }
 
@@ -2082,7 +2084,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            int endTime = 60 + 180 + 120;
+            int endTime = 60 + 180 + (FargoSoulsWorld.MasochistModeReal ? 120 : 180);
 
             if (NPC.ai[3] > (FargoSoulsWorld.MasochistModeReal ? 45 : 60) && NPC.ai[3] < 60 + 180 && ++NPC.ai[1] > 10)
             {
@@ -2103,9 +2105,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     SpawnRay(NPC.Center, 8 * NPC.ai[2], rotation);
                     SpawnRay(NPC.Center, -8 * NPC.ai[2] + 180, -rotation);
 
-                    Vector2 spawnPos = NPC.Center + NPC.ai[2] * -1200 * Vector2.UnitY;
-                    SpawnRay(spawnPos, 8 * NPC.ai[2] + 180, rotation);
-                    SpawnRay(spawnPos, -8 * NPC.ai[2], -rotation);
+                    if (FargoSoulsWorld.MasochistModeReal)
+                    {
+                        Vector2 spawnPos = NPC.Center + NPC.ai[2] * -1200 * Vector2.UnitY;
+                        SpawnRay(spawnPos, 8 * NPC.ai[2] + 180, rotation);
+                        SpawnRay(spawnPos, -8 * NPC.ai[2], -rotation);
+                    }
                 }
             }
 
@@ -2764,7 +2769,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                 const int maxHorizSpread = 1600 * 2;
                 const int arenaRadius = 1200;
-                int max = FargoSoulsWorld.MasochistModeReal ? 12 : 10;
+                int max = FargoSoulsWorld.MasochistModeReal ? 16 : 12;
                 float gap = maxHorizSpread / max;
 
                 float attackAngle = NPC.ai[3];// + Main.rand.NextFloat(MathHelper.ToDegrees(10)) * (Main.rand.NextBool() ? -1 : 1);

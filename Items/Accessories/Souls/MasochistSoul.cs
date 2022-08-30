@@ -330,6 +330,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[ModContent.BuffType<LihzahrdCurse>()] = true;
             player.buffImmune[ModContent.BuffType<LightningRod>()] = true;
             player.buffImmune[ModContent.BuffType<LivingWasteland>()] = true;
+            player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
             player.buffImmune[ModContent.BuffType<Lovestruck>()] = true;
             player.buffImmune[ModContent.BuffType<LowGround>()] = true;
             player.buffImmune[ModContent.BuffType<MarkedforDeath>()] = true;

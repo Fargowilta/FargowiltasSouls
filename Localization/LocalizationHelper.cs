@@ -254,7 +254,6 @@ namespace FargowiltasSouls
             AddToggle("HeartHeader", ModContent.ItemType<HeartoftheMasochist>());
             AddToggle("MasoPumpConfig", ModContent.ItemType<PumpkingsCape>());
             AddToggle("IceQueensCrownConfig", ModContent.ItemType<IceQueensCrown>());
-            AddToggle("MasoFlockoConfig", ModContent.ItemType<IceQueensCrown>());
             AddToggle("MasoUfoConfig", ModContent.ItemType<SaucerControlConsole>());
             AddToggle("MasoGravConfig", ModContent.ItemType<GalacticGlobe>());
             AddToggle("MasoGrav2Config", ModContent.ItemType<GalacticGlobe>());

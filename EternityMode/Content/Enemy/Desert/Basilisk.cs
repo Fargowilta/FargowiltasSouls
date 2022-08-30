@@ -16,7 +16,6 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
         {
             base.SetDefaults(npc);
 
-            npc.lifeMax *= 2;
             npc.knockBackResist /= 10f;
         }
 

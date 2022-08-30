@@ -149,11 +149,12 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
                     //    npc.life = npc.lifeMax;
                     //CombatText.NewText(npc.Hitbox, CombatText.HealLife, heal, true);
 
+                    CombatText.NewText(n.Hitbox, Color.Red, n.life, true);
+
                     n.life = 0;
                     n.HitEffect();
                     n.checkDead();
                     n.active = false;
-                    CombatText.NewText(n.Hitbox, Color.Red, n.life, true);
                 }
                 else
                 {

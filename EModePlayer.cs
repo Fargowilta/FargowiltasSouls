@@ -585,9 +585,6 @@ namespace FargowiltasSouls
                     break;
             }
 
-            if (ProjectileID.Sets.IsAWhip[item.shoot] && item.type != ItemID.BlandWhip)
-                return 2f / 3f;
-
             return 1f;
         }
 

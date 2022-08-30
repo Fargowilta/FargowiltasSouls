@@ -73,7 +73,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
             {
                 target.AddBuff(ModContent.BuffType<Midas>(), 600);
 
-                if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet && Main.rand.NextBool())
+                if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
                 {
                     //try stealing mouse item, then selected item
                     bool stolen = EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem);
@@ -99,6 +99,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.GoblinInvasion
                         }
                     }*/
                 }
+                target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
             }
         }
 

@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Sparkling Adoration");
             Tooltip.SetDefault(@"Grants immunity to Lovestruck and Fake Hearts
-Graze attacks to gain up to 25% increased critical damage
-Critical damage bonus decreases over time and is fully lost on hit
+Graze attacks to gain up to x1.25 increased damage
+Damage bonus decreases over time and is fully lost on hit
 Your attacks periodically summon life-draining hearts
 'With all of your emotion!'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 11));
@@ -59,6 +59,7 @@ Your attacks periodically summon life-draining hearts
                 grazeCap += 0.25;
 
             double grazeGain = 0.0125;
+            grazeGain *= 0.75;
             if (fargoPlayer.AbomWandItem != null)
                 grazeGain *= 2;
 

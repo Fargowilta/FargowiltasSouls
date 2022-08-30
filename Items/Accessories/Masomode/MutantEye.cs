@@ -16,9 +16,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Mutant Eye");
             Tooltip.SetDefault(@"Grants immunity to Mutant Fang and Mutant Presence
-25% increased graze bonus critical damage cap
+25% increased graze bonus damage cap
 Upgrades Sparkling Adoration hearts to love rays
-Increases critical damage gained per graze
+Increases damage gained per graze
 Increases Spectral Abominationn respawn rate and damage
 Press the Mutant Bomb key to unleash a wave of spheres and destroy most hostile projectiles
 Mutant Bomb has a 60 second cooldown

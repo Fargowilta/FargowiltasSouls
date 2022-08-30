@@ -68,14 +68,6 @@ namespace FargowiltasSouls.Buffs.Minions
                         FargoSoulsUtil.NewSummonProjectile(player.GetSource_Buff(buffIndex), player.Center, -Vector2.UnitY, ModContent.ProjectileType<Projectiles.Minions.PlanterasChild>(), damage, 3f, player.whoAmI);
                 }
 
-                if (player.GetToggleValue("MasoFlocko"))
-                {
-                    fargoPlayer.SuperFlocko = true;
-                    const int damage = 90;
-                    if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.SuperFlocko>()] < 1)
-                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Buff(buffIndex), player.Center, new Vector2(0f, -10f), ModContent.ProjectileType<Projectiles.Minions.SuperFlocko>(), damage, 4f, player.whoAmI);
-                }
-
                 if (player.GetToggleValue("MasoUfo"))
                 {
                     fargoPlayer.MiniSaucer = true;

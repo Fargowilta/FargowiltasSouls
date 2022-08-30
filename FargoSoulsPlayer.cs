@@ -314,7 +314,6 @@ namespace FargowiltasSouls
         public bool SqueakyAcc;
         public bool RainbowSlime;
         public bool SkeletronArms;
-        public bool SuperFlocko;
         public bool IceQueensCrown;
         public bool MiniSaucer;
         public bool TribalCharm;
@@ -367,7 +366,7 @@ namespace FargowiltasSouls
         public bool Anticoagulation;
         public bool GodEater;               //defense removed, endurance removed, colossal DOT
         public bool FlamesoftheUniverse;    //activates various vanilla debuffs
-        public bool MutantNibble;           //disables potions, moon bite effect, feral bite effect, disables lifesteal
+        public bool MutantNibble;           //moon bite effect, feral bite effect, disables lifesteal
         public int StatLifePrevious = -1;   //used for mutantNibble
         public bool Asocial;                //disables minions, disables pets
         public bool WasAsocial;
@@ -847,7 +846,6 @@ namespace FargowiltasSouls
             SqueakyAcc = false;
             RainbowSlime = false;
             SkeletronArms = false;
-            SuperFlocko = false;
             IceQueensCrown = false;
             MiniSaucer = false;
             TribalCharm = false;
@@ -1555,8 +1553,6 @@ namespace FargowiltasSouls
             {
                 if (Player.statLife > 0 && StatLifePrevious > 0 && Player.statLife > StatLifePrevious)
                     Player.statLife = StatLifePrevious;
-                if (Player.potionDelay < 2)
-                    Player.potionDelay = 2;
             }
 
             if (Defenseless)
@@ -2202,10 +2198,10 @@ namespace FargowiltasSouls
                 crit = false;
             }
 
-            //if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
-            //{
-            //    TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
-            //}
+            if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
+            {
+                TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
+            }
 
             ModifyHitNPCBoth(target, ref damage, ref crit, item.DamageType);
         }
@@ -2700,10 +2696,7 @@ namespace FargowiltasSouls
                 ((NPCs.MutantBoss.MutantBoss)Main.npc[EModeGlobalNPC.mutantBoss].ModNPC).playerInvulTriggered = true;
 
             if (TryParryAttack())
-            {
-                OnHurtEffects(damage);
                 return false;
-            }
 
             if (Player.whoAmI == Main.myPlayer && !noDodge && SqueakyAcc && Player.GetToggleValue("MasoSqueak") && Main.rand.NextBool(10))
             {
@@ -2783,7 +2776,7 @@ namespace FargowiltasSouls
             if (FossilEnchantItem != null)
                 FossilEnchant.FossilHurt(this, (int)damage);
 
-            if (IceQueensCrown)
+            if (IceQueensCrown && damage > 1)
                 IceQueensCrownHurt();
         }
 
@@ -3229,7 +3222,7 @@ namespace FargowiltasSouls
             //            }
         }
 
-        private int getHealMultiplier(int heal)
+        public int getHealMultiplier(int heal)
         {
             float bonus = 0f;
 

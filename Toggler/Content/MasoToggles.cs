@@ -66,7 +66,6 @@ namespace FargowiltasSouls.Toggler.Content
         public int HeartHeader = ModContent.ItemType<HeartoftheMasochist>();
         public string MasoPump;
         public string IceQueensCrown;
-        public string MasoFlocko;
         public string MasoUfo;
         public string MasoGrav;
         public string MasoGrav2;

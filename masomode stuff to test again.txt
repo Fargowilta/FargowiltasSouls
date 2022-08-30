@@ -1,75 +1,3 @@
-enemies that drink blood from your anticoagulation get buffed proj damage
-adjusted anticoagulation, less likely to make blood when blood is already floating
-mimic drops golden crate
-biome mimics drop biome hm crates
-destroyer
-	adjusted light show telegraphs
-	light show can rotate beams slightly
-	increased how many stars can appear in each star wall
-	star walls fire slightly faster
-	improved base speed of homing stars shot by p1
-destroyer maso
-	faster movement during star wall
-	faster movement during light show
-	probes have regular ai
-prime maso swipe limbs swipe much more often
-heavily adjusted spaz star streams during spin
-twins maso shoot dark stars when the other twin is dead
-spaz maso spins opposite to retinazer.
-qs
-	anti-air slime sprays are now faster and cover more area
-	super stomps aim almost directly at your elevation, not the ground below
-	gains 75% DR with subjects, was 50%
-dreadnaut
-	fixed it being vulnerable to clipped wings lmao
-	will vacuum in ANY weak enemy and consume them, doesnt need them weakened first
-mutant antibodies nerf, only buffs your current damage type instead of all (oppress multiclassing)
-all champs have full mp life scaling (its okay because squrrl)
-cultist life buff, x1.5 -> x2
-visual update to moon lord sun
-fixed lunar pillars auras not working in mp? i think?
-	confirm pillar auras work in mp when spawned via killing cultist
-	confirm no pillar aura when spawned via outsider portal and lunar invasion is NOT happening
-ml p1 vortex lightning is vanilla lightning to differentiate from cultist minion
-updated eow gores and icon
-update prime and gores
-emode recolors off wont override texture packs? turn off emode recolors to get texture pack textures, test this
-added nekomi armor
-
-sparkling adoration can graze enemies
-nekomi
-	hearts begin wearing off and despawning MUCH faster
-	nerfed meter gain in general
-	axe does its previous damage across 4 hits instead
-fixed qs minions being immune to knockback
-
-ported to preview tmodloader
-	test mp sync isnt completely broken, e.g. devi boss
-updated dread shell tooltip
-nerfed skeletron skeletons burped, 6->4 and not when hands alive
-nekomi axe cant use tungsten
-made it harder to skip destroyer p3 especially with nekomi
-twinrangs m1 velocity nerfed
-twinrangs m2 buffed
-	increased velocity of the rang
-	shoots lasers at slower pace while moving
-	accelerates when returning to player (so you cant stack infinite number of them)
-removed leather from nekomi recipe
-plat ench no longer dupes any money you throw at the enemy
-
-skeletron hand respawn is at 50%, was 33%
-skeletron has reduced attack rate when hands alive UNLESS below 25%
-neither of above apply to maso
-copper lightning no longer rebounds infinitely if it keeps hitting enemies immune to electrified
-copper lightning capped at 60
-
-fixed tortured soul being burnt in the underworld
-nekomi does half damage in pre hardmode
-nekomi can no longer hit worm segments individually (can't 1shot destroyer to p3)
-fixed nature champ bullets creating crystal spikes on impact
-nerfed gelatin subject life
-adjusted implementation of copper lightning chain
-
 golem fists can no longer be hit by whips (no longer draws minion focus away from body)
 buffed nuke fishron damage from 577 to 634, x1.1 from before
 nerfed big sting use speed from 5 to 6
@@ -112,3 +40,23 @@ fixed mutant's fury use message
 
 implemented chibi devi mp mouse detection rollback
 deer sinew effect is x0.85 at most, was x0.75
+sparkling adoration buff, it is now x1.25 damage instead of x1.25 crit damage
+sparkling adoration nerf, you gain 25% less graze per graze
+disabled mutant contact damage outside maso
+mutant's empress sword attack is harder
+mythril and force of earth specify how long the durations are
+removed basilisk hp buff
+fuck it, fuck everything, removed the whip damage nerf
+molten ench DRASTIC range buff, now works if any part of the enemy's hitbox is in the ring
+tungsten ench buffs true melee damage/crit again
+obsidian ench buffs whip range
+fixed dreadnautilus displaying 0 damage when eating enemies
+changed the sound used by true eye ray minion
+gelic wings tooltip says they act as wings. in case you didnt notice theyre wings
+ice queens crown rework
+	freeze on hit effect buffed to fuck
+	removed super flocko minion
+you can now use healing potions when you have mutant nibble
+thieving enemies now inflict loose pockets before they can steal items
+longer thief cooldown
+adjusted nekomi super to not be weaker with silver ench speedup

@@ -143,7 +143,6 @@ namespace FargowiltasSouls.Toggler
 
             player.SetToggleValue("MasoPump", false);
             player.SetToggleValue("IceQueensCrown", false);
-            player.SetToggleValue("MasoFlocko", false);
             player.SetToggleValue("MasoUfo", false);
             player.SetToggleValue("MasoGrav", false);
             player.SetToggleValue("MasoTrueEye", false);

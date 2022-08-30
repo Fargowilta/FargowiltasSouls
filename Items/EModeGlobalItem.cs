@@ -323,8 +323,6 @@ namespace FargowiltasSouls.Items
 
             if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
             {
-                if (item.type != ItemID.BlandWhip) 
-                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
             }

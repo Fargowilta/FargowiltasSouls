@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
+﻿using FargowiltasSouls.Buffs;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.Items.Accessories.Enchantments;
 using FargowiltasSouls.NPCs;
@@ -2338,14 +2339,17 @@ namespace FargowiltasSouls
         {
             if (Player.GetToggleValue("IceQueensCrown"))
             {
-                int freezeRange = 16 * 20;
-                if (MasochistHeart)
-                    freezeRange = 16 * 40;
-                if (MasochistSoul)
-                    freezeRange = 16 * 60;
+                if (!MasochistSoul)
+                    Player.AddBuff(ModContent.BuffType<Coldheart>(), Coldheart.STACK_DURATION);
 
-                int freezeDuration = 30;
-                int slowDuration = freezeDuration + (MasochistHeart || MasochistSoul ? 120 : 60);
+                int freezeRange = 16 * 150;
+                //if (MasochistHeart)
+                //    freezeRange = 16 * 40;
+                //if (MasochistSoul)
+                //    freezeRange = 16 * 60;
+
+                int freezeDuration = 60; //30;
+                int slowDuration = freezeDuration + 120; //(MasochistHeart || MasochistSoul ? 120 : 60);
 
                 foreach (NPC n in Main.npc.Where(n => n.active && !n.friendly && n.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(n, Player.Center)) < freezeRange && !n.dontTakeDamage && !n.buffImmune[ModContent.BuffType<TimeFrozen>()]))
                 {
@@ -2376,6 +2380,8 @@ namespace FargowiltasSouls
                     Main.dust[d].noGravity = true;
                     Main.dust[d].velocity *= 6f;
                 }
+
+                SoundEngine.PlaySound(SoundID.Item27, Player.Center);
             }
         }
 

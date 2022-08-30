@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip =
 @"150% increased weapon size but reduces melee speed
 Every half second a projectile will be doubled in size
-Enlarged projectiles deal 10% more damage and have an additional chance to crit
+Enlarged attacks deal 10% more damage and have an additional chance to crit
 'Bigger is always better'";
             Tooltip.SetDefault(tooltip);
 
@@ -74,7 +74,7 @@ Enlarged projectiles deal 10% more damage and have an additional chance to crit
             //    heldItem.scale = modPlayer.TungstenPrevSizeSave;
             //}
 
-            return modPlayer.TerraForce ? 4f : 2.5f;
+            return 1f + (modPlayer.TerraForce ? 3f : 1.5f);
         }
 
         public static bool TungstenAlwaysAffectProj(Projectile projectile)

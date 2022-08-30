@@ -25,7 +25,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.PirateInvasion
         {
             base.OnHitPlayer(npc, target, damage, crit);
 
-            if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet && Main.rand.NextBool())
+            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             {
                 //try stealing mouse item, then selected item
                 bool stolen = EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem);
@@ -38,6 +38,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.PirateInvasion
                     CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
                 }
             }
+            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
 
             target.AddBuff(ModContent.BuffType<Midas>(), 600);
             //target.AddBuff(ModContent.BuffType<LivingWasteland>(), 600);

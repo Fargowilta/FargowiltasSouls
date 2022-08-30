@@ -469,7 +469,6 @@ Mods: {
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
 			MasoPumpConfig: Pumpking's Cape Support
 			IceQueensCrownConfig: Freeze On Hit
-			MasoFlockoConfig: Flocko Minion
 			MasoUfoConfig: Saucer Minion
 			MasoGravConfig: Gravity Control
 			MasoGrav2Config: Stabilized Gravity

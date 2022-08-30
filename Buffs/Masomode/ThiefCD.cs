@@ -13,5 +13,10 @@ namespace FargowiltasSouls.Buffs.Masomode
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             Main.buffNoSave[Type] = true;
         }
+
+        public override void Update(Player player, ref int buffIndex)
+        {
+            player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
+        }
     }
 }

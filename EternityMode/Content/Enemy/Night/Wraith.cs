@@ -27,7 +27,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<LivingWasteland>(), 600);
-            if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
+            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             {
                 bool IsSoul(int type)
                 {
@@ -61,6 +61,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Night
                     CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
                 }
             }
+            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
         }
     }
 }
