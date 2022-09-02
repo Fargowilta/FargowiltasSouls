@@ -56,6 +56,7 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
 [i:{4}] 每过0.25秒便会有一个随机弹幕的尺寸翻倍
 [i:{5}] 使你免疫火块与熔岩
 [i:{5}] 你的攻击会引发爆炸
+[i:{5}] 鞭子的范围增加50%
 “大地赐予它力量”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }
