@@ -71,6 +71,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return Projectile.ai[1] >= 120;
         }
 
+        bool spawned;
+
         public override void AI()
         {
             Player player = FargoSoulsUtil.PlayerExists(Projectile.ai[0]);
@@ -98,8 +100,10 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 }
             };
 
-            if (Projectile.ai[1] == 0)
+            if (!spawned)
             {
+                spawned = true;
+
                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)

@@ -28,6 +28,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.alpha = 255;
             Projectile.timeLeft = 60;
             //CooldownSlot = 1;
+
+            Projectile.extraUpdates = 1;
         }
 
         public override bool? CanDamage()

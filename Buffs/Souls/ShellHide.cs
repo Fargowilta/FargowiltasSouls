@@ -73,7 +73,7 @@ namespace FargowiltasSouls.Buffs.Souls
             if (modPlayer.TurtleShellHP <= 0)
             {
                 player.AddBuff(ModContent.BuffType<BrokenShell>(), 1800);
-                modPlayer.TurtleShellHP = 24;
+                modPlayer.TurtleShellHP = 19;
 
                 //some funny dust
                 const int max = 30;

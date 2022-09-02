@@ -1460,7 +1460,7 @@ namespace FargowiltasSouls
                 TurtleCounter = 0;
             }
 
-            if (TurtleShellHP < 25 && !Player.HasBuff(ModContent.BuffType<BrokenShell>()) && !ShellHide && (LifeForce))
+            if (TurtleShellHP < 20 && !Player.HasBuff(ModContent.BuffType<BrokenShell>()) && !ShellHide && (LifeForce))
             {
                 turtleRecoverCD--;
                 if (turtleRecoverCD <= 0)

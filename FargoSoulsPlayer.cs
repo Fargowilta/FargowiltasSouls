@@ -358,6 +358,7 @@ namespace FargowiltasSouls
         public bool noDodge;
         public bool noSupersonic;
         public bool Bloodthirsty;
+        public bool Unlucky;
         public bool DisruptedFocus;
         public bool SinisterIcon;
         public bool SinisterIconDrops;
@@ -1212,6 +1213,14 @@ namespace FargowiltasSouls
 
             //moved here so that it can affect minions spawned by buffs
             SilverEnchantActive = false;
+        }
+
+        public override void ModifyLuck(ref float luck)
+        {
+            if (Unlucky)
+                luck -= 1.0f;
+
+            Unlucky = false;
         }
 
         public override void PostUpdateEquips()

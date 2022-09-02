@@ -34,8 +34,6 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
         {
             base.OnHitPlayer(npc, target, damage, crit);
 
-            target.AddBuff(BuffID.Rabies, 3600);
-
             switch (npc.type)
             {
                 case NPCID.CaveBat:

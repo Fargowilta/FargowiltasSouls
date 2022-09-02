@@ -348,6 +348,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[ModContent.BuffType<Buffs.Masomode.SqueakyToy>()] = true;
             player.buffImmune[ModContent.BuffType<Swarming>()] = true;
             player.buffImmune[ModContent.BuffType<Stunned>()] = true;
+            player.buffImmune[ModContent.BuffType<Unlucky>()] = true;
             player.buffImmune[ModContent.BuffType<Unstable>()] = true;
         }
 

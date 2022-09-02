@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sinister Icon");
-            Tooltip.SetDefault(@"Prevents Eternity Mode-induced natural boss spawns
+            Tooltip.SetDefault(@"Grants immunity to Unlucky
 Increases spawn rate
 Enemies with 2000 or less max life will drop doubled loot
 'Most definitely not alive'");
@@ -35,6 +35,8 @@ Enemies with 2000 or less max life will drop doubled loot
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.buffImmune[Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Unlucky>()] = true;
+
             if (player.GetToggleValue("MasoIcon"))
                 player.GetModPlayer<FargoSoulsPlayer>().SinisterIcon = true;
 

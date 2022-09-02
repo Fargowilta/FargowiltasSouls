@@ -39,7 +39,6 @@ namespace FargowiltasSouls.Buffs.Boss
             fargoPlayer.MutantPresence = true;
             fargoPlayer.MutantFang = true;
             player.moonLeech = true;
-            player.potionDelay = player.buffTime[buffIndex];
             /*if (FargowiltasSouls.Instance.MasomodeEXLoaded && !FargoSoulsWorld.downedFishronEX && player.buffTime[buffIndex] > 1
                 && FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<MutantBoss>()))
             {

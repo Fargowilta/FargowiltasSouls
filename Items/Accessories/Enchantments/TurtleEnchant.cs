@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 When standing still and not attacking, you will enter your shell
 While in your shell, you will gain 90% damage resistance 
 Additionally you will destroy incoming projectiles and deal 10x more thorns damage
-The shell lasts at least 1 second and up to 25 attacks blocked
+The shell lasts at least 1 second and up to 20 attacks blocked
 Enemies will explode into needles on death if they are struck with your needles
 'You suddenly have the urge to hide in a shell'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "乌龟魔石");

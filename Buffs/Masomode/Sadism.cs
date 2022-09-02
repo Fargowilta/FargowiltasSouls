@@ -62,6 +62,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             player.buffImmune[ModContent.BuffType<SqueakyToy>()] = true;
             player.buffImmune[ModContent.BuffType<Swarming>()] = true;
             player.buffImmune[ModContent.BuffType<Stunned>()] = true;
+            player.buffImmune[ModContent.BuffType<Unlucky>()] = true;
             player.buffImmune[ModContent.BuffType<Unstable>()] = true;
         }
 

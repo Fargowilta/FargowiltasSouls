@@ -42,6 +42,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SolarEclipse
 
             target.AddBuff(ModContent.BuffType<LivingWasteland>(), 900);
             target.AddBuff(ModContent.BuffType<MarkedforDeath>(), 600);
+            target.AddBuff(ModContent.BuffType<Unlucky>(), 60 * 30);
         }
     }
 }

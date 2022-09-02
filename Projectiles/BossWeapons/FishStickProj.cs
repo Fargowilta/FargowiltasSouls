@@ -76,10 +76,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (Projectile.owner == Main.myPlayer)
             {
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<WhirlpoolBase>()] < 1)
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<WhirlpoolBase>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 16, 11);
-                else
-                    ShootSharks(target.Center, 2, target.velocity * 30f);
+                ShootSharks(target.Center, 2, target.velocity * 30f);
             }
         }
 
@@ -89,10 +86,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (Projectile.owner == Main.myPlayer)
             {
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<WhirlpoolBase>()] < 1)
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<WhirlpoolBase>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 16, 11);
-                else
-                    ShootSharks(Projectile.Center, 5);
+                ShootSharks(Projectile.Center, 5);
             }
 
             return true;
