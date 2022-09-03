@@ -307,7 +307,6 @@ Mods: {
 		BuffDescription: {
 
 			BetsyDash: '''不受敌怪攻击的影响'''
-			Coldheart: '''减少{0}%伤害减免'''
 			MutantRebirth: '''复活死亡射线蓄力中'''
 
 			// == BossDebuffs ==
