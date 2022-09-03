@@ -35,7 +35,7 @@ namespace FargowiltasSouls.Buffs
             if (buffIndex == -1)
                 return;
             int timeLeft = Main.LocalPlayer.buffTime[buffIndex];
-            tip = $"{System.Math.Round(EndurancePenalty(timeLeft) * 100)}% less damage reduction";
+            tip = FargoSoulsUtil.IsChinese() ? $"减少{System.Math.Round(EndurancePenalty(timeLeft) * 100)}%伤害减免" : $"{System.Math.Round(EndurancePenalty(timeLeft) * 100)}% less damage reduction";
         }
 
         public override bool ReApply(Player player, int time, int buffIndex)
