@@ -1,68 +1,10 @@
-golem fists can no longer be hit by whips (no longer draws minion focus away from body)
-buffed nuke fishron damage from 577 to 634, x1.1 from before
-nerfed big sting use speed from 5 to 6
-pumpkin/frost moon items specify the wave when loot begins dropping
-fixed nekomi armor visual issues
-adjusted how mutant remembers and forgets which attacks he's used before
-shortened mutant endlag after fan ray
-randomized duration of some maso mutant attacks
-maso mutant eoc has a second wave of golden sickles
-eoc p3 rests after 3 dashes, was 5
-
-mythril speed resets to full when killed (actually)
-eri, abom, and mutant despawn if you go underground (actually)
-renamed snowball staff to snowball effect
-abom doll will tp back to you if thrown in lava underground
-mutant/abom curse cant be used underground
-fixed? dying to mutant fang DOT having "couldnt find antidote" death message
-added some effects preset (more than minimal effects)
-changed how deathrays are drawn so that they work with mutant mod transparent projs config
-adjusted mutant ray fan, both in and out maso
-mutant's health drains to 1 in desperation if he somehow regains any
-ancient hallow ench wont reflect falling sand or w/e
-ml p2 vortexes now consistently move to the same spots
-fixed bee ench crit i think
-
-zenith
-	no longer upgrades after beating eri, only abom and mutant
-	old post-eri stats are now the default for pre-abom
-	i.e. now, pre-eri has same stats as post-eri (net buff)
-devi gift contains 1 water candle
-adjusted devi curse recipe to be more relevant to her
-eridanus armor has a simple mode
-slightly buffed eri blessing mode
-berserked also causes -10% DR
-
-nerfed the twinrang retirang fire rate from 6 per second to 5 per second
-nerfed mythril ench, its pre-nerf strength is now in force
-deer sinew nerfs your damage in general, not just on crit
-fixed mutant's fury use message
-
-implemented chibi devi mp mouse detection rollback
-deer sinew effect is x0.85 at most, was x0.75
-sparkling adoration buff, it is now x1.25 damage instead of x1.25 crit damage
-sparkling adoration nerf, you gain 25% less graze per graze
-disabled mutant contact damage outside maso
-mutant's empress sword attack is harder
-mythril and force of earth specify how long the durations are
-removed basilisk hp buff
-fuck it, fuck everything, removed the whip damage nerf
-molten ench DRASTIC range buff, now works if any part of the enemy's hitbox is in the ring
-tungsten ench buffs true melee damage/crit again
-obsidian ench buffs whip range
-fixed dreadnautilus displaying 0 damage when eating enemies
-changed the sound used by true eye ray minion
-gelic wings tooltip says they act as wings. in case you didnt notice theyre wings
-ice queens crown rework
-	freeze on hit effect buffed to fuck
-	removed super flocko minion
-you can now use healing potions when you have mutant nibble
-thieving enemies now inflict loose pockets before they can steal items
-longer thief cooldown
-adjusted nekomi super to not be weaker with silver ench speedup
-
 fixed chibi devi rollback
 nerfed turtle ench to 20 hits
 fish stick now uses m2 to throw sharknado sticks
 added unlucky debuff
 bats no longer guarantee feral bite
+
+p3 refills mutant hp, change the curve so it ticks down gradually over attacks
+timestop and golden shell are disabled in p3
+slightly reduced duration of mutant p3 attacks
+increased size of mutant sword hitboxes to reduce gaps between them

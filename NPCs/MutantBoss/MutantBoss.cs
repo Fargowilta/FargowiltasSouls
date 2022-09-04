@@ -313,9 +313,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.bloodMoon = false; //disable blood moon
             }
 
-            if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation, to prevent stray healing from maso spear hits or smth
+            if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation
             {
-                NPC.life -= NPC.lifeMax / 240;
+                int time = 240 + 420 + 480 + 1020;
+                NPC.life -= NPC.lifeMax / time;
                 if (NPC.life < 1)
                     NPC.life = 1;
             }
@@ -368,6 +369,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     if (Main.expertMode)
                     {
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<MutantPresence>(), 2);
+                    }
+
+                    if (FargoSoulsWorld.EternityMode && NPC.ai[0] < 0)
+                    {
+                        Main.LocalPlayer.AddBuff(ModContent.BuffType<GoldenStasisCD>(), 2);
+                        Main.LocalPlayer.AddBuff(ModContent.BuffType<TimeStopCD>(), 2);
                     }
                     //if (FargowiltasSouls.Instance.CalamityLoaded)
                     //{
@@ -1661,7 +1668,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
             }
 
-            int endTime = 360 + 60 + (int)(240 * 2 * (endTimeVariance - 0.5f));
+            int endTime = 360 + 60 + (int)(240 * 2 * (endTimeVariance - 0.33f));
             if (++NPC.ai[3] > endTime)
             {
                 ChooseNextAttack(11, 13, 19, 20, 21, 24, FargoSoulsWorld.MasochistModeReal ? 31 : 26, 33, 41, 44);
@@ -2952,7 +2959,21 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             if (NPC.ai[1] < 60 && !Main.dedServ && Main.LocalPlayer.active)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 2;
 
-            if (++NPC.ai[1] > 300)
+            if (NPC.ai[1] == 240)
+            {
+                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+            }
+
+            if (NPC.ai[1] > 240 && NPC.life < NPC.lifeMax && NPC.ai[1] % 6 == 0)
+            {
+                int heal = (int)(NPC.lifeMax / (120 / 6) * Main.rand.NextFloat(1f, 1.1f));
+                NPC.life += heal;
+                if (NPC.life > NPC.lifeMax)
+                    NPC.life = NPC.lifeMax;
+                NPC.HealEffect(heal);
+            }
+
+            if (++NPC.ai[1] > 360)
             {
                 if (!AliveCheck(player))
                     return;
@@ -3054,10 +3075,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[3] = Main.rand.NextFloat((float)Math.PI * 2);
             }
 
-            int endTime = 420;
+            int endTime = 360;
             if (FargoSoulsWorld.MasochistModeReal)
-                endTime += 240;
-
+                endTime += 360;
+            
             if (++NPC.ai[1] > 10 && NPC.ai[3] > 60 && NPC.ai[3] < endTime - 120)
             {
                 NPC.ai[1] = 0;
@@ -3114,10 +3135,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     }
                 }
             }
-
-            int endTime = 480;
+            
+            int endTime = 360;
             if (FargoSoulsWorld.MasochistModeReal)
-                endTime += 240;
+                endTime += 360;
             if (++NPC.ai[3] > endTime)
             {
                 //NPC.TargetClosest();
@@ -3245,7 +3266,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                       Main.rand.NextFloat(0.5f, 1.25f) * (Main.rand.NextBool() ? -1 : 1), Main.rand.Next(10, 60));
                 }
             }
-
+            
             int endTime = 1020;
             if (FargoSoulsWorld.MasochistModeReal)
                 endTime += 180;
