@@ -27,21 +27,24 @@ namespace FargowiltasSouls.Toggler.Content
         public string MasoSlime;
         public string SlimeFalling;
         public string MasoEye;
-        public string MasoHoney;
+        public string MasoEyeInstall;
         public string MasoSkele;
+        public string MasoSkeleSpin;
 
         public int BionomicHeader = ModContent.ItemType<BionomicCluster>();
         public string MasoConcoction;
         public string MasoCarrot;
         public string MasoRainbow;
-        public string MasoFrigid;
+        public string MasoHealingPotion;
         public string MasoNymph;
         public string MasoSqueak;
         public string MasoPouch;
         public string MasoClipped;
         public string TribalCharm;
+        public string TribalCharmClickBonus;
 
         public int DubiousHeader = ModContent.ItemType<DubiousCircuitry>();
+        public string FusedLensInstall;
         public string MasoLightning;
         public string MasoProbe;
 

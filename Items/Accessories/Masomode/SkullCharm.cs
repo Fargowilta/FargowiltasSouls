@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Skull Charm");
-            Tooltip.SetDefault(@"Grants immunity to Dazed and Stunned
+            Tooltip.SetDefault(@"Grants immunity to Dazed
 Increases damage dealt by 15% and damage taken by 10%
 Enemies are less likely to target you
 The crystal skull charges energy to attack as you attack
@@ -40,7 +40,6 @@ The crystal skull charges energy to attack as you attack
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.buffImmune[BuffID.Dazed] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.Masomode.Stunned>()] = true;
             player.GetDamage(DamageClass.Generic) += 0.15f;
             player.endurance -= 0.1f;
             player.aggro -= 400;

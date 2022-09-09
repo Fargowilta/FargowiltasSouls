@@ -430,22 +430,25 @@ Mods: {
 			MasoSlimeConfig: Slimy Balls
 			SlimeFallingConfig: Increased Fall Speed
 			MasoEyeConfig: Scythes When Dashing
-			MasoHoneyConfig: Honey When Hitting Enemies
+			MasoEyeInstallConfig: Berserker Install
 			MasoSkeleConfig: Skeletron Arms Minion
+			MasoSkeleSpinConfig: Skeletron Spin Dash
 
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: Tim's Concoction
 			MasoCarrotConfig: Carrot Zoom
 			MasoRainbowConfig: Rainbow Slime Minion
-			MasoFrigidConfig: Frostfireballs
+			MasoHealingPotionConfig: Auto-Use Healing Potions
 			MasoNymphConfig: Attacks Spawn Hearts
 			MasoSqueakConfig: Squeaky Toy On Hit
-			MasoPouchConfig: Shadowflame Tentacles
+			MasoPouchConfig: Stronger Slower Shadowflame Attacks
 			MasoClippedConfig: Inflict Clipped Wings
 			TribalCharmConfig: Tribal Charm Auto Swing
+			TribalCharmClickBonusConfig: Tribal Charm Click Bonus
 
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
-			MasoLightningConfig: Inflict Lightning Rod
+			FusedLensInstallConfig: Twins Install
+			MasoLightningConfig: Supercharge When Hit
 			MasoProbeConfig: Probes Minion
 
 			PureHeartHeader: "{$Mods.FargowiltasSouls.ItemName.PureHeart}"
@@ -461,13 +464,13 @@ Mods: {
 			ChaliceHeader: "{$Mods.FargowiltasSouls.ItemName.ChaliceoftheMoon}"
 			MasoCultistConfig: Cultist Minion
 			MasoPlantConfig: Plantera Minion
-			MasoGolemConfig: Lihzahrd Ground Pound
-			MasoBoulderConfig: Boulder Spray
+			MasoGolemConfig: Lihzahrd Fastfall
+			MasoBoulderConfig: Ground Pound Spray
 			MasoCelestConfig: Celestial Rune Support
 			MasoVisionConfig: Ancient Visions On Hit
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
-			MasoPumpConfig: Pumpking's Cape Support
+			MasoPumpConfig: Pumpking's Cape Parry
 			IceQueensCrownConfig: Freeze On Hit
 			MasoUfoConfig: Saucer Minion
 			MasoGravConfig: Gravity Control

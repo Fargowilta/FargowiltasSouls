@@ -18,7 +18,8 @@ namespace FargowiltasSouls.Items.Armor
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nekomi Hood");
-            Tooltip.SetDefault(@"Increases max number of minions by 1");
+            Tooltip.SetDefault(@"7% increased damage
+Increases max number of minions by 2");
             ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
@@ -33,7 +34,8 @@ namespace FargowiltasSouls.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.maxMinions += 1;
+            player.GetDamage(DamageClass.Generic) += 0.07f;
+            player.maxMinions += 2;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -49,9 +51,8 @@ namespace FargowiltasSouls.Items.Armor
             string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
             player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Nekomi", key);
 
-            DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
-            player.GetDamage(damageClass) += 0.07f;
-            player.GetCritChance(damageClass) += 7;
+            player.GetDamage(DamageClass.Generic) += 0.07f;
+            player.GetCritChance(DamageClass.Generic) += 7;
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.NekomiSet = true;
@@ -94,7 +95,7 @@ namespace FargowiltasSouls.Items.Armor
                     bool superAttack = fargoPlayer.NekomiMeter >= MAX_METER;
                     if (superAttack)
                     {
-                        int baseDamage = 2222 / 4;
+                        int baseDamage = 2222 / 3;
                         if (!Main.hardMode)
                             baseDamage /= 2;
                         FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);

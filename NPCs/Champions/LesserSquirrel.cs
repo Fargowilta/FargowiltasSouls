@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
@@ -63,6 +64,14 @@ namespace FargowiltasSouls.NPCs.Champions
             NPC.dontTakeDamage = true;
         }
 
+        bool spawnedByP1;
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (Main.npc.FirstOrDefault(n => n.active && n.type == ModContent.NPCType<TimberChampion>()) is NPC)
+                spawnedByP1 = true;
+        }
+
         public override void AI()
         {
             if (NPC.velocity.Y == 0)
@@ -95,6 +104,9 @@ namespace FargowiltasSouls.NPCs.Champions
                 NPC npc = Main.npc.FirstOrDefault(n => n.active && (n.type == ModContent.NPCType<TimberChampion>() || n.type == ModContent.NPCType<TimberChampionHead>()));
                 if (p != -1 && npc is NPC)
                 {
+                    bool canAttack = true;
+                    if (spawnedByP1)
+                        canAttack = NPC.AnyNPCs(ModContent.NPCType<TimberChampion>());
                     //Vector2 vel = 4f * NPC.DirectionTo(Main.player[p].Center);
                     //int type = ModContent.ProjectileType<DeviLostSoul>();
                     //float ai0 = 0;
@@ -106,8 +118,11 @@ namespace FargowiltasSouls.NPCs.Champions
                     //    ai0 = npc.target;
                     //    ai1 = Main.rand.NextFloat();
                     //}
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4),
-                        ProjectileID.HallowBossRainbowStreak, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer, npc.target, Main.rand.NextFloat());
+                    if (canAttack)
+                    {
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4),
+                            ProjectileID.HallowBossRainbowStreak, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer, npc.target, Main.rand.NextFloat());
+                    }
                 }
             }
             return true;

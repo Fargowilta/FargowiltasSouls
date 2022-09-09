@@ -111,8 +111,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
                 NetSync(npc, false);
             }
 
-            if (FargoSoulsWorld.MasochistModeReal && target.statLife + damage < (npc.type == NPCID.AngryTrapper ? 200 : 100))
-                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was swallowed whole."), 999, 0);
+            if (FargoSoulsWorld.MasochistModeReal && npc.type == NPCID.ManEater && target.Male)
+                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " became a man eaten by Man Eater."), 999999, 0);
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)

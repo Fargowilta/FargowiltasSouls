@@ -2,6 +2,7 @@
 using FargowiltasSouls.Buffs.Minions;
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Toggler;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Chalice of the Moon");
             Tooltip.SetDefault(@"Grants immunity to Venom, Ivy Venom, Burning, Fused, Low Ground, and Marked for Death
 Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
-Increases life regeneration
+Press the Magical Cleanse key to cure yourself of most debuffs
+Increases life regeneration based on how much light you receive
 Double tap DOWN in the air to fastfall
 Fastfall will create a fiery eruption on impact after falling a certain distance
 When you land after a jump, you create a burst of boulders
@@ -53,13 +55,7 @@ Summons a friendly Cultist and plant to fight at your side
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             //magical bulb
-            player.lifeRegen += 2;
-            player.buffImmune[BuffID.Venom] = true;
-            player.buffImmune[ModContent.BuffType<IvyVenom>()] = true;
-            player.buffImmune[ModContent.BuffType<Swarming>()] = true;
-
-            if (player.GetToggleValue("MasoPlant"))
-                player.AddBuff(ModContent.BuffType<PlanterasChild>(), 2);
+            MagicalBulb.Effects(player);
 
             //lihzahrd treasure
             player.buffImmune[BuffID.Burning] = true;

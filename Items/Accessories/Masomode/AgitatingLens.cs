@@ -13,8 +13,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Agitating Lens");
             Tooltip.SetDefault("Grants immunity to Berserked" +
-                "\nWhen below half HP, gain 10% increased damage, speed, and attack speed" +
                 "\nWhile dashing or running quickly you will create a trail of demon scythes" +
+                "\nPress the Debuff Install key to go berserk" +
+                "\nWhen berserk, massively increased offenses, massively lowered defenses, and you cannot stop attacking or moving" +
+                "\nBerserk state lasts for 6 seconds and you are stunned for 3 seconds afterwards" +
                 "\n'The irritable remnant of a defeated foe'");
 
             // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "躁动晶状体");

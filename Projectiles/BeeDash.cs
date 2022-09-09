@@ -8,13 +8,14 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles
 {
-    public class BetsyDash : ModProjectile
+    public class BeeDash : ModProjectile
     {
-        public override string Texture => "Terraria/Images/Projectile_686";
+        public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_222";
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dash");
+            Main.projFrames[Projectile.type] = Main.npcFrameCount[NPCID.QueenBee];
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -27,7 +28,6 @@ namespace FargowiltasSouls.Projectiles
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.ignoreWater = true;
-            Projectile.alpha = 60;
             Projectile.timeLeft = 15;
             Projectile.penetrate = -1;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
@@ -50,8 +50,6 @@ namespace FargowiltasSouls.Projectiles
                 return;
             }
 
-            player.GetModPlayer<FargoSoulsPlayer>().BetsyDashing = true;
-
             player.GetModPlayer<FargoSoulsPlayer>().dashCD = 5;
             player.GetModPlayer<FargoSoulsPlayer>().IsDashingTimer = 0;
 
@@ -59,7 +57,8 @@ namespace FargowiltasSouls.Projectiles
             if (Projectile.timeLeft > 1) //trying to avoid wallclipping
                 player.position += Projectile.velocity;
             player.velocity = Projectile.velocity * .5f;
-            player.direction = Projectile.velocity.X > 0 ? 1 : -1;
+            if (Projectile.velocity.X != 0)
+                player.direction = Projectile.velocity.X > 0 ? 1 : -1;
 
             /*player.controlLeft = false;
             player.controlRight = false;
@@ -73,18 +72,13 @@ namespace FargowiltasSouls.Projectiles
             if (player.mount.Active)
                 player.mount.Dismount(player);
 
-            player.immune = true;
-            player.immuneTime = Math.Max(player.immuneTime, 2);
-            player.hurtCooldowns[0] = Math.Max(player.hurtCooldowns[0], 2);
-            player.hurtCooldowns[1] = Math.Max(player.hurtCooldowns[1], 2);
-
             if (Projectile.velocity != Vector2.Zero)
-                Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2;
+                Projectile.rotation = Projectile.velocity.ToRotation();
 
             if (Projectile.localAI[0] == 0)
             {
                 Projectile.localAI[0] = 1;
-                SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item97, Projectile.Center);
                 for (int i = 0; i < 30; i++)
                 {
                     int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0, 0, 0, default, 2.5f);
@@ -96,12 +90,12 @@ namespace FargowiltasSouls.Projectiles
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.BetsysCurse, 600);
+            target.AddBuff(BuffID.Venom, 600);
         }
 
         public override void Kill(int timeLeft)
         {
-            SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item97, Projectile.Center);
             for (int i = 0; i < 30; i++)
             {
                 int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87, 0, 0, 0, default, 2.5f);
@@ -125,29 +119,26 @@ namespace FargowiltasSouls.Projectiles
                 Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
                 Vector2 origin2 = rectangle.Size() / 2f;
 
-                Color color26 = Color.White;
-                color26 = Projectile.GetAlpha(color26);
-                color26.A = (byte)Projectile.alpha;
+                Color color26 = Projectile.GetAlpha(lightColor);
 
-                SpriteEffects effects = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                SpriteEffects effects = Projectile.direction < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                float rotationOffset = Projectile.direction < 0 ? MathHelper.Pi : 0;
+
+                float scale = Projectile.scale * 0.5f;
+                Vector2 posOffset = Vector2.Zero;
+                if (Projectile.velocity != Vector2.Zero)
+                    posOffset = 16f * Projectile.velocity.SafeNormalize(Vector2.Zero);
 
                 for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
                 {
-                    float lerpamount = 0;
-                    if (i > 3 && i < 5)
-                        lerpamount = 0.6f;
-                    if (i >= 5)
-                        lerpamount = 0.8f;
-
-                    Color color27 = Color.Lerp(Color.White, Color.Purple, lerpamount) * 0.75f * 0.5f;
+                    Color color27 = color26 * 0.5f;
                     color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-                    float scale = Projectile.scale * (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                     Vector2 value4 = Projectile.oldPos[i];
-                    float num165 = Projectile.oldRot[i];
-                    Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, scale, effects, 0);
+                    float num165 = Projectile.oldRot[i] + rotationOffset;
+                    Main.EntitySpriteDraw(texture2D13, posOffset + value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, scale, effects, 0);
                 }
 
-                Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation, origin2, Projectile.scale, effects, 0);
+                Main.EntitySpriteDraw(texture2D13, posOffset + Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation + rotationOffset, origin2, scale, effects, 0);
             }
             return false;
         }

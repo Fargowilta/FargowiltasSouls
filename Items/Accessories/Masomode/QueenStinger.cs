@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("The Queen's Stinger");
             Tooltip.SetDefault("Grants immunity to Infested" +
-                "\nYour attacks inflict Poisoned and spray honey that increases your life regeneration" +
+                "\nPress the Special Dash key to perform a short quick bee dash" +
                 "\nHoney buff increases your armor penetration by 10" +
                 "\nBees and weak Hornets become friendly" +
                 "\n'Ripped right off of a defeated foe'");

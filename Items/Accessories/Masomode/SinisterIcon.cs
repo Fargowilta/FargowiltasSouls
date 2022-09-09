@@ -1,6 +1,8 @@
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Toggler;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {
@@ -11,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sinister Icon");
-            Tooltip.SetDefault(@"Grants immunity to Unlucky
+            Tooltip.SetDefault(@"Grants immunity to Unlucky and Stunned
 Increases spawn rate
 Enemies with 2000 or less max life will drop doubled loot
 'Most definitely not alive'");
@@ -35,7 +37,8 @@ Enemies with 2000 or less max life will drop doubled loot
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.buffImmune[Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Unlucky>()] = true;
+            player.buffImmune[ModContent.BuffType<Unlucky>()] = true;
+            player.buffImmune[ModContent.BuffType<Stunned>()] = true;
 
             if (player.GetToggleValue("MasoIcon"))
                 player.GetModPlayer<FargoSoulsPlayer>().SinisterIcon = true;

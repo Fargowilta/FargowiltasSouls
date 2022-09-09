@@ -37,10 +37,13 @@ namespace FargowiltasSouls
         internal static ModKeybind FreezeKey;
         internal static ModKeybind GoldKey;
         internal static ModKeybind SmokeBombKey;
-        internal static ModKeybind BetsyDashKey;
+        internal static ModKeybind SpecialDashKey;
         internal static ModKeybind MutantBombKey;
         internal static ModKeybind SoulToggleKey;
         internal static ModKeybind PrecisionSealKey;
+        internal static ModKeybind MagicalBulbKey;
+        internal static ModKeybind FrigidSpellKey;
+        internal static ModKeybind DebuffInstallKey;
 
         internal static List<int> DebuffIDs;
 
@@ -128,10 +131,13 @@ namespace FargowiltasSouls
             FreezeKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "冻结" : "Freeze", "P");
             GoldKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "金身" : "Turn Gold", "O");
             SmokeBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "投掷烟雾弹" : "Throw Smoke Bomb", "I");
-            BetsyDashKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "火球冲刺" : "Fireball Dash", "C");
+            SpecialDashKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "特殊冲刺" : "Special Dash", "C");
             MutantBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Mutant Bomb", "Z");
             SoulToggleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "打开魂石效果设置" : "Open Soul Toggler", ".");
             PrecisionSealKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "玲珑圣印精确模式" : "Precision Movement", "LeftShift");
+            MagicalBulbKey = KeybindLoader.RegisterKeybind(this, "Magical Cleanse", "N");
+            FrigidSpellKey = KeybindLoader.RegisterKeybind(this, "Frigid Spell", "U");
+            DebuffInstallKey = KeybindLoader.RegisterKeybind(this, "Debuff Install", "Y");
 
             ToggleLoader.Load();
 
@@ -268,10 +274,13 @@ namespace FargowiltasSouls
             FreezeKey = null;
             GoldKey = null;
             SmokeBombKey = null;
-            BetsyDashKey = null;
+            SpecialDashKey = null;
             MutantBombKey = null;
             SoulToggleKey = null;
             PrecisionSealKey = null;
+            MagicalBulbKey = null;
+            FrigidSpellKey = null;
+            DebuffInstallKey = null;
 
             if (DebuffIDs != null)
                 DebuffIDs.Clear();
@@ -372,6 +381,14 @@ namespace FargowiltasSouls
                     case "EridanusArmor":
                     case "EridanusArmour":
                         return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().EridanusSet;
+
+                    case "StyxArmor":
+                    case "StyxArmour":
+                        return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().StyxSet;
+
+                    case "MutantArmor":
+                    case "MutantArmour":
+                        return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().MutantSetBonusItem != null;
 
                     case "GiftsReceived":
                         return Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().ReceivedMasoGift;

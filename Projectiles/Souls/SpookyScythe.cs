@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -16,7 +17,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void SetDefaults()
         {
-            Projectile.width = 106;
+            Projectile.width = 84;
             Projectile.height = 84;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
@@ -38,7 +39,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         public override void AI()
         {
-            if (!Projectile.tileCollide && !Collision.SolidTiles(Projectile.Center, 0, 0))
+            if (!Projectile.tileCollide && !Collision.SolidTiles(Projectile.position, Projectile.width, Projectile.height))
                 Projectile.tileCollide = true;
 
             //dust!
@@ -71,6 +72,18 @@ namespace FargowiltasSouls.Projectiles.Souls
 
                 Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
             } */
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            int num156 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+            Vector2 origin2 = rectangle.Size() / 2f;
+            SpriteEffects effects = Projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, effects, 0);
+            return false;
         }
     }
 }

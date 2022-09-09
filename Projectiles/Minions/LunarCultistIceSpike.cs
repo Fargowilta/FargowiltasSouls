@@ -61,7 +61,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return Color.White * Projectile.Opacity;
+            return new Color(255, 255, 255, 100) * Projectile.Opacity * 0.6f;
         }
 
         public override bool PreDraw(ref Color lightColor)

@@ -122,12 +122,10 @@ namespace FargowiltasSouls.Toggler
             player.SetToggleValue("MasoDevianttHearts", false);
 
             player.SetToggleValue("MasoSlime", false);
-            player.SetToggleValue("MasoHoney", false);
             player.SetToggleValue("MasoSkele", false);
 
             player.SetToggleValue("MasoCarrot", false);
             player.SetToggleValue("MasoRainbow", false);
-            player.SetToggleValue("MasoFrigid", false);
             player.SetToggleValue("MasoPouch", false);
 
             player.SetToggleValue("MasoLightning", false);
@@ -198,9 +196,14 @@ namespace FargowiltasSouls.Toggler
             //player.SetToggleValue("MasoGrazeRing", true);
             player.SetToggleValue("MasoIconDrops", true);
             player.SetToggleValue("MasoNymph", true);
+            player.SetToggleValue("MasoHealingPotion", true);
             player.SetToggleValue("TribalCharm", true);
+            player.SetToggleValue("TribalCharmClickBonus", true);
             player.SetToggleValue("MasoGrav2", true);
             player.SetToggleValue("PrecisionSealHurtbox", true);
+
+            player.SetToggleValue("MasoEyeInstall", true);
+            player.SetToggleValue("FusedLensInstall", true);
 
             player.SetToggleValue("YoyoBag", true);
             player.SetToggleValue("MiningHunt", true);

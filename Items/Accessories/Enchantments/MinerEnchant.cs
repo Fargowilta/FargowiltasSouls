@@ -74,7 +74,7 @@ Effects of Night Owl, Spelunker, Hunter, Shine, and Dangersense Potions
                 .AddIngredient(ItemID.MiningPants)
                 .AddIngredient(ItemID.AncientChisel)
                 .AddIngredient(ItemID.CopperPickaxe)
-                .AddIngredient(ItemID.GoldPickaxe)
+                .AddIngredient(ItemID.GravediggerShovel)
                 .AddTile(TileID.DemonAltar)
                 .Register();
         }

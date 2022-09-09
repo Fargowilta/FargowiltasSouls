@@ -208,24 +208,27 @@ namespace FargowiltasSouls
             AddToggle("MasoSlimeConfig", ModContent.ItemType<SlimyShield>());
             AddToggle("SlimeFallingConfig", ModContent.ItemType<SlimyShield>());
             AddToggle("MasoEyeConfig", ModContent.ItemType<AgitatingLens>());
-            AddToggle("MasoHoneyConfig", ModContent.ItemType<QueenStinger>());
+            AddToggle("MasoEyeInstallConfig", ModContent.ItemType<AgitatingLens>());
             AddToggle("MasoSkeleConfig", ModContent.ItemType<NecromanticBrew>());
+            AddToggle("MasoSkeleSpinConfig", ModContent.ItemType<NecromanticBrew>());
 
             //bionomic
             AddToggle("BionomicHeader", ModContent.ItemType<BionomicCluster>());
             AddToggle("MasoConcoctionConfig", ModContent.ItemType<TimsConcoction>());
             AddToggle("MasoCarrotConfig", ModContent.ItemType<OrdinaryCarrot>());
             AddToggle("MasoRainbowConfig", ModContent.ItemType<ConcentratedRainbowMatter>());
-            AddToggle("MasoFrigidConfig", ModContent.ItemType<FrigidGemstone>());
+            AddToggle("MasoHealingPotionConfig", ModContent.ItemType<ConcentratedRainbowMatter>());
             AddToggle("MasoNymphConfig", ModContent.ItemType<NymphsPerfume>());
             AddToggle("MasoSqueakConfig", ModContent.ItemType<Items.Accessories.Masomode.SqueakyToy>());
             AddToggle("MasoPouchConfig", ModContent.ItemType<WretchedPouch>());
             AddToggle("MasoClippedConfig", ModContent.ItemType<WyvernFeather>());
             AddToggle("TribalCharmConfig", ModContent.ItemType<TribalCharm>());
+            AddToggle("TribalCharmClickBonusConfig", ModContent.ItemType<TribalCharm>());
             //AddToggle("WalletHeader", ModContent.ItemType<SecurityWallet>());
 
             //dubious
             AddToggle("DubiousHeader", ModContent.ItemType<DubiousCircuitry>());
+            AddToggle("FusedLensInstallConfig", ModContent.ItemType<FusedLens>());
             AddToggle("MasoLightningConfig", ModContent.ItemType<GroundStick>());
             AddToggle("MasoProbeConfig", ModContent.ItemType<GroundStick>());
 

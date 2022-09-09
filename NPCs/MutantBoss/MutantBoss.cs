@@ -315,7 +315,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation
             {
-                int time = 240 + 420 + 480 + 1020;
+                int time = 240 + 420 + 480 + 1020 - 180;
                 NPC.life -= NPC.lifeMax / time;
                 if (NPC.life < 1)
                     NPC.life = 1;
@@ -371,7 +371,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<MutantPresence>(), 2);
                     }
 
-                    if (FargoSoulsWorld.EternityMode && NPC.ai[0] < 0)
+                    if (FargoSoulsWorld.EternityMode && NPC.ai[0] < 0 && NPC.ai[0] > -6)
                     {
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<GoldenStasisCD>(), 2);
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<TimeStopCD>(), 2);
@@ -2959,28 +2959,28 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             if (NPC.ai[1] < 60 && !Main.dedServ && Main.LocalPlayer.active)
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 2;
 
-            if (NPC.ai[1] == 240)
+            if (NPC.ai[1] == 360)
             {
                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
 
-            if (NPC.ai[1] > 240 && NPC.life < NPC.lifeMax && NPC.ai[1] % 6 == 0)
+            if (NPC.ai[1] > 360 && NPC.life < NPC.lifeMax && NPC.ai[1] % 2 == 0)
             {
-                int heal = (int)(NPC.lifeMax / (120 / 6) * Main.rand.NextFloat(1f, 1.1f));
+                int heal = (int)(NPC.lifeMax / (90 / 2) * Main.rand.NextFloat(1f, 1.2f));
                 NPC.life += heal;
                 if (NPC.life > NPC.lifeMax)
                     NPC.life = NPC.lifeMax;
                 NPC.HealEffect(heal);
             }
 
-            if (++NPC.ai[1] > 360)
+            if (++NPC.ai[1] > 480)
             {
                 if (!AliveCheck(player))
                     return;
                 Vector2 targetPos = player.Center;
                 targetPos.Y -= 300;
-                Movement(targetPos, 1f);
-                if (NPC.Distance(targetPos) < 50 || NPC.ai[1] > 600)
+                Movement(targetPos, 1f, true, false);
+                if (NPC.Distance(targetPos) < 50 || NPC.ai[1] > 720)
                 {
                     NPC.netUpdate = true;
                     NPC.velocity = Vector2.Zero;
@@ -3075,7 +3075,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[3] = Main.rand.NextFloat((float)Math.PI * 2);
             }
 
-            int endTime = 360;
+            int endTime = 360 + 120;
             if (FargoSoulsWorld.MasochistModeReal)
                 endTime += 360;
             
@@ -3168,7 +3168,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 float newRotation = NPC.DirectionTo(Main.player[NPC.target].Center).ToRotation();
                 float difference = MathHelper.WrapAngle(newRotation - NPC.ai[3]);
                 float rotationDirection = 2f * (float)Math.PI * 1f / 6f / 60f;
-                rotationDirection *= useMasoSpeed ? 0.515f : 0.95f;
+                rotationDirection *= useMasoSpeed ? 0.525f : 1f;
                 NPC.ai[3] += Math.Min(rotationDirection, Math.Abs(difference)) * Math.Sign(difference);
                 if (useMasoSpeed)
                     NPC.ai[3] = NPC.ai[3].AngleLerp(newRotation, 0.015f);

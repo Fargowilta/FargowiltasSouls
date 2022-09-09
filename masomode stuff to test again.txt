@@ -8,3 +8,68 @@ p3 refills mutant hp, change the curve so it ticks down gradually over attacks
 timestop and golden shell are disabled in p3
 slightly reduced duration of mutant p3 attacks
 increased size of mutant sword hitboxes to reduce gaps between them
+
+concentrated rainbow matter buff: now acts like mana flower for healing potions
+biocluster is post 1 mech
+you can now get iron ench frame data when equipping it with dread shell
+tribal charm gives +30% damage when manually clicking to attack, not inventory effect
+magical bulb
+	regen maxes at +4 life per sec but its based on lighting now
+	can debuff cleanse on a cd
+fixed tribal charm and mystic skull inv effects not working in vanity slot
+frigid gemstone rework
+	removed frostfireballs
+	now gives ice rod hotkey and works from inv
+pumpkings cape rework
+	removed secondary attacks
+	you now gain a dread shell-esque parry
+	parry lifesteals the blocked damage and creates scythes with damage is based on blocked damage
+fused lens rework
+	only gives bonuses when debuffed
+	you now have a debuff install
+moved stunned immune from skull charm to sinister icon
+agitating lens rework
+	removed buffs below 50% life
+	you now get a berserker install, 6 seconds of glass cannon and then 2sec stunned:
+		+50% attack speed
+		+30% damage, crit, move speed
+		knockback immunity
+		supersonic no momentum
+		you're forced to attack and forced to run
+		-30% DR
+		-30 defense
+queen stinger rework
+	removed poison imbue
+	removed honey on hit
+	you get a betsy dash lite (same frame data as betsy dash but no iframes)
+necro brew buff, you gain thorns and take less contact damage when dashing (also u spin its funny)
+ground stick rework
+	you supercharge when hit by electric or ray attacks
+	must supercharge to inflict electrified/lightning rod
+	supercharge also buffs move speed, attack speed, and your probes
+	when not already supercharged, you take half damage from the attack that supercharges you
+wretched pouch rework
+	only shadowflames while you're attacking
+	gives +60% damage while you're attacking
+	cripples your speed to unusable levels while you're attacking
+lihzahrd treasure box
+	boulders are now fastfall only, less screen clutter
+	added an explosion on impact
+improved chalice cultist fireball homing so they disappear faster, less screen clutter
+chalice cultist ice mist is more translucent
+made friendly ancient visions more translucent and less dust
+buffed eater staff damage from 10 to 12, but it has to dig in blocks now
+slimy shield buff, balls inflict oiled (this especially needs testing)
+lesser squrrls spawned in timber p1 cannot make bolts in p2
+
+nekomi armor
+	increased minion slots from 1 to 2
+	gives 7% more damage and crit chance, existing damage/crit bonuses are now omniclass instead of adaptive
+	increased damage of super by x1.33
+	increased regen from 0.5 to 1 life per sec
+agi lens berserker install
+	stun is 3sec and you take more damage during stun
+	reduced from 30% offenses up & defenses down to 20% each
+added gravedigger shovel to miner ench recipe, replaces gold pickaxe
+destroyer can now spin both CW and CCW, whichever is closer to his current angle when he starts coil
+man eater and nutcracker instakill male characters in maso

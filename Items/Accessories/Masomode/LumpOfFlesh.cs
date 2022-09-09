@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lump of Flesh");
-            Tooltip.SetDefault(@"Grants immunity to knockback, Anticoagulation, Blackout, Obstructed, Dazed, Slow, Frozen, and Stunned
+            Tooltip.SetDefault(@"Grants immunity to knockback, Anticoagulation, Blackout, Obstructed, Dazed, Slow, and Frozen
 Increases damage dealt by 15%
 Your cursor causes nearby enemies to take increased damage
 Effect intensifies the longer you track them
@@ -52,7 +52,6 @@ Enemies are less likely to target you
             player.buffImmune[BuffID.Blackout] = true;
             player.buffImmune[BuffID.Obstructed] = true;
             player.buffImmune[BuffID.Dazed] = true;
-            player.buffImmune[ModContent.BuffType<Stunned>()] = true;
             player.GetDamage(DamageClass.Generic) += 0.15f;
             player.aggro -= 400;
             player.GetModPlayer<FargoSoulsPlayer>().SkullCharm = true;

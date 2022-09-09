@@ -27,8 +27,8 @@ Reduces damage taken by 5%");
 
         public override void UpdateEquip(Player player)
         {
+            player.lifeRegen += 2;
             player.endurance += 0.05f;
-            player.lifeRegen += 1;
         }
 
         public override void AddRecipes()

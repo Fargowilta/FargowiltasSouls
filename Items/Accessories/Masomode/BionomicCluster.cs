@@ -17,19 +17,22 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bionomic Cluster");
-            Tooltip.SetDefault("Grants immunity to Frostburn, Shadowflame, Squeaky Toy, Guilty" +
+            Tooltip.SetDefault("Grants immunity to Frostburn, Shadowflame, and Squeaky Toy" +
                 "\nGrants immunity to Flames of the Universe, Clipped Wings, Crippled, Webbed, and Purified" +
                 "\nGrants immunity to Lovestruck, Stinky, Midas, Hexed, and Loose Pockets" +
                 "\nUse to teleport to your last death point" +
-                "\nYour attacks can inflict Clipped Wings, spawn Frostfireballs, and produce hearts" +
+                "\nYour attacks can inflict Clipped Wings and produce hearts" +
                 "\nAttacks have a chance to squeak and deal 1 damage to you" +
-                "\nShadowflame tentacles lash out at nearby enemies and summons a friendly rainbow slime" +
+                "\nWhile attacking, gain massively increased damage and shadowflame, but less move and attack speed bonuses" +
+                "\nSummons a friendly rainbow slime" +
                 "\nCertain enemies will drop potions when defeated" +
+                "\nWhen attacking by manually clicking, increases non-summon damage by 30%" +
                 "\n[c/00FFFF:Following effects work passively from inventory or vanity slots:]" +
-                "\n    Grants immunity to Mighty Wind, Suffocation, and Guilty" +
+                "\n    Grants immunity to Mighty Wind, Suffocation, Chilled, and Guilty" +
                 "\n    You have autofire and improved night vision" +
-                "\n    Automatically uses mana potions when needed and increases pickup range for mana stars" +
+                "\n    Automatically uses healing & mana potions when needed and increases pickup range for mana stars" +
                 "\n    You respawn with more life and when no boss is alive, respawn faster" +
+                "\n    Press the Frigid Spell key to cast Ice Rod" +
                 "\n    Right click to zoom and drastically improves reforges" +
                 "\n'The amalgamate born of a thousand common enemies'");
 
@@ -64,10 +67,11 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Item.UseSound = SoundID.Item6;
         }
 
-        public static void PassiveEffect(Player player)
+        public static void PassiveEffect(Player player, Item item)
         {
             player.buffImmune[BuffID.WindPushed] = true;
             player.buffImmune[BuffID.Suffocation] = true;
+            player.buffImmune[BuffID.Chilled] = true;
             player.buffImmune[ModContent.BuffType<Guilty>()] = true;
             player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
 
@@ -84,14 +88,16 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             fargoPlayer.SecurityWallet = true;
             fargoPlayer.TribalCharm = true;
             fargoPlayer.NymphsPerfumeRespawn = true;
+            fargoPlayer.ConcentratedRainbowMatter = true;
+            fargoPlayer.FrigidGemstoneItem = item;
         }
 
-        public override void UpdateInventory(Player player) => PassiveEffect(player);
-        public override void UpdateVanity(Player player) => PassiveEffect(player);
+        public override void UpdateInventory(Player player) => PassiveEffect(player, Item);
+        public override void UpdateVanity(Player player) => PassiveEffect(player, Item);
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            PassiveEffect(player);
+            PassiveEffect(player, Item);
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
@@ -108,12 +114,6 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 
             // Frigid gemstone
             player.buffImmune[BuffID.Frostburn] = true;
-            if (player.GetToggleValue("MasoFrigid"))
-            {
-                fargoPlayer.FrigidGemstoneItem = Item;
-                if (fargoPlayer.FrigidGemstoneCD > 0)
-                    fargoPlayer.FrigidGemstoneCD--;
-            }
 
             // Wretched pouch
             player.buffImmune[BuffID.ShadowFlame] = true;
@@ -133,6 +133,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             player.buffImmune[BuffID.Webbed] = true;
             player.buffImmune[ModContent.BuffType<Purified>()] = true;
             fargoPlayer.TribalCharm = true;
+            fargoPlayer.TribalCharmEquipped = true;
 
             // Mystic skull
             player.buffImmune[BuffID.Suffocation] = true;
@@ -186,8 +187,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             .AddIngredient(ModContent.ItemType<WretchedPouch>())
             .AddIngredient(ModContent.ItemType<NymphsPerfume>())
             .AddIngredient(ModContent.ItemType<TimsConcoction>())
-            //.AddIngredient(ItemID.SoulofLight, 20);
-            //.AddIngredient(ItemID.SoulofNight, 20);
+            .AddIngredient(ItemID.HallowedBar, 5)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 10)
 
             .AddTile(TileID.MythrilAnvil)

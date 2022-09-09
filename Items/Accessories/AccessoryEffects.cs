@@ -1765,14 +1765,8 @@ namespace FargowiltasSouls
                 Player.accRunSpeed = Player.GetToggleValue("RunSpeed", false) ? 15.6f : 6.75f;
             }
 
-            if (!Player.mount.Active && Player.GetToggleValue("Momentum", false))
-            {
-                Player.runAcceleration *= 5f;
-                Player.runSlowdown *= 5f;
-
-                if (!IsStillHoldingInSameDirectionAsMovement)
-                    Player.runSlowdown += 7f;
-            }
+            if (Player.GetToggleValue("Momentum", false))
+                NoMomentum = true;
 
             Player.moveSpeed += 0.5f;
 
@@ -2004,6 +1998,106 @@ namespace FargowiltasSouls
 
         #region maso acc
 
+        private readonly int[] ElectricAttacks = new int[]
+        {
+            ProjectileID.DeathLaser,
+            ProjectileID.EyeLaser,
+            ProjectileID.PinkLaser,
+            ProjectileID.EyeBeam,
+            ProjectileID.MartianTurretBolt,
+            ProjectileID.BrainScramblerBolt,
+            ProjectileID.GigaZapperSpear,
+            ProjectileID.RayGunnerLaser,
+            ProjectileID.SaucerLaser,
+            ProjectileID.NebulaLaser,
+            ProjectileID.VortexVortexLightning,
+            ProjectileID.DD2LightningBugZap
+        };
+
+        public void GroundStickCheck(Projectile proj, ref int damage)
+        {
+            if (!Player.GetToggleValue("MasoLightning"))
+                return;
+
+            bool electricAttack = false;
+
+            if (proj.ModProjectile == null)
+            {
+                if (proj.aiStyle == ProjAIStyleID.MartianDeathRay
+                    || proj.aiStyle == ProjAIStyleID.ThickLaser
+                    || proj.aiStyle == ProjAIStyleID.LightningOrb
+                    || ElectricAttacks.Contains(proj.type))
+                {
+                    electricAttack = true;
+                }
+            }
+            else if (proj.ModProjectile is Projectiles.Deathrays.BaseDeathray)
+            {
+                electricAttack = true;
+            }
+            else
+            {
+                string name = proj.ModProjectile.DisplayName.GetDefault().ToLower();
+                if (name.Contains("lightning") || name.Contains("electr") || name.Contains("thunder") || name.Contains("laser"))
+                    electricAttack = true;
+            }
+
+            if (electricAttack && Player.whoAmI == Main.myPlayer)
+            {
+                if (!Player.HasBuff(ModContent.BuffType<Supercharged>()))
+                    damage /= 2;
+
+                Player.AddBuff(ModContent.BuffType<Supercharged>(), 60 * 30);
+
+                foreach (Projectile p in Main.projectile.Where(p => p.active && p.minion && p.owner == Player.whoAmI
+                    && (p.type == ModContent.ProjectileType<Probe1>() || p.type == ModContent.ProjectileType<Probe2>())))
+                {
+                    p.ai[1] = 180;
+                    p.netUpdate = true;
+                }
+
+                SoundEngine.PlaySound(SoundID.NPCDeath6, Player.Center);
+                SoundEngine.PlaySound(SoundID.Item92, Player.Center);
+                SoundEngine.PlaySound(SoundID.Item14, Player.Center);
+
+                for (int i = 0; i < 20; i++)
+                {
+                    int dust = Dust.NewDust(Player.position, Player.width, Player.height, 229, 0f, 0f, 100, default, 3f);
+                    Main.dust[dust].velocity *= 1.4f;
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    int dust = Dust.NewDust(Player.position, Player.width, Player.height, 6, 0f, 0f, 100, default, 3.5f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 7f;
+                    dust = Dust.NewDust(Player.position, Player.width, Player.height, 6, 0f, 0f, 100, default, 1.5f);
+                    Main.dust[dust].velocity *= 3f;
+                }
+
+                for (int index1 = 0; index1 < 30; ++index1)
+                {
+                    int index2 = Dust.NewDust(Player.position, Player.width, Player.height, 229, 0f, 0f, 100, new Color(), 2f);
+                    Main.dust[index2].noGravity = true;
+                    Main.dust[index2].velocity *= 21f;
+                    Main.dust[index2].noLight = true;
+                    int index3 = Dust.NewDust(Player.position, Player.width, Player.height, 229, 0f, 0f, 100, new Color(), 1f);
+                    Main.dust[index3].velocity *= 12f;
+                    Main.dust[index3].noGravity = true;
+                    Main.dust[index3].noLight = true;
+                }
+
+                for (int i = 0; i < 20; i++)
+                {
+                    int d = Dust.NewDust(Player.position, Player.width, Player.height, 229, 0f, 0f, 100, default, Main.rand.NextFloat(2f, 5f));
+                    if (Main.rand.NextBool(3))
+                        Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity *= Main.rand.NextFloat(12f, 18f);
+                    Main.dust[d].position = Player.Center;
+                }
+            }
+        }
+
         public void DeerclawpsAttack(Vector2 pos)
         {
             if (Player.whoAmI == Main.myPlayer && Player.GetToggleValue("Deerclawps"))
@@ -2143,11 +2237,23 @@ namespace FargowiltasSouls
 
         public void WretchedPouchEffect()
         {
+            if (!Player.GetToggleValue("MasoPouch"))
+                return;
+
+            if (!(Player.controlUseItem || Player.controlUseTile || WeaponUseTimer > 0))
+                return;
+
+            Player.GetDamage(DamageClass.Generic) += 0.60f;
+
+            Player.velocity.X *= 0.85f;
+            if (Player.velocity.Y < 0)
+                Player.velocity.Y *= 0.85f;
+
             if (--WretchedPouchCD <= 0)
             {
                 WretchedPouchCD = 25;
 
-                if (Player.whoAmI == Main.myPlayer && Player.GetToggleValue("MasoPouch"))
+                if (Player.whoAmI == Main.myPlayer)
                 {
                     NPC target = Main.npc.FirstOrDefault(n => n.active && n.Distance(Player.Center) < 360 && n.CanBeChasedBy() && Collision.CanHit(Player.position, Player.width, Player.height, n.position, n.width, n.height));
                     if (target != null)
@@ -2214,20 +2320,8 @@ namespace FargowiltasSouls
                                     Vector2 speed = mouse - spawn;
                                     speed.Normalize();
                                     speed *= 10f;
-                                    Projectile.NewProjectile(Player.GetSource_Accessory(SlimyShieldItem), spawn, speed, ModContent.ProjectileType<SlimeBall>(), damage, 1f, Main.myPlayer);
+                                    Projectile.NewProjectile(Player.GetSource_Accessory(SlimyShieldItem, "SlimyShield"), spawn, speed, ModContent.ProjectileType<SlimeBall>(), damage, 1f, Main.myPlayer);
                                 }
-                            }
-                        }
-
-                        if (LihzahrdTreasureBoxItem != null && Player.GetToggleValue("MasoBoulder"))
-                        {
-                            int dam = 50;
-                            if (MasochistSoul)
-                                dam *= 3;
-                            for (int i = -5; i <= 5; i += 2)
-                            {
-                                Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, -10f * Vector2.UnitY.RotatedBy(MathHelper.PiOver2 / 6 * i),
-                                    ModContent.ProjectileType<LihzahrdBoulderFriendly>(), (int)(dam * Player.ActualClassDamage(DamageClass.Melee)), 7.5f, Player.whoAmI);
                             }
                         }
 
@@ -2314,25 +2408,22 @@ namespace FargowiltasSouls
             }
         }
 
-        public void FrigidGemstoneAttack(NPC target, Projectile projectile)
+        public void FrigidGemstoneKey()
         {
-            if (FrigidGemstoneCD <= 0 && !target.immortal && (projectile == null || projectile.type != ModContent.ProjectileType<FrostFireball>()))
-            {
-                FrigidGemstoneCD = 30;
-                float screenX = Main.screenPosition.X;
-                if (Player.direction < 0)
-                    screenX += Main.screenWidth;
-                float screenY = Main.screenPosition.Y;
-                screenY += Main.rand.Next(Main.screenHeight);
-                Vector2 spawn = new Vector2(screenX, screenY);
-                Vector2 vel = target.Center - spawn;
-                vel.Normalize();
-                vel *= 8f;
-                int dam = (int)(40 * Player.ActualClassDamage(DamageClass.Magic));
-                if (MasochistSoul)
-                    dam *= 2;
-                Projectile.NewProjectile(Player.GetSource_Accessory(FrigidGemstoneItem), spawn, vel, ModContent.ProjectileType<FrostFireball>(), dam, 6f, Player.whoAmI, target.whoAmI);
-            }
+            if (FrigidGemstoneCD > 0)
+                return;
+
+            if (!Player.CheckMana(6, true))
+                return;
+
+            FrigidGemstoneCD = 10;
+
+            SoundEngine.PlaySound(SoundID.Item28, Player.Center);
+
+            Projectile.NewProjectile(Player.GetSource_Accessory(FrigidGemstoneItem),
+                Player.Center, 12f * Player.DirectionTo(Main.MouseWorld), ProjectileID.IceBlock,
+                (int)(14 * Player.ActualClassDamage(DamageClass.Magic)), 2f,
+                Player.whoAmI, Player.tileTargetX, Player.tileTargetY);
         }
 
         public void IceQueensCrownHurt()
@@ -2419,59 +2510,11 @@ namespace FargowiltasSouls
             }
         }
 
-        public void PumpkingsCapeSupportAttack(int damage, DamageClass damageType)
+        public void SpecialDashKey()
         {
-            Vector2 position = Player.Center;
-            Vector2 velocity = Vector2.Normalize(Main.MouseWorld - position);
-
-            if (damageType.CountsAsClass(DamageClass.Melee)) //flaming jack
+            if (SpecialDashCD <= 0)
             {
-                float distance = 2000f;
-                int target = -1;
-                for (int i = 0; i < Main.maxNPCs; i++)
-                {
-                    if (Main.npc[i].active && Main.npc[i].CanBeChasedBy())
-                    {
-                        float newDist = Main.npc[i].Distance(Player.Center);
-                        if (newDist < distance)
-                        {
-                            distance = newDist;
-                            target = i;
-                        }
-                    }
-                }
-                if (target != -1)
-                    Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, velocity * 8f, ProjectileID.FlamingJack, (int)(75f * Player.ActualClassDamage(DamageClass.Melee)), 7.5f, Player.whoAmI, target, 0);
-            }
-            if (damageType.CountsAsClass(DamageClass.Ranged)) //jack o lantern
-            {
-                Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, velocity * 11f, ProjectileID.JackOLantern, (int)(65f * Player.ActualClassDamage(DamageClass.Ranged)), 8f, Player.whoAmI);
-            }
-            if (damageType.CountsAsClass(DamageClass.Magic)) //bat scepter
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    Vector2 newVel = velocity * 10f;
-                    newVel.X += Main.rand.Next(-35, 36) * 0.02f;
-                    newVel.Y += Main.rand.Next(-35, 36) * 0.02f;
-                    Projectile.NewProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, newVel, ProjectileID.Bat, (int)(45f * Player.ActualClassDamage(DamageClass.Magic)), 3f, Player.whoAmI);
-                }
-            }
-            if (damageType.CountsAsClass(DamageClass.Summon))
-            {
-                const int max = 6;
-                for (int i = 0; i < max; i++)
-                {
-                    FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), position, velocity.RotatedBy(MathHelper.TwoPi / max * i) * 20f, ModContent.ProjectileType<SpookyScythe>(), 50, 2, Player.whoAmI);
-                }
-            }
-        }
-
-        public void BetsyDashKey()
-        {
-            if (BetsyDashCD <= 0)
-            {
-                BetsyDashCD = 180;
+                SpecialDashCD = 180;
 
                 if (Player.whoAmI == Main.myPlayer)
                 {
@@ -2486,26 +2529,83 @@ namespace FargowiltasSouls
                     Player.controlHook = false;
                     Player.controlMount = false;
 
-                    Player.immune = true;
-                    Player.immuneTime = Math.Max(Player.immuneTime, 2);
-                    Player.hurtCooldowns[0] = Math.Max(Player.hurtCooldowns[0], 2);
-                    Player.hurtCooldowns[1] = Math.Max(Player.hurtCooldowns[1], 2);
-
                     Player.itemAnimation = 0;
                     Player.itemTime = 0;
+                    Player.reuseDelay = 0;
 
-                    Vector2 vel = Player.DirectionTo(Main.MouseWorld) * (MasochistHeart ? 25 : 20);
-                    Projectile.NewProjectile(Player.GetSource_Accessory(BetsysHeartItem), Player.Center, vel, ModContent.ProjectileType<Projectiles.BetsyDash>(), (int)(100 * Player.ActualClassDamage(DamageClass.Melee)), 0f, Player.whoAmI);
-                    Player.AddBuff(ModContent.BuffType<Buffs.BetsyDash>(), 20);
-
-                    //immune to all debuffs
-                    foreach (int debuff in FargowiltasSouls.DebuffIDs)
+                    if (BetsysHeartItem != null)
                     {
-                        if (!Player.HasBuff(debuff))
+                        Vector2 vel = Player.DirectionTo(Main.MouseWorld) * (MasochistHeart ? 25 : 20);
+                        Projectile.NewProjectile(Player.GetSource_Accessory(BetsysHeartItem), Player.Center, vel, ModContent.ProjectileType<Projectiles.BetsyDash>(), (int)(100 * Player.ActualClassDamage(DamageClass.Melee)), 6f, Player.whoAmI);
+
+                        Player.immune = true;
+                        Player.immuneTime = Math.Max(Player.immuneTime, 2);
+                        Player.hurtCooldowns[0] = Math.Max(Player.hurtCooldowns[0], 2);
+                        Player.hurtCooldowns[1] = Math.Max(Player.hurtCooldowns[1], 2);
+
+                        //immune to all debuffs
+                        foreach (int debuff in FargowiltasSouls.DebuffIDs)
                         {
-                            Player.buffImmune[debuff] = true;
+                            if (!Player.HasBuff(debuff))
+                            {
+                                Player.buffImmune[debuff] = true;
+                            }
                         }
                     }
+                    else if (QueenStingerItem != null)
+                    {
+                        Vector2 vel = Player.DirectionTo(Main.MouseWorld) * 20;
+                        Projectile.NewProjectile(Player.GetSource_Accessory(QueenStingerItem), Player.Center, vel, ModContent.ProjectileType<Projectiles.BeeDash>(), (int)(44 * Player.ActualClassDamage(DamageClass.Melee)), 6f, Player.whoAmI);
+                    }
+
+                    Player.AddBuff(ModContent.BuffType<Buffs.BetsyDash>(), 20);
+                }
+            }
+        }
+
+        public void MagicalBulbKey()
+        {
+            if (Player.HasBuff(ModContent.BuffType<MagicalCleanseCD>()))
+                return;
+
+            bool cleansed = false;
+
+            int max = Player.buffType.Length;
+            for (int i = 0; i < max; i++)
+            {
+                int timeLeft = Player.buffTime[i];
+                if (timeLeft <= 0)
+                    continue;
+
+                int buffType = Player.buffType[i];
+                if (buffType <= 0)
+                    continue;
+
+                if (timeLeft > 5
+                    && Main.debuff[buffType]
+                    && !Main.buffNoTimeDisplay[buffType]
+                    && !BuffID.Sets.NurseCannotRemoveDebuff[buffType])
+                {
+                    Player.DelBuff(i);
+
+                    cleansed = true;
+
+                    i--;
+                    max--; //just in case, to prevent being stuck here forever
+                }
+            }
+
+            if (cleansed)
+            {
+                Player.AddBuff(ModContent.BuffType<MagicalCleanseCD>(), 60 * 120);
+
+                SoundEngine.PlaySound(SoundID.Item4, Player.Center);
+
+                for (int index1 = 0; index1 < 50; ++index1)
+                {
+                    int index2 = Dust.NewDust(Player.position, Player.width, Player.height, Main.rand.NextBool() ? 107 : 157, 0f, 0f, 0, new Color(), 3f);
+                    Main.dust[index2].noGravity = true;
+                    Main.dust[index2].velocity *= 8f;
                 }
             }
         }
@@ -2566,6 +2666,45 @@ namespace FargowiltasSouls
             }
         }
 
+        public void DebuffInstallKey()
+        {
+            if (FusedLens && Player.GetToggleValue("FusedLensInstall", false))
+            {
+                bool firstInstall = !Player.HasBuff(ModContent.BuffType<TwinsInstall>());
+
+                if (firstInstall)
+                    SoundEngine.PlaySound(SoundID.Item119, Player.Center);
+
+                Player.AddBuff(ModContent.BuffType<TwinsInstall>(), 60 * 30);
+
+                int max = firstInstall ? 60 : 30;
+                for (int i = 0; i < max; i++)
+                {
+                    float scale = firstInstall ? 3f : 1.5f;
+                    int index2 = Dust.NewDust(Player.position, Player.width, Player.height, Main.rand.NextBool() ? 90 : 89, 0f, 0f, 0, new Color(), scale);
+                    Main.dust[index2].noGravity = true;
+                    Main.dust[index2].velocity *= scale * 3;
+                }
+            }
+
+            if (AgitatingLensItem != null
+                && Player.GetToggleValue("MasoEyeInstall", false)
+                && !Player.HasBuff(ModContent.BuffType<BerserkerInstall>())
+                && !Player.HasBuff(ModContent.BuffType<BerserkerInstallCD>()))
+            {
+                SoundEngine.PlaySound(SoundID.Item119, Player.Center);
+
+                Player.AddBuff(ModContent.BuffType<BerserkerInstall>(), 360);
+
+                for (int i = 0; i < 60; i++)
+                {
+                    int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.RedTorch, 0f, 0f, 0, default, 3f);
+                    Main.dust[index2].noGravity = true;
+                    Main.dust[index2].velocity *= 9;
+                }
+            }
+        }
+
         int lihzahrdFallCD;
         public void LihzahrdTreasureBoxUpdate()
         {
@@ -2610,34 +2749,57 @@ namespace FargowiltasSouls
                     }
                     else if (Player.velocity.Y == 0f && Player.oldVelocity.Y == 0f)
                     {
-                        if (Player.whoAmI == Main.myPlayer)
+                        int x = (int)(Player.Center.X) / 16;
+                        int y = (int)(Player.position.Y + Player.height + 8) / 16;
+                        if (/*GroundPound > 15 && */x >= 0 && x < Main.maxTilesX && y >= 0 && y < Main.maxTilesY
+                            && Main.tile[x, y] != null && Main.tile[x, y].HasUnactuatedTile && Main.tileSolid[Main.tile[x, y].TileType])
                         {
-                            int x = (int)(Player.Center.X) / 16;
-                            int y = (int)(Player.position.Y + Player.height + 8) / 16;
-                            if (/*GroundPound > 15 && */x >= 0 && x < Main.maxTilesX && y >= 0 && y < Main.maxTilesY
-                                && Main.tile[x, y] != null && Main.tile[x, y].HasUnactuatedTile && Main.tileSolid[Main.tile[x, y].TileType])
-                            {
-                                GroundPound = 0;
+                            GroundPound = 0;
 
-                                int baseDamage = (int)(50 * Player.ActualClassDamage(DamageClass.Melee));
-                                if (MasochistSoul)
-                                    baseDamage *= 3;
-                                Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, Vector2.Zero, ModContent.ProjectileType<ExplosionSmall>(), baseDamage * 2, 12f, Player.whoAmI);
-                                y -= 2;
-                                for (int i = -3; i <= 3; i++)
+                            if (Player.GetToggleValue("MasoBoulder"))
+                            {
+                                if (!Main.dedServ)
+                                    Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 60;
+
+                                if (Player.whoAmI == Main.myPlayer)
                                 {
-                                    if (i == 0)
-                                        continue;
-                                    int tilePosX = x + 16 * i;
-                                    int tilePosY = y;
-                                    if (Main.tile[tilePosX, tilePosY] != null && tilePosX >= 0 && tilePosX < Main.maxTilesX)
+                                    //explosion
+                                    Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, Vector2.Zero, ModContent.ProjectileType<MoonLordSunBlast>(), 0, 0f, Player.whoAmI);
+                                    int p = Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, Vector2.Zero, ModContent.ProjectileType<Explosion>(), (int)(200 * Player.ActualClassDamage(DamageClass.Melee)), 9f, Player.whoAmI);
+                                    if (p != Main.maxProjectiles)
+                                        Main.projectile[p].DamageType = DamageClass.Melee;
+
+                                    //boulders
+                                    int dam = 50;
+                                    if (MasochistSoul)
+                                        dam *= 3;
+                                    for (int i = -5; i <= 5; i += 2)
                                     {
-                                        while (Main.tile[tilePosX, tilePosY] != null && tilePosY >= 0 && tilePosY < Main.maxTilesY
-                                            && !(Main.tile[tilePosX, tilePosY].HasUnactuatedTile && Main.tileSolid[Main.tile[tilePosX, tilePosY].TileType]))
+                                        Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, -10f * Vector2.UnitY.RotatedBy(MathHelper.PiOver2 / 6 * i),
+                                            ModContent.ProjectileType<LihzahrdBoulderFriendly>(), (int)(dam * Player.ActualClassDamage(DamageClass.Melee)), 7.5f, Player.whoAmI);
+                                    }
+
+                                    //geysers
+                                    int baseDamage = (int)(50 * Player.ActualClassDamage(DamageClass.Melee));
+                                    if (MasochistSoul)
+                                        baseDamage *= 3;
+                                    Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), Player.Center, Vector2.Zero, ModContent.ProjectileType<ExplosionSmall>(), baseDamage * 2, 12f, Player.whoAmI);
+                                    y -= 2;
+                                    for (int i = -3; i <= 3; i++)
+                                    {
+                                        if (i == 0)
+                                            continue;
+                                        int tilePosX = x + 16 * i;
+                                        int tilePosY = y;
+                                        if (Main.tile[tilePosX, tilePosY] != null && tilePosX >= 0 && tilePosX < Main.maxTilesX)
                                         {
-                                            tilePosY++;
+                                            while (Main.tile[tilePosX, tilePosY] != null && tilePosY >= 0 && tilePosY < Main.maxTilesY
+                                                && !(Main.tile[tilePosX, tilePosY].HasUnactuatedTile && Main.tileSolid[Main.tile[tilePosX, tilePosY].TileType]))
+                                            {
+                                                tilePosY++;
+                                            }
+                                            Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), tilePosX * 16 + 8, tilePosY * 16 + 8, 0f, -8f, ModContent.ProjectileType<GeyserFriendly>(), baseDamage, 8f, Player.whoAmI);
                                         }
-                                        Projectile.NewProjectile(Player.GetSource_Accessory(LihzahrdTreasureBoxItem), tilePosX * 16 + 8, tilePosY * 16 + 8, 0f, -8f, ModContent.ProjectileType<GeyserFriendly>(), baseDamage, 8f, Player.whoAmI);
                                     }
                                 }
                             }
@@ -2759,6 +2921,27 @@ namespace FargowiltasSouls
             }
         }
 
+        public void PumpkingsCapeCounter(int damage)
+        {
+            SoundEngine.PlaySound(SoundID.Item62, Player.Center);
+
+            if (Player.whoAmI == Main.myPlayer)
+            {
+                int heal = getHealMultiplier(damage);
+                Player.statLife += heal;
+                if (Player.statLife > Player.statLifeMax2)
+                    Player.statLife = Player.statLifeMax2;
+                Player.HealEffect(heal);
+
+                for (int i = 0; i < 30; i++)
+                {
+                    Vector2 vel = Vector2.UnitX.RotatedByRandom(MathHelper.TwoPi);
+                    vel *= Main.rand.NextFloat(12f, 24f);
+                    FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), Player.Center, vel, ModContent.ProjectileType<SpookyScythe>(), damage, 6f, Player.whoAmI);
+                }
+            }
+        }
+
         public void DeerSinewEffect()
         {
             if (DeerSinewFreezeCD > 0)
@@ -2821,7 +3004,7 @@ namespace FargowiltasSouls
 
         #endregion maso acc
 
-        public bool TryParryAttack()
+        public bool TryParryAttack(int damage)
         {
             if (GuardRaised && shieldTimer > 0 && !Player.immune)
             {
@@ -2829,14 +3012,23 @@ namespace FargowiltasSouls
                 int invul = Player.longInvince ? 90 : 60;
                 int extrashieldCD = 40;
 
-                if (DreadShellItem != null)
+                if (DreadShellItem != null || PumpkingsCapeItem != null)
                 {
                     invul += 60;
-                    extrashieldCD = DREAD_SHIELD_COOLDOWN;
+                    extrashieldCD = LONG_SHIELD_COOLDOWN;
+                }
 
+                if (DreadShellItem != null)
+                {
                     DreadParryCounter();
                 }
-                else if (IronEnchantShield)
+
+                if (PumpkingsCapeItem != null)
+                {
+                    PumpkingsCapeCounter(damage);
+                }
+
+                if (IronEnchantShield)
                 {
                     extrashieldCD = IRON_SHIELD_COOLDOWN;
 
@@ -2866,8 +3058,8 @@ namespace FargowiltasSouls
 
         private const int IRON_PARRY_WINDOW = 20;
         private const int IRON_SHIELD_COOLDOWN = 100;
-        private const int DREAD_PARRY_WINDOW = 10;
-        private const int DREAD_SHIELD_COOLDOWN = 360;
+        private const int HARD_PARRY_WINDOW = 10;
+        private const int LONG_SHIELD_COOLDOWN = 360;
 
         void RaisedShieldEffects()
         {
@@ -2875,16 +3067,40 @@ namespace FargowiltasSouls
             {
                 if (!MasochistSoul)
                     DreadShellVulnerabilityTimer = 60;
+            }
 
+            if (PumpkingsCapeItem != null) //strong aura effect
+            {
+                const float distance = 300f;
+                for (int i = 0; i < Main.maxNPCs; i++)
+                    if (Main.npc[i].active && !Main.npc[i].friendly && Main.npc[i].Distance(Player.Center) < distance)
+                        Main.npc[i].AddBuff(ModContent.BuffType<Rotting>(), 600);
+
+                for (int i = 0; i < 20; i++)
+                {
+                    Vector2 offset = new Vector2();
+                    double angle = Main.rand.NextDouble() * 2d * Math.PI;
+                    offset.X += (float)(Math.Sin(angle) * distance);
+                    offset.Y += (float)(Math.Cos(angle) * distance);
+                    Dust dust = Main.dust[Dust.NewDust(Player.Center + offset - new Vector2(4, 4), 0, 0, 119, 0, 0, 100, Color.White, 1f)];
+                    dust.velocity = Player.velocity;
+                    if (Main.rand.NextBool(3))
+                        dust.velocity += Vector2.Normalize(offset) * -5f;
+                    dust.noGravity = true;
+                }
+            }
+
+            if ((DreadShellItem != null || PumpkingsCapeItem != null) && !IronEnchantShield)
+            {
                 Player.velocity.X *= 0.85f;
                 if (Player.velocity.Y < 0)
                     Player.velocity.Y *= 0.85f;
             }
 
             int cooldown = IRON_SHIELD_COOLDOWN;
-            if (DreadShellItem != null)
-                cooldown = DREAD_SHIELD_COOLDOWN;
-            else if (IronEnchantShield)
+            if (DreadShellItem != null || PumpkingsCapeItem != null)
+                cooldown = LONG_SHIELD_COOLDOWN;
+            if (IronEnchantShield)
                 cooldown = IRON_SHIELD_COOLDOWN;
 
             if (shieldCD < cooldown)
@@ -2927,9 +3143,9 @@ namespace FargowiltasSouls
 
                     if (shieldCD == 0) //if cooldown over, enable parry
                     {
-                        if (DreadShellItem != null)
-                            shieldTimer = DREAD_PARRY_WINDOW;
-                        else if (IronEnchantShield)
+                        if (DreadShellItem != null || PumpkingsCapeItem != null)
+                            shieldTimer = HARD_PARRY_WINDOW;
+                        if (IronEnchantShield)
                             shieldTimer = IRON_PARRY_WINDOW;
                     }
 
@@ -2946,20 +3162,19 @@ namespace FargowiltasSouls
                 {
                     SoundEngine.PlaySound(SoundID.Item27, Player.Center);
 
+                    List<int> dusts = new List<int>();
                     if (DreadShellItem != null)
+                        dusts.Add(DustID.LifeDrain);
+                    if (PumpkingsCapeItem != null)
+                        dusts.Add(87);
+                    if (IronEnchantShield)
+                        dusts.Add(66);
+
+                    if (dusts.Count > 0)
                     {
                         for (int i = 0; i < 20; i++)
                         {
-                            int d = Dust.NewDust(Player.position, Player.width, Player.height, DustID.LifeDrain, 0, 0, 0, default, 1.5f);
-                            Main.dust[d].noGravity = true;
-                            Main.dust[d].velocity *= 3f;
-                        }
-                    }
-                    else if (IronEnchantShield)
-                    {
-                        for (int i = 0; i < 20; i++)
-                        {
-                            int d = Dust.NewDust(Player.position, Player.width, Player.height, 1, 0, 0, 0, default, 1.5f);
+                            int d = Dust.NewDust(Player.position, Player.width, Player.height, Main.rand.Next(dusts), 0, 0, 0, default, 1.5f);
                             Main.dust[d].noGravity = true;
                             Main.dust[d].velocity *= 3f;
                         }
@@ -2983,20 +3198,19 @@ namespace FargowiltasSouls
                 {
                     SoundEngine.PlaySound(SoundID.Item28, Player.Center); //make a sound for refresh
 
+                    List<int> dusts = new List<int>();
                     if (DreadShellItem != null)
+                        dusts.Add(DustID.LifeDrain);
+                    if (PumpkingsCapeItem != null)
+                        dusts.Add(87);
+                    if (IronEnchantShield)
+                        dusts.Add(66);
+                    
+                    if (dusts.Count > 0)
                     {
                         for (int i = 0; i < 30; i++)
                         {
-                            int d = Dust.NewDust(Player.position, Player.width, Player.height, DustID.LifeDrain, 0, 0, 0, default, 2.5f);
-                            Main.dust[d].noGravity = true;
-                            Main.dust[d].velocity *= 6f;
-                        }
-                    }
-                    else if (IronEnchantShield)
-                    {
-                        for (int i = 0; i < 30; i++)
-                        {
-                            int d = Dust.NewDust(Player.position, Player.width, Player.height, 66, 0, 0, 0, default, 2.5f);
+                            int d = Dust.NewDust(Player.position, Player.width, Player.height, Main.rand.Next(dusts), 0, 0, 0, default, 2.5f);
                             Main.dust[d].noGravity = true;
                             Main.dust[d].velocity *= 6f;
                         }

@@ -126,7 +126,7 @@ This stacks up to 950 times until you get hit");
 
         void PassiveEffect(Player player)
         {
-            BionomicCluster.PassiveEffect(player);
+            BionomicCluster.PassiveEffect(player, Item);
 
             //cell phone
             player.accWatch = 3;

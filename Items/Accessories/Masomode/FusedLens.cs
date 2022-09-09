@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Masomode
 {
@@ -11,7 +12,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Fused Lens");
             Tooltip.SetDefault(@"Grants immunity to Cursed Inferno and Ichor
-Your attacks inflict Cursed Inferno and Ichor
+When inflicted with Cursed Inferno, 15% increased attack speed
+When inflicted with Ichor, 15% increased critical strike chance
+When losing health to damage over time, you inflict Cursed Inferno and Ichor
+Press the Debuff Install key to inflict yourself with Cursed Inferno and Ichor for 30 seconds
 'Too melted to improve vision'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "融合晶状体");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'融化过度,无法改善视力'
@@ -34,7 +38,13 @@ Your attacks inflict Cursed Inferno and Ichor
         {
             player.buffImmune[BuffID.CursedInferno] = true;
             player.buffImmune[BuffID.Ichor] = true;
+
             player.GetModPlayer<FargoSoulsPlayer>().FusedLens = true;
+
+            if (player.onFire2)
+                player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed += 0.15f;
+            if (player.ichor)
+                player.GetCritChance(DamageClass.Generic) += 15;
         }
     }
 }

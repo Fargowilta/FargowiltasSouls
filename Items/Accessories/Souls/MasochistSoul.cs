@@ -27,9 +27,11 @@ Increases life regen drastically, your cursor causes nearby enemies to take incr
 Grants gravity control, fastfall, and immunity to knockback, almost all Eternity Mode debuffs, and more
 Grants autofire to all weapons and you automatically use mana potions when needed
 Your attacks create additional attacks, hearts, and inflict a cocktail of Eternity Mode debuffs
-Press the Fireball Dash key to perform a short invincible dash, zoom with right click
+Increased stats when inflicted with Cursed Inferno or Ichor
+Press the Debuff Install key to debuff and buff yourself
+Press the Special Dash key to perform a short invincible fireball dash, zoom with right click
 Certain enemies will drop potions when defeated, drastically improves reforges, you respawn with more life
-You respawn twice as fast, attacks spawn honey, have improved night vision, and erupt into various attacks when injured
+You respawn twice as fast, have improved night vision, and supercharge and erupt into various attacks when injured
 Prevents boss spawns, increases spawn rate, increases loot, and attacks may squeak and deal 1 damage to you
 Reduces hurtbox size, hold the Precision Seal key to disable dashes and double jumps
 Right Click to parry attacks with extremely tight timing
@@ -72,11 +74,11 @@ Summons the aid of all Eternity Mode bosses to your side
         public override void UseItemFrame(Player player) => SandsofTime.Use(player);
         public override bool? UseItem(Player player) => true;
 
-        public override void UpdateInventory(Player player) => BionomicCluster.PassiveEffect(player);
-        public override void UpdateVanity(Player player) => BionomicCluster.PassiveEffect(player);
+        public override void UpdateInventory(Player player) => BionomicCluster.PassiveEffect(player, Item);
+        public override void UpdateVanity(Player player) => BionomicCluster.PassiveEffect(player, Item);
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            BionomicCluster.PassiveEffect(player);
+            BionomicCluster.PassiveEffect(player, Item);
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.MasochistSoul = true;
@@ -193,12 +195,6 @@ Summons the aid of all Eternity Mode bosses to your side
 
             //frigid gemstone
             player.buffImmune[BuffID.Frostburn] = true;
-            if (player.GetToggleValue("MasoFrigid"))
-            {
-                fargoPlayer.FrigidGemstoneItem = Item;
-                if (fargoPlayer.FrigidGemstoneCD > 0)
-                    fargoPlayer.FrigidGemstoneCD -= 5;
-            }
 
             //wretched pouch
             player.buffImmune[BuffID.ShadowFlame] = true;
@@ -228,6 +224,7 @@ Summons the aid of all Eternity Mode bosses to your side
             //tribal charm
             player.buffImmune[BuffID.Webbed] = true;
             fargoPlayer.TribalCharm = true;
+            fargoPlayer.TribalCharmEquipped = true;
 
             //nymph's perfume
             player.buffImmune[BuffID.Lovestruck] = true;
@@ -250,9 +247,14 @@ Summons the aid of all Eternity Mode bosses to your side
             fargoPlayer.FusedLens = true;
             fargoPlayer.GroundStick = true;
             player.noKnockback = true;
+            if (player.onFire2)
+                player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed += 0.15f;
+            if (player.ichor)
+                player.GetCritChance(DamageClass.Generic) += 15;
 
             //magical bulb
             player.buffImmune[BuffID.Venom] = true;
+            fargoPlayer.MagicalBulb = true;
 
             //ice queen's crown
             fargoPlayer.IceQueensCrown = true;
@@ -270,9 +272,11 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[BuffID.WitheredArmor] = true;
             fargoPlayer.BetsysHeartItem = Item;
 
-            //celestial rune/pumpking's cape
-            fargoPlayer.CelestialRuneItem = Item;
+            //pumpking's cape
             fargoPlayer.PumpkingsCapeItem = Item;
+
+            //celestial rune
+            fargoPlayer.CelestialRuneItem = Item;
             fargoPlayer.AdditionalAttacks = true;
             if (fargoPlayer.AdditionalAttacksTimer > 0)
                 fargoPlayer.AdditionalAttacksTimer -= 2;

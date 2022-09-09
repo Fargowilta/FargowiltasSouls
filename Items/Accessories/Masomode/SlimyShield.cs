@@ -16,6 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             Tooltip.SetDefault(@"Grants immunity to Slimed
 Increases fall speed
 When you land after a jump, slime will fall from the sky over your cursor
+Slime inflicts Slimed and Oiled
 'Torn from the innards of a defeated foe'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "粘液盾");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'从被打败的敌人的内脏中撕裂而来'

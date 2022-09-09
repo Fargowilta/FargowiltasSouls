@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
         public override void SetDefaults()
         {
             Item.mana = 10;
-            Item.damage = 10;
+            Item.damage = 12;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
             Item.shoot = ModContent.ProjectileType<EaterHead>();

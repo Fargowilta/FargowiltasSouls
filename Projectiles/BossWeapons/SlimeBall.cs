@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,6 +24,14 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (ModLoader.TryGetMod("Fargowiltas", out Mod fargo))
                 fargo.Call("LowRenderProj", Projectile);
+        }
+
+        bool oil;
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (source.Context == "SlimyShield")
+                oil = true;
         }
 
         public override void AI()
@@ -49,6 +58,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(BuffID.Slimed, 240);
+            if (oil)
+                target.AddBuff(BuffID.Oiled, 240);
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

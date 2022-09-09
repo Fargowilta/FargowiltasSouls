@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,6 +37,8 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.localNPCHitCooldown = 10;
         }
 
+        bool followMouse;
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -44,39 +48,48 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.ai[0] -= (float)Math.PI / 60f;
             Projectile.Center = player.Center + new Vector2(-60, 0).RotatedBy(Projectile.ai[0]);
 
-            if (Projectile.ai[1] >= 0f && Projectile.ai[1] < Main.maxNPCs)
+            if (Projectile.ai[1] > 0)
             {
-                NPC npc = Main.npc[(int)Projectile.ai[1]];
-                Projectile.rotation = (npc.Center - Projectile.Center).ToRotation();
-                if (npc.CanBeChasedBy() && Collision.CanHitLine(npc.Center, 0, 0, Main.player[Projectile.owner].Center, 0, 0))
+                Projectile.ai[1]--;
+
+                if (Projectile.ai[1] % 10 == 5)
                 {
-                    if (--Projectile.localAI[0] < 0f)
+                    List<NPC> npcs = Main.npc.Where(n => n.CanBeChasedBy() && Projectile.Distance(n.Center) < 1200 && Collision.CanHitLine(Projectile.Center, 0, 0, n.Center, 0, 0)).ToList();
+                    if (npcs.Count > 0)
                     {
-                        Projectile.localAI[0] = player.GetModPlayer<FargoSoulsPlayer>().MasochistSoul ? 15f : 30f;
-                        if (Projectile.owner == Main.myPlayer)
-                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 0f).RotatedBy(Projectile.rotation),
-                                ModContent.ProjectileType<ProbeLaser>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
-                        Projectile.netUpdate = true;
+                        NPC npc = Main.rand.Next(npcs);
+                        Projectile.rotation = Projectile.DirectionTo(npc.Center).ToRotation();
+                        int p = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(16f, 0f).RotatedBy(Projectile.rotation).RotatedByRandom(MathHelper.PiOver4 / 2),
+                            ModContent.ProjectileType<LightningArc>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner, Projectile.rotation, Main.rand.Next(100));
+                        if (p != Main.maxProjectiles)
+                            Main.projectile[p].DamageType = Projectile.DamageType;
+                        Projectile.rotation += MathHelper.Pi;
                     }
                 }
-                else
-                {
-                    Projectile.ai[1] = -1f;
-                    Projectile.netUpdate = true;
-                }
-                Projectile.rotation += (float)Math.PI;
             }
             else
             {
-                if (Projectile.owner == Main.myPlayer)
-                    Projectile.rotation = (Main.MouseWorld - Projectile.Center).ToRotation() + (float)Math.PI;
-            }
+                if (++Projectile.localAI[1] > 20f)
+                {
+                    Projectile.localAI[1] = player.GetModPlayer<FargoSoulsPlayer>().MasochistSoul ? 10f : 0f;
+                    followMouse = true;
 
-            if (++Projectile.localAI[1] > 20f)
-            {
-                Projectile.localAI[1] = 0f;
-                Projectile.ai[1] = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000f, true);
-                Projectile.netUpdate = true;
+                    int n = FargoSoulsUtil.FindClosestHostileNPCPrioritizingMinionFocus(Projectile, 1000f, true);
+                    if (n != -1 && n != Main.maxNPCs)
+                    {
+                        followMouse = false;
+
+                        Projectile.rotation = Projectile.DirectionTo(Main.npc[n].Center).ToRotation();
+                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 0f).RotatedBy(Projectile.rotation),
+                            ModContent.ProjectileType<ProbeLaser>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                        Projectile.rotation += MathHelper.Pi;
+                    }
+
+                    Projectile.netUpdate = true;
+                }
+
+                if (followMouse && Projectile.owner == Main.myPlayer)
+                    Projectile.rotation = (Main.MouseWorld - Projectile.Center).ToRotation() + (float)Math.PI;
             }
         }
 
