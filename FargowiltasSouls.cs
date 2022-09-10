@@ -135,9 +135,9 @@ namespace FargowiltasSouls
             MutantBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Mutant Bomb", "Z");
             SoulToggleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "打开魂石效果设置" : "Open Soul Toggler", ".");
             PrecisionSealKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "玲珑圣印精确模式" : "Precision Movement", "LeftShift");
-            MagicalBulbKey = KeybindLoader.RegisterKeybind(this, "Magical Cleanse", "N");
-            FrigidSpellKey = KeybindLoader.RegisterKeybind(this, "Frigid Spell", "U");
-            DebuffInstallKey = KeybindLoader.RegisterKeybind(this, "Debuff Install", "Y");
+            MagicalBulbKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "魔法净化" : "Magical Cleanse", "N");
+            FrigidSpellKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "寒霜咒语" : "Frigid Spell", "U");
+            DebuffInstallKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "减益负载" : "Debuff Install", "Y");
 
             ToggleLoader.Load();
 
