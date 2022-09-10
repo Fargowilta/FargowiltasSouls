@@ -14,7 +14,16 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
             base.OnHitPlayer(npc, target, damage, crit);
 
             if (FargoSoulsWorld.MasochistModeReal && target.Male)
-                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " had his nuts cracked."), 999999, 0);
+            {
+                if (FargoSoulsUtil.IsChinese())
+                {
+                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "的“坚果”裂开了。"), 999999, 0);
+                }
+                else
+                {
+                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " had his nuts cracked."), 999999, 0);
+                }    
+            }
         }
     }
 }

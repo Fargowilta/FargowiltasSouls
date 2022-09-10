@@ -112,7 +112,16 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
             }
 
             if (FargoSoulsWorld.MasochistModeReal && npc.type == NPCID.ManEater && target.Male)
-                target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " became a man eaten by Man Eater."), 999999, 0);
+            {
+                if (FargoSoulsUtil.IsChinese())
+                {
+                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "被食人怪咬成了“被吃掉”的男人。"), 999999, 0);
+                }
+                else
+                {
+                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " became a man eaten by Man Eater."), 999999, 0);
+                }
+            }
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
