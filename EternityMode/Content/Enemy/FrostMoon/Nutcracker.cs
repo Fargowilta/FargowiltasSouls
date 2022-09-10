@@ -22,7 +22,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
                 else
                 {
                     target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " had his nuts cracked."), 999999, 0);
-                }    
+                }
             }
         }
     }
