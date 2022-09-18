@@ -31,7 +31,7 @@ $"[i:{ModContent.ItemType<FossilEnchant>()}] Collect the bones once they stop mo
 $"[i:{ModContent.ItemType<ForbiddenEnchant>()}] Double tap down to call an ancient storm to the cursor location\n" +
 $"[i:{ModContent.ItemType<ForbiddenEnchant>()}] Any projectiles shot through your storm gain 60% damage\n" +
 $"[i:{ModContent.ItemType<AncientHallowEnchant>()}] You gain a shield that can reflect projectiles\n" +
-$"[i:{ModContent.ItemType<AncientHallowEnchant>()}] Summons an Terraprisma familiar\n" +
+$"[i:{ModContent.ItemType<AncientHallowEnchant>()}] Summons a Terraprisma familiar\n" +
 $"[i:{ModContent.ItemType<AncientHallowEnchant>()}] Drastically increases minion speed\n" +
 $"[i:{ModContent.ItemType<HallowEnchant>()}] Become immune after striking an enemy\n" +
 $"[i:{ModContent.ItemType<TikiEnchant>()}] You can summon temporary minions and sentries after maxing out on your slots\n" +
