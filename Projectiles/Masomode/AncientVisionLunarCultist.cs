@@ -34,12 +34,15 @@ namespace FargowiltasSouls.Projectiles.Masomode
         public override void AI()
         {
             //dust!
-            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.GoldFlame, Projectile.velocity.X * 0.2f,
+            if (Main.rand.NextBool())
+            {
+                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.GoldFlame, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
-            Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.GoldFlame, Projectile.velocity.X * 0.2f,
-                Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
-            Main.dust[dustId3].noGravity = true;
+                Main.dust[dustId].noGravity = true;
+                int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.GoldFlame, Projectile.velocity.X * 0.2f,
+                    Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+                Main.dust[dustId3].noGravity = true;
+            }
 
             //direction meme
             Projectile.spriteDirection = -Projectile.direction;
@@ -61,6 +64,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 100) * Projectile.Opacity * 0.6f;
         }
 
         public override void Kill(int timeleft)

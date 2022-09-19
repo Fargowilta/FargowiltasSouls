@@ -34,6 +34,7 @@ namespace FargowiltasSouls.UI
         public UIPresetButton OffButton;
         public UIPresetButton OnButton;
         public UIPresetButton MinimalButton;
+        public UIPresetButton SomeEffectsButton;
 
         public override void OnInitialize()
         {
@@ -94,23 +95,30 @@ namespace FargowiltasSouls.UI
             OffButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOffButton.Value, (toggles) =>
             {
                 toggles.SetAll(false);
-            }, "Turn all toggles off");
+            }, FargoSoulsUtil.IsChinese() ? "关闭所有饰品效果" : "Turn all toggles off");
             OffButton.Top.Set(6, 0);
             OffButton.Left.Set(8, 0);
 
             OnButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOnButton.Value, (toggles) =>
             {
                 toggles.SetAll(true);
-            }, "Turn all toggles on");
+            }, FargoSoulsUtil.IsChinese() ? "开启所有饰品效果" : "Turn all toggles on");
             OnButton.Top.Set(6, 0);
             OnButton.Left.Set(30, 0);
+
+            SomeEffectsButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
+            {
+                toggles.SomeEffects();
+            }, FargoSoulsUtil.IsChinese() ? "部分效果预设" : "Some effects preset");
+            SomeEffectsButton.Top.Set(6, 0);
+            SomeEffectsButton.Left.Set(52, 0);
 
             MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.MinimalEffects();
-            }, "Minimal effects preset");
+            }, FargoSoulsUtil.IsChinese() ? "最小化影响预设" : "Minimal effects preset");
             MinimalButton.Top.Set(6, 0);
-            MinimalButton.Left.Set(52, 0);
+            MinimalButton.Left.Set(74, 0);
 
             Append(BackPanel);
             BackPanel.Append(InnerPanel);
@@ -120,6 +128,7 @@ namespace FargowiltasSouls.UI
             InnerPanel.Append(ToggleList);
             PresetPanel.Append(OffButton);
             PresetPanel.Append(OnButton);
+            PresetPanel.Append(SomeEffectsButton);
             PresetPanel.Append(MinimalButton);
 
             base.OnInitialize();

@@ -139,10 +139,10 @@ namespace FargowiltasSouls.NPCs.DeviBoss
             writer.Write(NPC.localAI[1]);
             writer.Write(NPC.localAI[2]);
             writer.Write(NPC.localAI[3]);
-            writer.WriteVarInt(attackQueue[0]);
-            writer.WriteVarInt(attackQueue[1]);
-            writer.WriteVarInt(attackQueue[2]);
-            writer.WriteVarInt(attackQueue[3]);
+            writer.Write7BitEncodedInt(attackQueue[0]);
+            writer.Write7BitEncodedInt(attackQueue[1]);
+            writer.Write7BitEncodedInt(attackQueue[2]);
+            writer.Write7BitEncodedInt(attackQueue[3]);
             writer.Write(ignoreMoney);
         }
 
@@ -152,10 +152,10 @@ namespace FargowiltasSouls.NPCs.DeviBoss
             NPC.localAI[1] = reader.ReadSingle();
             NPC.localAI[2] = reader.ReadSingle();
             NPC.localAI[3] = reader.ReadSingle();
-            attackQueue[0] = reader.ReadVarInt();
-            attackQueue[1] = reader.ReadVarInt();
-            attackQueue[2] = reader.ReadVarInt();
-            attackQueue[3] = reader.ReadVarInt();
+            attackQueue[0] = reader.Read7BitEncodedInt();
+            attackQueue[1] = reader.Read7BitEncodedInt();
+            attackQueue[2] = reader.Read7BitEncodedInt();
+            attackQueue[3] = reader.Read7BitEncodedInt();
             ignoreMoney = reader.ReadBoolean();
         }
 

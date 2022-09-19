@@ -16,5 +16,12 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
             if (Main.rand.NextBool(3))
                 EModeGlobalNPC.Horde(npc, Main.rand.Next(2, 10));
         }
+
+        public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
+        {
+            base.OnHitPlayer(npc, target, damage, crit);
+
+            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Unlucky>(), 60 * 30);
+        }
     }
 }

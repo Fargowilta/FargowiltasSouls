@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -15,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
             DisplayName.SetDefault("Colossus Soul");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巨像之魂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巨像之魂");
 
             string tooltip =
 @"Increases HP by 100
@@ -28,16 +27,16 @@ Effects of Shiny Stone, Paladin's Shield, and Frozen Turtle Shell
 'Nothing can stop you'";
             Tooltip.SetDefault(tooltip);
 
-            string tooltip_ch =
-@"增加100点最大生命值
-增加15%伤害减免
-增加5点生命恢复速度
-使你免疫击退、一些减益和摔落伤害
-增加敌人以你为目标的几率
-拥有混乱之脑、星星面纱和蜜蜂斗篷效果
-拥有闪亮石、圣骑士护盾和冰冻海龟壳效果
-'你无人可挡'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+            //string tooltip_ch =
+//@"增加100点最大生命值
+//增加15%伤害减免
+//增加5点生命恢复速度
+//使你免疫击退、一些减益和摔落伤害
+//增加敌人以你为目标的几率
+//拥有混乱之脑、星星面纱和蜜蜂斗篷效果
+//拥有闪亮石、圣骑士护盾和冰冻海龟壳效果
+//'你无人可挡'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         public override void SetDefaults()

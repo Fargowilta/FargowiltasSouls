@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
+﻿using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode.Net;
 using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
 {
@@ -116,7 +118,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
         {
             base.OnHitPlayer(npc, target, damage, crit);
 
-            if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
+            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             {
                 //try stealing mouse item, then selected item
                 bool stolen = EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem);
@@ -142,6 +144,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
                     CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
                 }
             }
+            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
         }
     }
 }

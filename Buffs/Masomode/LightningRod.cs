@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -15,8 +14,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You attract thunderbolts");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "避雷针");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你将会吸引雷电");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "避雷针");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你将会吸引雷电");
         }
 
         private void SpawnLightning(Entity obj, int type, int damage, IEntitySource source)

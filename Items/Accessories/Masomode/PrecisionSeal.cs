@@ -36,9 +36,9 @@ Hold the Precision Seal key to disable dashes and double jumps
             Item.rare = ItemRarityID.Red;
             Item.value = Item.sellPrice(0, 8);
         }
-
+        
         public override Color? GetAlpha(Color lightColor) => Color.White;
-
+        
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();

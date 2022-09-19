@@ -8,8 +8,8 @@ namespace FargowiltasSouls.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fireball Dash");
-            Description.SetDefault("Impervious to attack");
+            DisplayName.SetDefault("Dash");
+            Description.SetDefault("You're moving at high speed!");
             //Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
@@ -27,10 +27,10 @@ namespace FargowiltasSouls.Buffs
             player.controlHook = false;
             player.controlMount = false;
 
-            player.immune = true;
-            player.immuneTime = Math.Max(player.immuneTime, 2);
-            player.hurtCooldowns[0] = Math.Max(player.hurtCooldowns[0], 2);
-            player.hurtCooldowns[1] = Math.Max(player.hurtCooldowns[1], 2);
+            //player.immune = true;
+            //player.immuneTime = Math.Max(player.immuneTime, 2);
+            //player.hurtCooldowns[0] = Math.Max(player.hurtCooldowns[0], 2);
+            //player.hurtCooldowns[1] = Math.Max(player.hurtCooldowns[1], 2);
         }
     }
 }

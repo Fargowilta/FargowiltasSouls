@@ -5,7 +5,6 @@ using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -19,16 +18,16 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Tooltip.SetDefault(
                 @"Summons 4 segments for each minion slot
 'An old foe beaten into submission..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "世界吞噬者法杖");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-@"一个被迫屈服的老对手..
-每个召唤栏召唤4段身体");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "世界吞噬者法杖");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
+//@"一个被迫屈服的老对手..
+//每个召唤栏召唤4段身体");
         }
 
         public override void SetDefaults()
         {
             Item.mana = 10;
-            Item.damage = 10;
+            Item.damage = 12;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
             Item.shoot = ModContent.ProjectileType<EaterHead>();

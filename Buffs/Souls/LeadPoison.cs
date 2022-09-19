@@ -1,7 +1,6 @@
 ﻿using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -13,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Souls
             DisplayName.SetDefault("Lead Poison");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铅中毒");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铅中毒");
         }
 
         public override string Texture => "FargowiltasSouls/Buffs/PlaceholderDebuff";

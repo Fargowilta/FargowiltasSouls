@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
@@ -20,7 +19,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
                 "\nAlternating clicks will enhance attacks" +
                 "\n'The compressed forms of defeated foes..'");
 
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "被打败的敌人的压缩形态..");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "被打败的敌人的压缩形态..");
         }
 
         public override void SetDefaults()

@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Placeables
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Items.Placeables
         {
             DisplayName.SetDefault("Screm Painting");
             Tooltip.SetDefault("'Merry N. Tuse'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "尖叫猫猫");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "Merry N. Tuse");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "尖叫猫猫");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "Merry N. Tuse");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }

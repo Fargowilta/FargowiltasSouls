@@ -1,6 +1,5 @@
 using FargowiltasSouls.NPCs;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("The heavens themselves have judged you");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙之火");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "来自诸天的亲自审判");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙之火");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "来自诸天的亲自审判");
         }
 
         public override void Update(Player player, ref int buffIndex)

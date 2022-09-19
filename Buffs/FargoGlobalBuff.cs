@@ -7,6 +7,7 @@ using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs
@@ -18,11 +19,11 @@ namespace FargowiltasSouls.Buffs
             if (FargoSoulsWorld.EternityMode)
             {
                 if (type == BuffID.ShadowDodge)
-                    tip += "\nEternity Mode: Dodging will reduce your attack speed";
+                    tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.ShadowDodge");
                 else if (type == BuffID.IceBarrier)
-                    tip += "\nEternity Mode: 10% reduced damage";
+                    tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.IceBarrier");
                 else if (type == BuffID.ManaSickness)
-                    tip += "\nEternity Mode: Halved attack speed";
+                    tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.ManaSickness");
             }
         }
 

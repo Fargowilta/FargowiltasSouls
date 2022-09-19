@@ -28,7 +28,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Terra");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "泰拉英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "泰拉英灵");
 
             NPCID.Sets.TrailCacheLength[NPC.type] = 5;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -778,7 +778,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(TerraForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<TerraChampionRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MostlyOrdinaryRock>(), 4));
         }

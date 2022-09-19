@@ -12,7 +12,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Brain of Cthulhu");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
 
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             {

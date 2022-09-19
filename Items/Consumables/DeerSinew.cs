@@ -5,6 +5,7 @@ namespace FargowiltasSouls.Items.Consumables
 {
     public class DeerSinew : SoulsItem
     {
+
         public override bool Eternity => true;
 
         public override void SetStaticDefaults()
@@ -14,7 +15,7 @@ namespace FargowiltasSouls.Items.Consumables
 @"Allows the ability to dash
 Double tap a direction
 Taking damage may briefly freeze you
-Crit damage multiplier ranges from x2 to x1.5, decreasing with your speed
+Reduces damage when your speed increases, down to 0.85x at max
 All effects negated if toggled off or another dash is already in use
 'Cold but twitching'");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;

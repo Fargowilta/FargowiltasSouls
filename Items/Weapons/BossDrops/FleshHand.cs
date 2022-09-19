@@ -1,6 +1,5 @@
 using FargowiltasSouls.Projectiles.BossWeapons;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Flesh Hand");
             Tooltip.SetDefault("'The enslaved minions of a defeated foe..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "血肉之手");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'战败敌人的仆从..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "血肉之手");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'战败敌人的仆从..'");
         }
 
         public override void SetDefaults()

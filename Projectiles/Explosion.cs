@@ -29,6 +29,11 @@ namespace FargowiltasSouls.Projectiles
             Projectile.ignoreWater = true;
             Projectile.extraUpdates = 1;
             AIType = ProjectileID.Bullet;
+
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 10;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
+
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
         }
 

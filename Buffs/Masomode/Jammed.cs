@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Your ranged weapons are faulty");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "卡壳");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的远程武器出故障了");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "卡壳");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的远程武器出故障了");
         }
 
         public override void Update(Player player, ref int buffIndex)

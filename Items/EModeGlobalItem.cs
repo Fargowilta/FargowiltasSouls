@@ -157,9 +157,6 @@ namespace FargowiltasSouls.Items
                         string bossesToKill = "";
                         if (!FargoSoulsWorld.downedAbom)
                         {
-                            if (!FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion])
-                                bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.CosmosChampion")},";
-
                             bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.AbomBoss")},";
                         }
                         bossesToKill += $" {Language.GetTextValue("Mods.FargowiltasSouls.NPCName.MutantBoss")}";
@@ -316,8 +313,8 @@ namespace FargowiltasSouls.Items
 
                 case ItemID.PumpkinMoonMedallion:
                 case ItemID.NaughtyPresent:
-                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops");
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsWaves");
+                    ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops", item.type == ItemID.PumpkinMoonMedallion ? 12 : 15);
                     break;
 
                 default:
@@ -326,8 +323,6 @@ namespace FargowiltasSouls.Items
 
             if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
             {
-                if (item.type != ItemID.BlandWhip) 
-                    ItemBalance(tooltips, EModeChange.Nerf, "Damage", 33);
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
                 ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
             }

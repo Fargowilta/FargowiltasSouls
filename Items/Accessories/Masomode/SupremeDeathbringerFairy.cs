@@ -17,12 +17,13 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Supreme Deathbringer Fairy");
             Tooltip.SetDefault(@"Grants immunity to Slimed, Berserked, Lethargic, and Infested
-When below half HP, gain 10% increased damage, speed, and attack speed
 Honey buff increases your armor penetration by 10
 Increased fall speed
 When you land after a jump, slime will fall from the sky over your cursor
 While dashing or running quickly you will create a trail of blood scythes
-Your attacks inflict Poisoned and spray honey that increases your life regeneration
+Press the Debuff Install key to go berserk
+Press the Special Dash key to perform a short quick bee dash
+When dashing, take 75% less contact damage and reflect 100% of contact damage on attacker
 Bees and weak Hornets become friendlier
 Summons 2 Skeletron arms to whack enemies
 'Supremacy not necessarily guaranteed'");

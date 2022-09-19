@@ -2,7 +2,6 @@ using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -19,8 +18,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Main.buffNoTimeDisplay[Type] = true;
 
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋印记");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋印记");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
         }
 
         public override void Update(Player player, ref int buffIndex)

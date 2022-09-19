@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("The moon's wrath consumes you");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "月之诅咒");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "月亮的愤怒吞噬了你");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "月之诅咒");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "月亮的愤怒吞噬了你");
         }
 
         public override void Update(Player player, ref int buffIndex)

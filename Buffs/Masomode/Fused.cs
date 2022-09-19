@@ -15,8 +15,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You're going out with a bang");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "导火线");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你和爆炸有个约会");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "导火线");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你和爆炸有个约会");
         }
 
         public override void Update(Player player, ref int buffIndex)
@@ -28,7 +28,14 @@ namespace FargowiltasSouls.Buffs.Masomode
                 player.immune = false;
                 player.immuneTime = 0;
                 int damage = (int)(Math.Max(player.statLife, player.statLifeMax) * 2.0 / 3.0);
-                player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was blown to bits."), damage, 0, false, false, true);
+                if (FargoSoulsUtil.IsChinese())
+                {
+                    player.Hurt(PlayerDeathReason.ByCustomReason(player.name + "被炸成了碎片。"), damage, 0, false, false, true);
+                }
+                else
+                {
+                    player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was blown to bits."), damage, 0, false, false, true);
+                }
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Masomode.FusedExplosion>(), damage, 12f, Main.myPlayer);
             }
         }

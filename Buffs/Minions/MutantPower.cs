@@ -2,7 +2,6 @@
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Minions
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Minions
         {
             DisplayName.SetDefault("Mutant Power");
             Description.SetDefault("The power of Mutant is with you");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变之力");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "突变之力与你同在");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变之力");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "突变之力与你同在");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

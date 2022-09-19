@@ -37,8 +37,9 @@ $"[i:{ModContent.ItemType<IronEnchant>()}] You attract items from a larger range
 $"[i:{ModContent.ItemType<LeadEnchant>()}] Attacks may inflict enemies with Lead Poisoning\n" +
 $"[i:{ModContent.ItemType<TungstenEnchant>()}] 300% increased sword size\n" +
 $"[i:{ModContent.ItemType<TungstenEnchant>()}] Every quarter second a projectile will be tripled in size\n" +
-$"[i:{ModContent.ItemType<ObsidianEnchant>()}]Grants immunity to fire and lava\n" +
-$"[i:{ModContent.ItemType<ObsidianEnchant>()}]Your attacks spawn explosions\n" +
+$"[i:{ModContent.ItemType<ObsidianEnchant>()}] Grants immunity to fire and lava\n" +
+$"[i:{ModContent.ItemType<ObsidianEnchant>()}] Your attacks spawn explosions\n" +
+$"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
 "'The land lends its strength'";
             Tooltip.SetDefault(tooltip);
 
@@ -46,14 +47,16 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}]Your attacks spawn explosions\n" +
 @"[i:{0}] 攻击有几率释放闪电攻击敌人
 [i:{1}] 将你的基础暴击率设为10%
 [i:{1}] 每次暴击时都会增加5%暴击率，增加的暴击率的最大值为你当前最大暴击率数值x2
-[i:{2}] 被击中后会降低暴击率
-[i:{2}] 右键进行盾牌格挡，如果时机正确则抵消这次伤害
+[i:{1}] 被击中后会降低暴击率
+[i:{2}] 右键进行盾牌格挡
+[i:{2}] 在受伤前格挡以格挡此次攻击
 [i:{2}] 扩大你的拾取范围
 [i:{3}] 攻击有几率造成铅中毒减益
 [i:{4}] 剑的大小增加300%
 [i:{4}] 每过0.25秒便会有一个随机弹幕的尺寸翻倍
 [i:{5}] 使你免疫火块与熔岩
 [i:{5}] 你的攻击会引发爆炸
+[i:{5}] 鞭子的范围增加50%
 “大地赐予它力量”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
 

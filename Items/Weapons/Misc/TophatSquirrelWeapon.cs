@@ -1,7 +1,7 @@
+using FargowiltasSouls.Items.Misc;
 using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.Misc
@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Weapons.Misc
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Top Hat Squirrel");
             Tooltip.SetDefault("'Who knew this squirrel had phenomenal cosmic power?'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "高顶礼帽松鼠");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'谁能知道,这只松鼠竟然有着非凡的宇宙力量呢?'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "高顶礼帽松鼠");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'谁能知道,这只松鼠竟然有着非凡的宇宙力量呢?'");
         }
 
         public override void SetDefaults()
@@ -54,7 +54,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
         {
             CreateRecipe()
 
-            .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "Squirrel"), 10)
+            .AddIngredient(ModContent.ItemType<TopHatSquirrelCaught>(), 10)
             .AddIngredient(ItemID.ChlorophyteBar, 5)
             .AddIngredient(ItemID.SoulofFright, 3)
             .AddIngredient(ItemID.SoulofSight, 3)

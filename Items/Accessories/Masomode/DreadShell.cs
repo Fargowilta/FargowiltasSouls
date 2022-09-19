@@ -20,6 +20,7 @@ Right Click to guard with your shield
 Defense and damage reduction drastically decreased while and shortly after guarding
 Guard exactly as an attack touches you to counter it on a very long cooldown
 Counterattack deals massive damage and inflicts Anticoagulation
+Absorb Anticoagulation blood clots to gain 30% increased damage
 'It was a mistake to chum here'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "恐惧螺壳");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"免疫凝血失效和击退

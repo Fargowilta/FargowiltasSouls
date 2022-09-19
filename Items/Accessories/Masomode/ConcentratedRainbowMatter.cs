@@ -13,6 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Concentrated Rainbow Matter");
             Tooltip.SetDefault(@"Grants immunity to Flames of the Universe
+Automatically use healing potions when needed
 Summons a baby rainbow slime to fight for you
 'Taste the rainbow'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "浓缩彩虹物质");
@@ -35,6 +36,7 @@ Summons a baby rainbow slime to fight for you
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.buffImmune[ModContent.BuffType<Buffs.Masomode.FlamesoftheUniverse>()] = true;
+            player.GetModPlayer<FargoSoulsPlayer>().ConcentratedRainbowMatter = true;
             if (player.GetToggleValue("MasoRainbow"))
                 player.AddBuff(ModContent.BuffType<Buffs.Minions.RainbowSlime>(), 2);
         }

@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -18,8 +17,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Slime King's Slasher");
             Tooltip.SetDefault("'Torn from the insides of a defeated foe..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆王的屠戮者");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'撕裂敌人内部而得来的..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆王的屠戮者");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'撕裂敌人内部而得来的..'");
         }
 
         public override void SetDefaults()

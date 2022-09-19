@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Your attacks heal enemies");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "着魔");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的攻击会治愈敌人");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "着魔");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你的攻击会治愈敌人");
         }
 
         public override void Update(Player player, ref int buffIndex)

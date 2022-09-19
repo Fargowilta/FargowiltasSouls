@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.SwarmDrops
@@ -17,18 +16,18 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nuke Fishron");
             Tooltip.SetDefault("Uses rockets for ammo\n'The highly weaponized remains of a defeated foe...'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "核子猪鲨");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'高度武器化的遗骸...'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "核子猪鲨");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'高度武器化的遗骸...'");
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 577;
+            Item.damage = 634;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 24;
             Item.height = 24;
-            Item.useTime = 37;
-            Item.useAnimation = 37;
+            Item.useTime = 40;
+            Item.useAnimation = 40;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 7.7f;

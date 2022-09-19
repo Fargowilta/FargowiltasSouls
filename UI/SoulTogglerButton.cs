@@ -27,14 +27,14 @@ namespace FargowiltasSouls.UI
             Icon.Top.Set(y, 0); //300
             Append(Icon);
 
-            IconHighlight = new UIHoverTextImageButton(FargowiltasSouls.UserInterfaceManager.SoulTogglerButton_MouseOverTexture, "Configure Accessory Effects");
+            IconHighlight = new UIHoverTextImageButton(FargowiltasSouls.UserInterfaceManager.SoulTogglerButton_MouseOverTexture, FargoSoulsUtil.IsChinese() ? "设置饰品效果" : "Configure Accessory Effects");
             IconHighlight.Left.Set(-2, 0);
             IconHighlight.Top.Set(-2, 0);
             IconHighlight.SetVisibility(1f, 0);
             IconHighlight.OnClick += IconHighlight_OnClick;
             Icon.Append(IconHighlight);
 
-            OncomingMutant = new UIOncomingMutant(FargowiltasSouls.UserInterfaceManager.OncomingMutantTexture.Value, FargowiltasSouls.UserInterfaceManager.OncomingMutantAuraTexture.Value, "Eternity Mode is enabled", "Masochist Mode is enabled");
+            OncomingMutant = new UIOncomingMutant(FargowiltasSouls.UserInterfaceManager.OncomingMutantTexture.Value, FargowiltasSouls.UserInterfaceManager.OncomingMutantAuraTexture.Value, FargoSoulsUtil.IsChinese() ? "永恒模式已开启" : "Eternity Mode is enabled", FargoSoulsUtil.IsChinese() ? "受虐模式已开启" : "Masochist Mode is enabled");
             OncomingMutant.Left.Set(610, 0);
             OncomingMutant.Top.Set(250, 0);
             Append(OncomingMutant);

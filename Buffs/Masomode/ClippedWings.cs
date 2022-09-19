@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("You cannot fly or use rocket boots");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "剪除羽翼");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法飞翔或使用火箭靴");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "剪除羽翼");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法飞翔或使用火箭靴");
         }
 
         public override void Update(Player player, ref int buffIndex)

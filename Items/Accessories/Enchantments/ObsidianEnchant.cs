@@ -18,6 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 @"Grants immunity to fire and lava
 You have normal movement and can swim in lava
 While standing in lava or lava wet, your attacks spawn explosions
+Increases whip range by 50%
 'The earth calls'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "黑曜石魔石");
             //@"使你免疫火与岩浆
@@ -49,6 +50,8 @@ While standing in lava or lava wet, your attacks spawn explosions
             player.fireWalk = true;
             player.buffImmune[BuffID.OnFire] = true;
 
+            player.whipRangeMultiplier += 0.5f;
+
             //in lava effects
             if (player.lavaWet)
             {
@@ -62,7 +65,7 @@ While standing in lava or lava wet, your attacks spawn explosions
                 }
             }
 
-            modPlayer.ObsidianEnchantActive = (modPlayer.TerraForce) || player.lavaWet || modPlayer.LavaWet;
+            modPlayer.ObsidianEnchantActive = modPlayer.TerraForce || player.lavaWet || modPlayer.LavaWet;
         }
 
         public override void AddRecipes()

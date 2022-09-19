@@ -1,7 +1,6 @@
 ﻿using FargowiltasSouls.Projectiles.BossWeapons;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             DisplayName.SetDefault("The Dicer");
             Tooltip.SetDefault("'A defeated foe's attack now on a string'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "切肉器");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'一个被击败的敌人的攻击,用线拴着'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "切肉器");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'一个被击败的敌人的攻击,用线拴着'");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 

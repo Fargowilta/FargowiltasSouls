@@ -4,7 +4,6 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -17,8 +16,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             DisplayName.SetDefault("The Rockslide");
             Tooltip.SetDefault("'The crumbling remains of a defeated foe..'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "山崩");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被击败的敌人的破碎残骸'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "山崩");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被击败的敌人的破碎残骸'");
         }
 
         public override void SetDefaults()

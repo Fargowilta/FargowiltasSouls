@@ -24,7 +24,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Timber");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "木英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "木英灵");
             Main.npcFrameCount[NPC.type] = 3;
             NPCID.Sets.TrailCacheLength[NPC.type] = 8;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -681,7 +681,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(TimberForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<TimberChampionRelic>()));
         }
 

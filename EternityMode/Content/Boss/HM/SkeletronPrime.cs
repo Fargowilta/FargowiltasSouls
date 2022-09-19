@@ -172,8 +172,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     if (!NPC.AnyNPCs(NPCID.PrimeVice))
                         FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeVice, npc.whoAmI, -1f, npc.whoAmI, 0f, 0f, npc.target);
 
-                    string text = Language.GetTextValue($"Mods.{mod.Name}.Message.SkeletronRegrow");
-                    FargoSoulsUtil.PrintLocalization($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronPrimeRegrow", new Color(175, 75, 255));
 
                     SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                     return result;
@@ -337,8 +336,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    string text = Language.GetTextValue($"Mods.{mod.Name}.Message.SkeletronGuardian");
-                    FargoSoulsUtil.PrintLocalization($"{npc.FullName} {text}", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronPrimeGuardian", new Color(175, 75, 255));
                 }
 
                 if (!FargoSoulsWorld.MasochistModeReal)

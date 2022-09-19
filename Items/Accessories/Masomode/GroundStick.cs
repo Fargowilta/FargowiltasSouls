@@ -15,8 +15,9 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Remote Control");
             Tooltip.SetDefault(@"Grants immunity to Lightning Rod
-Your attacks have a small chance to inflict Lightning Rod
-Two friendly probes fight by your side
+Electric and ray attacks supercharge you and do halved damage if not already supercharged
+While supercharged, you have increased movement speed, attack speed, and inflict Electrified and Lightning Rod
+Two friendly probes fight by your side and will supercharge with you
 'A defeated foe's segment with an antenna glued on'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "遥控装置");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'被击败敌人的残片,上面粘着天线'

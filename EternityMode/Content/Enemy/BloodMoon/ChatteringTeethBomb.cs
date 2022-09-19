@@ -14,6 +14,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<Fused>(), 1800);
+            target.AddBuff(ModContent.BuffType<Unlucky>(), 1800);
         }
     }
 }

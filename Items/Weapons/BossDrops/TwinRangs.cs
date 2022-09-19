@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -16,8 +15,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             DisplayName.SetDefault("Twinrangs");
             Tooltip.SetDefault("Fire a different twinrang depending on mouse click" +
                 "\n'The compressed forms of defeated foes..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "双子");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "被打败的敌人的压缩形态..");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "双子");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "被打败的敌人的压缩形态..");
         }
 
         public override void SetDefaults()
@@ -49,12 +48,12 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             if (player.altFunctionUse == 2)
             {
                 Item.shoot = ModContent.ProjectileType<Retirang>();
-                Item.shootSpeed = 15f;
+                Item.shootSpeed = 20f;
             }
             else
             {
                 Item.shoot = ModContent.ProjectileType<Spazmarang>();
-                Item.shootSpeed = 45f;
+                Item.shootSpeed = 30f;
             }
             return true;
         }

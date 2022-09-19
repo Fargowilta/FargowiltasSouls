@@ -25,7 +25,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Life");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "生命英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "生命英灵");
             Main.npcFrameCount[NPC.type] = 8;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -737,7 +737,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(LifeForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<LifeChampionRelic>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Dyes.LifeDye>()));

@@ -17,7 +17,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lesser Fairy");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "小精灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "小精灵");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Pixie];
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type);
             NPCID.Sets.CantTakeLunchMoney[Type] = true;

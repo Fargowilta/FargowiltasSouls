@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
@@ -16,8 +15,8 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Mutant's Fury");
             Tooltip.SetDefault("'REALLY enrages Mutant... or doesn't'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变狂怒");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'真·正激怒突变体... 也许并不'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变狂怒");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'真·正激怒突变体... 也许并不'");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -37,7 +36,7 @@ namespace FargowiltasSouls.Items.Misc
         public override bool? UseItem(Player player)
         {
             FargoSoulsWorld.AngryMutant = !FargoSoulsWorld.AngryMutant;
-            string text = FargoSoulsWorld.AngryMutant ? $"$Mods.{Mod.Name}.Message.{Name}On" : $"$Mods.{Mod.Name}.Message.{Name}Off";
+            string text = FargoSoulsWorld.AngryMutant ? $"Mods.{Mod.Name}.Message.{Name}On" : $"Mods.{Mod.Name}.Message.{Name}Off";
             FargoSoulsUtil.PrintLocalization(text, 175, 75, 255);
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world

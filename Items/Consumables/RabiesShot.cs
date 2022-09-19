@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Consumables
 {
@@ -10,8 +9,8 @@ namespace FargowiltasSouls.Items.Consumables
         {
             DisplayName.SetDefault("Rabies Shot");
             Tooltip.SetDefault("Cures Feral Bite");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狂犬疫苗");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "治愈野性咬噬");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狂犬疫苗");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "治愈野性咬噬");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 20;
         }

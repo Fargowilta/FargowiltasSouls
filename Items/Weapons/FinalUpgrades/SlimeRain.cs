@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
@@ -18,8 +17,8 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Slime Rain");
             Tooltip.SetDefault("'The King's innards spread across the land..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆雨");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆王的内腑撒得遍地都是..");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆雨");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "史莱姆王的内腑撒得遍地都是..");
         }
 
         public override void SetDefaults()

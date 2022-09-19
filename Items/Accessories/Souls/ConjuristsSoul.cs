@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -14,8 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
             DisplayName.SetDefault("Conjurist's Soul");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "召唤之魂");
-
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "召唤之魂");
             string tooltip =
 @"30% increased summon damage
 Increases your max number of minions by 3
@@ -24,13 +22,14 @@ Increased minion knockback
 'An army at your disposal'";
             Tooltip.SetDefault(tooltip);
 
-            string tooltip_ch =
-@"增加30%召唤伤害
-+4最大召唤栏
-+2最大哨兵栏
-增加召唤物击退
-'一支听命于您的军队'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+            //string tooltip_ch =
+//@"增加30%召唤伤害
+//+4最大召唤栏
+//+2最大哨兵栏
+//增加召唤物击退
+//'一支听命于您的军队'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+
 
         }
 

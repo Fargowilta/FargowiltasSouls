@@ -15,8 +15,10 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Pumpking's Cape");
             Tooltip.SetDefault(@"Grants immunity to Living Wasteland
 Increases damage and critical strike chance by 5%
-Your critical strikes inflict Rotting
-You may periodically fire additional attacks depending on weapon type
+Right Click to guard with your cape
+You have an aura of Rotting while guarding
+Guard exactly as an attack touches you to counter it on a very long cooldown
+Counter an attack to gain life based on the blocked damage
 'Somehow, it's the right size'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "南瓜王的披肩");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'不知怎么的,它的尺寸正好合适'
@@ -43,7 +45,6 @@ You may periodically fire additional attacks depending on weapon type
             player.GetDamage(DamageClass.Generic) += 0.05f;
             player.GetCritChance(DamageClass.Generic) += 5;
             fargoPlayer.PumpkingsCapeItem = Item;
-            fargoPlayer.AdditionalAttacks = true;
             player.buffImmune[ModContent.BuffType<LivingWasteland>()] = true;
         }
     }

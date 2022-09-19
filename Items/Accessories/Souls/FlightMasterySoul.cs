@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -22,12 +21,13 @@ Hold DOWN and JUMP to hover
 Increases gravity
 Allows the control of gravity
 'Ascend'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "飞行大师之魂");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-@"使你获得无限飞行能力
-按住'下'和'跳跃'键悬停
-允许你控制重力
-'飞升'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "飞行大师之魂");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
+//@"使你获得无限飞行能力
+//按住'下'和'跳跃'键悬停
+//允许你控制重力
+//'飞升'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "飞行大师之魂");
 
         }
 

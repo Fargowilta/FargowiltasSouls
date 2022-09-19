@@ -68,7 +68,14 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     float endurance = target.endurance;
                     target.statDefense = 0;
                     target.endurance = 0;
-                    target.Hurt(PlayerDeathReason.ByCustomReason(target.name + " felt heartbroken."), Projectile.damage, 0, false, false, false, 0);
+                    if (FargoSoulsUtil.IsChinese())
+                    {
+                        target.Hurt(PlayerDeathReason.ByCustomReason(target.name + "感到了心碎。"), Projectile.damage, 0, false, false, false, 0);
+                    }
+                    else
+                    {
+                        target.Hurt(PlayerDeathReason.ByCustomReason(target.name + " felt heartbroken."), Projectile.damage, 0, false, false, false, 0);
+                    }
                     target.statDefense = defense;
                     target.endurance = endurance;
 

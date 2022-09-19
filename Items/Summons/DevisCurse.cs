@@ -47,8 +47,8 @@ namespace FargowiltasSouls.Items.Summons
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient(ItemID.Gel)
-            .AddIngredient(ItemID.Lens)
+            .AddIngredient(ItemID.PinkGel)
+            .AddRecipeGroup("FargowiltasSouls:AnyGoldOre")
             .AddRecipeGroup("FargowiltasSouls:AnyRottenChunk")
             .AddIngredient(ItemID.Stinger)
             .AddIngredient(ItemID.ChumBucket)

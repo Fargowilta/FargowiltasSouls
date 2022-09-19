@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Boss
@@ -10,8 +9,8 @@ namespace FargowiltasSouls.Buffs.Boss
         {
             DisplayName.SetDefault("Grabbed");
             Description.SetDefault("Mash movement keys to escape!");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "抓住你了！");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "狂点你的移动键来逃离这个！");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "抓住你了！");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "狂点你的移动键来逃离这个！");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;

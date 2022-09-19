@@ -61,7 +61,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             target.AddBuff(ModContent.BuffType<Lethargic>(), 600);
             target.AddBuff(BuffID.Blackout, 300);
             target.AddBuff(BuffID.NoBuilding, 300);
-            if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
+            
+            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             {
                 bool stolen = false;
                 for (int i = 0; i < 59; i++)
@@ -79,6 +80,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                     CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
                 }
             }
+            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
         }
     }
 }

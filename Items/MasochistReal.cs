@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items
 {
@@ -29,7 +30,7 @@ namespace FargowiltasSouls.Items
 
         public override bool CanRightClick() => true;
 
-        public override void RightClick(Player player) => Main.NewText($"world is currently maso: {FargoSoulsWorld.MasochistModeReal}");
+        public override void RightClick(Player player) => Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.Message.ForgottenGift") + $"{FargoSoulsWorld.MasochistModeReal}");
 
         public override bool? UseItem(Player player)
         {

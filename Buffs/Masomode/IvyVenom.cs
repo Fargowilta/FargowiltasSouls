@@ -12,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Ivy Venom");
             Description.SetDefault("Losing life, will become Neurotoxin at 20 seconds");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "常春藤毒");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "流失生命, 持续时间超过20秒时变为感染");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "常春藤毒");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "流失生命, 持续时间超过20秒时变为感染");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
         }

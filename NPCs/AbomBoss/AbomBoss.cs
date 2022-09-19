@@ -1363,8 +1363,19 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     return false;
                 }
             }
+
             if (NPC.timeLeft < 600)
                 NPC.timeLeft = 600;
+
+            if (player.Center.Y / 16f > Main.worldSurface)
+            {
+                NPC.velocity.X *= 0.95f;
+                NPC.velocity.Y -= 1f;
+                if (NPC.velocity.Y < -32f)
+                    NPC.velocity.Y = -32f;
+                return false;
+            }
+
             return true;
         }
 

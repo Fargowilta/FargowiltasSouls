@@ -38,7 +38,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SkyAndRain
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<ClippedWings>(), 300);
-            if (target.whoAmI == Main.myPlayer && !target.GetModPlayer<FargoSoulsPlayer>().SecurityWallet)
+            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             {
                 bool stolen = false;
                 if (Main.mouseItem.healLife > 0 && NPCs.EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem))
@@ -66,6 +66,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SkyAndRain
                     CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
                 }
             }
+            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
         }
     }
 }

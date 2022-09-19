@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -14,8 +13,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
         {
             DisplayName.SetDefault("Destroyer Gun");
             Tooltip.SetDefault("Becomes longer and faster with up to 3 empty minion slots\n'An old foe beaten into submission..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "毁灭者之枪");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'一个被迫屈服的老对手..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "毁灭者之枪");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'一个被迫屈服的老对手..'");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }

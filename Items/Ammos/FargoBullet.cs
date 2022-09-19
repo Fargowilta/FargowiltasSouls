@@ -1,7 +1,6 @@
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Projectiles.Ammos;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Ammos
@@ -15,12 +14,12 @@ namespace FargowiltasSouls.Items.Ammos
                                "Bounces several times\n" +
                                "Each impact causes an explosion of crystal shards\n" +
                                "Inflicts several debuffs");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "混合子弹袋");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-                               "追踪敌人\n" +
-                               "弹跳多次\n" +
-                               "每次撞击都会造成魔晶碎片爆炸\n" +
-                               "造成多种Debuff");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "混合子弹袋");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
+                               //"追踪敌人\n" +
+                               //"弹跳多次\n" +
+                               //"每次撞击都会造成魔晶碎片爆炸\n" +
+                               //"造成多种Debuff");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

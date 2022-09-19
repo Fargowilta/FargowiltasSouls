@@ -2,7 +2,6 @@ using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -16,7 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
             DisplayName.SetDefault("Sniper's Soul");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "神枪手之魂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "神枪手之魂");
 
             string tooltip =
 @"30% increased ranged damage
@@ -26,14 +25,13 @@ Effects of Sniper Scope
 'Ready, aim, fire'";
             Tooltip.SetDefault(tooltip);
 
-            string tooltip_ch =
-@"增加30%远程伤害
-20%几率不消耗弹药
-增加15%远程暴击率
-拥有狙击镜效果
-'预备，瞄准，开火'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
-
+            //string tooltip_ch =
+//@"增加30%远程伤害
+//20%几率不消耗弹药
+//增加15%远程暴击率
+//拥有狙击镜效果
+//'预备，瞄准，开火'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
 

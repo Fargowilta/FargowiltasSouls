@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,6 +29,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.height = 110;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
+            Projectile.minion = true; //block tungsten
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 65;
@@ -36,11 +39,17 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
 
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 0;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 1;
         }
 
         public override bool? CanDamage() => Projectile.timeLeft < 5;
+
+        public override bool PreAI()
+        {
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().SilverMinion = 0;
+            return base.PreAI();
+        }
 
         public override void AI()
         {
@@ -131,13 +140,20 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (Projectile.timeLeft < 15)
-                crit = true;
+            crit = true;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(BuffID.Lovestruck, 300);
+
+            if (FargoSoulsUtil.NPCExists(target.realLife) != null)
+            {
+                foreach (NPC n in Main.npc.Where(n => n.active && (n.realLife == target.realLife || n.whoAmI == target.realLife) && n.whoAmI != target.whoAmI))
+                {
+                    Projectile.perIDStaticNPCImmunity[Projectile.type][n.whoAmI] = Main.GameUpdateCount + (uint)Projectile.idStaticNPCHitCooldown;
+                }
+            }
         }
 
         public override void Kill(int timeleft)

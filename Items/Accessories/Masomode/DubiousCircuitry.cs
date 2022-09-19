@@ -14,9 +14,13 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Dubious Circuitry");
             Tooltip.SetDefault(@"Grants immunity to Cursed Inferno, Ichor, Lightning Rod, Defenseless, Nano Injection, and knockback
-Your attacks inflict Cursed Inferno and Ichor
+When inflicted with Cursed Inferno, 15% increased attack speed and you inflict Cursed Inferno
+When inflicted with Ichor, 15% increased critical strike chance and you inflict Ichor
+Press the Debuff Install key to inflict yourself with Cursed Inferno and Ichor for 30 seconds
 Your attacks have a small chance to inflict Lightning Rod
-Two friendly probes fight by your side
+Electric and ray attacks supercharge you and do halved damage if not already supercharged
+While supercharged, you have increased movement speed, attack speed, and inflict Electrified
+Two friendly probes fight by your side and will supercharge with you
 Reduces damage taken by 5%
 'Malware probably not included'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "可疑电路");
@@ -49,6 +53,11 @@ Reduces damage taken by 5%
             player.buffImmune[ModContent.BuffType<Buffs.Masomode.LightningRod>()] = true;
 
             player.GetModPlayer<FargoSoulsPlayer>().FusedLens = true;
+            if (player.onFire2)
+                player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed += 0.15f;
+            if (player.ichor)
+                player.GetCritChance(DamageClass.Generic) += 15;
+
             player.GetModPlayer<FargoSoulsPlayer>().GroundStick = true;
             if (player.GetToggleValue("MasoProbe"))
                 player.AddBuff(ModContent.BuffType<Buffs.Minions.Probes>(), 2);

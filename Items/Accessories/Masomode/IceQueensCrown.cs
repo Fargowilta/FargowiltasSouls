@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Ice Queen's Crown");
             Tooltip.SetDefault(@"Grants immunity to Hypothermia
 Increases damage reduction by 5%
-Freeze nearby enemies when hurt
-Summons a friendly super Flocko
+You freeze everything when damaged but taking consecutive hits stacks penalties to your damage reduction
+On hit effects will not trigger when hit for 1 damage
 'The royal symbol of a defeated foe'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "冰雪女王的皇冠");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'被打败的敌人的皇家象征'
@@ -43,8 +43,6 @@ Summons a friendly super Flocko
             player.endurance += 0.05f;
             player.buffImmune[ModContent.BuffType<Hypothermia>()] = true;
             player.GetModPlayer<FargoSoulsPlayer>().IceQueensCrown = true;
-            if (player.GetToggleValue("MasoFlocko"))
-                player.AddBuff(ModContent.BuffType<Buffs.Minions.SuperFlocko>(), 2);
         }
     }
 }

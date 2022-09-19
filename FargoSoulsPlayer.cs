@@ -46,7 +46,7 @@ namespace FargowiltasSouls
 
         //        public bool Wood;
         public Item QueenStingerItem;
-        public int QueenStingerCD;
+        public bool EridanusSet;
         public bool EridanusEmpower;
         public int EridanusTimer;
         public bool GaiaSet;
@@ -153,8 +153,8 @@ namespace FargowiltasSouls
         private int monkTimer;
 
         public int MythrilTimer;
-        private int MythrilMaxTime => /*EarthForce ? 360 :*/ 300;
-        private float MythrilMaxSpeedBonus => /*EarthForce ? 3.0f :*/ 2.0f;
+        private int MythrilMaxTime => EarthForce ? 300 : 180;
+        private float MythrilMaxSpeedBonus => EarthForce ? 2.0f : 1.5f;
 
         public bool NecroEnchantActive;
         public int NecroCD;
@@ -266,6 +266,7 @@ namespace FargowiltasSouls
         public bool GuttedHeart;
         public int GuttedHeartCD = 60; //should prevent spawning despite disabled toggle when loading into world
         public Item NecromanticBrewItem;
+        public float NecromanticBrewRotation;
         public Item DeerclawpsItem;
         public int IsDashingTimer;
         public bool DeerSinewNerf;
@@ -274,7 +275,10 @@ namespace FargowiltasSouls
         public bool PungentEyeballMinion;
         public bool CrystalSkullMinion;
         public bool FusedLens;
+        public bool FusedLensCanDebuff;
+        public bool FusedLensInstall;
         public bool GroundStick;
+        public bool Supercharged;
         public bool Probes;
         public bool MagicalBulb;
         public bool SkullCharm;
@@ -285,7 +289,7 @@ namespace FargowiltasSouls
         public int GroundPound;
         public Item BetsysHeartItem;
         public bool BetsyDashing;
-        public int BetsyDashCD;
+        public int SpecialDashCD;
         public bool MutantAntibodies;
         public Item GravityGlobeEXItem;
         public Item CelestialRuneItem;
@@ -304,19 +308,20 @@ namespace FargowiltasSouls
         public bool DragonFang;
         public bool SecurityWallet;
         public Item FrigidGemstoneItem;
+        public int FrigidGemstoneCD;
         public Item WretchedPouchItem;
         public int WretchedPouchCD;
-        public int FrigidGemstoneCD;
         public bool NymphsPerfume;
         public bool NymphsPerfumeRespawn;
         public int NymphsPerfumeCD = 30;
         public bool SqueakyAcc;
         public bool RainbowSlime;
         public bool SkeletronArms;
-        public bool SuperFlocko;
         public bool IceQueensCrown;
         public bool MiniSaucer;
         public bool TribalCharm;
+        public bool TribalCharmEquipped;
+        public bool TribalCharmClickBonus;
         public bool SupremeDeathbringerFairy;
         public bool GodEaterImbue;
         public Item MutantSetBonusItem;
@@ -345,6 +350,7 @@ namespace FargowiltasSouls
         public bool PrecisionSealHurtbox;
         public bool PrecisionSealNoDashNoJump;
         public Item GelicWingsItem;
+        public bool ConcentratedRainbowMatter;
 
         //debuffs
         public bool Hexed;
@@ -357,7 +363,9 @@ namespace FargowiltasSouls
         public bool Hypothermia;
         public bool noDodge;
         public bool noSupersonic;
+        public bool NoMomentum;
         public bool Bloodthirsty;
+        public bool Unlucky;
         public bool DisruptedFocus;
         public bool SinisterIcon;
         public bool SinisterIconDrops;
@@ -366,7 +374,7 @@ namespace FargowiltasSouls
         public bool Anticoagulation;
         public bool GodEater;               //defense removed, endurance removed, colossal DOT
         public bool FlamesoftheUniverse;    //activates various vanilla debuffs
-        public bool MutantNibble;           //disables potions, moon bite effect, feral bite effect, disables lifesteal
+        public bool MutantNibble;           //moon bite effect, feral bite effect, disables lifesteal
         public int StatLifePrevious = -1;   //used for mutantNibble
         public bool Asocial;                //disables minions, disables pets
         public bool WasAsocial;
@@ -449,6 +457,10 @@ namespace FargowiltasSouls
             || (Player.velocity.X < 0 && Player.controlLeft)
             || Player.dashDelay < 0
             || IsDashingTimer > 0;
+
+        //grapple check needed because grapple state extends dash state forever
+        public bool IsInADashState
+            => (Player.dashDelay == -1 || IsDashingTimer > 0) && Player.grapCount <= 0;
 
         public override void SaveData(TagCompound tag)
         {
@@ -629,9 +641,23 @@ namespace FargowiltasSouls
                 NinjaEnchant.SmokeBombKey(this);
             }
 
-            if (FargowiltasSouls.BetsyDashKey.JustPressed && BetsysHeartItem != null)
+            if (FargowiltasSouls.SpecialDashKey.JustPressed && (BetsysHeartItem != null || QueenStingerItem != null))
             {
-                BetsyDashKey();
+                SpecialDashKey();
+            }
+
+            if (FargowiltasSouls.MagicalBulbKey.JustPressed && MagicalBulb)
+            {
+                MagicalBulbKey();
+            }
+
+            if (FrigidGemstoneItem != null)
+            {
+                if (FrigidGemstoneCD > 0)
+                    FrigidGemstoneCD--;
+
+                if (FargowiltasSouls.FrigidSpellKey.Current)
+                    FrigidGemstoneKey();
             }
 
             if (PrecisionSeal)
@@ -662,6 +688,11 @@ namespace FargowiltasSouls
                 MutantBombKey();
             }
 
+            if (FargowiltasSouls.DebuffInstallKey.JustPressed)
+            {
+                DebuffInstallKey();
+            }
+
             //            if (triggersSet.Left && Player.confused && Player.gravControl)
             //            {
             //                Player.gravDir *= -1;
@@ -686,7 +717,7 @@ namespace FargowiltasSouls
             WingTimeModifier = 1f;
 
             QueenStingerItem = null;
-            EridanusEmpower = false;
+            EridanusSet = false;
             GaiaSet = false;
             StyxSet = false;
             NekomiSet = false;
@@ -816,7 +847,10 @@ namespace FargowiltasSouls
             PungentEyeballMinion = false;
             CrystalSkullMinion = false;
             FusedLens = false;
+            FusedLensCanDebuff = false;
+            FusedLensInstall = false;
             GroundStick = false;
+            Supercharged = false;
             Probes = false;
             MagicalBulb = false;
             SkullCharm = false;
@@ -846,10 +880,10 @@ namespace FargowiltasSouls
             SqueakyAcc = false;
             RainbowSlime = false;
             SkeletronArms = false;
-            SuperFlocko = false;
             IceQueensCrown = false;
             MiniSaucer = false;
             TribalCharm = false;
+            TribalCharmEquipped = false;
             SupremeDeathbringerFairy = false;
             GodEaterImbue = false;
             MutantSetBonusItem = null;
@@ -867,6 +901,7 @@ namespace FargowiltasSouls
             PrecisionSeal = false;
             PrecisionSealHurtbox = false;
             GelicWingsItem = null;
+            ConcentratedRainbowMatter = false;
 
             //debuffs
             Hexed = false;
@@ -877,6 +912,7 @@ namespace FargowiltasSouls
             Slimed = false;
             noDodge = false;
             noSupersonic = false;
+            NoMomentum = false;
             Bloodthirsty = false;
             DisruptedFocus = false;
             SinisterIcon = false;
@@ -955,6 +991,11 @@ namespace FargowiltasSouls
 
         public override void UpdateDead()
         {
+            bool wasSandsOfTime = SandsofTime;
+
+            ResetEffects();
+
+            SandsofTime = wasSandsOfTime;
             if (SandsofTime && !FargoSoulsUtil.AnyBossAlive() && Player.respawnTimer > 10)
                 Player.respawnTimer -= Eternity ? 6 : 1;
 
@@ -976,44 +1017,17 @@ namespace FargowiltasSouls
             ReallyAwfulDebuffCooldown = 0;
             ParryDebuffImmuneTime = 0;
 
-            //            FreezeTime = false;
-            //            freezeLength = 0;
-
-            //            /*if (!Main.dedServ)
-            //            {
-            //                if (Fargowiltas.OldMusicFade > Main.musicVolume)
-            //                {
-            //                    Main.musicVolume = Fargowiltas.OldMusicFade;
-            //                    Fargowiltas.OldMusicFade = 0;
-            //                }
-            //            }*/
-
             WingTimeModifier = 1f;
             FreeEaterSummon = true;
-            if (Screenshake > 0)
-                Screenshake--;
 
-            EridanusEmpower = false;
             EridanusTimer = 0;
-            GaiaSet = false;
-            GaiaOffense = false;
-            StyxSet = false;
             StyxMeter = 0;
             StyxTimer = 0;
-            NekomiSet = false;
             NekomiMeter = 0;
             NekomiTimer = 0;
 
             //debuffs
-            Hexed = false;
-            Unstable = false;
             unstableCD = 0;
-            Fused = false;
-            Shadowflame = false;
-            Oiled = false;
-            Slimed = false;
-            noDodge = false;
-            noSupersonic = false;
             lightningRodTimer = 0;
 
             BuilderMode = false;
@@ -1028,59 +1042,13 @@ namespace FargowiltasSouls
             SlimyShieldFalling = false;
             DarkenedHeartCD = 60;
             GuttedHeartCD = 60;
-            NecromanticBrewItem = null;
-            DeerclawpsItem = null;
-            DeerSinewNerf = false;
             IsDashingTimer = 0;
             GroundPound = 0;
-            NymphsPerfume = false;
             NymphsPerfumeCD = 30;
-            PungentEyeballMinion = false;
-            CrystalSkullMinion = false;
-            MagicalBulb = false;
-            LunarCultist = false;
-            TrueEyes = false;
-            BetsyDashing = false;
-
-            WretchedPouchItem = null;
             WretchedPouchCD = 0;
 
-            Smite = false;
-            Anticoagulation = false;
-            GodEater = false;
-            FlamesoftheUniverse = false;
-            MutantNibble = false;
-            Asocial = false;
-            Kneecapped = false;
-            Defenseless = false;
-            Purified = false;
-            Infested = false;
-            Rotting = false;
-            SqueakyToy = false;
-            Atrophied = false;
-            Jammed = false;
-            CurseoftheMoon = false;
-            OceanicMaul = false;
-            DeathMarked = false;
-            Hypothermia = false;
-            Midas = false;
-            Bloodthirsty = false;
-            DisruptedFocus = false;
-            SinisterIcon = false;
-            SinisterIconDrops = false;
-            Graze = false;
-            GrazeRadius = 100f;
             GrazeBonus = 0;
-            DevianttHeartItem = null;
-            MutantEyeItem = null;
-            MutantEyeVisual = false;
             MutantEyeCD = 60;
-            AbominableWandRevived = false;
-            AbomRebirth = false;
-            WasHurtBySomething = false;
-            PrecisionSeal = false;
-            PrecisionSealHurtbox = false;
-            GelicWingsItem = null;
 
             Mash = false;
             WizardEnchantActive = false;
@@ -1088,6 +1056,8 @@ namespace FargowiltasSouls
 
             MaxLifeReduction = 0;
             CurrentLifeReduction = 0;
+
+            MythrilTimer = MythrilMaxTime;
         }
 
         public override void PreUpdate()
@@ -1212,8 +1182,42 @@ namespace FargowiltasSouls
             SilverEnchantActive = false;
         }
 
+        public override void ModifyLuck(ref float luck)
+        {
+            if (Unlucky)
+                luck -= 1.0f;
+
+            Unlucky = false;
+        }
+
         public override void PostUpdateEquips()
         {
+            if (NoMomentum && !Player.mount.Active)
+            {
+                Player.runAcceleration *= 5f;
+                Player.runSlowdown *= 5f;
+
+                if (!IsStillHoldingInSameDirectionAsMovement)
+                    Player.runSlowdown += 7f;
+            }
+
+            if (TribalCharmEquipped)
+            {
+                if (Player.controlUseItem || Player.controlUseTile)
+                {
+                    if (TribalCharmClickBonus)
+                    {
+                        TribalCharmClickBonus = false;
+                        if (Player.GetToggleValue("TribalCharmClickBonus"))
+                            Player.GetDamage(DamageClass.Generic) += 0.30f;
+                    }
+                }
+                else if (Player.ItemTimeIsZero)
+                {
+                    TribalCharmClickBonus = true;
+                }
+            }
+
             if (PungentEyeball && Player.whoAmI == Main.myPlayer && Player.GetToggleValue("MasoPungentCursor"))
             {
                 const float distance = 16 * 5;
@@ -1253,10 +1257,7 @@ namespace FargowiltasSouls
             if (TungstenEnchantActive && TungstenCD > 0)
                 TungstenCD--;
 
-            if (IronEnchantShield || DreadShellItem != null)
-            {
-                Shield();
-            }
+            UpdateShield();
 
             if (ShadowEnchantActive)
                 ShadowEffectPostEquips();
@@ -1287,16 +1288,16 @@ namespace FargowiltasSouls
                 StyxTimer = 0;
             }
 
-            if (GaiaOffense && !GaiaSet)
+            if (!GaiaSet)
                 GaiaOffense = false;
+
+            if (!EridanusSet)
+                EridanusEmpower = false;
 
             if (QueenStingerItem != null)
             {
                 if (Player.honey)
                     Player.GetArmorPenetration(DamageClass.Generic) += 10;
-
-                if (QueenStingerCD > 0)
-                    QueenStingerCD--;
             }
 
             if (BeetleEnchantDefenseTimer > 0)
@@ -1323,7 +1324,7 @@ namespace FargowiltasSouls
                     DevianttHeartsCD--;
             }
 
-            if (BetsysHeartItem != null && BetsyDashCD > 0 && --BetsyDashCD == 0)
+            if ((BetsysHeartItem != null || QueenStingerItem != null) && SpecialDashCD > 0 && --SpecialDashCD == 0)
             {
                 SoundEngine.PlaySound(SoundID.Item9, Player.Center);
 
@@ -1399,11 +1400,24 @@ namespace FargowiltasSouls
                     lihzahrdFallCD = 2;
             }
 
-            if (DeerclawpsItem != null)
+            if (DeerclawpsItem != null && IsInADashState)
             {
-                //grapple check needed because grapple state extends dash state forever
-                if ((Player.dashDelay == -1 || IsDashingTimer > 0) && Player.grapCount <= 0)
-                    DeerclawpsAttack(Player.Bottom);
+                DeerclawpsAttack(Player.Bottom);
+            }
+
+            if (NecromanticBrewItem != null && IsInADashState && Player.GetToggleValue("MasoSkeleSpin"))
+            {
+                Player.noKnockback = true;
+                Player.thorns = 4f;
+
+                NecromanticBrewRotation += 0.5f * Math.Sign(Player.velocity.X == 0 ? Player.direction : Player.velocity.X);
+                Player.fullRotation = NecromanticBrewRotation;
+                Player.fullRotationOrigin = Player.Center - Player.position;
+            }
+            else if (NecromanticBrewRotation != 0)
+            {
+                Player.fullRotation = 0f;
+                NecromanticBrewRotation = 0f;
             }
         }
 
@@ -1548,8 +1562,6 @@ namespace FargowiltasSouls
             {
                 if (Player.statLife > 0 && StatLifePrevious > 0 && Player.statLife > StatLifePrevious)
                     Player.statLife = StatLifePrevious;
-                if (Player.potionDelay < 2)
-                    Player.potionDelay = 2;
             }
 
             if (Defenseless)
@@ -1612,13 +1624,6 @@ namespace FargowiltasSouls
             }
 
             ManageLifeReduction();
-
-            if (AgitatingLensItem != null && Player.statLife < Player.statLifeMax2 / 2)
-            {
-                Player.GetDamage(DamageClass.Generic) += 0.10f;
-                AttackSpeed += 0.10f;
-                Player.moveSpeed += 0.10f;
-            }
 
             if (Eternity)
                 Player.statManaMax2 = 999;
@@ -1740,6 +1745,13 @@ namespace FargowiltasSouls
                 AttackSpeed += MythrilMaxSpeedBonus * ratio;
             }
 
+            if (WretchedPouchItem != null && !MasochistSoul && AttackSpeed > 1f)
+            {
+                float diff = AttackSpeed - 1f;
+                diff /= 2;
+                AttackSpeed -= diff;
+            }
+
             //checks so weapons dont break
             while (useTime / AttackSpeed < 1)
             {
@@ -1818,6 +1830,13 @@ namespace FargowiltasSouls
 
             if (Anticoagulation)
                 DamageOverTime(4, true);
+
+            if (Player.lifeRegen < 0)
+            {
+                FusedLensCanDebuff = true;
+
+                ConcentratedRainbowMatterTryAutoHeal();
+            }
         }
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
@@ -2036,6 +2055,22 @@ namespace FargowiltasSouls
                 }
             }
 
+            if (Supercharged)
+            {
+                if (Main.rand.NextBool() && drawInfo.shadow == 0f)
+                {
+                    int dust = Dust.NewDust(Player.position, Player.width, Player.height, 229, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f);
+                    Main.dust[dust].scale += 0.5f;
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 1.8f;
+                    if (Main.rand.NextBool(3))
+                    {
+                        Main.dust[dust].noGravity = false;
+                        Main.dust[dust].scale *= 0.5f;
+                    }
+                }
+            }
+
             if (ForbiddenEnchantActive && drawInfo.shadow == 0f)
             {
                 Color color12 = Player.GetImmuneAlphaPure(Lighting.GetColor((int)(drawInfo.Position.X + Player.width * 0.5) / 16, (int)(drawInfo.Position.Y + Player.height * 0.5) / 16, Color.White), drawInfo.shadow);
@@ -2195,10 +2230,11 @@ namespace FargowiltasSouls
                 crit = false;
             }
 
-            //if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
-            //{
-            //    TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
-            //}
+            if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten")
+                && (TerraForce || item.shoot == ProjectileID.None))
+            {
+                TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
+            }
 
             ModifyHitNPCBoth(target, ref damage, ref crit, item.DamageType);
         }
@@ -2214,12 +2250,12 @@ namespace FargowiltasSouls
 
                 if (SpiderEnchantActive && damageClass.CountsAsClass(DamageClass.Summon) && !TerrariaSoul)
                     damage = (int)Math.Round(damage * 0.75);
+            }
 
-                if (DeerSinewNerf)
-                {
-                    float ratio = Math.Min(Player.velocity.Length() / 20f, 1f);
-                    damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.75f, ratio));
-                }
+            if (DeerSinewNerf)
+            {
+                float ratio = Math.Min(Player.velocity.Length() / 20f, 1f);
+                damage = (int)Math.Round(damage * MathHelper.Lerp(1f, 0.85f, ratio));
             }
 
             if (CerebralMindbreak)
@@ -2270,8 +2306,6 @@ namespace FargowiltasSouls
 
         private void OnHitNPCEither(NPC target, int damage, float knockback, bool crit, DamageClass damageClass, Projectile projectile = null, Item item = null)
         {
-
-
             if (StyxSet)
             {
                 StyxMeter += damage;
@@ -2286,7 +2320,8 @@ namespace FargowiltasSouls
 
             if (PearlwoodEnchantActive && Player.GetToggleValue("Pearl") && PearlwoodCD == 0 && !(projectile != null && projectile.type == ProjectileID.FairyQueenMagicItemShot && projectile.usesIDStaticNPCImmunity && projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames))
             {
-                PearlwoodEnchant.PearlwoodStarDrop(this, target, damage);
+                int starDamage = FargoSoulsUtil.HighestDamageTypeScaling(Player, WoodForce ? 80 : 20);
+                PearlwoodEnchant.PearlwoodStarDrop(this, target, starDamage);
             }
 
             if (BeeEnchantActive && Player.GetToggleValue("Bee") && BeeCD <= 0 && target.realLife == -1
@@ -2303,24 +2338,13 @@ namespace FargowiltasSouls
 
                         float beeKB = projectile != null ? projectile.knockBack : item != null ? item.knockBack : knockback;
 
-                        int p = Projectile.NewProjectile(Player.GetSource_Misc(""), target.Center.X, target.Center.Y, Main.rand.Next(-35, 36) * 0.2f, Main.rand.Next(-35, 36) * 0.2f,
+                        int p = Projectile.NewProjectile(item != null ? Player.GetSource_ItemUse(item) : projectile.GetSource_FromThis(), target.Center.X, target.Center.Y, Main.rand.Next(-35, 36) * 0.2f, Main.rand.Next(-35, 36) * 0.2f,
                             force ? ProjectileID.GiantBee : Player.beeType(), beeDamage, Player.beeKB(beeKB), Player.whoAmI);
 
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].DamageType = damageClass;
                     }
                     BeeCD = 15;
-                }
-            }
-
-            if (QueenStingerItem != null && QueenStingerCD <= 0 && Player.GetToggleValue("MasoHoney"))
-            {
-                QueenStingerCD = SupremeDeathbringerFairy ? 300 : 600;
-
-                for (int j = 0; j < 15; j++) //spray honey
-                {
-                    Projectile.NewProjectile(Player.GetSource_Accessory(QueenStingerItem), target.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)),
-                        ModContent.ProjectileType<HoneyDrop>(), 0, 0f, Main.myPlayer);
                 }
             }
 
@@ -2467,14 +2491,13 @@ namespace FargowiltasSouls
                 if (BetsysHeartItem != null && crit)
                     target.AddBuff(BuffID.BetsysCurse, 300);
 
-                if (PumpkingsCapeItem != null && crit)
-                    target.AddBuff(ModContent.BuffType<Rotting>(), 300);
-
-                if (QueenStingerItem != null)
-                    target.AddBuff(BuffID.Poisoned, 120, true);
-
                 if (FusedLens)
-                    target.AddBuff(Main.rand.NextBool() ? BuffID.CursedInferno : BuffID.Ichor, 360);
+                {
+                    if (Player.onFire2 || FusedLensCanDebuff)
+                        target.AddBuff(BuffID.CursedInferno, 360);
+                    if (Player.ichor || FusedLensCanDebuff)
+                        target.AddBuff(BuffID.Ichor, 360);
+                }
             }
 
             if (!TerrariaSoul)
@@ -2483,8 +2506,11 @@ namespace FargowiltasSouls
                     target.AddBuff(BuffID.Darkness, 600, true);
             }
 
-            if (GroundStick && Main.rand.NextBool(10) && Player.GetToggleValue("MasoLightning"))
-                target.AddBuff(ModContent.BuffType<LightningRod>(), 300);
+            if (Supercharged)
+            {
+                target.AddBuff(BuffID.Electrified, 240);
+                target.AddBuff(ModContent.BuffType<LightningRod>(), 60);
+            }
 
             if (GoldEnchantActive)
                 target.AddBuff(BuffID.Midas, 120, true);
@@ -2570,9 +2596,6 @@ namespace FargowiltasSouls
             if (DarkenedHeartItem != null)
                 DarkenedHeartAttack(projectile);
 
-            if (FrigidGemstoneItem != null)
-                FrigidGemstoneAttack(target, projectile);
-
             if (NebulaEnchantActive)
                 NebulaOnHit(target, projectile, damageClass);
         }
@@ -2609,6 +2632,13 @@ namespace FargowiltasSouls
 
         public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
         {
+            if (NecromanticBrewItem != null && IsInADashState)
+            {
+                damage /= 4;
+            }
+
+
+
             if (Smite)
                 damage = (int)(damage * 1.1);
 
@@ -2630,6 +2660,13 @@ namespace FargowiltasSouls
 
         public override void ModifyHitByProjectile(Projectile proj, ref int damage, ref bool crit)
         {
+            if (GroundStick)
+            {
+                GroundStickCheck(proj, ref damage);
+            }
+
+
+
             if (Smite)
                 damage = (int)(damage * 1.2);
 
@@ -2681,7 +2718,24 @@ namespace FargowiltasSouls
             }
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        public void ConcentratedRainbowMatterTryAutoHeal()
+        {
+            if (ConcentratedRainbowMatter
+                && Player.statLife < Player.statLifeMax2
+                && Player.potionDelay <= 0
+                && Player.GetToggleValue("MasoHealingPotion", false))
+            {
+                Item potion = Player.QuickHeal_GetItemToUse();
+                if (potion != null)
+                {
+                    int heal = getHealMultiplier(potion.healLife);
+                    if (Player.statLife < Player.statLifeMax2 - heal)
+                        Player.QuickHeal();
+                }
+            }
+        }
+
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
         {
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.deviBoss, ModContent.NPCType<NPCs.DeviBoss.DeviBoss>()))
                 ((NPCs.DeviBoss.DeviBoss)Main.npc[EModeGlobalNPC.deviBoss].ModNPC).playerInvulTriggered = true;
@@ -2692,21 +2746,20 @@ namespace FargowiltasSouls
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()))
                 ((NPCs.MutantBoss.MutantBoss)Main.npc[EModeGlobalNPC.mutantBoss].ModNPC).playerInvulTriggered = true;
 
-            if (TryParryAttack())
-            {
-                OnHurtEffects(damage);
+            if (TryParryAttack(damage))
                 return false;
+
+            ConcentratedRainbowMatterTryAutoHeal();
+
+            if (DeathMarked)
+            {
+                damage = (int)(damage * 1.5);
             }
 
             if (Player.whoAmI == Main.myPlayer && !noDodge && SqueakyAcc && Player.GetToggleValue("MasoSqueak") && Main.rand.NextBool(10))
             {
                 Squeak(Player.Center);
                 damage = 1;
-            }
-
-            if (DeathMarked)
-            {
-                damage = (int)(damage * 1.5);
             }
 
             if (CrimsonEnchantActive && Player.GetToggleValue("Crimson"))
@@ -2776,11 +2829,11 @@ namespace FargowiltasSouls
             if (FossilEnchantItem != null)
                 FossilEnchant.FossilHurt(this, (int)damage);
 
-            if (IceQueensCrown)
+            if (IceQueensCrown && damage > 1)
                 IceQueensCrownHurt();
         }
 
-        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter)
         {
             WasHurtBySomething = true;
 
@@ -2830,12 +2883,21 @@ namespace FargowiltasSouls
 
             GrazeBonus = 0;
             GrazeCounter = 0;
+
+            ConcentratedRainbowMatterTryAutoHeal();
         }
 
         private PlayerDeathReason DeathByLocalization(string key)
         {
             string death = Language.GetTextValue($"Mods.FargowiltasSouls.DeathMessage.{key}");
-            return PlayerDeathReason.ByCustomReason($"{Player.name} {death}");
+            if (FargoSoulsUtil.IsChinese())
+            {
+                return PlayerDeathReason.ByCustomReason($"{Player.name}{death}");
+            }
+            else
+            {
+                return PlayerDeathReason.ByCustomReason($"{Player.name} {death}");
+            }
         }
 
         public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
@@ -2901,9 +2963,6 @@ namespace FargowiltasSouls
             //killed by damage over time
             if (damage == 10.0 && hitDirection == 0 && damageSource.SourceOtherIndex == 8)
             {
-                if (GodEater || FlamesoftheUniverse || CurseoftheMoon || MutantFang)
-                    damageSource = DeathByLocalization("DivineWrath");
-
                 if (Infested)
                     damageSource = DeathByLocalization("Infested");
 
@@ -2918,6 +2977,9 @@ namespace FargowiltasSouls
 
                 if (NanoInjection)
                     damageSource = DeathByLocalization("NanoInjection");
+
+                if (GodEater || FlamesoftheUniverse || CurseoftheMoon || MutantFang)
+                    damageSource = DeathByLocalization("DivineWrath");
             }
 
             /*if (MutantPresence)
@@ -2950,9 +3012,14 @@ namespace FargowiltasSouls
                 Player.bodyFrame.Y = Player.bodyFrame.Height * 10;
                 if (shieldTimer > 0)
                 {
-                    int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.ReflectiveSilverDye);
+                    List<int> shaders = new List<int>();
+                    shaders.Add(GameShaders.Armor.GetShaderIdFromItemId(ItemID.ReflectiveSilverDye));
                     if (DreadShellItem != null)
-                        shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.BloodbathDye);
+                        shaders.Add(GameShaders.Armor.GetShaderIdFromItemId(ItemID.BloodbathDye));
+                    if (PumpkingsCapeItem != null)
+                        shaders.Add(GameShaders.Armor.GetShaderIdFromItemId(ItemID.PixieDye));
+
+                    int shader = shaders[(int)(Main.GameUpdateCount / 4 % shaders.Count)];
                     drawInfo.cBody = shader;
                     drawInfo.cHead = shader;
                     drawInfo.cLegs = shader;
@@ -2960,6 +3027,17 @@ namespace FargowiltasSouls
                     drawInfo.cHandOn = shader;
                     drawInfo.cHandOff = shader;
                     drawInfo.cShoe = shader;
+                    drawInfo.cBack = shader;
+                    drawInfo.cBackpack = shader;
+                    drawInfo.cShield = shader;
+                    drawInfo.cNeck = shader;
+                    drawInfo.cHandOn = shader;
+                    drawInfo.cHandOff = shader;
+                    drawInfo.cBalloon = shader;
+                    drawInfo.cBalloonFront = shader;
+                    drawInfo.cFace = shader;
+                    drawInfo.cFaceHead = shader;
+                    drawInfo.cFront = shader;
                 }
             }
         }
@@ -3048,35 +3126,6 @@ namespace FargowiltasSouls
                 InfestedDust = 5f;
 
             return modifier * 2;
-        }
-
-        public override bool PreItemCheck()
-        {
-            //if (Player.HeldItem.damage > 0 && !Player.HeldItem.noMelee && Player.HeldItem.useTime > 0 && Player.HeldItem.useAnimation > 0 && Player.HeldItem.pick == 0 && Player.HeldItem.hammer == 0 && Player.HeldItem.axe == 0)
-            //{
-            //    if (TungstenEnlargedItem != null)
-            //    {
-            //        if (Main.mouseItem != null && Main.mouseItem.type == TungstenEnlargedItem.type)
-            //        {
-            //            TungstenPrevSizeSave = Math.Min(TungstenPrevSizeSave, Main.mouseItem.scale);
-            //            Main.mouseItem.scale = TungstenPrevSizeSave;
-            //        }
-            //        TungstenEnlargedItem.scale = TungstenPrevSizeSave;
-            //        TungstenPrevSizeSave = -1;
-
-            //        TungstenEnlargedItem = null;
-            //    }
-
-            //    if (TungstenEnchantActive && Player.GetToggleValue("Tungsten"))
-            //        TungstenEnchant.TungstenIncreaseWeaponSize(Player.HeldItem, this);
-            //}
-
-            return base.PreItemCheck();
-        }
-
-        public override void PostItemCheck()
-        {
-
         }
 
         //        public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
@@ -3215,7 +3264,7 @@ namespace FargowiltasSouls
             //            }
         }
 
-        private int getHealMultiplier(int heal)
+        public int getHealMultiplier(int heal)
         {
             float bonus = 0f;
 
@@ -3337,11 +3386,6 @@ namespace FargowiltasSouls
                 if (CelestialRuneItem != null && Player.GetToggleValue("MasoCelest"))
                 {
                     CelestialRuneSupportAttack(damage, damageType);
-                }
-
-                if (PumpkingsCapeItem != null && Player.GetToggleValue("MasoPump"))
-                {
-                    PumpkingsCapeSupportAttack(damage, damageType);
                 }
             }
         }

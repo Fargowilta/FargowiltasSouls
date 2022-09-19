@@ -3,7 +3,6 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -19,7 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
             DisplayName.SetDefault("Soul of Dimensions");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "维度之魂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "维度之魂");
 
             String tooltip =
 @"Increases HP by 300
@@ -41,25 +40,25 @@ Effects of Shield of Cthulhu and Master Ninja Gear
 'The dimensions of Terraria at your fingertips'";
             Tooltip.SetDefault(tooltip);
 
-            String tooltip_ch =
-@"增加300点最大生命值
-增加20%伤害减免
-增加8点生命恢复速度
-使你免疫击退和一些减益
-增加敌人以你为目标的几率
-使你获得超音速奔跑和无限飞行能力
-大幅增加渔力且钓竿会额外扔出10根鱼线
-增加50%物块和墙壁的放置速度
-近乎无限的放置和挖掘距离，挖掘速度x3
-拥有光芒、洞穴探险、狩猎和危险感效果
-自动刷漆和放置促动器
-使你获得开启建造模式的能力
-拥有混乱之脑、星星面纱、甜蜜项链、蜜蜂斗篷、孢子囊和闪亮石效果
-拥有圣骑士护盾、冰冻海龟壳、北极潜水装备、蛙腿和飞毯效果
-拥有熔岩靴、渔夫渔具袋、喷漆器、自动安放器、手机和重力球效果
-拥有克苏鲁护盾和忍者大师装备效果
-'泰拉瑞亚的维度触手可及'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+            //String tooltip_ch =
+//@"增加300点最大生命值
+//增加20%伤害减免
+//增加8点生命恢复速度
+//使你免疫击退和一些减益
+//增加敌人以你为目标的几率
+//使你获得超音速奔跑和无限飞行能力
+//大幅增加渔力且钓竿会额外扔出10根鱼线
+//增加50%物块和墙壁的放置速度
+//近乎无限的放置和挖掘距离，挖掘速度x3
+//拥有光芒、洞穴探险、狩猎和危险感效果
+//自动刷漆和放置促动器
+//使你获得开启建造模式的能力
+//拥有混乱之脑、星星面纱、甜蜜项链、蜜蜂斗篷、孢子囊和闪亮石效果
+//拥有圣骑士护盾、冰冻海龟壳、北极潜水装备、蛙腿和飞毯效果
+//拥有熔岩靴、渔夫渔具袋、喷漆器、自动安放器、手机和重力球效果
+//拥有克苏鲁护盾和忍者大师装备效果
+//'泰拉瑞亚的维度触手可及'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
 
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 18));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;

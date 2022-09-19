@@ -5,6 +5,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 {
     public class Deerclawps : SoulsItem
     {
+
         public override bool Eternity => true;
 
         public override void SetStaticDefaults()

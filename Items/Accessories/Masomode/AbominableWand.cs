@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Abominable Wand");
             Tooltip.SetDefault(@"Grants immunity to Abominable Fang and Abominable Presence
-Increased critical damage gained per Sparkling Adoration graze and halves heart cooldown
+Increased damage gained per Sparkling Adoration graze and halves heart cooldown
 Spectral Abominationn periodically manifests to support your critical hits
 With Styx armor, charges energy when graze is maxed
 You can endure any attack and survive with 1 life

@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -15,8 +14,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Refractor Blaster");
             Tooltip.SetDefault("'Modified from the arm of a defeated foe..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "变轨激光炮");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'由一个被击败的敌人的手臂改装而来..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "变轨激光炮");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'由一个被击败的敌人的手臂改装而来..'");
         }
 
         public override void SetDefaults()

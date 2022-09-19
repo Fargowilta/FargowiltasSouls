@@ -16,7 +16,7 @@ Mods: {
 				Graze attacks to temporarily charge energy
 				Increases life regeneration when damaged at the cost of some energy
 				Double tap {0} to release energy as life-draining hearts
-				Wield a demon axe of love and justice when fully charged
+				Wield a demon axe of love and justice when fully charged, becomes stronger in hardmode
 				'''
 
 			Gaia:
@@ -33,10 +33,11 @@ Mods: {
 
 			Eridanus:
 				'''
-				The blessing of Eridanus empowers your attacks
+				Double tap {0} to toggle Eridanus' blessing and empower a weapon class
 				The empowered class changes every 10 seconds
 				Eridanus fights alongside you when you use the empowered class
-				75% increased damage, 30% increased attack speed, and 20% increased critical strike chance for the empowered class
+				80% increased damage, 30% increased critical strike chance, and 30% increased attack speed for the empowered class
+				When Eridanus' blessing is off, 20% increased damage and 10% increased critical strike chance for your current weapon class
 				'''
 
 			Styx:
@@ -128,6 +129,7 @@ Mods: {
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "Mutant has been enraged by the death of his brother!"
+			AbominationnVoodooDollFail: "The doll teleports back into your hands. Maybe it shouldn't be used underground..."
 			
 			SigilOfChampions: {
 				Timber: You are surrounded by the rustling of trees...
@@ -152,6 +154,7 @@ Mods: {
 			MasochistWrongDifficulty: World must be Expert difficulty or harder!
 			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist} surges with new power...!"
 			MasochistPreTooltip: Enables Masochist Mode when used in Master Mode
+			ForgottenGift: '''world is currently maso: '''
 
 			FargoSoulsWorld: {
 				EternityOn: Eternity Mode activated!
@@ -199,11 +202,14 @@ Mods: {
 			PatreonItem: ">> Patreon Item <<"
 			PatreonNameEffect: Your special patreon effects are active
 
-			SkeletronRegrow: has regrown its arms!
-			SkeletronGuardian: has entered Dungeon Guardian form!
+			SkeletronRegrow: "{$NPCName.SkeletronHead} has regrown its arms!"
+			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime} has regrown its arms!"
+			SkeletronGuardian: "{$NPCName.SkeletronHead} has entered Dungeon Guardian form!"
+			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime} has entered Dungeon Guardian form!"
 			TwinsEndure: endured the fatal blow to fight alongside its twin!
 			TwinsRevive: has been revived!
 			GelatinSubjects: Gelatin Subjects have awoken!
+			RoyalSubject: Royal Subject has awoken!
 
 			MoonsDeathPenalty: The wave progress has regressed!
 		}
@@ -424,22 +430,25 @@ Mods: {
 			MasoSlimeConfig: Slimy Balls
 			SlimeFallingConfig: Increased Fall Speed
 			MasoEyeConfig: Scythes When Dashing
-			MasoHoneyConfig: Honey When Hitting Enemies
+			MasoEyeInstallConfig: Berserker Install
 			MasoSkeleConfig: Skeletron Arms Minion
+			MasoSkeleSpinConfig: Skeletron Spin Dash
 
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: Tim's Concoction
 			MasoCarrotConfig: Carrot Zoom
 			MasoRainbowConfig: Rainbow Slime Minion
-			MasoFrigidConfig: Frostfireballs
+			MasoHealingPotionConfig: Auto-Use Healing Potions
 			MasoNymphConfig: Attacks Spawn Hearts
 			MasoSqueakConfig: Squeaky Toy On Hit
-			MasoPouchConfig: Shadowflame Tentacles
+			MasoPouchConfig: Stronger Slower Shadowflame Attacks
 			MasoClippedConfig: Inflict Clipped Wings
 			TribalCharmConfig: Tribal Charm Auto Swing
+			TribalCharmClickBonusConfig: Tribal Charm Click Bonus
 
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
-			MasoLightningConfig: Inflict Lightning Rod
+			FusedLensInstallConfig: Twins Install
+			MasoLightningConfig: Supercharge When Hit
 			MasoProbeConfig: Probes Minion
 
 			PureHeartHeader: "{$Mods.FargowiltasSouls.ItemName.PureHeart}"
@@ -455,15 +464,14 @@ Mods: {
 			ChaliceHeader: "{$Mods.FargowiltasSouls.ItemName.ChaliceoftheMoon}"
 			MasoCultistConfig: Cultist Minion
 			MasoPlantConfig: Plantera Minion
-			MasoGolemConfig: Lihzahrd Ground Pound
-			MasoBoulderConfig: Boulder Spray
+			MasoGolemConfig: Lihzahrd Fastfall
+			MasoBoulderConfig: Ground Pound Spray
 			MasoCelestConfig: Celestial Rune Support
 			MasoVisionConfig: Ancient Visions On Hit
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
-			MasoPumpConfig: Pumpking's Cape Support
+			MasoPumpConfig: Pumpking's Cape Parry
 			IceQueensCrownConfig: Freeze On Hit
-			MasoFlockoConfig: Flocko Minion
 			MasoUfoConfig: Saucer Minion
 			MasoGravConfig: Gravity Control
 			MasoGrav2Config: Stabilized Gravity
@@ -827,7 +835,7 @@ Mods: {
 					Armor bonuses from Auric Tesla
 					Armor bonuses from Mollusk
 					Armor bonuses from Reaver
-					Armor bonuses from Ataxia
+					Armor bonuses from Hydrothermic
 					Armor bonuses from Astral
 					Armor bonuses from Tarragon
 					Armor bonuses from Demonshade
@@ -858,7 +866,7 @@ Mods: {
 					Effects of The Sponge
 					Effects of Giant Pearl
 					Effects of Amidias' Pendant
-					Effects of Fabled Tortoise Shell
+					Effects of Flame-Licked Shell
 					Effects of Plague Hive
 					Effects of Astral Arcanum
 					Effects of Hide of Astrum Deus
@@ -943,13 +951,49 @@ Mods: {
 
 			OOASet: Set bonus increases minimum summon damage when you attack using other classes
 			MiningHelmet: Increases Undead Miner spawn rates
-			MoonsDrops: Bosses and minibosses drop no items until late waves
+			MoonsDrops: Bosses and minibosses drop no items until wave {0}
 			MoonsWaves: Dying decreases wave progress
 
 			WhipSpeed: Does not benefit from melee speed bonuses
 			WhipStack: Whip buffs/debuffs can't stack
 			MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 12)
 			SummonMulticlass: Summon damage decreases when you attack using other classes (except in OOA)
+
+			ShadowDodge: Eternity Mode: Dodging will reduce your attack speed
+			IceBarrier: Eternity Mode: 10% reduced damage
+			ManaSickness: Eternity Mode: Halved attack speed
+		}
+
+		EternityMode: {
+			Betsy1: CRINGE
+			Betsy2: NOT POGGERS
+			Betsy3: MONKAS
+			Betsy4: SHOW WINGS
+			Betsy5: AERIAL BANE POG
+			Betsy6: REAL BOSS WHEN?
+			Betsy7: "#NOTMYMASOMODE"
+			Betsy8: OOA BAD ANYWAY
+			Betsy9: COPE MALD SEETHE
+			Betsy10: GET REAL
+			Betsy11: GET FAKE
+			Betsy12: POGGERS
+			Betsy13: ResidentSleeper
+			Betsy14: If you can read this say 22
+			Betsy15: GuraSit
+			Betsy16: play calamity
+			Betsy17: play thorium
+			Betsy18: hardcore 1hp challenge when?
+			Betsy19: now do it with a copper shortsword
+			Betsy20: Zenith Yoyo?
+			Betsy21: guys how do i beat moon lord
+			Betsy22: GUYS I GOT TERRAPRISMA
+			Betsy23: how do i install this update
+			Betsy24: Hi YouTube!
+			Betsy25: <Message was deleted by staff>
+			Betsy26: "<User "
+			Betsy27: " was banned>"
+			Betsy28: " was muted>"
+
 		}
 	}
 }

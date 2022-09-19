@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -15,7 +14,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 
             DisplayName.SetDefault("Trawler Soul");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "捕鱼之魂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "捕鱼之魂");
 
             string tooltip =
 @"Increases fishing skill substantially
@@ -27,16 +26,16 @@ Effects of Pink Horseshoe Balloon and Arctic Diving Gear
 'The fish catch themselves'";
             Tooltip.SetDefault(tooltip);
 
-            string tooltip_ch =
-@"大幅增加渔力
-钓竿会额外扔出10根鱼线
-你几乎能立刻就钓到鱼
-拥有声呐和宝匣效果
-拥有渔夫渔具袋和狍子囊效果
-拥有粉马掌气球和北极潜水装备效果
-'愿者上钩'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
-
+            //string tooltip_ch =
+//@"大幅增加渔力
+//钓竿会额外扔出10根鱼线
+//你几乎能立刻就钓到鱼
+//拥有声呐和宝匣效果
+//拥有渔夫渔具袋和狍子囊效果
+//拥有粉马掌气球和北极潜水装备效果
+//'愿者上钩'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
+        
         }
 
         public override void SetDefaults()

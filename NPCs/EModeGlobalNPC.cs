@@ -1261,8 +1261,8 @@ namespace FargowiltasSouls.NPCs
         {
             if (target.GetModPlayer<FargoSoulsPlayer>().StealingCooldown <= 0 && !item.IsAir)
             {
-                target.GetModPlayer<FargoSoulsPlayer>().StealingCooldown = 360; //trust me, keep these separate
-                target.AddBuff(ModContent.BuffType<ThiefCD>(), 360);
+                target.GetModPlayer<FargoSoulsPlayer>().StealingCooldown = 900; //trust me, keep these separate
+                target.AddBuff(ModContent.BuffType<ThiefCD>(), 900);
 
 
                 //int i = Item.NewItem(target.GetSource_DropAsItem("Stolen"), (int)target.position.X, (int)target.position.Y, target.width, target.height, item.type, item.stack, false, -1, false, false);

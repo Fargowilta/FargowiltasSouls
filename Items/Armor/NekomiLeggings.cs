@@ -12,7 +12,8 @@ namespace FargowiltasSouls.Items.Armor
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nekomi Leggings");
-            Tooltip.SetDefault(@"10% increased movement speed");
+            Tooltip.SetDefault(@"7% increased critical strike chance
+10% increased movement speed");
         }
 
         public override void SetDefaults()
@@ -26,14 +27,14 @@ namespace FargowiltasSouls.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.1f;
+            player.GetCritChance(DamageClass.Generic) += 7;
+            player.moveSpeed += 0.10f;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
             .AddIngredient(ItemID.Silk, 10)
-            .AddIngredient(ItemID.Leather, 5)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 5)
             .AddTile(TileID.Loom)
 

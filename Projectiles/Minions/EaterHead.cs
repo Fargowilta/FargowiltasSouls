@@ -132,7 +132,40 @@ namespace FargowiltasSouls.Projectiles.Minions
                     }
             }
 
-            if (num1042 != -1)
+            bool canMove = false;
+            if (Projectile.Distance(Main.player[Projectile.owner].Center) > 1200f)
+            {
+                canMove = true;
+            }
+            else
+            {
+                Tile tile = Framing.GetTileSafely(Projectile.Center);
+                if (tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]))
+                    canMove = true;
+            }
+
+            if (!canMove)
+            {
+                Projectile.velocity.Y += 0.25f;
+                if (Projectile.velocity.Y > 16f)
+                    Projectile.velocity.Y = 16f;
+
+                if (Projectile.velocity.Y > 4f)
+                {
+                    if (Projectile.velocity.X < 0)
+                        Projectile.velocity.X += 0.09f;
+                    else
+                        Projectile.velocity.X -= 0.09f;
+                }
+                else if (Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y) < 16f * 0.4f)
+                {
+                    if (Projectile.velocity.X < 0)
+                        Projectile.velocity.X -= 0.11f;
+                    else
+                        Projectile.velocity.X += 0.11f;
+                }
+            }
+            else if (num1042 != -1)
             {
                 NPC nPC14 = Main.npc[num1042];
                 Vector2 vector132 = nPC14.Center - Projectile.Center;

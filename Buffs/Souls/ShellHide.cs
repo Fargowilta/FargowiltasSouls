@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -17,8 +16,8 @@ namespace FargowiltasSouls.Buffs.Souls
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "缩壳");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "阻挡抛射物,但受到双倍接触伤害");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "缩壳");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "阻挡抛射物,但受到双倍接触伤害");
         }
 
         public override void Update(Player player, ref int buffIndex)
@@ -74,7 +73,7 @@ namespace FargowiltasSouls.Buffs.Souls
             if (modPlayer.TurtleShellHP <= 0)
             {
                 player.AddBuff(ModContent.BuffType<BrokenShell>(), 1800);
-                modPlayer.TurtleShellHP = 24;
+                modPlayer.TurtleShellHP = 19;
 
                 //some funny dust
                 const int max = 30;

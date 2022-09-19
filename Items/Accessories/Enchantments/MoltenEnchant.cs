@@ -61,7 +61,7 @@ Enemies take 25% increased damage while inside the inferno ring
                         NPC npc = Main.npc[i];
                         if (npc.active && !npc.friendly && !npc.dontTakeDamage && !(npc.damage == 0 && npc.lifeMax == 5)) //critters
                         {
-                            if (Vector2.Distance(player.Center, npc.Center) <= distance)
+                            if (Vector2.Distance(player.Center, FargoSoulsUtil.ClosestPointInHitbox(npc.Hitbox, player.Center)) <= distance)
                             {
                                 int dmgRate = 30;//60;
 

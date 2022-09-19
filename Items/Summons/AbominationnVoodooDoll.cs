@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Summons
@@ -18,8 +17,8 @@ namespace FargowiltasSouls.Items.Summons
             Tooltip.SetDefault("Summons Abominationn to your town" +
                 "\n'You are a terrible person'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "憎恶巫毒娃娃");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "你可真是个坏东西");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "憎恶巫毒娃娃");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "你可真是个坏东西");
 
             ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
@@ -47,27 +46,48 @@ namespace FargowiltasSouls.Items.Summons
             return true;
         }
 
+        bool hasDeclaredTeleport;
+
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            if (Item.lavaWet)
+            if (Item.lavaWet && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient && ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC a))
+                if (ModContent.TryFind("Fargowiltas", "Abominationn", out ModNPC a))
                 {
                     int p = Player.FindClosest(Item.Center, 0, 0);
                     NPC abom = FargoSoulsUtil.NPCExists(NPC.FindFirstNPC(a.Type));
-                    if (p != -1 && abom != null)
+                    if (p != -1)
                     {
-                        abom.life = 0;
-                        abom.StrikeNPC(9999, 0f, 0);
+                        if (Main.player[p].Center.Y / 16 > Main.worldSurface)
+                        {
+                            if (!hasDeclaredTeleport)
+                            {
+                                hasDeclaredTeleport = true;
+                                FargoSoulsUtil.PrintLocalization("Mods.FargowiltasSouls.Message.AbominationnVoodooDollFail", new Color(175, 75, 255));
+                            }
+                                
+                            Item.Center = Main.player[p].Center;
+                            Item.noGrabDelay = 0;
+                        }
+                        else if (abom != null)
+                        {
+                            abom.life = 0;
+                            abom.StrikeNPC(9999, 0f, 0);
 
-                        FargoSoulsUtil.SpawnBossTryFromNPC(p, "Fargowiltas/Mutant", ModContent.NPCType<MutantBoss>());
+                            FargoSoulsUtil.SpawnBossTryFromNPC(p, "Fargowiltas/Mutant", ModContent.NPCType<MutantBoss>());
+
+                            Item.active = false;
+                            Item.type = 0;
+                            Item.stack = 0;
+                        }
                     }
-
-                    Item.active = false;
-                    Item.type = 0;
-                    Item.stack = 0;
                 }
             }
+        }
+
+        public override void UpdateInventory(Player player)
+        {
+            hasDeclaredTeleport = false;
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)

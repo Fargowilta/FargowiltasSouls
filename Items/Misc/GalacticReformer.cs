@@ -1,7 +1,6 @@
 using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
@@ -13,9 +12,9 @@ namespace FargowiltasSouls.Items.Misc
             DisplayName.SetDefault("Galactic Reformer");
             Tooltip.SetDefault("Destroys an incredibly massive area\n" +
                                 "Use at your own risk");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "银河重构器");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "破坏一片难以置信的巨大区域\n" +
-                                                        "风险自负");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "银河重构器");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "破坏一片难以置信的巨大区域\n" +
+                                                        //"风险自负");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
         }

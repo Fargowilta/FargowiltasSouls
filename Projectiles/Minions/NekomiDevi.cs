@@ -41,6 +41,12 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override bool? CanDamage() => false;
 
+        public override bool PreAI()
+        {
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().SilverMinion = 0;
+            return base.PreAI();
+        }
+
         public override void AI()
         {
             Projectile.scale = 1;

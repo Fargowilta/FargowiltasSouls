@@ -22,7 +22,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Earth");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大地英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大地英灵");
             Main.npcFrameCount[NPC.type] = 2;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -444,7 +444,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(EarthForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<EarthChampionRelic>()));
         }
 

@@ -105,6 +105,19 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (ritual != null && Projectile.Distance(ritual.Center) > 1200f) //despawn faster
                     Projectile.timeLeft = 0;
             }
+
+            if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost
+                && FargoSoulsUtil.BossIsAlive(ref NPCs.EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()))
+            {
+                //final spark spheres
+                if (FargoSoulsWorld.MasochistModeReal && Main.npc[NPCs.EModeGlobalNPC.mutantBoss].ai[0] == -5
+                    && Projectile.Colliding(Projectile.Hitbox, Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().GetPrecisionHurtbox()))
+                {
+                    if (!Main.LocalPlayer.HasBuff(ModContent.BuffType<TimeFrozen>()))
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ZaWarudo"), Main.LocalPlayer.Center);
+                    Main.LocalPlayer.AddBuff(ModContent.BuffType<TimeFrozen>(), 300);
+                }
+            }
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
@@ -116,14 +129,6 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     target.GetModPlayer<FargoSoulsPlayer>().MaxLifeReduction += 100;
                     target.AddBuff(ModContent.BuffType<OceanicMaul>(), 5400);
                     target.AddBuff(ModContent.BuffType<MutantFang>(), 180);
-                }
-
-                //final spark spheres
-                if (FargoSoulsWorld.MasochistModeReal && Main.npc[NPCs.EModeGlobalNPC.mutantBoss].ai[0] == -5)
-                {
-                    if (!target.HasBuff(ModContent.BuffType<TimeFrozen>()))
-                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ZaWarudo"), target.Center);
-                    target.AddBuff(ModContent.BuffType<TimeFrozen>(), 300);
                 }
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 360);

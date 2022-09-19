@@ -2,7 +2,6 @@ using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -15,8 +14,8 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Berserker's Soul");
-
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狂战士之魂");
+            
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狂战士之魂");
 
             string tooltip =
 @"30% increased melee damage
@@ -26,15 +25,15 @@ Increased melee knockback
 Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
 'None shall live to tell the tale'";
             Tooltip.SetDefault(tooltip);
+            //string tooltip_ch =
+//@"增加30%近战伤害
+//增加20%近战攻速
+//增加15%近战暴击率
+//增加近战击退
+//拥有烈火手套、悠悠球袋和天界壳效果
+//'吾之传说生者弗能传颂'";
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
 
-            string tooltip_ch =
-@"增加30%近战伤害
-增加20%近战攻速
-增加15%近战暴击率
-增加近战击退
-拥有烈火手套、悠悠球袋和天界壳效果
-'吾之传说生者弗能传颂'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
 
         }
 

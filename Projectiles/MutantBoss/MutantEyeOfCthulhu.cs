@@ -71,6 +71,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return Projectile.ai[1] >= 120;
         }
 
+        bool spawned;
+
         public override void AI()
         {
             Player player = FargoSoulsUtil.PlayerExists(Projectile.ai[0]);
@@ -98,8 +100,10 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 }
             };
 
-            if (Projectile.ai[1] == 0)
+            if (!spawned)
             {
+                spawned = true;
+
                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, Projectile.Center);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -163,7 +167,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 //goldScytheAngleOffset = Main.rand.NextFloat(MathHelper.TwoPi);
                 //cyanScytheAngleOffset = goldScytheAngleOffset + MathHelper.Pi + Main.rand.NextFloat(-MathHelper.PiOver2, MathHelper.PiOver2); //always somewhere in the opposite half
             }
-            else if (Projectile.ai[1] == 121)
+            else if (Projectile.ai[1] == 121) //make the golden sickles
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -175,6 +179,13 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     int p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantScythe2>(), Projectile.damage, 0, Main.myPlayer, accel, angle);
                     if (p != Main.maxProjectiles)
                         Main.projectile[p].timeLeft = Projectile.timeLeft + 180 + 30;
+
+                    if (FargoSoulsWorld.MasochistModeReal)
+                    {
+                        p = Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MutantScythe2>(), Projectile.damage, 0, Main.myPlayer, accel, angle);
+                        if (p != Main.maxProjectiles)
+                            Main.projectile[p].timeLeft = Projectile.timeLeft + 180 + 30 + 150;
+                    }
                 }
 
                 /*if (Main.netMode != NetmodeID.MultiplayerClient)

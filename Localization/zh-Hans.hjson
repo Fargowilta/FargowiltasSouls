@@ -9,32 +9,42 @@
 Mods: {
 	FargowiltasSouls: {
 		SetBonus: {
+			Nekomi:
+				'''
+				增加7%伤害和暴击率
+				增加闪烁祟心的擦弹半径
+				擦弹以暂时积蓄能量
+				受伤时消耗能量，增加生命恢复速度
+				双击{0}以消耗能量，释放吸血爱心
+				能量蓄满时会挥舞象征着爱与正义的恶魔之斧
+				'''
 			Gaia:
 				'''
 				增加10%近战攻速
 				魔力消耗减少10%
 				10%几率不消耗弹药
-				增加1个召唤栏位和1个哨兵栏位
-				双击“下”键以开关进攻模式，进攻模式具有如下效果：
-				增加30%伤害和15%暴击几率
+				增加4个召唤栏位和4个哨兵栏位
+				双击{0}键以开关进攻模式，进攻模式具有如下效果：
+				增加30%手持武器职业的伤害和15%该职业暴击率
 				增加20点护甲穿透
 				降低20点防御、10%最大生命值和15%伤害减免
 				'''
 
 			Eridanus:
 				'''
-				宇宙英灵的护佑增强了你的攻击
+				双击{0}键开关宇宙英灵的护佑并增强一个职业
 				每10秒切换增强的职业
 				当你使用对应职业的武器时，宇宙英灵会与你一同作战
-				对应职业武器增加75%伤害、30%攻击速度和20%暴击率
+				对应职业武器增加80%伤害、30%暴击率和30%攻击速度
+				当宇宙英灵的护佑关闭时，增加20%手持武器职业伤害和10%该职业暴击率
 				'''
 
 			Styx:
 				'''
-				增加20%伤害
+				增加20%手持武器职业的伤害
 				攻击敌人以积蓄冥河能量
 				受伤时消耗冥河能量，减免一部分伤害
-				双击键以消耗能量，释放追踪镰刀
+				双击{0}键以消耗能量，释放追踪镰刀
 				能量蓄满时会释放出冥狱魔剑
 				'''
 
@@ -43,13 +53,13 @@ Mods: {
 				召唤会向周围的敌怪发射激光的幻影眼球
 				召唤幽灵憎恶与你一同战斗
 				你的攻击会造成地狱火和噬神者减益
-				你复活时会发射出巨大的幻影死光射线
+				你复活时会发射出巨大的幻影死亡射线
 				增加20%武器使用速度
 				'''
 		}
 		
 		Bestiary: {
-			TophatSquirrelCritter: 这只松鼠为自己找到了一顶小巧的帽子！它会用得到的全新力量做什么呢？事实上，或许，它能做的事情不多。
+			TophatSquirrelCritter: 这只松鼠为自己找到了一顶小巧的帽子！它会用得到的全新力量做什么呢？事实上，或许，它能做到的事情不多。
 			GuttedCreeper: 就算被装到某人的口袋里，它们仍然一直保护着血腥之心。它们过去很讨嫌，但现在表现不错！
 			RoyalSubject: 如果成长不受阻碍，它们本来也可成长为蜂群之后。蜂后释放信息素，召唤出皇家工蜂来帮助她。
 			GelatinSubject: 史莱姆皇后的精英守护者。它们竖起了一道魔法屏障，宁愿为保卫皇后而牺牲。
@@ -57,35 +67,37 @@ Mods: {
 
 			LesserFairy: 这些小精灵被生命英灵的光辉所吸引，它们只关心如何实现它的命令。
 			LesserSquirrel: 这些小动物帮助造出了特洛伊木松鼠，但没注意到自己的身上多出了一些小爆炸物。
-			ShadowOrb: 凝聚着黑暗力量的能量球。它们的能量使夜幕低垂，它们的目的只是为主人服务。
+			ShadowOrb: 凝聚着黑暗力量的能量球。它们散发的能量使夜幕低垂，它们唯一目的是为主人服务。
 
 			TrojanSquirrel: 由松鼠建造，由松鼠拥有！从广阔土地上搜集的木头构成了它的身体。它比外观看起来更适合松鼠。
 			GuardianOfAncientTreasures: 潜伏在地底深处，小心翼翼地守护着成堆的珠宝和贵金属。它的鳞片坚硬如石。
-			CursedCoffin: 一百多个邪恶灵魂的无意识的融合体。它以迷路旅行者的尸体为食，并将他们的心灵为己所用。
-			Lifelights: 从它的核心散发出的光辉令人舒心，但有催眠效果。它会控制那些乐意听从它的命令的小生物。
-			Silhouette: 一个难以捉摸的存在，总是在黑雾掩护下于黑夜中移动。当它的真实形态暴露时，它会变得十分敏感。
-			FrigidHydrangaea: 这只龙在冰封的洞穴中冬眠，只有在被激怒时才会醒来。它真的应该生活在寒冷中吗？
-			BanishedBaron: 从阶层中被驱逐出来后，它一边隐藏着，一边试图自我修复。效果并不好，这给它的力量和速度拖了后腿。
-			MagmaConstruct: 行星核心的监督者。在这片地狱的前任主人消失时，它接管了这块土地。它没有有机部分。
+			CursedCoffin: 一百多个邪恶灵魂的无意识的融合体。它以迷路旅行者的尸体为食，并吸收他们的灵魂。
+			Lifelights: 从它的核心散发出的光辉令人舒心，但有催眠效果。它会控制那些乐意听从它命令的小生物。
+			Silhouette: 一个难以捉摸的存在，总是在黑雾掩护下于黑夜中移动。当真实形态暴露时，它会变得十分敏感。
+			FrigidHydrangaea: 这只龙形野兽在冰封的洞穴中冬眠，只有在被激怒时才会醒来。它真的应该生活在这寒冷中吗？
+			BanishedBaron: 被驱逐出群落后，它一边隐藏着，一边试图自我修复。效果并不好，这给它的力量和速度拖了后腿。
+			MagmaConstruct: 行星核心的监督者。在这片地狱的前任主人消失时，它接管了这块土地。它全身都由无机物组成。
 			
 			TimberChampion: 森林之力赋予了这个木制装置神奇的力量。但驾驶舱里的那只松鼠是不是很眼熟？
-			TerraChampion: 这条巨蛇只有大脑是有机体。化身为附魔岩石和金属的聚合体，它的身体无法受到攻击。
-			SpiritChampion: 吸收了心灵之力后，这些迷失的灵魂获得了更高的智慧。这并不是说它会很快停止吃人。
-			LifeChampion: 据说它的羽毛是受到祝福的遗物，可以驱除噩梦。保护着自己的领地不受侵犯，它看不起其他的生命形式。
+			TerraChampion: 这条巨蛇只剩大脑是有机体。化身为附魔岩石和金属的聚合体，它的身体无法受到攻击。
+			SpiritChampion: 吸收了心灵之力后，这些迷失的灵魂获得了更高的智慧。这并不是说它会停止吃人。
+			LifeChampion: 据说它的羽毛是受到祝福的遗物，可以驱除噩梦。它看不起其他的生命，一直保护着自己的领地。
 			ShadowChampion: 以其他生物的负面情绪为食。据说吸入它的雾后，你会陷入充满噩梦的无尽睡眠。
 			NatureChampion: 它被一株巨大的植物赶出家门。有时它想回去，但它已经适应了寒冷的环境。
 			WillChampion: 怒火满腔。以强大的力量进行攻击，并仅通过纯粹的愤怒抵御攻击。这位无名的流放者究竟是谁？
 			EarthChampion: 与大地之力融合，获得了强大的力量。这位英灵从岩浆中喷涌而出，横扫所有挡住它的人。
 			CosmosChampion: 这位高贵的战士曾经周游星辰，寻找有价值的对手。遇到某个奇异的三人组合后，它就在他们附近安顿下来了。
 			
-			DeviBoss: 使用由邪恶制成的活的斧头，施展光明和爱的咒语。她一定对死亡十分怠慢，因为她从不为保护一座城镇而拼命战斗。
-			AbomBoss: 他的剑刃撕裂了灵魂本身。他精于所有的超自然现象，但出于对突变体的尊重，他不会使用天界级别的攻击。
+			DeviBoss: 使用由邪恶制成的活的斧头，施展光明和爱的咒语。她对死亡之事一定十分怠慢，因为她从不为保护城镇而拼命战斗。
+			AbomBoss: 他的剑刃撕裂了灵魂本身。他精于控制一切的超自然现象，但出于对突变体的尊重，他不会使用天界级别的攻击。
 			MutantBoss: 永恒的守护者。终极力量的化身。支配一切，主宰着战斗的方方面面。也许它来自那个维度裂缝之外的世界……
 		}
 
 		BossChecklist: {
+			#生成信息在LocalizationHelper中！
+
 			DeviBossDespawn: 戴薇安对战斗感到厌倦了……
-			DeviBossKilledAll: 戴薇安对于她爱的表演感到很满意。
+			DeviBossKilledAll: 戴薇安对于她所展示的爱的表演感到很满意。
 			
 			AbomBossDespawn: 憎恶找不到有价值的对手……
 			AbomBossKilledAll: 憎恶摧毁了所有人。
@@ -98,7 +110,7 @@ Mods: {
 			EarthChampionDespawn: 大地英灵隐于熔岩烈火……
 			NatureChampionDespawn: 自然英灵在它的巢穴沉沉睡去……
 			LifeChampionDespawn: 生命英灵消失在辉光中……
-			ShadowChampionDespawn: 暗影英灵消失在魔焰中……
+			ShadowChampionDespawn: 暗影英灵消失在魔雾中……
 			SpiritChampionDespawn: 心灵英灵消失在沙漠深处……
 			WillChampionDespawn: 意志英灵返回深渊……
 
@@ -106,6 +118,922 @@ Mods: {
 			CosmosChampionKilledAll: 宇宙英灵击败了每一个敌人。
 
 			TrojanSquirrelDespawn: 特洛伊松鼠回到了它的松鼠聚落中……
+		}
+
+		NPCName:{
+			AbomBoss: 憎恶
+			DeviBoss: 戴薇安
+			MutantBoss: 突变体
+			GelatinSubject: 圣凝史莱姆
+			RoyalSubject: 皇家工蜂
+			TophatSquirrelCritter: 高顶礼帽松鼠
+			BrainClone: 克苏鲁之脑
+			BrainIllusion: 克苏鲁之脑
+			BrainIllusion2: 克苏鲁之脑
+			CreeperGutted: 爬行者
+			DetonatingBubble: 爆炸泡泡
+			DetonatingBubbleEX: 爆炸泡泡
+			CrystalLeaf: 叶绿水晶
+			GelatinSlime: 水晶史莱姆
+			AbomSaucer: 迷你飞碟
+			TrojanSquirrel: 特洛伊松鼠
+			TrojanSquirrelArms: 特洛伊松鼠
+			TrojanSquirrelHead: 特洛伊松鼠
+			CosmosChampion: 厄里达诺斯，宇宙英灵
+			EarthChampion: 大地英灵
+			EarthChampionHand: 大地英灵
+			LesserFairy: 小精灵
+			LesserSquirrel: 小松鼠
+			LifeChampion: 生命英灵
+			NatureChampion: 自然英灵
+			NatureChampionHead: 自然英灵
+			ShadowChampion: 暗影英灵
+			ShadowOrb: 暗影珠
+			SpiritChampion: 心灵英灵
+			SpiritChampionHand: 心灵英灵
+			TerraChampion: 泰拉英灵
+			TerraChampionBody: 泰拉英灵
+			TerraChampionTail: 泰拉英灵
+			TimberChampion: 木英灵
+			TimberChampionHead: 木英灵
+			WillChampion: 意志英灵
+		}
+
+		MapObject: {
+			FMMBanner: 旗帜
+			MutantStatue: 突变体雕像
+			MutantStatueGift: 突变体雕像
+			SquidwardDoorClosed: 章鱼哥的大门
+			SquidwardDoorOpen: 章鱼哥的大门
+		}
+
+		BuffName: {
+
+			BerserkerInstall: 狂暴负载
+			BerserkerInstallCD: 狂暴冷却
+			BetsyDash: 冲刺
+			Coldheart: 心冻
+			HellFire: 狱火
+			MagicalCleanseCD: 魔法净化冷却
+			MutantRebirth: 突变重生
+			Supercharged: 超级充能
+			TwinsInstall: 双子负载
+			
+			// == BossDebuffs ==
+			
+			AbomFang: 憎恶毒牙
+			AbomPresence: 憎恶驾到
+			DeviPresence: 戴薇安驾到
+			Grabbed: 抓住你了！
+			MutantFang: 突变毒牙
+			MutantPresence: 突变驾到
+
+			// == Masomode ==
+			AbomCooldown: 憎恶冷却
+			AbomRebirth: 憎恶重生
+			Anticoagulation: 凝血失效
+			Antisocial: 社恐
+			Atrophied: 萎缩
+			Berserked: 狂暴
+			BloodDrinker: 饮血者
+			Bloodthirsty: 嗜血
+			BrainOfConfusionDebuff: 理智崩溃
+			ClippedWings: 剪除羽翼
+			Crippled: 跛足
+			CurseoftheMoon: 月之诅咒
+			Defenseless: 毫无防御
+			FlamesoftheUniverse: 宇宙之火
+			Flipped: 翻转
+			FlippedHallow: 翻转
+			Fused: 导火线
+			GodEater: 噬神者
+			Guilty: 内疚
+			Hexed: 着魔
+			HolyPrice: 神圣代价
+			Hypothermia: 恐寒症
+			Infested: 感染
+			IvyVenom: 常春藤毒素
+			Jammed: 卡壳
+			Lethargic: 昏昏欲睡
+			LightningRod: 避雷针
+			LihzahrdBlessing: 蜥蜴祝福
+			LihzahrdCurse: 蜥蜴诅咒
+			LivingWasteland: 人形废土
+			LoosePockets: 晃动衣袋
+			Lovestruck: 热恋
+			LowGround: 下陷
+			MarkedforDeath: 死亡标记
+			Midas: 迈达斯
+			MutantNibble: 突变啃啄
+			NanoInjection: 纳米灌注
+			Neurotoxin: 神经毒素
+			NullificationCurse: 无效诅咒
+			OceanicMaul: 海洋重击
+			OceanicSeal: 海洋印记
+			Oiled: 浸油
+			PungentGaze: 尖刻注视
+			Purged: 涤荡
+			Purified: 净化
+			ReverseManaFlow: 魔力逆流
+			Rotting: 腐败
+			RushJob: 急活
+			Sadism: 永恒
+			Shadowflame: 暗影焰
+			Smite: 惩戒
+			SqueakyToy: 吱吱响的玩具
+			Stunned: 昏迷
+			Swarming: 蜂群
+			ThiefCD: 偷窃冷却
+			Unlucky: 霉运
+			Unstable: 不稳定
+
+			// == Minions ==
+			BigBrainMinion: 克苏鲁大脑
+			BrainMinion: 克苏鲁之脑
+			CrystalSkull: 水晶头骨
+			EaterMinion: 世界吞噬者
+			JungleMimicSummonBuff: 丛林宝箱怪
+			LunarCultist: 拜月教徒
+			MutantPower: 突变之力
+			PlanterasChild: 世纪之花的孩子
+			Probes: 探测器
+			PungentEyeball: 尖刻眼球
+			RainbowSlime: 彩虹史莱姆
+			SaucerMinion: 迷你飞碟
+			SkeletronArms: 骷髅王之手
+			SouloftheMasochist: 大师之魂
+			SuperFlocko: 超级雪花怪
+			TrueEyes: 克苏鲁真眼
+			TwinsEX: 双子EX
+
+			// == Pets ==
+			AccursedSarcophagusBuff: 被诅咒的石棺
+			BabyAbomBuff: 憎恶宝宝
+			BabySilhouetteBuff: 黑雾宝宝
+			BiteSizeBaronBuff: 小小公爵
+			ChibiDeviBuff: 小不点德薇
+			MutantSpawnBuff: 突变体的卵
+			SeekerOfTreasuresBuff: 宝藏探索者
+
+			// == Souls ==
+			BrokenShell: 破损龟壳
+			CrimsonRegen: 猩红再生
+			FirstStrike: 先发制人
+			FossilReviveCD: 已复活
+			Frozen: 冻结
+			GoldenStasis: 不动金身
+			GoldenStasisCD: 金身冷却
+			HallowCooldown: 神圣之盾冷却
+			HuntressBleed: 女猎人流血
+			HuntressCD: 箭雨冷却
+			LeadPoison: 铅中毒
+			MonkBuff: 冥想
+			ObsidianLavaWetBuff: 熔岩之润
+			OriPoison: 山铜中毒
+			ShellHide: 缩壳
+			SnowstormCD: 暴雪冷却
+			SolarFlare: 耀斑
+			SuperBleed: 血如泉涌
+			TimeFrozen: 时间冻结
+			TimeStopCD: 时停冷却
+			VortexCD: 星旋冷却
+
+			// == Patreon ==
+			KingSlimeMinionBuff: 迷你史莱姆王
+			DukeFishronBuff: 猪龙鱼公爵
+			RoombaPetBuff: 扫地机器人
+			DoveBuff: 鸽子
+			ChibiiRemiiBuff: 小不点蕾米
+			PrimeMinionBuff: 迷你机械骷髅王
+			FishMinionBuff: 鱼
+			CrimetroidBuff: 宝宝血水母
+		}
+
+		BuffDescription: {
+
+			BerserkerInstall: '''“狂战士！干掉他们！”'''
+			BerserkerInstallCD: '''你还不能进入狂暴状态'''
+			BetsyDash: '''你正在高速移动！'''
+			MagicalCleanseCD: '''你还不能净化减益'''
+			MutantRebirth: '''复活死亡射线蓄力中'''
+			Supercharged: '''增加20%移动速度和10%攻击速度，你的攻击会造成带电和避雷针'''
+			TwinsInstall: '''诅咒狱火和灵液的效果'''
+
+			// == BossDebuffs ==
+			
+			AbomFang: '''永恒模式的力量压迫着你'''
+			AbomPresence: '''减少防御、伤害减免和生命恢复速度，附带月蛭凝块效果'''
+			DeviPresence: '''大幅增加友方NPC受到的伤害'''
+			Grabbed: '''狂敲你的移动键来逃离！'''
+			MutantFang: '''永恒模式的力量压迫着你'''
+			MutantPresence: '''减少防御、伤害减免和生命恢复速度，关闭几乎所有魂的效果，减小擦弹范围'''
+
+			// == Masomode ==
+			AbomCooldown: '''还不能承受另一次攻击'''
+			AbomRebirth: '''除非受击，你无法死亡'''
+			Anticoagulation: '''生命流失，受伤时鲜血四溅，敌怪会吸收你溅出的鲜血并变得更强'''
+			Antisocial: '''你没有朋友，也无法造成召唤伤害'''
+			Atrophied: '''你的肌肉正在退化'''
+			Berserked: '''攻势增强，防御减少，但你控几不住你记己'''
+			BloodDrinker: '''增加30%伤害'''
+			Bloodthirsty: '''极大提高刷怪速率'''
+			BrainOfConfusionDebuff: '''造成的伤害降低30%'''
+			ClippedWings: '''无法飞行或使用火箭靴'''
+			Crippled: '''你无法奔跑'''
+			CurseoftheMoon: '''月亮的愤怒正在吞噬你'''
+			Defenseless: '''你的防御完全崩溃了'''
+			FlamesoftheUniverse: '''来自诸天的亲自审判'''
+			Flipped: '''你的重力被颠倒了'''
+			FlippedHallow: '''你的重力被颠倒了'''
+			Fused: '''你和爆炸有个约会'''
+			GodEater: '''你的灵魂被神明的忿怒所诅咒'''
+			Guilty: '''杀害无辜动物产生的内疚使你的武器变得迟钝'''
+			Hexed: '''你的攻击会治愈敌人'''
+			HolyPrice: '''减少30%攻击速度'''
+			Hypothermia: '''你会多承受10%来自冷系攻击的伤害'''
+			Infested: '''这只会变得更糟'''
+			IvyVenom: '''流失生命, 持续时间超过20秒时变为神经毒素'''
+			Jammed: '''你的远程武器出故障了'''
+			Lethargic: '''你感觉你的武器变得缓慢'''
+			LightningRod: '''你会吸引雷电'''
+			LihzahrdBlessing: '''电线重新受你的掌控，降低丛林神庙内的刷怪速率'''
+			LihzahrdCurse: '''丛林神庙内，你不能拆除或放置电线'''
+			LivingWasteland: '''你周围的每个人都开始腐烂'''
+			LoosePockets: '''你身上的一件物品也许会被拿走'''
+			Lovestruck: '''坠入爱河！'''
+			LowGround: '''钩爪被禁止，不能站在平台或液体上'''
+			MarkedforDeath: '''别被打到'''
+			Midas: '''受击时掉落钱币'''
+			MutantNibble: '''无法恢复生命'''
+			NanoInjection: '''降低生命恢复速度和综合属性'''
+			Neurotoxin: '''你的身体正在停歇关闭'''
+			NullificationCurse: '''月亮领主正在循环他的伤害免疫类型！'''
+			OceanicMaul: '''防御力和最大生命值被大幅降低'''
+			OceanicSeal: '''无法闪避，无法吸血，无法使用超音速之魂快速移动，无法逃脱'''
+			Oiled: '''着火时受到更多伤害'''
+			Purged: '''闪避效果不会生效'''
+			Purified: '''你被净化了'''
+			ReverseManaFlow: '''你的魔法武器消耗生命而不是魔力'''
+			Rotting: '''你的身体逐渐衰弱'''
+			RushJob: '''护士现在还不能再次治疗你'''
+			Sadism: '''永恒模式的力量与你同在'''
+			Shadwoflame: '''流失生命'''
+			Smite: '''降低生命恢复速度，受到的伤害增加10%'''
+			SqueakyToy: '''你的攻击如同玩具一般作响！'''
+			Stunned: '''你头晕目眩，动弹不得'''
+			Swarming: '''蜂群正从四面八方向你发起进攻！'''
+			ThiefCD: '''你的物品现在不会再次被偷了'''
+			Unlucky: '''你感觉你现在相当倒霉'''
+			Unstable: '''现实似乎在排斥你'''
+
+			// == Minions ==
+			BigBrainMinion: '''克苏鲁的大脑将为你而战'''
+			BrainMinion: '''迷你克苏鲁之脑将为你而战'''
+			CrystalSkull: '''尖刻眼球将会保护你'''
+			EaterMinion: '''迷你世界吞噬者将为你而战'''
+			JungleMimicSummonBuff: '''丛林宝箱怪将为你而战'''
+			LunarCultist: '''拜月教徒将会保护你'''
+			MutantPower: '''突变之力与你同在'''
+			PlanterasChild: '''世纪之花的孩子将会保护你'''
+			Probes: '''探测器将会保护你'''
+			PungentEyeball: '''尖刻眼球将会保护你'''
+			RainbowSlime: '''彩虹史莱姆将会保护你'''
+			SaucerMinion: '''迷你飞碟将会保护你'''
+			SkeletronArms: '''骷髅王之手将会保护你'''
+			SouloftheMasochist: '''永恒模式的力量与你同在'''
+			TrueEyes: '''克苏鲁的几只眼睛将会保护你'''
+			TwinsEX: '''真正的双子魔眼将为你而战'''
+
+			// == Pets ==
+			AccursedSarcophagusBuff: '''它会把手拿开的'''
+			BabyAbomBuff: '''在镰刀上踢翻镰刀'''
+			BabySilhouetteBuff: '''见不到一点亮光，直到它成长完全'''
+			BiteSizeBaronBuff: '''不包括EX阶段'''
+			ChibiDeviBuff: '''她对“你”很感兴趣'''
+			MutantSpawnBuff: '''突变体的卵'''
+			SeekerOfTreasuresBuff: '''再给它几千年时间来长大'''
+
+			// == Souls ==
+			BrokenShell: '''暂时无法缩壳'''
+			CrimsonRegen: '''你正在自愈你上次的伤口'''
+			FirstStrike: '''你的下一次攻击将会得到增强'''
+			FossilReviveCD: '''你无法再次复活'''
+			Frozen: '''你无法移动'''
+			GoldenStasis: '''免疫所有伤害，但无法移动'''
+			GoldenStasisCD: '''你还不能进入金身'''
+			HallowCooldown: '''你的护盾现在无法反弹弹幕'''
+			HuntressCD: '''你现在无法触发另一次箭雨'''
+			MonkBuff: '''你的武僧冲刺已就绪'''
+			ObsidianLavaWetBuff: '''你的身上滴着熔岩'''
+			ShellHide: '''阻挡弹幕'''
+			SnowstormCD: '''你现在不能冻结一切'''
+			TimeFrozen: '''你停止了时间'''
+			TimeStopCD: '''你现在不能停止时间'''
+			VortexCD: '''你现在不能生成另一个星旋旋涡'''
+
+			// == Patreon ==
+			KingSlimeMinionBuff: '''迷你史莱姆王将会保护你'''
+			DukeFishronBuff: '''猪龙鱼公爵将为你而战'''
+			RoombaPetBuff: '''这个扫地机器人在跟着你'''
+			DoveBuff: '''一只鸽子在跟着你'''
+			ChibiiRemiiBuff: '''恶魔「蕾米莉亚·斯特睐赤」'''
+			PrimeMinionBuff: '''机械骷髅王将为你而战'''
+			FishMinionBuff: '''这些鱼将为你而战'''
+			CrimetroidBuff: '''宝宝血水母在跟着你'''
+		}
+
+		ProjectileName: {
+			AbomScytheFriendly: 憎恶镰刀
+			BeeDash: 冲刺
+			BetsyDash: 冲刺
+			CreeperHitbox: 飞眼怪
+			Explosion: 爆炸
+			ExplosionSmall: 爆炸
+			GalacticReformerProj: 核弹
+			GeyserFriendly: 喷泉
+			GiantDeathray: 幻影死亡射线
+			GlowLine: 预警光线
+			GlowRing: 预警光环
+			GlowRingHallow: 预警光环
+			GrazeRing: 擦弹光环
+			HostileLightning: 闪电弧
+			LightningArc: 闪电弧
+			LightningVortex: 星旋旋涡
+			LightningVortexHostile: 星旋旋涡
+			LihzahrdSpikyBallFriendly: 尖球
+			PhantasmalSphere: 幻影球
+			SpectralAbominationn: 幽灵憎恶
+			StyxArmorScythe: 冥河镰刀
+			StyxArmorScythe2: 冥河镰刀
+			StyxGazerArmor: 冥河凝视
+			UniversalCollapseProj: 核弹
+
+			// == AbomBoss ==
+			AbomBlast: 幻象爆炸
+			AbomBoss: 憎恶
+			AbomDeathray: 憎恶死亡射线
+			AbomDeathrayMark: 死亡射线
+			AbomDeathraySmall: 憎恶死亡射线
+			AbomDeathraySmall2: 死亡射线
+			AbomDeathScythe: 憎恶镰刀
+			AbomFlocko: 超级雪花怪
+			AbomFlocko2: 超级雪花怪
+			AbomFlocko3: 超级雪花怪
+			AbomFrostShard: 寒霜碎块
+			AbomFrostWave: 寒霜波
+			AbomLaser: 激光
+			AbomReticle: 憎恶瞄准点
+			AbomRitual: 憎恶结界
+			AbomRitual2: 憎恶结界
+			AbomRitualMaso: 憎恶结界
+			AbomRocket: 火箭
+			AbomScytheFlaming: 憎恶镰刀
+			AbomScytheSpin: 憎恶镰刀
+			AbomScytheSplit: 憎恶镰刀
+			AbomSickle: 憎恶镰刀
+			AbomSickle2: 憎恶镰刀
+			AbomSickle3: 憎恶镰刀
+			AbomSickleSplit1: 憎恶镰刀
+			AbomSickleSplit2: 憎恶镰刀
+			AbomStyxGazer: 冥河凝视
+			AbomSword: 冥河凝视之刃
+			AbomSwordHandle: 冥河凝视之刃
+
+			// == Ammos ===
+			FargoArrowProj: 混合之箭
+			FargoBulletProj: 混合子弹
+			
+			// == BossWeapons ==
+			BigSting22: 大螯刺工蜂
+			BigStinger: 大螯刺
+			BlenderOrbital: 绞肉机
+			BlenderPetal: 绞肉机
+			BlenderProj3: 绞肉机
+			BlenderYoyoProj: 绞肉机
+			Bonez: 骸骨
+			DarkStarFriendly: 暗星
+			DicerYoyo: 切肉机
+			DragonBreathProj: 巨龙之息
+			DragonFireball: 火球
+			DragonFireballBoom: 火球
+			DungeonGuardian: 地牢守卫
+			EaterRocket: 吞噬者火箭
+			EyeFireFriendly: 魔眼烈火
+			EyeProjectile: 眼球
+			FishNuke: 猪鲨核弹
+			FishNukeExplosion: 猪鲨核弹
+			FishStickProj: 鱼杖
+			FishStickShark: 鲨鱼
+			FleshLaser: 红色激光
+			GibExplosion: 爆炸
+			GolemGib: 石巨人碎片
+			GolemHeadProj: 石巨人头
+			HellBone: 地狱之骨
+			HellBonez: 地狱骸骨
+			HellFlame: 地狱烈焰
+			HellSkeletron: 地狱骷髅
+			HellSkull2: 地狱头骨
+			HentaiNuke: 幻象爆炸
+			HentaiSpear: 洞察者
+			HentaiSpearArc: 闪电弧
+			HentaiSpearBigDeathray: 幻影死亡射线
+			HentaiSpearDash: 洞察者
+			HentaiSpearDeathray: 幻影死亡射线
+			HentaiSpearDeathray2: 幻影死亡射线
+			HentaiSpearDive: 洞察者
+			HentaiSpearHeld: 洞察者
+			HentaiSpearSpin: 洞察者
+			HentaiSpearSpinBoundary: 洞察者
+			HentaiSpearSpinThrown: 洞察者
+			HentaiSpearThrown: 洞察者
+			HentaiSpearWand: 洞察者
+			HentaiSpearRing: 洞察者
+			Hungry: 饿鬼
+			Hungry2: 饿鬼
+			LeashFlail: 克苏鲁连枷
+			MechEyeProjectile: 机械眼球
+			MechFlail: 机械克苏鲁连枷
+			PhantasmalBlast: 幻象爆炸
+			PhantasmalBolt: 幻影矢
+			PhantasmalEyeBoundary: 幻影眼
+			PhantasmalEyeHoming: 幻影眼
+			PhantasmalEyeLeashProj: 幻影眼
+			PhantasmalFlail: 幻影克苏鲁连枷
+			PhantasmalSphere2: 幻影球
+			PrimeDeathray: 烈焰死亡射线
+			PrimeLaser: 机械激光
+			RazorbladeTyphoonFriendly: 利刃台风
+			RefractorBlaster2Held: 衍射暗星炮
+			RetiDeathray: 烈焰死亡射线
+			Retiglaive: 激光飞轮刃
+			Retirang: 激光回旋镖
+			SlimeBall: 粘液球
+			SlimeBallHoming: 粘液球
+			SlimeRainBall: 史莱姆雨
+			SlimeSpikeFriendly: 史莱姆尖刺
+			SmallStinger: 小刺
+			SparklingDevi: 戴薇安
+			SparklingLove: 闪闪发光的爱
+			SparklingLoveBig: 闪闪发光的爱
+			SparklingLoveDeathray: 爱之光
+			SparklingLoveDeathray2: 爱之光
+			SparklingLoveEnergyHeart: 能量爱心
+			SparklingLoveHeart: 友善爱心
+			SparklingLoveHeart2: 友善爱心
+			Spazmaglaive: 魔焰飞轮刃
+			SpazmaglaiveExplosion: 诅咒狱火
+			Spazmarang: 魔焰回旋镖
+			Stinger: 毒刺
+			StyxGazer: 冥河凝视
+			StyxGazerHandle: 冥河凝视
+			StyxScythe: 冥河镰刀
+			StyxSickle: 冥河镰刀
+			Whirlpool: 旋涡
+			WhirlpoolBase: 旋涡
+
+			// == ChallengerItems ==
+			Acorn: 橡实
+			RollingSnowball: 雪球
+			Sprout: 新芽
+			SproutingAcorn: 橡实
+			TheLightning: 闪电弧
+			TheLightningRodProj: 避雷针
+
+			// == Challengers ==
+			TrojanAcorn: 橡实
+			TrojanHook: 松鼠钩
+			TrojanSnowball: 雪球
+			TrojanSquirrelProj: 高顶礼帽松鼠
+
+			// == Champions ==
+			CactusMine: 仙人掌雷
+			ChampionBee: 蜜蜂
+			ChampionBeetle: 甲虫
+			CosmosBolt: 宇宙矢
+			CosmosDeathray: 宇宙死亡射线
+			CosmosDeathray2: 宇宙死亡射线
+			CosmosFireball: 宇宙火球
+			CosmicFireball2: 宇宙火球
+			CosmosGlowything: 宇宙入侵怪仆从
+			CosmosInvader: 宇宙入侵怪仆从
+			CosmosInvaderTime: 宇宙入侵怪仆从
+			CosmosLightning: 闪电弧
+			CosmosLightningOrb: 闪电珠
+			CosmosMeteor: 宇宙流星
+			CosmosMoon: 宇宙之月
+			CosmosNebulaBlaze: 星云烈焰
+			CosmosReticle: 宇宙瞄准点
+			CosmosRitual: 宇宙结界
+			CosmicSphere: 宇宙球
+			CosmosVortex: 星旋旋涡
+			CrystalBomb: 水晶炸弹
+			CrystalBombShard: 水晶碎块
+			EarthChainBlast: 连锁爆炸
+			EarthChainBlast2: 连锁爆炸
+			EarthGeyser: 喷泉
+			EatrhPalladOrb: 钯金治疗珠
+			FlowerPetal: 花瓣
+			LifeDeathray: 神圣死亡射线
+			LifeDeathray2: 神圣死亡射线
+			LifeDeathraySmall: 神圣死亡射线
+			LifeDeathraySmall2: 神圣死亡射线
+			LifeFireball: 火球
+			LifeRitual: 生命结界
+			NatureBullet: 自然子弹
+			NatureCloudMoving: 自然雨云
+			NatureCloudRaining: 自然雨云
+			NatureCrystalLeaf: 叶状水晶
+			NatureDeathray: 自然死亡射线
+			NatureDeathraySmall: 自然死亡射线
+			NatureExplosion: 自然爆炸
+			NatureFireball: 火球
+			NatureIcicle: 自然冰锥
+			NatureRain: 自然之雨
+			ShadowClone: 暗影英灵
+			ShadowDeathraySmall: 暗影死亡射线
+			ShadowFlameburst: 爆炸烈焰
+			ShadowFlamingScythe: 烈焰镰刀
+			ShadowGuardian: 地牢守卫
+			ShadowOrb: 暗影珠
+			SpiritCrossBone: 交叉骨头
+			SpiritCrossBoneReverse: 交叉骨头
+			SpiritHand: 心灵英灵之手
+			SpiritHeal: 幽魂珠
+			SpiritSpirit: 幽魂珠
+			SpiritSword: 心灵断钢剑
+			TerraFireball: 火球
+			TerraLightningOrb: 闪电珠
+			TerraLightningOrb2: 闪电珠
+			TerraLightningOrbDeathray: 闪电死亡射线
+			TimberAcorn: 橡实
+			TimberHook: 松鼠钩
+			TimberHook2: 松鼠钩
+			TimberJumpMark: 森林爆炸
+			TimberLaser: 激光
+			TimberLightningOrb: 闪电珠
+			TimerPalmTree: 棕榈树
+			TimberSnowball: 雪球
+			TimberSnowball2: 雪球
+			TimberTree: 树
+			TimberTreeAcorn: 橡实
+			WillBomb: 意志英灵炸弹
+			WillDeathray: 意志死亡射线
+			WillDeathray2: 意志死亡射线
+			WillDeathraySmall: 意志死亡射线
+			WillFireball: 火球
+			WireFireball2: 火球
+			WillJavelin: 标枪
+			WillJavelin2: 标枪
+			WillJavelin3: 标枪
+			WillRitual: 意志结界
+			WillShell: 意志外壳
+			WillTyphoon: 意志台风
+			
+			// == Critters ==
+			TopHatSquirrelLaser: 松鼠审判
+			TopHatSquirrelProj: 高顶礼帽松鼠
+
+			// == Deathrays ==
+			ChainDeathrayWOFS: 神圣死亡射线
+			CursedDeathrayWOFS: 诅咒死亡射线
+			DeerclopsDeathray: 冰冻光束
+			DeviBigDeathray: 爱之光
+			DeviDeathray: 爱之光
+			DeviDeathraySmall: 爱之光
+			DeviLightBeam: 光束
+			GolemBeam: 烈焰死亡射线
+			PhantasmalDeathray: 烈焰死亡射线
+			PhantasmalDeathrayML: 幻影死亡射线II型
+			PhantasmalDeathrayMLSmall: 幻影死亡射线II型
+			PhantasmalDeathrayWOF: 神圣死亡射线
+			PhantasmalDeathrayWOFS: 神圣死亡射线
+
+			// == DeviBoss ==
+			DeviAxe: 闪闪发光的爱
+			DeviBigMimic: 群系宝箱怪
+			DeviBoss: 戴薇安
+			DeviButterfly: 蛾
+			DeviEnergyHeart: 能量爱心
+			DeviGuardian: 宝宝守卫
+			DeviHammer: 圣骑士之锤
+			DeviHammerHeld: 圣骑士之锤
+			DeviHeart: 假心
+			DeviLightBall: 光球
+			DeviLightBall2: 光球
+			DeviLostSoul: 迷失灵魂
+			DeviMedusa: 美杜莎之头
+			DeviMimic: 宝箱怪
+			DeviRainHeart: 假心
+			DeviRainHeart2: 假心
+			DeviRingHeart: 能量爱心
+			DeviRitual: 戴薇安结界
+			DeviRitual2: 戴薇安结界
+			DeviSparklingLove: 闪闪发光的爱
+			DeviSparklingLoveSmall: 闪闪发光的爱
+			DeviVisualHeart: 假心
+
+			// == JungleMimic ==
+			AcornProjectile: 橡实
+			AcornProjectileExplosion: 橡实爆炸
+			JungleMimicSummon: 丛林宝箱怪
+			JungleMimicSummonCoin: 钱币
+			VineslingerBall: 藤蔓抛环
+			VineslingerProjectileFriendly: 活树叶
+
+			// == Masomode == 
+			AncientVision: 远古幻影妖
+			AncientVisionLunarCultist: 远古幻影妖
+			Bee: 蜜蜂
+			Beehive: 蜂巢
+			BetsyElectrosphere: 天龙之怒
+			BetsyElectrosphere2: 天龙之怒
+			BetsyFury: 天龙之怒
+			BetsyFury2: 天龙之怒
+			BetsyPhoenix: 幽灵凤凰
+			BigMimicExplosion: 爆炸
+			BloodFountain: 血喷泉
+			BloodScythe: 月之镰刀
+			BloodScytheFriendly: 血镰刀
+			Bloodshed: 血流
+			BloodThornMissile: 血荆棘
+			BrainIllusionProj: 克苏鲁之脑
+			BrainofConfusion: 混乱之脑
+			BubbleHostile: 泡泡
+			CelestialFragment: 天界碎片
+			CelestialPillar: 天界柱
+			CelestialRuneAncientVision: 远古幻影妖
+			CelestialRuneFireball: 火球
+			CelestialRuneIceMist: 冰雪雾
+			CelestialRuneIceSpike: 冰刺
+			CelestialRuneLightningArc: 闪电弧
+			ClingerFlame: 诅咒焰
+			ClownBomb: 小丑炸弹
+			CrystalLeafShot: 叶状水晶
+			CultistArrow: 教徒之箭
+			CultistFireball: 火球
+			CultistRitual: 教徒仪式
+			CultistVortex: 星旋旋涡
+			CursedFireballHoming: 诅咒焰
+			CursedFlameHostile2: 诅咒焰
+			CursedFlamethrower: 魔眼烈火
+			DarkStar: 暗星
+			DarkStarDestroyer: 暗星
+			DarkStarHoming: 暗星
+			DarkStarTwins: 暗星
+			DeathSkull: 死亡标记头骨
+			DeerclopsHand: 暗影之手
+			DestroyerLaser: 死亡激光
+			DrakanianDaybreak: 破晓之光
+			ElfArcherArrow: 霜冻箭
+			ElfCopterBullet: 爆炸子弹
+			ElfCopterBulletExplosion: 爆炸子弹
+			EyeBeam2: 魔眼光束
+			EyeFire2: 魔眼烈火
+			FakeHeart: 假心
+			FakeHeart2: 假心
+			FishronBubble: 爆炸泡泡
+			FishronFishron: 幽灵猪龙鱼
+			FishronRitual: 海洋仪式
+			FishronRitual2: 海洋仪式
+			FlamingJack: 烈焰杰克南瓜
+			FragmentRitual: 月亮仪式
+			FriendHeart: 友善爱心
+			FrostFireball: 霜火球
+			FrostfireballHostile: 霜火球
+			FuseBomb: 导火线炸弹
+			FusedExplosion: 导火线爆炸
+			GelicWingSpike: 水晶尖刺
+			GoblinSpikyBall: 尖球
+			GoldenShowerHoming: 黄金雨
+			GoldenShowerWOF: 黄金雨
+			GolemBoulder: 巨石
+			GolemDeathraySmall: 烈焰死亡射线
+			GolemFireball: 火球
+			GolemGeyser: 喷泉
+			GolemGeyser2: 喷泉
+			GolemSpikeBallBig: 尖球
+			GolemSpikyBall: 尖球
+			GuardianDeathraySmall: 暗影死亡射线
+			HoneyDrop: 蜂蜜滴
+			HorsemansBlade: 无头骑士剑
+			HostileHealingHeart: 敌方治疗爱心
+			JungleTentacle: 丛林触手
+			LightBall: 光球
+			LihzahrdBoulderFriendly: 巨石
+			LunarRitual: 月亮仪式
+			MimicCoin: 钱币
+			MoonLordFireball: 火球
+			MoonLordMoon: 月亮
+			MoonLordMoonBlast: 月光爆炸
+			MoonLordNebulaBlaze: 星云烈焰
+			MoonLordNebulaBlaze2: 星云烈焰
+			MoonLordSun: 太阳
+			MoonLordSunBlast: 太阳爆炸
+			MoonLordVortex: 星旋旋涡
+			MoonLordVortexOld: 星旋旋涡
+			MothDust: 蛾尘
+			MothronZenith: 天顶剑
+			PhantasmalBolt2: 幻影矢
+			PhantasmalSphereDeathray: 幻影死亡射线
+			PhantasmalSphereRing: 幻影球
+			PlanteraCrystalLeafRing: 叶状水晶
+			PlanteraTentacle: 植物触手
+			PrimeGuardian: 机械地牢守卫
+			PrimeTrail: 轨迹
+			PumpkingFlamingScythe: 烈焰镰刀
+			QueenFlocko: 超级雪花怪
+			RainbowSlimeSpike: 彩虹史莱姆尖刺
+			RazorbladeTyphoon: 利刃台风
+			RazorbladeTyphoon2: 利刃台风
+			ShadowflamePortal: 暗影焰传送门
+			ShadowflameTentacle: 暗影焰触手
+			SkeletonArcherArrow: 毒液箭
+			SkeletronBone: 骨头
+			SkeletronGuardian: 宝宝守卫
+			SkeletronGuardian2: 宝宝守卫
+			SlimeBallHostile: 粘液球
+			SlimeSpike: 史莱姆尖刺
+			SlimeSpike2: 史莱姆尖刺
+			SniperBullet: 高速水晶子弹
+			SniperBulletShard: 高速水晶子弹
+			StardustRain: 宇宙入侵怪仆从
+			TargetingReticle: 瞄准点
+			TorchGodFlame: 火把神
+			VenomSpit: 毒唾沫
+			VultureFeather: 秃鹰羽毛
+			WOFBlast: 神圣爆炸
+			WOFChain: 饿鬼
+			WOFReticle: 血肉墙瞄准点
+
+			// == Minions ==
+			AbomMinion: 憎恶
+			AbomMinionScythe: 憎恶镰刀
+			AbomMinionSickle: 憎恶镰刀
+			BigBrainIllusion: 克苏鲁大脑
+			BigBrainProj: 克苏鲁大脑
+			BrainMinion: 克苏鲁之脑
+			CreeperMinion: 飞眼怪
+			CrystalSkull: 水晶头骨
+			DarkStarHomingFriendly: 暗星
+			DestroyerBody: 毁灭者身体
+			DestroyerBody2: 毁灭者身体
+			DestroyerHead: 毁灭者头
+			DestroyerHead2: 毁灭者头
+			DestroyerTail: 毁灭者尾
+			DestroyerTail2: 毁灭者尾
+			EaterBody: 吞噬者身体
+			EaterHead: 吞噬者头
+			EaterTail: 吞噬者尾
+			EridanusBullet: 厄里达诺斯之能量弹
+			EridanusDeathray: 厄里达诺斯之死亡射线
+			EridanusFist: 厄里达诺斯之拳
+			EridanusMinion: 厄里达诺斯
+			EridanusRitual: 月之仪式
+			FlameburstMinion: 爆炸烈焰仆从
+			FriendRay: 爱心射线
+			HallowSword: 泰拉棱镜
+			KamikazeSquirrel: 神风松鼠
+			LunarCultist: 拜月教邪教徒
+			LunarCultistFireball: 火球
+			LunarCultistIceMist: 冰雪雾
+			LunarCultistIceSpike: 冰雪尖刺
+			LunarCultistLight: 远古光明妖
+			LunarCultistLightningArc: 闪电珠弧
+			LunarCultistLightningOrb: 闪电珠
+			MiniSaucer: 迷你飞碟
+			NekomiAxe: 闪闪发光的爱
+			NekomiDevi: 戴薇安
+			NekomiRitual: 猫猫睡衣仪式
+			OpticFlame: 魔眼烈火
+			OpticLaser: 死亡激光
+			OpticRetinazer: 激光眼
+			OpticSpazmatism: 魔焰眼
+			PalmTreeSentry: 棕榈树
+			PhantasmalBoltTrueEye: 幻影矢
+			PhantasmalDeathrayPungent: 神圣死亡射线
+			PhantasmalDeathrayTrueEye: 幻影死亡射线
+			PhantasmalRing: 幻影之环
+			PhantasmalRing2: 幻影之环
+			PhantasmalSphereTrueEye: 幻影球
+			PlanterasChild: 世纪之花的孩子
+			PoisonSeedPlanterasChild: 毒种子
+			Probe1: 探测怪
+			Probe2: 探测怪
+			ProbeLaser: 迷你激光
+			PungentEyeball: 尖刻眼球
+			RainbowSlime: 彩虹史莱姆宝宝
+			RainbowSlimeSpikeFriendly: 彩虹史莱姆尖刺
+			RingDeathray: 幻影死亡射线
+			SaucerDeathray: 飞碟死亡射线
+			SaucerLaser: 激光
+			SaucerRocket: 火箭
+			SeedPlanterasChild: 种子
+			ShadowflamesFriendly: 暗影焰
+			SilverSword: 银剑
+			SkeletronArmL: 骷髅王之手
+			SkeletronArmR: 骷髅王之手
+			SpikyBallPlanterasChild: 刺球
+			TrueEyeL: 克苏鲁真眼
+			TrueEyeR: 克苏鲁真眼
+			TrueEyeS: 克苏鲁真眼
+
+			// == MutantBoss ==
+			BossRush: 突变结界
+			MutantBomb: 幻象爆炸
+			MutantBombSmall: 幻象爆炸
+			MutantBoss: 突变体
+			MutantCrystalLeaf: 叶状水晶
+			MutantDeathray1: 幻影死亡射线
+			MutantDeathray2: 幻影死亡射线
+			MutantDeathray3: 烈焰死亡射线
+			MutantDeathrayAim: 幻影死亡射线
+			MutantDeathraySmall: 幻影死亡射线
+			MutantDestroyerBody: 毁灭者
+			MutantDestroyerHead: 毁灭者
+			MutantDestroyerTail: 毁灭者
+			MutantEye: 幻影眼
+			MutantEyeHoming: 幻影眼
+			MutantEyeOfCthulhu: 克苏鲁之眼
+			MutantEyeWavy: 幻影眼
+			MutantFishron: 幽灵猪龙鱼
+			MutantFishronRitual: 猪鲨核弹
+			MutantFragment: 天界碎片
+			MutantGiantDeathray2: 幻影死亡射线
+			MutantGlowything: 魔眼激光预警
+			MutantGuardian: 机械骷髅王
+			MutantHeal: 突变治疗
+			MutantMark1: 幻影球
+			MutantMark2: 叶状水晶
+			MutantNuke: 猪鲨核弹
+			MutantPillar: 天界柱
+			MutantReticle: 突变瞄准点
+			MutantReticle2: 突变瞄准点
+			MutantRetirang: 激光回旋镖
+			MutantRitual: 突变结界
+			MutantRitual2: 突变结界
+			MutantRitual3: 突变结界
+			MutantRitual4: 突变结界
+			MutantRitual5: 突变结界
+			MutantScythe1: 突变镰刀
+			MutantScythe2: 突变镰刀
+			MutantSlimeBall: 史莱姆雨
+			MutantSlimeBall2: 史莱姆雨
+			MutantSlimeRain: 史莱姆雨
+			MutantSpazmarang: 魔焰回旋镖
+			MutantSpearAim: 洞察者
+			MutantSpearDash: 洞察者
+			MutantSpearMagical: 洞察者
+			MutantSpearSpin: 洞察者
+			MutantSpearThrown: 洞察者
+			MutantSpearThrownFriendly: 洞察者
+			MutantSphereRing: 幻影球
+			MutantSphereSmall: 幻影球
+			MutantSword: 幻影球
+			MutantTrueEyeDeathray: 幻影死亡射线
+			MutantTrueEyeL: 突变真眼
+			MutantTrueEyeR: 突变真眼
+			MutantTrueEyeS: 突变真眼
+			MutantTrueEyeSphere: 幻影球
+			MutantTyphoon: 利刃台风
+
+			// == Pets ==
+			AccursedSarcophagus: 被诅咒的石棺
+			BabyAbom: 憎恶宝宝
+			BabySilhouette: 黑雾宝宝
+			BiteSizeBaron: 小小公爵
+			ChibiDevi: 小不点德薇
+			MutantSpawn: 突变体的卵
+			SeekerOfTreasures: 宝藏探索者
+
+			// == Souls ==
+			ArrowRain: 箭雨
+			CactusNeedle: 仙人掌刺
+			Chlorofuck: 叶绿水晶
+			CobaltExplosion: 爆炸
+			CopperLightning: 闪电弧
+			DungeonGuardianNecro: 地牢守卫
+			ForbiddenTornado: 禁戒风暴
+			FossilBone: 化石骨头
+			FrostIcicle: 寒霜冰锥
+			GladiatorJavelin: 标枪
+			GoldShellProj: 黄金壳
+			GrowingPumpkin: 南瓜
+			IronParry: 铁魔石格挡
+			MegaFlameburst: 超级爆炸烈焰
+			NecroGrave: 死灵骨堆
+			PalladOrb: 钯金治疗珠
+			PumpkinFlame: 火焰
+			RainCloud: 雨云
+			ShadowBall: 暗影球
+			ShadowEnchantOrb: 暗影珠
+			ShroomiteShroom: 蘑菇
+			Snowstorm: 暴雪
+			SpookyScythe: 镰刀
+			StardustKnife: 星尘飞刀
+			SuperBlood: 大出血
+			TitaniumShard: 钛金碎片
+			TurtleShield: 龟壳
+			Void: 虚空
 		}
 
 		Message: {
@@ -116,6 +1044,7 @@ Mods: {
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss}{$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "突变体的兄弟死了，突变体被激怒了！"
+			AbominationnVoodooDollFail: "娃娃传送回了你的手中。也许不应该在地下使用它..."
 			
 			SigilOfChampions: {
 				Timber: 林叶沙沙，环绕四周……
@@ -138,8 +1067,9 @@ Mods: {
 
 			MasochistSpawnDevi: 戴薇安已苏醒！
 			MasochistWrongDifficulty: 世界必须是专家模式或更高难度！
-			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist}随着新涌现的能量而波动……"
+			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist}随着新涌现的能量而波动……！"
 			MasochistPreTooltip: 使用以在大师模式下开启受虐模式
+			ForgottenGift: '''目前世界的受虐模式开关状态：'''
 
 			FargoSoulsWorld: {
 				EternityOn: 永恒模式已开启！
@@ -147,7 +1077,7 @@ Mods: {
 				EternityWrongDifficulty: 世界难度过低，永恒模式已关闭！
 				
 				MasochistOn: 大师和永恒模式结合：受虐模式已开启！！
-				MasochistOff: 受虐模式已关闭！
+				MasochistOff: 受虐模式已关闭。
 
 				BloodMoonCancel: 血月改变了主意，溜了溜了……
 			}
@@ -157,8 +1087,8 @@ Mods: {
 			MutantSpawnMutantBoss: "{$Mods.FargowiltasSouls.Message.MutantsCurse}"
 			MutantSpawnNotSafe: 你以为你安全了？
 
-			OceanicMaulLifeUp: 增加5点最大生命值
-			OceanicMaulLifeDown: 减少5点最大生命值
+			OceanicMaulLifeUp: +5最大生命值
+			OceanicMaulLifeDown: -5最大生命值
 
 			ItemStolen: 你有东西被偷了！
 
@@ -174,12 +1104,12 @@ Mods: {
 				Accept1: 再说一次，这是一“大”笔钱……
 				Accept2: 但我大哥说不应该这么做！怎么办，怎么办……？
 				Accept3: 啊，什么鬼！不管了！但这是我们的小秘密，好吗？
-				Reject1: 如果你证明过你足够强，那我不会介意，但你根本没有！
+				Reject1: 如果你证明过你足够强，那我不会介意收下它们……但你根本没有！
 				Reject2: 这，拿着你的钱走。
-				Reject3: 让我们回到正轨吧！
+				Reject3: 让我们回到战斗中吧！
 			}
 
-			IvyVenomTransform: 你身上的常春藤毒素让转变为了神经毒素！！
+			IvyVenomTransform: 你身上的常春藤毒素转变为了神经毒素！！
 
 			LihzahrdBlessing: 丛林蜥蜴祭坛发出的光芒照耀在你身上！
 
@@ -187,15 +1117,113 @@ Mods: {
 			PatreonItem: ">> 捐赠者物品 <<"
 			PatreonNameEffect: 你的特殊捐赠者效果已激活！
 
-			SkeletronRegrow: 的手臂又长出来了！
-			SkeletronGuardian: 进入了地牢守卫阶段！
+			SkeletronRegrow: "{$NPCName.SkeletronHead}的手臂又长出来了！"
+			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime}的手臂又长出来了！"
+			SkeletronGuardian: "{$NPCName.SkeletronHead}进入了地牢守卫阶段！"
+			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime}进入了地牢守卫阶段！"
 			TwinsEndure: 挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-			GelatinSubjects: 圣凝史莱姆
+			TwinsRevive: 复活了！
+			GelatinSubjects: 圣凝史莱姆已苏醒！
+			RoyalSubject: 皇家工蜂已苏醒！
+
+			MoonsDeathPenalty: 事件回溯，波数倒退！
+		}
+
+		DeathMessage: {
+			Rotting: 烂了。
+			Infested: 控制不住感染。
+			Anticoagulation: 出血过多。
+			DivineWrath: 湮灭于神明的忿怒中。
+			Shadowflame: 被暗影焰包裹着，控制不住火势。
+			NanoInjection: 被纳米机器人从内部吞噬。
+		}
+
+		DeviChatter: {
+			Spawn1: 嘿！介意我一起来吗？
+			Spawn2: 我会成为照亮你前路的一道光！
+			Spawn3: 开始下一个大冒险！
+			Spawn4: 你得好好照顾我！
+			Spawn5: Hello world！
+			Spawn6: 咱开始调查了！
+			Spawn7: 带路！
+
+			Respawn1: 不会再这样挂掉了。
+			Respawn2: 该回到正轨了！
+			Respawn3: 深呼吸。我们会赢的！
+			Respawn4: 要让我们绝望……这远远不够！
+			Respawn5: 让我们看看我们能做些什么！
+			Respawn6: 我们能行的！
+			Respawn7: 休息一分钟放松一下怎么样？这没有坏处！
+
+			Idle1: 我们会肝完所有要用的东西的！
+			Idle2: 战斗、鲜血、金钱——没有什么比这更好的了，对吗？
+			Idle3: 请记住，我不是紧急食物。
+			Idle4: 你试过用爆炸手里剑来挖矿吗？嘿嘿……
+			Idle5: 我们应该统治世界！开个玩笑，是统治大半个世界。
+			Idle6: 我想看到你杀死更多的东西！
+			Idle7: 好奇怪，为什么我是一个照明宠物……
+			Idle8: 没活了？给大家表演一个……啊你没活整的话那就去刷点怪。
+			Idle9: 我敢打赌，你还没发现某些能提高游戏质量的小办法。快去找找。
+			Idle10: 我能玩玩你那些饰品效果设置吗？
+			Idle11: 一个有趣的事实：我的真名是……秘密！诶嘿抓住你了！
+			Idle12: 无论你去哪里，我都会跟着你！
+
+			Sleep1: 困惹……
+			Sleep2: 晚安捏……
+			Sleep3: 我要小睡一会儿……
+			Sleep4: 需要充电……
+			Sleep5: 要打架的时候叫我……
+
+			Wake1: 我错过了什么？
+			Wake2: 早！
+			Wake3: 是时候了，好戏开始了。
+			Wake4: 芜湖，睡醒起床！
+			Wake5: 我醒了！把钱给我！
+
+			ProjDeath1: 不！别把我塞回到帽子里！
+			ProjDeath2: 但我还有好多东西没探索过……
+			ProjDeath3: 啊你好黑暗，我的老朋友……
+			ProjDeath4: 请别把我搁到一边！我啥都能做！
+
+			PlayerDeath1: 你能做到的！你可以——啊这。
+			PlayerDeath2: 我们会让你为此付出代价！
+			PlayerDeath3: 不！！！！！
+			PlayerDeath4: 那东西是从哪儿来的？！这不公平！
+			PlayerDeath5: 该死！下次橄榄它。
+			PlayerDeath6: 啥？！这不可能！
+			PlayerDeath7: 好吧，安慰你一下。
+
+			BossAlmostDead1: 就快了！
+			BossAlmostDead2: 你做到了！
+			BossAlmostDead3: 现在是最后冲刺了！
+			BossAlmostDead4: 再来一点点！
+			BossAlmostDead5: 把它们干掉！
+			BossAlmostDead6: 我们的机会！
+
+			KillBoss1: 这仗打得真有趣！谁是下一个？
+			KillBoss2: 没有什么比胜利更爽了！
+			KillBoss3: 再来一次！再来一次！
+			KillBoss4: 血祭血神！
+			KillBoss5: Devi gaming。
+			KillBoss6: YATTA！呃等等你啥都没听到
+			KillBoss7: 是啊！这就是我一直在等待的！这就是一切！
+
+			BossSpawn1: 你能行的！
+			BossSpawn2: 它们来了！
+			BossSpawn3: 加油！冲啊！
+			BossSpawn4: 来吧！
+			BossSpawn5: 战胜它们！
+			BossSpawn6: 尽力而为！
+			BossSpawn7: 碾碎他们！
+			BossSpawn8: 开冲！
+
+			Count1: 嘘……你能听到我说话吗？这是一个秘密消息！嗨！
 		}
 
 		Config: {
 			HideToggler: 只在开启物品栏时，才会显示饰品效果菜单
 			HideTogglerDescription: 如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏
+			DeviChatter: 迷你戴薇安会和你聊天
 			MasoHeader: 永恒模式
 			MasoBossRecolors: Boss贴图替换
 			OncomingMutantX: 永恒模式图标水平位置
@@ -216,8 +1244,8 @@ Mods: {
 
 			EarthHeader: "{$Mods.FargowiltasSouls.ItemName.EarthForce}"
 			AdamantiteConfig: 精金 弹幕分裂
-			CobaltConfig: 钴蓝 碎片
-			AncientCobaltConfig: 远古钴蓝 毒刺
+			CobaltConfig: 钴蓝 受击爆炸
+			AncientCobaltConfig: 远古钴蓝 爆炸跳跃
 			MythrilConfig: 秘银 速度加成
 			OrichalcumConfig: 山铜 花瓣
 			PalladiumConfig: 钯金 生命恢复
@@ -231,13 +1259,14 @@ Mods: {
 			TinConfig: 锡 暴击
 			TungstenConfig: 钨 物品变大
 			TungstenProjConfig: 钨 弹幕变大
-			ObsidianConfig: 黑曜石 未完成（记得提醒棱镜修改）
+			ObsidianConfig: 黑曜石 爆炸
 
 			WillHeader: "{$Mods.FargowiltasSouls.ItemName.WillForce}"
 			GladiatorConfig: 角斗士 长矛雨
 			GoldConfig: 金 幸运币
 			GoldToPiggyConfig: 金 自动将钱存进储蓄罐
-			HuntressConfig: 女猎人 相关效果 未完成（记得提醒棱镜修改）
+			HuntressConfig: 女猎人 相关效果
+			RedRidingRainConfig: 红色骑术 箭雨
 			ValhallaConfig: 侍卫/英灵殿骑士 治疗提升
 			SquirePanicConfig: “弩车恐慌！”效果
 
@@ -253,12 +1282,12 @@ Mods: {
 			ChlorophyteConfig: 叶绿 水晶
 			CrimsonConfig: 猩红 生命恢复
 			RainConfig: 雨云 相关效果
+			RainInnerTubeConfig: 游泳圈效果
 			FrostConfig: 寒霜 冰锥
-			SnowConfig: 冰雪 暴雪领域
 			JungleConfig: 丛林 跳跃孢子
 			JungleDashConfig: 丛林 冲刺
 			MoltenConfig: 熔岩 狱火增益
-			MoltenEConfig: 熔岩 受击爆炸
+			MoltenEConfig: 熔岩 受击爆炸（现效果被移动到钴蓝魔石）
 			ShroomiteConfig: 蘑菇 潜行
 			ShroomiteShroomConfig: 蘑菇 蘑菇尾迹
 
@@ -273,6 +1302,8 @@ Mods: {
 			ShinobiDashConfig: 渗透忍者 传送冲刺
 			ShinobiConfig: 渗透忍者 穿墙冲刺
 			SpookyConfig: 阴森 镰刀攻击
+			CrystalDashConfig: 水晶刺客冲刺
+			CrystalGelatinConfig: 挥发明胶效果
 
 			SpiritHeader: "{$Mods.FargowiltasSouls.ItemName.SpiritForce}"
 			FossilConfig: 化石 受击释放骨头
@@ -314,22 +1345,25 @@ Mods: {
 			MasoSlimeConfig: 凝胶球
 			SlimeFallingConfig: 提高下落速度
 			MasoEyeConfig: 鲜血镰刀
-			MasoHoneyConfig: 蜂蜜喷溅
+			MasoEyeInstallConfig: 狂暴负载
 			MasoSkeleConfig: 骷髅王手臂
+			MasoSkeleSpinConfig: 骷髅王旋转冲刺
 
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: 蒂姆的秘药
 			MasoCarrotConfig: 狙击镜效果
 			MasoRainbowConfig: 彩虹史莱姆仆从
-			MasoFrigidConfig: 霜火球
+			MasoHealingPotionConfig: 自动使用治疗药水
 			MasoNymphConfig: 攻击生成心
 			MasoSqueakConfig: 击中发出吱吱声
-			MasoPouchConfig: 暗影焰触手
+			MasoPouchConfig: 更强更慢的暗影焰攻击
 			MasoClippedConfig: 造成折翼减益
 			TribalCharmConfig: 武器自动攻击
+			TribalCharmClickBonusConfig: 部落挂坠点击加成
 
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
-			MasoLightningConfig: 造成避雷针减益
+			FusedLensInstallConfig: 双子负载
+			MasoLightningConfig: 受击超级充能
 			MasoProbeConfig: 探测器仆从
 
 			PureHeartHeader: "{$Mods.FargowiltasSouls.ItemName.PureHeart}"
@@ -337,6 +1371,7 @@ Mods: {
 			MasoBrainConfig: 飞眼怪
 
 			LumpofFleshHeader: "{$Mods.FargowiltasSouls.ItemName.LumpOfFlesh}"
+			MasoPungentCursorConfig: 易伤区域光标
 			MasoPugentConfig: 眼球仆从
 			DeerclawpsConfig: 冲刺留下冰刺
 			DreadShellParryConfig: 恐惧螺壳格挡
@@ -344,15 +1379,14 @@ Mods: {
 			ChaliceHeader: "{$Mods.FargowiltasSouls.ItemName.ChaliceoftheMoon}"
 			MasoCultistConfig: 拜月教徒仆从
 			MasoPlantConfig: 世纪之花仆从
-			MasoGolemConfig: 下落坠地火焰
-			MasoBoulderConfig: 落地巨石
+			MasoGolemConfig: 蜥蜴快速下落
+			MasoBoulderConfig: 下落坠地火焰
 			MasoCelestConfig: 天界符文额外攻击
 			MasoVisionConfig: 受伤释放远古幻影妖
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
-			MasoPumpConfig: 南瓜王披肩效果
+			MasoPumpConfig: 南瓜王披肩格挡
 			IceQueensCrownConfig: 受击时冻住敌人
-			MasoFlockoConfig: 超级雪花仆从
 			MasoUfoConfig: 迷你飞碟仆从
 			MasoGravConfig: 重力控制
 			MasoGrav2Config: 重力稳定
@@ -364,7 +1398,7 @@ Mods: {
 			MutantArmorHeader: 真·突变体套装
 			MasoAbomConfig: 幽灵憎恶
 			MasoRingConfig: 幻影球仆从
-			MasoReviveDeathrayConfig: 复活死光
+			MasoReviveDeathrayConfig: 复活死亡射线
 
 
 			UniverseHeader: "{$Mods.FargowiltasSouls.ItemName.UniverseSoul}"
@@ -391,6 +1425,7 @@ Mods: {
 			DefensePanicConfig: 受伤获得恐慌效果
 			DefenseFleshKnuckleConfig: 血肉指虎仇恨
 			DefensePaladinConfig: 圣骑士护盾
+			DefenseFrozenConfig: 冰冻海龟壳
 
 			FlightMasteryHeader: "{$Mods.FargowiltasSouls.ItemName.FlightMasterySoul}"
 			FlightMasteryInsigniaConfig: 翱翔徽章加速
@@ -404,7 +1439,7 @@ Mods: {
 			SupersonicConfig: 超音速之魂速度提升
 			SupersonicJumpsConfig: 超音速之魂五段跳
 			SupersonicRocketBootsConfig: 超音速之魂火箭靴
-			SupersonicCarpetConfig: 超音速之魂火箭靴
+			SupersonicCarpetConfig: 超音速之魂飞毯
 			SupersonicFlowerConfig: 超音速之魂花靴
 			CthulhuShieldConfig: 克苏鲁护盾
 			BlackBeltConfig: 黑腰带闪避
@@ -469,23 +1504,592 @@ Mods: {
 			PatreonCrimetroid: 血水母的蛋
 		}
 
-        UI: {
-            SoulTogglerButton: 设置饰品效果
-            EternityEnabled: 永恒模式已开启
-            MasochistEnabled: 受虐模式已开启
-        }
+		UI: {
+			SoulTogglerButton: 设置饰品效果
+			EternityEnabled: 永恒模式已开启
+			MasochistEnabled: 受虐模式已开启
+			}
 
-        ItemExtra: {
-            WoodenDiscount: 当前折扣：{0}%
-            WoodenTooltip: “卑微的开始……”
+		ItemExtra: {
+			WoodenDiscount: 当前折扣：{0}%
+			WoodenTooltip: “卑微的开始……”
 
-            TinCritUp: +5%暴击率
-            TinCritReset: -{0}%暴击率
-        }
+			TinCritUp: +5%暴击率
+			TinCritReset: -{0}%暴击率
+
+			EternitySoul: {
+				Additional: 额外加成：
+
+				Vanilla:
+					'''
+					增加250%伤害
+					增加250%攻击速度
+					增加100%射击速度
+					增加100%击退
+					增加50点护甲穿透
+					暴击伤害×10
+					大幅增加生命恢复速度
+					你的最大魔力值增加至999
+					增加30个召唤栏位
+					增加20个哨兵栏位
+					增加50%最大生命值
+					魔力消耗减少50%
+					所有的攻击都会造成宇宙之火减益
+					所有的攻击都会造成至尊永恒减益
+					所有的攻击都会造成迈达斯减益
+					所有的攻击都会减少敌怪无敌帧
+					在你周围召唤火球
+					在你周围召唤暗影珠
+					在你周围召唤冰锥
+					在你周围召唤叶状水晶
+					在你周围召唤神圣剑和神圣盾
+					召唤甲虫保护你
+					召唤爆炸烈焰哨兵
+					召唤亿点宠物
+					召唤所有可以召唤的永恒Boss为你而战
+					攻击有几率召唤闪电
+					攻击有几率召唤花瓣
+					攻击有几率召唤幽灵珠
+					攻击有几率召唤地牢守卫
+					攻击有几率召唤雪球
+					攻击有几率召唤长矛
+					攻击有几率召唤心
+					攻击有几率召唤迷你雨云
+					攻击有几率召唤强化焰
+					击中敌人能提高生命恢复速度
+					击中敌人能获得暗影闪避增益
+					攻击会额外发射爆炸火焰
+					攻击会额外发射南瓜弹幕
+					攻击会额外发射拜月教徒的弹幕
+					攻击会召唤陨石雨
+					所有的弹幕都会分裂
+					所有的弹幕都可能碎裂
+					所有的弹幕都会召唤星星
+					增加物品和弹幕的尺寸
+					你的身后会留下一条火痕
+					引燃你附近的敌人
+					仆从会释放镰刀
+					召唤栏位用光后你仍可以召唤临时的哨兵和仆从
+					将某些小动物转化为武器
+					敌人死亡时会爆裂出针刺
+					大幅强化旧日军团的塔防哨兵
+					双击“下”键以召唤一个棕榈树哨兵
+					双击“下”键以召唤一个远古风暴
+					双击“下”键后令箭雨倾泄在光标位置
+					双击“下”键切换至隐形模式
+					双击“下”键以生成一个旋涡
+					双击“下”键将你的守卫引至光标位置
+					右键进行盾牌格挡
+					按下"金身"键会将你包裹在一个黄金壳中
+					按下"冻结"键后会冻结时间9秒
+					允许你使用日耀护盾进行冲刺
+					朝墙壁冲刺时会直接穿过去
+					你可以扔出烟雾弹、传送至烟雾弹的位置获得先发制人增益
+					跳跃时你周围会不断生成孢子
+					太靠近敌怪时会激活所有受击效果
+					被攻击时会反弹伤害
+					被攻击时会喷出血液
+					被攻击时有可能发出吱吱声
+					被攻击时你会释放出尖钉球
+					被攻击时你会释放远古幻影妖
+					获得猩红恢复效果
+					免疫火块
+					免疫摔落伤害
+					免疫岩浆
+					免疫击退
+					免疫大多数减益
+					药草收获翻倍
+					普通蜜蜂有50%几率变成超级蜜蜂
+					仆从和哨兵有30%基础暴击率
+					敌人死亡时有20%几率掉落更多战利品
+					你能超音速奔跑
+					你能无限飞行
+					大大增加渔力
+					所有的钓竿都会额外抛出10根鱼线
+					重生速度×10
+					阻止Boss自然生成
+					提高刷怪速率
+					所有武器能够自动攻击
+					你能控制重力
+					你能快速下落
+					增强钩爪
+					扩大你的拾取范围
+					物块和墙壁的放置速度增加50%
+					放置物块时不会消耗物块
+					获得近乎无限的放置和挖掘距离
+					大大提高挖掘速度
+					你能反弹所有弹幕
+					你受到伤害时会发生剧烈爆炸并伤害附近的敌人
+					受到致死伤害时会以满生命值重生
+					拥有烈火手套的效果
+					拥有悠悠球袋的效果
+					拥有狙击镜的效果
+					拥有天界手铐的效果
+					拥有魔力花的效果
+					拥有混乱之脑的效果
+					拥有星星面纱的效果
+					拥有甜心项链的效果
+					拥有蜜蜂斗篷的效果
+					拥有孢子囊的效果
+					拥有圣骑士护盾的效果
+					拥有冰冻海龟壳效果
+					拥有北极潜水装备的效果
+					拥有蛙腿的效果
+					拥有飞毯的效果
+					拥有熔岩靴的效果
+					拥有渔夫渔具袋的效果
+					拥有喷漆器的效果
+					拥有自动安放器的效果
+					拥有手机的效果
+					拥有花靴的效果
+					拥有忍者大师装备的效果
+					拥有贪婪戒指效果
+					拥有天界壳的效果
+					拥有闪亮石的效果
+					拥有洞穴探险增益效果
+					拥有危险感增益效果
+					拥有狩猎增益效果
+					拥有光芒增益效果
+					你能够开启“建筑师模式”
+					按下“减益负载”键对自己造成减益并加强自己
+					按下“魔法净化”键治愈你身上绝大多数的减益
+					按下“寒霜咒语”键放置冰雪魔杖之冰
+					待更新
+					'''
+
+				Thorium:
+					'''
+					拥有生命木套装的套装效果
+					拥有树人套装的套装效果
+					拥有紫衫木套装的套装效果
+					拥有猎潮者套装的套装效果
+					拥有碎冰套装的套装效果
+					拥有极寒巫师套装的套装效果
+					拥有低语者套装的套装效果
+					拥有崇圣套装的套装效果
+					拥有术士套装的套装效果
+					拥有生物工程套装的套装效果
+					拥有赛博朋克套装的套装效果
+					拥有大师套装的套装效果
+					拥有青铜套装的套装效果
+					拥有暗金骑士套装的套装效果
+					拥有耐钢套装的套装效果
+					拥有电容套装的套装效果
+					拥有地脉石套装的套装效果
+					拥有荧光套装的套装效果
+					拥有弄臣套装的套装效果
+					拥有瑟银套装的套装效果
+					拥有元素之灵套装的套装效果
+					拥有恶毒套装的套装效果
+					拥有弗之套装的套装效果
+					拥有白矮星套装的套装效果
+					拥有天界套装的套装效果
+					拥有猎魂者套装的套装效果
+					拥有绿龙套装的套装效果
+					拥有恐惧套装的套装效果
+					拥有血肉套装的套装效果
+					拥有魔血套装的套装效果
+					拥有洪流逆潮者套装的套装效果
+					拥有刺客套装的套装效果
+					拥有炎法套装的套装效果
+					拥有梦境编织者套装的套装效果
+					拥有无暇之蛹的效果
+					拥有泡泡磁铁的效果
+					拥有琵琶鱼球碗的效果
+					拥有遁蛛冰皮的效果
+					拥有团结之戒的效果
+					拥有杂集磁带的效果
+					拥有风暴之眼的效果
+					拥有反击之盾的效果
+					拥有炽热火花的效果
+					拥有贪婪磁铁的效果
+					拥有深渊外壳的效果
+					拥有太空甲虫壳的效果
+					拥有注视者之镜的效果
+					拥有精准项链的效果
+					拥有工匠的火箭靴的效果
+					拥有心灵之火的效果
+					拥有震地靴的效果
+					拥有吸血鬼试剂的效果
+					拥有魔血徽章的效果
+					拥有注视者之凝的效果
+					拥有瘟疫之主的药剂瓶的效果
+					拥有魂匣的效果
+					拥有水晶蝎的效果
+					拥有投手大师指南: 卷三的效果
+					拥有美人鱼水壶的效果
+					拥有亡者眼罩的效果
+					拥有支援腰带的效果
+					拥有救世恩典的效果
+					拥有灵魂庇佑的效果
+					拥有大恶魔之咒的效果
+					拥有圣天使之心的效果
+					拥有医疗包的效果
+					拥有史诗吹口的效果
+					拥有金属弱音器的效果
+					拥有数码调谐器的效果
+					拥有吉他拨爪的效果
+					拥有海潮之噬的效果
+					拥有界元之庇佑的效果
+					拥有履空靴的效果
+					拥有求生家之飞鞋的效果
+					拥有举足轻重靴的效果
+					'''
+
+				Calamity:
+					'''
+					拥有天蓝套装的套装效果
+					拥有斯塔提斯套装的套装效果
+					拥有代达罗斯套装的套装效果
+					拥有血炎套装的套装效果
+					拥有胜潮套装的套装效果
+					拥有皇天套装的套装效果
+					拥有蓝色欧米茄套装的套装效果
+					拥有弑神者套装的套装效果
+					拥有始源林海套装的套装效果
+					拥有古圣金源套装的套装效果
+					拥有软壳套装的套装效果
+					拥有掠夺者套装的套装效果
+					拥有渊泉套装的套装效果
+					拥有星幻套装的套装效果
+					拥有龙蒿套装的套装效果
+					拥有魔影套装的套装效果
+					拥有灵魂浮雕的效果
+					拥有掠夺者护符的效果
+					拥有气功念珠的效果
+					拥有角斗士金锁的效果
+					拥有不稳定棱晶的效果
+					拥有反击围巾的效果
+					拥有真菌共生体的效果
+					拥有佩码·福洛斯特之秘药的效果
+					拥有再生护符的效果
+					拥有血神核心的效果
+					拥有灾劫之尖啸的效果
+					拥有深潜者的效果
+					拥有变压器的效果
+					拥有卢克索的礼物的效果
+					拥有归一心元石的效果
+					拥有深渊潜游服的效果
+					拥有流明护身符的效果
+					拥有海波纹章的效果
+					拥有星云之核的效果
+					拥有嘉登之心的效果
+					拥有聚合之脑的效果
+					拥有圣魂神物的效果
+					拥有魔君的礼物的效果
+					拥有元灵之心的效果
+					拥有化绵留香石的效果
+					拥有大珍珠的效果
+					拥有阿米迪亚斯之垂饰的效果
+					拥有舐火甲壳的效果
+					拥有瘟疫蜂巢的效果
+					拥有星辉秘术的效果
+					拥有星神隐壳的效果
+					拥有渎魂神物的效果
+					拥有蚀日尊戒的效果
+					拥有元素之握的效果
+					拥有元素箭袋的效果
+					拥有空灵护符的效果
+					拥有斯塔提斯的虚空饰带的效果
+					拥有纳米技术的效果
+					拥有阿斯加德之庇护的效果
+					'''
+
+				SOA:
+					'''
+					Armor bonuses from Bismuth
+					Armor bonuses from Frosthunter
+					Armor bonuses from Blightbone
+					Armor bonuses from Dreadfire
+					Armor bonuses from Space Junk
+					Armor bonuses from Marstech
+					Armor bonuses from Blazing Brute
+					Armor bonuses from Cosmic Commander
+					Armor bonuses from Nebulous Apprentic
+					Armor bonuses from Stellar Priest
+					Armor bonuses from Fallen Prince
+					Armor bonuses from Void Warden
+					Armor bonuses from Vulcan Reaper
+					Armor bonuses from Flarium
+					Armor bonuses from Asthraltite
+					Effects of Dreadflame Emblem
+					Effects of Lapis Pendant
+					Effects of Frigid Pendant
+					Effects of Pumpkin Amulet
+					Effects of Nuba's Blessing
+					Effects of Novaniel's Resolve
+					Effects of Celestial Ring
+					Effects of Ring of the Fallen
+					Effects of Memento Mori
+					Effects of Arcanum of the Caster
+					'''
+
+				DBT:
+					'''
+					拥有全快护符的效果
+					拥有埃斯佩拉水晶的效果
+					'''
+			}
+		}
+
+		RecipeGroups: {
+			Or: 或
+			BonesBanner: 愤怒骷髅怪旗或装甲骷髅旗
+			Phasesaber: 晶光刃
+			Butterfly: 蝴蝶
+			CommonFish: 普通的鱼
+			FishingTrash: 垃圾渔获
+		}
+
+		EModeBalance: {
+			Nerf: '[c/ff0000:永恒模式：]'
+			Buff: '[c/00ff00:永恒模式：]'
+			Neutral: '[c/ffff00:永恒模式：]'
+
+			Damage: 伤害降低{0}%
+			Speed: 攻击速度降低{0}%
+
+			RodofDiscord: 在Boss战中，每次使用都会消耗生命
+			Split: 降低分裂频率
+			ChlorophyteBullet: 速度减慢，存在时间降低
+			WaterBolt: 在骷髅王被击败前无法使用
+			HolyDodge: 神圣防护激活后，一段时间内你的攻击速度会降低
+			SpectreHood: 治疗幽魂珠飞行变慢，会更快消失
+			FrozenTurtleShell: 冰盾会略微降低你的攻击伤害
+			BrainOfConfusion: 成功躲避后，你的伤害会降低
+
+			ZenithNone: 无削弱
+			ZenithHitRate: "造成伤害的频率大幅降低，通过击败下列Boss可提高其输出能力: "
+
+			VampireKnives: 生命值高于33%时削弱吸血能力
+			Zapinator: 无法堆叠弹幕伤害
+
+			OOASet: 当你使用其他职业的武器攻击时，抵消部分召唤伤害降低惩罚
+			MiningHelmet: 提高不死矿工的刷新率
+			MoonsDrops: Boss和迷你Boss在{0}波前不会掉落物品
+			MoonsWaves: 死亡会降低当前波数
+
+			WhipSpeed: 不接受近战攻速加成
+			WhipStack: 鞭子的增益/减益不能堆叠
+			MinionStack: 同时召唤超过3个相同召唤物时，它们的伤害会降低（超过12个后不再降低）
+			SummonMulticlass: 当你使用其他职业的武器攻击时，召唤伤害降低（在撒旦军队中除外）
+
+			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
+			IceBarrier: 永恒模式：你造成的伤害减少10%
+			ManaSickness: 永恒模式：攻击速度减半
+		}
 
 		ItemName: {
 			
+			ForgorGift: 失忆之礼
+			Masochist: 突变体的礼物
+			MasochistReal: 被遗忘的礼物
+
+			// == Materials ==
+
+			AbomEnergy: 憎恶能量
+			BrokenBlade: 破损的斧头
+			BrokenHilt: 破损的刀柄
+			DeviatingEnergy: 戴薇安能量
+			Eridanium: 波江水晶
+			EternalEnergy: 永恒能量
+			PhantasmalEnergy: 幻象能量
+
+			// == Ammo ==
+			FargoBullet: 混合子弹袋
+			FargoArrow: 混合箭袋
+
+			// == Armors ==
+
+			EridanusBattleplate: 波江战甲
+			EridanusHat: 波江帽
+			EridanusLegwear: 波江护腿
+			GaiaGreaves: 盖亚护胫
+			GaiaHelmet: 盖亚头盔
+			GaiaPlate: 盖亚护板
+			MutantBody: 真·突变之躯
+			MutantMask: 真·突变之颅
+			MutantPants: 真·突变之靴
+			NekomiHood: 猫猫睡衣兜帽
+			NekomiHoodie: 猫猫睡衣连帽衫
+			NekomiLeggings: 猫猫睡衣紧身裤
+			StyxChestplate: 冥河胸甲
+			StyxCrown: 冥河王冠
+			StyxLeggings: 冥河护腿
+
+			// == Consumables ==
+
+			DeerSinew: 鹿筋
+			MutantsCreditCard: 突变体的信用卡
+			MutantsDiscountCard: 突变体的优惠卡
+			MutantsPact: 突变体契约
+			OrdinaryCarrot: 普通的胡萝卜
+			RabiesShot: 狂犬疫苗
+			RabiesVaccine: 狂犬病疫苗
+
+			// === Boss Summoning ===
+
+			AbominationnVoodooDoll: 憎恶巫毒娃娃
+			AbomsCurse: 憎恶诅咒
+			ChampionySigil: 英灵证章
+			DevisCurse: 戴薇安的诅咒
+			MutantsCurse: 突变体的诅咒
+			SigilOfChampions: 唤灵魔符
+			SquirrelCoatofArms: 松鼠手臂的皮毛
+
+			// == Placables ==
+
+			MutantStatue: 突变体雕像
+			MutantStatueGift: 拿着礼物的突变体雕像
+			ScremPainting: 尖叫猫猫
+			TophatSquirrelBanner: 高顶礼帽松鼠旗
+			TwentyTwoPainting: 22号画作
+			
+			// === Trophies ===
+
+			AbomTrophy: 憎恶纪念章
+			DeviTrophy: 戴薇安纪念章
+			EridanusTrophy: 宇宙英灵纪念章
+			MutantTrophy: 突变体纪念章
+			TrojanSquirrelTrophy: 特洛伊松鼠纪念章
+
+			// === Relics ===
+
+			AbomRelic: 憎恶圣物
+			DeviRelic: 戴薇安圣物
+			EarthChampionRelic: 大地英灵圣物
+			EridanusRelic: 宇宙英灵圣物
+			LifeChampionRelic: 生命英灵圣物
+			MutantRelic: 突变体圣物
+			NatureChampionRelic: 自然英灵圣物
+			ShadowChampionRelic: 暗影英灵圣物
+			SpiritChampionRelic: 心灵英灵圣物
+			TerraChampionRelic: 泰拉英灵圣物
+			TimberChampionRelic: 木英灵圣物
+			TrojanSquirrelRelic: 特洛伊松鼠圣物
+			WillChampionRelic: 意志英灵圣物
+
+			// == Dyes ==
+			
+			GaiaDye: 盖亚染料
+			LifeDye: 天堂染料
+			WillDye: 意志力染料
+
+			// == Misc ==
+			
+			EternityAdvisor: 永恒顾问
+			GalacticReformer: 银河重构器
+			MutantsFury: 突变之狂怒
+			TopHatSquirrelCaught: 高顶礼帽松鼠
+			UniversalCollapse: 宇宙坍缩
+
+			// == Pets ==
+			
+			AccursedRags: 被诅咒的破布
+			BabyScythe: 小镰刀
+			ChibiHat: 小不点帽子
+			EnerGear: 能量齿轮
+			MostlyOrdinaryRock: 最普通的岩石
+			PortableFogMachine: 便携式烟雾机
+			SpawnSack: 卵袋
+
+			// == Patreon ==
+
+			MedallionoftheFallenKing: 陨落王者的护符
+			ComputationOrb: 演算宝珠
+			StaffOfUnleashedOcean: 怒海狂涛
+			DeviousAestheticus: 艳岚谲锋
+			ScientificRailgun: 某科学的超电磁炮
+			RoombaPet: 扫地机器人
+			VortexMagnetRitual: 星旋圣仪
+			PiranhaPlantVoodooDoll: 食人花巫毒娃娃
+			FigBranch: 无花果树枝
+			ParadoxWolfSoul: 悖论狼魂
+			VermillionTopHat: 猩红高顶礼帽
+			PrimeStaff: 机械骷髅王法杖
+			SquidwardDoor: 章鱼哥的大门
+			MissDrakovisFishingPole: Drakovi小姐的钓竿
+			CrimetroidEgg: 血水母的蛋
+
+			// == Weapons ==
+
+			// === Boss Drops ===
+			
+			BoneZone: 骸骨领域
+			BrainStaff: 精神崩坏
+			DestroyerGun: 毁灭者之枪
+			Dicer: 切肉机
+			DragonBreath: 巨龙之息
+			EaterStaff: 世界吞噬怪法杖
+			FishStick: 鱼杖
+			FleshHand: 血肉之手
+			LeashOfCthulhu: 克苏鲁连枷
+			RefractorBlaster: 变轨激光炮
+			RockSlide: 山崩
+			SlimeKingsSlasher: 史莱姆王屠戮者
+			TheSmallSting: 小刺
+			TwinRangs: 双子
+
+			// === Challengers ===
+			
+			KamikazeSquirrelStaff: 神风松鼠杖
+			MountedAcornGun: 安装好的橡实枪
+			SnowballStaff: 雪球效应
+			TheLightningRod: 避雷针
+			TreeSword: 树剑
+
+			// === Final Upgrades
+			
+			HentaiSpear: 洞察者
+			PhantasmalLeashOfCthulhu: 幻影克苏鲁连枷
+			SlimeRain: 史莱姆雨
+			SparklingLove: 闪闪发光的爱
+			StyxGazer: 冥河凝视
+
+			// === Misc ===
+			
+			Mahoguny: 红木枪
+			OvergrownKey: 杂草丛生的钥匙
+			TophatSquirrelWeapon: 高顶礼帽松鼠
+			Vineslinger: 藤蔓抛环
+
+			// === Swarm Drops ===
+
+			BigBrainBuster: 大脑克星
+			Blender: 绞肉机
+			DestroyerGun2: 湮灭者之炮
+			DragonBreath2: 龙之终焉
+			EaterLauncher: 吞噬者发射器
+			FleshCannon: 反叛者
+			GeminiGlaives: 双子座飞轮刃
+			GolemTome2: 山崩EX
+			GuardianTome: 守卫者
+			HellZone: 地狱领域
+			MechanicalLeashOfCthulhu: 机械克苏鲁连枷
+			NukeFishron: 核子猪鲨
+			RefractorBlaster2: 衍射暗星炮
+			SlimeSlingingSlasher: 史莱姆王抛射屠戮者
+			TheBigSting: 大螯刺
+
 			// == Accessories ==
+			// === Souls ===
+
+			ArchWizardsSoul: 巫师之魂
+			BerserkerSoul: 狂战士之魂
+			ColossusSoul: 巨像之魂
+			ConjuristsSoul: 召唤之魂
+			DimensionSoul: 维度之魂
+			EternitySoul: 永恒之魂
+			FlightMasterySoul: 飞行大师之魂
+			MasochistSoul: 大师之魂
+			SnipersSoul: 神枪手之魂
+			SupersonicSoul: 超音速之魂
+			TerrariaSoul: 泰拉之魂
+			TrawlerSoul: 捕鱼之魂
+			UniverseSoul: 寰宇之魂
+			VoidSoul: 虚空之魂
+			WorldShaperSoul: 铸世者之魂
+
 			// === Enchantments ===
 
 			AdamantiteEnchant: 精金魔石
@@ -566,7 +2170,7 @@ Mods: {
 			// === Expert ===
 
 			UniverseCore: 宇宙之核
-            BoxofGizmos: 小零件箱
+			BoxofGizmos: 小零件箱
 
 			// === Forces ===
 
@@ -580,89 +2184,142 @@ Mods: {
 			TimberForce: 森林之力
 			WillForce: 意志之力
 
-            // === Masomode ===
+			// === Masomode ===
 
-            AbominableWand: 憎恶手杖
-            AeolusBoots: 埃俄罗斯之靴
-            AgitatingLens: 躁动晶状体
-            BetsysHeart: 双足翼龙之心
-            BionomicCluster: 生态球
-            CelestialRune: 天界符文
-            ChaliceoftheMoon: 月之圣杯
-            ConcentratedRainbowMatter: 浓缩彩虹物质
-            DarkenedHeart: 暗黑之心
-            Deerclawps: 冰鹿爪
-            DreadShell: 恐惧螺壳
-            DubiousCircuitry: 可疑电路
-            EurusSock: 欧洛斯之袜
-            FrigidGemstone: 寒玉
-            FusedLens: 融合晶状体
-            GalacticGlobe: 银河球
-            GelicWings: 明胶羽翼
-            GroundStick: 遥控装置
-            GuttedHeart: 破碎之心
-            HeartoftheMasochist: 永恒者之心
-            IceQueensCrown: 冰雪女王的皇冠
-            LihzahrdTreasureBox: 蜥蜴宝藏盒
-            LumpOfFlesh: 血肉团
-            MagicalBulb: 魔法球茎
-            MutantAntibodies: 突变抗体
-            MutantEye: 突变之眼
-            MysticSkull: 神秘头骨
-            NecromanticBrew: 死灵密酿
-            NymphsPerfume: 宁芙的香水
-            PrecisionSeal: 玲珑圣印
-            PuffInABottle: 烟雾瓶
-            PumpkingsCape: 南瓜王的披肩
-            PungentEyeball: 气味刺鼻的眼球
-            PureHeart: 纯净之心
-            QueenStinger: 蜂后毒刺
-            ReinforcedPlating: 强化钢板
-            SandsofTime: 时之沙
-            SaucerControlConsole: 飞碟控制台
-            SecurityWallet: 安全钱包
-            SinisterIcon: 邪恶头骨
-            SkullCharm: 头骨挂坠
-            SlimyShield: 粘液盾
-            SparklingAdoration: 闪烁崇心
-            SqueakyToy: 吱吱响的玩具
-            SupremeDeathbringerFairy: 至高告死精灵
-            TimsConcoction: 蒂姆的秘药
-            TribalCharm: 部落挂坠
-            WretchedPouch: 诅咒袋子
-            WyvernFeather: 飞龙之羽
-            ZephyrBoots: 和风靴
+			AbominableWand: 憎恶手杖
+			AeolusBoots: 埃俄罗斯之靴
+			AgitatingLens: 躁动晶状体
+			BetsysHeart: 双足翼龙之心
+			BionomicCluster: 生态球
+			CelestialRune: 天界符文
+			ChaliceoftheMoon: 月之圣杯
+			ConcentratedRainbowMatter: 浓缩彩虹物质
+			DarkenedHeart: 暗黑之心
+			Deerclawps: 冰鹿爪
+			DreadShell: 恐惧螺壳
+			DubiousCircuitry: 可疑电路
+			EurusSock: 欧洛斯之袜
+			FrigidGemstone: 寒玉
+			FusedLens: 融合晶状体
+			GalacticGlobe: 银河球
+			GelicWings: 明胶羽翼
+			GroundStick: 遥控装置
+			GuttedHeart: 破碎之心
+			HeartoftheMasochist: 永恒者之心
+			IceQueensCrown: 冰雪女王的皇冠
+			LihzahrdTreasureBox: 蜥蜴宝藏盒
+			LumpOfFlesh: 血肉团
+			MagicalBulb: 魔法球茎
+			MutantAntibodies: 突变抗体
+			MutantEye: 突变之眼
+			MysticSkull: 神秘头骨
+			NecromanticBrew: 死灵密酿
+			NymphsPerfume: 宁芙的香水
+			PrecisionSeal: 玲珑圣印
+			PuffInABottle: 烟雾瓶
+			PumpkingsCape: 南瓜王的披肩
+			PungentEyeball: 气味刺鼻的眼球
+			PureHeart: 纯净之心
+			QueenStinger: 蜂后毒刺
+			ReinforcedPlating: 强化钢板
+			SandsofTime: 时之沙
+			SaucerControlConsole: 飞碟控制台
+			SecurityWallet: 安全钱包
+			SinisterIcon: 邪恶头骨
+			SkullCharm: 头骨挂坠
+			SlimyShield: 粘液盾
+			SparklingAdoration: 闪烁崇心
+			SqueakyToy: 吱吱响的玩具
+			SupremeDeathbringerFairy: 至高告死精灵
+			TimsConcoction: 蒂姆的秘药
+			TribalCharm: 部落挂坠
+			WretchedPouch: 诅咒袋子
+			WyvernFeather: 飞龙之羽
+			ZephyrBoots: 和风靴
 
 		}
 
 		ItemTooltip: {
+
+			ForgorGift:
+			'''
+			[c/ff0000:调 试 用 物 品]
+			重置原版和魂石Mod中的事件与Boss进度，包括困难模式（击败血肉墙）
+			右键允许从戴薇安处再拿一次新手礼包，重置突变体的信用卡/优惠卡、你的永恒模式饰品栏、狂犬病疫苗、鹿筋冲刺等等
+			在物品栏内对物品右键来重置突变体的一阶段跳过机制
+			我忘啦！
+			'''
+			Masochist:
+			'''
+			世界必须是专家模式
+			开关永恒模式
+			戴薇安会给予你一个新手礼包，并提供一些基于进度的建议
+			增强玩家的基础属性
+			不能在任意Boss存活时使用
+			[i:1612][c/00ff00:推荐与Fargo突变模组的减益显示一起使用（在config里打开）]
+			[c/ff0000:不被预期可以和其他内容型模组以及其他模组难度一起使用！！！]
+			'''
+			MasochistReal:
+			'''
+			[c/ff0000:调 试 用 物 品]
+			左键：给予剥夺个人角色开启受虐模式的权力
+			右键：给予剥夺世界开启受虐模式的权力
+			'''
+
+			// == Materials ==
+
+			Eridanium:
+				'''
+				宇宙能量的碎片
+				'''
+			EternalEnergy:
+				'''
+				免疫几乎所有永恒模式减益
+				“拥抱过永恒的证明”
+				'''
+			
+			// == Ammo ==
+			FargoBullet:
+			'''
+			追踪敌怪
+			反弹多次
+			每次撞击都会造成魔晶碎块爆炸
+			造成多种减益
+			'''
+			FargoArrow:
+			'''
+			反弹多次
+			每次撞击都会爆炸，召唤落星并发射激光箭
+			造成多种减益
+			'''
 			
 			// == Accessories ==
 			// === Enchantments ===
 
 			AdamantiteEnchant:
 				'''
-				你每次发射的第二个弹幕会分裂成三个
-				所有的弹幕仅造成66%的伤害
+				你发射出的所有弹幕都会分裂成两个
+				你发射的所有弹幕攻击力减半
+				弹幕造成伤害的频率翻倍，并获得与弹幕一半伤害相等的护甲穿透
 				“混乱”
 				'''
 			AncientCobaltEnchant:
 				'''
-				你的弹幕有20%几率爆裂成毒刺
-				此效果每秒内只会发生一次
-				“古老的丛林赋予你力量”
+				额外获得一次二段跳，跳起时产生爆炸
+				“远古酷波德”
 				'''
 			AncientHallowEnchant:
 				'''
 				使你获得一面可以反弹弹幕的盾牌
 				召唤一柄泰拉棱镜，其伤害接受召唤伤害加成
+				大幅提升召唤物攻击速度，但攻击力会降低，且会增加10点护甲穿透
 				“汝之剑盾，即为圣迹”
 				'''
 			AncientShadowEnchant:
 				'''
 				攻击有几率造成黑暗减益
 				身上带有黑暗减益的敌人偶尔会向其他敌人发射暗影焰触手
-				三颗暗影珠围绕着你旋转\n攻击暗影珠会使其释放追踪暗影能量
+				三颗暗影珠围绕着你旋转
 				“十分古老，却非常实用”
 				'''
 			AnglerEnchant:
@@ -695,13 +2352,13 @@ Mods: {
 			BorealWoodEnchant:
 				'''
 				攻击时定期释放几个雪球
-				“又酷又冷”
+				“又冷又酷”
 				'''
 			CactusEnchant:
 				'''
 				攻击时，你会释放出一圈针刺
 				被你的针刺扎死的敌人会爆裂出更多针刺
-				“太解渴了！”
+				“多汁解渴！”
 				'''
 			ChlorophyteEnchant:
 				'''
@@ -713,8 +2370,8 @@ Mods: {
 				'''
 			CobaltEnchant:
 				'''
-				你的弹幕有25%几率爆裂成碎片
-				此效果每秒内只会发生一次
+				额外获得一次二段跳，跳起时产生爆炸
+				当你受击时，你会剧烈爆炸并对附近的敌怪造成伤害
 				“真不敢相信这竟然不是钯金”
 				'''
 			CopperEnchant:
@@ -733,10 +2390,8 @@ Mods: {
 				获得冲刺能力
 				若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
 				使用混沌传送杖时也会获得增益
-				传送时，你会丢出几把追踪飞刀
 				拥有挥发明胶的效果
-				“啥效果都没有，还没做完，急个锤子”
-				（如果你在它的效果已经做完后还看到这消息，请及时告诉棱镜）
+				“表面上易损”
 				'''
 			DarkArtistEnchant:
 				'''
@@ -770,7 +2425,8 @@ Mods: {
 				你的周围会出现冰锥
 				攻击时会将冰锥发射至光标位置
 				冰锥击中敌人时会使其短暂冻结
-				在光标位置生成暴雪，其中的敌对弹幕飞行速度减半
+				按下“冻结”键后将一切冻结15秒
+				效果有60秒的冷却时间
 				“让我们给这个世界披上一层厚厚的冰衣”
 				'''
 			GladiatorEnchant:
@@ -795,14 +2451,11 @@ Mods: {
 				'''
 			HuntressEnchant:
 				'''
-				箭矢会插在敌怪身上，每只插上的箭都会给予一层流血减益
-				近战攻击击中被箭矢插中的敌怪时，会依据箭矢数目造成额外伤害
-				箭矢会定期落至你光标周围
-				箭矢的种类取决于你背包中第一个箭矢
-				双击“下”键后令箭雨倾泄在光标位置
-				此效果有15秒冷却时间
-				爆炸机关攻击速度更快且会造成涂油减益
-				“狩猎开始了”
+				攻击忽略10点敌怪防御并造成5点额外伤害
+				每次连续攻击会额外忽略10点防御并多造成5点伤害
+				追踪武器和召唤物不会增加这些加成
+				任何一次攻击没有击中都会重置这些加成
+				“精确带来力量”
 				'''			
 			IronEnchant:
 				'''
@@ -837,11 +2490,8 @@ Mods: {
 				'''
 			MoltenEnchant:
 				'''
-				免疫着火了！减益、火块和熔岩
-				你可以在熔岩中自由移动和游泳
 				引燃你附近的敌人
-				敌人离你越近，受到的伤害越高
-				你受到伤害时会剧烈爆炸并对附近的敌人造成伤害
+				所有敌怪在狱火圈内时多受到25%伤害
 				“他们将感受到地狱的愤怒”
 				'''
 			MonkEnchant:
@@ -855,8 +2505,8 @@ Mods: {
 				'''
 			MythrilEnchant:
 				'''
-				武器使用速度增加15%
-				受到伤害时，武器使用速度增加效果会暂时失效
+				在一段时间不攻击后开始攻击会短暂地提高武器使用速度
+				使用速度加成会在攻击后3秒消失，并在3秒不攻击后恢复
 				“你感觉武器的知识渗透进你的脑海中”
 				'''
 			NebulaEnchant:
@@ -882,11 +2532,11 @@ Mods: {
 				'''
 			ObsidianEnchant:
 				'''
-				使你免疫火块与熔岩
+				免疫火块与熔岩
 				你可以在熔岩中正常移动和游泳
-				在熔岩中会获得“浸入熔岩”增益
+				在熔岩中会获得“熔岩之润”增益
 				拥有该增益时，你的攻击会引发爆炸
-				（没有做完）
+				鞭子的范围增加50%
 				“大地在呼唤”
 				'''
 			OrichalcumEnchant:
@@ -925,19 +2575,20 @@ Mods: {
 				'''
 			RainEnchant:
 				'''
-				使你免疫潮湿减益
-				召唤一个微型雨云跟着你
-				攻击它会使其变大
-				达到最大时，继续攻击会使它发射闪电
+				免疫潮湿减益
+				召唤一个微型雨云跟着你的光标
+				不会穿墙攻击
+				拥有浮游圈的效果
 				“改日再来”
 				'''
 			RedRidingEnchant:
 				'''
-				箭矢会定期落至你光标周围
-				箭矢的种类取决于你背包中第一个箭矢
-				双击“下”键后令箭雨倾泄在光标位置
-				此效果有10秒冷却时间
-				大幅强化爆炸陷阱的效果
+				攻击忽略10点敌怪防御并额外造成5点伤害
+				每次连续攻击会额外忽略10点防御并多造成5点伤害
+				在累计10次攻击后，生成一阵箭雨
+				箭的种类默认是毒液箭，如果背包内有箭那么选择物品栏中的第一个箭
+				追踪武器和召唤物不会增加这些加成
+				任何一次攻击没有击中都会重置加成
 				“小红帽，大坏蛋！”
 				'''
 			RichMahoganyEnchant:
@@ -962,8 +2613,6 @@ Mods: {
 				'''
 				朝墙壁冲刺时会直接穿过去
 				使你获得冲刺能力
-				按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
-				使用混沌传送杖也会获得先发制人增益
 				大幅强化闪电光环的效果
 				“藏匿于墙中的村庄”
 				'''
@@ -977,13 +2626,13 @@ Mods: {
 			SilverEnchant:
 				'''
 				召唤一柄剑，剑的伤害接受召唤伤害加成
-				大大增加召唤物攻击速度，但攻击力会降低
+				大幅提升召唤物攻击速度，但攻击力会降低，且会增加10点护甲穿透
 				“你有足够的力量驾驭我吗？”
 				'''	
 			SnowEnchant:
 				'''
-				在光标位置生成暴雪
-				暴雪中的所有弹幕和NPC的速度减缓50%
+				按下“冻结”键后将一切冻结10秒
+				效果有60秒的冷却时间
 				“冷的要死”
 				'''
 			SolarEnchant:
@@ -1001,7 +2650,8 @@ Mods: {
 				'''
 			SpiderEnchant:
 				'''
-				召唤伤害可以造成暴击，且有15%基础暴击率
+				你的仆从和哨兵可以造成暴击
+				召唤暴击造成1.5倍伤害而不是2倍
 				“蜘蛛恐惧者？作为惩罚，让他被蜘蛛干掉吧！”
 				'''
 			SpookyEnchant:
@@ -1017,9 +2667,9 @@ Mods: {
 				'''
 			StardustEnchant:
 				'''
-				双击“下”键将你的守卫引至光标位置
+				星尘守卫将保护你不受附近敌人的伤害
 				按下“冻结”键后会冻结时间，持续5秒
-				你的召唤物不受时间冻结影响，星尘守卫在时间冻结期间获得全新的攻击
+				你的召唤物不受时间冻结影响
 				此效果有60秒冷却时间
 				“你成为了替身使者”
 				'''
@@ -1053,7 +2703,7 @@ Mods: {
 				站定不动时且不攻击时你会缩进壳里
 				当你缩进壳里时，增加90%伤害减免
 				同时，你可以摧毁来犯的敌对弹幕且反弹10倍接触伤害
-				壳至少能存在1秒，且能抵挡25次攻击
+				壳至少能存在1秒，且能抵挡20次攻击
 				攻击时，你会释放出一圈针刺
 				被你的针刺扎死的敌人会爆裂出更多针刺
 				“你突然有一种想躲进壳里的冲动”
@@ -1117,424 +2767,1196 @@ Mods: {
 
 			UniverseCore:
 				'''
-				暴击造成5倍伤害，而不是两倍
+				暴击造成4倍伤害，而不是2倍
 				所有的攻击都会造成宇宙之火减益
 				“爆发出超高能宇宙射线”
 				'''
-            BoxofGizmos:
-                '''
-                使所有物品都可自动使用
-                受影响的物品的使用速度降低20%
-                '''
+			BoxofGizmos:
+				'''
+				放在物品栏中即可生效
+				使所有物品都可自动使用
+				受影响的物品的使用速度降低20%
+				'''
 
 			// === Forces ===
 
 			// In Original Files
 
-            // === Masomode ===
+			// === Masomode ===
 
-            AbominableWand:
-                '''
-                使你免疫憎恶毒牙和憎恶驾到减益
-                增加闪烁崇心的擦弹暴伤加成，红心发射冷却减半
-                暴击时偶尔会召唤幽灵憎恶
-                装备冥河套装时，闪烁崇心擦弹计满也会增加名和能量
-                受到致命伤害时，保留1点生命值并避免死亡
-                你再次恢复到满生命值后，免死效果才能再被激活
-                “看起来像是有人遗失的东西”
-                '''
-            AeolusBoots:
-                '''
-                使你获得飞行和快速奔跑的能力，在冰面上提供额外机动性
-                增加8%移动速度
-                提高跳跃速度，并允许自动跳跃
-                你走过的草地上会生长花朵
-                使你获得二段跳能力
-                增加跳跃高度并免疫摔落伤害
-                《Back and better than ever》
-                '''
-            AgitatingLens:
-                '''
-                使你免疫狂暴减益
-                生命值低于50%时，增加10%伤害、移动速度和攻击速度
-                冲刺或奔跑时会在身后留下一串鲜血镰刀
-                “被打败的敌人的躁动残渣”
-                '''
-            BetsysHeart:
-                '''
-                使你免疫分泌物、枯萎武器和枯萎盔甲减益
-                暴击造成双足翼龙诅咒减益
-                按下“火球冲刺”键后会进行短距离无敌冲刺
-                “用文火，五分熟”
-                '''
-            BionomicCluster:
-                '''
-                免疫霜冻、暗影焰、吱吱响的玩具、愧疚减益
-                免疫宇宙之火、折翼、跛足、被网住和净化减益
-                免疫热恋、恶臭、迈达斯、着魔减益，同时免疫仙人掌伤害和敌人的偷取物品效果
-                使用以传送到你上一次死亡的地点
-                攻击会造成折翼减益，并生成霜火球和红心
-                你受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
-                你受伤害时会发射暗影焰触手，召唤一只彩虹史莱姆
-                某些敌人在死亡时会掉落药水
-                [c/00FFFF:当该饰品放在背包中或时装栏时，下列效果也会生效：]
-                    免疫强风和窒息减益
-                    允许所有武器自动攻击、获得夜视效果，需要时自动使用魔力药水
-                    你会以更高的生命值重生，没有Boss在场时加快重生速度
-                    右键可改变视野范围，减少50%重铸价格
-                “由上千普通敌人融合而成”
-                '''
-            CelestialRune:
-                '''
-                免疫死亡标记
-                根据武器类型，定期发动额外的攻击
-                受伤时召唤几个友好的远古幻影妖来攻击敌人
-                “陨落的敌人曾运用的魔咒，现在到你手上了”
-                '''
-            ChaliceoftheMoon:
-                '''
-                免疫酸性毒液、常春藤毒素、燃烧、导火索、下陷和死亡标记减益
-                免疫蜂群、萎缩、卡壳、魔力逆流和社恐减益
-                增加生命恢复
-                在空中按“下”键快速下落
-                在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
-                落地时生成一连串巨石
-                根据武器类型，定期发动额外的攻击，受伤时召唤远古幻影妖攻击敌人
-                召唤友善的邪教徒和植物幼株为你而战
-                “喝了它”
-                '''
-            ConcentratedRainbowMatter:
-                '''
-                使你免疫宇宙之火减益
-                召唤一个彩虹史莱姆宝宝
-                “遇上彩虹，吃定彩虹！”
-                '''
-            DarkenedHeart:
-                '''
-                使你免疫腐烂减益
-                增加10%移动速度
-                每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
-                “苍蝇都不想接近它”
-                '''
-            Deerclawps:
-                '''
-                免疫缓慢和冰冻
-                冲刺会留下一串冰刺
-                “从被击败的敌人的脚上剪下来的指甲”
-                '''
-            DreadShell:
-                '''
-                免疫凝血失效和击退
-                右键点击来用护盾防护
-                防护时和防护后短时间内，防御力和伤害减免大幅下降
-                如果你在防护时正好受到攻击，你会进行反击，反击有很长的冷却时间
-                反击会造成巨量伤害，并造成凝血失减益
-                “在这钓鱼是个错误”
-                '''
-            DubiousCircuitry:
-                '''
-                使你免疫诅咒狱火、灵液、避雷针、毫无防御、昏迷、纳米灌注减益和击退
-                你的攻击会造成诅咒狱火和灵液减益
-                攻击小概率造成避雷针减益
-                召唤两个友善的探测器为你而战
-                所受伤害减少5%
-                “里面也许没有恶意软件”
-                '''
-            EurusSock:
-                '''
-                穿戴者可跑的非常快
-                '''
-            FrigidGemstone:
-                '''
-                使你免疫霜冻减益
-                攻击时召唤霜火球攻击敌人
-                “一块古老的魔法冰碎片”
-                '''
-            FusedLens:
-                '''
-                免疫诅咒狱火和灵液减益
-                你的攻击会造成诅咒狱火和灵液
-                “融化过度，无法改善视力”
-                '''
-            GalacticGlobe:
-                '''
-                免疫翻转、不稳定、扭曲和月之诅咒减益
-                允许玩家改变重力
-                在太空和液体中恢复正常重力作用
-                召唤克苏鲁真眼保护你
-                增加100%飞行时间
-                “时刻凝视”
-                '''
-            GelicWings:
-                '''
-                免疫由地下神圣之地造成的翻转减益
-                可让持有者二连跳
-                落地时向左右发射出史莱姆尖刺
-                “踩在我身上”
-                '''
-            GroundStick:
-                '''
-                使你免疫避雷针减益
-                攻击小概率造成避雷针
-                召唤两个友善的探测器为你而战
-                “被你击败的敌人的体节，上面还粘着天线”
-                '''
-            GuttedHeart:
-                '''
-                使你免疫嗜血减益
-                增加10%最大生命值
-                召唤徘徊在你周围、为你阻挡伤害的飞眼怪
-                每15秒生成一个新的飞眼怪，最多同时存在5个
-                你不移动时飞眼怪生成速度加快
-                “曾经还在敌人的大脑中跳动着”
-                '''
-            HeartoftheMasochist:
-                '''
-                免疫人形废土、霜冻、恐寒症、分泌物、枯萎武器和枯萎盔甲减益
-                免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益
-                免疫潮湿、带电、海洋重击、月蛭、失效诅咒和由水造成的减益
-                攻击力和暴击率增加10%，伤害减免增加5%
-                增加100%飞行时间
-                根据武器类型，定期发动额外的攻击
-                暴击造成双足翼龙诅咒和腐烂减益
-                按下“火球冲刺”键后会进行短距离无敌冲刺
-                骑乘猪龙鱼坐骑时获得潮湿状态效果，你能控制重力
-                受击时冻住周围的敌人
-                召唤友善的超级雪花、迷你飞碟和克苏鲁真眼
-                “它还在跳动，很暖和，但没人想要”
-                '''
-            IceQueensCrown:
-                '''
-                免疫冰冻和恐寒症减益
-                增加5%伤害减免
-                受击时冻住周围的敌人
-                召唤一个友善的超级雪花
-                “击败的皇家敌人的象征”
-                '''
-            LihzahrdTreasureBox:
-                '''
-                免疫燃烧、导火索和下陷
-                在空中按“下”键快速下落
-                在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
-                落地时生成一连串巨石
-                “陷阱太多，打不开”
-                '''
-            LumpOfFlesh:
-                '''
-                免疫凝血失效、黑视、遮蔽、眩晕、缓慢、冰冻和昏迷减益，免疫击退
-                攻击力增加15%，但受到的伤害增加10%
-                增加1个召唤栏位和1个哨兵栏位
-                右键点击可进行时间判定极其严格的受伤反击
-                防护时和防护后短时间内，防御力和伤害减免大幅下降
-                冲刺会留下一串血刺
-                眼球会在你攻击时蓄能，蓄能完毕后发射激光
-                降低敌人以你为目标的可能性
-                “它在生长”
-                '''
-            MagicalBulb:
-                '''
-                使你免疫酸性毒液、常春藤毒素和蜂群减益
-                增加生命恢复速度
-                吸引一株传奇植物的幼株，其会在战斗中茁壮成长
-                “弑母？”
-                '''
-            MutantAntibodies:
-                '''
-                使你免疫潮湿、野性咬噬、突变啃啄和海洋重击减益
-                免疫大多数由水造成的减益
-                骑乘猪龙鱼坐骑时获得潮湿状态效果
-                增加20%伤害，但是降低生命恢复速度
-                “很健康的药物，十个医生中有零个会推荐使用它”
-                '''
-            MutantEye:
-                '''
-                使你免疫突变毒牙和突变驾到减益
-                闪烁崇心的擦弹暴伤加成上限增加25%
-                将闪烁崇心的心攻击加强为爱之射线
-                增加闪烁崇心的擦弹暴伤加成
-                提升幽灵憎恶的出现频率和攻击力
-                按下“突变炸弹”键时施放一圈幻影眼球，摧毁大多数敌对弹幕
-                突变炸弹有60秒的冷却时间
-                “有点可疑”
-                '''
-            MysticSkull:
-                '''
-                放在物品栏中即可生效
-                免疫窒息减益
-                魔法伤害降低10%
-                需要时自动使用魔力药水
-                “被打败敌人的喃喃自语的脑袋”
-                '''
-            NecromanticBrew:
-                '''
-                免疫昏昏欲睡减益
-                召唤两个骷髅王手臂重击敌人
-                “这液体来自被你打败的敌人，能促进骨头生长”
-                '''
-            NymphsPerfume:
-                '''
-                免疫热恋、恶臭和着魔减益
-                你会以更高的生命值重生
-                你的攻击偶尔会生成心
-                “气味有点太浓了”
-                '''
-            PrecisionSeal:
-                '''
-                使你免疫惩戒减益
-                缩小你对于敌对弹幕的碰撞判定
-                按下“玲珑圣印”键后开启精确模式，禁用冲刺和二段跳
-                “躲得那么近，你都能舔到那个弹幕了”
-                '''
-            PuffInABottle:
-                '''
-                允许玩家进行二段跳
-                '''
-            PumpkingsCape:
-                '''
-                使你免疫人形废土减益
-                增加5%伤害和暴击率
-                暴击造成腐烂减益
-                根据武器类型，定期发动额外的攻击
-                “不知怎么，它的尺寸正好合适”
-                '''
-            PungentEyeball:
-                '''
-                使你免疫黑视和遮蔽减益
-                增加2个召唤栏位
-                增加2个哨兵栏位
-                “它在发酵”
-                '''
-            PureHeart:
-                '''
-                使你免疫腐败和嗜血减益
-                使你免疫生物群落带来的减益
-                增加10%移动速度，增加10%最大生命值
-                每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
-                召唤徘徊在你周围、为你阻挡伤害的飞眼怪
-                每15秒生成一个新的飞眼怪，最多同时存在5个
-                你不移动时飞眼怪生成速度加快
-                “它充满活力地跳动着”
-                '''
-            QueenStinger:
-                '''
-                免疫感染减益
-                增加10点护甲穿透
-                攻击造成中毒效果，且会喷出能增加生命恢复速度的蜂蜜滴
-                蜜蜂和较弱的黄蜂变得友好
-                “从一个被打败的敌人的身上撕下”
-                '''
-            ReinforcedPlating:
-                '''
-                免疫毫无防御、纳米灌注减益和击退
-                所受伤害减少5%
-                “被打败的敌人最坚硬的部分”
-                '''
-            SandsofTime:
-                '''
-                放在物品栏中即可生效
-                免疫强风减益和仙人掌伤害
-                没有Boss在场时重生速度加倍
-                使用以传送到你上一次死亡的地点
-                “无论你做什么，都不要丢下它”
-                '''
-            SaucerControlConsole:
-                '''
-                使你免疫带电减益
-                召唤一个友善的迷你飞碟
-                “请保持飞行模式”
-                '''
-            SecurityWallet:
-                '''
-                使你免疫迈达斯减益和敌人的偷取物品效果
-                减少50%重铸价格
-                “无法完美保护尸体上的财物”
-                '''
-            SinisterIcon:
-                '''
-                阻止永恒模式导致的Boss自然生成
-                提高刷怪速率
-                生命值小于等于2000的敌人掉落双倍战利品，但不掉落钱币
-                “这肯定死了”
-                '''
-            SkullCharm:
-                '''
-                免疫眩晕和昏迷减益
-                攻击力增加15%，但受到的伤害增加10%
-                降低敌人以你为目标的可能性
-                水晶头骨会在你攻击时蓄能，蓄能完毕时会发射暗灵弹
-                “不在这个区域了”
-                '''
-            SlimyShield:
-                '''
-                免疫史莱姆减益
-                增加下落速度
-                落地时召唤从天而降的凝胶球，掉落至光标位置
-                “从被打败的敌人的内脏中撕裂而来”
-                '''
-            SparklingAdoration:
-                '''
-                免疫热恋减益和假心的伤害
-                擦弹能提高暴击伤害，最高可增加25%
-                暴击伤害加成会随时间流逝而减少，被击中时清零
-                你的攻击会周期性地生成能吸血的红心
-                “饱含情感！”
-                '''
-            SqueakyToy:
-                '''
-                免疫吱吱响的玩具减益和内疚减益
-                你受伤时有几率发出吱吱声，并只受到1点伤害
-                “被打败的敌人的心爱的玩具……？”
-                '''
-            SupremeDeathbringerFairy:
-                '''
-                免疫史莱姆、狂暴、昏昏欲睡和感染减益
-                生命值低于50%时，增加10%伤害、移动速度和攻击速度
-                增加10点护甲穿透
-                增加下落速度
-                落地时召唤从天而降的凝胶球，掉落至光标位置
-                冲刺或奔跑时会在身后留下一串鲜血镰刀
-                攻击造成中毒效果，且会喷出能增加生命恢复速度的蜂蜜滴
-                蜜蜂和较弱的黄蜂变得友好
-                召唤两个骷髅王手臂重击敌人
-                “霸权难保”
-                '''
-            TimsConcoction:
-                '''
-                某些敌人在死亡时会掉落药水
-                “闻起来很上头”
-                '''
-            TribalCharm:
-                '''
-                放在物品栏中即可生效
-                免疫被网住和净化减益
-                允许所有武器自动挥舞
-                “远古丛林居民的偶像”
-                '''
-            WretchedPouch:
-                '''
-                免疫暗影焰减益
-                你受伤害时会向周围的敌怪发射暗影焰触手
-                “被打败的敌人的诅咒燃烧火药”
-                '''
-            WyvernFeather:
-                '''
-                使你免疫折翼和跛足减益
-                攻击有10%概率对非Boss敌怪造成折翼减益
-                “摸起来很暖和”
-                '''
-            ZephyrBoots:
-                '''
-                使你获得飞行和快速奔跑的能力
-                增加8%移动速度
-                提高跳跃速度，并允许自动跳跃
-                使你获得二段跳能力
-                增加跳跃高度并免疫摔落伤害
-                “如风般狂奔”
-                '''
+			AbominableWand:
+				'''
+				免疫憎恶毒牙和憎恶驾到减益
+				增加闪烁崇心的擦弹伤害加成，红心发射冷却减半
+				暴击时偶尔会召唤幽灵憎恶
+				装备冥河套装时，闪烁崇心擦弹计满也会增加冥河能量
+				受到致命伤害时，保留1点生命值并避免死亡
+				你再次恢复到满生命值后，免死效果才能再被激活
+				“看起来像是有人遗失的东西”
+				'''
+			AeolusBoots:
+				'''
+				使你获得飞行和快速奔跑的能力，在冰面上提供额外机动性
+				增加8%移动速度
+				提高跳跃速度，并允许自动跳跃
+				你走过的草地上会生长花朵
+				使你获得二段跳能力
+				增加跳跃高度并免疫摔落伤害
+				《Back and better than ever》
+				'''
+			AgitatingLens:
+				'''
+				免疫狂暴减益
+				冲刺或奔跑时会在身后留下一串鲜血镰刀
+				按下“减益负载”键进入狂暴状态
+				狂暴时，大幅提升进攻能力，大幅降低防御能力，且你无法停止攻击或移动
+				狂暴状态持续6秒，结束后会被昏迷3秒
+				“被打败的敌人的躁动残渣”
+				'''
+			BetsysHeart:
+				'''
+				免疫分泌物、枯萎武器和枯萎盔甲减益
+				暴击造成双足翼龙诅咒减益
+				按下“特殊冲刺”键后会进行短距离的无敌火球冲刺
+				“用文火，五分熟”
+				'''
+			BionomicCluster:
+				'''
+				免疫霜冻、暗影焰、吱吱响的玩具减益
+				免疫宇宙之火、折翼、跛足、被网住和净化减益
+				免疫热恋、恶臭、迈达斯、着魔和晃动衣袋减益
+				使用以传送到你上一次死亡的地点
+				攻击会造成折翼减益，并生成红心
+				你受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
+				攻击时获得巨量伤害加成并释放暗影焰触手，但移动速度更慢，受到的攻速加成更少
+				召唤一只友好的彩虹史莱姆
+				某些敌人在死亡时会掉落药水
+				手动点击攻击时，增加30%非召唤伤害
+				[c/00FFFF:当该饰品放在背包中或时装栏时，下列效果也会生效：]
+					免疫强风、窒息、冷冻减益
+					允许所有武器自动攻击、获得夜视效果，需要时自动使用治疗和魔力药水
+					你会以更高的生命值重生，没有Boss在场时加快重生速度
+					按下“寒霜咒语”键放置冰雪魔杖之冰
+					右键可改变视野范围，减少50%重铸价格
+				“由上千普通敌人融合而成”
+				'''
+			CelestialRune:
+				'''
+				免疫死亡标记
+				根据武器类型，定期发动额外的攻击
+				受伤时召唤几个友好的远古幻影妖来攻击敌人
+				“陨落的敌人曾运用的魔咒，现在到你手上了”
+				'''
+			ChaliceoftheMoon:
+				'''
+				免疫毒液、常春藤毒素、燃烧、导火索、下陷和死亡标记减益
+				免疫蜂群、萎缩、卡壳、魔力逆流和社恐减益
+				按下“魔法净化”键治愈你
+				根据你受到的光照增加生命恢复速度
+				在空中按“下”键快速下落
+				在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
+				落地时生成一连串巨石
+				根据武器类型，定期发动额外的攻击，受伤时召唤远古幻影妖攻击敌人
+				召唤友善的邪教徒和植物幼株为你而战
+				“喝了它”
+				'''
+			ConcentratedRainbowMatter:
+				'''
+				免疫宇宙之火减益
+				需要时自动使用治疗药水
+				召唤一个彩虹史莱姆宝宝
+				“遇上彩虹，吃定彩虹！”
+				'''
+			DarkenedHeart:
+				'''
+				免疫腐烂减益
+				增加10%移动速度
+				每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
+				“苍蝇都不想接近它”
+				'''
+			Deerclawps:
+				'''
+				免疫缓慢和冰冻
+				冲刺会留下一串冰刺
+				“从被击败的敌人的脚上剪下来的指甲”
+				'''
+			DreadShell:
+				'''
+				免疫凝血失效和击退
+				右键点击来用护盾防护
+				防护时和防护后短时间内，防御力和伤害减免大幅下降
+				如果你在防护时正好受到攻击，你会进行反击，反击有很长的冷却时间
+				反击会造成巨量伤害，并造成凝血失效减益
+				吸收凝血失效的血凝块会增加30%伤害
+				“在这钓鱼是个错误”
+				'''
+			DubiousCircuitry:
+				'''
+				免疫诅咒狱火、灵液、避雷针、毫无防御、昏迷、纳米灌注减益和击退
+				当被诅咒狱火影响时，增加15%攻击速度
+				当被灵液影响时，增加15%暴击率
+				因持续伤害失去生命值时，你的攻击造成诅咒狱火和灵液减益
+				按下“减益负载”键对你自己造成30秒的诅咒狱火和灵液
+				攻击小概率造成避雷针减益
+				带电攻击或激光击中你会使你超级充能，在未充能完毕时这些攻击的伤害减半
+				充能完毕后，增加移动速度和攻击速度，你的攻击会造成带电和避雷针减益
+				召唤两个友善的探测器为你而战，并和你一起充能
+				所受伤害减少5%
+				“里面也许没有恶意软件”
+				'''
+			EurusSock:
+				'''
+				穿戴者可跑的非常快
+				'''
+			FrigidGemstone:
+				'''
+				放在物品栏中即可生效
+				免疫霜冻和冷冻减益
+				按下“寒霜咒语”键放置冰雪魔杖之冰
+				“一块古老的魔法冰碎片”
+				'''
+			FusedLens:
+				'''
+				免疫诅咒狱火和灵液减益
+				当被诅咒狱火影响时，增加15%攻击速度
+				当被灵液影响时，增加15%暴击率
+				因持续伤害失去生命值时，你的攻击造成诅咒狱火和灵液减益
+				按下“减益负载”键对你自己造成30秒的诅咒狱火和灵液
+				“融化过度，无法改善视力”
+				'''
+			GalacticGlobe:
+				'''
+				免疫翻转、不稳定、扭曲和月之诅咒减益
+				允许玩家改变重力
+				在太空和液体中恢复正常重力作用
+				召唤克苏鲁真眼保护你
+				增加100%飞行时间
+				“时刻凝视”
+				'''
+			GelicWings:
+				'''
+				作为翅膀使用
+				免疫由地下神圣之地造成的翻转减益
+				可让持有者二连跳
+				落地时向左右发射出史莱姆尖刺
+				“踩在我身上”
+				'''
+			GroundStick:
+				'''
+				免疫避雷针减益
+				带电攻击或激光击中你会使你超级充能，在未充能完毕时这些攻击的伤害减半
+				充能完毕后，增加移动速度和攻击速度，你的攻击会造成带电和避雷针减益
+				召唤两个友善的探测器为你而战，并和你一起充能
+				“被你击败的敌人的体节，上面还粘着天线”
+				'''
+			GuttedHeart:
+				'''
+				免疫嗜血减益
+				增加10%最大生命值
+				召唤徘徊在你周围、为你阻挡伤害的飞眼怪
+				每15秒生成一个新的飞眼怪，最多同时存在5个
+				你不移动时飞眼怪生成速度加快
+				“曾经还在敌人的大脑中跳动着”
+				'''
+			HeartoftheMasochist:
+				'''
+				免疫人形废土、霜冻、恐寒症、分泌物、枯萎武器和枯萎盔甲减益
+				免疫野性咬噬、突变啃啄、翻转、不稳定、扭曲和月之诅咒减益
+				免疫潮湿、带电、海洋重击、月蛭、失效诅咒和由水造成的减益
+				攻击力和暴击率增加10%，伤害减免增加5%
+				增加100%飞行时间
+				暴击造成双足翼龙诅咒减益
+				右键点击来用披肩防护
+				按下“特殊冲刺”键后会进行短距离的无敌火球冲刺
+				骑乘猪龙鱼坐骑时获得潮湿状态效果，你能控制重力
+				受击时冻结一切，但连续受击会减少伤害减免
+				召唤友善的迷你飞碟和克苏鲁真眼
+				“它还在跳动，很暖和，但没人想要”
+				'''
+			IceQueensCrown:
+				'''
+				免疫恐寒症减益
+				增加5%伤害减免
+				受击时冻结一切，但连续受击会减少伤害减免
+				受到的伤害只有1点时不会触发受击效果
+				“击败的皇家敌人的象征”
+				'''
+			LihzahrdTreasureBox:
+				'''
+				免疫燃烧、导火索和下陷减益
+				在空中按“下”键快速下落
+				在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
+				“陷阱太多，打不开”
+				'''
+			LumpOfFlesh:
+				'''
+				免疫凝血失效、黑视、遮蔽、眩晕、缓慢和冰冻减益，免疫击退
+				攻击力增加15%
+				你的光标会导致附近的敌怪受到更多伤害
+				你的光标在敌怪身旁持续越久，敌怪受到的伤害就越多
+				右键点击可进行时间判定极其严格的受伤反击
+				防护时和防护后短时间内，防御力和伤害减免大幅下降
+				冲刺会留下一串血刺
+				眼球会在你攻击时蓄能，蓄能完毕后发射激光
+				降低敌人以你为目标的可能性
+				“它在生长”
+				'''
+			MagicalBulb:
+				'''
+				免疫毒液、常春藤毒素和蜂群减益
+				按下“魔法净化”键治愈你身上绝大多数的减益
+				根据你受到的光照增加生命恢复速度
+				吸引一株传奇植物的幼株，其会在战斗中茁壮成长
+				“弑母？”
+				'''
+			MutantAntibodies:
+				'''
+				免疫潮湿、野性咬噬、突变啃啄和海洋重击减益
+				免疫大多数由水造成的减益
+				骑乘猪龙鱼坐骑时获得潮湿状态效果
+				增加20%你手持武器职业的伤害，但是降低生命恢复速度
+				“很健康的药物，十个医生中有零个会推荐使用它”
+				'''
+			MutantEye:
+				'''
+				免疫突变毒牙和突变驾到减益
+				闪烁崇心的擦弹伤害加成上限增加25%
+				将闪烁崇心的心攻击加强为爱之射线
+				增加闪烁崇心的擦弹伤害加成
+				提升幽灵憎恶的出现频率和攻击力
+				按下“突变炸弹”键时施放一圈幻影眼球，摧毁大多数敌对弹幕
+				突变炸弹有60秒的冷却时间
+				“有点可疑”
+				'''
+			MysticSkull:
+				'''
+				放在物品栏中即可生效
+				免疫窒息减益
+				魔法伤害降低10%
+				需要时自动使用魔力药水
+				扩大魔力星的拾取范围
+				“被打败敌人的喃喃自语的脑袋”
+				'''
+			NecromanticBrew:
+				'''
+				免疫昏昏欲睡减益
+				冲刺时只会受到25%接触伤害，并且会对攻击者反弹全部接触伤害
+				召唤两个骷髅王手臂重击敌人
+				“这液体来自被你打败的敌人，能促进骨头生长”
+				'''
+			NymphsPerfume:
+				'''
+				免疫热恋、恶臭和着魔减益
+				你会以更高的生命值重生
+				你的攻击偶尔会生成心
+				“气味有点太浓了”
+				'''
+			PrecisionSeal:
+				'''
+				免疫惩戒减益
+				缩小你对于敌对弹幕的碰撞判定
+				按下“玲珑圣印”键后开启精确模式，禁用冲刺和二段跳
+				“躲得那么近，你都能舔到那个弹幕了”
+				'''
+			PuffInABottle:
+				'''
+				允许玩家进行二段跳
+				'''
+			PumpkingsCape:
+				'''
+				免疫人形废土减益
+				增加5%伤害和暴击率
+				右键点击来用披肩防护
+				防护时你周边会出现一个腐败区域
+				如果你在防护时正好受到攻击，你会进行反击，反击有很长的冷却时间
+				反击会根据被格挡的伤害治疗你
+				“不知怎么，它的尺寸正好合适”
+				'''
+			PungentEyeball:
+				'''
+				免疫黑视和遮蔽减益
+				你的光标会导致附近的敌怪受到更多伤害
+				你的光标在敌怪身旁持续越久，敌怪受到的伤害就越多
+				“它在发酵”
+				'''
+			PureHeart:
+				'''
+				免疫腐败和嗜血减益
+				免疫生物群落带来的减益
+				增加10%移动速度，增加10%最大生命值
+				每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
+				召唤徘徊在你周围、为你阻挡伤害的飞眼怪
+				每15秒生成一个新的飞眼怪，最多同时存在5个
+				你不移动时飞眼怪生成速度加快
+				“它充满活力地跳动着”
+				'''
+			QueenStinger:
+				'''
+				免疫感染减益
+				按下“特殊冲刺”键后会进行短距离的快速蜜蜂冲刺
+				蜂蜜增益会增加10点护甲穿透
+				蜜蜂和较弱的黄蜂变得友好
+				“从一个被打败的敌人的身上撕下”
+				'''
+			ReinforcedPlating:
+				'''
+				免疫毫无防御、纳米灌注减益和击退
+				所受伤害减少5%
+				“被打败的敌人最坚硬的部分”
+				'''
+			SandsofTime:
+				'''
+				放在物品栏中即可生效
+				免疫强风减益和仙人掌伤害
+				没有Boss在场时重生速度加倍
+				使用以传送到你上一次死亡的地点
+				“无论你做什么，都不要丢下它”
+				'''
+			SaucerControlConsole:
+				'''
+				免疫带电减益
+				召唤一个友善的迷你飞碟
+				“请保持飞行模式”
+				'''
+			SecurityWallet:
+				'''
+				免疫迈达斯和晃动衣袋减益
+				大幅改善重铸结果
+				“无法完美保护尸体上的财物”
+				'''
+			SinisterIcon:
+				'''
+				免疫霉运和昏迷减益
+				提高刷怪速率
+				生命值小于等于2000的敌人掉落双倍战利品，但不掉落钱币
+				“这肯定死了”
+				'''
+			SkullCharm:
+				'''
+				免疫眩晕减益
+				攻击力增加15%，但受到的伤害增加10%
+				降低敌人以你为目标的可能性
+				水晶头骨会在你攻击时蓄能，蓄能完毕时会发射暗灵弹
+				“不在这个区域了”
+				'''
+			SlimyShield:
+				'''
+				免疫史莱姆减益
+				增加下落速度
+				落地时召唤从天而降的凝胶球，掉落至光标位置
+				凝胶球造成史莱姆和浸油减益
+				“从被打败的敌人的内脏中撕裂而来”
+				'''
+			SparklingAdoration:
+				'''
+				免疫热恋减益和假心的伤害
+				擦弹（擦过弹幕和敌怪本体）能提高伤害，最高可增加25%
+				伤害加成会随时间流逝而减少，被击中时清零
+				你的攻击会周期性地生成能吸血的红心
+				“饱含情感！”
+				'''
+			SqueakyToy:
+				'''
+				免疫吱吱响的玩具减益和内疚减益
+				你受伤时有几率发出吱吱声，并只受到1点伤害
+				“被打败的敌人的心爱的玩具……？”
+				'''
+			SupremeDeathbringerFairy:
+				'''
+				免疫史莱姆、狂暴、昏昏欲睡和感染减益
+				蜂蜜增益会增加10点护甲穿透
+				增加下落速度
+				落地时召唤从天而降的凝胶球，掉落至光标位置
+				冲刺或奔跑时会在身后留下一串鲜血镰刀
+				按下“减益负载”键进入狂暴状态
+				按下“特殊冲刺”键后会进行短距离的快速蜜蜂冲刺
+				冲刺时只会受到25%接触伤害，并且会对攻击者反弹全部接触伤害
+				蜜蜂和较弱的黄蜂变得友好
+				召唤两个骷髅王手臂重击敌人
+				“霸权难保”
+				'''
+			TimsConcoction:
+				'''
+				某些敌人在死亡时会掉落药水
+				“闻起来很上头”
+				'''
+			TribalCharm:
+				'''
+				手动点击攻击时，增加30%非召唤伤害
+				免疫被网住和净化减益
+				允许所有武器自动攻击（这个效果放在物品栏即可生效）
+				“远古丛林居民的偶像”
+				'''
+			WretchedPouch:
+				'''
+				免疫暗影焰减益
+				攻击时获得巨量伤害加成并释放暗影焰触手，但大幅降低移动速度
+				攻击时会向周围的敌怪发射暗影焰触手
+				攻击速度加成只有一半生效
+				“被打败的敌人的诅咒燃烧火药”
+				'''
+			WyvernFeather:
+				'''
+				免疫折翼和跛足减益
+				攻击有10%概率对非Boss敌怪造成折翼减益
+				“摸起来很暖和”
+				'''
+			ZephyrBoots:
+				'''
+				使你获得飞行和快速奔跑的能力
+				增加8%移动速度
+				提高跳跃速度，并允许自动跳跃
+				使你获得二段跳能力
+				增加跳跃高度并免疫摔落伤害
+				“如风般狂奔”
+				'''
 
-            // === Souls ===
+			// == Armors ==
+			
+			EridanusBattleplate:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			所受伤害减少10%
+			增加生命恢复速度
+			'''
+			EridanusHat:
+			'''
+			增加5%伤害
+			增加5%暴击率
+			增加4个召唤栏位
+			增加4个哨兵栏位
+			'''
+			EridanusLegwear:
+			'''
+			增加5%伤害
+			增加5%暴击率
+			增加10%移动速度
+			'''
+			GaiaGreaves:
+			'''
+			增加10%你手持武器职业的伤害
+			增加5%暴击率
+			增加10%移动速度
+			'''
+			GaiaHelmet:
+			'''
+			增加10%伤害
+			增加5%暴击率
+			增加1个召唤、哨兵栏位
+			'''
+			GaiaPlate:
+			'''
+			增加10%伤害
+			增加5%暴击率
+			所受伤害减少10%
+			增加生命恢复速度
+			'''
+			MutantBody:
+			'''
+			增加70%伤害和30%暴击率
+			最大生命值和魔力值增加200
+			所受伤害减少50%
+			极大提升生命恢复速度
+			'''
+			MutantMask:
+			'''
+			增加50%伤害和20%暴击率
+			增加10个召唤和哨兵栏位
+			魔力使用率减少25%
+			25%的几率不消耗弹药
+			'''
+			MutantPants:
+			'''
+			增加50%伤害和20%暴击率
+			增加40%移动和近战攻击速度
+			'''
+			NekomiHood:
+			'''
+			增加7%伤害
+			增加2个召唤栏位
+			'''
+			NekomiHoodie:
+			'''
+			小幅增加生命恢复速度
+			所受伤害减少5%
+			'''
+			NekomiLeggings:
+			'''
+			增加7%暴击率
+			增加10%移动速度
+			'''
+			StyxChestplate:
+			'''
+			增加15%伤害
+			增加10%暴击率
+			所受伤害减少10%
+			增加你的生命恢复速度
+			'''
+			StyxCrown:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			增加3个召唤、哨兵栏位
+			'''
+			StyxLeggings:
+			'''
+			增加10%伤害
+			增加10%暴击率
+			增加20%移动速度
+			'''
 
-            
+			// == Consumables ==
+			
+			DeerSinew:
+			'''
+			获得冲刺能力
+			双击一个方向
+			受到伤害有几率会短暂地冻住你
+			随着你的速度增加而降低造成的伤害，最多降低15%伤害
+			所有效果在被关闭或已经在使用另一个冲刺取消
+			“冰冷但抽搐着”
+			'''
+			MutantsCreditCard:
+			'''
+			永久将突变体的商店价格降低30%
+			“等下，你怎么拿到这个东西的？”
+			'''
+			MutantsDiscountCard:
+			'''
+			永久将突变体的商店价格降低20%
+			“它不是照你想的那么用的”
+			'''
+			MutantsPact:
+			'''
+			永久增加配饰栏数量
+			'''
+			OrdinaryCarrot:
+			'''
+			提高夜视能力
+			所有属性小幅提升
+			1分钟持续时间
+			放在物品栏中时，右键点击可以增加视野
+			“从被打败的敌人的脸上拔下来的”
+			'''
+			RabiesShot:
+			'''
+			治愈野性咬噬
+			'''
+			RabiesVaccine:
+			'''
+			永久免疫野性咬噬
+			'''
+
+			// === Boss Summoning ===
+
+			AbominationnVoodooDoll:
+			'''
+			召唤憎恶到你的城镇
+			“你可真是个坏东西”
+			'''
+			ChampionySigil:
+			'''
+			召唤英灵
+			'''
+			MutantsCurse:
+			'''
+			必须在地表使用
+			“至少不需要用娃娃了”
+			'''
+			SigilOfChampions:
+			'''
+			召唤英灵
+			根据所处环境和时间召唤不同的英灵
+			右键使用以查看可能召唤出的英灵
+			不消耗
+			'''
+			SquirrelCoatofArms:
+			'''
+			召唤无法平息的松鼠之怒！
+			'''
+			AbomsCurse:
+			'''
+			必须在地表使用
+			'''
+
+			// == Misc ==
+			
+			EternityAdvisor:
+			'''
+			基于当前进度，为你提供永恒模式的配装建议
+			'''
+			GalacticReformer:
+			'''
+			破坏一片难以置信的巨大区域
+			风险自负
+			'''
+			MutantsFury:
+			'''
+			“真 正 激怒突变体...也许并不”
+			'''
+			UniversalCollapse:
+			'''
+			毁灭宇宙
+			'''
+
+			// == Pets ==
+			
+			AccursedRags:
+			'''
+			召唤一口被诅咒的石棺
+			“那就是为什么你的布子被诅咒了，你——”
+			'''
+			BabyScythe:
+			'''
+			召唤憎恶宝宝
+			“别担心，它很迟钝”
+			'''
+			ChibiHat:
+			'''
+			召唤小不点德薇
+			她紧跟着你的鼠标
+			“可爱！可爱！太可爱了！”
+			'''
+			EnerGear:
+			'''
+			召唤一位小小的公爵
+			“100%防锈，不然就拿回你的钱”
+			'''
+			MostlyOrdinaryRock:
+			'''
+			召唤一位宝藏探索者
+			“刚刚孵化，从一块...石头里？”
+			'''
+			PortableFogMachine:
+			'''
+			召唤一个宝宝暗影生物
+			“于黑暗诞生，由黑暗塑造”
+			'''
+			SpawnSack:
+			'''
+			召唤突变体的卵
+			“你以为你安全了？”
+			'''
+
+			// == Patreon ==
+
+			MedallionoftheFallenKing:
+			'''
+			召唤一个史莱姆王仆从，其伤害接受召唤伤害加成
+			'''
+			ComputationOrb:
+			'''
+			非魔法或召唤攻击将额外造成25%伤害，但会被魔力病所影响
+			非魔法或召唤武器需要10魔力攻击
+			“在核心内，仍然闪烁着希望的火花。”
+			'''
+			StaffOfUnleashedOcean:
+			'''
+			召唤猪龙鱼公爵来为你战斗
+			每个需要2个召唤栏
+			“现在，发泄你海涛一般的愤怒对抗他们吧！”
+			'''
+			DeviousAestheticus:
+			'''
+			攻击道数随着召唤栏的增加而增加，上限为6道（使用6个召唤栏）
+			“如果你看到了这条消息，说明你已经沉睡了二十年了。我不知道这条消息会发送到哪里，但请醒来”
+			'''
+			ScientificRailgun:
+			'''
+			将钱币用作弹药
+			钱币价值越高，造成伤害越高
+			“特别又具体”
+			'''
+			RoombaPet:
+			'''
+			召唤一个扫地机器人跟随你，它希望清洁整个世界
+			'''
+			VortexMagnetRitual:
+			'''
+			“力量在你的手中波动着”
+			'''
+			PiranhaPlantVoodooDoll:
+			'''
+			开关使所有敌怪可以造成随机减益
+			“在受虐EX的爱之回忆中，我一直讨厌你。”
+			'''
+			FigBranch:
+			'''
+			召唤一只鸽子同伴
+			'''
+			ParadoxWolfSoul:
+			'''
+			双击一个方向以冲刺，会穿过敌怪并对敌怪造成伤害
+			使用有3秒的冷却时间
+			'''
+			VermillionTopHat:
+			'''
+			召唤一位已逝公主
+			“鸭子，鸭子，蝙蝠！”
+			'''
+			PrimeStaff:
+			'''
+			召唤机械骷髅王为你而战
+			“使用一些专业的黑客技巧（把它关了再打开），你就重新编程了一个恐怖的夜晚！”
+			'''
+			SquidwardDoor:
+			'''
+			“您先请，章鱼哥先生”
+			'''
+			MissDrakovisFishingPole:
+			'''
+			右键循环切换攻击模式
+			每种伤害类型对应一种模式
+			'''
+			CrimetroidEgg:
+			'''
+			召唤宝宝血水母
+			不要与不道德的安卓混淆
+			'''
+			
+			// == Weapons ==
+			// === Boss Drops ===
+
+			BoneZone:
+			'''
+			使用骨头作为弹药
+			33%的几率不消耗弹药
+			“被击败的敌人的残骸...”
+			'''
+			BrainStaff:
+			'''
+			“一个被迫屈服的老对手..”
+			'''
+			DestroyerGun:
+			'''
+			随着召唤栏数量提升而提升长度和速度，上限为3个召唤栏
+			“一个被迫屈服的老对手..”
+			'''
+			Dicer:
+			'''
+			“一个被击败的敌人的攻击，用线拴着”
+			'''
+			DragonBreath:
+			'''
+			使用凝胶作为弹药
+			33%的几率不消耗弹药
+			“一个被击败的敌人的缩小版尸体..”
+			'''
+			EaterStaff:
+			'''
+			每个召唤栏召唤4段身体
+			“一个被迫屈服的老对手..”
+			'''
+			FishStick:
+			'''
+			右键点击扔出鲨龙卷杖
+			“一个被击败的敌人的尸体，用棍子粗暴地串起来..”
+			'''
+			FleshHand:
+			'''
+			“被击败敌人的仆从..”
+			'''
+			LeashOfCthulhu:
+			'''
+			“被击败的敌人的残尸...”
+			'''
+			RefractorBlaster:
+			'''
+			“由一个被击败的敌人的手臂改装而来..”
+			'''
+			RockSlide:
+			'''
+			“被击败的敌人的破碎残骸..”
+			'''
+			SlimeKingsSlasher:
+			'''
+			“撕裂被击败的敌人内部而得来的..”
+			'''
+			TheSmallSting:
+			'''
+			使用飞镖作为弹药
+			50%的几率不消耗弹药
+			毒刺会扎在敌怪身上，在同样的位置再击中一次会造成额外伤害
+			“重新改装自被击败的敌人的腹部..”
+			'''
+			TwinRangs:
+			'''
+			根据鼠标左右键点击射出不同的双子回旋镖
+			“被击败的敌人的压缩形态..”
+			'''
+
+			// === Challengers ===
+			
+			KamikazeSquirrelStaff:
+			'''
+			召唤出友善的松鼠，拥抱你的敌人
+			右键点击让松鼠爆炸
+			'''
+			MountedAcornGun:
+			'''
+			使用橡实作为弹药
+			50%的几率不消耗弹药
+			向敌怪射出会发芽的橡果
+			'''
+			SnowballStaff:
+			'''
+			制造一个会越滚越大的雪球，你可以通过主动推雪球来滚它
+			长按左键才能维持雪球
+			右键点击可以让雪球回到你身上
+			'''
+			TheLightningRod:
+			'''
+			旋转时蓄力
+			扔出时，每次击中都会降低伤害
+			'''
+			TreeSword:
+			'''
+			射出橡实
+			'''
+
+			// === Final Upgrades
+			
+			HentaiSpear:
+			'''
+			根据鼠标左右键点击放出不同的攻击
+			按住“上”“下”或同时按住可放出不同的攻击
+			“拥抱永恒的奖励...”
+			'''
+			PhantasmalLeashOfCthulhu:
+			'''
+			“克苏鲁真眼的灵魂被永恒地困住了..”
+			'''
+			SlimeRain:
+			'''
+			“史莱姆王的内脏撒得遍地都是..”
+			'''
+			SparklingLove:
+			'''
+			右键点击召唤戴薇安的灵魂
+			右键攻击的激光图案会随着召唤栏数量提升而提高密度，上限为12个召唤栏
+			“一位被击败的敌人的恶魔之斧，吞噬着灵魂，象征着爱与正义...”
+			'''
+			StyxGazer:
+			'''
+			右键点击挥舞冥狱魔刃
+			“灼灼镰刀，破灭狱刃，合二为一，取自敌手...”
+			'''
+
+			// === Misc ===
+
+			Mahoguny:
+			'''
+			使用橡实作为弹药
+			射出树叶和橡实
+			'''
+			OvergrownKey:
+			'''
+			召唤一个丛林宝箱怪为你而战
+			每个需要2个召唤栏
+			'''
+			TophatSquirrelWeapon:
+			'''
+			“谁能知道，这只松鼠竟然有着非凡的宇宙力量呢？”
+			'''
+			Vineslinger:
+			'''
+			击中敌怪会射出树叶
+			'''
+
+			// === Swarm Drops ===
+
+			BigBrainBuster:
+			'''
+			重复召唤会增加召唤物的大小和伤害
+			上限为11个召唤栏
+			“屠戮众多的奖励...”
+			'''
+			Blender:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			DestroyerGun2:
+			'''
+			随着召唤栏数量提升而提升长度和速度，上限为5个召唤栏
+			“屠戮众多的奖励...”
+			'''
+			DragonBreath2:
+			'''
+			使用凝胶作为弹药
+			66%的几率不消耗弹药
+			“屠戮众多的奖励..”
+			'''
+			EaterLauncher:
+			'''
+			使用火箭作为弹药
+			50%的几率不消耗弹药
+			对指定范围内的敌怪造成更多伤害
+			“屠戮众多的奖励..”
+			'''
+			FleshCannon:
+			'''
+			“被击败敌人的奴役面孔...”
+			'''
+			GeminiGlaives:
+			'''
+			根据鼠标左右键点击射出不同的飞轮刃
+			左右键交替攻击会增强攻击
+			“被击败的敌人的压缩形态..”
+			'''
+			GolemTome2:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			GuardianTome:
+			'''
+			“现在轮到他们跑了”
+			'''
+			HellZone:
+			'''
+			使用骨头作为弹药
+			80%的几率不消耗弹药
+			“屠戮众多的奖励...”
+			'''
+			MechanicalLeashOfCthulhu:
+			'''
+			“屠戮众多的奖励..”
+			'''
+			NukeFishron:
+			'''
+			使用火箭作为弹药
+			“被击败敌人的高度武器化遗骸...”
+			'''
+			RefractorBlaster2:
+			'''
+			“屠戮众多的奖励...”
+			'''
+			SlimeSlingingSlasher:
+			'''
+			“屠戮众多的奖励..”
+			'''
+			TheBigSting:
+			'''
+			使用飞镖作为弹药
+			66%的几率不消耗弹药
+			“屠戮众多的奖励..”
+			'''
+
+			// === Souls ===
+
+			ArchWizardsSoul:
+			'''
+			增加30%魔法伤害
+			增加20%施法速度
+			增加15%魔法暴击率
+			增加200点最大法力值
+			拥有天界手铐和魔力花效果
+			“奥术之力，合核凝一”
+			'''
+			BerserkerSoul:
+			'''
+			增加30%近战伤害
+			增加20%近战攻速
+			增加15%近战暴击率
+			增加近战击退
+			拥有烈火手套、悠悠球袋和天界壳效果
+			“吾之传说生者弗能传颂”
+			'''
+			ColossusSoul:
+			'''
+			增加100点最大生命值
+			增加15%伤害减免
+			增加5点生命恢复速度
+			免疫击退、一些减益和摔落伤害
+			增加敌人以你为目标的几率
+			拥有混乱之脑、星星面纱和蜜蜂斗篷效果
+			拥有闪亮石、圣骑士护盾和冰冻海龟壳效果
+			“你无人可挡”
+			'''
+			ConjuristsSoul:
+			'''
+			增加30%召唤伤害
+			增加3个召唤栏位
+			增加3个哨兵栏位
+			增加召唤物击退
+			“一支听命于您的军队”
+			'''
+			DimensionSoul:
+			'''
+			增加300点最大生命值
+			增加20%伤害减免
+			增加8点生命恢复速度
+			免疫击退和一些减益
+			增加敌人以你为目标的几率
+			使你获得超音速奔跑和无限飞行能力
+			大幅增加渔力且钓竿会额外扔出10根鱼线
+			增加50%物块和墙壁的放置速度
+			近乎无限的放置和挖掘距离，挖掘速度x3
+			拥有光芒、洞穴探险、狩猎和危险感效果
+			自动刷漆和放置促动器
+			你能够开启“建筑师模式”
+			拥有混乱之脑、星星面纱、甜蜜项链、蜜蜂斗篷、孢子囊和闪亮石效果
+			拥有圣骑士护盾、冰冻海龟壳、北极潜水装备、蛙腿和飞毯效果
+			拥有熔岩靴、渔夫渔具袋、喷漆器、自动安放器、手机和重力球效果
+			拥有克苏鲁护盾和忍者大师装备效果
+			“泰拉瑞亚的维度触手可及”
+			'''
+			EternitySoul:
+			'''
+			“无论凡人或不朽，一切都承认你的神性”
+			将你的基础暴击率设为50%
+			每次暴击时都会增加10%暴击率
+			暴击率达到100%后每次攻击会汲取10%生命值并增加5%伤害，你增加5防御力
+			可叠加950次，直到你被击中
+			'''
+			FlightMasterySoul:
+			'''
+			使你获得无限飞行能力
+			按住“下”和“跳跃”键悬停
+			在太空稳定重力
+			“飞升”
+			'''
+			MasochistSoul:
+			'''
+			延长200%飞行时间，增加50点护甲穿透和20%移动速度
+			增加100%最大生命值和10%伤害减免，增加50%你手持武器职业的伤害
+			大幅增加生命恢复速度，你的光标会导致附近的敌怪受到更多伤害
+			允许你控制重力、快速下落，免疫击退、摔落伤害和近乎所有的永恒模式减益
+			允许所有武器自动挥舞且在需要时自动使用魔力药水
+			你的攻击会进行额外攻击，额外生成心, 并造成混合的永恒模式减益
+			被诅咒狱火或灵液影响时增强属性
+			按下“减益负载”键对自己造成减益并加强自己
+			按下“特殊冲刺”键后会进行短距离无敌冲刺，右键缩放视域
+			大多敌人在死亡时会掉落随机的药水，大幅改善重铸结果，你在重生时以更多生命重生
+			重生速度翻倍，增强夜视效果，受到伤害时进行超级充能并释放各种攻击
+			阻止Boss自然生成，增加刷怪率，敌人死亡后会掉落更多战利品，你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
+			缩小你对于敌对弹幕的碰撞判定，按下“玲珑圣印”键禁用冲刺和二段跳
+			右键以及其严格的时机格挡攻击
+			使用以传送到你上一次死亡的地点
+			召唤所有永恒模式Boss的援助到你身边
+			“拥抱精通，拥抱永恒”
+			'''
+			SnipersSoul:
+			'''
+			增加30%远程伤害
+			20%几率不消耗弹药
+			增加15%远程暴击率
+			拥有狙击镜效果
+			“预备，瞄准，开火”
+			'''
+			SupersonicSoul:
+			'''
+			获得超音速奔跑，飞行，以及额外的冰上移动力
+			在没有装备翅膀时，允许使用者进行五段跳
+			增加跳跃高度，跳跃速度,允许自动跳跃
+			你走过的草地上会生长花朵
+			获得游泳能力以及极长的水下呼吸时间
+			获得水/岩浆上行走能力
+			免疫岩浆和坠落伤害
+			拥有飞毯、克苏鲁护盾和忍者大师装备的效果
+			拥有甜心项链和琥珀马掌气球的效果
+			“我就是速度”
+			'''
+			TerrariaSoul:
+			'''
+			召唤火球、暗影珠、冰锥、叶状水晶、爆炸烈焰哨兵、神圣剑盾和甲虫
+			右键进行盾牌格挡
+			双击“下”键后会召唤一个哨兵、传送门、风暴并切换至隐形状态
+			按下“金身”键后会将你包裹在一个黄金壳中，按下“冻结”键后会冻结9秒时间，召唤物会释放镰刀
+			允许你使用日耀护盾进行冲刺，冲进墙壁时会直接穿过去
+			扔出烟雾弹后会将你传送至其落点的位置并使你获得先发制人增益
+			攻击有几率生成闪电、风暴云、花瓣、幽魂珠、地牢守卫、雪球、长矛或强化增益
+			攻击额外发射爆炸烈焰火球且会使流星雨从天而降，攻击敌人会降低其防御、增加你的生命恢复速度并使你获得暗影闪避增益
+			将你的基础暴击率设为25%，每次暴击时都会增加5%暴击率，暴击率达到100%后每攻击10次会汲取4%生命值
+			被击中后会降低暴击率、喷出血液并反弹伤害
+			弹幕有几率分裂或爆裂成碎片并生成星星，增加物品和弹幕的尺寸，扩大你的物品拾取范围
+			引燃你附近的敌人，你的身后会留下一条火痕，跳跃会释放孢子爆炸
+			给予你猩红魔石的恢复效果，免疫岩浆、火和摔落伤害并使药草收获翻倍
+			普通蜜蜂有50%几率变成大蜜蜂，你的仆从和哨兵现在可以造成暴击且有15%基础暴击率并增加30点护甲穿透，敌人死亡时有20%几率掉落更多战利品
+			增加小动物的防御，小动物死亡后会释放它们的灵魂来帮助你，在召唤栏用光后你仍可以召唤临时的哨兵和仆从
+			强化钩爪的效果，钩爪会发射追踪弹幕，大幅强化旧日军团的塔防哨兵
+			你的攻击会造成迈达斯减益，敌人在死亡时会爆裂出针刺
+			你受到伤害时会剧烈爆炸并伤害附近的敌人，你在重生时以200点生命值重生
+			拥有花靴和贪婪戒指效果
+			“泰拉之主，天地共证”
+			'''
+			TrawlerSoul:
+			'''
+			大幅增加渔力
+			钓竿会额外扔出10根鱼线
+			你几乎能立刻就钓到鱼
+			拥有声纳和宝匣效果
+			拥有渔夫渔具袋和孢子囊效果
+			拥有粉马掌气球和北极潜水装备效果
+			“愿者上钩”
+			'''
+			UniverseSoul:
+			'''
+			增加66%你手持武器职业的伤害以及25%该职业暴击率
+			增加50%武器使用速度
+			暴击伤害变为4倍而不是2倍
+			武器击退翻倍
+			增加300点最大法力值
+			增加4个召唤栏位
+			增加4个哨兵栏位
+			攻击会造成宇宙之火减益
+			拥有烈火手套、悠悠球袋和天界壳效果
+			拥有狙击镜、 天界手铐、和魔力花效果
+			“诸天也向你俯首”
+			'''
+			VoidSoul:
+			'''
+			召唤 某 些 东 西
+			'''
+			WorldShaperSoul:
+			'''
+			增加50%物块和墙壁的放置速度
+			近乎无限的放置和挖掘距离
+			挖掘速度x3
+			高亮标记敌人、陷阱和宝藏
+			自动刷漆和放置促动器
+			允许你控制重力且你会散发光芒
+			你能够开启“建筑师模式”：
+			放置物块时不会消耗物块且大幅增加放置速度
+			敌人不会生成
+			可以在魂石开关选项菜单中禁用此效果
+			拥有手机和皇家凝胶效果
+			召唤一个魔法灯笼
+			“无限的可能性”
+			'''
+			
+
+		}
+
+		EternityMode: {
+			Betsy1: 你怕了？
+			Betsy2: 乐不起来
+			Betsy3: 这就是Fargo开荒吗？
+			Betsy4: 你怎么开着无限飞行打这个Boss啊
+			Betsy5: 空中祸害牛逼
+			Betsy6: 啥时候打点真的Boss？
+			Betsy7: "#不是受虐模式#"
+			Betsy8: 额我的看法呢比较极端，我认为这是坏的，没有任何好处
+			Betsy9: 你行你上阿
+			Betsy10: 受虐开了
+			Betsy11: 受虐关了
+			Betsy12: 乐
+			Betsy13: 就这？
+			Betsy14: 看到的打个22
+			Betsy15: 灾基汉化垃圾东西
+			Betsy16: 什么时候灾厄开荒啊
+			Betsy17: 什么时候瑟银开荒啊
+			Betsy18: 什么时候打1血硬核
+			Betsy19: 用同志短剑打
+			Betsy20: 天顶悠悠球？
+			Betsy21: hxd们怎么打月总啊
+			Betsy22: hxd们我拿到泰拉棱镜了
+			Betsy23: xdm这汉化怎么装啊
+			Betsy24: 观前提示，请点赞，投币，转发
+			Betsy25: *本消息已被管理员删除*
+			Betsy26: <玩家
+			Betsy27: 被踢出了世界>
+			Betsy28: 被禁言29天23小时59分钟>
 
 		}
 	}

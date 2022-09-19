@@ -28,16 +28,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
             base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.OnFire] = true;
-
-            for (int i = 0; i < 6; i++)
-            {
-                FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center, NPCID.DarkCaster, velocity: Main.rand.NextVector2Circular(8, 8));
-            }
         }
+
+        public int SpawnTimer = 60;
 
         public override void AI(NPC npc)
         {
             base.AI(npc);
+
+            if (SpawnTimer > 0 && --SpawnTimer % 10 == 0)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center, NPCID.DarkCaster, velocity: Main.rand.NextVector2Circular(8, 8));
+            }
 
             EModeGlobalNPC.Aura(npc, 450, BuffID.WitheredWeapon, true, 15);
             EModeGlobalNPC.Aura(npc, 150, BuffID.Cursed, false, 20);

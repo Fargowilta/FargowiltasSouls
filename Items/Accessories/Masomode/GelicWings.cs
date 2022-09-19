@@ -13,7 +13,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gelic Wings");
-            Tooltip.SetDefault(@"Grants immunity to Flipped caused by the Underground Hallow
+            Tooltip.SetDefault(@"Acts as wings
+Grants immunity to Flipped caused by the Underground Hallow
 Allows the wearer to double jump
 When you land after a jump, slime spikes shoot out to your sides
 'Step on me'");

@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Boss
@@ -10,8 +9,8 @@ namespace FargowiltasSouls.Buffs.Boss
         {
             DisplayName.SetDefault("Mutant Fang");
             Description.SetDefault("The power of Eternity Mode compels you");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变毒牙");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒模式的力量压迫着你");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变毒牙");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "永恒模式的力量压迫着你");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
@@ -40,7 +39,6 @@ namespace FargowiltasSouls.Buffs.Boss
             fargoPlayer.MutantPresence = true;
             fargoPlayer.MutantFang = true;
             player.moonLeech = true;
-            player.potionDelay = player.buffTime[buffIndex];
             /*if (FargowiltasSouls.Instance.MasomodeEXLoaded && !FargoSoulsWorld.downedFishronEX && player.buffTime[buffIndex] > 1
                 && FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<MutantBoss>()))
             {

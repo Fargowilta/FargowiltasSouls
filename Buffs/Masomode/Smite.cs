@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -10,8 +9,8 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Smite");
             Description.SetDefault("Life regen reduced and 10% more damage taken");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "惩戒");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "降低生命恢复速度，受到的伤害增加10%");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "惩戒");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "降低生命恢复速度，受到的伤害增加10%");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
         }

@@ -1,7 +1,6 @@
 using FargowiltasSouls.Projectiles.BossWeapons;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Leash of Cthulhu");
             Tooltip.SetDefault("'The mutilated carcass of a defeated foe...'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁连枷");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被打败的敌人的残尸...'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁连枷");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "'被打败的敌人的残尸...'");
         }
 
         public override void SetDefaults()

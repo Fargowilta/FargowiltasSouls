@@ -1,6 +1,5 @@
 using FargowiltasSouls.NPCs;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -11,7 +10,7 @@ namespace FargowiltasSouls.Buffs.Souls
         {
             DisplayName.SetDefault("Blood Geyser");
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大出血");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "大出血");
         }
 
         public override string Texture => "FargowiltasSouls/Buffs/PlaceholderBuff";

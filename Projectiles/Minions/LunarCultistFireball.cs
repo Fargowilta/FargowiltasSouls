@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     return;
                 }
                 float targetAngle = vel.ToRotation();
-                Projectile.velocity = new Vector2(Projectile.velocity.Length(), 0f).RotatedBy(rotation.AngleLerp(targetAngle, 0.008f + 0.08f * Math.Min(1f, Projectile.ai[0] / 180)));
+                Projectile.velocity = new Vector2(Projectile.velocity.Length(), 0f).RotatedBy(rotation.AngleLerp(targetAngle, 0.016f + 0.32f * Math.Min(1f, Projectile.ai[0] / 180)));
 
                 if (Projectile.timeLeft % Projectile.MaxUpdates == 0)
                     Projectile.ai[0]++;

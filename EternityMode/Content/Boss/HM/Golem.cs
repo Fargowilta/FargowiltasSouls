@@ -443,6 +443,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.scale += 0.5f;
         }
 
+        public override bool? CanBeHitByProjectile(NPC npc, Projectile projectile)
+        {
+            if (ProjectileID.Sets.IsAWhip[projectile.type])
+                return false;
+
+            return base.CanBeHitByProjectile(npc, projectile);
+        }
+
         public override bool PreAI(NPC npc)
         {
             bool result = base.PreAI(npc);

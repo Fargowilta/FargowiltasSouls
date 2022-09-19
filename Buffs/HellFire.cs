@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.NPCs;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -13,7 +12,7 @@ namespace FargowiltasSouls.Buffs.Souls
             Main.buffNoSave[Type] = true;
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "地狱火");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "地狱火");
         }
 
         public override string Texture => "FargowiltasSouls/Buffs/PlaceholderDebuff";

@@ -12,6 +12,7 @@ namespace FargowiltasSouls.Items.Summons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Abominationn's Curse");
+            Tooltip.SetDefault("Must be used on the surface");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 10));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
@@ -32,6 +33,8 @@ namespace FargowiltasSouls.Items.Summons
             Item.consumable = true;
             Item.value = Item.buyPrice(gold: 8);
         }
+
+        public override bool CanUseItem(Player player) => player.Center.Y / 16 < Main.worldSurface;
 
         public override bool? UseItem(Player player)
         {

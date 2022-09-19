@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Minions
@@ -13,8 +12,8 @@ namespace FargowiltasSouls.Buffs.Minions
             Description.SetDefault("The Lunar Cultist will protect you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "拜月教徒");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "拜月教徒将会保护你");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "拜月教徒");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "拜月教徒将会保护你");
         }
 
         public override void Update(Player player, ref int buffIndex)

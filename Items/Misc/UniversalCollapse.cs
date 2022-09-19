@@ -1,7 +1,6 @@
 using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Misc
@@ -12,8 +11,8 @@ namespace FargowiltasSouls.Items.Misc
         {
             DisplayName.SetDefault("Universal Collapse");
             Tooltip.SetDefault("Destroys the Universe");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙坍缩");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "毁灭宇宙");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙坍缩");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "毁灭宇宙");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
         }

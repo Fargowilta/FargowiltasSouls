@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Souls
@@ -14,8 +13,8 @@ namespace FargowiltasSouls.Buffs.Souls
             Main.buffNoSave[Type] = true;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
             Main.debuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "已复活");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "最近经历过复活");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "已复活");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "最近经历过复活");
         }
     }
 }

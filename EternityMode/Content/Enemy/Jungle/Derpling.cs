@@ -42,7 +42,16 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
                     CombatText.NewText(target.Hitbox, Color.Red, damage, false, true);
 
                     if (target.statLife < 0)
-                        target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sucked dry."), 999, 0);
+                    {
+                        if (FargoSoulsUtil.IsChinese())
+                        {
+                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "被吸干了。"), 999, 0);
+                        }
+                        else
+                        {
+                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sucked dry."), 999, 0);
+                        }
+                    }
 
                     npc.life += damage;
                     if (npc.life > npc.lifeMax)

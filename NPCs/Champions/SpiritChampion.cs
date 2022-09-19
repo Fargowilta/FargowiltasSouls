@@ -25,7 +25,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Spirit");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "魂灵英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "魂灵英灵");
             Main.npcFrameCount[NPC.type] = 2;
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -980,7 +980,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(SpiritForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<SpiritChampionRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<AccursedRags>(), 4));
         }

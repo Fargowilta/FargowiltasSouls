@@ -45,7 +45,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void AI()
         {
-            if (Main.player[Projectile.owner].active && !Main.player[Projectile.owner].dead && Main.player[Projectile.owner].GetModPlayer<FargoSoulsPlayer>().EridanusEmpower)
+            if (Main.player[Projectile.owner].active && !Main.player[Projectile.owner].dead && Main.player[Projectile.owner].GetModPlayer<FargoSoulsPlayer>().EridanusSet
+                && (Projectile.owner != Main.myPlayer || Main.player[Projectile.owner].GetModPlayer<FargoSoulsPlayer>().EridanusEmpower))
             {
                 Projectile.timeLeft = 2;
             }

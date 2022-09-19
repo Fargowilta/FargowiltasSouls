@@ -6,7 +6,6 @@ using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Souls
@@ -28,9 +27,11 @@ Increases life regen drastically, your cursor causes nearby enemies to take incr
 Grants gravity control, fastfall, and immunity to knockback, almost all Eternity Mode debuffs, and more
 Grants autofire to all weapons and you automatically use mana potions when needed
 Your attacks create additional attacks, hearts, and inflict a cocktail of Eternity Mode debuffs
-Press the Fireball Dash key to perform a short invincible dash, zoom with right click
+Increased stats when inflicted with Cursed Inferno or Ichor
+Press the Debuff Install key to debuff and buff yourself
+Press the Special Dash key to perform a short invincible fireball dash, zoom with right click
 Certain enemies will drop potions when defeated, drastically improves reforges, you respawn with more life
-You respawn twice as fast, attacks spawn honey, have improved night vision, and erupt into various attacks when injured
+You respawn twice as fast, have improved night vision, and supercharge and erupt into various attacks when injured
 Prevents boss spawns, increases spawn rate, increases loot, and attacks may squeak and deal 1 damage to you
 Reduces hurtbox size, hold the Precision Seal key to disable dashes and double jumps
 Right Click to parry attacks with extremely tight timing
@@ -38,21 +39,21 @@ Use to teleport to your last death point
 Summons the aid of all Eternity Mode bosses to your side
 'Embrace mastery, embrace eternity'");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐之魂");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-@"延长200%飞行时间，增加50点护甲穿透和20%移动速度
-增加100%最大生命值、50%伤害和10%伤害减免
-大幅增加生命恢复速度，+10最大召唤和哨兵栏
-允许你控制重力，使你免疫击退、摔落伤害和近乎所有的永恒模式减益
-允许所有武器自动挥舞且在需要时自动使用魔力药水
-在地牢外减少武装和魔法骷髅对你的敌意，右键缩放视域
-你的攻击会额外生成心, 并造成混合的永恒模式减益
-按下'火球冲刺'键后会进行短距离无敌冲刺
-大多敌人在死亡时会掉落随机的药水，减少50%重铸价格，你在重生时以更多生命重生
-重生速度翻倍，攻击时会释放蜜蜂，增强夜视效果，受到伤害时释放各种攻击
-阻止Boss自然生成，增加刷怪率，敌人死亡后会掉落更多战利品，你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
-召唤所有永恒模式Boss的援助到你身边
-'拥抱永恒'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐之魂");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
+//@"延长200%飞行时间，增加50点护甲穿透和20%移动速度
+//增加100%最大生命值、50%伤害和10%伤害减免
+//大幅增加生命恢复速度，+10最大召唤和哨兵栏
+//允许你控制重力，使你免疫击退、摔落伤害和近乎所有的永恒模式减益
+//允许所有武器自动挥舞且在需要时自动使用魔力药水
+//在地牢外减少武装和魔法骷髅对你的敌意，右键缩放视域
+//你的攻击会额外生成心, 并造成混合的永恒模式减益
+//按下'火球冲刺'键后会进行短距离无敌冲刺
+//大多敌人在死亡时会掉落随机的药水，减少50%重铸价格，你在重生时以更多生命重生
+//重生速度翻倍，攻击时会释放蜜蜂，增强夜视效果，受到伤害时释放各种攻击
+//阻止Boss自然生成，增加刷怪率，敌人死亡后会掉落更多战利品，你在受到伤害时有几率发出吱吱声，并使这次受到的伤害降至1点
+//召唤所有永恒模式Boss的援助到你身边
+//'拥抱永恒'");
         }
 
         public override void SetDefaults()
@@ -73,11 +74,11 @@ Summons the aid of all Eternity Mode bosses to your side
         public override void UseItemFrame(Player player) => SandsofTime.Use(player);
         public override bool? UseItem(Player player) => true;
 
-        public override void UpdateInventory(Player player) => BionomicCluster.PassiveEffect(player);
-        public override void UpdateVanity(Player player) => BionomicCluster.PassiveEffect(player);
+        public override void UpdateInventory(Player player) => BionomicCluster.PassiveEffect(player, Item);
+        public override void UpdateVanity(Player player) => BionomicCluster.PassiveEffect(player, Item);
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            BionomicCluster.PassiveEffect(player);
+            BionomicCluster.PassiveEffect(player, Item);
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.MasochistSoul = true;
@@ -194,12 +195,6 @@ Summons the aid of all Eternity Mode bosses to your side
 
             //frigid gemstone
             player.buffImmune[BuffID.Frostburn] = true;
-            if (player.GetToggleValue("MasoFrigid"))
-            {
-                fargoPlayer.FrigidGemstoneItem = Item;
-                if (fargoPlayer.FrigidGemstoneCD > 0)
-                    fargoPlayer.FrigidGemstoneCD -= 5;
-            }
 
             //wretched pouch
             player.buffImmune[BuffID.ShadowFlame] = true;
@@ -229,6 +224,7 @@ Summons the aid of all Eternity Mode bosses to your side
             //tribal charm
             player.buffImmune[BuffID.Webbed] = true;
             fargoPlayer.TribalCharm = true;
+            fargoPlayer.TribalCharmEquipped = true;
 
             //nymph's perfume
             player.buffImmune[BuffID.Lovestruck] = true;
@@ -251,9 +247,14 @@ Summons the aid of all Eternity Mode bosses to your side
             fargoPlayer.FusedLens = true;
             fargoPlayer.GroundStick = true;
             player.noKnockback = true;
+            if (player.onFire2)
+                player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed += 0.15f;
+            if (player.ichor)
+                player.GetCritChance(DamageClass.Generic) += 15;
 
             //magical bulb
             player.buffImmune[BuffID.Venom] = true;
+            fargoPlayer.MagicalBulb = true;
 
             //ice queen's crown
             fargoPlayer.IceQueensCrown = true;
@@ -271,9 +272,11 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[BuffID.WitheredArmor] = true;
             fargoPlayer.BetsysHeartItem = Item;
 
-            //celestial rune/pumpking's cape
-            fargoPlayer.CelestialRuneItem = Item;
+            //pumpking's cape
             fargoPlayer.PumpkingsCapeItem = Item;
+
+            //celestial rune
+            fargoPlayer.CelestialRuneItem = Item;
             fargoPlayer.AdditionalAttacks = true;
             if (fargoPlayer.AdditionalAttacksTimer > 0)
                 fargoPlayer.AdditionalAttacksTimer -= 2;
@@ -331,6 +334,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[ModContent.BuffType<LihzahrdCurse>()] = true;
             player.buffImmune[ModContent.BuffType<LightningRod>()] = true;
             player.buffImmune[ModContent.BuffType<LivingWasteland>()] = true;
+            player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
             player.buffImmune[ModContent.BuffType<Lovestruck>()] = true;
             player.buffImmune[ModContent.BuffType<LowGround>()] = true;
             player.buffImmune[ModContent.BuffType<MarkedforDeath>()] = true;
@@ -348,6 +352,7 @@ Summons the aid of all Eternity Mode bosses to your side
             player.buffImmune[ModContent.BuffType<Buffs.Masomode.SqueakyToy>()] = true;
             player.buffImmune[ModContent.BuffType<Swarming>()] = true;
             player.buffImmune[ModContent.BuffType<Stunned>()] = true;
+            player.buffImmune[ModContent.BuffType<Unlucky>()] = true;
             player.buffImmune[ModContent.BuffType<Unstable>()] = true;
         }
 

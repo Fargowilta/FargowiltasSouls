@@ -42,9 +42,9 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) => behindProjectiles.Add(index);
 
-        public override void SendExtraAI(BinaryWriter writer) => writer.WriteVarInt(headsStacked);
+        public override void SendExtraAI(BinaryWriter writer) => writer.Write7BitEncodedInt(headsStacked);
 
-        public override void ReceiveExtraAI(BinaryReader reader) => headsStacked = reader.ReadVarInt();
+        public override void ReceiveExtraAI(BinaryReader reader) => headsStacked = reader.Read7BitEncodedInt();
 
         public override void AI()
         {

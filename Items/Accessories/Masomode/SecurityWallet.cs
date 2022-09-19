@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Security Wallet");
-            Tooltip.SetDefault(@"Grants immunity to Midas and enemies that steal items
+            Tooltip.SetDefault(@"Grants immunity to Midas and Loose Pockets
 Drastically improves reforges
 'Not secure against being looted off of one's corpse'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "安全钱包");
@@ -35,6 +35,7 @@ Drastically improves reforges
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.buffImmune[Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Midas>()] = true;
+            player.buffImmune[Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.LoosePockets>()] = true;
             player.GetModPlayer<FargoSoulsPlayer>().SecurityWallet = true;
         }
     }

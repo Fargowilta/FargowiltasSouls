@@ -16,7 +16,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Brain of Cthulhu");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
+            //isplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BrainofCthulhu];
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
 

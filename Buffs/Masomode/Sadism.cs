@@ -1,7 +1,6 @@
 using FargowiltasSouls.NPCs;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -15,8 +14,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             DisplayName.SetDefault("Eternity");
             Description.SetDefault("The power of Eternity Mode is with you");
             BuffID.Sets.IsAnNPCWhipDebuff[Type] = true; //ignore most debuff immunity
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "施虐狂");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐模式的力量与你同在");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "施虐狂");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "受虐模式的力量与你同在");
         }
 
         public override void Update(Player player, ref int buffIndex)
@@ -45,6 +44,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             player.buffImmune[ModContent.BuffType<LihzahrdCurse>()] = true;
             player.buffImmune[ModContent.BuffType<LightningRod>()] = true;
             player.buffImmune[ModContent.BuffType<LivingWasteland>()] = true;
+            player.buffImmune[ModContent.BuffType<LoosePockets>()] = true;
             player.buffImmune[ModContent.BuffType<Lovestruck>()] = true;
             player.buffImmune[ModContent.BuffType<LowGround>()] = true;
             player.buffImmune[ModContent.BuffType<MarkedforDeath>()] = true;
@@ -62,6 +62,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             player.buffImmune[ModContent.BuffType<SqueakyToy>()] = true;
             player.buffImmune[ModContent.BuffType<Swarming>()] = true;
             player.buffImmune[ModContent.BuffType<Stunned>()] = true;
+            player.buffImmune[ModContent.BuffType<Unlucky>()] = true;
             player.buffImmune[ModContent.BuffType<Unstable>()] = true;
         }
 

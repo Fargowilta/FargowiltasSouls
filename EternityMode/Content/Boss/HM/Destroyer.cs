@@ -29,6 +29,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int CoilRadius;
         public int LaserTimer;
         public int SecondaryAttackTimer;
+        public int RotationDirection = 1;
 
         public bool InPhase2;
         public bool IsCoiling;
@@ -45,6 +46,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(CoilRadius), IntStrategies.CompoundStrategy },
                 { new Ref<object>(LaserTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(SecondaryAttackTimer), IntStrategies.CompoundStrategy },
+                { new Ref<object>(RotationDirection), IntStrategies.CompoundStrategy },
 
                 { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(IsCoiling), BoolStrategies.CompoundStrategy },
@@ -92,8 +94,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                         npc.netUpdate = true;
                         npc.velocity = Vector2.Normalize(npc.velocity) * 20f;
-                        npc.velocity += npc.velocity.RotatedBy(Math.PI / 2) * npc.velocity.Length() / CoilRadius;
-                        npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+                        npc.velocity += npc.velocity.RotatedBy(MathHelper.PiOver2 * RotationDirection) * npc.velocity.Length() / CoilRadius;
+                        npc.rotation = npc.velocity.ToRotation() + MathHelper.PiOver2;
 
                         if (AttackModeTimer == 0)
                             LaserTimer = 0;
@@ -164,7 +166,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         }
 
                         Vector2 pivot = npc.Center;
-                        pivot += Vector2.Normalize(npc.velocity.RotatedBy(Math.PI / 2)) * 600;
+                        pivot += Vector2.Normalize(npc.velocity.RotatedBy(MathHelper.PiOver2 * RotationDirection)) * 600;
 
                         if (++LaserTimer > 95)
                         {
@@ -281,7 +283,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 AttackModeTimer = 0;
                                 CoilRadius = (int)npc.Distance(Main.player[npc.target].Center);
                                 IsCoiling = true;
-                                npc.velocity = 20 * npc.DirectionTo(Main.player[npc.target].Center).RotatedBy(-Math.PI / 2);
+
+                                //angle difference from npc velocity, to angle towards player
+                                float rotationDiff = MathHelper.WrapAngle(npc.DirectionTo(Main.player[npc.target].Center).ToRotation() - npc.velocity.ToRotation());
+                                RotationDirection = Math.Sign(rotationDiff);
+
+                                npc.velocity = 20 * npc.DirectionTo(Main.player[npc.target].Center).RotatedBy(-MathHelper.PiOver2 * RotationDirection);
 
                                 npc.netUpdate = true;
                                 NetSync(npc);
@@ -663,7 +670,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     damage = (int)(damage * 0.1);
                 }
             }
-            else if (PrepareToCoil || AttackModeTimer >= P2_COIL_BEGIN_TIME - 120)
+            else if (PrepareToCoil || AttackModeTimer >= P2_COIL_BEGIN_TIME - 120 || npc.life < npc.lifeMax / 10)
             {
                 damage = (int)(damage * 0.1);
             }
@@ -778,7 +785,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (AttackTimer < 0)
                     AttackTimer = 0; //cancel startup on any imminent projectiles
                 Vector2 pivot = Main.npc[npc.realLife].Center;
-                pivot += Vector2.Normalize(Main.npc[npc.realLife].velocity.RotatedBy(Math.PI / 2)) * 600;
+                pivot += Vector2.Normalize(Main.npc[npc.realLife].velocity.RotatedBy(MathHelper.PiOver2 * destroyerEmode.RotationDirection)) * 600;
                 if (npc.Distance(pivot) < 600) //make sure body doesnt coil into the circling zone
                     npc.Center = pivot + npc.DirectionFrom(pivot) * 600;
             }
@@ -897,7 +904,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     damage = (int)(damage * 0.1);
                 }
             }
-            else if (destroyerEmode.PrepareToCoil || destroyerEmode.AttackModeTimer >= Destroyer.P2_COIL_BEGIN_TIME - 120)
+            else if (destroyerEmode.PrepareToCoil || destroyerEmode.AttackModeTimer >= Destroyer.P2_COIL_BEGIN_TIME - 120 || destroyer.life < destroyer.lifeMax / 10)
             {
                 damage = (int)(damage * 0.1);
             }

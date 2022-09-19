@@ -51,6 +51,7 @@ namespace FargowiltasSouls.Projectiles
             }
 
             player.GetModPlayer<FargoSoulsPlayer>().BetsyDashing = true;
+
             player.GetModPlayer<FargoSoulsPlayer>().dashCD = 5;
             player.GetModPlayer<FargoSoulsPlayer>().IsDashingTimer = 0;
 

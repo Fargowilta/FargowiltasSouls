@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Buffs.Masomode
@@ -14,8 +13,8 @@ namespace FargowiltasSouls.Buffs.Masomode
             Description.SetDefault("Everyone around you turns to rot");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "人形废土");
-            Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你周围的每个人都开始腐烂");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "人形废土");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "你周围的每个人都开始腐烂");
         }
 
         public override void Update(Player player, ref int buffIndex)

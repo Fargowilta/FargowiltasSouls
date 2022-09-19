@@ -62,8 +62,8 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.WriteVarInt(Projectile.width);
-            writer.WriteVarInt(Projectile.height);
+            writer.Write7BitEncodedInt(Projectile.width);
+            writer.Write7BitEncodedInt(Projectile.height);
             writer.Write(Projectile.scale);
             writer.Write(mousePos.X);
             writer.Write(mousePos.Y);
@@ -71,8 +71,8 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            Projectile.width = reader.ReadVarInt();
-            Projectile.height = reader.ReadVarInt();
+            Projectile.width = reader.Read7BitEncodedInt();
+            Projectile.height = reader.Read7BitEncodedInt();
             Projectile.scale = reader.ReadSingle();
 
             Vector2 buffer;

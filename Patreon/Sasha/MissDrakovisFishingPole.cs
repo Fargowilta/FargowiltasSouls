@@ -3,7 +3,6 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon.Sasha
@@ -19,8 +18,8 @@ namespace FargowiltasSouls.Patreon.Sasha
             base.SetStaticDefaults();
             DisplayName.SetDefault("Miss Drakovi's Fishing Pole");
             Tooltip.SetDefault("Right click to cycle through options of attack\nEvery damage type has one");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "Drakovi小姐的钓竿");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "右键循环切换攻击模式\n每种伤害类型对应一种模式");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "Drakovi小姐的钓竿");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "右键循环切换攻击模式\n每种伤害类型对应一种模式");
         }
 
         public override void SetDefaults()

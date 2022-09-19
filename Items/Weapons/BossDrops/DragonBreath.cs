@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.BossDrops
@@ -14,8 +13,8 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Dragon's Breath");
             Tooltip.SetDefault("Uses gel for ammo\n33% chance to not consume ammo\n'The shrunken body of a defeated foe..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巨龙之息");
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "使用凝胶作为弹药\n33%的几率不消耗弹药\n'一个被打败的敌人的缩小版尸体..'");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巨龙之息");
+            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "使用凝胶作为弹药\n33%的几率不消耗弹药\n'一个被打败的敌人的缩小版尸体..'");
         }
 
         public override void SetDefaults()

@@ -2,8 +2,8 @@ using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Pets;
-using FargowiltasSouls.Items.Placeables.Relics;
 using FargowiltasSouls.Projectiles.Champions;
+using FargowiltasSouls.Items.Placeables.Relics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Champion of Will");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "意志英灵");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "意志英灵");
             Main.npcFrameCount[NPC.type] = 8;
             NPCID.Sets.TrailCacheLength[NPC.type] = 12;
             NPCID.Sets.TrailingMode[NPC.type] = 1;
@@ -736,7 +736,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(new ChampionEnchDropRule(WillForce.Enchants));
-
+            
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WillChampionRelic>()));
             npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<EnerGear>(), 4));
 

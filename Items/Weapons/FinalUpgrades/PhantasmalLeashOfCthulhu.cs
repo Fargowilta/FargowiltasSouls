@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
@@ -17,7 +16,7 @@ namespace FargowiltasSouls.Items.Weapons.FinalUpgrades
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Phantasmal Leash of Cthulhu");
             Tooltip.SetDefault("'The True Eye's soul trapped for eternity..'");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "幻影克苏鲁连枷");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "幻影克苏鲁连枷");
         }
 
         public override void SetDefaults()

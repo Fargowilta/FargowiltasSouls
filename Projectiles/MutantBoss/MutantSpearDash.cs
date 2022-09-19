@@ -50,12 +50,12 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.WriteVarInt(npc is NPC ? npc.whoAmI : -1);
+            writer.Write7BitEncodedInt(npc is NPC ? npc.whoAmI : -1);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            npc = FargoSoulsUtil.NPCExists(reader.ReadVarInt());
+            npc = FargoSoulsUtil.NPCExists(reader.Read7BitEncodedInt());
         }
 
         float scaletimer;
