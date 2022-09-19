@@ -686,9 +686,8 @@ Mods: {
 				
 			AncientCobaltEnchant: 
 				'''
-				Seus projéteis tem 20% de chance de explodirem em ferrões
-				Isso só pode acontecer uma vez por segundo
-				'A selva antiga te dá poder'
+				Oferece um pulo explosivo
+				'Kobold-o Antigo'
 				'''
 			
 			AncientHallowEnchant: 
@@ -763,8 +762,8 @@ Mods: {
 			
 			CobaltEnchant: 
 				'''
-				Seus projéteis têm 25% de chance de explodirem em fragmentos
-				Isso só pode acontecer uma vez por segundo
+				Oferece um pulo explosivo
+				Quando você é atingido, você explode violentamente para machucar inimigos próximos
 				'Eu não posso acreditar que não é Paládio'
 				'''
 			
