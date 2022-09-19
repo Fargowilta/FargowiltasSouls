@@ -72,6 +72,7 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
 [i:{4}] Um projétil terá o seu tamanho triplicado a cada quarto de segundo
 [i:{5}] Oferece imunidade a fogo e lava
 [i:{5}] Seus ataques invocam explosões
+[i:{5}] Aumenta o alcance dos chicotes em 50%
 'A terra empresta sua força'";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }
