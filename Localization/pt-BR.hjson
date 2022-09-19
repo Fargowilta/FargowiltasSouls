@@ -9,8 +9,8 @@ Mods: {
 				Aumenta o raio de aproximação de ataques da Adoração Cintilante
 				Aproxime-se de ataques para carregar energia temporariamente
 				Aumenta a regeneração de vida ao sofrer danos ao custo de alguma energia
-				Aperte duas vezes a tecla {0} para liberar energia como corações que drenam vida
-				Empunhe um machado demoníaco de amor e justiça quando estiver totalmente carregado
+				Aperte {0} duas vezes para liberar energia como corações que drenam vida
+				Empunhe um machado demoníaco de amor e justiça quando estiver totalmente carregado, fica mais forte no modo díficil
 				'''
 
 			Gaia:
@@ -19,7 +19,7 @@ Mods: {
 				Reduz o custo de uso de mana em 10%
 				10% de chance de não consumir munição
 				Aumenta o número máximo de lacaios e sentinelas em 4
-				Aperte duas vezes {0} para alternar o modo ofensivo, que tem os seguintes efeitos:
+				Aperte {0} duas vezes para alternar o modo ofensivo, que tem os seguintes efeitos:
 				30% de aumento nos danos e 15% de aumento na chance de acerto crítico da sua classe de armas atual
 				Aumenta a perfuração de blindagem em 20
 				Reduz a defesa em 20, vida máxima em 10%, e redução de danos em 15%
@@ -27,10 +27,11 @@ Mods: {
 
 			Eridanus:
 				'''
-				A bênção de Eridanus fortalece seus ataques
+				Aperte {0} duas vezes para alternar a bênção de Eridanus e fortalecer uma classe de armas
 				A classe fortalecida muda a cada 10 segundos
 				Eridanus luta ao seu lado quando você usa a classe fortalecida
-				75% de aumento nos danos, 30% de aumento na velocidade do ataque, e 20% de aumento na chance de acerto crítico para a classe fortalecida
+				80% de aumento nos danos, 30% de aumento na chance de acerto crítico, e 30% de aumento na velocidade do ataque para a classe fortalecida
+				Quando a bênção de Eridanus está desativada, 20% de aumento nos danos e 10% de aumento na chance de acerto crítico para sua classe de armas atual
 				'''
 
 			Styx:
@@ -38,7 +39,7 @@ Mods: {
 				20% de aumento nos danos da sua classe de armas atual
 				Ataque inimigos para carregar energia
 				Reduz o dano sofrido ao custo de um pouco de energia
-				Aperte duas vezes {0} para liberar energia como tiros teleguiados
+				Aperte {0} duas vezes para liberar energia como tiros teleguiados
 				Brande uma lâmina de magia infernal quando totalmente carregada
 				'''
 
@@ -66,18 +67,21 @@ Mods: {
 			Antisocial: Antisocial
 			Atrophied: Atrofiado
 			Berserked: Furioso
+			BerserkerInstall: Instalação de Fúria
+			BerserkerInstallCD: Tempo de Recarga da Fúria
 			BloodDrinker: Bebedor de Sangue
 			Bloodthirsty: Sanguinário
 			BrainOfConfusionDebuff: Quebra Cerebral
 			ChaosLife: Vida do Caos
 			ClippedWings: Asas Cortadas
+			Coldheart: Coração Frio
 			Crippled: Aleijado
 			CurseoftheMoon: Maldição da Lua
 			Defenseless: Indefeso
 			FlamesoftheUniverse: Chamas do Universo
 			Flipped: Invertido
 			Fused: Pavio
-			GodEater: Comedor de Deus
+			GodEater: Comedor de Deuses
 			Guilty: Culpado
 			Hexed: Enfeitiçado
 			HolyPrice: Preço Divino
@@ -90,8 +94,10 @@ Mods: {
 			LihzahrdBlessing: Bênção Lagharto
 			LihzahrdCurse: Maldição Lagharto
 			LivingWasteland: Deserto Vivo
+			LoosePockets: Bolsos Furados
 			Lovestruck: Apaixonado
 			LowGround: Terra Baixa
+			MagicalCleanseCD: Tempo de Recarga da Limpeza Mágica
 			MarkedforDeath: Marcado para a Morte
 			Midas: Midas
 			MutantNibble: Mordida Mutante
@@ -111,9 +117,13 @@ Mods: {
 			Shadowflame: Chamas das Sombras
 			Smite: Julgamento
 			SqueakyToy: Brinquedinho Barulhento
+			Supercharged: 
 			Stunned: Estonteado
+			Supercharged: Sobrecarregado
 			Swarming: Enxameando
 			ThiefCD: Tempo de Recarga do Roubo
+			TwinsInstall: Instalação dos Gêmeos
+			Unlucky: Azarado
 			Unstable: Instável
 			
 			BigBrainMinion: O Grande Cérebro de Cthulhu
@@ -130,7 +140,6 @@ Mods: {
 			SaucerMinion: Mini Disco Voador
 			SkeletronArms: Braços do Esqueletron
 			SouloftheMasochist: Alma dos Irmãos
-			SuperFlocko: Super Flocko
 			TrueEyes: Verdadeiros Olhos de Cthulhu
 			TwinsEX: Gêmeos X
 			
@@ -171,7 +180,7 @@ Mods: {
 			PrimeMinionBuff: Mini Alfa
 			FishMinionBuff: Peixe
 			
-			BetsyDash: Corrida de Bola de Fogo
+			BetsyDash: Corrida
 		}
 		
 		BuffDescription: {
@@ -187,7 +196,12 @@ Mods: {
 			Anticoagulation: Perdendo vida, você derrama sangue quando ferido, inimigos o beberão e ficarão mais fortes
 			Antisocial: Você não tem amigos e dano por invocação
 			Atrophied: Seus músculos estão deteriorando
-			Berserked: 10% de aumento nos danos e na velocidade dos movimentos, mas você não pode se controlar
+			Berserked: Maior ataque, menor defesa e você não pode se controlar
+			BerserkerInstall:
+			'''
+			'Pegue-os com sua fúria!'
+			'''
+			BerserkerInstallCD: Você não pode ficar furioso ainda
 			BloodDrinker: 30% de aumento nos danos
 			Bloodthirsty: Aumenta muito a taxa de criação de inimigos
 			BrainOfConfusionDebuff: 30% de redução no dano causado
@@ -212,7 +226,9 @@ Mods: {
 			LihzahrdBlessing: Fios ativados e taxas de criação de inimigos reduzidas no Templo da Selva
 			LihzahrdCurse: Fios desativados no Templo da Selva
 			Lovestruck: Você está apaixonado!
+			LoosePockets: Um item pode ser tirado de você
 			LowGround: Você não pode ficar de pé em plataformas ou líquidos
+			MagicalCleanseCD: Você não pode limpar efeitos negativos ainda
 			MarkedforDeath: Só não seja atingido
 			Midas: Deixa cair dinheiro ao ser atingido
 			MutantNibble: Você não pode curar de jeito algum
@@ -231,9 +247,12 @@ Mods: {
 			Shadowflame: Perdendo vida
 			Smite: Regeneração de vida reduzida e 10% de aumento nos danos sofridos
 			SqueakyToy: Seus ataques são brinquedinhos barulhentos!
+			Supercharged: 20% de aumento na velocidade dos movimentos, 10% de aumento na velocidade do ataque, seus ataques eletrificam
 			Stunned: Você está tonto demais para se mover
 			Swarming: Vespas estão atacando de todas as direções!
 			ThiefCD: Seus itens não podem ser roubados ainda
+			TwinsInstall: Efeitos do Inferno Amaldiçoado e Ichor
+			Unlucky: Você está bem azarado
 			Unstable: Você não se encaixa na realidade
 			
 			BigBrainMinion: O Grande Cérebro de Cthulhu lutará por você
@@ -250,7 +269,6 @@ Mods: {
 			SaucerMinion: O Mini Disco Voador protegerá você
 			SkeletronArms: Os braços do Esqueletron protegerão você
 			SouloftheMasochist: O poder do Modo Eternidade está com você
-			SuperFlocko: O super Flocko protegerá você
 			TrueEyes: Os olhos de Cthulhu protegerão você
 			TwinsEX: Os verdadeiros Gêmeos lutarão por você
 			
@@ -287,7 +305,7 @@ Mods: {
 			PrimeMinionBuff: O Esqueletron Alfa lutará por você
 			FishMinionBuff: Este peixe lutará por você
 			
-			BetsyDash: Impermeável ao ataque
+			BetsyDash: Você está se movendo em alta velocidade!
 		}
 		
 		ItemName: {
@@ -592,7 +610,7 @@ Mods: {
 			
 			KamikazeSquirrelStaff: Cajado de Esquilo Kamikaze
 			MountedAcornGun: Arma de Bolota Montada
-			SnowballStaff: Cajado de Bola de Neve
+			SnowballStaff: O Efeito Bola de Neve
 			TheLightningRod: O Para-raios
 			TreeSword: Espada de Árvore
 			
@@ -685,7 +703,7 @@ Mods: {
 			AncientShadowEnchant: 
 				'''
 				Seus ataques podem infligir Escuridão nos inimigos
-				Inimigos escurecidos ocasionalmente disparam tentáculos de chama das sombras em outros inimigos
+				Inimigos escurecidos ocasionalmente disparam tentáculos de chamas das sombras em outros inimigos
 				Três Esferas das Sombras orbitarão ao seu redor
 				'Arcaico, mas funcional'
 				'''
@@ -787,7 +805,7 @@ Mods: {
 				
 			EbonwoodEnchant: 
 				'''
-				Você tem uma aura de Chama das Sombras
+				Você tem uma aura de Chamas das Sombras
 				'Potencial inexplorado'
 				'''
 				
@@ -904,6 +922,7 @@ Mods: {
 			MythrilEnchant: 
 				'''
 				Temporariamente aumenta a velocidade de uso depois de não atacar por um tempo
+				O bônus termina após atacar por 3 segundos e é reconstruído em 3 segundos
 				'Você sente o conhecimento de suas armas infiltrando sua mente'
 				'''
 			
@@ -936,6 +955,7 @@ Mods: {
 				Oferece imunidade a fogo e lava
 				Você tem movimento normal e pode nadar na lava
 				Enquanto você está na lava ou molhado de lava, seus ataques invocam explosões
+				Aumenta o alcance dos chicotes em 50%
 				'A terra chama'
 				'''
 			
@@ -1121,7 +1141,7 @@ Mods: {
 				'''
 				150% de aumento no tamanho das armas mas reduz a velocidade do ataque físico
 				Um projétil terá o seu tamanho dobrado a cada meio segundo
-				Projéteis ampliados causam 10% a mais de dano e têm uma chance de acerto crítico adicional
+				Projéteis e espadas sem projéteis ampliados causam 10% a mais de dano e têm uma chance de acerto crítico adicional
 				'Maior é sempre melhor'
 				'''
 			
@@ -1131,7 +1151,7 @@ Mods: {
 				Ao ficar parado e não atacar, você entrará no seu casco
 				Enquanto no casco, você ganha 90% de resistência aos danos
 				Além disso, você destruirá os projéteis recebidos e causará 10x mais dano de espinhos
-				O casco dura pelo menos 1 segundo e até 25 ataques bloqueados
+				O casco dura pelo menos 1 segundo e até 20 ataques bloqueados
 				Inimigos explodirão em agulhas na morte se eles forem atingidos com suas agulhas
 				'De repente, você tem vontade de se esconder em um casco'
 				'''
@@ -1216,7 +1236,7 @@ Mods: {
 			AbominableWand:
 				'''
 				Oferece imunidade a Presa Abominável e Presença Abominável
-				Maior dano por acerto crítico ganhado pela aproximação de ataques da Adoração Cintilante e reduz o tempo de recarga dos corações pela metade
+				Maior dano ganhado pela aproximação de ataques da Adoração Cintilante e reduz o tempo de recarga dos corações pela metade
 				Abominationn Espectral se manifesta periodicamente para apoiar os seus acertos críticos
 				Com a Armadura Styx, carrega energia quando a aproximação de ataques está cheia
 				Você pode resistir a qualquer ataque e sobreviver com 1 de vida
@@ -1239,8 +1259,10 @@ Mods: {
 			AgitatingLens:
 				'''
 				Oferece imunidade a Furioso
-				Quando estiver abaixo de metade da vida, ganhe 10% de aumento nos danos, na velocidade, e na velocidade do ataque
 				Ao fazer corridas ou correr rapidamente, você criará um rastro de gadanhas demoníacas
+				Aperte a tecla Instalar Efeitos Negativos para ficar furioso
+                Quando furioso, aumenta consideravelmente o ataque, diminui a defesa, e você não pode parar de atacar ou se mover
+                O estado furioso dura 6 segundos e você fica estonteado por 3 segundos depois
 				'O resto irritável de um inimigo derrotado'
 				'''
 			
@@ -1248,25 +1270,28 @@ Mods: {
 				'''
 				Oferece imunidade a Esvaído, Arma Ressecada e Armadura Ressecada
 				Seus ataques críticos infligem Maldição de Betsy
-				Aperte a tecla Corrida de Bola de Fogo para fazer uma corrida invencível curta
+				Aperte a tecla Corrida Especial para fazer uma corrida de bola de fogo invencível curta
 				'Levemente torrado e mal passado'
 				'''
 			
 			BionomicCluster:
 				'''
-				Oferece imunidade a Queimadura de gelo, Chamas das Sombras, Brinquedinho Barulhento, Culpado
+				Oferece imunidade a Queimadura de gelo, Chamas das Sombras e Brinquedinho Barulhento
 				Oferece imunidade a Chamas do Universo, Asas Cortadas, Aleijado, Preso e Purificado
-				Oferece imunidade a Apaixonado, Fedorento, Enfeitiçado, dano por cacto e inimigos que roubam itens
+				Oferece imunidade a Apaixonado, Fedorento, Enfeitiçado e Bolsos Furados
 				Use para teleportar-se para seu último ponto de morte
-				Seus ataques infligem Asas Cortadas, invocam bolas de fogo congelado e produzem corações
+				Seus ataques infligem Asas Cortadas e produzem corações
 				Os ataques têm uma chance de fazer barulho e causar 1 de dano a você
-				Tentáculos de Chamas das Sombras atacam inimigos próximos e invoca uma geleia do arco-íris
+				Enquanto ataca, você ganha um aumento considerável nos danos e chamas das sombras, mas menos bônus de velocidade dos movimentos e do ataque
+                Invoca uma geleia do arco-íris amigável
 				Certos inimigos deixarão cair poções quando derrotados
+				Ao atacar clicando manualmente, aumenta o dano não causado por invocações em 30%
 				[c/00FFFF:Os seguintes efeitos funcionam passivamente no inventário ou em espaços decorativos:]
-				    Oferece imunidade a Vento Poderoso, Asfixia e Culpado
+				    Oferece imunidade a Vento Poderoso, Asfixia, Resfriado e Culpado
 				    Você tem disparo automático e visão noturna melhorada
-				    Utiliza poções de mana automaticamente quando necessário e aumenta o alcance de coleta das estrelas de mana
+				    Utiliza poções de cura e mana automaticamente quando necessário e aumenta o alcance de coleta das estrelas de mana
 				    Você renasce com mais vida e, quando nenhum chefe está vivo, renasce mais rápido
+					Aperte a tecla Feitiço Frígido para lançar Bastão de Gelo
 				    Clique com o botão direito para afastar e melhora consideravelmente as reforjas
 				'O amálgama nascido de mil inimigos comuns'
 				'''
@@ -1284,6 +1309,8 @@ Mods: {
 				Oferece imunidade a Peçonha, Peçonha de Hera, Queimando, Pavio, Terra Baixa e Marcado para a Morte
 				Oferece imunidade a Enxameando, Atrofiado, Emperrado, Fluxo de Mana Inverso e Antisocial
 				Aumenta a regeneração de vida
+				Aperte a tecla Limpeza Mágica para se curar da maioria dos efeitos negativos
+				Aumenta a regeneração de vida com base na quantidade de luz que você recebe
 				Aperte duas vezes PARA BAIXO no ar para cair rapidamente
 				A caída rápida criará uma erupção de fogo no impacto depois de cair uma certa distância
 				Quando você pousa após um salto, você cria uma explosão de rochedos
@@ -1295,6 +1322,7 @@ Mods: {
 			ConcentratedRainbowMatter:
 				'''
 				Oferece imunidade a Chamas do Universo
+				Utiliza poções de cura automaticamente quando necessário
 				Invoca uma geleia do arco-íris bebê para lutar por você
 				'Cadê o tesouro?'
 				'''
@@ -1328,9 +1356,13 @@ Mods: {
 			DubiousCircuitry:
 				'''
 				Oferece imunidade a Inferno amaldiçoado, Ichor, Para-raios, Indefeso, Nano-injeção e recuos
-				Seus ataques infligem Inferno amaldiçoado e Ichor
+				Quando infligido com Inferno amaldiçoado, 15% de aumento na velocidade dos ataques e você inflige Inferno amaldiçoado
+				Quando infligido com Ichor, 15% de aumento na chance de acerto crítico e você inflige Ichor
+				Aperte a tecla Instalar Efeitos Negativos para se infligir com Inferno amaldiçoado e Ichor por 30 segundos
 				Seus ataques têm uma pequena chance de infligir Para-raios
-				Duas sondas amigávels lutam ao seu lado
+				Ataques de eletricidade e raios sobrecarregam você e causam metade do dano se você ainda não estiver sobrecarregado
+				Enquanto sobrecarregado, você tem velocidade dos movimentos e do ataque aumentados e inflige Eletrizado
+				Duas sondas amigávels lutam ao seu lado e irão sobrecarregar com você
 				Reduz os danos sofridos em 5%
 				'Não inclúi malware, provavelmente'
 				'''
@@ -1342,15 +1374,19 @@ Mods: {
 			
 			FrigidGemstone:
 				'''
-				Oferece imunidade a Queimadura de gelo
-				Seus ataques invocam bolas de fogo congelado para atacar os seus inimigos
+				Funciona em seu inventário
+				Oferece imunidade a Queimadura de gelo e Resfriado
+				Aperte a tecla Feitiço Frígido para lançar Bastão de Gelo
 				'Um fragmento de gelo mágico antigo'
 				'''
 			
 			FusedLens:
 				'''
 				Oferece imunidade a Inferno amaldiçoado e Ichor
-				Seus ataques infligem Inferno amaldiçoado e Ichor
+				Quando infligido com Inferno amaldiçoado, 15% de aumento na velocidade dos ataques
+				Quando infligido com Ichor, 15% de aumento na chance de acerto crítico
+				Enquanto perde vida por danos ao longo do tempo, você inflige Inferno amaldiçoado e Ichor
+				Aperte a tecla Instalar Efeitos Negativos para se infligir com Inferno amaldiçoado e Ichor por 30 segundos
 				'Derretido demais para melhorar a visão'
 				'''
 			
@@ -1366,6 +1402,7 @@ Mods: {
 			
 			GelicWings:
 				'''
+				Conta como asas
 				Oferece imunidade à inversão causada pelo Sagrado Subterrâneo
 				Permite pulos duplos
 				Quando você pousar depois de um salto, espinhos de geleia disparam para os lados
@@ -1375,8 +1412,9 @@ Mods: {
 			GroundStick:
 				'''
 				Oferece imunidade Para-raios
-				Seus ataques têm uma pequena chance de infligir Para-raios
-				Duas sondas amigávels lutam ao seu lado
+				Ataques de eletricidade e raios sobrecarregam você e causam metade do dano se você ainda não estiver sobrecarregado
+				Enquanto sobrecarregado, você tem velocidade dos movimentos e do ataque aumentados e inflige Eletrizado
+				Duas sondas amigávels lutam ao seu lado e irão sobrecarregar com você
 				'O segmento de um inimigo derrotado com uma antena colada'
 				'''
 			
@@ -1397,12 +1435,14 @@ Mods: {
 				Oferece imunidade a Molhado, Eletrizado, Malha Oceânica, Mordida Oceânica, Sanguessuga da Lua, Maldição da Anulação e efeitos negativos aquáticos
 				Aumenta o dano e a chance a chance de acerto crítico em 10% e aumenta a redução de danos em 5%
 				Aumenta o tempo de voo em 100%
+				Seus ataques críticos infligem Maldição de Betsy
+				Clique com o botão direito para defender-se com sua capa
 				Você pode disparar ataques adicionais periodicamente dependendo do tipo da arma
 				Seus ataques críticos infligem Apodrecendo e Maldição de Betsy
-				Aperte a tecla Corrida de Bola de Fogo para fazer uma corrida invencível curta
+				Aperte a tecla Corrida Especial para fazer uma corrida de bola de fogo invencível curta
 				Concede os efeitos do efeito negativo Molhado ao montar no Peixe-dragão Fofinho e controle da gravidade
-				Congela inimigos próximos quando atingido
-				Invoca um super Flocko, Mini Disco Voador, e verdadeiros olhos de Cthulhu amigáveis
+				Você congela tudo quando atingido, mas sofrer acertos consecutivos acumula penalidades na sua redução de danos
+				Invoca um Mini Disco Voador e verdadeiros olhos de Cthulhu amigáveis
 				'Quente, batendo e sem necessidade de um corpo'
 				'''
 				
@@ -1410,8 +1450,8 @@ Mods: {
 				'''
 				Oferece imunidade a Hipotermia
 				Auimenta a redução de danos em 5%
-				Congela inimigos próximos quando atingido
-				Invoca um super Flocko amigável
+				Você congela tudo quando atingido, mas sofrer acertos consecutivos acumula penalidades na sua redução de danos
+				Os efeitos de acerto não serão ativados quando atingido por 1 de dano
 				'O símbolo real de um inimigo derrotado'
 				'''
 			
@@ -1420,13 +1460,12 @@ Mods: {
 				Oferece imunidade a Queimando, Pavio, e Terra Baixa
 				Aperte duas vezes PARA BAIXO no ar para cair rapidamente
 				A caída rápida criará uma erupção de fogo no impacto depois de cair uma certa distância
-				Quando você pousa após um salto, você cria uma explosão de rochedos
 				'Muitas armadilhas para abrir'
 				'''
 			
 			LumpOfFlesh:
 				'''
-				Oferece imunidade a recuos, Anticoagulação, Apagão, Obstruído, Atordoado, Lento, Congelado e Estonteado
+				Oferece imunidade a recuos, Anticoagulação, Apagão, Obstruído, Atordoado, Lento e Congelado
 				Aumenta o dano causado em 15%
 				O seu cursor faz com que os inimigos próximos recebam mais dano
 				O efeito se intensifica quanto mais você os acompanha
@@ -1441,7 +1480,8 @@ Mods: {
 			MagicalBulb:
 				'''
 				Oferece imunidade a Peçonha Ácida, Peçonha de Hera e Enxameando
-				Aumenta a regeneração de vida
+				Aperte a tecla Limpeza Mágica para se curar da maioria dos efeitos negativos
+				Aumenta a regeneração de vida com base na quantidade de luz que você recebe
 				Atrai a prole de uma planta lendária que floresce no combate
 				'Matricídio?'
 				'''
@@ -1458,9 +1498,9 @@ Mods: {
 			MutantEye:
 				'''
 				Oferece imunidade a Mordida Mutante e Presença Mutante
-				25% de aumento no limite de dano crítico bônus pela aproximação de ataques
+				25% de aumento no limite de dano bônus pela aproximação de ataques
 				Melhora os corações da Adoração Cintilante para raios do amor
-				Aumenta o dano crítico recebido pela aproximação de ataques
+				Aumenta o dano recebido pela aproximação de ataques
 				Aumenta o dano e a taxa de resurgimento do Abominationn Espectral
 				Aperte a tecla Bomba Mutante para liberar uma onda de esferas e destruir a maioria dos projéteis hostis
 				A Bomba Mutante tem um tempo de recarga de 60 segundos
@@ -1480,6 +1520,7 @@ Mods: {
 			NecromanticBrew:
 				'''
 				Oferece imunidade a Letárgico
+				Enquanto faz uma corrida, você sofre 75% menos dano de contato e reflete 100% do dano de contato no atacante
 				Invoca 2 braços do Esqueletron para bater nos inimigos
 				'A solução de crescimento ósseo de um inimigo derrotado'
 				'''
@@ -1505,8 +1546,10 @@ Mods: {
 				'''
 				Oferece imunidade a Deserto Vivo
 				Aumenta o dano e a chance de acerto crítico em 5%
-				Seus ataques críticos infligem Apodrecendo
-				Você pode disparar ataques adicionais periodicamente dependendo do tipo da arma
+				Clique com o botão direito para defender-se com sua capa
+				Você tem uma aura de Apodrecendo enquanto se defende
+				Defenda-se exatamente quando um ataque te atingir para combatê-lo em um tempo de recarga muito longo
+				Combata um ataque para ganhar vida com base no dano bloqueado
 				'De alguma forma, serve em você'
 				'''
 			
@@ -1533,7 +1576,7 @@ Mods: {
 			QueenStinger:
 				'''
 				Oferece imunidade a Infestado
-				Seus ataques infligem Envenenado e espalham mel que aumenta a sua regeneração de vida
+				Aperte a tecla Corrida Especial para fazer uma corrida de abelha curta e rápida
 				O efeito Mel aumenta a sua perfuração da blindagem em 10
 				Abelhas e Vespas fracas tornam-se amigáveis
 				'Arrancado de um inimigo derrotado'
@@ -1565,14 +1608,14 @@ Mods: {
 			
 			SecurityWallet:
 				'''
-				Oferece imunidade a Midas e inimigos que roubam itens
+				Oferece imunidade a Midas e Bolsos Furados
 				Melhora consideravelmente as reforjas
 				'Não está segura de ser saqueada do corpo de alguém'
 				'''
 			
 			SinisterIcon:
 				'''
-				Impede surgimentos de chefe naturais induzidos pelo Modo Eternidade
+				Oferece imunidade a Azarado e Estonteado
 				Aumenta a taxa de criação
 				Inimigos com 2000 ou menos de vida máxima deixarão cair o dobro de espólios
 				'Definitivamente não está vivo'
@@ -1580,7 +1623,7 @@ Mods: {
 			
 			SkullCharm:
 				'''
-				Oferece imunidade a Atordoado e Estonteado
+				Oferece imunidade a Atordoado
 				Aumenta o dano causado em 15% e o dano sofrido em 10%
 				A chance dos inimigos mirarem em você é menor
 				A caveira de cristal carrega energia para atacar conforme você ataca
@@ -1592,14 +1635,15 @@ Mods: {
 				Oferece imunidade a Geleia
 				Aumenta a velocidade de caída
 				Quando você pousar depois de um salto, geleia cairá do céu sobre o seu cursor
+				A geleia inflige Geleia e Oleoso
 				'Arrancado das entranhas de um inimigo derrotado'
 				'''
 			
 			SparklingAdoration:
 				'''
 				Oferece imunidade a Apaixonado e Corações Falsos
-				Aproxime-se de ataques para ganhar até 25% de aumento no dano crítico
-				O bônus de dano crítico diminui com o tempo e é totalmente perdido ao ser atingido
+				Aproxime-se de ataques para ganhar até 1.25x de aumento no dano
+				O bônus de dano diminui com o tempo e é totalmente perdido ao ser atingido
 				Este bônus de dano pode ser aplicado ao dano por invocação mesmo sem um acerto crítico
 				Seus ataques periodicamente invocam corações que drenam vida
 				'Com toda a sua emoção!'
@@ -1615,12 +1659,13 @@ Mods: {
 			SupremeDeathbringerFairy:
 				'''
 				Oferece imunidade a Geleia, Furioso, Letárgico e Infestado
-				Quando estiver abaixo de metade da vida, ganhe 10% de aumento nos danos, na velocidade, e na velocidade do ataque
 				O efeito Mel aumenta a sua perfuração da blindagem em 10
 				Aumenta a velocidade de caída
 				Quando você pousar depois de um salto, geleia cairá do céu sobre o seu cursor
 				Ao fazer corridas ou correr rapidamente, você criará um rastro de gadanhas sangrentas
-				Seus ataques infligem Envenenado e espalham mel que aumenta a sua regeneração de vida
+				Aperte a tecla Instalar Efeitos Negativos para ficar furioso
+				Aperte a tecla Corrida Especial para fazer uma corrida de abelha curta e rápida
+				Enquanto faz uma corrida, você sofre 75% menos dano de contato e reflete 100% do dano de contato no atacante
 				Abelhas e Vespas fracas tornam-se mais amigáveis
 				Invoca 2 braços do Esqueletron para bater nos inimigos
 				'Supremacia não necessariamente garantida'
@@ -1634,16 +1679,18 @@ Mods: {
 			
 			TribalCharm:
 				'''
-				Funciona em seu inventário
+				Ao atacar clicando manualmente, aumenta o dano não causado por invocações em 30%
 				Oferece imunidade a Preso e Purificado
-				Oferece disparo automático a todos os itens
+				Oferece disparo automático a todos os itens (este efeito também funciona em seu inventário)
 				'Um ídolo dos antigos habitantes da selva'
 				'''
 			
 			WretchedPouch:
 				'''
 				Oferece imunidade a Chamas das Sombras
-				Tentáculos de Chamas das Sombras atacam inimigos próximos
+				Enquanto ataca, você ganha um aumento considerável nos danos, mas a velocidade dos movimentos é consideravelmente reduzida
+				Enquanto ataca, tentáculos de chamas das sombras atacam os inimigos próximos
+				Os bônus de velocidade de ataque têm sua efetividade reduzida pela metade
 				'O pó incendiário amaldiçoado de um inimigo derrotado'
 				'''
 			
@@ -1763,9 +1810,11 @@ Mods: {
 				Fornece controle da gravidade, caída rápida, e imunidade a recuos, quase todos os efeitos negativos do Modo Eternidade, e mais
 				Oferece disparo automático a todas as armas e você utiliza poções de mana automaticamente quando necessário
 				Seus ataques criam ataques e corações adicionais e infligem uma mistura de efeitos negativos do Modo Eternidade
-				Aperte a tecla Corrida de Bola de Fogo para fazer uma corrida invencível curta, afaste a sua visão com o botão direito
+				Estatísticas aumentadas quando infligido com Inferno amaldiçoado ou Ichor
+				Aperte a tecla Instalar Efeitos Negativos para se infligir com efeitos negativos e se fortalecer
+				Aperte a tecla Corrida Especial para fazer uma corrida de bola de fogo invencível curta, afaste a sua visão com o botão direito
 				Certos inimigos deixarão cair poções quando derrotados, melhora consideravelmente as reforjas, você renasce com mais vida
-				Você renasce duas vezes mais rápido, ataques invocam mel, você tem visão noturna melhorada, e irrompe em vários ataques ao ser machucado
+				Você renasce duas vezes mais rápido, tem visão noturna melhorada, e sobrecarrega e irrompe em vários ataques ao ser machucado
 				Impede surgimentos de chefe, aumenta a taxa de criação, aumenta os espólios, e ataques podem fazer barulho e causar 1 de dano a você
 				Reduz o tamanho da hurtbox, segure a tecla Selo de Precisão para desativar corridas e pulos duplos
 				Clique com o botão direito para bloquear ataques, isto requer boa cronometragem
@@ -1952,7 +2001,11 @@ Mods: {
 				40% de aumento na velocidade dos movimentos e do ataque físico
 				'''
 			
-			NekomiHood: Aumenta o número máximo de lacaios em 1
+			NekomiHood:
+				'''
+				7% de aumento nos danos
+				Aumenta o número máximo de lacaios em 2
+				'''
 			NekomiHoodie:
 				'''
 				Aumenta bastante a sua regeneração de vida
@@ -1997,7 +2050,7 @@ Mods: {
 				Permite correr
 				Toque duas vezes em uma direção
 				Sofrer danos pode congelá-lo brevemente
-				Multiplicador de dano crítico varia de x2 a x1.5, diminuindo com a sua velocidade
+				Reduz o dano quando sua velocidade aumenta, até 0.85x no máximo
 				Todos os efeitos são negados se desativado ou outra corrida já estiver em uso 
 				'Frio, mas se contorcendo'
 				'''
@@ -2163,6 +2216,7 @@ Mods: {
 			
 			FishStick:
 				'''
+				Clique com o botão direito para arremessar um palito de tornado de tubarões
 				'A carcaça de um inimigo derrotado enfiada violentamente em um palito..'
 				'''
 			
@@ -2581,6 +2635,7 @@ Mods: {
 			
 			BigSting22: 22
 			BigStinger: Ferroadona
+			BeeDash: Corrida
 			BlenderOrbital: O Liquidificador
 			BlenderPetal: O Liquidificador
 			BlenderProj3: O Liquidificador
@@ -2962,8 +3017,6 @@ Mods: {
 			EridanusRitual: Ritual Lunar
 			FlameburstMinion: Lacaio de Chamas Explosivas
 			FriendRay: Raio do Amor
-			FrostShard: Estilhaço Congelado
-			FrostWave: Onda de Gelo
 			HallowSword: Espada Consagrada
 			KamikazeSquirrel: Esquilo Kamikaze
 			LunarCultist: Cultista da Lua
@@ -3006,7 +3059,6 @@ Mods: {
 			SkeletronArmL: Braço do Esqueletron
 			SkeletronArmR: Braço do Esqueletron
 			SpikyBallPlanterasChild: Bola com Espinhos
-			SuperFlocko: Super Flocko
 			TrueEyeL: Verdadeiro Olho do Cthulhu
 			TrueEyeR: Verdadeiro Olho do Cthulhu
 			TrueEyeS: Verdadeiro Olho do Cthulhu
@@ -3412,96 +3464,96 @@ Mods: {
 
 		Toggler: {
 			WoodHeader: "{$Mods.FargowiltasSouls.ItemName.TimberForce}"
-			BorealConfig: Bolas de Neve da Madeira Boreal
-			MahoganyConfig: Velocidade do Gancho do Mogno
-			EbonConfig: Chamas das Sombras da Madeira de Ébano
-			ShadeConfig: Gêiser de Sangue No Contato
-			ShadeOnHitConfig: Proximidade Aciona os Efeitos de Acerto
-			PalmConfig: Sentinela de Madeira de Palmeira
-			PearlConfig: Sentinela de Madeira-pérola
+			BorealConfig: Madeira Boreal: Bolas de Neve
+			MahoganyConfig: Mogno: Velocidade do Gancho
+			EbonConfig: Madeira de Ébano: Chamas das Sombras
+			ShadeConfig: Madeira Escura: Gêiser de Sangue No Contato
+			ShadeOnHitConfig: Madeira Escura: Proximidade Aciona Efeitos de Acerto
+			PalmConfig: Palmeira: Sentinela de Madeira
+			PearlConfig: Madeira-pérola: Chuva
 
 			EarthHeader: "{$Mods.FargowiltasSouls.ItemName.EarthForce}"
-			AdamantiteConfig: Divisão de Projéteis da Adamantina
-			CobaltConfig: Fragmentos do Cobalto
-			AncientCobaltConfig: Ferrões do Cobalto Antigo
-			MythrilConfig: Velocidade da Arma do Mithril
-			OrichalcumConfig: Pétalas do Oricalco
-			PalladiumConfig: Cura do Paládio
-			PalladiumOrbConfig: Esferas do Paládio
-			TitaniumConfig: Fragmentos de Titânio
+			AdamantiteConfig: Adamantina: Divisão de Projéteis
+			CobaltConfig: Cobalto: Fragmentos
+			AncientCobaltConfig: Cobalto Antigo: Ferrões
+			MythrilConfig: Mithril: Velocidade da Arma
+			OrichalcumConfig: Oricalco: Pétalas
+			PalladiumConfig: Paládio: Cura
+			PalladiumOrbConfig: Paládio: Esferas
+			TitaniumConfig: Titânio: Fragmentos
 
 			TerraHeader: "{$Mods.FargowiltasSouls.ItemName.TerraForce}"
-			CopperConfig: Relâmpago do Cobre
-			IronMConfig: Ímã do Ferro
-			IronSConfig: Bloqueio do Ferro
-			TinConfig: Críticos do Estanho
-			TungstenConfig: Efeito do Item do Tungstênio
-			TungstenProjConfig: Efeito do Projétil do Tungstênio
-			ObsidianConfig: Explosões da Obsidiana
+			CopperConfig: Cobre: Relâmpago
+			IronMConfig: Ferro: Ímã
+			IronSConfig: Ferro: Bloqueio
+			TinConfig: Estanho: Acertos Críticos
+			TungstenConfig: Tungstênio: Efeito do Item
+			TungstenProjConfig: Tungstênio: Efeito do Projétil
+			ObsidianConfig: Obsidiana: Explosões
 
 			WillHeader: "{$Mods.FargowiltasSouls.ItemName.WillForce}"
-			GladiatorConfig: Chuva do Gladiador
-			GoldConfig: Moeda da Sorte do Ouro
-			GoldToPiggyConfig: Ouro Ao Porquinho
-			HuntressConfig: Habilidade da Caçadora
-			RedRidingRainConfig: Chuva de Flechas da Chapeuzinho Vermelho
-			ValhallaConfig: Cura do Escudeiro/Valhalla
-			SquirePanicConfig: Balísta em Pânico no Acerto
+			GladiatorConfig: Gladiador: Chuva
+			GoldConfig: Ouro: Moeda da Sorte
+			GoldToPiggyConfig: Ouro: Ouro Ao Porquinho
+			HuntressConfig: Caçadora: Habilidade da Caçadora
+			RedRidingRainConfig: Chapeuzinho Vermelho: Chuva de Flechas
+			ValhallaConfig: Escudeiro/Valhalla: Cura
+			SquirePanicConfig: Escudeiro: Balísta em Pânico no Acerto
 
 			LifeHeader: "{$Mods.FargowiltasSouls.ItemName.LifeForce}"
-			BeeConfig: Abelhas
-			BeetleConfig: Besouros
-			CactusConfig: Agulhas do Cacto
-			PumpkinConfig: Crescer Abóboras
-			SpiderConfig: Críticos da Aranha
-			TurtleConfig: Efeito do Casco de Tartaruga
+			BeeConfig: Abelha: Abelhas
+			BeetleConfig: Besouro: Besouros
+			CactusConfig: Cacto: Agulhas
+			PumpkinConfig: Abóbora: Crescer Abóboras
+			SpiderConfig: Aranha: Críticos
+			TurtleConfig: Tartaruga: Efeito do Casco de Tartaruga
 
 			NatureHeader: "{$Mods.FargowiltasSouls.ItemName.NatureForce}"
-			ChlorophyteConfig: Folha de Cristal da Clorofita
-			CrimsonConfig: Regeneração do Carmim
-			RainConfig: Nuvens da Chuva
-			RainInnerTubeConfig: Câmara de Ar
-			FrostConfig: Gelos Congelados
-			JungleConfig: Espóros da Selva
-			JungleDashConfig: Corrida da Selva
-			MoltenConfig: Efeito do Inferno Derretido
-			MoltenEConfig: Explosão Derretida no Acerto
-			ShroomiteConfig: Furtividade da Cogumelita
-			ShroomiteShroomConfig: Cogumelos da Cogumelita
+			ChlorophyteConfig: Clorofita: Folha de Cristal
+			CrimsonConfig: Carmim: Regeneração
+			RainConfig: Chuva: Nuvens
+			RainInnerTubeConfig: Chuva: Câmara de Ar
+			FrostConfig: Congelado: Gelos
+			JungleConfig: Selva: Espóros
+			JungleDashConfig: Selva: Corrida
+			MoltenConfig: Derretido: Efeito do Inferno
+			MoltenEConfig: Derretido: Explosão no Acerto
+			ShroomiteConfig: Cogumelita: Furtividade
+			ShroomiteShroomConfig: Cogumelita: Cogumelos
 
 			ShadowHeader: "{$Mods.FargowiltasSouls.ItemName.ShadowForce}"
-			DarkArtConfig: Lacaio das Chamas Explosivas
-			ApprenticeConfig: Efeito do Aprendiz
-			NecroConfig: Túmulos do Necrosado
-			NecroGloveConfig: Luva de Osso do Necrosado
-			ShadowConfig: Esferas das Sombras
-			AncientShadowConfig: Escuridão das Sombras Antigas
-			MonkConfig: Corrida do Monge
-			ShinobiDashConfig: Corrida de Teleporte do Shinobi
-			ShinobiConfig: Atravessar Paredes do Shinobi
-			SpookyConfig: Gadanhas do Assustador
-			CrystalDashConfig: Corrida do Assassino Cristal
-			CrystalGelatinConfig: Gelatina Volátil
+			DarkArtConfig: Chamas Explosivas: Lacaio
+			ApprenticeConfig: Aprendiz: Efeito do Aprendiz
+			NecroConfig: Necrosado: Túmulos
+			NecroGloveConfig: Necrosado: Luva de Osso
+			ShadowConfig: Sombras: Esferas das Sombras
+			AncientShadowConfig: Sombras Antigas: Escuridão
+			MonkConfig: Monge: Corrida
+			ShinobiDashConfig: Shinobi: Corrida de Teleporte
+			ShinobiConfig: Shinobi: Atravessar Paredes
+			SpookyConfig: Assustador: Gadanhas
+			CrystalDashConfig: Assassino Cristal: Corrida
+			CrystalGelatinConfig: Assassino Cristal: Gelatina Volátil
 
 			SpiritHeader: "{$Mods.FargowiltasSouls.ItemName.SpiritForce}"
-			FossilConfig: Ossos no Acerto do Fóssil
-			ForbiddenConfig: Tempestade do Proibido
-			HallowDodgeConfig: Esquiva do Consagrado
-			HallowedConfig: Familiar da Terraprisma do Consagrado Antigo
-			HallowSConfig: Ancient Hallowed Shield
-			SilverConfig: Familiar da Espada de Prata
-			SilverSpeedConfig: Velocidade dos Lacaios da Prata
-			SpectreConfig: Esferas do Espectro
-			TikiConfig: Lacaios do Tiki
+			FossilConfig: Fóssil: Ossos no Acerto
+			ForbiddenConfig: Proibido: Tempestade
+			HallowDodgeConfig: Consagrado: Esquiva
+			HallowedConfig: Consagrado Antigo: Familiar da Terraprisma
+			HallowSConfig: Consagrado Antigo: Escudo
+			SilverConfig: Prata: Familiar da Espada de Prata
+			SilverSpeedConfig: Prata: Velocidade dos Lacaios
+			SpectreConfig: Espectro: Esferas
+			TikiConfig: Tiki: Lacaios
 
 			CosmoHeader: "{$Mods.FargowiltasSouls.ItemName.CosmoForce}"
-			MeteorConfig: Chuva de Meteoros
-			NebulaConfig: Impulsos da Nébula
-			SolarConfig: Escudo do Sol
-			SolarFlareConfig: Infligir Chamas do Sol
-			StardustConfig: Guardião de Pó das Estrelas
-			VortexSConfig: Furtividade do Vórtice
-			VortexVConfig: Vazios do Vórtice
+			MeteorConfig: Meteoro: Chuva de Meteoros
+			NebulaConfig: Nébula: Impulsos
+			SolarConfig: Sol: Escudo
+			SolarFlareConfig: Sol: Infligir Chamas do Sol
+			StardustConfig: Pó das Estrelas: Guardião
+			VortexSConfig: Vórtice: Furtividade
+			VortexVConfig: Vórtice: Vazios
 
 
 			MasoHeader: Modo Eternidade
@@ -3523,22 +3575,26 @@ Mods: {
 			MasoSlimeConfig: Bolas de Geleia
 			SlimeFallingConfig: Velocidade de Queda Aumentada
 			MasoEyeConfig: Gadanhas ao Correr
+			MasoEyeInstallConfig: Instalação de Fúria
 			MasoHoneyConfig: Mel ao Atingir Inimigos
 			MasoSkeleConfig: Lacaios dos Braços do Esqueletron
+			MasoSkeleSpinConfig: Corrida Giratória do Esqueletron
 
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: Mistura do Tim
 			MasoCarrotConfig: Aproximação da Cenoura
 			MasoRainbowConfig: Lacaio Geleia Arco-íris
-			MasoFrigidConfig: Bolas de Fogo Congelado
+			MasoHealingPotionConfig: Utilizar Poções de Cura Automaticamente
 			MasoNymphConfig: Ataques Invocam Corações
 			MasoSqueakConfig: Brinquedinho Barulhento no Acerto
-			MasoPouchConfig: Tentáculos de Chamas das Sombras
+			MasoPouchConfig: Ataques Mais Fortes e Mais Lentos com Chamas das Sombras
 			MasoClippedConfig: Infligir Asas Cortadas
 			TribalCharmConfig: Ataque Automático do Amuleto Tribal
+			TribalCharmClickBonusConfig: Bônus de Clique do Amuleto Tribal
 
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
-			MasoLightningConfig: Infligir Para-raios
+			FusedLensInstallConfig: Instalação dos Gêmeos
+			MasoLightningConfig: Sobrecarregar quando atingido
 			MasoProbeConfig: Lacaios Sondas
 
 			PureHeartHeader: "{$Mods.FargowiltasSouls.ItemName.PureHeart}"
@@ -3554,15 +3610,14 @@ Mods: {
 			ChaliceHeader: "{$Mods.FargowiltasSouls.ItemName.ChaliceoftheMoon}"
 			MasoCultistConfig: Lacaio Cultista
 			MasoPlantConfig: Lacaio Plantera
-			MasoGolemConfig: Esmagamento do Solo Lagharto
-			MasoBoulderConfig: Espalhamento de Rochedos
+			MasoGolemConfig: Caída Rápida do Lagharto
+			MasoBoulderConfig: Rochedos no Esmagamento do Solo
 			MasoCelestConfig: Apoio da Runa Celestial
 			MasoVisionConfig: Visões Antigas no Acerto
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
-			MasoPumpConfig: Apoio da Capa do Reibóbora
-			IceQueensCrownConfig: Congelar no Acerto
-			MasoFlockoConfig: Lacaio Flocko
+			MasoPumpConfig: Bloqueio da Capa do Reibóbora
+			IceQueensCrownConfig: Congelar no Acerto			
 			MasoUfoConfig: Lacaio Disco Voador
 			MasoGravConfig: Controle da Gravidade
 			MasoGrav2Config: Gravidade Estabilizada
@@ -3585,7 +3640,7 @@ Mods: {
 			NeptuneShellConfig: Concha de Netuno
 			SniperConfig: Luneta do Fuzil
 			ManaFlowerConfig: Flor de Mana
-			UniverseConfig: Velocidade do Ataque do Universo
+			UniverseConfig: Universo: Velocidade do Ataque
 
 			WorldShaperHeader: "{$Mods.FargowiltasSouls.ItemName.WorldShaperSoul}"
 			MiningHuntConfig: Efeito do Caçador na Mineração
@@ -3621,12 +3676,12 @@ Mods: {
 			BlackBeltConfig: Faixa Preta
 
 			TrawlerHeader: "{$Mods.FargowiltasSouls.ItemName.TrawlerSoul}"
-			TrawlerSporeConfig: Bolsa de Esporos
-			TrawlerConfig: Iscas Extras do Arrastão
-			TrawlerJumpConfig: Pulo do Arrastão
+			TrawlerSporeConfig: Arrastão: Bolsa de Esporos
+			TrawlerConfig: Arrastão: Iscas Extras
+			TrawlerJumpConfig: Arrastão: Pulo
 
 			EternityHeader: "{$Mods.FargowiltasSouls.ItemName.EternitySoul}"
-			EternityConfig: Acumulação da Eternidade
+			EternityConfig: Eternidade: Acumulação
 
 
 			PetHeader: Animais de Estimação
