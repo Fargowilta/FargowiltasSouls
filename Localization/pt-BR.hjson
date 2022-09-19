@@ -3734,20 +3734,20 @@ Mods: {
 		}
 		
 		UI: {
-            SoulTogglerButton: Configurar Efeitos de Acessórios
-            EternityEnabled: Modo Eternidade está ativado
-            MasochistEnabled: Modo Masoquista está ativado
-        }
-		
+			SoulTogglerButton: Configurar Efeitos de Acessórios
+			EternityEnabled: Modo Eternidade está ativado
+			MasochistEnabled: Modo Masoquista está ativado
+		}
+
 		ItemExtra: {
-            WoodenDiscount: Desconto atual: {0}%
-            WoodenTooltip:
+			WoodenDiscount: Desconto atual: {0}
+			WoodenTooltip:
 				'''
 				'Origens humildes…'
 				'''
 			
 			TinCritUp: +5% crítico
-            TinCritReset: -{0}% crítico
+			TinCritReset: -{0}% crítico
 
 			EternitySoul: {
 				Additional: Além disso, concede:
