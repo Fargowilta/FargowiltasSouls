@@ -3740,7 +3740,7 @@ Mods: {
 		}
 
 		ItemExtra: {
-			WoodenDiscount: Desconto atual: {0}
+			WoodenDiscount: Desconto atual: {0}%
 			WoodenTooltip:
 				'''
 				'Origens humildes…'
