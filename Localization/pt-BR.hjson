@@ -1259,8 +1259,8 @@ Mods: {
 				Oferece imunidade a Furioso
 				Ao fazer corridas ou correr rapidamente, você criará um rastro de gadanhas demoníacas
 				Aperte a tecla Instalar Efeitos Negativos para ficar furioso
-                Quando furioso, aumenta consideravelmente o ataque, diminui a defesa, e você não pode parar de atacar ou se mover
-                O estado furioso dura 6 segundos e você fica estonteado por 3 segundos depois
+				Quando furioso, aumenta consideravelmente o ataque, diminui a defesa, e você não pode parar de atacar ou se mover
+				O estado furioso dura 6 segundos e você fica estonteado por 3 segundos depois
 				'O resto irritável de um inimigo derrotado'
 				'''
 			
@@ -1281,7 +1281,7 @@ Mods: {
 				Seus ataques infligem Asas Cortadas e produzem corações
 				Os ataques têm uma chance de fazer barulho e causar 1 de dano a você
 				Enquanto ataca, você ganha um aumento considerável nos danos e chamas das sombras, mas menos bônus de velocidade dos movimentos e do ataque
-                Invoca uma geleia do arco-íris amigável
+				Invoca uma geleia do arco-íris amigável
 				Certos inimigos deixarão cair poções quando derrotados
 				Ao atacar clicando manualmente, aumenta o dano não causado por invocações em 30%
 				[c/00FFFF:Os seguintes efeitos funcionam passivamente no inventário ou em espaços decorativos:]
@@ -1289,7 +1289,7 @@ Mods: {
 				    Você tem disparo automático e visão noturna melhorada
 				    Utiliza poções de cura e mana automaticamente quando necessário e aumenta o alcance de coleta das estrelas de mana
 				    Você renasce com mais vida e, quando nenhum chefe está vivo, renasce mais rápido
-					Aperte a tecla Feitiço Frígido para lançar Bastão de Gelo
+				    Aperte a tecla Feitiço Frígido para lançar Bastão de Gelo
 				    Clique com o botão direito para afastar e melhora consideravelmente as reforjas
 				'O amálgama nascido de mil inimigos comuns'
 				'''
