@@ -17,6 +17,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.BloodNautilus);
 
+        public override void SetDefaults(NPC npc)
+        {
+            base.SetDefaults(npc);
+
+            npc.boss = true;
+        }
+
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
@@ -172,6 +179,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<Anticoagulation>(), 600);
+        }
+
+        public override bool PreKill(NPC npc)
+        {
+            npc.boss = false;
+
+            return base.PreKill(npc);
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)

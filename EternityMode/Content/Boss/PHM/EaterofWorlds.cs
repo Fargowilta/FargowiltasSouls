@@ -48,6 +48,22 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return base.CheckDead(npc);
         }
 
+        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        {
+            base.ModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
+
+            if (EaterofWorldsHead.HaveSpawnDR > 0)
+                damage /= 10;
+        }
+
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+
+            if (EaterofWorldsHead.HaveSpawnDR > 0)
+                damage /= projectile.numHits + 1;
+        }
+
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             base.ModifyNPCLoot(npc, npcLoot);
@@ -88,10 +104,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public int FlamethrowerCDOrUTurnStoredTargetX;
         public int UTurnTotalSpacingDistance;
         public int UTurnIndividualSpacingPosition;
-        public static int UTurnAITimer;
+        public int UTurnAITimer;
+        public static int UTurnCountdownTimer;
         public static int CursedFlameTimer;
+        public static int HaveSpawnDR;
 
         public bool UTurn;
+        public static bool DoTheWave;
 
         public bool DroppedSummon;
 
@@ -103,9 +122,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 { new Ref<object>(UTurnTotalSpacingDistance), IntStrategies.CompoundStrategy },
                 { new Ref<object>(UTurnIndividualSpacingPosition), IntStrategies.CompoundStrategy },
                 { new Ref<object>(UTurnAITimer), IntStrategies.CompoundStrategy },
+                { new Ref<object>(UTurnCountdownTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(CursedFlameTimer), IntStrategies.CompoundStrategy },
 
                 { new Ref<object>(UTurn), BoolStrategies.CompoundStrategy },
+                { new Ref<object>(DoTheWave), BoolStrategies.CompoundStrategy },
             };
 
         public override void SetDefaults(NPC npc)
@@ -136,7 +157,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             int firstEater = NPC.FindFirstNPC(npc.type);
 
             if (npc.whoAmI == firstEater)
-                UTurnAITimer++;
+            {
+                UTurnCountdownTimer++;
+                if (HaveSpawnDR > 0)
+                    HaveSpawnDR--;
+            }
 
             if (Main.netMode != NetmodeID.MultiplayerClient && npc.whoAmI == firstEater && ++CursedFlameTimer > 300) //only let one eater increment this
             {
@@ -200,7 +225,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (NoSelfDestructTimer <= 0)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient && UTurnAITimer % 6 == 3) //chose this number at random to avoid edge case
+                if (Main.netMode != NetmodeID.MultiplayerClient && UTurnCountdownTimer % 6 == 3) //chose this number at random to avoid edge case
                 {
                     //die if segment behind me is invalid
                     int ai0 = (int)npc.ai[0];
@@ -238,16 +263,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 if (npc.whoAmI == firstEater)
                 {
-                    if (UTurnAITimer == 700 - 90) //roar telegraph
+                    if (UTurnCountdownTimer == 700 - 90) //roar telegraph
                         SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center);
 
-                    if (UTurnAITimer > 700 && Main.netMode != NetmodeID.MultiplayerClient) //initiate mass u-turn
+                    if (UTurnCountdownTimer > 700 && Main.netMode != NetmodeID.MultiplayerClient) //initiate mass u-turn
                     {
-                        UTurnAITimer = 0;
+                        UTurnCountdownTimer = 0;
                         if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 2400)
                         {
                             UTurn = true;
-
+                            DoTheWave = !DoTheWave;
                             UTurnTotalSpacingDistance = NPC.CountNPCS(npc.type) / 2;
 
                             int headCounter = 0; //determine position of this head in the group
@@ -255,6 +280,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == npc.type)
                                 {
+                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer = DoTheWave ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
+                                    if (FargoSoulsWorld.MasochistModeReal)
+                                        Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer += 60;
                                     Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = UTurnTotalSpacingDistance;
                                     Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnIndividualSpacingPosition = headCounter;
                                     Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn = true;
@@ -275,7 +303,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             }
             else //flying u-turn ai
             {
-                if (UTurnAITimer < 120)
+                if (++UTurnAITimer < 120)
                 {
                     Vector2 target = Main.player[npc.target].Center;
                     if (UTurnTotalSpacingDistance != 0)
@@ -283,6 +311,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     target.Y += 600f;
 
                     float speedModifier = 0.6f;
+                    float speedCap = 24;
+                    if (npc.Top.Y > Main.player[npc.target].Bottom.Y + npc.height)
+                    {
+                        speedModifier *= 1.5f;
+                        speedCap *= 1.5f;
+                        npc.position += (Main.player[npc.target].position - Main.player[npc.target].oldPosition) / 2;
+                    }
+
                     if (npc.Center.X < target.X)
                     {
                         npc.velocity.X += speedModifier;
@@ -307,10 +343,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         if (npc.velocity.Y > 0)
                             npc.velocity.Y -= speedModifier * 2;
                     }
-                    if (Math.Abs(npc.velocity.X) > 24)
-                        npc.velocity.X = 24 * Math.Sign(npc.velocity.X);
-                    if (Math.Abs(npc.velocity.Y) > 24)
-                        npc.velocity.Y = 24 * Math.Sign(npc.velocity.Y);
+
+                    if (Math.Abs(npc.velocity.X) > speedCap)
+                        npc.velocity.X = speedCap * Math.Sign(npc.velocity.X);
+                    if (Math.Abs(npc.velocity.Y) > speedCap)
+                        npc.velocity.Y = speedCap * Math.Sign(npc.velocity.Y);
 
                     npc.localAI[0] = 1f;
 
@@ -342,7 +379,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     target.Y = npc.Center.Y;
 
                     float radius = Math.Abs(target.X - npc.Center.X) / 2;
-                    npc.velocity = Vector2.Normalize(npc.velocity) * (float)Math.PI * radius / 30;
+                    float speed = MathHelper.Pi * radius / 30;
+                    if (speed < 8f)
+                        speed = 8f;
+                    npc.velocity = Vector2.Normalize(npc.velocity) * speed;
 
                     FlamethrowerCDOrUTurnStoredTargetX = Math.Sign(Main.player[npc.target].Center.X - FlamethrowerCDOrUTurnStoredTargetX); //which side player moved to from original pos
 
@@ -360,29 +400,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 else if (UTurnAITimer > 300)
                 {
                     UTurnAITimer = 0;
+                    UTurnCountdownTimer = 0;
                     UTurnTotalSpacingDistance = 0;
                     UTurnIndividualSpacingPosition = 0;
                     UTurn = false;
 
-                    for (int i = 0; i < Main.maxNPCs; i++)
-                    {
-                        if (Main.npc[i].active)
-                        {
-                            if (Main.npc[i].type == npc.type)
-                            {
-                                Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = 0;
-                                Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnIndividualSpacingPosition = 0;
-                                Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn = false;
-                                Main.npc[i].netUpdate = true;
-                                if (Main.netMode == NetmodeID.Server)
-                                    NetSync(npc);
-                            }
-                            else if (Main.npc[i].type == NPCID.EaterofWorldsBody || Main.npc[i].type == NPCID.EaterofWorldsTail)
-                            {
-                                Main.npc[i].netUpdate = true;
-                            }
-                        }
-                    }
+                    //for (int i = 0; i < Main.maxNPCs; i++)
+                    //{
+                    //    if (Main.npc[i].active)
+                    //    {
+                    //        if (Main.npc[i].type == npc.type)
+                    //        {
+                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = 0;
+                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnIndividualSpacingPosition = 0;
+                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn = false;
+                    //            Main.npc[i].netUpdate = true;
+                    //            if (Main.netMode == NetmodeID.Server)
+                    //                NetSync(npc);
+                    //        }
+                    //        else if (Main.npc[i].type == NPCID.EaterofWorldsBody || Main.npc[i].type == NPCID.EaterofWorldsTail)
+                    //        {
+                    //            Main.npc[i].netUpdate = true;
+                    //        }
+                    //    }
+                    //}
 
                     npc.netUpdate = true;
                 }
@@ -402,7 +443,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             }
 
             //drop summon
-            if (!NPC.downedBoss2 && Main.netMode != NetmodeID.MultiplayerClient && npc.HasPlayerTarget && !DroppedSummon)
+            if (npc.HasPlayerTarget && !DroppedSummon)
             {
                 Player player = Main.player[npc.target];
 
@@ -411,10 +452,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 {
                     player.GetModPlayer<FargoSoulsPlayer>().FreeEaterSummon = false;
 
-                    if (ModContent.TryFind("Fargowiltas", "WormyFood", out ModItem modItem))
+                    if (!NPC.downedBoss2 && Main.netMode != NetmodeID.MultiplayerClient && ModContent.TryFind("Fargowiltas", "WormyFood", out ModItem modItem))
                         Item.NewItem(npc.GetSource_Loot(), player.Hitbox, modItem.Type);
 
                     DroppedSummon = true;
+                    UTurnCountdownTimer = 0;
+                    HaveSpawnDR = 180;
+                    npc.velocity.Y += 6;
                 }
             }
 

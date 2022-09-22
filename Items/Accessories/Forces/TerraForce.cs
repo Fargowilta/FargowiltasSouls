@@ -59,6 +59,22 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
 [i:{5}] 鞭子的范围增加50%
 “大地赐予它力量”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
+
+            string tooltip_pt =
+@"[i:{0}] Ataques têm uma chance de invocar relâmpagos e explosões
+[i:{1}] Define sua chance de acerto crítico para 10%
+[i:{1}] Cada crítico aumentará em 5% até dobrar sua chance de acerto crítico atual
+[i:{2}] Clique com o botão direito para defender-se com seu escudo
+[i:{2}] Defenda pouco antes de ser atingido para negar o dano
+[i:{2}] Você atrai itens de um alcance maior
+[i:{3}] Ataques infligem inimigos com Envenenamento por Chumbo
+[i:{4}] 300% de aumento no tamanho das espadas
+[i:{4}] Um projétil terá o seu tamanho triplicado a cada quarto de segundo
+[i:{5}] Oferece imunidade a fogo e lava
+[i:{5}] Seus ataques invocam explosões
+[i:{5}] Aumenta o alcance dos chicotes em 50%
+'A terra empresta sua força'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

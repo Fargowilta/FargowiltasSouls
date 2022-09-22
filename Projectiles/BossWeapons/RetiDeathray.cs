@@ -109,6 +109,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             target.AddBuff(BuffID.OnFire, 600);
         }
 
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 50, 50, 50) * 0.75f;
+
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.velocity == Vector2.Zero)
@@ -119,8 +121,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Texture2D texture2D20 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/" + texture + "2", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
             Texture2D texture2D21 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/Deathrays/" + texture + "3", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
             float num223 = Projectile.localAI[1];
-            Microsoft.Xna.Framework.Color color44 = new Microsoft.Xna.Framework.Color(255, 50, 50, 50);
-            color44 *= 0.75f;
+            Microsoft.Xna.Framework.Color color44 = Projectile.GetAlpha(lightColor);
             //color44 = Color.Lerp(color44, Color.Transparent, transparency);
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;

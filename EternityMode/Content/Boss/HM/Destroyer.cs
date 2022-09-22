@@ -785,7 +785,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (AttackTimer < 0)
                     AttackTimer = 0; //cancel startup on any imminent projectiles
                 Vector2 pivot = Main.npc[npc.realLife].Center;
-                pivot += Vector2.Normalize(Main.npc[npc.realLife].velocity.RotatedBy(Math.PI / 2)) * 600;
+                pivot += Vector2.Normalize(Main.npc[npc.realLife].velocity.RotatedBy(MathHelper.PiOver2 * destroyerEmode.RotationDirection)) * 600;
                 if (npc.Distance(pivot) < 600) //make sure body doesnt coil into the circling zone
                     npc.Center = pivot + npc.DirectionFrom(pivot) * 600;
             }

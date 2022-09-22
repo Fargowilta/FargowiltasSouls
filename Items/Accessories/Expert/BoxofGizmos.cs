@@ -1,4 +1,6 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Accessories.Expert
@@ -9,6 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Expert
         {
             DisplayName.SetDefault("Box of Gizmos");
             Tooltip.SetDefault(@"Works in your inventory
+Stand still to expose nearby treasure
 Grants autofire to all items
 Slightly reduces use speed of affected items");
 
@@ -26,9 +29,18 @@ Slightly reduces use speed of affected items");
             Item.expert = true;
         }
 
+        int counter;
+
         void PassiveEffect(Player player)
         {
             player.GetModPlayer<FargoSoulsPlayer>().BoxofGizmos = true;
+
+            if (++counter > 10)
+            {
+                counter = 0;
+                if (player.whoAmI == Main.myPlayer && player.GetModPlayer<FargoSoulsPlayer>().IsStandingStill)
+                    Main.instance.SpelunkerProjectileHelper.AddSpotToCheck(player.Center);
+            }
         }
 
         public override void UpdateInventory(Player player) => PassiveEffect(player);

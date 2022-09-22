@@ -61,6 +61,8 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
         }
 
+        int rayCounter;
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -107,6 +109,24 @@ namespace FargowiltasSouls.Projectiles.Minions
                     Projectile.netUpdate = true;
                 }
 
+                if (player.controlUseTile)
+                {
+                    if (++rayCounter > 20)
+                    {
+                        rayCounter = 0;
+
+                        if (player.whoAmI == Main.myPlayer)
+                        {
+                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY, ModContent.ProjectileType<SaucerDeathray>(),
+                                Projectile.originalDamage / 2, Projectile.knockBack / 2f, Projectile.owner, 0f, Projectile.identity);
+                        }
+                    }
+                }
+                else
+                {
+                    rayCounter = 0;
+                }
+
                 if (player.controlUseItem)
                 {
                     if (++Projectile.localAI[0] > 5f) //shoot laser
@@ -149,9 +169,6 @@ namespace FargowiltasSouls.Projectiles.Minions
                             FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<SaucerRocket>(),
                                 Projectile.originalDamage, Projectile.knockBack * 4f, Projectile.owner, possibleTarget, 20f);
                         }
-
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY, ModContent.ProjectileType<SaucerDeathray>(),
-                            Projectile.originalDamage / 2, Projectile.knockBack / 2f, Projectile.owner, 0f, Projectile.identity);
                     }
                 }
             }

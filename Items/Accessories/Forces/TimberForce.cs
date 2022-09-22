@@ -44,6 +44,16 @@ $"[i:{ModContent.ItemType<PearlwoodEnchant>()}] Projectiles may spawn a star whe
 [i:{5}] 弹幕击中敌人或物块时有几率生成一颗星星
 “很硬”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[5], Enchants[6]));
+
+            string tooltip_pt =
+@"[i:{0}] Você recebe um disconto nas lojas com base na conclusão do bestiário
+[i:{1}] Ataques serão periodicamente acompanhados por várias bolas de neve
+[i:{2}] Todos os ganchos disparam, puxam e retraem 2.5x mais rápido
+[i:{3}] Você tem uma aura de Chama das Sombras, Chamas Amaldiçoadas e Sangrando
+[i:{4}] Toque duas vezes para baixo para invocar uma sentinela de palmeira que lança nozes nos inimigos
+[i:{5}] Ataques podem invocar uma estrela quando eles atingem algo
+'Extremamente rígido'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[5], Enchants[6]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

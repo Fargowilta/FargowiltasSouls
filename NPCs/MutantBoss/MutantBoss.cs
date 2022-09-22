@@ -510,7 +510,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int maxMemory = 12;
+                int maxMemory = FargoSoulsWorld.MasochistModeReal ? 10 : 16;
 
                 if (attackCount++ > maxMemory * 1.25) //after doing this many attacks, shorten queue so i can be more random again
                 {
@@ -595,11 +595,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         bool AliveCheck(Player p, bool forceDespawn = false)
         {
-            if (FargoSoulsWorld.SwarmActive || forceDespawn || ((!p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f || p.Center.Y / 16f > Main.worldSurface) && NPC.localAI[3] > 0))
+            if (FargoSoulsWorld.SwarmActive || forceDespawn || ((!p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f) && NPC.localAI[3] > 0))
             {
                 NPC.TargetClosest();
                 p = Main.player[NPC.target];
-                if (FargoSoulsWorld.SwarmActive || forceDespawn || !p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f || p.Center.Y / 16f > Main.worldSurface)
+                if (FargoSoulsWorld.SwarmActive || forceDespawn || !p.active || p.dead || Vector2.Distance(NPC.Center, p.Center) > 5000f)
                 {
                     if (NPC.timeLeft > 30)
                         NPC.timeLeft = 30;
@@ -623,8 +623,19 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     return false;
                 }
             }
+
             if (NPC.timeLeft < 3600)
                 NPC.timeLeft = 3600;
+
+            if (player.Center.Y / 16f > Main.worldSurface)
+            {
+                NPC.velocity.X *= 0.95f;
+                NPC.velocity.Y -= 1f;
+                if (NPC.velocity.Y < -32f)
+                    NPC.velocity.Y = -32f;
+                return false;
+            }
+
             return true;
         }
 
