@@ -1,3 +1,4 @@
+using FargowiltasSouls.Items.Misc;
 using FargowiltasSouls.Projectiles;
 using Terraria;
 using Terraria.ID;
@@ -53,7 +54,7 @@ namespace FargowiltasSouls.Items.Weapons.Misc
         {
             CreateRecipe()
 
-            .AddIngredient(ModContent.Find<ModItem>("Fargowiltas", "Squirrel"), 10)
+            .AddIngredient(ModContent.ItemType<TopHatSquirrelCaught>(), 10)
             .AddIngredient(ItemID.ChlorophyteBar, 5)
             .AddIngredient(ItemID.SoulofFright, 3)
             .AddIngredient(ItemID.SoulofSight, 3)

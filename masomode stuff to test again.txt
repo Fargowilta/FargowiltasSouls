@@ -73,3 +73,31 @@ agi lens berserker install
 added gravedigger shovel to miner ench recipe, replaces gold pickaxe
 destroyer can now spin both CW and CCW, whichever is closer to his current angle when he starts coil
 man eater and nutcracker instakill male characters in maso
+
+wandering eye fish and tim spawn their extra enemies staggered now
+fixed these rays not working with mutant mod transparent projs config
+	gemini glaives m2
+	styx gazer m2
+	sparkling love m1 and m2
+abom & mutant dont despawn when you go underground, but fly up to pull you upwards with them
+	they can still despawn if they get far enough away while trying to do this or in p1
+blood nautilus is considered a boss while alive, to block enemy spawns during fight
+nerfed pearlwood ench, has 20 (force 80) base damage instead of copying the damage of your attack
+fixed(?) destroyer body entering the coil range if he rotated some way, either clockwise or CCW
+top hat squirrel weapon crafts using top hat squirrel (critter) instead of top hat squirrel (town npc)
+top hat squirrel critter and town npc can be used in recipes, e.g. for squirrel coat of arms
+wof drops a TON of extra loot when killed
+fixed godmode glitch caused by unequipping the parry shields mid-parry
+tungsten nerf, damage/crit boost only applies to true melee swords (unless force)
+
+box of gizmos gives you spelunker glowstick effect when standing still
+fixed diffractor blaster rays not working with transparent projs config
+raised pearlwood ench base damage from 20 to 40
+saucer control console saucer only fires deathray when you hold m2
+added nano core, overpowered mutant-tier patreon weapon
+
+nano core tweaks, added nanites to recipe
+enchantment resprites
+eow can do the wave
+eow has 3 sec resistance to pierce when spawned
+gold ench smart detects coins in coin slots and will move them to piggy bank

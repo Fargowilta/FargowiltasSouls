@@ -49,6 +49,18 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacking generates a defensive b
 “盖亚的祝福照耀着你”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
 
+            string tooltip_pt =
+@"[i:{0}] Oferece um pulo explosivo e você explode ao ser atingido
+[i:{2}] Temporariamente aumenta a velocidade de uso depois de não atacar por um tempo
+[i:{2}] O bônus termina após atacar por 5 segundos e é reconstruído em 5 segundos
+[i:{1}] Aumenta bastante a regeneração de vida depois de atacar um inimigo
+[i:{1}] Você invoca uma esfera de energia vital que causa danos a cada 80 de vida regenerada
+[i:{3}] Pétalas de flores causarão danos adicionais em seu alvo
+[i:{3}] Efeitos negativos causarão 5x o dano
+[i:{4}] Toda arma disparada se dividirá em 2, causará 50% de dano e terá 50% menos quadros de imunidade
+[i:{5}] Atacar gera uma barreira defensiva de fragmentos de titânio
+'A bênção de Gaia brilha sobre você'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

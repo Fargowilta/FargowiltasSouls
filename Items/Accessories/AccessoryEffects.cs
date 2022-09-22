@@ -529,6 +529,15 @@ namespace FargowiltasSouls
             Player.discount = true;
             //midas
             GoldEnchantActive = true;
+
+            if (Player.GetToggleValue("GoldToPiggy", false))
+            {
+                for (int i = 50; i <= 53; i++) //detect coins in coin slots
+                {
+                    if (!Player.inventory[i].IsAir && Player.inventory[i].IsACoin)
+                        GoldEnchMoveCoins = true;
+                }
+            }
         }
 
         public void GoldKey()
@@ -3107,12 +3116,13 @@ namespace FargowiltasSouls
                 shieldCD = cooldown;
         }
 
-        public void Shield()
+        public void UpdateShield()
         {
             GuardRaised = false;
 
             //no need when player has brand of inferno
-            if (Player.inventory[Player.selectedItem].type == ItemID.DD2SquireDemonSword || Player.inventory[Player.selectedItem].type == ItemID.BouncingShield)
+            if ((!IronEnchantShield && DreadShellItem == null && PumpkingsCapeItem == null) ||
+                (Player.inventory[Player.selectedItem].type == ItemID.DD2SquireDemonSword || Player.inventory[Player.selectedItem].type == ItemID.BouncingShield))
             {
                 shieldTimer = 0;
                 wasHoldingShield = false;

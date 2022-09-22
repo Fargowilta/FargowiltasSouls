@@ -1335,11 +1335,11 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
         private bool AliveCheck(Player player)
         {
-            if ((!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || player.Center.Y / 16f > Main.worldSurface) && NPC.localAI[3] > 0)
+            if ((!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f) && NPC.localAI[3] > 0)
             {
                 NPC.TargetClosest();
                 player = Main.player[NPC.target];
-                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || player.Center.Y / 16f > Main.worldSurface)
+                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f)
                 {
                     if (NPC.timeLeft > 30)
                         NPC.timeLeft = 30;
@@ -1363,8 +1363,19 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     return false;
                 }
             }
+
             if (NPC.timeLeft < 600)
                 NPC.timeLeft = 600;
+
+            if (player.Center.Y / 16f > Main.worldSurface)
+            {
+                NPC.velocity.X *= 0.95f;
+                NPC.velocity.Y -= 1f;
+                if (NPC.velocity.Y < -32f)
+                    NPC.velocity.Y = -32f;
+                return false;
+            }
+
             return true;
         }
 

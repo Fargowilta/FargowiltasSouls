@@ -14,18 +14,17 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.EyeballFlyingFish);
 
         public int SickleTimer;
-
-        public override void OnFirstTick(NPC npc)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.DemonEye, velocity: Main.rand.NextVector2Circular(8, 8));
-            }
-        }
+        public int SpawnTimer = 60;
 
         public override void AI(NPC npc)
         {
             base.AI(npc);
+
+            if (SpawnTimer > 0 && --SpawnTimer % 5 == 0)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.DemonEye, velocity: Main.rand.NextVector2Circular(8, 8));
+            }
 
             if (npc.life < npc.lifeMax / 2 && ++SickleTimer > 15)
             {

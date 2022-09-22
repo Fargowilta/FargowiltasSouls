@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             string tooltip =
 @"150% increased weapon size but reduces melee speed
 Every half second a projectile will be doubled in size
-Enlarged attacks deal 10% more damage and have an additional chance to crit
+Enlarged projectiles and non-projectile swords deal 10% more damage and have an additional chance to crit
 'Bigger is always better'";
             Tooltip.SetDefault(tooltip);
 

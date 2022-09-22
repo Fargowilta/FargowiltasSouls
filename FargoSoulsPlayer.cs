@@ -1257,10 +1257,7 @@ namespace FargowiltasSouls
             if (TungstenEnchantActive && TungstenCD > 0)
                 TungstenCD--;
 
-            if (IronEnchantShield || DreadShellItem != null || PumpkingsCapeItem != null)
-            {
-                Shield();
-            }
+            UpdateShield();
 
             if (ShadowEnchantActive)
                 ShadowEffectPostEquips();
@@ -1708,6 +1705,11 @@ namespace FargowiltasSouls
         public override void PostUpdate()
         {
             NoUsingItems = false; //set here so that when something else sets this, it actually blocks items
+
+            if (!FreeEaterSummon && !Main.npc.Any(n => n.active && (n.type == NPCID.EaterofWorldsHead || n.type == NPCID.EaterofWorldsBody || n.type == NPCID.EaterofWorldsTail)))
+            {
+                FreeEaterSummon = true;
+            }
         }
 
         public override float UseSpeedMultiplier(Item item)
@@ -2233,7 +2235,8 @@ namespace FargowiltasSouls
                 crit = false;
             }
 
-            if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten"))
+            if (TungstenEnchantActive && Toggler != null && Player.GetToggleValue("Tungsten")
+                && (TerraForce || item.shoot == ProjectileID.None))
             {
                 TungstenEnchant.TungstenModifyDamage(Player, ref damage, ref crit, item.DamageType);
             }
@@ -2322,7 +2325,8 @@ namespace FargowiltasSouls
 
             if (PearlwoodEnchantActive && Player.GetToggleValue("Pearl") && PearlwoodCD == 0 && !(projectile != null && projectile.type == ProjectileID.FairyQueenMagicItemShot && projectile.usesIDStaticNPCImmunity && projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames))
             {
-                PearlwoodEnchant.PearlwoodStarDrop(this, target, damage);
+                int starDamage = FargoSoulsUtil.HighestDamageTypeScaling(Player, WoodForce ? 80 : 40);
+                PearlwoodEnchant.PearlwoodStarDrop(this, target, starDamage);
             }
 
             if (BeeEnchantActive && Player.GetToggleValue("Bee") && BeeCD <= 0 && target.realLife == -1

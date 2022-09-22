@@ -55,7 +55,24 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
 [i:{8}] 切换武器后，下次攻击的伤害增加150%
 [i:{9}] 召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置
 “Dark, Darker, Yet Darker”";
+
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, ModContent.ItemType<ShadowEnchant>(), Enchants[0], Enchants[1], ModContent.ItemType<NinjaEnchant>(), Enchants[2], Enchants[3], ModContent.ItemType<MonkEnchant>(), Enchants[4], ModContent.ItemType<ApprenticeEnchant>(), Enchants[5]));
+
+            string tooltip_pt =
+@"[i:{0}] Quatro Esferas das Sombras orbitarão ao seu redor
+[i:{1}] Seus ataques podem infligir Escuridão nos inimigos
+[i:{2}] Inimigos derrotados podem deixar cair uma pilha de ossos
+[i:{3}] Lance uma bomba de fumaça para teleportar-se a ela e ganhar o efeito Primeiro Ataque
+[i:{4}] Efeitos da Gelatina Volátil
+[i:{5}] Todos os seus lacaios ganham um ataque de foices adicional
+[i:{6}] Não ataque para ganhar uma corrida de monge de uso único
+[i:{7}] Faça uma corrida em qualquer parede para teleportar através dela até a próxima abertura
+[i:{8}] Depois de atacar por 2 segundos você será envolvido em chamas
+[i:{8}] Trocar de armas aumentará o dano do próximo ataque em 150%
+[i:{9}] Invoca um lacaio de Chamas Explosivas que viajará para o seu mouse depois de carregar
+'Escuro, Mais Escuro, Ainda Mais Escuro'";
+
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, ModContent.ItemType<ShadowEnchant>(), Enchants[0], Enchants[1], ModContent.ItemType<NinjaEnchant>(), Enchants[2], Enchants[3], ModContent.ItemType<MonkEnchant>(), Enchants[4], ModContent.ItemType<ApprenticeEnchant>(), Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

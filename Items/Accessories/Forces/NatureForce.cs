@@ -54,6 +54,20 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
 [i:{7}] 所有攻击都会留下蘑菇尾迹
 “走遍荒野的每一个秘密角落”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], ModContent.ItemType<SnowEnchant>(), Enchants[4], ModContent.ItemType<JungleEnchant>(), Enchants[5]));
+
+            string tooltip_pt =
+@"[i:{0}] Após receber um golpe, a regeneração é aumentada consideravelmente até que o golpe seja curado
+[i:{1}] Inimigos próximos são incendiados
+[i:{1}] Quando você sofre danos, você explode violentamente para causar dano aos inimigos próximos
+[i:{2}] Invoca uma tempestade em miniatura que segue você
+[i:{3}] Gelos começarão a aparecer ao seu redor
+[i:{4}] Aperte a tecla Congelar para esfriar tudo por 15 segundos
+[i:{5}] Invoca um anel de cristais de folha para atirar nos inimigos próximos
+[i:{6}] Fornece um pulo de esporos duplo
+[i:{7}] Ficar parado deixa você em modo sorrateiro
+[i:{7}] Todos os ataques ganham trilhas de cogumelos
+'Explorando todos os segredos da vida selvagem'";
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], ModContent.ItemType<SnowEnchant>(), Enchants[4], ModContent.ItemType<JungleEnchant>(), Enchants[5]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

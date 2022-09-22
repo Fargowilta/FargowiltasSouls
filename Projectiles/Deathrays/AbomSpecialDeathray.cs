@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             Texture2D texture2D20 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/Abom/AbomDeathray2_{Projectile.frame}", AssetRequestMode.ImmediateLoad).Value;
             Texture2D texture2D21 = Mod.Assets.Request<Texture2D>($"Projectiles/Deathrays/{texture}3", AssetRequestMode.ImmediateLoad).Value;
             float num223 = Projectile.localAI[1];
-            Color color44 = new Color(255, 255, 255, 0) * 0.95f;
+            Color color44 = Projectile.GetAlpha(lightColor);
             Texture2D arg_ABD8_1 = texture2D19;
             Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
             Rectangle? sourceRectangle2 = null;
