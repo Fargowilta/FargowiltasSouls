@@ -54,6 +54,7 @@ namespace FargowiltasSouls.Patreon.Volknet
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+            base.SafeModifyTooltips(tooltips);
             foreach (TooltipLine line2 in tooltips)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
