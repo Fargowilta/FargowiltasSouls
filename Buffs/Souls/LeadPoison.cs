@@ -15,8 +15,6 @@ namespace FargowiltasSouls.Buffs.Souls
             //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铅中毒");
         }
 
-        public override string Texture => "FargowiltasSouls/Buffs/PlaceholderDebuff";
-
         public override void Update(NPC npc, ref int buffIndex)
         {
             npc.GetGlobalNPC<FargoSoulsGlobalNPC>().LeadPoison = true;

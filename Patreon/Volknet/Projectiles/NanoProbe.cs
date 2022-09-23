@@ -38,7 +38,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             
             Color color = Projectile.GetAlpha(lightColor);
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
-            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.25f)
+            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
             {
                 Color color27 = Color.LimeGreen * Projectile.Opacity;
                 if (i > 1f)

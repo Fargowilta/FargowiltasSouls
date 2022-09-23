@@ -101,3 +101,21 @@ enchantment resprites
 eow can do the wave
 eow has 3 sec resistance to pierce when spawned
 gold ench smart detects coins in coin slots and will move them to piggy bank
+
+tim coc
+	hornets can drop 1-2 potions
+	bee pot drop rate is 50%, was 33%
+resprites
+	dragons demise
+	soul toggler wrench icon
+	mutant nibble buff icon
+	lead poison buff icon
+	orichalcum poison buff icon
+	abom cooldown buff icon
+	the penetrator
+	abominable energy
+	deviating energy
+	betsy heart
+	ice queens crown
+	pumpkings cape
+refined penetrator hitbox to be much more sprite accurate

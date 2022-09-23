@@ -838,12 +838,12 @@ namespace FargowiltasSouls.NPCs
                 case NPCID.HornetLeafy:
                 case NPCID.HornetSpikey:
                 case NPCID.HornetStingy:
-                    TimsConcoctionDrop(ItemDropRule.Common(ItemID.RagePotion));
+                    TimsConcoctionDrop(ItemDropRule.Common(ItemID.RagePotion, 1, 1, 2));
                     break;
 
                 case NPCID.Bee:
                 case NPCID.BeeSmall:
-                    TimsConcoctionDrop(ItemDropRule.Common(ItemID.WrathPotion, 3));
+                    TimsConcoctionDrop(ItemDropRule.Common(ItemID.WrathPotion, 2));
                     break;
 
                 case NPCID.GoblinPeon:
