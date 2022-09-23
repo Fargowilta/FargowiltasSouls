@@ -1034,6 +1034,32 @@ Mods: {
 			TitaniumShard: 钛金碎片
 			TurtleShield: 龟壳
 			Void: 虚空
+
+			// == Patreons ==
+			KingSlimeMinion: 史莱姆王
+			DukeFishronMinion: 猪龙鱼公爵
+			DevRocket: 艳岚火箭
+			RailgunBlast: 电磁炮爆炸
+			VortexRitualProj: 星旋圣仪
+			WolfDashProj: 狼魂冲刺
+			ChibiiRemii: 小蕾米
+			PrimeMinionCannon: 机械炮
+			PrimeMinionLaserGun: 机械激光
+			PrimeMinionProj: 迷你机械骷髅王
+			PrimeMinionSaw: 机械锯
+			PrimeMinionVice: 机械钳
+			Bubble: 泡泡
+			FishMinion: 和风鱼
+			PufferRang: 气泡环
+			PufferSpray: 气泡泉
+			SpikyLure: 尖刺鱼饵
+			WaterStream: 水流
+			NanoBase: 纳米基核
+			NanoBlade: 等离子能量刃
+			NanoProbe: 纳米探针
+			PlasmaArrow: 等离子矢
+			PlasmaDeathRay: 等离子死亡射线
+			PlasmaProj: 等离子束
 		}
 
 		Message: {
@@ -2010,6 +2036,7 @@ Mods: {
 			SquidwardDoor: 章鱼哥的大门
 			MissDrakovisFishingPole: Drakovi小姐的钓竿
 			CrimetroidEgg: 血水母的蛋
+			NanoCore: 纳米核心
 
 			// == Weapons ==
 
@@ -3514,6 +3541,11 @@ Mods: {
 			召唤宝宝血水母
 			不要与不道德的安卓混淆
 			'''
+			NanoCore:
+			'''
+			手持时产生7个纳米单元组成武器
+			左键攻击，右键切换形态
+			“科学站在我们这边”
 			
 			// == Weapons ==
 			// === Boss Drops ===
