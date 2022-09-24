@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Sky
                 && (Main.npc[EModeGlobalNPC.mutantBoss].ai[0] < 0 || Main.npc[EModeGlobalNPC.mutantBoss].ai[0] >= 10))
             {
                 intensity += increment;
-                lifeIntensity = 1f - (float)Main.npc[EModeGlobalNPC.mutantBoss].life / Main.npc[EModeGlobalNPC.mutantBoss].lifeMax;
+                lifeIntensity = Main.npc[EModeGlobalNPC.mutantBoss].ai[0] < 0 ? 1f : 1f - (float)Main.npc[EModeGlobalNPC.mutantBoss].life / Main.npc[EModeGlobalNPC.mutantBoss].lifeMax;
 
                 void ChangeColorIfDefault(Color color) //waits for bg to return to default first
                 {

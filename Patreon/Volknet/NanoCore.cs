@@ -54,6 +54,8 @@ namespace FargowiltasSouls.Patreon.Volknet
 
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
+            base.SafeModifyTooltips(tooltips);
+
             foreach (TooltipLine line2 in tooltips)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
@@ -74,6 +76,15 @@ namespace FargowiltasSouls.Patreon.Volknet
             {
                 Item.autoReuse = true;
                 Item.channel = true;
+            }
+
+            if (player.GetModPlayer<NanoPlayer>().NanoCoreMode == 1 && player.altFunctionUse != 2)                //Use ammo
+            {
+                Item.useAmmo = AmmoID.Arrow;
+            }
+            else
+            {
+                Item.useAmmo = AmmoID.None;
             }
             return true;
         }
@@ -107,7 +118,7 @@ namespace FargowiltasSouls.Patreon.Volknet
                 player.itemRotation = RotV.ToRotation();
             }
 
-            if (nanoCoreMode == 1)                //Use ammo
+            if (nanoCoreMode == 1 && player.altFunctionUse != 2)                //Use ammo
             {
                 Item.useAmmo = AmmoID.Arrow;
             }

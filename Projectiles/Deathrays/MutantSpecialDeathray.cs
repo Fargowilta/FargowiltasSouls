@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             if (!spawned)
             {
                 spawned = true;
-                Projectile.frame = Main.rand.Next(sheetMax);
+                Projectile.frame = (int)Math.Abs(Main.GameUpdateCount % sheetMax);
             }
 
             Projectile.frameCounter += Main.rand.Next(3);

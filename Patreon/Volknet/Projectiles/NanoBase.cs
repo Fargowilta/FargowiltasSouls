@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
@@ -31,6 +32,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.damage = 1;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
         }
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
@@ -132,31 +134,33 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                                 int damage = 0, type = 0, usedAmmoItemId = 0;
                                 float kb = 0, speed = 0;
                                 bool cs = true;
-                                owner.PickAmmo(owner.HeldItem, out type, out speed, out damage, out kb, out usedAmmoItemId, !Consume);
-                                speed *= 4;
-                                speed += 32;
-                                if (owner.archery)
+                                if (owner.PickAmmo(owner.HeldItem, out type, out speed, out damage, out kb, out usedAmmoItemId, !Consume))
                                 {
-                                    damage = (int)(damage * 1.2f);
-                                }
-                                if (owner.magicQuiver)
-                                {
-                                    damage = (int)(damage * 1.1f);
-                                    speed = (int)(speed * 1.1f);
-                                }
-                                if (Main.rand.NextBool(4))
-                                {
-                                    type = ModContent.ProjectileType<PlasmaArrow>();
-                                    damage = (int)(damage * 2f);
-                                    speed = 3;
-                                }
-                                damage = (int)(damage / 2.5f);
-                                damage = (int)(damage * RangedDamageModifier);
-                                if (cs)
-                                {
-                                    Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation + MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
-                                    Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation - MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
-                                    Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed, type, (int)(damage * 1.25f), kb, owner.whoAmI);
+                                    speed *= 4;
+                                    speed += 64;
+                                    if (owner.archery)
+                                    {
+                                        damage = (int)(damage * 1.2f);
+                                    }
+                                    if (owner.magicQuiver)
+                                    {
+                                        damage = (int)(damage * 1.1f);
+                                        speed = (int)(speed * 1.1f);
+                                    }
+                                    if (Main.rand.NextBool(4))
+                                    {
+                                        type = ModContent.ProjectileType<PlasmaArrow>();
+                                        damage = (int)(damage * 2f);
+                                        speed = 3;
+                                    }
+                                    damage = (int)(damage / 2.5f);
+                                    damage = (int)(damage * RangedDamageModifier);
+                                    if (cs)
+                                    {
+                                        Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation + MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
+                                        Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation - MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
+                                        Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed, type, (int)(damage * 1.25f), kb, owner.whoAmI);
+                                    }
                                 }
                             }
 
@@ -236,17 +240,16 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                         {
                             if (AllSet(owner))
                             {
-                                /*
-								if (!owner.CheckMana(2, true)) 
+                                if (!owner.CheckMana(2, true))
                                 {
-									owner.channel = false;
-									AtkTimer = 0;
-									return;
+                                    owner.channel = false;
+                                    AtkTimer = 0;
+                                    return;
                                 }
-								*/
+                                owner.manaRegenDelay = 10;
 
                                 AtkTimer = (AtkTimer + 1) % 30;
-                                if (AtkTimer % 10 == 3)
+                                if (AtkTimer % 5 == 3)
                                 {
                                     foreach (Projectile proj in Main.projectile)
                                     {
@@ -255,7 +258,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                                             if (proj.ai[0] == AtkTimer / 5 || proj.ai[0] == AtkTimer / 5 + 1 || proj.ai[0] == 6)
                                             {
                                                 SoundEngine.PlaySound(SoundID.Item91, proj.Center);
-                                                Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 30, ModContent.ProjectileType<PlasmaProj>(), (int)(proj.damage * 0.5f * SummonDamageModifier), proj.knockBack, owner.whoAmI);
+                                                FargoSoulsUtil.NewSummonProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 36, ModContent.ProjectileType<PlasmaProj>(), (int)(proj.damage * 0.5f), proj.knockBack, owner.whoAmI, 0, 0);
                                             }
 
                                         }

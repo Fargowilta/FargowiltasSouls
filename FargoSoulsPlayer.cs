@@ -992,10 +992,13 @@ namespace FargowiltasSouls
         public override void UpdateDead()
         {
             bool wasSandsOfTime = SandsofTime;
+            bool wasNymphsPerfumeRespawn = NymphsPerfumeRespawn;
 
             ResetEffects();
 
             SandsofTime = wasSandsOfTime;
+            NymphsPerfumeRespawn = wasNymphsPerfumeRespawn;
+
             if (SandsofTime && !FargoSoulsUtil.AnyBossAlive() && Player.respawnTimer > 10)
                 Player.respawnTimer -= Eternity ? 6 : 1;
 
@@ -1710,6 +1713,8 @@ namespace FargowiltasSouls
             {
                 FreeEaterSummon = true;
             }
+
+            ConcentratedRainbowMatterTryAutoHeal();
         }
 
         public override float UseSpeedMultiplier(Item item)
@@ -1837,11 +1842,7 @@ namespace FargowiltasSouls
                 DamageOverTime(4, true);
 
             if (Player.lifeRegen < 0)
-            {
                 FusedLensCanDebuff = true;
-
-                ConcentratedRainbowMatterTryAutoHeal();
-            }
         }
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
@@ -2754,8 +2755,6 @@ namespace FargowiltasSouls
             if (TryParryAttack(damage))
                 return false;
 
-            ConcentratedRainbowMatterTryAutoHeal();
-
             if (DeathMarked)
             {
                 damage = (int)(damage * 1.5);
@@ -2888,8 +2887,6 @@ namespace FargowiltasSouls
 
             GrazeBonus = 0;
             GrazeCounter = 0;
-
-            ConcentratedRainbowMatterTryAutoHeal();
         }
 
         private PlayerDeathReason DeathByLocalization(string key)

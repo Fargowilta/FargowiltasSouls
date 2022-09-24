@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
@@ -29,6 +30,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -37,7 +39,6 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Texture2D tex2 = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Patreon/Volknet/Projectiles/NanoProbeGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
             
             Color color = Projectile.GetAlpha(lightColor);
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
             {
                 Color color27 = Color.LimeGreen * Projectile.Opacity;

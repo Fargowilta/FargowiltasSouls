@@ -32,6 +32,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.aiStyle = 1;
             AIType = ProjectileID.SaucerLaser;
             Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Summon;
             Projectile.alpha = 255;
             Projectile.timeLeft = 360;
             Projectile.tileCollide = false;

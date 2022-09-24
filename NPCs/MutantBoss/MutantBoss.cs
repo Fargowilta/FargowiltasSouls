@@ -315,7 +315,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation
             {
-                int time = 240 + 420 + 480 + 1020 - 180;
+                int time = FargoSoulsWorld.MasochistModeReal ? 3870 : 240 + 420 + 480 + 1020 - 60;
                 NPC.life -= NPC.lifeMax / time;
                 if (NPC.life < 1)
                     NPC.life = 1;
@@ -760,6 +760,16 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     else
                         Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/rePrologue");
                 }
+            }
+        }
+
+        void TryMasoP3Theme()
+        {
+            if (FargoSoulsWorld.MasochistModeReal
+                && ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod)
+                && musicMod.Version >= Version.Parse("0.1.1.3"))
+            {
+                Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/StoriaShort");
             }
         }
 
@@ -3050,6 +3060,13 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 }
                 NPC.ai[1] = 1;
                 NPC.ai[2] += NPC.ai[3];
+
+                if (NPC.localAI[0] < 30)
+                {
+                    EModeSpecialEffects();
+                    TryMasoP3Theme();
+                }
+
                 if (NPC.localAI[0]++ == 40 || NPC.localAI[0] == 80 || NPC.localAI[0] == 120)
                 {
                     NPC.netUpdate = true;
@@ -3100,6 +3117,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 SpawnSphereRing(max, speed, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0.75f, rotation);
             }
 
+            if (NPC.ai[3] < 30)
+            {
+                EModeSpecialEffects();
+                TryMasoP3Theme();
+            }
+
             if (++NPC.ai[3] > endTime)
             {
                 NPC.netUpdate = true;
@@ -3146,7 +3169,13 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     }
                 }
             }
-            
+
+            if (NPC.ai[3] < 30)
+            {
+                EModeSpecialEffects();
+                TryMasoP3Theme();
+            }
+
             int endTime = 360;
             if (FargoSoulsWorld.MasochistModeReal)
                 endTime += 360;
@@ -3210,6 +3239,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             if (++NPC.ai[1] > ringTime)
             {
                 NPC.ai[1] = 0;
+
+                EModeSpecialEffects();
+                TryMasoP3Theme();
+
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int max = /*harderRings ? 11 :*/ 10;

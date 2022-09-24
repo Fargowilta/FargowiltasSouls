@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             DisplayName.SetDefault("Plasma Blade");
             //DisplayName.AddTranslation(GameCulture.Chinese, "等离子能量刃");
             Main.projFrames[Projectile.type] = 4;
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+            //ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
+            //ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
         {
@@ -40,6 +40,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.scale = 1.75f;
 
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
@@ -55,8 +56,14 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 Projectile.frame = (int)Projectile.localAI[0];
                 Rectangle Frame = new Rectangle(0, (int)Projectile.localAI[0] * 47, 340, 47);
                 Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-                Vector2 RandomPos = (Main.rand.NextFloat() * MathHelper.TwoPi).ToRotationVector2();
-                Main.EntitySpriteDraw(tex, RandomPos + owner.Center + Projectile.rotation.ToRotationVector2() * (160 * Projectile.scale - 24) - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), Frame, new Color(255, 255, 255, 0) * Projectile.Opacity * Main.rand.NextFloat(0.6f, 1f), Projectile.rotation, Frame.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
+                Color color = new Color(255, 255, 255, 50) * Projectile.Opacity * Main.rand.NextFloat(0.2f, 0.3f);
+                for (int i = 0; i < 5; i++)
+                {
+                    Color color2 = color;
+                    Vector2 RandomPos = Main.rand.NextVector2Circular(8f, 8f);
+                    Main.EntitySpriteDraw(tex, RandomPos + owner.Center + Projectile.rotation.ToRotationVector2() * (160 * Projectile.scale - 24) - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), Frame, color2, Projectile.rotation, Frame.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
+                }
+                //Main.EntitySpriteDraw(tex, owner.Center + Projectile.rotation.ToRotationVector2() * (160 * Projectile.scale - 24) - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), Frame, color, Projectile.rotation, Frame.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
             }
             return false;
         }
@@ -72,18 +79,13 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            float num1 = 0.33f;
-            for (int i = 0; i < 9; i++)
+            for (int index1 = 0; index1 < 12; ++index1)
             {
-                if (Main.rand.NextFloat() >= num1)
-                {
-                    float f = Main.rand.NextFloat() * MathHelper.TwoPi;
-                    float num2 = Main.rand.NextFloat();
-                    Dust dust = Dust.NewDustPerfect(target.Center, 157, (f - MathHelper.Pi).ToRotationVector2() * (14 + 8 * num2), 0, default, 1f);  //GreenFx
-                    dust.scale = 0.9f;
-                    dust.fadeIn = 1.15f + num2 * 0.3f;
-                    dust.noGravity = true;
-                }
+                int index2 = Dust.NewDust(target.position, target.width, target.height, 157, 0f, 0f, 100, new Color(), 2f);
+                Main.dust[index2].noGravity = true;
+                Main.dust[index2].noLight = true;
+                Main.dust[index2].velocity = Projectile.DirectionTo(target.Center) * 9f + Main.rand.NextVector2Circular(12f, 12f);
+                Main.dust[index2].velocity *= 2;
             }
         }
         public override void AI()
@@ -130,13 +132,13 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
             Vector2 unit = Projectile.rotation.ToRotationVector2();
-            Terraria.Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * 320, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
+            Terraria.Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * (320 - 24) * Projectile.scale, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
         }
 
         private void CastLights()
         {
-            DelegateMethods.v3_1 = new Vector3(0.8f, 0.8f, 1f);
-            Terraria.Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * 320, Projectile.width, DelegateMethods.CastLight);
+            DelegateMethods.v3_1 = new Vector3(0.6f, 1f, 0.6f);
+            Terraria.Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * (320 - 24) * Projectile.scale, Projectile.width, DelegateMethods.CastLight);
         }
     }
 }
