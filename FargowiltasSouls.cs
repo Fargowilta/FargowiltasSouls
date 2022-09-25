@@ -139,7 +139,7 @@ namespace FargowiltasSouls
             MagicalBulbKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "魔法净化" : "Magical Cleanse", "N");
             FrigidSpellKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "寒霜咒语" : "Frigid Spell", "U");
             DebuffInstallKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "减益负载" : "Debuff Install", "Y");
-            AmmoCycleKey = KeybindLoader.RegisterKeybind(this, "Ammo Cycle", "L");
+            AmmoCycleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ?  "弹药切换" : "Ammo Cycle", "L");
 
             ToggleLoader.Load();
 
