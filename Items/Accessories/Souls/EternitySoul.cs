@@ -128,6 +128,8 @@ This stacks up to 950 times until you get hit");
         {
             BionomicCluster.PassiveEffect(player, Item);
 
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+
             //cell phone
             player.accWatch = 3;
             player.accDepthMeter = 1;

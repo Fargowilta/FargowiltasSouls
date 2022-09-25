@@ -12,6 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Saucer Control Console");
             Tooltip.SetDefault(@"Grants immunity to Electrified and Distorted
+Press the Ammo Cycle key to cycle ammos (this effect works passively from inventory)
 Summons a friendly Mini Saucer
 The saucer's tractor beam slows enemies hit by it
 'Just keep it in airplane mode'");
@@ -32,8 +33,20 @@ The saucer's tractor beam slows enemies hit by it
             Item.value = Item.sellPrice(0, 6);
         }
 
+        public override void UpdateInventory(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+        }
+
+        public override void UpdateVanity(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+        }
+
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+
             player.buffImmune[BuffID.Electrified] = true;
             player.buffImmune[BuffID.VortexDebuff] = true;
             if (player.GetToggleValue("MasoUfo"))

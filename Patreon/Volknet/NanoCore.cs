@@ -127,15 +127,11 @@ namespace FargowiltasSouls.Patreon.Volknet
                 Item.useAmmo = AmmoID.None;
             }
 
-            foreach (Projectile proj in Main.projectile)
+            if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<NanoBase>()] < 1)
             {
-                if (proj.active && proj.type == ModContent.ProjectileType<NanoBase>() && proj.owner == player.whoAmI)
-                {
-                    return;
-                }
+                int protmp = Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NanoBase>(), player.GetWeaponDamage(player.HeldItem), player.GetWeaponKnockback(player.HeldItem, 1), player.whoAmI);
+                player.heldProj = protmp;
             }
-            int protmp = Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NanoBase>(), player.GetWeaponDamage(player.HeldItem), player.GetWeaponKnockback(player.HeldItem, 1), player.whoAmI);
-            player.heldProj = protmp;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -161,11 +157,11 @@ namespace FargowiltasSouls.Patreon.Volknet
             CreateRecipe()
                 .AddIngredient(ItemID.Arkhalis)
                 .AddIngredient(ItemID.FairyQueenRangedItem)
-                .AddIngredient(ModContent.ItemType<ScientificRailgun>())
-                .AddIngredient(ModContent.ItemType<DeviousAestheticus>())
-                .AddIngredient(ModContent.ItemType<MissDrakovisFishingPole>())
-                .AddIngredient(ModContent.ItemType<Eridanium>(), 33)
-                .AddIngredient(ModContent.ItemType<AbomEnergy>(), 33)
+                .AddIngredient(ItemID.ChargedBlasterCannon)
+                .AddIngredient(ItemID.XenoStaff)
+                .AddIngredient(ModContent.ItemType<Eridanium>(), 99)
+                .AddIngredient(ModContent.ItemType<AbomEnergy>(), 99)
+                .AddIngredient(ItemID.MartianSaucerTrophy, 99)
                 .AddIngredient(ItemID.LunarBar, 99)
                 .AddIngredient(ItemID.Nanites, 999)
                 .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
@@ -176,6 +172,23 @@ namespace FargowiltasSouls.Patreon.Volknet
     public class NanoPlayer : ModPlayer
     {
         public int NanoCoreMode = 0;
+        int oldNanoCoreMode;
+
+        public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
+        {
+            if (NanoCoreMode != oldNanoCoreMode)
+            {
+                oldNanoCoreMode = NanoCoreMode;
+
+                ModPacket packet = Mod.GetPacket();
+
+                packet.Write((byte)FargowiltasSouls.PacketID.SyncNanoCoreMode);
+                packet.Write((byte)Player.whoAmI);
+                packet.Write7BitEncodedInt(NanoCoreMode);
+
+                packet.Send(toWho, fromWho);
+            }
+        }
 
         public override void ModifyHitByProjectile(Projectile proj, ref int damage, ref bool crit)
         {

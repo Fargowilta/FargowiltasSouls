@@ -44,6 +44,7 @@ namespace FargowiltasSouls
         internal static ModKeybind MagicalBulbKey;
         internal static ModKeybind FrigidSpellKey;
         internal static ModKeybind DebuffInstallKey;
+        internal static ModKeybind AmmoCycleKey;
 
         internal static List<int> DebuffIDs;
 
@@ -138,6 +139,7 @@ namespace FargowiltasSouls
             MagicalBulbKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "魔法净化" : "Magical Cleanse", "N");
             FrigidSpellKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "寒霜咒语" : "Frigid Spell", "U");
             DebuffInstallKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "减益负载" : "Debuff Install", "Y");
+            AmmoCycleKey = KeybindLoader.RegisterKeybind(this, "Ammo Cycle", "L");
 
             ToggleLoader.Load();
 
@@ -281,6 +283,7 @@ namespace FargowiltasSouls
             MagicalBulbKey = null;
             FrigidSpellKey = null;
             DebuffInstallKey = null;
+            AmmoCycleKey = null;
 
             if (DebuffIDs != null)
                 DebuffIDs.Clear();
@@ -729,7 +732,8 @@ namespace FargowiltasSouls
             SyncFishronEXLife,
             SyncTogglesOnJoin,
             SyncOneToggle,
-            SyncCanPlayMaso
+            SyncCanPlayMaso,
+            SyncNanoCoreMode
             //SpawnBossTryFromNPC
         }
 
@@ -867,6 +871,13 @@ namespace FargowiltasSouls
                         if (Main.netMode == NetmodeID.Server)
                         {
                             FargoSoulsWorld.CanPlayMaso = reader.ReadBoolean();
+                        }
+                        break;
+
+                    case PacketID.SyncNanoCoreMode:
+                        {
+                            Player player = Main.player[reader.ReadByte()];
+                            player.GetModPlayer<Patreon.Volknet.NanoPlayer>().NanoCoreMode = reader.Read7BitEncodedInt();
                         }
                         break;
 

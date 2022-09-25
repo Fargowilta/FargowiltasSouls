@@ -76,7 +76,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 {
                     Projectile.timeLeft = 2;
 
-
+                    if (Projectile.Distance(owner.Center) > 1200)
+                        Projectile.Center = owner.Center;
 
                     if (owner.GetModPlayer<NanoPlayer>().NanoCoreMode == 0)         //blade phase
                     {

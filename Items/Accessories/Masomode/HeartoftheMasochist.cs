@@ -25,6 +25,7 @@ Increases flight time by 100%
 Your critical strikes inflict Betsy's Curse
 Right Click to guard with your cape
 Press the Special Dash key to perform a short invincible fireball dash
+Press the Ammo Cycle key to cycle ammos (this effect works passively from inventory)
 Grants effects of Wet debuff while riding Cute Fishron and gravity control
 You freeze everything when damaged but taking consecutive hits stacks penalties to your damage reduction
 Reduces your hurtbox size for projectiles
@@ -59,8 +60,20 @@ Summons a friendly Mini Saucer and true eyes of Cthulhu
             Item.defense = 10;
         }
 
+        public override void UpdateInventory(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+        }
+
+        public override void UpdateVanity(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+        }
+
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
+
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             player.GetDamage(DamageClass.Generic) += 0.10f;
             player.GetCritChance(DamageClass.Generic) += 10;

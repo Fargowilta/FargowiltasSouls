@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 Projectile.frame = (int)Projectile.localAI[0];
                 Rectangle Frame = new Rectangle(0, (int)Projectile.localAI[0] * 47, 340, 47);
                 Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-                Color color = new Color(255, 255, 255, 50) * Projectile.Opacity * Main.rand.NextFloat(0.2f, 0.3f);
+                Color color = new Color(255, 255, 255, 100) * Projectile.Opacity * Main.rand.NextFloat(0.2f, 0.3f);
                 for (int i = 0; i < 5; i++)
                 {
                     Color color2 = color;

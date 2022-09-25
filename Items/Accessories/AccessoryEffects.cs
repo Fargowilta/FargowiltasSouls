@@ -2714,6 +2714,20 @@ namespace FargowiltasSouls
             }
         }
 
+        public void AmmoCycleKey()
+        {
+            SoundEngine.PlaySound(SoundID.Unlock, Player.Center);
+
+            for (int i = 54; i <= 56; i++)
+            {
+                int j = i + 1;
+
+                Item temp = Player.inventory[i];
+                Player.inventory[i] = Player.inventory[j];
+                Player.inventory[j] = temp;
+            }
+        }
+
         int lihzahrdFallCD;
         public void LihzahrdTreasureBoxUpdate()
         {

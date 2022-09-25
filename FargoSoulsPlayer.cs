@@ -319,6 +319,7 @@ namespace FargowiltasSouls
         public bool SkeletronArms;
         public bool IceQueensCrown;
         public bool MiniSaucer;
+        public bool CanAmmoCycle;
         public bool TribalCharm;
         public bool TribalCharmEquipped;
         public bool TribalCharmClickBonus;
@@ -693,6 +694,11 @@ namespace FargowiltasSouls
                 DebuffInstallKey();
             }
 
+            if (FargowiltasSouls.AmmoCycleKey.JustPressed)
+            {
+                AmmoCycleKey();
+            }
+
             //            if (triggersSet.Left && Player.confused && Player.gravControl)
             //            {
             //                Player.gravDir *= -1;
@@ -882,6 +888,7 @@ namespace FargowiltasSouls
             SkeletronArms = false;
             IceQueensCrown = false;
             MiniSaucer = false;
+            CanAmmoCycle = false;
             TribalCharm = false;
             TribalCharmEquipped = false;
             SupremeDeathbringerFairy = false;
@@ -1197,6 +1204,9 @@ namespace FargowiltasSouls
         {
             if (NoMomentum && !Player.mount.Active)
             {
+                if (Player.vortexStealthActive && Math.Abs(Player.velocity.X) > 6)
+                    Player.vortexStealthActive = false;
+
                 Player.runAcceleration *= 5f;
                 Player.runSlowdown *= 5f;
 
