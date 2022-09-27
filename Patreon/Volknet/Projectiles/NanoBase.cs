@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,10 +13,10 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
     public class NanoBase : ModProjectile
     {
         public int AtkTimer = 0;
-        public float MeleeDamageModifier = 1;                   //may helpful with modifying damage
-        public float RangedDamageModifier = 1;
-        public float MagicDamageModifier = 1;
-        public float SummonDamageModifier = 1;
+        //public float MeleeDamageModifier = 1;                   //may helpful with modifying damage
+        //public float RangedDamageModifier = 1;
+        //public float MagicDamageModifier = 1;
+        //public float SummonDamageModifier = 1;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nano Core");
@@ -73,10 +74,12 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 Player owner = Main.player[Projectile.owner];
                 if (!owner.dead && owner.HeldItem.type == ModContent.ItemType<NanoCore>())
                 {
-                    MeleeDamageModifier = owner.ActualClassDamage(DamageClass.Melee);
-                    RangedDamageModifier = owner.ActualClassDamage(DamageClass.Ranged);
-                    MagicDamageModifier = owner.ActualClassDamage(DamageClass.Magic);
-                    SummonDamageModifier = owner.ActualClassDamage(DamageClass.Summon);
+                    //MeleeDamageModifier = owner.ActualClassDamage(DamageClass.Melee);
+                    //RangedDamageModifier = owner.ActualClassDamage(DamageClass.Ranged);
+                    //MagicDamageModifier = owner.ActualClassDamage(DamageClass.Magic);
+                    //SummonDamageModifier = owner.ActualClassDamage(DamageClass.Summon);
+
+                    Projectile.damage = owner.GetWeaponDamage(owner.HeldItem);
 
                     Projectile.timeLeft = 2;
                     Projectile.Center = owner.Center;
@@ -114,7 +117,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                         {
                             if (!NPCUtils.AnyProj(ModContent.ProjectileType<NanoBlade>(), owner.whoAmI))
                             {
-                                Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center, Vector2.Zero, ModContent.ProjectileType<NanoBlade>(), (int)(1.5 * Projectile.damage * MeleeDamageModifier), Projectile.knockBack, owner.whoAmI);
+                                const float damageMultiplier = 1.5f;
+                                Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center, Vector2.Zero, ModContent.ProjectileType<NanoBlade>(), 0, Projectile.knockBack, owner.whoAmI, 0f, damageMultiplier);
                             }
                         }
                     }
@@ -138,28 +142,19 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                                 {
                                     speed *= 4;
                                     speed += 64;
-                                    if (owner.archery)
-                                    {
-                                        damage = (int)(damage * 1.2f);
-                                    }
-                                    if (owner.magicQuiver)
-                                    {
-                                        damage = (int)(damage * 1.1f);
-                                        speed = (int)(speed * 1.1f);
-                                    }
                                     if (Main.rand.NextBool(4))
                                     {
                                         type = ModContent.ProjectileType<PlasmaArrow>();
                                         damage = (int)(damage * 2f);
                                         speed = 3;
                                     }
-                                    damage = (int)(damage / 2.5f);
-                                    damage = (int)(damage * RangedDamageModifier);
+                                    damage = (int)(damage / 1.75);
+                                    //damage = (int)(damage * RangedDamageModifier);
                                     if (cs)
                                     {
                                         Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation + MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
                                         Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + (Projectile.rotation - MathHelper.Pi / 2).ToRotationVector2() * 15 + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed * 0.8f, type, damage, kb, owner.whoAmI);
-                                        Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed, type, (int)(damage * 1.25f), kb, owner.whoAmI);
+                                        Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center + Main.rand.NextVector2Circular(8, 8) + Projectile.rotation.ToRotationVector2() * 35, Projectile.rotation.ToRotationVector2() * speed, type, damage, kb, owner.whoAmI);
                                     }
                                 }
                             }
@@ -212,7 +207,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                                         SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104"), Projectile.Center);
                                     }
 
-                                    Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center, Vector2.Zero, ModContent.ProjectileType<PlasmaDeathRay>(), (int)(Projectile.damage * 2.5 * MagicDamageModifier), Projectile.knockBack, owner.whoAmI);
+                                    Projectile.NewProjectile(owner.GetSource_ItemUse(owner.HeldItem), owner.Center, Vector2.Zero, ModContent.ProjectileType<PlasmaDeathRay>(), (int)(Projectile.damage * 2.5), Projectile.knockBack, owner.whoAmI);
                                 }
                             }
 
@@ -258,7 +253,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                                             if (proj.ai[0] == AtkTimer / 5 || proj.ai[0] == AtkTimer / 5 + 1 || proj.ai[0] == 6)
                                             {
                                                 SoundEngine.PlaySound(SoundID.Item91, proj.Center);
-                                                FargoSoulsUtil.NewSummonProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 36, ModContent.ProjectileType<PlasmaProj>(), (int)(proj.damage * 0.5f), proj.knockBack, owner.whoAmI, 0, 0);
+                                                int dmg = (int)(owner.HeldItem.damage * 1.2);
+                                                FargoSoulsUtil.NewSummonProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 36, ModContent.ProjectileType<PlasmaProj>(), dmg, proj.knockBack, owner.whoAmI);
                                             }
 
                                         }

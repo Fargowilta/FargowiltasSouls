@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Projectiles;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria;
@@ -38,9 +39,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.scale = 0.3f;
-            Projectile.penetrate = -1;
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 4;
+            Projectile.penetrate = 1;
             Projectile.extraUpdates = 2;
         }
 

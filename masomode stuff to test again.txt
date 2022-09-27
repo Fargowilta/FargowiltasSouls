@@ -10,7 +10,6 @@ slightly reduced duration of mutant p3 attacks
 increased size of mutant sword hitboxes to reduce gaps between them
 
 concentrated rainbow matter buff: now acts like mana flower for healing potions
-biocluster is post 1 mech
 you can now get iron ench frame data when equipping it with dread shell
 tribal charm gives +30% damage when manually clicking to attack, not inventory effect
 magical bulb
@@ -122,3 +121,9 @@ refined penetrator hitbox to be much more sprite accurate
 
 no momentum disables vortex stealth when moving quickly
 saucer control console buff, has ammo cycle key
+queen bee has a much more blatant enrage
+biocluster is post all mechs
+sou +4 minion/sentry -> 2
+conjurist soul +3 minion/sentry -> 5
+rebalanced staff of ocean unleashed
+nano core rebalance again

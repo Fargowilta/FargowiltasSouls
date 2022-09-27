@@ -210,6 +210,7 @@ Mods: {
 			TwinsRevive: has been revived!
 			GelatinSubjects: Gelatin Subjects have awoken!
 			RoyalSubject: Royal Subject has awoken!
+			QueenBeeEnrage: "{$NPCName.QueenBee} has enraged outside the underground jungle!"
 
 			MoonsDeathPenalty: The wave progress has regressed!
 		}

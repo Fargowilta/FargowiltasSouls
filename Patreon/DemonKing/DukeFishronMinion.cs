@@ -35,7 +35,8 @@ namespace FargowiltasSouls.Patreon.DemonKing
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.minionSlots = 2;
+            Projectile.alpha = 100;
+            Projectile.minionSlots = 1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 10;
@@ -298,10 +299,11 @@ namespace FargowiltasSouls.Patreon.DemonKing
             vel.Normalize();
             vel *= speed;
             int type = ModContent.ProjectileType<RazorbladeTyphoonFriendly2>();
+            int dmg = Projectile.originalDamage / 5;
             for (int i = 0; i < max; i++)
             {
                 vel = vel.RotatedBy(rotation);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, Projectile.damage,
+                FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, dmg,
                     Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);
             }
         }

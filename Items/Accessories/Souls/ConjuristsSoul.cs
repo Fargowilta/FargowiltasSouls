@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "召唤之魂");
             string tooltip =
 @"30% increased summon damage
-Increases your max number of minions by 3
-Increases your max number of sentries by 3
+Increases your max number of minions by 5
+Increases your max number of sentries by 5
 Increased minion knockback
 'An army at your disposal'";
             Tooltip.SetDefault(tooltip);
@@ -38,8 +38,8 @@ Increased minion knockback
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetDamage(DamageClass.Summon) += 0.3f;
-            player.maxMinions += 3;
-            player.maxTurrets += 3;
+            player.maxMinions += 5;
+            player.maxTurrets += 5;
             player.GetKnockback(DamageClass.Summon) += 3f;
         }
 

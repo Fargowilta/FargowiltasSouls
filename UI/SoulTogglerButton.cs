@@ -18,8 +18,8 @@ namespace FargowiltasSouls.UI
             const int y = 275;
 
             IconFlash = new UIImage(FargowiltasSouls.UserInterfaceManager.SoulTogglerButton_MouseOverTexture);
-            IconFlash.Left.Set(x - 2, 0);
-            IconFlash.Top.Set(y - 2, 0);
+            IconFlash.Left.Set(x, 0);
+            IconFlash.Top.Set(y, 0);
             Append(IconFlash);
 
             Icon = new UIImage(FargowiltasSouls.UserInterfaceManager.SoulTogglerButtonTexture);
@@ -28,8 +28,8 @@ namespace FargowiltasSouls.UI
             Append(Icon);
 
             IconHighlight = new UIHoverTextImageButton(FargowiltasSouls.UserInterfaceManager.SoulTogglerButton_MouseOverTexture, FargoSoulsUtil.IsChinese() ? "设置饰品效果" : "Configure Accessory Effects");
-            IconHighlight.Left.Set(-2, 0);
-            IconHighlight.Top.Set(-2, 0);
+            IconHighlight.Left.Set(0, 0);
+            IconHighlight.Top.Set(0, 0);
             IconHighlight.SetVisibility(1f, 0);
             IconHighlight.OnClick += IconHighlight_OnClick;
             Icon.Append(IconHighlight);
@@ -62,7 +62,7 @@ namespace FargowiltasSouls.UI
                 Icon.Draw(spriteBatch);
                 IconHighlight.Draw(spriteBatch);
                 OncomingMutant.Draw(spriteBatch);
-                if (!Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().HasClickedWrench && Main.GlobalTimeWrappedHourly % 0.5f < 0.25f)
+                if (!Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().HasClickedWrench && Main.GlobalTimeWrappedHourly % 1f < 0.5f)
                     IconFlash.Draw(spriteBatch);
             }
         }

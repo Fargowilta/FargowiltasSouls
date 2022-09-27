@@ -19,12 +19,14 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             base.SetDefaults();
             Projectile.DamageType = DamageClass.Summon;
+            Projectile.timeLeft = 45;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 60;
         }
 
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (target.defense > 0)
-                damage += target.defense / 2;
+            //if (target.defense > 0) damage += target.defense / 4;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

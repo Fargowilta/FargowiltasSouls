@@ -50,13 +50,15 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
         }
 
+        public override Color? GetAlpha(Color lightColor) => Color.White * 0.4f * Projectile.Opacity;
+
         public override bool PreDraw(ref Color lightColor)
         {
             Projectile.ai[0] = (Projectile.ai[0] + 1) % 40;
             Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
             for (float i = 0; i < 3; i++)
             {
-                Main.EntitySpriteDraw(tex, Projectile.Center - Main.screenPosition + (i * MathHelper.TwoPi / 3 + Projectile.ai[0] / 40 * MathHelper.TwoPi).ToRotationVector2() * 2, null, Color.White * 0.4f * Projectile.Opacity, Projectile.rotation, tex.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(tex, Projectile.Center - Main.screenPosition + (i * MathHelper.TwoPi / 3 + Projectile.ai[0] / 40 * MathHelper.TwoPi).ToRotationVector2() * 2, null, Projectile.GetAlpha(lightColor), Projectile.rotation, tex.Size() / 2, Projectile.scale, SpriteEffects.None, 0);
             }
             return false;
         }

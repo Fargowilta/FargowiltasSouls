@@ -31,6 +31,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public int StingerRingTimer;
         public int BeeSwarmTimer = 600;
         public int ForgorDeathrayTimer;
+        public int EnrageFactor;
 
         public bool SpawnedRoyalSubjectWave1;
         public bool SpawnedRoyalSubjectWave2;
@@ -71,6 +72,27 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
+
+
+            if (npc.HasPlayerTarget && npc.HasValidTarget && (!Main.player[npc.target].ZoneJungle
+                || Main.player[npc.target].position.Y < Main.worldSurface * 16))
+            {
+                if (++EnrageFactor == 300)
+                {
+                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.QueenBeeEnrage", new Color(175, 75, 255));
+                }
+
+                if (EnrageFactor > 300)
+                {
+                    float rotation = Main.rand.NextFloat(0.03f, 0.18f);
+                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + new Vector2(3 * npc.direction, 15), Main.rand.NextFloat(8f, 24f) * Main.rand.NextVector2Unit(),
+                        ModContent.ProjectileType<Bee>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 1.5f), 0f, Main.myPlayer, npc.target, Main.rand.NextBool() ? -rotation : rotation);
+                }
+            }
+            else
+            {
+                EnrageFactor = 0;
+            }
 
 
             if (!SpawnedRoyalSubjectWave1 && npc.life < npc.lifeMax / 3 * 2 && npc.HasPlayerTarget)
@@ -310,15 +332,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 }
             }
 
-            if (!npc.HasValidTarget || (npc.HasPlayerTarget && npc.Distance(Main.player[npc.target].Center) > 3000))
-            {
-                if (npc.timeLeft > 30)
-                    npc.timeLeft = 30;
-            }
-
             EModeUtils.DropSummon(npc, "Abeemination2", NPC.downedQueenBee, ref DroppedSummon);
 
             return result;
+        }
+
+        public override void PostAI(NPC npc)
+        {
+            base.PostAI(npc);
+
+            if (!npc.HasValidTarget || (npc.HasPlayerTarget && npc.Distance(Main.player[npc.target].Center) > 3000))
+            {
+                if (npc.timeLeft > 60)
+                    npc.timeLeft = 60;
+            }
         }
 
         public override void OnKill(NPC npc)

@@ -95,6 +95,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             }
         }
 
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 150) * 0.8f;
+
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle Frame = new Rectangle((int)(LaserWidth / 2 - Projectile.ai[1]), 0, (int)(Projectile.ai[1] * 2), (int)LaserHeight);
@@ -108,7 +110,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             for (float i = 0; i <= maxDistance; i += step)
             {
                 Main.EntitySpriteDraw(Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value, new Vector2(0, Projectile.gfxOffY) + Projectile.Center + unit * (i + 45) - Main.screenPosition, Frame,
-                    Color.White * 0.8f, r - MathHelper.Pi / 2, Frame.Size() * 0.5f, 1f, SpriteEffects.None, 0);
+                    Projectile.GetAlpha(lightColor), r - MathHelper.Pi / 2, Frame.Size() * 0.5f, 1f, SpriteEffects.None, 0);
             }
             return false;
         }

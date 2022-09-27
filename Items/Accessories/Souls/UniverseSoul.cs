@@ -24,8 +24,8 @@ namespace FargowiltasSouls.Items.Accessories.Souls
 Crits deal 4x instead of 2x
 All weapons have double knockback
 Increases your maximum mana by 300
-Increases your max number of minions by 4
-Increases your max number of sentries by 4
+Increases your max number of minions by 2
+Increases your max number of sentries by 2
 All attacks inflict Flames of the Universe
 Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
 Effects of Sniper Scope, Celestial Cuffs and Mana Flower
@@ -77,8 +77,8 @@ Effects of Sniper Scope, Celestial Cuffs and Mana Flower
             if (player.GetToggleValue("Universe"))
                 modPlayer.AttackSpeed += .5f;
 
-            player.maxMinions += 4;
-            player.maxTurrets += 4;
+            player.maxMinions += 2;
+            player.maxTurrets += 2;
 
             if (player.GetToggleValue("MagmaStone"))
             {

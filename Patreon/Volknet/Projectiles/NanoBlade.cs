@@ -33,13 +33,10 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-            Projectile.usesIDStaticNPCImmunity = true;
-            Projectile.idStaticNPCHitCooldown = 2;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.light = 1.1f;
             Projectile.scale = 1.75f;
 
-            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
 
@@ -47,6 +44,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
         {
             behindProjectiles.Add(index);
         }
+
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 100) * Projectile.Opacity;
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -56,7 +55,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 Projectile.frame = (int)Projectile.localAI[0];
                 Rectangle Frame = new Rectangle(0, (int)Projectile.localAI[0] * 47, 340, 47);
                 Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-                Color color = new Color(255, 255, 255, 100) * Projectile.Opacity * Main.rand.NextFloat(0.2f, 0.3f);
+                Color color = Projectile.GetAlpha(lightColor) * Main.rand.NextFloat(0.2f, 0.3f);
                 for (int i = 0; i < 5; i++)
                 {
                     Color color2 = color;
@@ -79,6 +78,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+            target.immune[Projectile.owner] = 2;
+
             for (int index1 = 0; index1 < 12; ++index1)
             {
                 int index2 = Dust.NewDust(target.position, target.width, target.height, 157, 0f, 0f, 100, new Color(), 2f);
@@ -98,6 +99,8 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                 {
                     if (owner.GetModPlayer<NanoPlayer>().NanoCoreMode == 0 && owner.channel)
                     {
+                        Projectile.damage = (int)(Projectile.ai[1]  * owner.GetWeaponDamage(owner.HeldItem));
+
                         Projectile.ai[0] = (Projectile.ai[0] + 1) % 30;
                         if (Projectile.ai[0] == 15)
                         {

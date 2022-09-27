@@ -28,8 +28,8 @@ namespace FargowiltasSouls.Patreon.Volknet
         {
             Item.width = 60;
             Item.height = 30;
-            Item.damage = 50;
-            Item.knockBack = 1;
+            Item.damage = 175;
+            Item.knockBack = 2;
             Item.channel = true;
             Item.useTime = 6;
             Item.useAnimation = 6;
@@ -129,7 +129,7 @@ namespace FargowiltasSouls.Patreon.Volknet
 
             if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<NanoBase>()] < 1)
             {
-                int protmp = Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NanoBase>(), player.GetWeaponDamage(player.HeldItem), player.GetWeaponKnockback(player.HeldItem, 1), player.whoAmI);
+                int protmp = Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NanoBase>(), player.HeldItem.damage, player.GetWeaponKnockback(player.HeldItem, 1), player.whoAmI);
                 player.heldProj = protmp;
             }
         }

@@ -32,6 +32,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
         }
 
+        public override bool? CanDamage() => false;
+
         public override void AI()
         {
             NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0], ModContent.NPCType<NPCs.MutantBoss.MutantBoss>());
