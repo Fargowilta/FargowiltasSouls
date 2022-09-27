@@ -1151,6 +1151,7 @@ Mods: {
 			TwinsRevive: 复活了！
 			GelatinSubjects: 圣凝史莱姆已苏醒！
 			RoyalSubject: 皇家工蜂已苏醒！
+			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
 		}
