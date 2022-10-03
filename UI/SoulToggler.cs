@@ -38,6 +38,8 @@ namespace FargowiltasSouls.UI
 
         public override void OnInitialize()
         {
+            Vector2 offset = new(Main.screenWidth / 2f - (BackWidth / 2f), Main.screenHeight / 2f - (BackHeight / 2f));
+            
             NeedsToggleListBuilding = true;
             DisplayMod = "";
             SortCatagory = "";
@@ -58,8 +60,8 @@ namespace FargowiltasSouls.UI
             ToggleList.OnScrollWheel += hotbarScrollFix;
 
             BackPanel = new UIDragablePanel(Scrollbar, ToggleList);
-            BackPanel.Left.Set(0, 0);
-            BackPanel.Top.Set(0, 0);
+            BackPanel.Left.Set(offset.X, 0);
+            BackPanel.Top.Set(offset.Y, 0);
             BackPanel.Width.Set(BackWidth, 0);
             BackPanel.Height.Set(BackHeight, 0);
             BackPanel.PaddingLeft = BackPanel.PaddingRight = BackPanel.PaddingTop = BackPanel.PaddingBottom = 0;
@@ -225,12 +227,12 @@ namespace FargowiltasSouls.UI
             return rawText;
         }
 
-        public void SetPositionToPoint(Point point)
+        /*public void SetPositionToPoint(Point point)
         {
             BackPanel.Left.Set(point.X, 0);
             BackPanel.Top.Set(point.Y, 0);
         }
 
-        public Point GetPositionAsPoint() => new Point((int)BackPanel.Left.Pixels, (int)BackPanel.Top.Pixels);
+        public Point GetPositionAsPoint() => new Point((int)BackPanel.Left.Pixels, (int)BackPanel.Top.Pixels);*/
     }
 }

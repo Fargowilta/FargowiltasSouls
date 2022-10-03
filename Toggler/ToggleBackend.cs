@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Toggler
         public Preferences Config;
 
         public Dictionary<string, Toggle> Toggles;
-        public Point TogglerPosition;
+        //public Point TogglerPosition;
         public bool CanPlayMaso;
 
         public bool Initialized;
@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Toggler
             Config = new Preferences(ConfigPath);
 
             Toggles = ToggleLoader.LoadedToggles;
-            TogglerPosition = new Point(0, 0);
+            //TogglerPosition = new Point(0, 0);
 
             if (!Main.dedServ)
             {
@@ -35,11 +35,11 @@ namespace FargowiltasSouls.Toggler
                     Save();
             }
 
-            Dictionary<string, int> togglerPositionUnpack = Config.Get("TogglerPosition", new Dictionary<string, int>() { { "X", Main.screenWidth / 2 - 300 }, { "Y", Main.screenHeight / 2 - 200 } });
-            TogglerPosition = new Point(togglerPositionUnpack["X"], togglerPositionUnpack["Y"]);
+            //Dictionary<string, int> togglerPositionUnpack = Config.Get("TogglerPosition", new Dictionary<string, int>() { { "X", Main.screenWidth / 2 - 300 }, { "Y", Main.screenHeight / 2 - 200 } });
+            //TogglerPosition = new Point(togglerPositionUnpack["X"], togglerPositionUnpack["Y"]);
 
-            if (!Main.dedServ)
-                FargowiltasSouls.UserInterfaceManager.SoulToggler.SetPositionToPoint(TogglerPosition);
+            //if (!Main.dedServ)
+            //    FargowiltasSouls.UserInterfaceManager.SoulToggler.SetPositionToPoint(TogglerPosition);
 
             CanPlayMaso = Config.Get("CanPlayMaso", false);
 
@@ -53,8 +53,8 @@ namespace FargowiltasSouls.Toggler
                 Config.Put("CanPlayMaso", CanPlayMaso);
                 //Config.Put(TogglesByPlayer, ParsePackedToggles());
 
-                TogglerPosition = FargowiltasSouls.UserInterfaceManager.SoulToggler.GetPositionAsPoint();
-                Config.Put("TogglerPosition", UnpackPosition());
+                //TogglerPosition = FargowiltasSouls.UserInterfaceManager.SoulToggler.GetPositionAsPoint();
+                //Config.Put("TogglerPosition", UnpackPosition());
                 Config.Save();
             }
         }
@@ -71,10 +71,10 @@ namespace FargowiltasSouls.Toggler
                 modPlayer.TogglesToSync[entry.Key] = entry.Value.ToggleBool;
         }
 
-        public Dictionary<string, int> UnpackPosition() => new Dictionary<string, int>() {
+        /*public Dictionary<string, int> UnpackPosition() => new Dictionary<string, int>() {
             { "X", TogglerPosition.X },
             { "Y", TogglerPosition.Y }
-        };
+        };*/
 
         public void SetAll(bool value)
         {
