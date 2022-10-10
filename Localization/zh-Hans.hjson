@@ -1881,7 +1881,6 @@ Mods: {
 			ChlorophyteBullet: 速度减慢，存在时间降低
 			WaterBolt: 在骷髅王被击败前无法使用
 			HolyDodge: 神圣防护激活后，一段时间内你的攻击速度会降低
-			SpectreHood: 治疗幽魂珠飞行变慢，会更快消失
 			FrozenTurtleShell: 冰盾会略微降低你的攻击伤害
 			BrainOfConfusion: 成功躲避后，你的伤害会降低
 
@@ -1903,7 +1902,6 @@ Mods: {
 
 			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
 			IceBarrier: 永恒模式：你造成的伤害减少10%
-			ManaSickness: 永恒模式：攻击速度减半
 		}
 
 		ItemName: {
@@ -2460,6 +2458,7 @@ Mods: {
 			GladiatorEnchant:
 				'''
 				长矛将倾泄在被攻击的敌人身上
+				当你面向攻击时免疫击退
 				“难道你不高兴吗？”
 				'''
 			GoldEnchant:
@@ -2955,7 +2954,7 @@ Mods: {
 				'''
 			GalacticGlobe:
 				'''
-				免疫翻转、不稳定、扭曲和月之诅咒减益
+				免疫无效诅咒、翻转、不稳定和月之诅咒减益
 				允许玩家改变重力
 				在太空和液体中恢复正常重力作用
 				召唤克苏鲁真眼保护你
@@ -3160,7 +3159,7 @@ Mods: {
 				'''
 				免疫霉运和昏迷减益
 				提高刷怪速率
-				生命值小于等于2000的敌人掉落双倍战利品，但不掉落钱币
+				非Boss敌人掉落双倍战利品
 				“这肯定死了”
 				'''
 			SkullCharm:
@@ -3486,6 +3485,7 @@ Mods: {
 			StaffOfUnleashedOcean:
 			'''
 			召唤猪龙鱼公爵来为你战斗
+			猪龙鱼公爵至多无视敌人400的防御
 			“现在，发泄你海涛一般的愤怒对抗他们吧！”
 			'''
 			DeviousAestheticus:
