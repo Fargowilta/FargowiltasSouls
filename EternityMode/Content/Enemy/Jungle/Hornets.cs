@@ -52,7 +52,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
             base.AI(npc);
 
             if (++Timer > 420) //put here so they dont all dash at once after you get swarming
+            {
                 Timer = 0;
+
+                //move in more frequently when especially far away
+                if (npc.HasPlayerTarget && npc.Distance(Main.player[npc.target].Center) > 1200)
+                    Timer += 90;
+            }
 
             if (npc.HasPlayerTarget)
             {

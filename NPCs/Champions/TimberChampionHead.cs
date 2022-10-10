@@ -113,7 +113,7 @@ namespace FargowiltasSouls.NPCs.Champions
             {
                 case 0: //just move
                     if (haveGottenInRange //despawn code
-                        && (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > (FargoSoulsWorld.EternityMode ? 1600f : 2400f)))
+                        && (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 2400f))
                     {
                         NPC.TargetClosest(false);
                         if (NPC.timeLeft > 30)

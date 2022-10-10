@@ -127,3 +127,26 @@ sou +4 minion/sentry -> 2
 conjurist soul +3 minion/sentry -> 5
 rebalanced staff of ocean unleashed
 nano core rebalance again
+
+capped pumpking's cape counterattack at 1000 base damage
+made timber head less likely to despawn
+removed mana sickness causing attack speed down
+made hornets slightly more aggressive when you have swarming
+added iron anvil to iron ench recipe
+solar ench recipe, replaced helfire with solar eruption
+biocluster requires hallow instead of chloro bar
+glad ench buff, grants kb immunity when you are facing the attack
+added topaz staff to tin ench recipe
+eater staff can move a bit better
+galactic globe grants immunity to null curse (ml class swap gimmick)
+sinister icon buff, has no max life restriction on its loot multiplier
+staff of unleashed ocean fishrons ignore 400 defense instead of infinite and adjusted implementation
+abom wand's spectral abom armor pen capped at 600 defense and adjusted implementation
+fixed confused being able to decay faster in boc fight
+emode no longer nerfs spectre hood set bonus
+spectre ench now has old emode spectre lifesteal nerf
+removed emode vampire knives nerf
+nano blade makes chainsaw noises on hit
+nano tech summon probes shoot as soon as they are individually in place (no wait for all set)
+sand elemental spawns phm, drops sands of time always
+ice golem spawns phm, drops frigid gemstone always

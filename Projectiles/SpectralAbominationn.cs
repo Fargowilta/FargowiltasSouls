@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,6 +41,13 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.timeLeft = 180;
             //Projectile.alpha = 100;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+
+            Projectile.ArmorPenetration += 600;
         }
 
         public override void AI()
@@ -195,12 +203,6 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             ringRotation += rotationPerTick;
             scytheRotation += 0.5f;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if (target.defense > 0)
-                damage += target.defense / 2;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

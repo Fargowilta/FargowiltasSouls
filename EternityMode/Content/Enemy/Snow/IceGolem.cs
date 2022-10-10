@@ -67,7 +67,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Snow
             base.ModifyNPCLoot(npc, npcLoot);
 
             FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.FrozenCrateHard));
-            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ModContent.ItemType<Items.Accessories.Masomode.FrigidGemstone>(), 5));
+            FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.ByCondition(new Conditions.IsHardmode(), ModContent.ItemType<Items.Accessories.Masomode.FrigidGemstone>(), 5));
             FargoSoulsUtil.EModeDrop(npcLoot, ItemDropRule.Common(ItemID.BlizzardinaBottle, 20));
         }
     }

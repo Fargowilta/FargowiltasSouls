@@ -187,7 +187,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             .AddIngredient(ModContent.ItemType<WretchedPouch>())
             .AddIngredient(ModContent.ItemType<NymphsPerfume>())
             .AddIngredient(ModContent.ItemType<TimsConcoction>())
-            .AddIngredient(ItemID.ChlorophyteBar, 5)
+            .AddIngredient(ItemID.HallowedBar, 5)
             .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 10)
 
             .AddTile(TileID.MythrilAnvil)

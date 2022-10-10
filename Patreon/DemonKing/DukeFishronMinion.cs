@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -57,6 +58,13 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             Projectile.localAI[0] = reader.ReadSingle();
             rotationOffset = reader.ReadSingle();
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+
+            Projectile.ArmorPenetration += 400;
         }
 
         bool spawn;
@@ -266,12 +274,6 @@ namespace FargowiltasSouls.Patreon.DemonKing
                 }
             }
             Projectile.position += Projectile.velocity / 4f;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if (target.defense > 0)
-                damage += target.defense / 2;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

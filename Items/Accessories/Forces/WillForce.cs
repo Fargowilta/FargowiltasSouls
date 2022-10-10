@@ -30,6 +30,7 @@ $"[i:{ModContent.ItemType<GoldEnchant>()}] Press the Gold hotkey to be encased i
 $"[i:{ModContent.ItemType<GoldEnchant>()}] Automatically sends coins to your piggy bank when picked up\n" +
 $"[i:{ModContent.ItemType<PlatinumEnchant>()}] 20% chance for enemies to drop 5x loot\n" +
 $"[i:{ModContent.ItemType<GladiatorEnchant>()}] Spears will rain down on struck enemies\n" +
+$"[i:{ModContent.ItemType<GladiatorEnchant>()}] Grants knockback immunity when you are facing the attack\n" +
 $"[i:{ModContent.ItemType<RedRidingEnchant>()}] Successive attack gain bonus damage \n" +
 $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness of healing sources by 50%\n" +
 "'A mind of unbreakable determination'";

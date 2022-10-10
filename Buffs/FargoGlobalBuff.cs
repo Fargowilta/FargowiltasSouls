@@ -22,8 +22,6 @@ namespace FargowiltasSouls.Buffs
                     tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.ShadowDodge");
                 else if (type == BuffID.IceBarrier)
                     tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.IceBarrier");
-                else if (type == BuffID.ManaSickness)
-                    tip += "\n" + Language.GetTextValue("Mods.FargowiltasSouls.EModeBalance.ManaSickness");
             }
         }
 
@@ -106,8 +104,10 @@ namespace FargowiltasSouls.Buffs
             }
 
             if (FargoSoulsWorld.EternityMode && player.buffTime[buffIndex] > 5 && Main.debuff[type] && player.GetModPlayer<EModePlayer>().ShorterDebuffsTimer <= 0
-                && !Main.buffNoTimeDisplay[type] && type != BuffID.Tipsy && (!BuffID.Sets.NurseCannotRemoveDebuff[type] || type == BuffID.ManaSickness || type == BuffID.PotionSickness)
-                && !DebuffsToLetDecreaseNormally.Contains(type))
+                && !Main.buffNoTimeDisplay[type]
+                && type != BuffID.Tipsy && (!BuffID.Sets.NurseCannotRemoveDebuff[type] || type == BuffID.ManaSickness || type == BuffID.PotionSickness)
+                && !DebuffsToLetDecreaseNormally.Contains(type)
+                && !(type == BuffID.Confused && FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.brainBoss, NPCID.BrainofCthulhu)))
             {
                 player.buffTime[buffIndex] -= 1;
             }

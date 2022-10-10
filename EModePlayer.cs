@@ -483,19 +483,6 @@ namespace FargowiltasSouls
             //}
         }
 
-        public override float UseSpeedMultiplier(Item item)
-        {
-            float modifier = base.UseSpeedMultiplier(item);
-
-            if (!FargoSoulsWorld.EternityMode)
-                return modifier;
-
-            if (Player.manaSick)
-                modifier *= 2f / 3f;
-
-            return modifier;
-        }
-
         float AttackSpeed
         {
             get { return Player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed; }

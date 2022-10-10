@@ -2655,6 +2655,9 @@ namespace FargowiltasSouls
 
 
 
+            if (GladiatorEnchantActive && Player.direction == Math.Sign(npc.Center.X - Player.Center.X))
+                Player.noKnockback = true;
+
             if (Smite)
                 damage = (int)(damage * 1.1);
 
@@ -2682,6 +2685,9 @@ namespace FargowiltasSouls
             }
 
 
+
+            if (GladiatorEnchantActive && Player.direction == Math.Sign(proj.Center.X - Player.Center.X))
+                Player.noKnockback = true;
 
             if (Smite)
                 damage = (int)(damage * 1.2);

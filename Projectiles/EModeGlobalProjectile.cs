@@ -129,10 +129,6 @@ namespace FargowiltasSouls.Projectiles
                     }
                     break;
 
-                case ProjectileID.SpiritHeal:
-                    projectile.timeLeft = 240 * 4; //account for extraupdates
-                    break;
-
                 case ProjectileID.DD2BetsyFlameBreath:
                     projectile.tileCollide = false;
                     projectile.penetrate = -1;
@@ -241,12 +237,12 @@ namespace FargowiltasSouls.Projectiles
 
                 case ProjectileID.VampireHeal:
                     //each lifesteal hits timer again when above 33% life (total, halved lifesteal rate)
-                    if (Main.player[projectile.owner].statLife > Main.player[projectile.owner].statLifeMax2 / 3)
-                        Main.player[projectile.owner].lifeSteal -= projectile.ai[1];
+                    //if (Main.player[projectile.owner].statLife > Main.player[projectile.owner].statLifeMax2 / 3)
+                    //    Main.player[projectile.owner].lifeSteal -= projectile.ai[1];
 
                     //each lifesteal hits timer again when above 33% life (stacks with above, total 1/3rd lifesteal rate)
-                    if (Main.player[projectile.owner].statLife > Main.player[projectile.owner].statLifeMax2 * 2 / 3)
-                        Main.player[projectile.owner].lifeSteal -= projectile.ai[1];
+                    //if (Main.player[projectile.owner].statLife > Main.player[projectile.owner].statLifeMax2 * 2 / 3)
+                    //    Main.player[projectile.owner].lifeSteal -= projectile.ai[1];
                     break;
 
                 case ProjectileID.Cthulunado:
@@ -704,10 +700,6 @@ namespace FargowiltasSouls.Projectiles
                                 projectile.active = false;
                         }
                     }
-                    break;
-
-                case ProjectileID.SpiritHeal:
-                    projectile.position -= projectile.velocity / 4;
                     break;
 
                 case ProjectileID.Sharknado: //this only runs after changes in preAI() finish blocking it

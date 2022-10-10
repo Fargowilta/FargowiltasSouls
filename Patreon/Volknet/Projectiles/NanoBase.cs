@@ -233,34 +233,31 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                     {
                         if (owner.channel)
                         {
-                            if (AllSet(owner))
+                            if (!owner.CheckMana(2, true))
                             {
-                                if (!owner.CheckMana(2, true))
-                                {
-                                    owner.channel = false;
-                                    AtkTimer = 0;
-                                    return;
-                                }
-                                owner.manaRegenDelay = 10;
+                                owner.channel = false;
+                                AtkTimer = 0;
+                                return;
+                            }
+                            owner.manaRegenDelay = 10;
 
-                                AtkTimer = (AtkTimer + 1) % 30;
-                                if (AtkTimer % 5 == 3)
+                            AtkTimer = (AtkTimer + 1) % 30;
+                            if (AtkTimer % 5 == 3)
+                            {
+                                foreach (Projectile proj in Main.projectile)
                                 {
-                                    foreach (Projectile proj in Main.projectile)
+                                    if (proj.active && proj.type == ModContent.ProjectileType<NanoProbe>() && proj.owner == owner.whoAmI
+                                        && proj.ai[1] != 0)
                                     {
-                                        if (proj.active && proj.type == ModContent.ProjectileType<NanoProbe>() && proj.owner == owner.whoAmI)
+                                        if (proj.ai[0] == AtkTimer / 5 || proj.ai[0] == AtkTimer / 5 + 1 || proj.ai[0] == 6)
                                         {
-                                            if (proj.ai[0] == AtkTimer / 5 || proj.ai[0] == AtkTimer / 5 + 1 || proj.ai[0] == 6)
-                                            {
-                                                SoundEngine.PlaySound(SoundID.Item91, proj.Center);
-                                                int dmg = (int)(owner.HeldItem.damage * 1.2);
-                                                FargoSoulsUtil.NewSummonProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 36, ModContent.ProjectileType<PlasmaProj>(), dmg, proj.knockBack, owner.whoAmI);
-                                            }
-
+                                            SoundEngine.PlaySound(SoundID.Item91, proj.Center);
+                                            int dmg = (int)(owner.HeldItem.damage * 1.2);
+                                            FargoSoulsUtil.NewSummonProjectile(owner.GetSource_ItemUse(owner.HeldItem), proj.Center, proj.rotation.ToRotationVector2().RotatedByRandom(MathHelper.ToRadians(2)) * 36, ModContent.ProjectileType<PlasmaProj>(), dmg, proj.knockBack, owner.whoAmI);
                                         }
+
                                     }
                                 }
-
                             }
                         }
                         else

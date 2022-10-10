@@ -67,6 +67,7 @@ You attract items from a larger range
             .AddIngredient(ItemID.IronGreaves)
             .AddIngredient(ItemID.EmptyBucket)
             .AddIngredient(ItemID.IronBroadsword)
+            .AddIngredient(ItemID.IronAnvil)
             //.AddIngredient(ItemID.IronBow);
             //apricot (high in iron pog)
             //.AddIngredient(ItemID.TreasureMagnet)

@@ -274,6 +274,15 @@ namespace FargowiltasSouls.NPCs
                             }
                         }
 
+                        if (normalSpawn && FargoSoulsWorld.downedAnyBoss)
+                        {
+                            if (snow)
+                                pool[NPCID.IceGolem] = .005f;
+
+                            if (desert)
+                                pool[NPCID.SandElemental] = .005f;
+                        }
+
                         if (Main.slimeRain && NPC.downedBoss2 && bossCanSpawn)
                             pool[NPCID.KingSlime] = 0.004f;
                     }

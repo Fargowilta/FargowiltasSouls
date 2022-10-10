@@ -825,7 +825,7 @@ namespace FargowiltasSouls.NPCs
             {
                 lootMultiplierCheck = true;
 
-                if (modPlayer.SinisterIconDrops && !npc.boss && (modPlayer.MasochistSoul || npc.life <= 2000) && !illegalLootMultiplierNPCs.Contains(npc.type))
+                if (modPlayer.SinisterIconDrops && !npc.boss && !illegalLootMultiplierNPCs.Contains(npc.type))
                 {
                     npc.NPCLoot();
                 }

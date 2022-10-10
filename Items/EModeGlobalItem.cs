@@ -134,10 +134,6 @@ namespace FargowiltasSouls.Items
                     ItemBalance(tooltips, EModeChange.Nerf, "HolyDodge");
                     break;
 
-                case ItemID.SpectreHood:
-                    ItemBalance(tooltips, EModeChange.Nerf, "SpectreHood");
-                    break;
-
                 case ItemID.FrozenTurtleShell:
                 case ItemID.FrozenShield:
                     ItemBalance(tooltips, EModeChange.Nerf, "FrozenTurtleShell");
@@ -165,9 +161,9 @@ namespace FargowiltasSouls.Items
                     }
                     break;
 
-                case ItemID.VampireKnives:
-                    ItemBalance(tooltips, EModeChange.Nerf, "VampireKnives");
-                    break;
+                //case ItemID.VampireKnives:
+                //    ItemBalance(tooltips, EModeChange.Nerf, "VampireKnives");
+                //    break;
 
                 case ItemID.ZapinatorGray:
                 case ItemID.ZapinatorOrange:

@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Patreon.DemonKing
         {
             base.SetStaticDefaults();
             DisplayName.SetDefault("Staff of Unleashed Ocean");
-            Tooltip.SetDefault("Summons Duke Fishron to fight for you\n'Now channel your rage against them!'");
+            Tooltip.SetDefault("Summons Duke Fishron to fight for you\nDuke Fishron ignores up to 400 enemy defense\n'Now channel your rage against them!'");
             ItemID.Sets.StaffMinionSlotsRequired[Item.type] = 1;
         }
 

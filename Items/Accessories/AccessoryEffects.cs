@@ -2956,11 +2956,12 @@ namespace FargowiltasSouls
                     Player.statLife = Player.statLifeMax2;
                 Player.HealEffect(heal);
 
+                int counterDamage = Math.Min(1000, damage);
                 for (int i = 0; i < 30; i++)
                 {
                     Vector2 vel = Vector2.UnitX.RotatedByRandom(MathHelper.TwoPi);
                     vel *= Main.rand.NextFloat(12f, 24f);
-                    FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), Player.Center, vel, ModContent.ProjectileType<SpookyScythe>(), damage, 6f, Player.whoAmI);
+                    FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(PumpkingsCapeItem), Player.Center, vel, ModContent.ProjectileType<SpookyScythe>(), counterDamage, 6f, Player.whoAmI);
                 }
             }
         }

@@ -139,9 +139,19 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             else
             {
-                Tile tile = Framing.GetTileSafely(Projectile.Center);
-                if (tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]))
+                bool IsInTile(Vector2 pos)
+                {
+                    Tile tile = Framing.GetTileSafely(Projectile.Center);
+                    return tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);
+                }
+
+                if (IsInTile(Projectile.Top)
+                    || IsInTile(Projectile.Center)
+                    || IsInTile(Projectile.Bottom)
+                    || IsInTile(Projectile.Bottom + Vector2.UnitY * 16))
+                {
                     canMove = true;
+                }
             }
 
             if (!canMove)

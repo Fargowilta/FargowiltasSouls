@@ -76,9 +76,19 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             target.AddBuff(BuffID.WitheredArmor, 600);
             target.AddBuff(BuffID.BrokenArmor, 600);
         }
+
+        int chainsawSoundTimer;
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.immune[Projectile.owner] = 2;
+
+            if (chainsawSoundTimer <= 0)
+            {
+                chainsawSoundTimer = 10;
+                
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item22 with { Pitch = 0.5f }, Main.player[Projectile.owner].Center);
+            }
 
             for (int index1 = 0; index1 < 12; ++index1)
             {
@@ -92,6 +102,9 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
         public override void AI()
         {
             CastLights();
+            
+            Projectile.timeLeft = 2;
+
             if (Main.player[Projectile.owner].active)
             {
                 Player owner = Main.player[Projectile.owner];
@@ -106,29 +119,32 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                         {
                             Terraria.Audio.SoundEngine.PlaySound(SoundID.Item15, owner.Center);
                         }
-                        Projectile.timeLeft = 2;
                         Projectile.Center = owner.Center;
                         Projectile.rotation = (Main.MouseWorld - owner.Center).ToRotation();
 
                         Projectile.localAI[0] += 0.5f;
                         if (Projectile.localAI[0] > 3) Projectile.localAI[0] = 3;
                     }
-                    else
+                    else if (Projectile.owner == Main.myPlayer)
                     {
                         Projectile.Kill();
                     }
 
                 }
-                else
+                else if (Projectile.owner == Main.myPlayer)
                 {
                     Projectile.Kill();
                 }
             }
-            else
+            else if (Projectile.owner == Main.myPlayer)
             {
                 Projectile.Kill();
             }
+
             Projectile.alpha = 0;
+
+            if (chainsawSoundTimer > 0)
+                chainsawSoundTimer--;
         }
 
         public override void CutTiles()
