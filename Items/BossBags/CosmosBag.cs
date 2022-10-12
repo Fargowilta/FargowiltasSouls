@@ -15,6 +15,7 @@ namespace FargowiltasSouls.Items.BossBags
         {
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Eridanium>(), 10);
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<UniverseCore>());
+            player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.Find<ModItem>("Fargowiltas", "CrucibleCosmos").Type);
         }
     }
 }

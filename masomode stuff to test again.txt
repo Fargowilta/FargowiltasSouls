@@ -150,3 +150,7 @@ nano blade makes chainsaw noises on hit
 nano tech summon probes shoot as soon as they are individually in place (no wait for all set)
 sand elemental spawns phm, drops sands of time always
 ice golem spawns phm, drops frigid gemstone always
+
+sigil of champs is crafted at ancient manip
+eri drops the entire crucible (direct drop in normal mode, expert+ in bag)
+nature champ nerf, heads have no contact damage when idle

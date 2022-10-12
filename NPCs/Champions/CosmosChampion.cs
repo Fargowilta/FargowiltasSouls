@@ -1808,6 +1808,7 @@ namespace FargowiltasSouls.NPCs.Champions
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<EridanusRelic>()));
 
             npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Eridanium>(), 1, 5, 10));
+            npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.Find<ModItem>("Fargowiltas", "CrucibleCosmos").Type));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

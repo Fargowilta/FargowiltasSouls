@@ -172,7 +172,7 @@ Not consumed on use");
             .AddIngredient(ItemID.Coral, 5)
             .AddIngredient(ItemID.LunarBar, 5)
 
-            .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
+            .AddTile(TileID.LunarCraftingStation)
 
             .Register();
         }
