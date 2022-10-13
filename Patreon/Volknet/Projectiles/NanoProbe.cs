@@ -31,6 +31,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
         }
 
         public override bool PreDraw(ref Color lightColor)

@@ -154,3 +154,4 @@ ice golem spawns phm, drops frigid gemstone always
 sigil of champs is crafted at ancient manip
 eri drops the entire crucible (direct drop in normal mode, expert+ in bag)
 nature champ nerf, heads have no contact damage when idle
+fixed some parts of nano core not working in timestop
