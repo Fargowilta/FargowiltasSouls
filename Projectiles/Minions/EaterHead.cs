@@ -89,7 +89,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             float num1040 = 300f;
             float num1041 = 400f;
             int num1042 = -1;
-            if (Projectile.Distance(center) > 2000f)
+            if (Projectile.Distance(center) > 1800f)
             {
                 Projectile.Center = center;
                 Projectile.netUpdate = true;
@@ -102,7 +102,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 if (ownerMinionAttackTargetNPC5 != null && ownerMinionAttackTargetNPC5.CanBeChasedBy(Projectile, false))
                 {
                     float num1043 = Projectile.Distance(ownerMinionAttackTargetNPC5.Center);
-                    if (num1043 < num1040 * 2f)
+                    if (num1043 < num1040 * 3f)
                     {
                         num1042 = ownerMinionAttackTargetNPC5.whoAmI;
                         if (ownerMinionAttackTargetNPC5.boss)
@@ -117,10 +117,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
 
                 if (num1042 < 0)
-                    for (int num1044 = 0; num1044 < 200; num1044++)
+                    for (int num1044 = 0; num1044 < Main.maxNPCs; num1044++)
                     {
                         NPC nPC13 = Main.npc[num1044];
-                        if (nPC13.CanBeChasedBy(Projectile, false) && player.Distance(nPC13.Center) < num1041)
+                        if (nPC13.CanBeChasedBy(Projectile, false)
+                            && (player.Distance(nPC13.Center) < num1041 || Projectile.Distance(nPC13.Center) < num1041))
                         {
                             float num1045 = Projectile.Distance(nPC13.Center);
                             if (num1045 < num1040)
@@ -132,31 +133,45 @@ namespace FargowiltasSouls.Projectiles.Minions
                     }
             }
 
+            const int blockTrackDownAllowanceRange = 4;
+
+            bool IsInTile(Vector2 pos)
+            {
+                Tile tile = Framing.GetTileSafely(pos);
+                return tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);
+            }
+
+            float playerGroundCompareHeight = player.Center.Y;
+            for (int i = 0; i < 20; i++)
+            {
+                Vector2 pos = new Vector2(player.Center.X, playerGroundCompareHeight);
+                if (IsInTile(pos))
+                    break;
+                playerGroundCompareHeight += 16;
+            }
+
+            bool belowPlayer = Projectile.Center.Y > playerGroundCompareHeight;
             bool canMove = false;
-            if (Projectile.Distance(Main.player[Projectile.owner].Center) > 1200f)
+            if (belowPlayer || Projectile.Distance(Main.player[Projectile.owner].Center) > 1200f)
             {
                 canMove = true;
             }
             else
             {
-                bool IsInTile(Vector2 pos)
+                for (int i = 0; i < blockTrackDownAllowanceRange; i++)
                 {
-                    Tile tile = Framing.GetTileSafely(Projectile.Center);
-                    return tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);
-                }
-
-                if (IsInTile(Projectile.Top)
-                    || IsInTile(Projectile.Center)
-                    || IsInTile(Projectile.Bottom)
-                    || IsInTile(Projectile.Bottom + Vector2.UnitY * 16))
-                {
-                    canMove = true;
+                    if (IsInTile(Projectile.Top + Vector2.UnitY * 16 * i))
+                    {
+                        canMove = true;
+                        break;
+                    }
                 }
             }
 
             if (!canMove)
             {
-                Projectile.velocity.Y += 0.25f;
+                //float fastfallComparePoint = num1042 == -1 ? player.Center.Y : Main.npc[num1042].Center.Y;
+                Projectile.velocity.Y += 0.40f; //Projectile.Center.Y > fastfallComparePoint ? 0.25f : 0.50f;
                 if (Projectile.velocity.Y > 16f)
                     Projectile.velocity.Y = 16f;
 
@@ -195,11 +210,13 @@ namespace FargowiltasSouls.Projectiles.Minions
             }
             else
             {
+                center = player.Bottom;
+
                 float num1047 = 0.2f;
                 Vector2 vector133 = center - Projectile.Center;
                 if (vector133.Length() < 200f) num1047 = 0.12f;
                 if (vector133.Length() < 140f) num1047 = 0.06f;
-                if (vector133.Length() > 100f)
+                if (vector133.Length() > 100f || Math.Abs(vector133.Y) > 16 * blockTrackDownAllowanceRange / 2)
                 {
                     if (Math.Abs(center.X - Projectile.Center.X) > 20f) Projectile.velocity.X = Projectile.velocity.X + num1047 * Math.Sign(center.X - Projectile.Center.X);
                     if (Math.Abs(center.Y - Projectile.Center.Y) > 10f) Projectile.velocity.Y = Projectile.velocity.Y + num1047 * Math.Sign(center.Y - Projectile.Center.Y);

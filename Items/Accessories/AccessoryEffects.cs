@@ -2046,7 +2046,7 @@ namespace FargowiltasSouls
             }
             else
             {
-                string name = proj.ModProjectile.DisplayName.GetDefault().ToLower();
+                string name = proj.ModProjectile.Name.ToLower();
                 if (name.Contains("lightning") || name.Contains("electr") || name.Contains("thunder") || name.Contains("laser"))
                     electricAttack = true;
             }
