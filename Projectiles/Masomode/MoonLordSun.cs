@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
 
-        public override bool? CanDamage() => Projectile.alpha == 0;
+        public override bool? CanDamage() => Projectile.localAI[0] > 120;
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
@@ -92,8 +92,31 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.velocity = (targetPos - Projectile.Center) / 30;
                 Main.npc[ai1].Center = Projectile.Center + Projectile.velocity; //glue hand to me until thrown*/
 
+                Vector2 targetPos = core.Center;
+                targetPos.X += 36 * 16 * Math.Sign(socket.Center.X - core.Center.X);
+                targetPos.Y -= 24 * 16;
+                socket.Center = Vector2.Lerp(socket.Center, targetPos, 0.03f);
+
                 Projectile.Center = socket.Center;
                 Projectile.position.Y -= 250f * Math.Min(1f, Projectile.localAI[0] / 85);
+
+                if (Projectile.localAI[0] < 60)
+                {
+                    Vector2 dustTarget = Projectile.Center + 10f * (socket.position - socket.oldPosition);
+
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (!Main.rand.NextBool(4))
+                        {
+                            float f = Main.rand.NextFloat() * MathHelper.TwoPi;
+                            float num2 = Main.rand.NextFloat();
+                            Dust dust = Dust.NewDustPerfect(dustTarget + f.ToRotationVector2() * (110 * 4f + 110 * num2 * 8f), DustID.AmberBolt, (f - MathHelper.Pi).ToRotationVector2() * (10f * 4f + 8f * num2 * 8f));
+                            dust.scale = 3.2f;
+                            //dust.fadeIn = 0.3f + num2 * 0.3f;
+                            dust.noGravity = true;
+                        }
+                    }
+                }
 
                 Projectile.alpha -= 3;
                 if (Projectile.alpha < 0)

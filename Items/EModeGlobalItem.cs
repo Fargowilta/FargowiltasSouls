@@ -303,10 +303,6 @@ namespace FargowiltasSouls.Items
                 //    ItemBalance(tooltips, EModeChange.Buff, "OOASet");
                 //    break;
 
-                case ItemID.MiningHelmet:
-                    ItemBalance(tooltips, EModeChange.Neutral, "MiningHelmet");
-                    break;
-
                 case ItemID.PumpkinMoonMedallion:
                 case ItemID.NaughtyPresent:
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsWaves");

@@ -994,8 +994,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
                 return result;
 
-            if (FargoSoulsWorld.MasochistModeReal && !ShootLaser)
-                return result;
+            bool isCoiling = Main.npc[EModeGlobalNPC.destroyBoss].GetEModeNPCMod<Destroyer>().IsCoiling;
+
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                if (isCoiling && npc.localAI[0] > 30) //disable vanilla lasers during coil
+                    npc.localAI[0] -= 60;
+
+                if (!ShootLaser)
+                    return result;
+            }
 
             if (npc.localAI[0] > 30)
                 npc.localAI[0] = -30;

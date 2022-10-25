@@ -197,7 +197,7 @@ namespace FargowiltasSouls
         public const int TIMESTOP_DURATION = 540; //300
         public bool ChillSnowstorm;
         public int chillLength;
-        public int CHILL_DURATION => FrostEnchantActive ? 900 : 600;
+        public int CHILL_DURATION => FrostEnchantActive ? 60 * 20 : 60 * 15;
         public bool TikiEnchantActive;
         public bool TikiMinion;
         public int actualMinions;
@@ -1420,10 +1420,23 @@ namespace FargowiltasSouls
 
             if (NecromanticBrewItem != null && IsInADashState && Player.GetToggleValue("MasoSkeleSpin"))
             {
+                //if (NecromanticBrewRotation == 0)
+                //{
+                //    NecromanticBrewRotation = 0.001f;
+                //    Player.velocity.X *= 1.1f;
+                //}
+
+                float dashSpeedBoost = 0.5f * Player.velocity.X;
+                Player.position.X += dashSpeedBoost;
+                if (Collision.SolidCollision(Player.position, Player.width, Player.height))
+                    Player.position.X -= dashSpeedBoost;
+
+                //Collision.StepUp(ref Player.position, ref Player.velocity, Player.width, Player.height, ref Player.stepSpeed, ref Player.gfxOffY, (int)Player.gravDir, Player.controlUp);
+
                 Player.noKnockback = true;
                 Player.thorns = 4f;
 
-                NecromanticBrewRotation += 0.5f * Math.Sign(Player.velocity.X == 0 ? Player.direction : Player.velocity.X);
+                NecromanticBrewRotation += 0.6f * Math.Sign(Player.velocity.X == 0 ? Player.direction : Player.velocity.X);
                 Player.fullRotation = NecromanticBrewRotation;
                 Player.fullRotationOrigin = Player.Center - Player.position;
             }
@@ -2502,18 +2515,13 @@ namespace FargowiltasSouls
                 //    target.AddBuff(ModContent.BuffType<Sadism>(), 600);
                 //}
             }
-            else
-            {
-                if (BetsysHeartItem != null && crit)
-                    target.AddBuff(BuffID.BetsysCurse, 300);
 
-                if (FusedLens)
-                {
-                    if (Player.onFire2 || FusedLensCanDebuff)
-                        target.AddBuff(BuffID.CursedInferno, 360);
-                    if (Player.ichor || FusedLensCanDebuff)
-                        target.AddBuff(BuffID.Ichor, 360);
-                }
+            if (FusedLens)
+            {
+                if (Player.onFire2 || FusedLensCanDebuff)
+                    target.AddBuff(BuffID.CursedInferno, 360);
+                if (Player.ichor || FusedLensCanDebuff)
+                    target.AddBuff(BuffID.Ichor, 360);
             }
 
             if (!TerrariaSoul)

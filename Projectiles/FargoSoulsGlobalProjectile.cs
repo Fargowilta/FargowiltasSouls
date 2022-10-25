@@ -1162,6 +1162,8 @@ namespace FargowiltasSouls.Projectiles
 
             if (FrostFreeze)
             {
+                target.AddBuff(BuffID.Frostburn2, 360);
+
                 FargoSoulsGlobalNPC globalNPC = target.GetGlobalNPC<FargoSoulsGlobalNPC>();
 
                 int debuff = ModContent.BuffType<Frozen>();

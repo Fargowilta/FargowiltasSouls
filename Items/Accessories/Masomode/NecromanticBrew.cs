@@ -15,6 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Necromantic Brew");
             Tooltip.SetDefault(@"Grants immunity to Lethargic
+Increases speed when dashing by 50%
 When dashing, take 75% less contact damage and reflect 100% of contact damage on attacker
 Summons 2 Skeletron arms to whack enemies
 'The bone-growing solution of a defeated foe'");

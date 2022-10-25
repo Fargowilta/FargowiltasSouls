@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Buffs
             Terraria.ID.BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
 
-        public const int STACK_DURATION = 180;
+        public const int STACK_DURATION = 240;
 
         float EndurancePenalty(int timeLeft)
         {

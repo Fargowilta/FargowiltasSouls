@@ -89,9 +89,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (EnteredPhase2)
             {
-                if (npc.buffType[0] != 0) //constant debuff cleanse
+                //debuff cleanse when tp'ing
+                if (npc.alpha > 0 && npc.buffType[0] != 0)
                 {
-                    npc.buffImmune[npc.buffType[0]] = true;
                     npc.DelBuff(0);
                 }
 
@@ -175,15 +175,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         TelegraphConfusion(new Vector2(spawnPos.X - offset.X, spawnPos.Y - offset.Y));
                     }
 
+                    if (npc.Distance(Main.LocalPlayer.Center) < 3000 && !Main.LocalPlayer.HasBuff(BuffID.Confused)) //inflict confusion
+                    {
+                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold + 5);
+                    }
+
                     npc.netUpdate = true;
                     NetSync(npc);
                 }
-                else if (ConfusionTimer == confusionThreshold - 60)
+                else if (ConfusionTimer == confusionThreshold - (FargoSoulsWorld.MasochistModeReal ? 60 : 90))
                 {
                     //npc.netUpdate = true; //disabled because might be causing mp issues???
                     //NetSync(npc);
 
-                    if (!Main.player[npc.target].HasBuff(BuffID.Confused))
+                    if (Main.player[npc.target].HasBuff(BuffID.Confused))
                     {
                         Vector2 offset = npc.Center - Main.player[npc.target].Center;
                         Vector2 spawnPos = Main.player[npc.target].Center;
@@ -192,11 +197,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         LaserSpread(new Vector2(spawnPos.X + offset.X, spawnPos.Y - offset.Y));
                         LaserSpread(new Vector2(spawnPos.X - offset.X, spawnPos.Y + offset.Y));
                         LaserSpread(new Vector2(spawnPos.X - offset.X, spawnPos.Y - offset.Y));
-                    }
-
-                    if (npc.Distance(Main.LocalPlayer.Center) < 3000 && !Main.LocalPlayer.HasBuff(BuffID.Confused)) //inflict confusion
-                    {
-                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold + 5);
                     }
                 }
 

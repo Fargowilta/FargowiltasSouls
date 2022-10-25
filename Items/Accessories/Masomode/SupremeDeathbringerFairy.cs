@@ -23,6 +23,7 @@ When you land after a jump, slime will fall from the sky over your cursor
 While dashing or running quickly you will create a trail of blood scythes
 Press the Debuff Install key to go berserk
 Press the Special Dash key to perform a short quick bee dash
+Increases speed when dashing by 50%
 When dashing, take 75% less contact damage and reflect 100% of contact damage on attacker
 Bees and weak Hornets become friendlier
 Summons 2 Skeletron arms to whack enemies

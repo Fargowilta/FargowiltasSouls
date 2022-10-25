@@ -6,6 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using UtfUnknown.Core.Models.SingleByte.Danish;
 
 namespace FargowiltasSouls.NPCs.EternityMode
 {
@@ -79,7 +80,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.lifeMax = brain.lifeMax;
             NPC.knockBackResist = brain.knockBackResist;
 
-            if (NPC.Distance(Main.player[NPC.target].Center) > 250) //immune to knockback unless this close
+            if (NPC.Distance(Main.player[NPC.target].Center) > 360) //immune to knockback unless this close
                 NPC.knockBackResist = 0;
 
             if (NPC.alpha > 0 && (NPC.ai[0] == 2 || NPC.ai[0] == -3) && NPC.HasValidTarget) //stay at a minimum distance
@@ -194,6 +195,13 @@ namespace FargowiltasSouls.NPCs.EternityMode
             target.AddBuff(BuffID.Slow, 120);
             target.AddBuff(BuffID.Weak, 120);
             target.AddBuff(BuffID.BrokenArmor, 120);
+        }
+
+        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            damage = 0;
+            crit = false;
+            return false;
         }
 
         public override void HitEffect(int hitDirection, double damage)

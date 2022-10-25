@@ -311,9 +311,6 @@ namespace FargowiltasSouls.NPCs
                                 pool[NPCID.DarkCaster] = .025f;
                         }
 
-                        if (spawnInfo.Player.armor[0].type == ItemID.MiningHelmet)
-                            pool[NPCID.UndeadMiner] = .05f;
-
                         if (NPC.downedGoblins && !NPC.savedGoblin && !NPC.AnyNPCs(NPCID.BoundGoblin))
                             pool[NPCID.BoundGoblin] = .5f;
 
@@ -332,7 +329,9 @@ namespace FargowiltasSouls.NPCs
                         if (normalSpawn)
                         {
                             pool[NPCID.AngryNimbus] = .02f;
-                            pool[NPCID.WyvernHead] = .005f;
+
+                            if (FargoSoulsWorld.downedAnyBoss)
+                                pool[NPCID.WyvernHead] = .005f;
                         }
                     }
 
@@ -600,9 +599,6 @@ namespace FargowiltasSouls.NPCs
                                 pool[NPCID.DarkCaster] = .05f;
                         }
 
-                        if (spawnInfo.Player.armor[0].type == ItemID.MiningHelmet)
-                            pool[NPCID.UndeadMiner] = .05f;
-
                         if (!NPC.savedWizard && !NPC.AnyNPCs(NPCID.BoundWizard))
                             pool[NPCID.BoundWizard] = .5f;
 
@@ -807,13 +803,6 @@ namespace FargowiltasSouls.NPCs
 
             if (npc.type == NPCID.Painter && FargoSoulsWorld.downedMutant && NPC.AnyNPCs(ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()))
                 Item.NewItem(npc.GetSource_Loot(), npc.Hitbox, ModContent.ItemType<ScremPainting>());
-
-            if (npc.boss && !FargoSoulsWorld.downedAnyBoss)
-            {
-                FargoSoulsWorld.downedAnyBoss = true;
-                if (Main.netMode == NetmodeID.Server)
-                    NetMessage.SendData(MessageID.WorldData);
-            }
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)

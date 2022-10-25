@@ -96,7 +96,10 @@ namespace FargowiltasSouls.Projectiles
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.BetsysCurse, 600);
+            target.AddBuff(BuffID.BetsysCurse, 900);
+
+            if (Projectile.owner == Main.myPlayer)
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileID.SolarWhipSwordExplosion, 0, 0f, Main.myPlayer);
         }
 
         public override void Kill(int timeLeft)

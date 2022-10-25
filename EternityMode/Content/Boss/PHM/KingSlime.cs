@@ -22,7 +22,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool IsBerserk; // Was masoBool[0]
         public bool LandingAttackReady; // Was masoBool[1]
         public bool CurrentlyJumping; // Was masoBool[3]
-        public bool DidP2SpecialTeleport;
+        public bool DidSpecialTeleport;
 
         public bool DroppedSummon;
 
@@ -120,7 +120,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 CurrentlyJumping = false;
             }
 
-            if ((IsBerserk || npc.life < npc.lifeMax * .5f) && npc.HasValidTarget)
+            if ((IsBerserk || npc.life < npc.lifeMax * .66f) && npc.HasValidTarget)
             {
                 if (--SpikeRainCounter < 0) // Spike rain
                 {
@@ -205,6 +205,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (npc.ai[1] == 5) //when teleporting
             {
+                if (npc.HasPlayerTarget && npc.ai[0] == 1) //update y pos once
+                    npc.localAI[2] = Main.player[npc.target].Center.Y;
+
                 Vector2 tpPos = new Vector2(npc.localAI[1], npc.localAI[2]);
                 tpPos.X -= npc.width / 2;
 
@@ -217,40 +220,32 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 }
             }
 
-            if (npc.life < npc.lifeMax / 2)
+            if (npc.life < npc.lifeMax / 3)
             {
                 if (npc.ai[1] == 5) //when teleporting
                 {
-                    if (npc.ai[0] == 1 && !DidP2SpecialTeleport)
+                    if (npc.ai[0] == 1 && !DidSpecialTeleport)
                         SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
-                    if (npc.HasPlayerTarget) //live update tp position
+                    if (npc.HasPlayerTarget && !DidSpecialTeleport) //live update tp position
                     {
-                        if (DidP2SpecialTeleport)
-                        {
-                            if (npc.ai[0] == 1) //only update y pos once
-                                npc.localAI[2] = Main.player[npc.target].Center.Y;
-                        }
-                        else
-                        {
-                            Vector2 desiredTeleport = Main.player[npc.target].Center;
-                            desiredTeleport.X += 800 * System.Math.Sign(Main.player[npc.target].Center.X - npc.Center.X); //tp ahead of player
+                        Vector2 desiredTeleport = Main.player[npc.target].Center;
+                        desiredTeleport.X += 800 * System.Math.Sign(Main.player[npc.target].Center.X - npc.Center.X); //tp ahead of player
 
-                            if (Collision.CanHitLine(desiredTeleport, 0, 0, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
-                            {
-                                npc.localAI[1] = desiredTeleport.X;
-                                npc.localAI[2] = desiredTeleport.Y;
-                            }
+                        if (Collision.CanHitLine(desiredTeleport, 0, 0, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
+                        {
+                            npc.localAI[1] = desiredTeleport.X;
+                            npc.localAI[2] = desiredTeleport.Y;
                         }
                     }
                 }
                 else if (npc.ai[1] == 6) //actually did the teleport and now regrowing
                 {
-                    DidP2SpecialTeleport = true;
+                    DidSpecialTeleport = true;
                 }
                 else
                 {
-                    if (!DidP2SpecialTeleport)
+                    if (!DidSpecialTeleport)
                         npc.ai[2] += 60;
 
                     npc.ai[2] += 1f / 3f; //always increment the teleport timer

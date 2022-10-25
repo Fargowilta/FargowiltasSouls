@@ -730,6 +730,9 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                         NPC.velocity = Vector2.Zero;
 
+                        if (FargoSoulsWorld.MasochistModeReal && NPC.ai[2] < 1)
+                            NPC.ai[2] = 1;
+
                         int attackTime = FargoSoulsWorld.EternityMode ? 40 : 50;
                         if (++NPC.ai[1] == 1)
                         {
@@ -750,7 +753,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         else if (NPC.ai[1] == attackTime)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            if (NPC.ai[2] > 0 && Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 for (int i = -1; i <= 1; i++) //rune blast spread
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center,
@@ -773,7 +776,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         }
                         else if (NPC.ai[1] > attackTime * 2)
                         {
-                            if (++NPC.ai[2] > 3)
+                            if (++NPC.ai[2] > 3 + 1) //compensate for empty teleport at beginning
                             {
                                 GetNextAttack();
 
@@ -1418,14 +1421,14 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                     {
                         if (FargoSoulsWorld.EternityMode)
                         {
-                            NPC.ai[1] += 0.5f;
-                            NPC.ai[2] += 0.5f;
+                            NPC.ai[1] += 0.4f;
+                            NPC.ai[2] += 0.4f;
                         }
 
                         if (FargoSoulsWorld.MasochistModeReal)
                         {
-                            NPC.ai[1] += 0.5f;
-                            NPC.ai[2] += 0.5f;
+                            NPC.ai[1] += 0.6f;
+                            NPC.ai[2] += 0.6f;
                         }
                     }
 

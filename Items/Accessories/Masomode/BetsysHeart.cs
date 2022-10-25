@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Betsy's Heart");
             Tooltip.SetDefault("Grants immunity to Oozed, Withered Weapon, and Withered Armor" +
-                "\nYour critical strikes inflict Betsy's Curse" +
                 "\nPress the Special Dash key to perform a short invincible fireball dash" +
+                "\nHitting enemies with the dash inflicts Betsy's Curse" +
                 "\n'Lightly roasted, medium rare'");
 
             // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "双足翼龙之心");

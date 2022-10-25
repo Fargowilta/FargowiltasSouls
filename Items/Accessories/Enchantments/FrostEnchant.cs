@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 @"Icicles will start to appear around you
 Attacking will launch them towards the cursor
 When they hit an enemy they are frozen solid
-Press the Freeze Key to chill everything for 15 seconds
+Press the Freeze Key to chill everything for 20 seconds
 There is a 60 second cooldown for this effect
 'Let's coat the world in a deep freeze'";
             Tooltip.SetDefault(tooltip);
