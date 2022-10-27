@@ -131,6 +131,8 @@ Mods: {
 			TrojanSquirrelDespawn: Trojan Squirrel returns to its squirrel clan...
 		}
 
+		BuffDescription.Coldheart: '''{0}% less damage reduction'''
+
 		Message: {
 			HasAwoken: has awoken!
 			SquirrelCoatofArms: "{$Mods.FargowiltasSouls.NPCName.TrojanSquirrel} {$Mods.FargowiltasSouls.Message.HasAwoken}"
@@ -232,6 +234,11 @@ Mods: {
 			DivineWrath: was annihilated by divine wrath.
 			Shadowflame: burned up in shadowy flames.
 			NanoInjection: was consumed from within by nanites.
+
+			Fused:"{0} was blown to bits."
+			Nutcracker: "{0} had his nuts cracked."
+			Derpling: "{0} was sucked dry."
+			Snatchers: "{0} became a man eaten by Man Eater."
 		}
 
 		DeviChatter: {

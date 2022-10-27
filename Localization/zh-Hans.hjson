@@ -324,6 +324,7 @@ Mods: {
 			BerserkerInstall: '''“狂战士！干掉他们！”'''
 			BerserkerInstallCD: '''你还不能进入狂暴状态'''
 			BetsyDash: '''你正在高速移动！'''
+			Coldheart: '''减少{0}%伤害减免'''
 			MagicalCleanseCD: '''你还不能净化减益'''
 			MutantRebirth: '''复活死亡射线蓄力中'''
 			Supercharged: '''增加20%移动速度和10%攻击速度，你的攻击会造成带电和避雷针'''
@@ -1173,6 +1174,11 @@ Mods: {
 			DivineWrath: 湮灭于神明的忿怒中。
 			Shadowflame: 被暗影焰包裹着，控制不住火势。
 			NanoInjection: 被纳米机器人从内部吞噬。
+
+			Fused:"{0}被炸成了碎片。"
+			Nutcracker: "{0}的“坚果”裂开了。"
+			Derpling: "{0}被吸干了。"
+			Snatchers: "{0}被食人怪咬成了“被吃掉”的男人。"
 		}
 
 		DeviChatter: {

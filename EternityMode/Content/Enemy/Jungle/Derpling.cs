@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
@@ -43,14 +44,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
 
                     if (target.statLife < 0)
                     {
-                        if (FargoSoulsUtil.IsChinese())
-                        {
-                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "被吸干了。"), 999, 0);
-                        }
-                        else
-                        {
-                            target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sucked dry."), 999, 0);
-                        }
+                        target.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Derpling", target.name)), 999, 0);
                     }
 
                     npc.life += damage;

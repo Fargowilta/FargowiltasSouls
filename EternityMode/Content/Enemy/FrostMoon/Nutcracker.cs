@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
 {
@@ -15,14 +16,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon
 
             if (FargoSoulsWorld.MasochistModeReal && target.Male)
             {
-                if (FargoSoulsUtil.IsChinese())
-                {
-                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "的“坚果”裂开了。"), 999999, 0);
-                }
-                else
-                {
-                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " had his nuts cracked."), 999999, 0);
-                }
+                target.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Nutcracker", target.name)), 999999, 0);
             }
         }
     }

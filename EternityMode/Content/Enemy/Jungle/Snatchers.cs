@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
@@ -113,14 +114,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
 
             if (FargoSoulsWorld.MasochistModeReal && npc.type == NPCID.ManEater && target.Male)
             {
-                if (FargoSoulsUtil.IsChinese())
-                {
-                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + "被食人怪咬成了“被吃掉”的男人。"), 999999, 0);
-                }
-                else
-                {
-                    target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " became a man eaten by Man Eater."), 999999, 0);
-                }
+                target.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Snatchers", target.name)), 999999, 0);
             }
         }
 
