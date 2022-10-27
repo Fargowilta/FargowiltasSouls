@@ -129,17 +129,17 @@ namespace FargowiltasSouls
 
             SkyManager.Instance["FargowiltasSouls:MoonLordSky"] = new MoonLordSky();
 
-            FreezeKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "冻结" : "Freeze", "P");
-            GoldKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "金身" : "Turn Gold", "O");
-            SmokeBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "投掷烟雾弹" : "Throw Smoke Bomb", "I");
-            SpecialDashKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "特殊冲刺" : "Special Dash", "C");
-            MutantBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Mutant Bomb", "Z");
-            SoulToggleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "打开魂石效果设置" : "Open Soul Toggler", ".");
-            PrecisionSealKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "玲珑圣印精确模式" : "Precision Movement", "LeftShift");
-            MagicalBulbKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "魔法净化" : "Magical Cleanse", "N");
-            FrigidSpellKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "寒霜咒语" : "Frigid Spell", "U");
-            DebuffInstallKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "减益负载" : "Debuff Install", "Y");
-            AmmoCycleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ?  "弹药切换" : "Ammo Cycle", "L");
+            FreezeKey = KeybindLoader.RegisterKeybind(this, "Freeze", "P");
+            GoldKey = KeybindLoader.RegisterKeybind(this, "Gold", "O");
+            SmokeBombKey = KeybindLoader.RegisterKeybind(this, "SmokeBomb", "I");
+            SpecialDashKey = KeybindLoader.RegisterKeybind(this, "SpecialDash", "C");
+            MutantBombKey = KeybindLoader.RegisterKeybind(this, "MutantBomb", "Z");
+            SoulToggleKey = KeybindLoader.RegisterKeybind(this, "SoulToggle", ".");
+            PrecisionSealKey = KeybindLoader.RegisterKeybind(this, "PrecisionSeal", "LeftShift");
+            MagicalBulbKey = KeybindLoader.RegisterKeybind(this, "MagicalBulb", "N");
+            FrigidSpellKey = KeybindLoader.RegisterKeybind(this, "FrigidSpell", "U");
+            DebuffInstallKey = KeybindLoader.RegisterKeybind(this, "DebuffInstall", "Y");
+            AmmoCycleKey = KeybindLoader.RegisterKeybind(this, "AmmoCycle", "L");
 
             ToggleLoader.Load();
 
