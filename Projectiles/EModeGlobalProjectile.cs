@@ -914,7 +914,7 @@ namespace FargowiltasSouls.Projectiles
                     break;
 
                 case ProjectileID.SandnadoHostile:
-                    if (projectile.timeLeft == 1199 && NPC.CountNPCS(NPCID.SandShark) < 10 && Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.hardMode && projectile.timeLeft == 1199 && NPC.CountNPCS(NPCID.SandShark) < 10 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (!(sourceNPC is NPC && (sourceNPC.type == ModContent.NPCType<NPCs.DeviBoss.DeviBoss>() || sourceNPC.type == ModContent.NPCType<SpiritChampion>())))
                         {

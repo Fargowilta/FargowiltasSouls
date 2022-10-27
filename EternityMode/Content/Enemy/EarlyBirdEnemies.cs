@@ -45,7 +45,10 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
                 npc.defense /= 2;
 
                 if (npc.type == NPCID.IceGolem || npc.type == NPCID.SandElemental)
-                    npc.lifeMax /= 2;
+                {
+                    npc.lifeMax = (int)Math.Round(npc.lifeMax * 0.4);
+                    npc.defense /= 2;
+                }
             }
         }
 

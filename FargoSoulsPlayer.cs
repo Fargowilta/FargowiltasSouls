@@ -1865,7 +1865,12 @@ namespace FargowiltasSouls
                 DamageOverTime(4, true);
 
             if (Player.lifeRegen < 0)
+            {
+                if (LeadEnchantActive)
+                    Player.lifeRegen /= 2;
+
                 FusedLensCanDebuff = true;
+            }
         }
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -133,6 +134,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
                 Projectile.timeLeft = 91;
                 Projectile.netUpdate = true;
+
+                SoundEngine.PlaySound(SoundID.Item62, Projectile.Center);
             }
             else
             {

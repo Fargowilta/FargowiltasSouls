@@ -121,6 +121,11 @@ namespace FargowiltasSouls
         [ReloadRequired]
         public bool PatreonCrimetroid;
 
+        [Label($"$Mods.{ModName}.PatreonNanoCore")]
+        [DefaultValue(true)]
+        [ReloadRequired]
+        public bool PatreonNanoCore;
+
         #endregion
 
 

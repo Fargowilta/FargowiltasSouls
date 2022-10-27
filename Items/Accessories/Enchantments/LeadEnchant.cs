@@ -15,7 +15,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铅魔石");
 
             string tooltip =
-@"Attacks inflict enemies with Lead Poisoning
+@"You take 50% less from damage over time
+Attacks inflict enemies with Lead Poisoning
 Lead Poisoning deals damage over time and spreads to nearby enemies
 'Not recommended for eating'";
             Tooltip.SetDefault(tooltip);

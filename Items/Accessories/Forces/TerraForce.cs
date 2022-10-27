@@ -34,6 +34,7 @@ $"[i:{ModContent.ItemType<TinEnchant>()}] Every crit will increase it by 5% up t
 $"[i:{ModContent.ItemType<IronEnchant>()}] Right Click to guard with your shield\n" +
 $"[i:{ModContent.ItemType<IronEnchant>()}] Guard just before being hit to parry the attack\n" +
 $"[i:{ModContent.ItemType<IronEnchant>()}] You attract items from a larger range\n" +
+$"[i:{ModContent.ItemType<LeadEnchant>()}] You take 50% less from damage over time\n" +
 $"[i:{ModContent.ItemType<LeadEnchant>()}] Attacks may inflict enemies with Lead Poisoning\n" +
 $"[i:{ModContent.ItemType<TungstenEnchant>()}] 300% increased sword size\n" +
 $"[i:{ModContent.ItemType<TungstenEnchant>()}] Every quarter second a projectile will be tripled in size\n" +

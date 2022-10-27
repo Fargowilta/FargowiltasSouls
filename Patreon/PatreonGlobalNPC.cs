@@ -53,14 +53,14 @@ namespace FargowiltasSouls.Patreon
 
                 case NPCID.Squid:
                     AddPatreonDrop(
-                        () => SoulConfig.Instance.PatreonCrimetroid,
+                        () => SoulConfig.Instance.PatreonDoor,
                         ModContent.ItemType<Sam.SquidwardDoor>(),
                         50);
                     break;
 
                 case NPCID.KingSlime:
                     AddPatreonDrop(
-                        () => SoulConfig.Instance.PatreonCrimetroid && FargoSoulsWorld.EternityMode,
+                        () => SoulConfig.Instance.PatreonKingSlime && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<Catsounds.MedallionoftheFallenKing>(),
                         100,
                         FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");

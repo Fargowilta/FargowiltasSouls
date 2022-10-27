@@ -102,8 +102,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     if (Main.myPlayer == Projectile.owner && player.HeldItem.CountsAsClass(DamageClass.Melee))
                                     {
                                         const float maxRange = 700;
-                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.DirectionTo(npc.Center) * 40, 16f * Projectile.DirectionTo(npc.Center).RotatedByRandom(MathHelper.ToRadians(15)),
+                                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.DirectionTo(npc.Center) * 40, 16f * Projectile.DirectionTo(npc.Center).RotatedByRandom(MathHelper.ToRadians(15)),
                                             ModContent.ProjectileType<EridanusFist>(), (int)(Projectile.originalDamage * Main.player[Projectile.owner].GetDamage(DamageClass.Melee).Additive / 3), Projectile.knockBack / 2, Main.myPlayer, maxRange);
+                                        if (p != Main.maxProjectiles)
+                                            Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Melee);
                                     }
                                 }
 
@@ -127,8 +129,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     Projectile.localAI[0] = 0;
                                     if (Main.myPlayer == Projectile.owner && player.HeldItem.CountsAsClass(DamageClass.Ranged))
                                     {
-                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 12f * Projectile.DirectionTo(npc.Center), ModContent.ProjectileType<EridanusBullet>(),
+                                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 12f * Projectile.DirectionTo(npc.Center), ModContent.ProjectileType<EridanusBullet>(),
                                             (int)(Projectile.originalDamage * Main.player[Projectile.owner].GetDamage(DamageClass.Ranged).Additive * 1.5f), Projectile.knockBack * 2, Main.myPlayer, npc.whoAmI);
+                                        if (p != Main.maxProjectiles)
+                                            Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Ranged);
                                     }
                                 }
 
@@ -173,8 +177,10 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                                             spawnPos += npc.velocity * Main.rand.NextFloat(10f);
 
-                                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnPos, vel, ProjectileID.LunarFlare,
+                                            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnPos, vel, ProjectileID.LunarFlare,
                                                 (int)(Projectile.originalDamage * player.GetDamage(DamageClass.Magic).Additive / 2), Projectile.knockBack / 2, Main.myPlayer, 0, npc.Center.Y);
+                                            if (p != Main.maxProjectiles)
+                                                Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Magic);
                                         }
                                     }
                                 }

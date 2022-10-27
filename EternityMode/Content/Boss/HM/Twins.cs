@@ -35,6 +35,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool DroppedSummon;
 
         public bool HasSaidEndure;
+        public bool Resist;
         public int RespawnTimer;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
@@ -63,6 +64,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool PreAI(NPC npc)
         {
             EModeGlobalNPC.retiBoss = npc.whoAmI;
+
+            Resist = false;
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
@@ -357,9 +360,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 //}
             }
 
+            if (DeathrayState > 0)
+                Resist = true;
+
             EModeUtils.DropSummon(npc, "MechEye", NPC.downedMechBoss2, ref DroppedSummon, Main.hardMode);
 
             return true;
+        }
+
+        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            if (Resist)
+                damage *= 0.66;
+
+            return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
         public override Color? GetAlpha(NPC npc, Color drawColor)
@@ -431,9 +445,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int FlameWheelSpreadTimer;
         public int FlameWheelCount;
         public int DarkStarTimer;
+        public int P3DashPhaseDelay;
 
         public bool ForcedPhase2OnSpawn;
         public bool HasSaidEndure;
+        public bool Resist;
         public int RespawnTimer;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
@@ -442,6 +458,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(FlameWheelSpreadTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(FlameWheelCount), IntStrategies.CompoundStrategy },
                 { new Ref<object>(DarkStarTimer), IntStrategies.CompoundStrategy },
+                { new Ref<object>(P3DashPhaseDelay), IntStrategies.CompoundStrategy },
             };
 
         public override void OnFirstTick(NPC npc)
@@ -454,6 +471,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool PreAI(NPC npc)
         {
             EModeGlobalNPC.spazBoss = npc.whoAmI;
+
+            Resist = false;
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
@@ -543,6 +562,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return true;
             }
 
+            const int P3DashDelayLength = 75;
+
             if (npc.ai[0] < 4f)
             {
                 if (npc.life <= npc.lifeMax / 2) //going to phase 3
@@ -551,14 +572,33 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     npc.netUpdate = true;
                     SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
+                    if (!FargoSoulsWorld.MasochistModeReal)
+                        P3DashPhaseDelay = P3DashDelayLength;
+
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, npc.whoAmI, NPCID.MoonLordCore);
+
                     int index = npc.FindBuffIndex(BuffID.CursedInferno);
                     if (index != -1)
                         npc.DelBuff(index); //remove cursed inferno debuff if i have it
 
                     npc.buffImmune[BuffID.CursedInferno] = true;
                     npc.buffImmune[BuffID.OnFire] = true;
+                    npc.buffImmune[BuffID.OnFire3] = true;
                     npc.buffImmune[BuffID.ShadowFlame] = true;
                     npc.buffImmune[BuffID.Frostburn] = true;
+                    npc.buffImmune[BuffID.Frostburn2] = true;
+                }
+
+                //reti is doing the spin
+                if (retinazer != null && retinazer.ai[0] >= 4f && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 0 && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 3)
+                {
+                    if (!FargoSoulsWorld.MasochistModeReal)
+                    {
+                        npc.velocity *= 0.98f;
+                        if (!TryWatchHarmlessly(npc))
+                            return false;
+                    }
                 }
             }
             else //in phase 3
@@ -581,6 +621,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                 if (npc.ai[1] == 0f) //not dashing
                 {
+                    Resist = true;
+
                     if (retinazer != null && (retinazer.ai[0] < 4f || retinazer.GetEModeNPCMod<Retinazer>().DeathrayState == 0
                         || retinazer.GetEModeNPCMod<Retinazer>().DeathrayState == 3)) //reti is in normal AI
                     {
@@ -683,32 +725,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     FlameWheelCount = 0;
 
-                    if (FlameWheelSpreadTimer > 75) //cooldown before attacking again
+                    if (FlameWheelSpreadTimer > 0) //cooldown before attacking again
                     {
-                        FlameWheelSpreadTimer = 75;
+                        P3DashPhaseDelay = Math.Min(FlameWheelSpreadTimer, 75);
+                        FlameWheelSpreadTimer = 0;
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
                         NetSync(npc);
                     }
-                    if (FlameWheelSpreadTimer > 0)
-                    {
-                        FlameWheelSpreadTimer--;
-                        if (npc.HasValidTarget)
-                        {
-                            const float PI = (float)Math.PI;
-                            if (npc.rotation > PI)
-                                npc.rotation -= 2 * PI;
-                            if (npc.rotation < -PI)
-                                npc.rotation += 2 * PI;
 
-                            float targetRotation = npc.DirectionTo(Main.player[npc.target].Center).ToRotation() - PI / 2;
-                            if (targetRotation > PI)
-                                targetRotation -= 2 * PI;
-                            if (targetRotation < -PI)
-                                targetRotation += 2 * PI;
-                            npc.rotation = MathHelper.Lerp(npc.rotation, targetRotation, 0.07f);
-                        }
-                        return false;
+                    if (P3DashPhaseDelay > 0)
+                    {
+                        P3DashPhaseDelay--;
+                        if (!TryWatchHarmlessly(npc))
+                            return false;
                     }
 
                     if (npc.ai[2] > 50)
@@ -746,6 +776,38 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
 
             return true;
+        }
+
+        private bool TryWatchHarmlessly(NPC npc)
+        {
+            Resist = true;
+
+            if (npc.HasValidTarget)
+            {
+                const float PI = (float)Math.PI;
+                if (npc.rotation > PI)
+                    npc.rotation -= 2 * PI;
+                if (npc.rotation < -PI)
+                    npc.rotation += 2 * PI;
+
+                float targetRotation = npc.DirectionTo(Main.player[npc.target].Center).ToRotation() - PI / 2;
+                if (targetRotation > PI)
+                    targetRotation -= 2 * PI;
+                if (targetRotation < -PI)
+                    targetRotation += 2 * PI;
+                npc.rotation = MathHelper.Lerp(npc.rotation, targetRotation, 0.07f);
+
+                return false;
+            }
+            return true;
+        }
+
+        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            if (Resist)
+                damage *= 0.66;
+
+            return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot)

@@ -154,7 +154,9 @@ namespace FargowiltasSouls.Patreon.Volknet
 
         public override void AddRecipes()
         {
-            CreateRecipe()
+            if (SoulConfig.Instance.PatreonNanoCore)
+            {
+                CreateRecipe()
                 .AddIngredient(ItemID.Arkhalis)
                 .AddIngredient(ItemID.FairyQueenRangedItem)
                 .AddIngredient(ItemID.ChargedBlasterCannon)
@@ -166,6 +168,7 @@ namespace FargowiltasSouls.Patreon.Volknet
                 .AddIngredient(ItemID.Nanites, 999)
                 .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
                 .Register();
+            }
         }
     }
 

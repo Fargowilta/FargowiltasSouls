@@ -382,6 +382,7 @@ namespace FargowiltasSouls
             AddToggle("PatreonVortex", ModContent.ItemType<Patreon.GreatestKraken.VortexMagnetRitual>());
             AddToggle("PatreonPrime", ModContent.ItemType<Patreon.Purified.PrimeStaff>());
             AddToggle("PatreonCrimetroid", ModContent.ItemType<Patreon.Shucks.CrimetroidEgg>());
+            AddToggle("PatreonNanoCore", ModContent.ItemType<Patreon.Volknet.NanoCore>());
             #endregion patreon toggles
 
             #endregion Toggles

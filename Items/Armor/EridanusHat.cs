@@ -52,14 +52,14 @@ Increases your max number of sentries by 4");
 
         public override void UpdateArmorSet(Player player)
         {
-            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
-            player.setBonus = Language.GetTextValue("Mods.FargowiltasSouls.SetBonus.Eridanus", key);
-
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.EridanusSet = true;
 
             if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap)
                 fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
+
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            player.setBonus = Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Eridanus{(fargoPlayer.EridanusEmpower ? "On" : "Off")}", key);
 
             if (fargoPlayer.EridanusEmpower)
             {

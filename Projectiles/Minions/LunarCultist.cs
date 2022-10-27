@@ -126,7 +126,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 vel.Normalize();
                                 vel *= Main.rand.NextFloat(6f, 10f);
                                 if (Projectile.owner == Main.myPlayer)
-                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, vel, ModContent.ProjectileType<LunarCultistFireball>(), Projectile.damage, 9f, Projectile.owner, 0f, Projectile.ai[0]);
+                                {
+                                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, vel, ModContent.ProjectileType<LunarCultistFireball>(), Projectile.damage, 9f, Projectile.owner, 0f, Projectile.ai[0]);
+                                    if (p != Main.maxProjectiles)
+                                        Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Melee);
+                                }
                             }
                             if (Projectile.localAI[0] > 60f)
                             {
@@ -145,7 +149,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 Vector2 spawn = Projectile.Center;
                                 spawn.Y -= 100;
                                 if (Projectile.owner == Main.myPlayer)
-                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, Vector2.Zero, ModContent.ProjectileType<LunarCultistLightningOrb>(), Projectile.damage, 8f, Projectile.owner, Projectile.whoAmI);
+                                {
+                                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, Vector2.Zero, ModContent.ProjectileType<LunarCultistLightningOrb>(), Projectile.damage, 8f, Projectile.owner, Projectile.whoAmI);
+                                    if (p != Main.maxProjectiles)
+                                        Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Ranged);
+                                }
                             }
                             if (Projectile.localAI[0] > 90f)
                             {
@@ -167,7 +175,11 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 vel.Normalize();
                                 vel *= 4.25f;
                                 if (Projectile.owner == Main.myPlayer)
-                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, vel, ModContent.ProjectileType<LunarCultistIceMist>(), Projectile.damage, Projectile.knockBack * 2f, Projectile.owner);
+                                {
+                                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, vel, ModContent.ProjectileType<LunarCultistIceMist>(), Projectile.damage, Projectile.knockBack * 2f, Projectile.owner);
+                                    if (p != Main.maxProjectiles)
+                                        Main.projectile[p].CritChance = (int)player.ActualClassCrit(DamageClass.Magic);
+                                }
                             }
                             if (Projectile.localAI[0] > 60f)
                             {

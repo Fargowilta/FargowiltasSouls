@@ -2568,6 +2568,8 @@ namespace FargowiltasSouls
                     }
                     else if (QueenStingerItem != null)
                     {
+                        SpecialDashCD += 60;
+
                         Vector2 vel = Player.DirectionTo(Main.MouseWorld) * 20;
                         Projectile.NewProjectile(Player.GetSource_Accessory(QueenStingerItem), Player.Center, vel, ModContent.ProjectileType<Projectiles.BeeDash>(), (int)(44 * Player.ActualClassDamage(DamageClass.Melee)), 6f, Player.whoAmI);
                     }

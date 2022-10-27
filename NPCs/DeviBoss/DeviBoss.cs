@@ -1924,7 +1924,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
             if (NPC.localAI[3] > 1)
                 return false;
 
-            if (NPC.life < NPC.lifeMax * 0.5 && Main.expertMode)
+            if (NPC.life < NPC.lifeMax * (FargoSoulsWorld.EternityMode && !FargoSoulsWorld.MasochistModeReal ? 0.66 : 0.5) && Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {

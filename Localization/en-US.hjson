@@ -31,13 +31,23 @@ Mods: {
 				Reduces defense by 20, max life by 10%, and damage reduction by 15%
 				'''
 
-			Eridanus:
+			EridanusOff:
 				'''
-				Double tap {0} to toggle Eridanus' blessing and empower a weapon class
+				20% increased damage for your current weapon class
+				10% increased critical strike chance for your current weapon class
+				10% increased attack speed for your current weapon class
+				Double tap {0} to activate Eridanus' blessing
+				'''
+
+			EridanusOn:
+				'''
+				Eridanus' blessing empowers a weapon class
 				The empowered class changes every 10 seconds
 				Eridanus fights alongside you when you use the empowered class
-				80% increased damage, 30% increased critical strike chance, and 30% increased attack speed for the empowered class
-				When Eridanus' blessing is off, 20% increased damage and 10% increased critical strike chance for your current weapon class
+				80% increased damage for the empowered class
+				30% increased critical strike chance for the empowered class
+				30% increased attack speed for the empowered class
+				Double tap {0} to deactivate Eridanus' blessing
 				'''
 
 			Styx:
@@ -588,6 +598,7 @@ Mods: {
 			PatreonVortex: Vortex Ritual
 			PatreonPrime: Prime Staff
 			PatreonCrimetroid: Crimetroid
+			PatreonNanoCore: Nano Core
 		}
     
         UI: {
