@@ -1013,18 +1013,19 @@ Mods: {
 
 		}
 
-		Keybind: {
-			Freeze: Freeze
-			Gold: Turn Gold
-			SmokeBomb: Throw Smoke Bomb
-			SpecialDash: Special Dash
-			MutantBomb: Mutant Bomb
-			SoulToggle: Open Soul Toggler
-			PrecisionSeal: Precision Movement
-			MagicalBulb: Magical Cleanse
-			FrigidSpell: Frigid Spell
-			DebuffInstall: Debuff Install
-			AmmoCycle: Ammo Cycle
-		}
+		//Keybind: {
+			//Freeze: Freeze
+			//Gold: Turn Gold
+			//SmokeBomb: Throw Smoke Bomb
+			//SpecialDash: Special Dash
+			//MutantBomb: Mutant Bomb
+			//SoulToggle: Open Soul Toggler
+			//PrecisionSeal: Precision Movement
+			//MagicalBulb: Magical Cleanse
+			//FrigidSpell: Frigid Spell
+			//DebuffInstall: Debuff Install
+			//AmmoCycle: Ammo Cycle
+		//}
+		//enable this when tml updated
 	}
 }

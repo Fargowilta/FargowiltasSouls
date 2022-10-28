@@ -4018,18 +4018,19 @@ Mods: {
 
 		}
 
-		Keybind: {
-			Freeze: 冻结
-			Gold: 金身
-			SmokeBomb: 投掷烟雾弹
-			SpecialDash: 特殊冲刺
-			MutantBomb: 突变炸弹
-			SoulToggle: 打开魂石效果设置
-			PrecisionSeal: 玲珑圣印精确模式
-			MagicalBulb: 魔法净化
-			FrigidSpell: 寒霜咒语
-			DebuffInstall: 减益负载
-			AmmoCycle: 弹药切换
-		}
+		//Keybind: {
+			//Freeze: 冻结
+			//Gold: 金身
+			//SmokeBomb: 投掷烟雾弹
+			//SpecialDash: 特殊冲刺
+			//MutantBomb: 突变炸弹
+			//SoulToggle: 打开魂石效果设置
+			//PrecisionSeal: 玲珑圣印精确模式
+			//MagicalBulb: 魔法净化
+			//FrigidSpell: 寒霜咒语
+			//DebuffInstall: 减益负载
+			//AmmoCycle: 弹药切换
+		//}
+		// 下一次tml更新去掉注释，FargowiltasSousl.cs里改好
 	}
 }
