@@ -44,3 +44,5 @@ spaz nerf, pauses on p3 enter isntead of instantly dashing
 twins nerf, spaz watches harmlessly in p1 while reti does spin
 added patreon toggle for nano core
 twins buff, have 33% DR while doing ray
+
+tried fixing boc despawn glitch

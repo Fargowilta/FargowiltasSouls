@@ -26,6 +26,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int ConfusionTimer;
         public int IllusionTimer;
+        public int ForceDespawnTimer;
 
         public bool EnteredPhase2;
 
@@ -71,9 +72,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             if (!npc.HasValidTarget || npc.Distance(Main.player[npc.target].Center) > 3000)
             {
-                npc.velocity.Y += 0.75f;
-                if (npc.timeLeft > 120)
-                    npc.timeLeft = 120;
+                if (++ForceDespawnTimer > 60)
+                {
+                    npc.velocity.Y += 0.75f;
+                    if (npc.timeLeft > 60)
+                        npc.timeLeft = 60;
+                }
+            }
+            else
+            {
+                ForceDespawnTimer = 0;
             }
 
             if (npc.alpha > 0 && (npc.ai[0] == 2 || npc.ai[0] == -3) && npc.HasValidTarget) //stay at a minimum distance
