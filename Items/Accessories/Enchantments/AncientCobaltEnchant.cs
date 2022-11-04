@@ -15,17 +15,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Ancient Cobalt Enchantment");
             Tooltip.SetDefault(
-@"Grants an explosion jump
+@"Grants an explosion jump that inflicts Oiled
 'Ancient Kobold'");
-
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "远古钴魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"你的弹幕有20%几率爆裂成毒刺
-            // 此效果在每秒内只会发生一次
-            // '古老的丛林赋予你力量'");
         }
 
         protected override Color nameColor => new Color(53, 76, 116);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
@@ -44,6 +39,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
+            if (modPlayer.CobaltImmuneTimer > 0)
+            {
+                player.immune = true;
+                modPlayer.CobaltImmuneTimer--;
+            }
+
+
             if (player.jump <= 0 && player.velocity.Y == 0f)
             {
                 modPlayer.CanCobaltJump = true;
@@ -58,21 +60,17 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             {
                 int projType = ModContent.ProjectileType<CobaltExplosion>();
 
-                if (modPlayer.CobaltEnchantItem != null)
-                {
-                    projType = ModContent.ProjectileType<Explosion>();
-                }
-
                 Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, projType, damage, 0, player.whoAmI);
 
                 modPlayer.JustCobaltJumped = true;
+                modPlayer.CobaltImmuneTimer = 15;
             }
 
             if (modPlayer.CanCobaltJump || (modPlayer.JustCobaltJumped && !player.isPerformingJump_Cloud && !player.isPerformingJump_Blizzard && !player.isPerformingJump_Fart && !player.isPerformingJump_Sail && !player.isPerformingJump_Sandstorm && !modPlayer.JungleJumping))
             {
                 if (modPlayer.CobaltEnchantItem != null)
                 {
-                    player.jumpSpeedBoost += 8f;
+                    player.jumpSpeedBoost += 10f;
                 }
                 else
                 {

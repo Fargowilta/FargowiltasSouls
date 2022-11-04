@@ -15,6 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
             ModContent.ItemType<TinEnchant>(),
             ModContent.ItemType<IronEnchant>(),
             ModContent.ItemType<LeadEnchant>(),
+            ModContent.ItemType<SilverEnchant>(),
             ModContent.ItemType<TungstenEnchant>(),
             ModContent.ItemType<ObsidianEnchant>()
         };
@@ -25,22 +26,14 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 
             DisplayName.SetDefault("Terra Force");
 
-            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "泰拉之力");
-
             string tooltip =
-$"[i:{ModContent.ItemType<CopperEnchant>()}] Attacks have a chance to spawn lightning and explosions\n" +
-$"[i:{ModContent.ItemType<TinEnchant>()}] Sets your critical strike chance to 10%\n" +
-$"[i:{ModContent.ItemType<TinEnchant>()}] Every crit will increase it by 5% up to double your current crit chance\n" +
-$"[i:{ModContent.ItemType<IronEnchant>()}] Right Click to guard with your shield\n" +
-$"[i:{ModContent.ItemType<IronEnchant>()}] Guard just before being hit to parry the attack\n" +
-$"[i:{ModContent.ItemType<IronEnchant>()}] You attract items from a larger range\n" +
-$"[i:{ModContent.ItemType<LeadEnchant>()}] You take 50% less from damage over time\n" +
-$"[i:{ModContent.ItemType<LeadEnchant>()}] Attacks may inflict enemies with Lead Poisoning\n" +
-$"[i:{ModContent.ItemType<TungstenEnchant>()}] 300% increased sword size\n" +
-$"[i:{ModContent.ItemType<TungstenEnchant>()}] Every quarter second a projectile will be tripled in size\n" +
+$"[i:{ModContent.ItemType<CopperEnchant>()}][i:{ModContent.ItemType<ObsidianEnchant>()}][i:{ModContent.ItemType<LeadEnchant>()}] Attacks spawn lightning, explosions, and inflict Lead Poisoning\n" +
+$"[i:{ModContent.ItemType<TinEnchant>()}] Sets Tin crit chance to 10%, increasing up to double your current crit chance or 50%\n" +
+$"[i:{ModContent.ItemType<IronEnchant>()}] You attract items from further away, 33% chance to not consume items at an Anvil\n" +
+$"[i:{ModContent.ItemType<LeadEnchant>()}] You take 60% less from damage over time\n" +
+$"[i:{ModContent.ItemType<SilverEnchant>()}] Right Click to guard with your shield\n" +
+$"[i:{ModContent.ItemType<TungstenEnchant>()}] 300% increased sword size and projectile size every quarter second\n" +
 $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Grants immunity to fire and lava\n" +
-$"[i:{ModContent.ItemType<ObsidianEnchant>()}] Your attacks spawn explosions\n" +
-$"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
 "'The land lends its strength'";
             Tooltip.SetDefault(tooltip);
 
@@ -82,26 +75,18 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Increases whip range by 50%\n" +
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            //crit effect improved
             modPlayer.TerraForce = true;
-            CopperEnchant.CopperEffect(player);
-            TinEnchant.TinEffect(player);
-            LeadEnchant.LeadEffect(player);
-            TungstenEnchant.TungstenEffect(player);
-            //lava immune (obsidian)
-            ObsidianEnchant.ObsidianEffect(player);
-
-            if (player.GetToggleValue("IronS"))
+            CopperEnchant.CopperEffect(player, Item);
+            TinEnchant.TinEffect(player, Item);
+            modPlayer.IronEnchantItem = Item;
+            LeadEnchant.LeadEffect(player, Item);
+            if (player.GetToggleValue("SilverS"))
             {
                 //shield
-                modPlayer.IronEffect();
+                modPlayer.SilverEnchantItem = Item;
             }
-            //magnet
-            if (player.GetToggleValue("IronM", false))
-            {
-                modPlayer.IronEnchantActive = true;
-                //player.treasureMagnet = true;
-            }
+            TungstenEnchant.TungstenEffect(player, Item);
+            ObsidianEnchant.ObsidianEffect(player, Item);
         }
 
         public override void AddRecipes()

@@ -6,10 +6,10 @@ namespace FargowiltasSouls.Buffs.Mounts
 {
     public class TrojanSquirrelMountBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Trojan Squirrel");
-            Description.SetDefault("pog");
+            Description.SetDefault("You are riding a squirrel mech");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

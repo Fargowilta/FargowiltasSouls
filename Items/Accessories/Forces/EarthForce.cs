@@ -26,14 +26,11 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 
             Tooltip.SetDefault(
 $"[i:{ModContent.ItemType<CobaltEnchant>()}] Grants an explosion jump and you explode on hit\n" +
-$"[i:{ModContent.ItemType<MythrilEnchant>()}] Temporarily increases attack speed after not attacking for a while\n" +
-$"[i:{ModContent.ItemType<MythrilEnchant>()}] Bonus ends after attacking for 5 seconds and rebuilds over 5 seconds\n" +
-$"[i:{ModContent.ItemType<PalladiumEnchant>()}] Greatly increases life regeneration after striking an enemy\n" +
-$"[i:{ModContent.ItemType<PalladiumEnchant>()}] You spawn an orb of damaging life energy every 80 life regenerated\n" +
-$"[i:{ModContent.ItemType<OrichalcumEnchant>()}] Flower petals will cause extra damage to your target\n" +
-$"[i:{ModContent.ItemType<OrichalcumEnchant>()}] Damaging debuffs deal 5x damage\n" +
-$"[i:{ModContent.ItemType<AdamantiteEnchant>()}] Every weapon shot will split into 2, deal 50% damage and have 50% less iframes\n" +
-$"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacking generates a defensive barrier of titanium shards\n" +
+$"[i:{ModContent.ItemType<MythrilEnchant>()}] Stop attacking to gradually increase attack speed for up to 5 seconds\n" +
+$"[i:{ModContent.ItemType<PalladiumEnchant>()}] Grants Rapid Healing after striking an enemy and spawn life orbs based on healing\n" +
+$"[i:{ModContent.ItemType<OrichalcumEnchant>()}] Attacks spawn flower petals and damaging debuffs deal 4x damage\n" +
+$"[i:{ModContent.ItemType<AdamantiteEnchant>()}] Every weapon shot will split into 3, deal 50% damage and have 50% less iframes\n" +
+$"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacks generate titanium shards, reaching max grants Titanium Shield\n" +
 "'Gaia's blessing shines upon you'");
 
             string tooltip_ch =
@@ -68,13 +65,13 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacking generates a defensive b
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.EarthForce = true;
             //mythril
-            modPlayer.MythrilEffect();
+            MythrilEnchant.MythrilEffect(player, Item);
             //shards
             modPlayer.CobaltEnchantItem = Item;
             //regen on hit, heals
-            modPlayer.PalladiumEffect();
+            PalladiumEnchant.PalladiumEffect(player, Item);
             //fireballs and petals
-            modPlayer.OrichalcumEffect();
+            OrichalcumEnchant.OrichalcumEffect(player, Item);
             AdamantiteEnchant.AdamantiteEffect(player, Item);
             TitaniumEnchant.TitaniumEffect(player, Item);
         }

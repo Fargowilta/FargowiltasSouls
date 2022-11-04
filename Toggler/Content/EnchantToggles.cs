@@ -29,10 +29,10 @@ namespace FargowiltasSouls.Toggler.Content
 
         public int TerraHeader = ModContent.ItemType<TerraForce>();
         public string Copper;
-        public string IronS;
         public string IronM;
         //public string CthulhuShield;
         public string Tin;
+        public string SilverS;
         public string Tungsten;
         public string TungstenProj;
         public string Obsidian;
@@ -78,8 +78,8 @@ namespace FargowiltasSouls.Toggler.Content
         public string Shinobi;
         public string ShinobiDash;
         public string Spooky;
+        public string NinjaSpeed;
         public string CrystalDash;
-        public string CrystalGelatin;
 
         public int SpiritHeader = ModContent.ItemType<SpiritForce>();
         public string Fossil;
@@ -87,8 +87,7 @@ namespace FargowiltasSouls.Toggler.Content
         public string HallowDodge;
         public string Hallowed;
         public string HallowS;
-        public string Silver;
-        public string SilverSpeed;
+        
         public string Spectre;
         public string Tiki;
 

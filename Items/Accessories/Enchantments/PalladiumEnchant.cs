@@ -1,6 +1,9 @@
+using FargowiltasSouls.Projectiles.Souls;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -14,15 +17,11 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Briefly increases life regeneration after striking an enemy
 You spawn an orb of damaging life energy every 80 life regenerated
-'You feel your wounds slowly healing' ");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "钯金魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"攻击敌人后暂时增加你的生命恢复速度
-            // 你每恢复80点生命值便会生成一个伤害性的生命能量球
-            // '你感到你的伤口在慢慢愈合'");
+'You feel your wounds slowly healing'");
         }
 
         protected override Color nameColor => new Color(245, 172, 40);
+        public override string wizardEffect => "Rapid Healing always lasts 5 seconds, increases orb damage";
 
         public override void SetDefaults()
         {
@@ -34,7 +33,45 @@ You spawn an orb of damaging life energy every 80 life regenerated
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().PalladiumEffect();
+            PalladiumEffect(player, Item);
+        }
+
+        public static void PalladiumEffect(Player player, Item item)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            //no lifesteal needed here for SoE
+            if (modPlayer.Eternity) return;
+
+            if (player.GetToggleValue("Palladium"))
+            {
+                if (modPlayer.EarthForce || modPlayer.TerrariaSoul)
+                    player.onHitRegen = true;
+                modPlayer.PalladEnchantItem = item;
+
+                /*if (palladiumCD > 0)
+                    palladiumCD--;*/
+            }
+        }
+
+        public static void PalladiumUpdate(FargoSoulsPlayer modPlayer)
+        {
+            Player player = modPlayer.Player;
+            int increment = player.statLife - modPlayer.StatLifePrevious;
+            if (increment > 0)
+            {
+                modPlayer.PalladCounter += increment;
+                if (modPlayer.PalladCounter > 80)
+                {
+                    modPlayer.PalladCounter = 0;
+                    if (player.whoAmI == Main.myPlayer && player.statLife < player.statLifeMax2 && player.GetToggleValue("PalladiumOrb"))
+                    {
+                        int damage = modPlayer.EarthForce ? 100 : 50;
+                        Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.PalladEnchantItem), player.Center, -Vector2.UnitY, ModContent.ProjectileType<PalladOrb>(),
+                            FargoSoulsUtil.HighestDamageTypeScaling(player, damage), 10f, player.whoAmI, -1);
+                    }
+                }
+            }
         }
 
         public override void AddRecipes()

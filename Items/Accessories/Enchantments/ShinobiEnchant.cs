@@ -22,6 +22,7 @@ Greatly enhances Lightning Aura effectiveness
         }
 
         protected override Color nameColor => new Color(147, 91, 24);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

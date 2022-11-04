@@ -20,11 +20,11 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"You gain a shield that can reflect projectiles
 Summons a Terraprisma familiar that scales with minion damage
-Drastically increases minion speed
-'Hallowed be your sword and shield'");
+'Have you power enough to wield me?'");
         }
 
         protected override Color nameColor => new Color(150, 133, 100);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
@@ -43,7 +43,7 @@ Drastically increases minion speed
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.AncientHallowEnchantActive = true;
-            modPlayer.SilverEnchantActive = true;
+           // modPlayer.SilverEnchantActive = true;
 
             modPlayer.AddMinion(item, player.GetToggleValue("Hallowed"), ModContent.ProjectileType<HallowSword>(), 50, 2);
 

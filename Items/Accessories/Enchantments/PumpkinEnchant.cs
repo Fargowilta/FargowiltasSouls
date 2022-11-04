@@ -29,6 +29,7 @@ Enemies that touch them will destroy them and take damage
         }
 
         protected override Color nameColor => new Color(227, 101, 28);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

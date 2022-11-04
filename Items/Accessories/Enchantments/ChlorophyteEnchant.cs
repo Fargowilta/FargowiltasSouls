@@ -32,6 +32,7 @@ Double tap a direction
         }
 
         protected override Color nameColor => new Color(36, 137, 0);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

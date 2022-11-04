@@ -23,6 +23,7 @@ Buff booster stacking capped at 2
         }
 
         protected override Color nameColor => new Color(254, 126, 229);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

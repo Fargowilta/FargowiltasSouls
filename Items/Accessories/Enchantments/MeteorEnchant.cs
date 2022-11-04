@@ -12,20 +12,16 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Meteor Enchantment");
 
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "陨星魔石");
-
             string tooltip =
-@"A meteor shower initiates every few seconds while attacking
+@"Reduces momentum by 50%
+You leave behind a trail of flames
+A meteor shower initiates every few seconds while attacking
 'Drop a draco on 'em'";
             Tooltip.SetDefault(tooltip);
-
-            //             string tooltip_ch =
-            // @"攻击时每过几秒便会释放一次流星雨
-            // '宇宙之力构建你的毁灭力量'";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         protected override Color nameColor => new Color(95, 71, 82);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
@@ -52,7 +48,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.SuperStarCannon)
             .AddIngredient(ItemID.MeteorStaff)
 
-            .AddTile(TileID.CrystalBall)
+            .AddTile(TileID.DemonAltar)
             .Register();
         }
     }

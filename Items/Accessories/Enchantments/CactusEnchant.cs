@@ -28,6 +28,7 @@ Enemies will explode into needles on death if they are struck with your needles
         }
 
         protected override Color nameColor => new Color(121, 158, 29);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

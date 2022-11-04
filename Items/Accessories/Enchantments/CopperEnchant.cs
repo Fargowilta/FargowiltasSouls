@@ -16,17 +16,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Copper Enchantment");
             Tooltip.SetDefault(
-@"Attacks have a chance to shock enemies with chain lightning
+@"Crits have a chance to shock enemies with chain lightning
 'Behold'");
-
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铜魔石");
-            //             string tooltip_ch =
-            // @"攻击有几率释放闪电击打敌人
-            // '凝视'";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         protected override Color nameColor => new Color(213, 102, 23);
+        public override string wizardEffect => "Lightning damage increased, cooldown reduced";
 
         public override void SetDefaults()
         {
@@ -38,13 +33,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            CopperEffect(player);
+            CopperEffect(player, Item);
         }
 
-        public static void CopperEffect(Player player)
+        public static void CopperEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            modPlayer.CopperEnchantActive = true;
+            modPlayer.CopperEnchantItem = item;
 
             if (modPlayer.CopperProcCD > 0)
                 modPlayer.CopperProcCD--;
@@ -56,15 +51,15 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             {
                 target.AddBuff(BuffID.Electrified, 180);
 
-                int dmg = 20;
+                int dmg = 35;
                 int maxTargets = 1;
                 int cdLength = 300;
 
                 if (modPlayer.TerraForce)
                 {
-                    dmg = 100;
+                    dmg = 150;
                     maxTargets = 5;
-                    cdLength = 200;
+                    cdLength = 150;
                 }
 
                 List<int> npcIndexes = new List<int>();

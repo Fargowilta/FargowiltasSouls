@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     public abstract class BaseEnchant : SoulsItem
     {
         protected abstract Color nameColor { get; }
+        public abstract string wizardEffect { get; }
 
         public override void SetStaticDefaults()
         {

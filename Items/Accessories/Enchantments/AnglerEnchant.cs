@@ -25,6 +25,7 @@ Effects of Lavaproof Tackle Bag
         }
 
         protected override Color nameColor => new Color(113, 125, 109);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

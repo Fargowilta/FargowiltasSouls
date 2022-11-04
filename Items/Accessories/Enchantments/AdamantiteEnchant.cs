@@ -16,13 +16,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 "\nAll weapon shots deal 50% damage" +
                 "\nThey hit twice as fast and gain armor penetration equal to 50% damage" +
                 "\n'Chaos'");
-
-            // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "精金魔石");
-            // Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "每秒会随机使你的一个弹幕分裂成三个" +
-            //     "\n'一气化三清！'");
         }
 
         protected override Color nameColor => new Color(221, 85, 125);
+        public override string wizardEffect => "Projectiles now split into 3";
 
         public override void SetDefaults()
         {
@@ -43,7 +40,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             modplayer.AdamantiteEnchantItem = item;
         }
 
-        public static void AdamantiteSplit(Projectile projectile)
+        public static void AdamantiteSplit(Projectile projectile, FargoSoulsPlayer modPlayer)
         {
             foreach (Projectile p in FargoSoulsGlobalProjectile.SplitProj(projectile, 3, MathHelper.ToRadians(8), 1f))
             {
@@ -51,6 +48,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 {
                     p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().HuntressProj;
                 }
+            }
+
+            if (!modPlayer.EarthForce)
+            {
+                projectile.type = ProjectileID.None;
+                projectile.timeLeft = 0;
+                projectile.active = false;
             }
         }
 

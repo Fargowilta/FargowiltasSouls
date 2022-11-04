@@ -25,6 +25,7 @@ Attacks may inflict the Solar Flare debuff
         }
 
         protected override Color nameColor => new Color(254, 158, 35);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

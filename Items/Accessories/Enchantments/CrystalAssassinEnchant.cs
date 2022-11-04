@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -15,13 +16,14 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Crystal Assassin Enchantment");
             Tooltip.SetDefault(
 @"Allows the ability to dash
-Use Ninja hotkey to throw a smoke bomb, use it again to teleport to it and gain the First Strike Buff
+Use Assassin hotkey to throw a smoke bomb, use it again to teleport to it and gain the First Strike Buff
 Using the Rod of Discord will also grant this buff
-Effects of Volatile Gel
-'Deceptively fragile'");
+First Strike ensures your next attack hits a vital spot dealing 3x damage and reducing defense by 10
+'Now you see me, now you don’t'");
         }
 
         protected override Color nameColor => new Color(36, 157, 207);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
@@ -33,51 +35,98 @@ Effects of Volatile Gel
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            NinjaEnchant.NinjaEffect(player);
             CrystalAssassinEffect(player, Item);
         }
 
         public static void CrystalAssassinEffect(Player player, Item item)
         {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            modPlayer.CrystalEnchantActive = true;
+
+            //rod bonus
+            if (player.controlUseItem && player.HeldItem.type == ItemID.RodofDiscord)
+            {
+                player.AddBuff(ModContent.BuffType<FirstStrike>(), 60);
+            }
+
+            //cooldown
+            if (modPlayer.SmokeBombCD != 0)
+            {
+                modPlayer.SmokeBombCD--;
+            }
+
             if (player.GetToggleValue("CrystalDash", false))
                 player.dashType = 5;
-            if (player.GetToggleValue("CrystalGelatin"))
-                VolatileGelatin(player, item);
         }
 
-        public static void VolatileGelatin(Player player, Item sourceItem)
+        public static void SmokeBombKey(FargoSoulsPlayer modPlayer)
         {
-            if (Main.myPlayer != player.whoAmI)
+            //throw smoke bomb
+            if (modPlayer.CrystalSmokeBombProj == null)
             {
-                return;
+                const float gravity = 0.18f;
+                float time = 60f;
+                Vector2 distance = Main.MouseWorld - modPlayer.Player.Center;
+                distance.X = distance.X / time;
+                distance.Y = distance.Y / time - 0.5f * gravity * time;
+
+                modPlayer.CrystalSmokeBombProj = Main.projectile[Projectile.NewProjectile(modPlayer.Player.GetSource_Misc(""), modPlayer.Player.Center, distance + Main.rand.NextVector2Square(0, 0) * 2,
+                        ProjectileID.SmokeBomb, 0, 0f, Main.myPlayer)];
+
+                modPlayer.SmokeBombCD = 15;
             }
-            player.volatileGelatinCounter++;
-            if (player.volatileGelatinCounter > 50)
+            //already threw smoke bomb, tele to it
+            else
             {
-                player.volatileGelatinCounter = 0;
-                int damage = 65;
-                float knockBack = 7f;
-                float num = 640f;
-                NPC npc = null;
-                for (int i = 0; i < 200; i++)
+                Vector2 teleportPos = new Vector2(modPlayer.CrystalSmokeBombProj.position.X, modPlayer.CrystalSmokeBombProj.position.Y - 30);
+                Vector2 originalPos = new Vector2(teleportPos.X, teleportPos.Y);
+
+                //spiral out to find a save spot
+                int count = 0;
+                int increase = 10;
+                while (Collision.SolidCollision(teleportPos, modPlayer.Player.width, modPlayer.Player.height))
                 {
-                    NPC npc2 = Main.npc[i];
-                    if (npc2 != null && npc2.active && npc2.CanBeChasedBy(player, false) && Collision.CanHit(player, npc2))
+                    teleportPos = originalPos;
+
+                    switch (count)
                     {
-                        float num2 = Vector2.Distance(npc2.Center, player.Center);
-                        if (num2 < num)
-                        {
-                            num = num2;
-                            npc = npc2;
-                        }
+                        case 0:
+                            teleportPos.X -= increase;
+                            break;
+                        case 1:
+                            teleportPos.X += increase;
+                            break;
+                        case 2:
+                            teleportPos.Y += increase;
+                            break;
+                        default:
+                            teleportPos.Y -= increase;
+                            increase += 10;
+                            break;
+                    }
+                    count++;
+
+                    if (count >= 4)
+                    {
+                        count = 0;
+                    }
+
+                    if (increase > 100)
+                    {
+                        return;
                     }
                 }
-                if (npc != null)
+
+                if (teleportPos.X > 50 && teleportPos.X < (double)(Main.maxTilesX * 16 - 50) && teleportPos.Y > 50 && teleportPos.Y < (double)(Main.maxTilesY * 16 - 50))
                 {
-                    Vector2 vector = npc.Center - player.Center;
-                    vector = vector.SafeNormalize(Vector2.Zero) * 6f;
-                    vector.Y -= 2f;
-                    Projectile.NewProjectile(player.GetSource_Accessory(sourceItem), player.Center.X, player.Center.Y, vector.X, vector.Y, 937, damage, knockBack, player.whoAmI, 0f, 0f);
+                    modPlayer.Player.Teleport(teleportPos, 1);
+                    NetMessage.SendData(MessageID.Teleport, -1, -1, null, 0, modPlayer.Player.whoAmI, teleportPos.X, teleportPos.Y, 1);
+
+                    modPlayer.Player.AddBuff(ModContent.BuffType<FirstStrike>(), 60);
+
+                    modPlayer.CrystalSmokeBombProj.timeLeft = 120;
+                    modPlayer.SmokeBombCD = 300;
+                    modPlayer.CrystalSmokeBombProj = null;
                 }
             }
         }
@@ -88,9 +137,9 @@ Effects of Volatile Gel
                 .AddIngredient(ItemID.CrystalNinjaHelmet)
                 .AddIngredient(ItemID.CrystalNinjaChestplate)
                 .AddIngredient(ItemID.CrystalNinjaLeggings)
-                .AddIngredient(ModContent.ItemType<NinjaEnchant>())
-                .AddIngredient(ItemID.VolatileGelatin)
                 .AddIngredient(ItemID.FlyingKnife)
+                .AddIngredient(ItemID.Katana)
+                .AddIngredient(ItemID.SmokeBomb, 50)
 
                 .AddTile(TileID.CrystalBall)
                 .Register();

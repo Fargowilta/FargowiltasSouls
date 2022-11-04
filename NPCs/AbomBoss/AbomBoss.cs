@@ -105,7 +105,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
         {
             CooldownSlot = 1;
-            return NPC.Distance(FargoSoulsUtil.ClosestPointInHitbox(target, NPC.Center)) < Player.defaultHeight && NPC.ai[0] != 10 && NPC.ai[0] != 18;
+            return NPC.Distance(FargoSoulsUtil.ClosestPointInHitbox(target, NPC.Center)) < Player.defaultHeight && NPC.ai[0] != 0 && NPC.ai[0] != 10 && NPC.ai[0] != 18;
         }
 
         public override bool? CanHitNPC(NPC target)
@@ -334,10 +334,20 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                     if (!AliveCheck(player) || Phase2Check())
                         break;
                     NPC.dontTakeDamage = false;
-                    targetPos = player.Center;
-                    targetPos.X += 500 * (NPC.Center.X < targetPos.X ? -1 : 1);
-                    if (NPC.Distance(targetPos) > 50)
+
+                    if (NPC.localAI[2] == 0) //store rotation offset
                     {
+                        NPC.localAI[2] = player.DirectionTo(NPC.Center).ToRotation()
+                            + MathHelper.ToRadians(FargoSoulsWorld.EternityMode ? 135 : 90) * Main.rand.NextFloat(-1, 1);
+                        NPC.netUpdate = true;
+                    }
+
+                    targetPos = player.Center;
+                    targetPos += 500 * NPC.localAI[2].ToRotationVector2();
+                    if (NPC.Distance(targetPos) > 16)
+                    {
+                        NPC.position += (player.position - player.oldPosition) / 4;
+
                         speedModifier = NPC.localAI[3] > 0 ? 0.5f : 2f;
                         if (NPC.Center.X < targetPos.X)
                         {
@@ -371,21 +381,21 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                                 NPC.velocity.Y = 24 * Math.Sign(NPC.velocity.Y);
                         }
                     }
+
                     if (NPC.localAI[3] > 0) //in range, fight has begun
                     {
                         NPC.ai[1]++;
+
                         if (NPC.ai[3] == 0)
                         {
                             NPC.ai[3] = 1;
-                            if (Main.netMode != NetmodeID.MultiplayerClient) //phase 2 saucers
+                            if (NPC.localAI[3] > 1 || FargoSoulsWorld.MasochistModeReal) //phase 2 saucers
                             {
-                                int max = NPC.localAI[3] > 1 ? 6 : 3;
+                                int max = NPC.localAI[3] > 1 && FargoSoulsWorld.MasochistModeReal ? 6 : 3;
                                 for (int i = 0; i < max; i++)
                                 {
-                                    float ai2 = i * 2 * (float)Math.PI / max; //rotation offset
-                                    int n = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AbomSaucer>(), 0, NPC.whoAmI, 0, ai2);
-                                    if (n != Main.maxNPCs && Main.netMode == NetmodeID.Server)
-                                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
+                                    float ai2 = i * MathHelper.TwoPi / max; //rotation offset
+                                    FargoSoulsUtil.NewNPCEasy(NPC.GetSource_FromAI(), NPC.Center, ModContent.NPCType<AbomSaucer>(), 0, NPC.whoAmI, 0, ai2);
                                 }
                             }
                         }
@@ -396,6 +406,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         NPC.netUpdate = true;
                         //NPC.TargetClosest();
                         NPC.ai[1] = FargoSoulsWorld.MasochistModeReal ? 60 : 30;
+                        NPC.localAI[2] = 0;
                         if (++NPC.ai[2] > (FargoSoulsWorld.MasochistModeReal ? 7 : 5))
                         {
                             NPC.ai[0]++;

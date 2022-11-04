@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.width = 10;
             Projectile.height = 10;
             Projectile.aiStyle = -1;
-            Projectile.alpha = 255;
+            Projectile.alpha = 0;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 900;
@@ -112,9 +112,12 @@ namespace FargowiltasSouls.Projectiles.Masomode
             }
         }
 
+
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.Ichor, 900);
         }
+
+        public override Color? GetAlpha(Color lightColor) => Color.White * Projectile.Opacity;
     }
 }

@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override bool PreAI()
         {
-            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().SilverMinion = 0;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().NinjaSpeedup = 0;
             return base.PreAI();
         }
 

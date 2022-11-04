@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Events;
@@ -675,5 +676,37 @@ namespace FargowiltasSouls
             group = new RecipeGroup(() => ItemXOrY(ItemID.GoldOre, ItemID.PlatinumOre), ItemID.GoldOre, ItemID.PlatinumOre);
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyGoldOre", group);
         }
+
+        public override void PostAddRecipes()
+        {
+            foreach (Recipe recipe in Main.recipe.Where(recipe => recipe.requiredTile.Contains(TileID.Anvils) || recipe.requiredTile.Contains(TileID.MythrilAnvil)))
+            {
+                recipe.AddConsumeItemCallback(IronBonusBars);
+            }
+        }
+
+        public static Recipe.ConsumeItemCallback IronBonusBars = (Recipe recipe, int type, ref int amount) => {
+
+            Player player = Main.LocalPlayer;
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            if (modPlayer.IronEnchantItem == null) return;
+
+            if (recipe.requiredTile.Contains(TileID.MythrilAnvil) && !modPlayer.TerraForce)
+            {
+                return;
+            }
+
+            //calc the new amount consumed (each has 33% of not)
+            int amountUsed = 0;
+
+            for (int i = 0; i < amount; i++)
+            {
+                if (!Main.rand.NextBool(3))
+                    amountUsed++;
+            }
+
+            amount = amountUsed;
+        };
     }
 }

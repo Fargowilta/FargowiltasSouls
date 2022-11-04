@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Player player = Main.player[Projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (player.active && !player.dead && modPlayer.PalmEnchantActive)
+            if (player.active && !player.dead && modPlayer.PalmEnchantItem != null)
                 Projectile.timeLeft = 2;
 
             Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
             int attackRate = 45;
 
-            if (modPlayer.WoodForce || modPlayer.WizardEnchantActive)
+            if (modPlayer.WoodForce)
             {
                 attackRate = 30;
             }

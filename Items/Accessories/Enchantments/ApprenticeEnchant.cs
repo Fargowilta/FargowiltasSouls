@@ -25,6 +25,7 @@ Flameburst field of view and range are dramatically increased
         }
 
         protected override Color nameColor => new Color(93, 134, 166);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

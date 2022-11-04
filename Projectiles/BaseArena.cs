@@ -109,10 +109,13 @@ namespace FargowiltasSouls.Projectiles
                             player.controlUseTile = false;
                             player.controlJump = false;
                             player.controlHook = false;
+                            if (player.grapCount > 0)
+                                player.RemoveAllGrapplingHooks();
                             if (player.mount.Active)
                                 player.mount.Dismount(player);
                             player.velocity.X = 0f;
                             player.velocity.Y = -0.4f;
+                            player.GetModPlayer<FargoSoulsPlayer>().NoUsingItems = true;
                         }
 
                         Vector2 movement = Projectile.Center - player.Center;

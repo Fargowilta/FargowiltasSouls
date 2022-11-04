@@ -14,15 +14,14 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Ebonwood Enchantment");
             Tooltip.SetDefault(
-@"You have an aura of Shadowflame
+@"You are surrounded by an aura of Shadowflame
+Any projectiles that would deal less than 10 damage to you are destroyed
 'Untapped potential'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "乌木魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"一圈暗影焰光环环绕着你
-            // '未开发的潜力'");
+            //in force damage theshold increased to 25 AND any npc that has less than 200 HP is instantly killed in the aura
         }
 
         protected override Color nameColor => new Color(100, 90, 141);
+        public override string wizardEffect => "Damage threshold increased to 25, additonally kills any npcs with less than 200 HP";
 
         public override void SetDefaults()
         {
@@ -44,23 +43,52 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             if (!player.GetToggleValue("Ebon") || player.whoAmI != Main.myPlayer)
                 return;
 
-            int dist = modPlayer.WoodForce ? 350 : 250;
+            int dist = modPlayer.WoodForce ? 400 : 200;
+            int damageThreshold = modPlayer.WoodForce ? 25 : 10;
+            float defenseFactor = 0.5f;
+
+            if (Main.masterMode)
+            {
+                defenseFactor = 1f;
+            }
+            else if (Main.expertMode)
+            {
+                defenseFactor = 0.75f;
+            }
+
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                Projectile proj = Main.projectile[i];
+
+                if (proj.active && proj.hostile && proj.damage > 0 && proj.Distance(player.Center) < dist)
+                {
+                    int dealtDamage = (int)(proj.damage - player.statDefense * defenseFactor);
+
+                    if (dealtDamage <= damageThreshold)
+                    {
+                        proj.Kill();
+                    }
+
+                }
+            }
 
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC npc = Main.npc[i];
-                if (npc.active && !npc.friendly && npc.lifeMax > 5 && npc.Distance(player.Center) < dist && (modPlayer.WoodForce || Collision.CanHitLine(player.Left, 0, 0, npc.Center, 0, 0) || Collision.CanHitLine(player.Right, 0, 0, npc.Center, 0, 0)))
-                {
-                    npc.AddBuff(BuffID.ShadowFlame, 15);
 
-                    if (modPlayer.WoodForce)
+                if (npc.active && !npc.friendly && npc.lifeMax > 5 && !npc.dontTakeDamage && npc.Distance(player.Center) < dist)
+                {
+                    if (modPlayer.WoodForce && npc.life < 200 && !npc.boss && !(npc.realLife > -1 && Main.npc[npc.realLife].active && Main.npc[npc.realLife].boss))
+                        npc.StrikeNPC(npc.life, 0f, 0);
+
+                    if (modPlayer.WoodForce || Collision.CanHitLine(player.Left, 0, 0, npc.Center, 0, 0) || Collision.CanHitLine(player.Right, 0, 0, npc.Center, 0, 0))
                     {
-                        npc.AddBuff(BuffID.CursedInferno, 15);
+                        npc.AddBuff(BuffID.ShadowFlame, 10);
                     }
                 }
-
             }
 
+            //dust
             for (int i = 0; i < 20; i++)
             {
                 Vector2 offset = new Vector2();
@@ -89,9 +117,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.EbonwoodHelmet)
             .AddIngredient(ItemID.EbonwoodBreastplate)
             .AddIngredient(ItemID.EbonwoodGreaves)
-            .AddIngredient(ItemID.EbonwoodSword)
             .AddIngredient(ItemID.VileMushroom)
             .AddIngredient(ItemID.BlackCurrant)
+            .AddIngredient(ItemID.LightlessChasms)
+            
 
             .AddTile(TileID.DemonAltar)
             .Register();

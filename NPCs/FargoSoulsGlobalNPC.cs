@@ -558,7 +558,7 @@ namespace FargowiltasSouls.NPCs
 
                 int dot = npc.type == NPCID.EaterofWorldsBody ? 4 : 20;
 
-                if (modPlayer.TerraForce || modPlayer.WizardEnchantActive)
+                if (modPlayer.TerraForce)
                 {
                     dot *= 3;
                 }
@@ -729,24 +729,9 @@ namespace FargowiltasSouls.NPCs
                     damage = 6;
             }
 
-            if (modPlayer.OriEnchantActive && npc.lifeRegen < 0)
+            if (modPlayer.OriEnchantItem != null && npc.lifeRegen < 0)
             {
-                int multiplier = 3;
-
-                if (modPlayer.EarthForce || modPlayer.WizardEnchantActive)
-                {
-                    multiplier = 5;
-                }
-
-                npc.lifeRegen *= multiplier;
-                damage *= multiplier;
-
-                //half as effective if daybreak applied
-                if (npc.daybreak)
-                {
-                    npc.lifeRegen /= 2;
-                    damage /= 2;
-                }
+                OrichalcumEnchant.OriDotModifier(npc, modPlayer, ref damage);
             }
 
             if (TimeFrozen && npc.life == 1)
@@ -965,10 +950,9 @@ namespace FargowiltasSouls.NPCs
             //                return false;
             //            }*/
 
-            if (modPlayer.WoodEnchantActive)
+            if (modPlayer.WoodEnchantItem != null)
             {
-                //register extra kill per kill (2x as fast)
-                Main.BestiaryTracker.Kills.RegisterKill(npc);
+                WoodEnchant.WoodCheckDead(modPlayer, npc);
             }
 
             if (Needled && npc.lifeMax > 1 && npc.lifeMax != int.MaxValue) //super dummy
@@ -1130,7 +1114,7 @@ namespace FargowiltasSouls.NPCs
             Player player = Main.player[Main.myPlayer];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (modPlayer.WoodEnchantActive)
+            if (modPlayer.WoodEnchantItem != null)
             {
                 WoodEnchant.WoodDiscount(shop);
             }

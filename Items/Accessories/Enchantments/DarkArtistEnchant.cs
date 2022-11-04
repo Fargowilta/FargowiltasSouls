@@ -34,6 +34,7 @@ Greatly enhances Flameburst effectiveness
         }
 
         protected override Color nameColor => new Color(155, 92, 176);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

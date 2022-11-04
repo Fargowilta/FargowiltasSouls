@@ -1,6 +1,7 @@
 using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Souls;
 using FargowiltasSouls.Items.Accessories.Enchantments;
+using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Accessories.Masomode;
 using FargowiltasSouls.Items.Accessories.Souls;
 using FargowiltasSouls.Items.Weapons.SwarmDrops;
@@ -51,7 +52,7 @@ namespace FargowiltasSouls.Projectiles
         //        public bool SuperBee;
         public bool ChilledProj;
         public int ChilledTimer;
-        public int SilverMinion;
+        public int NinjaSpeedup;
 
         public int HuntressProj = -1; // -1 = non weapon proj, doesnt matter if it hits
         //1 = marked as weapon proj
@@ -277,7 +278,7 @@ namespace FargowiltasSouls.Projectiles
                     break;
             }
 
-            if (modPlayer.TungstenEnchantActive && player.GetToggleValue("TungstenProj"))
+            if (modPlayer.TungstenEnchantItem != null && player.GetToggleValue("TungstenProj"))
             {
                 TungstenEnchant.TungstenIncreaseProjSize(projectile, modPlayer, source);
             }
@@ -300,10 +301,7 @@ namespace FargowiltasSouls.Projectiles
                     && (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
                     || (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.minion || sourceProj.sentry || (ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))))
                 {
-                    AdamantiteEnchant.AdamantiteSplit(projectile);
-                    projectile.type = ProjectileID.None;
-                    projectile.timeLeft = 0;
-                    projectile.active = false;
+                    AdamantiteEnchant.AdamantiteSplit(projectile, modPlayer);
                     return;
                 }
 
@@ -312,20 +310,9 @@ namespace FargowiltasSouls.Projectiles
                 projectile.ArmorPenetration += projectile.damage / 2;
             }
 
-            if (modPlayer.SilverEnchantActive && projectile.friendly && FargoSoulsUtil.IsSummonDamage(projectile, true, false) && player.GetToggleValue("SilverSpeed"))
+            if (modPlayer.NinjaEnchantItem != null)
             {
-                SilverMinion = projectile.extraUpdates + 1;
-
-                if (NeedsSilverNerf(projectile))
-                {
-                    int armorPen = 10;
-                    if (modPlayer.SpiritForce)
-                        armorPen *= 2;
-                    if (modPlayer.TerrariaSoul)
-                        armorPen *= 3;
-
-                    projectile.ArmorPenetration += armorPen;
-                }
+                NinjaEnchant.NinjaSpeedSetup(modPlayer, projectile, this);
             }
 
             if (modPlayer.TikiEnchantActive && projectile.friendly)
@@ -339,7 +326,7 @@ namespace FargowiltasSouls.Projectiles
                         tikiMinion = true;
                         tikiTimer = 300;
 
-                        if (modPlayer.SpiritForce || modPlayer.WizardEnchantActive)
+                        if (modPlayer.SpiritForce)
                         {
                             tikiTimer = 480;
                         }
@@ -385,7 +372,7 @@ namespace FargowiltasSouls.Projectiles
             if (projectile.owner == Main.myPlayer)
             {
                 //reset tungsten size
-                if (TungstenScale != 1 && (!modPlayer.TungstenEnchantActive || !player.GetToggleValue("TungstenProj")))
+                if (TungstenScale != 1 && (modPlayer.TungstenEnchantItem == null || !player.GetToggleValue("TungstenProj")))
                 {
                     projectile.position = projectile.Center;
                     projectile.scale /= TungstenScale;
@@ -487,9 +474,9 @@ namespace FargowiltasSouls.Projectiles
                 }
 
                 //hook ai
-                if (modPlayer.MahoganyEnchantActive && player.GetToggleValue("Mahogany", false) && projectile.aiStyle == 7)
+                if (modPlayer.MahoganyEnchantItem != null && player.GetToggleValue("Mahogany", false) && projectile.aiStyle == 7)
                 {
-                    RichMahoganyEnchant.MahoganyHookAI(projectile, player);
+                    RichMahoganyEnchant.MahoganyHookAI(projectile, modPlayer);
                 }
 
                 if (projectile.friendly && !projectile.hostile)
@@ -1005,11 +992,11 @@ namespace FargowiltasSouls.Projectiles
                 projectile.position -= projectile.velocity * 0.5f;
             }
 
-            if (SilverMinion > 0)
+            if (NinjaSpeedup > 0)
             {
-                projectile.extraUpdates = Math.Max(projectile.extraUpdates, SilverMinion);
+                projectile.extraUpdates = Math.Max(projectile.extraUpdates, NinjaSpeedup);
 
-                if (projectile.owner == Main.myPlayer && !(modPlayer.SilverEnchantActive && player.GetToggleValue("SilverSpeed")))
+                if (projectile.owner == Main.myPlayer && !(modPlayer.NinjaEnchantItem != null && player.GetToggleValue("NinjaSpeed")))
                     projectile.Kill();
             }
 
@@ -1044,7 +1031,7 @@ namespace FargowiltasSouls.Projectiles
                     modPlayer.TryAdditionalAttacks(projectile.damage, projectile.DamageType);
 
                     //because the bow refuses to acknowledge changes in attack speed after initial spawning
-                    if (projectile.type == ProjectileID.DD2PhoenixBow && modPlayer.MythrilEnchantActive && modPlayer.MythrilTimer > -60 && counter > 60)
+                    if (projectile.type == ProjectileID.DD2PhoenixBow && modPlayer.MythrilEnchantItem != null && modPlayer.MythrilTimer > -60 && counter > 60)
                         projectile.Kill();
                 }
             }
@@ -1116,7 +1103,9 @@ namespace FargowiltasSouls.Projectiles
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             if (AdamProj)
-                damage /= 2;
+            {
+                damage /= 2;//modPlayer.EarthForce && (projectile.maxPenetrate == 1 || projectile.usesLocalNPCImmunity) ? 3 : 2;
+            }
 
             if (stormTimer > 0)
                 damage = (int)(damage * (Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().SpiritForce ? 1.6 : 1.3));
@@ -1133,7 +1122,7 @@ namespace FargowiltasSouls.Projectiles
                     damage = newDamage;
             }
 
-            if (SilverMinion > 0 && NeedsSilverNerf(projectile))
+            if (NinjaSpeedup > 0 && NinjaEnchant.NeedsNinjaNerf(projectile))
                 damage /= 2;
 
             if (projectile.type == ProjectileID.SharpTears && !projectile.usesLocalNPCImmunity && projectile.usesIDStaticNPCImmunity && projectile.idStaticNPCHitCooldown == 60 && noInteractionWithNPCImmunityFrames)
@@ -1244,7 +1233,7 @@ namespace FargowiltasSouls.Projectiles
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (modPlayer.MahoganyEnchantActive && player.GetToggleValue("Mahogany", false))
+            if (modPlayer.MahoganyEnchantItem != null && player.GetToggleValue("Mahogany", false))
             {
                 float multiplier = 1.5f;
 
@@ -1261,15 +1250,9 @@ namespace FargowiltasSouls.Projectiles
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (modPlayer.MahoganyEnchantActive && player.GetToggleValue("Mahogany", false))
+            if (modPlayer.MahoganyEnchantItem != null && player.GetToggleValue("Mahogany", false))
             {
                 float multiplier = 3f;
-
-                if (modPlayer.WoodForce || modPlayer.WizardEnchantActive)
-                {
-                    multiplier = 2.5f;
-                }
-
                 speed *= multiplier;
             }
         }
@@ -1288,10 +1271,5 @@ namespace FargowiltasSouls.Projectiles
                 Main.EntitySpriteDraw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), new Color(255, 255, 255, 0), projectile.rotation, origin2, projectile.scale, effects, 0);
             }
         }
-
-        private bool NeedsSilverNerf(Projectile projectile)
-            => projectile.maxPenetrate == 1
-            || projectile.usesLocalNPCImmunity
-            || projectile.type == ProjectileID.StardustCellMinionShot;
     }
 }

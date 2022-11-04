@@ -1,3 +1,4 @@
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -13,16 +14,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Orichalcum Enchantment");
             Tooltip.SetDefault(
 @"Flower petals will cause extra damage to your target and inflict Orichalcum Poison
-Damaging debuffs deal 3x damage
+Damaging debuffs deal 2.5x damage
 'Nature blesses you'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "山铜魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"花瓣将落到被你攻击的敌人的身上以造成额外伤害和山铜中毒减益
-            // 伤害性减益造成的伤害x3
-            // '自然祝福着你'");
         }
 
         protected override Color nameColor => new Color(235, 50, 145);
+        public override string wizardEffect => "Increases multiplier to 4x";
 
         public override void SetDefaults()
         {
@@ -34,7 +31,37 @@ Damaging debuffs deal 3x damage
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().OrichalcumEffect();
+            OrichalcumEffect(player, Item);
+        }
+
+        public static void OrichalcumEffect(Player player, Item item)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().OriEnchantItem = item;
+
+            if (!player.GetToggleValue("Orichalcum"))
+                return;
+
+            player.onHitPetal = true;
+        }
+
+        public static void OriDotModifier(NPC npc, FargoSoulsPlayer modPlayer, ref int damage)
+        {
+            float multiplier = 2.5f;
+
+            if (modPlayer.EarthForce)
+            {
+                multiplier = 4f;
+            }
+
+            npc.lifeRegen = (int)(npc.lifeRegen * multiplier);
+            damage = (int)(damage * multiplier);
+
+            //half as effective if daybreak applied
+            if (npc.daybreak)
+            {
+                npc.lifeRegen /= 2;
+                damage /= 2;
+            }
         }
 
         public override void AddRecipes()

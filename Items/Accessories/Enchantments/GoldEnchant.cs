@@ -36,6 +36,7 @@ Effects of Greedy Ring
         }
 
         protected override Color nameColor => new Color(231, 178, 28);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
-    [AutoloadEquip(EquipType.Shield)]
     public class IronEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
@@ -15,24 +14,15 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Iron Enchantment");
 
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铁魔石");
-
             string tooltip =
-@"Right Click to guard with your shield
-Guard just before being hit to negate damage
-You attract items from a larger range
+@"You attract items from a larger range
+33% chance to not consume crafting ingredients at an Iron Anvil
 'Strike while the iron is hot'";
             Tooltip.SetDefault(tooltip);
-
-            //             string tooltip_ch =
-            // @"右键进行盾牌格挡
-            // 如果时机正确则抵消这次伤害
-            // 扩大你的拾取范围
-            // '趁热打铁'";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         protected override Color nameColor => new Color(152, 142, 131);
+        public override string wizardEffect => "Increases item range by 4x, crafting bonus now affects Mythril Anvil";
 
         public override void SetDefaults()
         {
@@ -40,23 +30,12 @@ You attract items from a larger range
 
             Item.rare = ItemRarityID.Green;
             Item.value = 40000;
-            //Item.shieldSlot = 5;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-
-            if (player.GetToggleValue("IronS"))
-            {
-                //shield
-                modPlayer.IronEffect();
-            }
-            //magnet
-            if (player.GetToggleValue("IronM", false))
-            {
-                modPlayer.IronEnchantActive = true;
-            }
+            modPlayer.IronEnchantItem = Item;
         }
 
         public override void AddRecipes()
@@ -65,16 +44,12 @@ You attract items from a larger range
             .AddIngredient(ItemID.IronHelmet)
             .AddIngredient(ItemID.IronChainmail)
             .AddIngredient(ItemID.IronGreaves)
-            .AddIngredient(ItemID.EmptyBucket)
-            .AddIngredient(ItemID.IronBroadsword)
+            .AddIngredient(ItemID.IronHammer)
             .AddIngredient(ItemID.IronAnvil)
-            //.AddIngredient(ItemID.IronBow);
-            //apricot (high in iron pog)
-            //.AddIngredient(ItemID.TreasureMagnet)
+            .AddIngredient(ItemID.Apricot) //(high in iron pog)
 
             .AddTile(TileID.DemonAltar)
             .Register();
-
         }
     }
 }

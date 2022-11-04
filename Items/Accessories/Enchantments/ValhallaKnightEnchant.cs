@@ -23,6 +23,7 @@ Greatly enhances Ballista effectiveness
         }
 
         protected override Color nameColor => new Color(147, 101, 30);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

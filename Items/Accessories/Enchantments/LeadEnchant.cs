@@ -12,22 +12,16 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Lead Enchantment");
 
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "铅魔石");
-
             string tooltip =
-@"You take 50% less from damage over time
+@"You take 40% less from damage over time
 Attacks inflict enemies with Lead Poisoning
 Lead Poisoning deals damage over time and spreads to nearby enemies
 'Not recommended for eating'";
             Tooltip.SetDefault(tooltip);
-            //             string tooltip_ch =
-            // @"攻击有几率造成铅中毒减益
-            // 铅中毒减益持续造成伤害并且会扩散至周围的敌人
-            // '不建议食用'";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         protected override Color nameColor => new Color(67, 69, 88);
+        public override string wizardEffect => "Lead Poisoning damage increased, DoT resistance increased to 60%";
 
         public override void SetDefaults()
         {
@@ -39,12 +33,12 @@ Lead Poisoning deals damage over time and spreads to nearby enemies
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            LeadEffect(player);
+            LeadEffect(player, Item);
         }
 
-        public static void LeadEffect(Player player)
+        public static void LeadEffect(Player player, Item item)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().LeadEnchantActive = true;
+            player.GetModPlayer<FargoSoulsPlayer>().LeadEnchantItem = item;
         }
 
         public override void AddRecipes()
@@ -54,8 +48,8 @@ Lead Poisoning deals damage over time and spreads to nearby enemies
                 .AddIngredient(ItemID.LeadChainmail)
                 .AddIngredient(ItemID.LeadGreaves)
                 .AddIngredient(ItemID.LeadShortsword)
-                .AddIngredient(ItemID.BlackPaint, 100)
                 .AddIngredient(ItemID.GrayPaint, 100)
+                .AddIngredient(ItemID.Peach)
 
             .AddTile(TileID.DemonAltar)
             .Register();

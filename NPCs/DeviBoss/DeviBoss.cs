@@ -83,7 +83,7 @@ namespace FargowiltasSouls.NPCs.DeviBoss
             NPC.height = 120;
             NPC.damage = 64;
             NPC.defense = 10;
-            NPC.lifeMax = 5000;
+            NPC.lifeMax = 6000;
             if (FargoSoulsWorld.EternityMode)
                 NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5);
             NPC.HitSound = SoundID.NPCHit9;
@@ -798,6 +798,10 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                                 NPC.netUpdate = true;
                                 NPC.ai[1] = 0;
                             }
+                        }
+                        else if (NPC.ai[2] == 0) //faster on first empty tp
+                        {
+                            NPC.ai[1]++;
                         }
                     }
                     break;

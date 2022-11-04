@@ -32,6 +32,7 @@ Effects of Bone Glove
         }
 
         protected override Color nameColor => new Color(86, 86, 67);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

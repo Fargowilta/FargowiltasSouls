@@ -25,6 +25,7 @@ Missing any attack will reset these bonuses
         }
 
         protected override Color nameColor => new Color(192, 27, 60);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

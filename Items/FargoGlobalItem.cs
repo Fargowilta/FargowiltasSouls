@@ -34,15 +34,15 @@ namespace FargowiltasSouls.Items
         {
             FargoSoulsPlayer p = player.GetModPlayer<FargoSoulsPlayer>();
             //ignore money, hearts, mana stars
-            if (player.GetToggleValue("IronM", false) && player.whoAmI == Main.myPlayer && p.IronEnchantActive && item.type != ItemID.CopperCoin && item.type != ItemID.SilverCoin && item.type != ItemID.GoldCoin && item.type != ItemID.PlatinumCoin && item.type != ItemID.HermesBoots && item.type != ItemID.CandyApple && item.type != ItemID.SoulCake &&
+            if (player.GetToggleValue("IronM", false) && player.whoAmI == Main.myPlayer && p.IronEnchantItem != null && item.type != ItemID.CopperCoin && item.type != ItemID.SilverCoin && item.type != ItemID.GoldCoin && item.type != ItemID.PlatinumCoin && item.type != ItemID.CandyApple && item.type != ItemID.SoulCake &&
                 item.type != ItemID.Star && item.type != ItemID.CandyCane && item.type != ItemID.SugarPlum && item.type != ItemID.Heart)
             {
-                grabRange += (p.TerraForce || p.WizardEnchantActive) ? 1000 : 250;
+                grabRange += (p.TerraForce) ? 300 : 75;
 
                 //half as effective on nebula bois
                 if (!p.TerrariaSoul && (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3))
                 {
-                    grabRange -= (p.TerraForce || p.WizardEnchantActive) ? 500 : 125;
+                    grabRange -= (p.TerraForce || p.WizardEnchantActive) ? 150 : 25;
                 }
             }
         }
@@ -88,7 +88,7 @@ namespace FargowiltasSouls.Items
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (modPlayer.TungstenEnchantActive && player.GetToggleValue("Tungsten")
+            if (modPlayer.TungstenEnchantItem != null && player.GetToggleValue("Tungsten")
                 && !item.IsAir && item.damage > 0 && !item.noMelee && item.pick == 0 && item.axe == 0 && item.hammer == 0)
             {
                 scale *= TungstenEnchant.TungstenIncreaseWeaponSize(modPlayer);

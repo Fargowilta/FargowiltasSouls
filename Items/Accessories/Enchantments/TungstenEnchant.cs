@@ -15,24 +15,16 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Tungsten Enchantment");
 
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "钨魔石");
-
             string tooltip =
 @"150% increased weapon size but reduces melee speed
 Every half second a projectile will be doubled in size
 Enlarged projectiles and non-projectile swords deal 10% more damage and have an additional chance to crit
 'Bigger is always better'";
             Tooltip.SetDefault(tooltip);
-
-            //             string tooltip_ch =
-            // @"增加150%剑的尺寸
-            // 每过0.5秒便会使一个弹幕的尺寸翻倍
-            // 尺寸变大的剑和弹幕会额外造成10%伤害并且有额外几率暴击
-            // '大就是好'";
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, tooltip_ch);
         }
 
         protected override Color nameColor => new Color(176, 210, 178);
+        public override string wizardEffect => "Increased weapon size to 300%, bonus damage to 20%, cooldown reduced";
 
         public override void SetDefaults()
         {
@@ -44,14 +36,14 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            TungstenEffect(player);
+            TungstenEffect(player, Item);
         }
 
-        public static void TungstenEffect(Player player)
+        public static void TungstenEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            modPlayer.TungstenEnchantActive = true;
+            modPlayer.TungstenEnchantItem = item;
 
             if (!modPlayer.TerrariaSoul && player.HeldItem.damage > 0 && player.HeldItem.CountsAsClass(DamageClass.Melee) && !player.HeldItem.noMelee && player.HeldItem.pick == 0 && player.HeldItem.axe == 0 && player.HeldItem.hammer == 0)
             {
@@ -61,19 +53,6 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
 
         public static float TungstenIncreaseWeaponSize(FargoSoulsPlayer modPlayer)
         {
-            //float tungstenScale = modPlayer.TerraForce ? 4f : 2.5f;
-
-            //if (heldItem.damage > 0 && !heldItem.noMelee)
-            //{
-            //modPlayer.TungstenPrevSizeSave = item.scale;
-            //item.scale *= tungstenScale;
-            //modPlayer.TungstenEnlargedItem = item;
-            //}
-            //else if (((modPlayer.Toggler != null && !player.GetToggleValue("Tungsten", false)) || !TungstenEnchant) && modPlayer.TungstenPrevSizeSave != -1)
-            //{
-            //    heldItem.scale = modPlayer.TungstenPrevSizeSave;
-            //}
-
             return 1f + (modPlayer.TerraForce ? 3f : 1.5f);
         }
 
@@ -87,7 +66,10 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 || projectile.type == ProjectileID.MonkStaffT2
                 || projectile.type == ProjectileID.Arkhalis
                 || projectile.type == ProjectileID.Terragrim
-                || projectile.type == ProjectileID.PiercingStarlight;
+                || projectile.type == ProjectileID.PiercingStarlight
+                || projectile.type == ProjectileID.JoustingLance
+                || projectile.type == ProjectileID.HallowJoustingLance
+                || projectile.type == ProjectileID.ShadowJoustingLance;
         }
 
         public static void TungstenIncreaseProjSize(Projectile projectile, FargoSoulsPlayer modPlayer, IEntitySource source)
@@ -138,14 +120,14 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 if (projectile.aiStyle == ProjAIStyleID.Spear || projectile.aiStyle == ProjAIStyleID.ShortSword)
                     projectile.velocity *= scale;
 
-                //    if (modPlayer.Eternity)
-                //    {
-                //        modPlayer.TungstenCD = 0;
-                //    }
-                //    else if (modPlayer.TerraForce || modPlayer.WizardEnchant)
-                //    {
-                //        modPlayer.TungstenCD /= 2;
-                //    }
+                if (modPlayer.Eternity)
+                {
+                    modPlayer.TungstenCD = 0;
+                }
+                else if (modPlayer.TerraForce)
+                {
+                    modPlayer.TungstenCD /= 2;
+                }
             }
         }
 

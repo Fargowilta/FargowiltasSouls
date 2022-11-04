@@ -23,6 +23,7 @@ Effects of Inner Tube
         }
 
         protected override Color nameColor => new Color(255, 236, 0);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

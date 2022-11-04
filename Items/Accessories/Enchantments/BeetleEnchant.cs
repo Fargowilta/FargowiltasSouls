@@ -37,6 +37,7 @@ Beetle buffs capped at level two
         }
 
         protected override Color nameColor => new Color(109, 92, 133);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

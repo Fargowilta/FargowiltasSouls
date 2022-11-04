@@ -25,6 +25,7 @@ While in stealth, your own projectiles will not be sucked in
         }
 
         protected override Color nameColor => new Color(0, 242, 170);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

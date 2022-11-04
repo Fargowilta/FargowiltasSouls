@@ -280,7 +280,8 @@ Summons the aid of all Eternity Mode bosses to your side
             fargoPlayer.BetsysHeartItem = Item;
 
             //pumpking's cape
-            fargoPlayer.PumpkingsCapeItem = Item;
+            if (player.GetToggleValue("MasoPump"))
+                fargoPlayer.PumpkingsCapeItem = Item;
 
             //celestial rune
             fargoPlayer.CelestialRuneItem = Item;

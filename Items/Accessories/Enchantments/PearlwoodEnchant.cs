@@ -15,13 +15,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Attacks may spawn a homing star when they hit something
 'Too little, too late…'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "珍珠木魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"弹幕在击中敌人或物块时有几率生成一颗星星
-            // '既渺小无力，又慢人一步...'");
         }
 
         protected override Color nameColor => new Color(173, 154, 95);
+        public override string wizardEffect => "Damage increased and cooldown reduced";
 
         public override void SetDefaults()
         {
@@ -33,13 +30,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            PearlwoodEffect(player);
+            PearlwoodEffect(player, Item);
         }
 
-        public static void PearlwoodEffect(Player player)
+        public static void PearlwoodEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            modPlayer.PearlwoodEnchantActive = true;
+            modPlayer.PearlwoodEnchantItem = item;
 
             if (modPlayer.PearlwoodCD > 0)
                 modPlayer.PearlwoodCD--;
@@ -47,6 +44,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public static void PearlwoodStarDrop(FargoSoulsPlayer modPlayer, NPC target, int damage)
         {
+            int starDamage = (damage / 2);
+            starDamage = Math.Min(starDamage, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, modPlayer.WoodForce ? 250 : 100));
+
             Player player = modPlayer.Player;
             //holy star spawn code funny
             float x = target.position.X + (float)Main.rand.Next(-400, 400);
@@ -59,9 +59,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             num486 = (float)num485 / num486;
             num483 *= num486;
             num484 *= num486;
-            int num487 = damage;
             //if you change this source, make sure the check for this proj type in OnSpawn fargosoulsglobalproj matches!
-            Projectile.NewProjectile(player.GetSource_Misc("Pearlwood"), x, y, num483, num484, ProjectileID.FairyQueenMagicItemShot, num487, 0, player.whoAmI, 0f, 0);
+            Projectile.NewProjectile(player.GetSource_Misc("Pearlwood"), x, y, num483, num484, ProjectileID.FairyQueenMagicItemShot, starDamage, 0, player.whoAmI, 0f, 0);
 
             modPlayer.PearlwoodCD = (modPlayer.WoodForce) ? 15 : 30;
         }
@@ -72,10 +71,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.PearlwoodHelmet)
             .AddIngredient(ItemID.PearlwoodBreastplate)
             .AddIngredient(ItemID.PearlwoodGreaves)
-            .AddIngredient(ItemID.PearlwoodSword)
             .AddIngredient(ItemID.LightningBug)
             .AddIngredient(ItemID.Starfruit)
-
+            .AddIngredient(ItemID.StarCannon)
+            
             .AddTile(TileID.CrystalBall)
             .Register();
         }

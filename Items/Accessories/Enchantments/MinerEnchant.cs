@@ -26,6 +26,7 @@ Effects of Night Owl, Spelunker, Hunter, Shine, and Dangersense Potions
         }
 
         protected override Color nameColor => new Color(95, 117, 151);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

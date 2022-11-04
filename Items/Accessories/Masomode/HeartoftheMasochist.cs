@@ -81,7 +81,8 @@ Summons a friendly Mini Saucer and true eyes of Cthulhu
 
             //pumpking's cape
             player.buffImmune[ModContent.BuffType<LivingWasteland>()] = true;
-            fargoPlayer.PumpkingsCapeItem = Item;
+            if (player.GetToggleValue("MasoPump"))
+                fargoPlayer.PumpkingsCapeItem = Item;
 
             //ice queen's crown
             fargoPlayer.IceQueensCrown = true;

@@ -56,6 +56,7 @@ namespace FargowiltasSouls.Toggler.Content
         public int TrawlerHeader = ModContent.ItemType<TrawlerSoul>();
         public string Trawler;
         public string TrawlerJump;
+        public string TrawlerGel;
         public string TrawlerSpore;
 
         public int EternityHeader = ModContent.ItemType<EternitySoul>();

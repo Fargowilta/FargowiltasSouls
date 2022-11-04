@@ -29,6 +29,7 @@ If you crit, you might also get a healing orb
         }
 
         protected override Color nameColor => new Color(172, 205, 252);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

@@ -1,4 +1,5 @@
 using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -17,17 +18,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Grants immunity to fire and lava
 You have normal movement and can swim in lava
-While standing in lava or lava wet, your attacks spawn explosions
-Increases whip range by 50%
+While standing in lava or lava wet, your attacks spawn explosions and apply Firecracker
 'The earth calls'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "黑曜石魔石");
-            //@"使你免疫火与岩浆
-            //使你可以在岩浆中正常移动和游泳
-            //在岩浆中时，你的攻击会引发爆炸
-            //'大地的呼唤'"); e
         }
 
         protected override Color nameColor => new Color(69, 62, 115);
+        public override string wizardEffect => "You no longer need lava to spawn explosions, cooldown reduced";
 
         public override void SetDefaults()
         {
@@ -39,18 +35,16 @@ Increases whip range by 50%
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ObsidianEffect(player);
+            ObsidianEffect(player, Item);
         }
 
-        public static void ObsidianEffect(Player player)
+        public static void ObsidianEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             player.lavaImmune = true;
             player.fireWalk = true;
             player.buffImmune[BuffID.OnFire] = true;
-
-            player.whipRangeMultiplier += 0.5f;
 
             //in lava effects
             if (player.lavaWet)
@@ -65,7 +59,30 @@ Increases whip range by 50%
                 }
             }
 
-            modPlayer.ObsidianEnchantActive = modPlayer.TerraForce || player.lavaWet || modPlayer.LavaWet;
+            if (modPlayer.ObsidianCD > 0)
+                modPlayer.ObsidianCD--;
+
+            if (modPlayer.TerraForce || player.lavaWet || modPlayer.LavaWet)
+            {
+                modPlayer.ObsidianEnchantItem = item;
+            }
+        }
+
+        public static void ObsidianProc(FargoSoulsPlayer modPlayer, NPC target, int damage)
+        {
+            Player player = modPlayer.Player;
+            Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.ObsidianEnchantItem), target.Center, Vector2.Zero, ModContent.ProjectileType<ExplosionSmall>(), damage, 0, player.whoAmI);
+
+            target.AddBuff(BuffID.FlameWhipEnemyDebuff, 30); ;
+
+            if (modPlayer.TerraForce)
+            {
+                modPlayer.ObsidianCD = 20;
+            }
+            else
+            {
+                modPlayer.ObsidianCD = 30;
+            }
         }
 
         public override void AddRecipes()

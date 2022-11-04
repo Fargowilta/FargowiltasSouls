@@ -1,6 +1,9 @@
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -15,14 +18,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 @"Temporarily increases attack speed after not attacking for a while
 Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
 'You feel the knowledge of your weapons seep into your mind'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "秘银魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"增加15%武器使用速度
-            // 受到伤害时武器使用速度增加效果会暂时失效
-            // '你感觉你对武器的知识渗透进了你的脑海中");
         }
 
         protected override Color nameColor => new Color(157, 210, 144);
+        public override string wizardEffect => "Max attack speed bonus increased and lasts longer";
 
         public override void SetDefaults()
         {
@@ -34,9 +33,36 @@ Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            MythrilEffect(player, Item);
+        }
+
+        public static void MythrilEffect(Player player, Item item)
+        {
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            fargoPlayer.MythrilEffect();
+            if (!player.GetToggleValue("Mythril"))
+                return;
+
+            fargoPlayer.MythrilEnchantItem = item;
+
+            if (fargoPlayer.WeaponUseTimer > 0)
+                fargoPlayer.MythrilTimer--;
+            else
+                fargoPlayer.MythrilTimer++;
+
+            if (fargoPlayer.MythrilTimer > fargoPlayer.MythrilMaxTime)
+                fargoPlayer.MythrilTimer = fargoPlayer.MythrilMaxTime;
+            if (fargoPlayer.MythrilTimer < 0)
+                fargoPlayer.MythrilTimer = 0;
+        }
+
+        public static void CalcMythrilAttackSpeed(FargoSoulsPlayer modPlayer, Item item)
+        {
+            if (item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0)
+            {
+                float ratio = Math.Max((float)modPlayer.MythrilTimer / modPlayer.MythrilMaxTime, 0);
+                modPlayer.AttackSpeed += modPlayer.MythrilMaxSpeedBonus * ratio;
+            }
         }
 
         public override void AddRecipes()

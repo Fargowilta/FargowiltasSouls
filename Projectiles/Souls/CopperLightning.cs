@@ -145,20 +145,6 @@ namespace FargowiltasSouls.Projectiles.Souls
                 Projectile.velocity = spinningpoint.RotatedBy((double)Projectile.ai[0] + 1.57079637050629, new Vector2()) * num1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + 1.570796f;
             }
-
-            /*for (int index1 = 1; index1 < Projectile.oldPos.Length; index1++)
-            {
-                const int max = 5;
-                Vector2 offset = Projectile.oldPos[index1 - 1] - Projectile.oldPos[index1];
-                offset /= max;
-                for (int i = 0; i < 5; i++)
-                {
-                    Vector2 position = Projectile.oldPos[index1] + offset * i;
-                    int index2 = Dust.NewDust(position, Projectile.width, Projectile.height, 160, 0.0f, 0.0f, 0, new Color(), 1f);
-                    Main.dust[index2].scale = Main.rand.Next(70, 110) * 0.013f;
-                    Main.dust[index2].velocity *= 0.2f;
-                }
-            }*/
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

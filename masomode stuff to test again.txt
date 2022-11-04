@@ -46,3 +46,30 @@ added patreon toggle for nano core
 twins buff, have 33% DR while doing ray
 
 tried fixing boc despawn glitch
+nekomi nerf, regen 1->0.5hp/s
+devi has more life
+ebonwood force doesnt instakill everything, but base ench does have shadowflame again
+betsy dash dash curse debuff length buffed 15->20s
+boss arenas disable your items while sucking you in
+devi rune wizard empty tp is faster again
+rich mahog DR applies for one hit per grapple, nerfed force from +50% to +30% DR
+adjusted titanium DR so its 50/75% isnt additive or overriding
+toggle localization fixes
+made boc ichor sprite visible
+fused lens install is now toggled with the debuff install key
+adjusted boc confusion timing again
+rockeater launcher
+	rocket no longer pierces at all
+	removed guaranteed crit on sweetspot
+	adjusted knockback
+	reduced attack speed
+	made the sweetspot much more lenient
+fixed pumpking cape toggle not working
+
+abom
+	can now strafe around you while shooting scythes
+	no contact damage and sharper movement when shooting scythes
+	wont spawn saucers in p1 anymore
+	only spawns 3 saucers in p2
+	p2 scythe splits into 8, was 10
+added nice dust to rockeater on sweetspot

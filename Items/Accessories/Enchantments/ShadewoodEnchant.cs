@@ -20,14 +20,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 @"You have an aura of Bleeding
 Enemies struck while Bleeding spew damaging blood
 'Surprisingly clean'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "阴影木魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"一圈流血光环环绕着你
-            // 在流血光环内被攻击的敌人会喷出伤害性血液
-            // '出奇的干净'");
         }
 
         protected override Color nameColor => new Color(88, 104, 118);
+        public override string wizardEffect => "Aura size and blood damage increased, additionally applies Ichor";
 
         public override void SetDefaults()
         {
@@ -39,19 +35,19 @@ Enemies struck while Bleeding spew damaging blood
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ShadewoodEffect(player);
+            ShadewoodEffect(player, Item);
         }
 
-        public static void ShadewoodEffect(Player player)
+        public static void ShadewoodEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             if (!player.GetToggleValue("Shade") || player.whoAmI != Main.myPlayer)
                 return;
 
-            modPlayer.ShadewoodEnchantActive = true;
+            modPlayer.ShadewoodEnchantItem = item;
 
-            int dist = modPlayer.WoodForce ? 300 : 200;
+            int dist = modPlayer.WoodForce ? 400 : 200;
 
             for (int i = 0; i < Main.maxNPCs; i++)
             {
@@ -92,12 +88,18 @@ Enemies struck while Bleeding spew damaging blood
         {
             Player player = modPlayer.Player;
             bool trueMelee = (projectile == null || projectile.aiStyle == 19);
+            int dmg = 20;
+
+            if (modPlayer.WoodForce)
+            {
+                dmg *= 3;
+            }
 
             if (target.HasBuff(ModContent.BuffType<SuperBleed>()) && (trueMelee || modPlayer.ShadewoodCD == 0) && (projectile == null || projectile.type != ModContent.ProjectileType<SuperBlood>()) && player.whoAmI == Main.myPlayer)
             {
                 for (int i = 0; i < Main.rand.Next(3, 6); i++)
                 {
-                    Projectile.NewProjectile(player.GetSource_Misc(""), target.Center.X, target.Center.Y - 20, 0f + Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-5, 5), ModContent.ProjectileType<SuperBlood>(), FargoSoulsUtil.HighestDamageTypeScaling(player, 20), 0f, Main.myPlayer);
+                    Projectile.NewProjectile(player.GetSource_Misc(""), target.Center.X, target.Center.Y - 20, 0f + Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-5, 5), ModContent.ProjectileType<SuperBlood>(), FargoSoulsUtil.HighestDamageTypeScaling(player, dmg), 0f, Main.myPlayer);
                 }
 
                 if (modPlayer.WoodForce)
@@ -119,9 +121,9 @@ Enemies struck while Bleeding spew damaging blood
                 .AddIngredient(ItemID.ShadewoodHelmet)
                 .AddIngredient(ItemID.ShadewoodBreastplate)
                 .AddIngredient(ItemID.ShadewoodGreaves)
-                .AddIngredient(ItemID.ShadewoodSword)
                 .AddIngredient(ItemID.ViciousMushroom)
                 .AddIngredient(ItemID.BloodOrange)
+                .AddIngredient(ItemID.DeadlandComesAlive)
 
             .AddTile(TileID.DemonAltar)
             .Register();

@@ -25,6 +25,7 @@ Three Shadow Orbs will orbit around you
         }
 
         protected override Color nameColor => new Color(94, 85, 220);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

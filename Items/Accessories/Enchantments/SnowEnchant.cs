@@ -18,6 +18,7 @@ There is a 60 second cooldown for this effect
         }
 
         protected override Color nameColor => new Color(37, 195, 242);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

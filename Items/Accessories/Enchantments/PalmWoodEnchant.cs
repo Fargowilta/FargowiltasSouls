@@ -17,13 +17,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Double tap down to spawn a palm tree sentry that throws nuts at enemies
 'Alarmingly calm'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "棕榈木魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"双击'下'键会召唤一个会向敌人扔橡子的棕榈树哨兵
-            // '出奇的宁静'");
+
+            //attack rate and damage increased, you can spawn 2 additional trees
         }
 
         protected override Color nameColor => new Color(183, 141, 86);
+        public override string wizardEffect => "Attack speed and damage increased, 2 more trees can be spawned";
 
         public override void SetDefaults()
         {
@@ -35,30 +34,41 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            PalmEffect(player);
+            PalmEffect(player, Item);
         }
 
-        public static void PalmEffect(Player player)
+        public static void PalmEffect(Player player, Item item)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            modPlayer.PalmEnchantActive = true;
+            modPlayer.PalmEnchantItem = item;
 
             if (player.GetToggleValue("Palm") && player.whoAmI == Main.myPlayer && modPlayer.DoubleTap)
             {
                 Vector2 mouse = Main.MouseWorld;
 
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<PalmTreeSentry>()] > 0)
+                int maxSpawn = 1;
+
+                if (modPlayer.WoodForce)
+                {
+                    maxSpawn = 3;
+                }
+
+
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<PalmTreeSentry>()] > maxSpawn - 1)
                 {
                     for (int i = 0; i < Main.maxProjectiles; i++)
                     {
                         Projectile proj = Main.projectile[i];
 
-                        if (proj.type == ModContent.ProjectileType<PalmTreeSentry>() && proj.owner == player.whoAmI)
+                        if (proj.active && proj.type == ModContent.ProjectileType<PalmTreeSentry>() && proj.owner == player.whoAmI)
+                        {
                             proj.Kill();
+                            break;
+                        }
                     }
                 }
 
-                FargoSoulsUtil.NewSummonProjectile(player.GetSource_Misc(""), mouse - 10 * Vector2.UnitY, Vector2.Zero, ModContent.ProjectileType<PalmTreeSentry>(), modPlayer.WoodForce ? 45 : 15, 0f, player.whoAmI);
+                FargoSoulsUtil.NewSummonProjectile(player.GetSource_Misc(""), mouse - 10 * Vector2.UnitY, Vector2.Zero, ModContent.ProjectileType<PalmTreeSentry>(), modPlayer.WoodForce ? 100 : 15, 0f, player.whoAmI);
             }
         }
 
@@ -68,9 +78,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 .AddIngredient(ItemID.PalmWoodHelmet)
                 .AddIngredient(ItemID.PalmWoodBreastplate)
                 .AddIngredient(ItemID.PalmWoodGreaves)
-                .AddIngredient(ItemID.BreathingReed)
+                .AddIngredient(ItemID.Coral)
+                .AddIngredient(ItemID.Banana)
                 .AddIngredient(ItemID.Coconut)
-                .AddIngredient(ItemID.Seagull)
 
             .AddTile(TileID.DemonAltar)
             .Register();

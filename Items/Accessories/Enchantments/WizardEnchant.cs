@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Utilities;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -14,14 +17,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Enhances the power of all other Enchantments to their Force effects
 'I'm a what?'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "巫师魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,
-            // @"强化其它魔石，使它们获得在上级合成中才能获得的增强
-            // （上级合成指 Forces/力）
-            // '我是啥？'");
         }
 
         protected override Color nameColor => new Color(50, 80, 193);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
@@ -29,6 +28,37 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             Item.rare = ItemRarityID.LightRed;
             Item.value = 100000;
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.SafeModifyTooltips(tooltips);
+
+            if (tooltips.TryFindTooltipLine("ItemName", out TooltipLine itemNameLine))
+                itemNameLine.OverrideColor = nameColor;
+
+            Player player = Main.player[ Main.myPlayer];
+
+            for (int i = 3; i <= 9; i++)
+            {
+                if (!player.armor[i].IsAir)
+                {
+                    ModItem item = player.armor[i].ModItem;
+
+                    if (item is BaseEnchant)
+                    {
+                        BaseEnchant enchant = item as BaseEnchant;
+                        string wizardText = enchant.wizardEffect;
+
+                        if (wizardEffect.Length == 0)
+                        {
+                            continue;
+                        }
+
+                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{item.Type}]" + wizardText));
+                    }
+                }
+            }
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

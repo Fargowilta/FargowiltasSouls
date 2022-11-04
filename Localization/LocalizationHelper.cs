@@ -113,7 +113,7 @@ namespace FargowiltasSouls
             AddToggle("TerraHeader", ModContent.ItemType<TerraForce>());
             AddToggle("CopperConfig", ModContent.ItemType<CopperEnchant>(), "d56617");
             AddToggle("IronMConfig", ModContent.ItemType<IronEnchant>(), "988e83");
-            AddToggle("IronSConfig", ModContent.ItemType<IronEnchant>(), "988e83");
+            AddToggle("SilverSConfig", ModContent.ItemType<SilverEnchant>(), "b4b4cc");
             AddToggle("TinConfig", ModContent.ItemType<TinEnchant>(), "a28b4e");
             AddToggle("TungstenConfig", ModContent.ItemType<TungstenEnchant>(), "b0d2b2");
             AddToggle("TungstenProjConfig", ModContent.ItemType<TungstenEnchant>(), "b0d2b2");
@@ -160,8 +160,8 @@ namespace FargowiltasSouls
             AddToggle("ShinobiDashConfig", ModContent.ItemType<ShinobiEnchant>(), "935b18");
             AddToggle("ShinobiConfig", ModContent.ItemType<ShinobiEnchant>(), "935b18");
             AddToggle("SpookyConfig", ModContent.ItemType<SpookyEnchant>(), "644e74");
+            AddToggle("NinjaSpeedConfig", ModContent.ItemType<NinjaEnchant>(), "565643");
             AddToggle("CrystalDashConfig", ModContent.ItemType<CrystalAssassinEnchant>(), "249dcf");
-            AddToggle("CrystalGelatinConfig", ModContent.ItemType<CrystalAssassinEnchant>(), "249dcf");
 
             AddToggle("SpiritHeader", ModContent.ItemType<SpiritForce>());
             AddToggle("FossilConfig", ModContent.ItemType<FossilEnchant>(), "8c5c3b");
@@ -169,8 +169,6 @@ namespace FargowiltasSouls
             AddToggle("HallowDodgeConfig", ModContent.ItemType<HallowEnchant>(), "968564");
             AddToggle("HallowedConfig", ModContent.ItemType<AncientHallowEnchant>(), "968564");
             AddToggle("HallowSConfig", ModContent.ItemType<AncientHallowEnchant>(), "968564");
-            AddToggle("SilverConfig", ModContent.ItemType<SilverEnchant>(), "b4b4cc");
-            AddToggle("SilverSpeedConfig", ModContent.ItemType<SilverEnchant>(), "b4b4cc");
             AddToggle("SpectreConfig", ModContent.ItemType<SpectreEnchant>(), "accdfc");
             AddToggle("TikiConfig", ModContent.ItemType<TikiEnchant>(), "56A52B");
 
@@ -323,6 +321,7 @@ namespace FargowiltasSouls
             AddToggle("TrawlerSporeConfig", ModContent.ItemType<TrawlerSoul>());
             AddToggle("TrawlerConfig", ModContent.ItemType<TrawlerSoul>());
             AddToggle("TrawlerJumpConfig", ModContent.ItemType<TrawlerSoul>());
+            AddToggle("TrawlerGelConfig", ModContent.ItemType<CrystalAssassinEnchant>());
 
             AddToggle("EternityHeader", ModContent.ItemType<EternitySoul>());
             AddToggle("EternityConfig", ModContent.ItemType<EternitySoul>());

@@ -9,8 +9,8 @@ namespace FargowiltasSouls.Items.Accessories.Forces
     {
         public static int[] Enchants => new int[]
         {
+            ModContent.ItemType<NinjaEnchant>(),
             ModContent.ItemType<AncientShadowEnchant>(),
-            ModContent.ItemType<NecroEnchant>(),
             ModContent.ItemType<CrystalAssassinEnchant>(),
             ModContent.ItemType<SpookyEnchant>(),
             ModContent.ItemType<ShinobiEnchant>(),
@@ -79,6 +79,10 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.ShadowForce = true;
+
+            //NinjaEnchant.NinjaEffect(player);
+
+
             modPlayer.DarkArtistEffect(hideVisual);
             modPlayer.ApprenticeEffect();
 
@@ -92,7 +96,6 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
             //monk dash mayhem
             modPlayer.MonkEffect();
             //smoke bomb nonsense
-            NinjaEnchant.NinjaEffect(player);
             CrystalAssassinEnchant.CrystalAssassinEffect(player, Item);
             //scythe doom
             modPlayer.SpookyEffect(hideVisual);

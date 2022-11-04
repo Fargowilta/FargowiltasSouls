@@ -16,13 +16,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Tooltip.SetDefault(
 @"Attacks will periodically be accompanied by several snowballs
 'The cooler wood'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "针叶木魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"攻击时定期释放雪球
-            // '冷木'");
+
+            //in force fires more snowballs, more often, with much higher dmg cap
         }
 
         protected override Color nameColor => new Color(139, 116, 100);
+        public override string wizardEffect => "Fires more snowballs more often";
 
         public override void SetDefaults()
         {
@@ -34,13 +33,16 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            BorealEffect(player);
+            BorealEffect(player, Item);
         }
 
-        public static void BorealEffect(Player player)
+        public static void BorealEffect(Player player, Item item)
         {
-            player.GetModPlayer<FargoSoulsPlayer>().BorealEnchantActive = true;
-            player.GetModPlayer<FargoSoulsPlayer>().AdditionalAttacks = true;
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            modPlayer.BorealEnchantItem = item;
+
+            if (modPlayer.BorealCD > 0)
+                modPlayer.BorealCD--;
         }
 
         public static void BorealSnowballs(FargoSoulsPlayer modPlayer, int damage)
@@ -51,9 +53,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             int snowballDamage = damage / 2;
             if (!modPlayer.TerrariaSoul)
                 snowballDamage = Math.Min(snowballDamage, FargoSoulsUtil.HighestDamageTypeScaling(player, modPlayer.WoodForce ? 300 : 30));
-            int p = Projectile.NewProjectile(player.GetSource_Misc(""), player.Center, vel, ProjectileID.SnowBallFriendly, snowballDamage, 1, Main.myPlayer);
+            int p = Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.BorealEnchantItem), player.Center, vel, ProjectileID.SnowBallFriendly, snowballDamage, 1, Main.myPlayer);
 
-            int numSnowballs = modPlayer.WoodForce ? 5 : 3;
+            int numSnowballs = modPlayer.WoodForce ? 7 : 3;
             if (p != Main.maxProjectiles)
                 FargoSoulsGlobalProjectile.SplitProj(Main.projectile[p], numSnowballs, MathHelper.Pi / 10, 1);
         }
@@ -64,9 +66,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.BorealWoodHelmet)
             .AddIngredient(ItemID.BorealWoodBreastplate)
             .AddIngredient(ItemID.BorealWoodGreaves)
-            .AddIngredient(ItemID.Snowball, 300)
             .AddIngredient(ItemID.Shiverthorn)
             .AddIngredient(ItemID.Plum)
+            .AddIngredient(ItemID.Snowball, 300)
 
             .AddTile(TileID.DemonAltar)
             .Register();

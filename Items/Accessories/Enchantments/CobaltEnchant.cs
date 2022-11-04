@@ -15,17 +15,13 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Cobalt Enchantment");
             Tooltip.SetDefault(
-@"Grants an explosion jump
+@"Grants an explosion jump that inflicts Oiled and grants brief invulnerability
 When you are hurt, you violently explode to damage nearby enemies
 'I can't believe it's not Palladium'");
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "钴蓝魔石");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, 
-            // @"你的弹幕有25%几率爆裂成碎片
-            // 此效果在每秒内只会发生一次
-            // '真不敢相信这竟然不是钯金'");
         }
 
         protected override Color nameColor => new Color(61, 164, 196);
+        public override string wizardEffect => "Explosion damage increased";
 
         public override void SetDefaults()
         {
@@ -47,22 +43,22 @@ When you are hurt, you violently explode to damage nearby enemies
             {
                 FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-                int baseDamage = 50;
+                int baseDamage = 75;
                 int multiplier = 2;
                 int cap = 150;
 
                 if (modPlayer.EarthForce)
                 {
-                    baseDamage = 50;
+                    baseDamage = 150;
                     multiplier = 4;
-                    cap = 250;
+                    cap = 400;
                 }
 
                 if (modPlayer.TerrariaSoul)
                 {
-                    baseDamage = 250;
+                    baseDamage = 300;
                     multiplier = 5;
-                    cap = 500;
+                    cap = 600;
                 }
 
                 int explosionDamage = baseDamage + (int)damage * multiplier;

@@ -25,6 +25,7 @@ Getting hit resets your crit to 5%
         }
 
         protected override Color nameColor => new Color(162, 139, 78);
+        public override string wizardEffect => "Minimum crit increased to 10%, max crit is at least 50%, reduced proc cooldown";
 
         public override void SetDefaults()
         {
@@ -36,15 +37,15 @@ Getting hit resets your crit to 5%
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            TinEffect(player);
+            TinEffect(player, Item);
         }
 
-        public static void TinEffect(Player player)
+        public static void TinEffect(Player player, Item item)
         {
             if (!player.GetToggleValue("Tin", false)) return;
 
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-            modPlayer.TinEnchantActive = true;
+            modPlayer.TinEnchantItem = item;
 
             if (modPlayer.Eternity)
             {
@@ -65,7 +66,7 @@ Getting hit resets your crit to 5%
         //set max crit and current crit with no interference from accessory order
         public static void TinPostUpdate(FargoSoulsPlayer modPlayer)
         {
-            modPlayer.TinCritMax = Math.Max(FargoSoulsUtil.HighestCritChance(modPlayer.Player) * 2, 15);
+            modPlayer.TinCritMax = Math.Max(FargoSoulsUtil.HighestCritChance(modPlayer.Player) * 2, modPlayer.TerraForce ?50 : 15);
 
             if (modPlayer.TinCritMax > 100)
                 modPlayer.TinCritMax = 100;
@@ -76,51 +77,48 @@ Getting hit resets your crit to 5%
         //increase crit
         public static void TinOnHitEnemy(FargoSoulsPlayer modPlayer, int damage, bool crit)
         {
-            if (modPlayer.TinEnchantActive)
+            if (crit)
+                modPlayer.TinCritBuffered = true;
+
+            if (modPlayer.TinCritBuffered && modPlayer.TinProcCD <= 0)
             {
-                if (crit)
-                    modPlayer.TinCritBuffered = true;
+                modPlayer.TinCritBuffered = false;
+                modPlayer.TinCrit += 5;
+                if (modPlayer.TinCrit > modPlayer.TinCritMax)
+                    modPlayer.TinCrit = modPlayer.TinCritMax;
+                else
+                    CombatText.NewText(modPlayer.Player.Hitbox, Color.Yellow, Language.GetTextValue("Mods.FargowiltasSouls.ItemExtra.TinCritUp"));
 
-                if (modPlayer.TinCritBuffered && modPlayer.TinProcCD <= 0)
+
+                void TryHeal(int healDenominator, int healCooldown)
                 {
-                    modPlayer.TinCritBuffered = false;
-                    modPlayer.TinCrit += 5;
-                    if (modPlayer.TinCrit > modPlayer.TinCritMax)
-                        modPlayer.TinCrit = modPlayer.TinCritMax;
-                    else
-                        CombatText.NewText(modPlayer.Player.Hitbox, Color.Yellow, Language.GetTextValue("Mods.FargowiltasSouls.ItemExtra.TinCritUp"));
+                    int amountToHeal = damage / healDenominator;
+                    if (modPlayer.TinCrit >= 100 && modPlayer.HealTimer <= 0 && !modPlayer.Player.moonLeech && !modPlayer.MutantNibble && amountToHeal > 0)
+                    {
+                        modPlayer.HealTimer = healCooldown;
+                        modPlayer.Player.statLife = Math.Min(modPlayer.Player.statLife + amountToHeal, modPlayer.Player.statLifeMax2);
+                        modPlayer.Player.HealEffect(amountToHeal);
+                    }
+                }
 
-
-                    void TryHeal(int healDenominator, int healCooldown)
-                    {
-                        int amountToHeal = damage / healDenominator;
-                        if (modPlayer.TinCrit >= 100 && modPlayer.HealTimer <= 0 && !modPlayer.Player.moonLeech && !modPlayer.MutantNibble && amountToHeal > 0)
-                        {
-                            modPlayer.HealTimer = healCooldown;
-                            modPlayer.Player.statLife = Math.Min(modPlayer.Player.statLife + amountToHeal, modPlayer.Player.statLifeMax2);
-                            modPlayer.Player.HealEffect(amountToHeal);
-                        }
-                    }
-
-                    if (modPlayer.Eternity)
-                    {
-                        modPlayer.TinProcCD = 1;
-                        TryHeal(10, 1);
-                        modPlayer.TinEternityDamage += .05f;
-                    }
-                    else if (modPlayer.TerrariaSoul)
-                    {
-                        modPlayer.TinProcCD = 15;
-                        TryHeal(25, 10);
-                    }
-                    else if (modPlayer.TerraForce)
-                    {
-                        modPlayer.TinProcCD = 30;
-                    }
-                    else
-                    {
-                        modPlayer.TinProcCD = 60;
-                    }
+                if (modPlayer.Eternity)
+                {
+                    modPlayer.TinProcCD = 1;
+                    TryHeal(10, 1);
+                    modPlayer.TinEternityDamage += .05f;
+                }
+                else if (modPlayer.TerrariaSoul)
+                {
+                    modPlayer.TinProcCD = 15;
+                    TryHeal(25, 10);
+                }
+                else if (modPlayer.TerraForce)
+                {
+                    modPlayer.TinProcCD = 30;
+                }
+                else
+                {
+                    modPlayer.TinProcCD = 60;
                 }
             }
         }

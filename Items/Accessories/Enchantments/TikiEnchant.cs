@@ -22,6 +22,7 @@ Reduces attack speed of summon weapons when effect is activated
         }
 
         protected override Color nameColor => new Color(86, 165, 43);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {

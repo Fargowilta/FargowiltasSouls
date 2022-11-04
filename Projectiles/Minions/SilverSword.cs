@@ -36,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Player player = Main.player[Projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (player.whoAmI == Main.myPlayer && (!modPlayer.SilverEnchantActive || !player.GetToggleValue("Silver")))
+            if (player.whoAmI == Main.myPlayer && (modPlayer.SilverEnchantItem == null || !player.GetToggleValue("Silver")))
             {
                 Projectile.Kill();
                 return;

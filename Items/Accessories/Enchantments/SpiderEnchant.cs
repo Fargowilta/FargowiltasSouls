@@ -28,6 +28,7 @@ Summon crits do x1.5 damage instead of x2
         }
 
         protected override Color nameColor => new Color(109, 78, 69);
+        public override string wizardEffect => "";
 
         public override void SetDefaults()
         {
