@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ Any projectiles that would deal less than 10 damage to you are destroyed
         }
 
         protected override Color nameColor => new Color(100, 90, 141);
-        public override string wizardEffect => "Damage threshold increased to 25, additonally kills any npcs with less than 200 HP";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Ebonwood");
 
         public override void SetDefaults()
         {

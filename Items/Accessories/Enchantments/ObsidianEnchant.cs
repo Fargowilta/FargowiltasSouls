@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -23,7 +24,7 @@ While standing in lava or lava wet, your attacks spawn explosions and apply Fire
         }
 
         protected override Color nameColor => new Color(69, 62, 115);
-        public override string wizardEffect => "You no longer need lava to spawn explosions, cooldown reduced";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Obsidian");
 
         public override void SetDefaults()
         {

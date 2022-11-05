@@ -2,6 +2,7 @@ using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -19,7 +20,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
         }
 
         protected override Color nameColor => new Color(221, 85, 125);
-        public override string wizardEffect => "Projectiles now split into 3";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Adamantite");
 
         public override void SetDefaults()
         {

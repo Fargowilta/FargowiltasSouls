@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -25,7 +26,7 @@ Grants knockback immunity when you are facing the attack
         }
 
         protected override Color nameColor => new Color(156, 146, 78);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Gladiator");
 
         public override void SetDefaults()
         {

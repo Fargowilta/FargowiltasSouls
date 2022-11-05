@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -28,7 +29,7 @@ Summon crits do x1.5 damage instead of x2
         }
 
         protected override Color nameColor => new Color(109, 78, 69);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Spider");
 
         public override void SetDefaults()
         {

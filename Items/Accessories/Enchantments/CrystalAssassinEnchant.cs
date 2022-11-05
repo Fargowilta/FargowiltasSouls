@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -23,7 +24,7 @@ First Strike ensures your next attack hits a vital spot dealing 3x damage and re
         }
 
         protected override Color nameColor => new Color(36, 157, 207);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.CrystalAssassin");
 
         public override void SetDefaults()
         {

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -32,7 +33,7 @@ Double tap a direction
         }
 
         protected override Color nameColor => new Color(36, 137, 0);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Chlorophyte");
 
         public override void SetDefaults()
         {

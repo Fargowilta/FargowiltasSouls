@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -27,7 +28,7 @@ There is a 60 second cooldown for this effect
         }
 
         protected override Color nameColor => new Color(0, 174, 238);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Stardust");
 
         public override void SetDefaults()
         {

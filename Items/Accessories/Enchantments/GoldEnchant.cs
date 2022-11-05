@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -36,7 +37,7 @@ Effects of Greedy Ring
         }
 
         protected override Color nameColor => new Color(231, 178, 28);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Gold");
 
         public override void SetDefaults()
         {

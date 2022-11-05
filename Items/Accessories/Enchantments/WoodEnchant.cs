@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
     public class WoodEnchant : BaseEnchant
     {
         protected override Color nameColor => new Color(151, 107, 75);
-        public override string wizardEffect => "Bestiary and banner multiplier increased to 5";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Wood");
 
         public override void SetStaticDefaults()
         {

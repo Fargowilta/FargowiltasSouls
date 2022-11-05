@@ -7,6 +7,7 @@ using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -24,7 +25,7 @@ Summons a Terraprisma familiar that scales with minion damage
         }
 
         protected override Color nameColor => new Color(150, 133, 100);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.AncientHallow");
 
         public override void SetDefaults()
         {

@@ -38,22 +38,15 @@ $"[i:{ModContent.ItemType<ObsidianEnchant>()}] Grants immunity to fire and lava\
             Tooltip.SetDefault(tooltip);
 
             string tooltip_ch =
-@"[i:{0}] 攻击有几率释放闪电攻击敌人
-[i:{1}] 将你的基础暴击率设为10%
-[i:{1}] 每次暴击时都会增加5%暴击率，增加的暴击率的最大值为你当前最大暴击率数值x2
-[i:{1}] 被击中后会降低暴击率
-[i:{2}] 右键进行盾牌格挡
-[i:{2}] 在受伤前格挡以格挡此次攻击
-[i:{2}] 扩大你的拾取范围
-[i:{3}] 攻击有几率造成铅中毒减益
-[i:{3}] 受到的持续伤害降低50%
-[i:{4}] 剑的大小增加300%
-[i:{4}] 每过0.25秒便会有一个随机弹幕的尺寸翻倍
-[i:{5}] 使你免疫火块与熔岩
-[i:{5}] 你的攻击会引发爆炸
-[i:{5}] 鞭子的范围增加50%
+@"[i:{0}][i:{6}][i:{3}] 攻击释放闪电，引发爆炸，造成铅中毒
+[i:{1}] 将你的基础暴击率设为10%，暴击率最多提升至你目前暴击率的两倍（至少50%）
+[i:{2}] 你能在更远处拾取物品，在砧处合成物品时33%的几率不消耗制作材料
+[i:{3}] 受到的持续伤害降低60%
+[i:{4}] 右键进行盾牌格挡
+[i:{5}] 每过0.25秒剑和弹幕的大小增加300%
+[i:{6}] 使你免疫火块与熔岩
 “大地赐予它力量”";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5], Enchants[6]));
 
             string tooltip_pt =
 @"[i:{0}] Ataques têm uma chance de invocar relâmpagos e explosões

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -20,7 +21,7 @@ While grappling you gain 10% damage resistance for one hit and a 50% thorns effe
         }
 
         protected override Color nameColor => new Color(181, 108, 100);
-        public override string wizardEffect => "Hooks pull 2.5x as fast, damage resistance and thorns increased greatly";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.RichMahogany");
 
         public override void SetDefaults()
         {

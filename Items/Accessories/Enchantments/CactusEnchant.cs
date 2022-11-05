@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -28,7 +29,7 @@ Enemies will explode into needles on death if they are struck with your needles
         }
 
         protected override Color nameColor => new Color(121, 158, 29);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffectCactus");
 
         public override void SetDefaults()
         {

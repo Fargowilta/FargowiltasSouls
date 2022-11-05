@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -29,7 +30,7 @@ If you crit, you might also get a healing orb
         }
 
         protected override Color nameColor => new Color(172, 205, 252);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Spectre");
 
         public override void SetDefaults()
         {

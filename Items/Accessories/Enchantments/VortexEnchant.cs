@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -25,7 +26,7 @@ While in stealth, your own projectiles will not be sucked in
         }
 
         protected override Color nameColor => new Color(0, 242, 170);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Vortex");
 
         public override void SetDefaults()
         {

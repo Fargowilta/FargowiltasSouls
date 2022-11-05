@@ -2,6 +2,7 @@
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -18,7 +19,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
         }
 
         protected override Color nameColor => new Color(173, 154, 95);
-        public override string wizardEffect => "Damage increased and cooldown reduced";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Pearlwood");
 
         public override void SetDefaults()
         {

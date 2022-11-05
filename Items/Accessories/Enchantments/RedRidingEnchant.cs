@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -25,7 +26,7 @@ Missing any attack will reset these bonuses
         }
 
         protected override Color nameColor => new Color(192, 27, 60);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.RedRiding");
 
         public override void SetDefaults()
         {

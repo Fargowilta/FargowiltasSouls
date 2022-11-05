@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -25,7 +26,7 @@ Guard just before being hit to negate damage
         }
 
         protected override Color nameColor => new Color(180, 180, 204);
-        public override string wizardEffect => "Parrying also grants the Striking Moment buff";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Silver");
 
         public override void SetDefaults()
         {

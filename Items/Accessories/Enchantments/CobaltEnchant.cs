@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ When you are hurt, you violently explode to damage nearby enemies
         }
 
         protected override Color nameColor => new Color(61, 164, 196);
-        public override string wizardEffect => "Explosion damage increased";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Cobalt");
 
         public override void SetDefaults()
         {

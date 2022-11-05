@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -22,7 +23,7 @@ This has a cooldown of 10 seconds
         }
 
         protected override Color nameColor => new Color(130, 140, 136);
-        public override string wizardEffect => "Shard damage increased, Titanium Shield duration increased to 5 seconds and damage resistance increased to 95%";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Titanium");
 
         public override void SetDefaults()
         {

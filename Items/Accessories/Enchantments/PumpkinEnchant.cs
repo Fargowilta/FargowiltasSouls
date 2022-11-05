@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -29,7 +30,7 @@ Enemies that touch them will destroy them and take damage
         }
 
         protected override Color nameColor => new Color(227, 101, 28);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Pumpkin");
 
         public override void SetDefaults()
         {

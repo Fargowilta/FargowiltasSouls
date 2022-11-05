@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -28,7 +29,7 @@ Any projectiles shot through your storm gain 30% damage
         }
 
         protected override Color nameColor => new Color(231, 178, 28);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Forbidden");
 
         public override void SetDefaults()
         {

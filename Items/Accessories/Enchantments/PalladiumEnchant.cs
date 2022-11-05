@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ You spawn an orb of damaging life energy every 80 life regenerated
         }
 
         protected override Color nameColor => new Color(245, 172, 40);
-        public override string wizardEffect => "Rapid Healing always lasts 5 seconds, increases orb damage";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Palladium");
 
         public override void SetDefaults()
         {

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -28,7 +29,7 @@ Melee hits and most piercing attacks spawn bees
         }
 
         protected override Color nameColor => new Color(254, 246, 37);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Bee");
 
         public override void SetDefaults()
         {

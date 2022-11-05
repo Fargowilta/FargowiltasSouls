@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -25,7 +26,7 @@ Attacks may inflict the Solar Flare debuff
         }
 
         protected override Color nameColor => new Color(254, 158, 35);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Solar");
 
         public override void SetDefaults()
         {

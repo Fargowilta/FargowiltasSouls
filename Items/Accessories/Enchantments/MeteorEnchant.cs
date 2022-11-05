@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ A meteor shower initiates every few seconds while attacking
         }
 
         protected override Color nameColor => new Color(95, 71, 82);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Meteor");
 
         public override void SetDefaults()
         {

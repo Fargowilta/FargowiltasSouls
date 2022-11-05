@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -24,7 +25,7 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
         }
 
         protected override Color nameColor => new Color(176, 210, 178);
-        public override string wizardEffect => "Increased weapon size to 300%, bonus damage to 20%, cooldown reduced";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Tungsten");
 
         public override void SetDefaults()
         {

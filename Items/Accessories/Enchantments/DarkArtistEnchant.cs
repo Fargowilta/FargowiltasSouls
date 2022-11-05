@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -34,7 +35,7 @@ Greatly enhances Flameburst effectiveness
         }
 
         protected override Color nameColor => new Color(155, 92, 176);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.DarkArtist");
 
         public override void SetDefaults()
         {

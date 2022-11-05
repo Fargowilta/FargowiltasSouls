@@ -25,7 +25,7 @@ Getting hit resets your crit to 5%
         }
 
         protected override Color nameColor => new Color(162, 139, 78);
-        public override string wizardEffect => "Minimum crit increased to 10%, max crit is at least 50%, reduced proc cooldown";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Tin");
 
         public override void SetDefaults()
         {

@@ -6,6 +6,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -23,7 +24,7 @@ Enemies struck while Bleeding spew damaging blood
         }
 
         protected override Color nameColor => new Color(88, 104, 118);
-        public override string wizardEffect => "Aura size and blood damage increased, additionally applies Ichor";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Shadewood");
 
         public override void SetDefaults()
         {

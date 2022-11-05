@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -37,7 +38,7 @@ Beetle buffs capped at level two
         }
 
         protected override Color nameColor => new Color(109, 92, 133);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Beetle");
 
         public override void SetDefaults()
         {

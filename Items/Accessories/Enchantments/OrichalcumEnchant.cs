@@ -2,6 +2,7 @@ using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -19,7 +20,7 @@ Damaging debuffs deal 2.5x damage
         }
 
         protected override Color nameColor => new Color(235, 50, 145);
-        public override string wizardEffect => "Increases multiplier to 4x";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Orichalcum");
 
         public override void SetDefaults()
         {

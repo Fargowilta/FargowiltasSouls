@@ -8,6 +8,65 @@
 
 Mods: {
 	FargowiltasSouls: {
+		WizardEffect:{
+			Adamantite: 弹幕现在会分裂成三个
+			AncientHallow: ""
+			AncientShadow: ""
+			Angler: ""
+			Bee: ""
+			Beetle: ""
+			Boreal: 更频繁的释放更多雪球
+			Cactus: ""
+			Chlorophyte: ""
+			Cobalt: 增加爆炸伤害
+			Copper: 增加闪电伤害，冷却时间减少
+			Crimson: ""
+			CrystalAssassin: ""
+			DarkArtist: ""
+			Ebonwood: 伤害判定门槛从10提高至25，并且会杀死光环内任何小于200血量的生物
+			Forbidden: ""
+			Fossil: ""
+			Frost: ""
+			Gladiator: ""
+			Gold: ""
+			Hallow: ""
+			Iron: 物品拾取距离提升到四倍，合成加成现在也对任何秘银砧生效
+			Lead: 增加铅中毒伤害，持续伤害减免提升到60%
+			Meteor: ""
+			Miner: ""
+			Molten: ""
+			Mythril: 增加最大攻速加成，持续时间更长
+			Nebula: ""
+			Necro: ""
+			Ninja: 弹幕速度增加3倍而非2倍，护甲穿透再增加20点
+			Obsidian: 你不再需要岩浆来引发爆炸，冷却时间减少
+			Orichalcum: 倍数提高到4
+			Palladium: 快速治疗总是持续5秒，增加钯金珠伤害
+			PalmWood: 增加攻击速度和伤害，可以额外召唤两个棕榈树哨兵
+			Pearlwood: 增加伤害，冷却时间减少
+			Platinum: ""
+			Pumpkin: ""
+			Rain: ""
+			RedRiding: ""
+			RichMahogany: 牵引速度×2.5，伤害减免和荆棘效果大幅提升
+			Shadewood: 增加光环大小和血液伤害，并且会附加灵液效果
+			Shinobi: ""
+			Shroomite: ""
+			Silver: 格挡会给予惊人一刻增益
+			Solar: ""
+			Spectre: ""
+			Spider: ""
+			Spooky: ""
+			Stardust: ""
+			Tiki: ""
+			Tin: 最小暴击率提高到10%，最大暴击率至少有50%，减少了增加暴击过程的冷却时间
+			Titanium: 碎片伤害增加，钛金护盾持续时间提高到5秒，伤害减免提高至75%
+			Tungsten: 将武器大小提升到300%，伤害加成提升到20%，冷却时间减少
+			Turtle: ""
+			ValhallaKnight: ""
+			Vortex: ""
+			Wood: 怪物图鉴和旗帜解锁速度从2倍变为5倍
+		}
 		SetBonus: {
 			Nekomi:
 				'''
@@ -306,6 +365,8 @@ Mods: {
 			SuperBleed: 血如泉涌
 			TimeFrozen: 时间冻结
 			TimeStopCD: 时停冷却
+			TitaniumCD: 钛金护盾冷却
+			TitaniumDRBuff: 钛金护盾
 			VortexCD: 星旋冷却
 
 			// == Patreon ==
@@ -440,6 +501,8 @@ Mods: {
 			SnowstormCD: '''你现在不能冻结一切'''
 			TimeFrozen: '''你停止了时间'''
 			TimeStopCD: '''你现在不能停止时间'''
+			TitaniumCD: '''你正在为钛金护盾蓄力'''
+			TitaniumDRBuff: '''你获得了额外的伤害减免'''
 			VortexCD: '''你现在不能生成另一个星旋旋涡'''
 
 			// == Patreon ==
@@ -1298,7 +1361,7 @@ Mods: {
 			TerraHeader: "{$Mods.FargowiltasSouls.ItemName.TerraForce}"
 			CopperConfig: 铜 闪电
 			IronMConfig: 铁 吸引掉落物
-			IronSConfig: 铁 护盾
+			SilverSConfig: 银 护盾
 			TinConfig: 锡 暴击
 			TungstenConfig: 钨 物品变大
 			TungstenProjConfig: 钨 弹幕变大
@@ -1354,8 +1417,7 @@ Mods: {
 			HallowDodgeConfig: 神圣 神圣防护
 			HallowedConfig: 远古神圣 泰拉棱镜
 			HallowSConfig: 远古神圣 护盾
-			SilverConfig: 银 剑
-			SilverSpeedConfig: 银 仆从攻击速度加成
+			NinjaSpeedConfig: 忍者 弹幕速度加成
 			SpectreConfig: 幽魂 幽魂珠
 			TikiConfig: 提基 额外仆从
 
@@ -1491,6 +1553,7 @@ Mods: {
 			TrawlerSporeConfig: 孢子囊
 			TrawlerConfig: 额外鱼线
 			TrawlerJumpConfig: 捕鱼之魂跳跃
+			TrawlerGelConfig: 挥发明胶
 
 			EternityHeader: "{$Mods.FargowiltasSouls.ItemName.EternitySoul}"
 			EternityConfig: 永恒之魂属性叠加
@@ -2280,6 +2343,9 @@ Mods: {
 			WyvernFeather: 飞龙之羽
 			ZephyrBoots: 和风靴
 
+			// === Mounts ===
+			AcornConstruct: 橡实构造体
+
 		}
 
 		ItemTooltip: {
@@ -2348,15 +2414,14 @@ Mods: {
 				'''
 			AncientCobaltEnchant:
 				'''
-				额外获得一次二段跳，跳起时产生爆炸
+				额外获得一次二段跳，跳起时产生爆炸并造成浸油，且使玩家短暂无敌
 				“远古酷波德”
 				'''
 			AncientHallowEnchant:
 				'''
 				使你获得一面可以反弹弹幕的盾牌
 				召唤一柄泰拉棱镜，其伤害接受召唤伤害加成
-				大幅提升召唤物攻击速度，但攻击力会降低，且会增加10点护甲穿透
-				“汝之剑盾，即为圣迹”
+				“你有足够的力量驾驭我吗？”
 				'''
 			AncientShadowEnchant:
 				'''
@@ -2413,13 +2478,13 @@ Mods: {
 				'''
 			CobaltEnchant:
 				'''
-				额外获得一次二段跳，跳起时产生爆炸
+				额外获得一次二段跳，跳起时产生爆炸并造成浸油，且使玩家短暂无敌
 				当你受击时，你会剧烈爆炸并对附近的敌怪造成伤害
 				“真不敢相信这竟然不是钯金”
 				'''
 			CopperEnchant:
 				'''
-				攻击有几率释放闪电攻击敌人
+				暴击有几率释放闪电攻击敌人
 				“瞧！”
 				'''
 			CrimsonEnchant:
@@ -2431,10 +2496,10 @@ Mods: {
 			CrystalAssassinEnchant:
 				'''
 				获得冲刺能力
-				若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
+				按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
 				使用混沌传送杖时也会获得增益
-				拥有挥发明胶的效果
-				“表面上易损”
+				先发制人增益会使你下次攻击必定暴击且造成3倍伤害，并降低目标10点防御力
+				“你现在能看到我了。诶，你又看不到我了”
 				'''
 			DarkArtistEnchant:
 				'''
@@ -2447,7 +2512,8 @@ Mods: {
 				'''
 			EbonwoodEnchant:
 				'''
-				召唤一圈暗影焰光环
+				你被一圈暗影焰光环环绕
+				任何对你造成10伤害以下的弹幕进入光环会被摧毁
 				“潜力未完全开发”
 				'''
 			ForbiddenEnchant:
@@ -2503,9 +2569,8 @@ Mods: {
 				'''			
 			IronEnchant:
 				'''
-				右键进行盾牌格挡
-				如果时机正确则抵消这次伤害
 				扩大你的拾取范围
+				在任何铁砧处合成物品时33%的几率不消耗制作材料
 				“趁热打铁”
 				'''
 			JungleEnchant:
@@ -2517,14 +2582,17 @@ Mods: {
 			LeadEnchant:
 				'''
 				攻击有几率造成铅中毒减益
-				受到的持续伤害降低50%
+				受到的持续伤害降低40%
 				铅中毒减益持续造成伤害并会扩散至周围的敌人
 				“不建议食用”
 				'''
 			MeteorEnchant:
 				'''
+				减少50%动量
+				你会留下火焰轨迹
 				攻击时每过几秒便会召唤一次流星雨
 				《Drop a draco on 'em》
+				（实际上，效果一点没改）
 				'''
 			MinerEnchant:
 				'''
@@ -2571,23 +2639,23 @@ Mods: {
 				'''
 			NinjaEnchant:
 				'''
-				若背包中有烟雾弹，按下“投掷烟雾弹”键后会扔出一颗烟雾弹，再次按下该键时会将你传送至烟雾弹的位置并给予你先发制人增益
-				先发制人增益会使你下次攻击必定暴击且造成3倍伤害，并降低目标10点防御力
-				“你现在能看到我了。诶，你又看不到我了”
+				大幅提升弹幕和召唤物速度
+				为了平衡加速度，伤害会降低
+				增加10点护甲穿透
+				“比肉眼所及更快”
 				'''
 			ObsidianEnchant:
 				'''
 				免疫火块与熔岩
 				你可以在熔岩中正常移动和游泳
 				在熔岩中会获得“熔岩之润”增益
-				拥有该增益时，你的攻击会引发爆炸
-				鞭子的范围增加50%
+				拥有该增益时，你的攻击会引发爆炸并施加鞭炮效果
 				“大地在呼唤”
 				'''
 			OrichalcumEnchant:
 				'''
 				花瓣将落到你攻击的敌人的身上，造成额外伤害和山铜中毒减益
-				伤害性减益造成的伤害×3
+				伤害性减益造成的伤害×2.5
 				“自然祝福着你”
 				'''
 			PalladiumEnchant:
@@ -2638,8 +2706,8 @@ Mods: {
 				'''
 			RichMahoganyEnchant:
 				'''
-				所有钩爪的抛出速度、牵引速度和回收速度×1.5
-				被钩爪拉动时你获得10点防御力和50%的荆棘效果
+				所有钩爪的牵引速度×1.5，抛出速度×2.0，回收速度×3.0
+				被钩爪拉动时你获得10%伤害减免和50%的荆棘效果
 				“保证钩到你”
 				'''
 			ShadewoodEnchant:
@@ -2670,9 +2738,9 @@ Mods: {
 				'''
 			SilverEnchant:
 				'''
-				召唤一柄剑，剑的伤害接受召唤伤害加成
-				大幅提升召唤物攻击速度，但攻击力会降低，且会增加10点护甲穿透
-				“你有足够的力量驾驭我吗？”
+				右键进行盾牌格挡
+				如果时机正确则抵消这次伤害
+				“反射”
 				'''	
 			SnowEnchant:
 				'''
@@ -2733,7 +2801,9 @@ Mods: {
 				'''
 			TitaniumEnchant:
 				'''
-				攻击生成钛金碎片防御屏障
+				攻击生成钛金碎片防御屏障，最多有20个碎片
+				当你的碎片个数达到最大时，你会获得3秒不稳定的50%伤害减免
+				该效果有10秒冷却时间
 				'''
 			TungstenEnchant:
 				'''
@@ -2773,7 +2843,7 @@ Mods: {
 				'''
 			WoodEnchant:
 				'''
-				怪物图鉴解锁速度翻倍
+				怪物图鉴和旗帜解锁速度翻倍
 				商店价格会依据你的图鉴解锁度降低
 				'''
 
@@ -3944,7 +4014,7 @@ Mods: {
 			钓竿会额外扔出10根鱼线
 			你几乎能立刻就钓到鱼
 			拥有声纳和宝匣效果
-			拥有渔夫渔具袋和孢子囊效果
+			拥有渔夫渔具袋、挥发明胶和孢子囊效果
 			拥有粉马掌气球和北极潜水装备效果
 			“愿者上钩”
 			'''
@@ -3982,7 +4052,12 @@ Mods: {
 			召唤一个魔法灯笼
 			“无限的可能性”
 			'''
-			
+
+			// === Mounts ===
+			AcornConstruct:
+			'''
+			驾驶着松鼠机甲到处乱跳！
+			'''
 
 		}
 

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ Lead Poisoning deals damage over time and spreads to nearby enemies
         }
 
         protected override Color nameColor => new Color(67, 69, 88);
-        public override string wizardEffect => "Lead Poisoning damage increased, DoT resistance increased to 60%";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Lead");
 
         public override void SetDefaults()
         {

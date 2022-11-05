@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -21,7 +22,7 @@ Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
         }
 
         protected override Color nameColor => new Color(157, 210, 144);
-        public override string wizardEffect => "Max attack speed bonus increased and lasts longer";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Mythril");
 
         public override void SetDefaults()
         {

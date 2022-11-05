@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -35,7 +36,7 @@ Enemies will explode into needles on death if they are struck with your needles
         }
 
         protected override Color nameColor => new Color(248, 156, 92);
-        public override string wizardEffect => "";
+        public override string wizardEffect => Language.GetTextValue("Mods.FargowiltasSouls.WizardEffect.Turtle");
 
         public override void SetDefaults()
         {

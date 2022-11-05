@@ -50,12 +50,12 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                         BaseEnchant enchant = item as BaseEnchant;
                         string wizardText = enchant.wizardEffect;
 
-                        if (wizardEffect.Length == 0)
+                        if (wizardText.Length == 0)
                         {
                             continue;
                         }
 
-                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{item.Type}]" + wizardText));
+                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{item.Type}] " + wizardText));
                     }
                 }
             }
