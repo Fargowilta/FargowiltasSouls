@@ -378,6 +378,9 @@ Mods: {
 			PrimeMinionBuff: 迷你机械骷髅王
 			FishMinionBuff: 鱼
 			CrimetroidBuff: 宝宝血水母
+
+			// === Mounts ===
+			TrojanSquirrelMountBuff: 特洛伊松鼠
 		}
 
 		BuffDescription: {
@@ -508,12 +511,15 @@ Mods: {
 			// == Patreon ==
 			KingSlimeMinionBuff: '''迷你史莱姆王将会保护你'''
 			DukeFishronBuff: '''猪龙鱼公爵将为你而战'''
-			RoombaPetBuff: '''这个扫地机器人在跟着你'''
+			RoombaPetBuff: '''这个扫地机器人在跟着你'''	
 			DoveBuff: '''一只鸽子在跟着你'''
 			ChibiiRemiiBuff: '''恶魔「蕾米莉亚·斯特睐赤」'''
 			PrimeMinionBuff: '''机械骷髅王将为你而战'''
 			FishMinionBuff: '''这些鱼将为你而战'''
 			CrimetroidBuff: '''宝宝血水母在跟着你'''
+
+			// === Mounts ===
+			TrojanSquirrelMountBuff: '''你正驾驶着一架松鼠机甲'''
 		}
 
 		ProjectileName: {
