@@ -42,21 +42,17 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
 
             string tooltip_ch =
 @"[i:{0}] 四颗暗影珠绕着你旋转
-[i:{1}] 攻击有几率造成黑暗减益
-[i:{2}] 击杀敌人时有几率爆出一个骨堆
-[i:{2}] 拥有骨头手套的效果
-[i:{3}] 你可以扔出烟雾弹、传送至烟雾弹的位置获得先发制人增益
-[i:{4}] 获得水晶刺客冲刺
-[i:{4}] 拥有挥发明胶的效果
+[i:{3}] 攻击有几率造成黑暗减益
+[i:{1}] 击杀敌人时有几率爆出一个骨堆，拥有骨头手套的效果
+[i:{4}] 你可以扔出烟雾弹、传送至烟雾弹的位置获得先发制人增益，获得水晶刺客冲刺
 [i:{5}] 你的召唤物能进行额外的镰刀攻击
 [i:{6}] 不攻击可以进行一次武僧冲刺
 [i:{7}] 朝墙壁冲刺时会直接穿过去
-[i:{8}] 持续攻击两秒后你将被火焰包裹
-[i:{8}] 切换武器后，下次攻击的伤害增加150%
+[i:{8}] 持续攻击两秒后你将被火焰包裹，切换武器后，下次攻击的伤害增加150%
 [i:{9}] 召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置
 “Dark, Darker, Yet Darker”";
 
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, ModContent.ItemType<ShadowEnchant>(), Enchants[0], Enchants[1], ModContent.ItemType<NinjaEnchant>(), Enchants[2], Enchants[3], ModContent.ItemType<MonkEnchant>(), Enchants[4], ModContent.ItemType<ApprenticeEnchant>(), Enchants[5]));
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, ModContent.ItemType<ShadowEnchant>(), ModContent.ItemType<NecroEnchant>(), Enchants[0], Enchants[1], Enchants[2], Enchants[3], ModContent.ItemType<MonkEnchant>(), Enchants[4], ModContent.ItemType<ApprenticeEnchant>(), Enchants[5]));
 
             string tooltip_pt =
 @"[i:{0}] Quatro Esferas das Sombras orbitarão ao seu redor
