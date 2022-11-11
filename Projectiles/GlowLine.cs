@@ -217,16 +217,18 @@ namespace FargowiltasSouls.Projectiles
                             default: color = Color.SkyBlue; break; //stardust
                         }
                         maxTime = 20;
-                        alphaModifier = 2;
+                        alphaModifier = -1;
+                        Projectile.alpha = 0;
+                        Projectile.scale = 0.5f;
 
                         Projectile.position -= Projectile.velocity;
                         Projectile.rotation = Projectile.velocity.ToRotation();
 
+                        if (Main.LocalPlayer.active && !Main.dedServ)
+                            Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
+
                         if (counter == maxTime)
                         {
-                            if (Main.LocalPlayer.active && !Main.dedServ)
-                                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
-
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 for (int j = 0; j < 4; j++)
@@ -305,7 +307,10 @@ namespace FargowiltasSouls.Projectiles
                 case 11: //destroyer telegraphs
                     {
                         maxTime = 90;
-                        alphaModifier = 2;
+                        alphaModifier = -1;
+                        Projectile.Opacity = Math.Clamp((float)counter / maxTime, 0f, 1f);
+
+                        Projectile.scale = 0.5f;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.TheDestroyerBody, NPCID.TheDestroyerTail);
                         if (npc == null)
@@ -457,8 +462,10 @@ namespace FargowiltasSouls.Projectiles
                 case 16: //destroyer blue laser line up true telegraph
                     {
                         color = Color.SkyBlue;
-                        maxTime = 30;
-                        alphaModifier = 3;
+                        maxTime = 15;
+                        alphaModifier = -1;
+                        Projectile.Opacity = Math.Clamp(1f - (float)counter / maxTime, 0f, 1f);
+                        Projectile.scale = 0.5f;
 
                         Projectile.rotation = Projectile.velocity.ToRotation();
                         Projectile.position -= Projectile.velocity;

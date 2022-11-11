@@ -34,16 +34,16 @@ namespace FargowiltasSouls.Items
         {
             FargoSoulsPlayer p = player.GetModPlayer<FargoSoulsPlayer>();
             //ignore money, hearts, mana stars
-            if (player.GetToggleValue("IronM", false) && player.whoAmI == Main.myPlayer && p.IronEnchantItem != null && item.type != ItemID.CopperCoin && item.type != ItemID.SilverCoin && item.type != ItemID.GoldCoin && item.type != ItemID.PlatinumCoin && item.type != ItemID.CandyApple && item.type != ItemID.SoulCake &&
+            if (player.whoAmI == Main.myPlayer && p.IronEnchantItem != null && player.GetToggleValue("IronM", false) && item.type != ItemID.CopperCoin && item.type != ItemID.SilverCoin && item.type != ItemID.GoldCoin && item.type != ItemID.PlatinumCoin && item.type != ItemID.CandyApple && item.type != ItemID.SoulCake &&
                 item.type != ItemID.Star && item.type != ItemID.CandyCane && item.type != ItemID.SugarPlum && item.type != ItemID.Heart)
             {
-                grabRange += (p.TerraForce) ? 300 : 75;
+                int rangeBonus = p.TerraForce ? 320 : 160;
 
                 //half as effective on nebula bois
                 if (!p.TerrariaSoul && (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3))
-                {
-                    grabRange -= (p.TerraForce || p.WizardEnchantActive) ? 150 : 25;
-                }
+                    rangeBonus /= 2;
+
+                grabRange += rangeBonus;
             }
         }
 

@@ -12,13 +12,14 @@ namespace FargowiltasSouls.Buffs
             Description.SetDefault("Effects of Cursed Inferno and Ichor");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
             player.onFire2 = true;
             player.ichor = true;
-            if (player.buffTime[buffIndex] < 2 && player.GetModPlayer<FargoSoulsPlayer>().FusedLens)
+            if (player.buffTime[buffIndex] < 2)
                 player.buffTime[buffIndex] = 2;
         }
     }

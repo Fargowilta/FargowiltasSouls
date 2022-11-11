@@ -1,7 +1,9 @@
-﻿using FargowiltasSouls.Toggler;
+﻿using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -34,8 +36,10 @@ Any projectiles that would deal less than 10 damage to you are destroyed
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            EbonwoodEffect(player);
+            player.GetModPlayer<FargoSoulsPlayer>().EbonwoodEnchantItem = Item;
         }
+
+        static int ebonTimer;
 
         public static void EbonwoodEffect(Player player)
         {
@@ -45,31 +49,58 @@ Any projectiles that would deal less than 10 damage to you are destroyed
                 return;
 
             int dist = modPlayer.WoodForce ? 400 : 200;
-            int damageThreshold = modPlayer.WoodForce ? 25 : 10;
-            float defenseFactor = 0.5f;
 
-            if (Main.masterMode)
+            int rate = modPlayer.WoodForce ? 2 : 4;
+            if (++ebonTimer >= rate)
             {
-                defenseFactor = 1f;
-            }
-            else if (Main.expertMode)
-            {
-                defenseFactor = 0.75f;
-            }
+                ebonTimer = 0;
 
-            for (int i = 0; i < Main.maxProjectiles; i++)
-            {
-                Projectile proj = Main.projectile[i];
+                int damageThreshold = modPlayer.WoodForce ? 25 : 10;
 
-                if (proj.active && proj.hostile && proj.damage > 0 && proj.Distance(player.Center) < dist)
+                float defenseFactor = 0.5f;
+                if (Main.masterMode)
+                    defenseFactor = 1f;
+                else if (Main.expertMode)
+                    defenseFactor = 0.75f;
+
+                int closestProj = -1;
+                float closestProjDist = dist;
+
+                for (int i = 0; i < Main.maxProjectiles; i++)
                 {
-                    int dealtDamage = (int)(proj.damage - player.statDefense * defenseFactor);
+                    Projectile proj = Main.projectile[i];
 
-                    if (dealtDamage <= damageThreshold)
+                    if (proj.active && proj.hostile && proj.damage > 0 && (proj.ModProjectile == null || proj.ModProjectile.CanDamage() != false))
                     {
-                        proj.Kill();
+                        float projDist = proj.Distance(player.Center);
+                        if (projDist < closestProjDist && proj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank <= 0)
+                        {
+                            int calcDamage = (int)(proj.damage * 2 * FargoSoulsUtil.ProjWorldDamage);
+                            int dealtDamage = (int)(calcDamage - player.statDefense * defenseFactor);
+
+                            if (dealtDamage <= damageThreshold)
+                            {
+                                closestProj = proj.whoAmI;
+                                closestProjDist = projDist;
+                            }
+                        }
+                    }
+                }
+
+                if (closestProj != -1)
+                {
+                    Projectile proj = Main.projectile[closestProj];
+
+                    //Main.NewText($"proj calc: {calcDamage} damage vs {player.statDefense * defenseFactor} defense factor");
+                    SoundEngine.PlaySound(SoundID.NPCDeath52 with { Volume = 0.5f }, proj.Center);
+                    for (int j = 0; j < 20; j++)
+                    {
+                        int d = Dust.NewDust(proj.Center, 0, 0, DustID.Shadowflame, Scale: 2f);
+                        Main.dust[d].velocity *= 2f;
+                        Main.dust[d].noGravity = true;
                     }
 
+                    proj.Kill();
                 }
             }
 
@@ -77,14 +108,19 @@ Any projectiles that would deal less than 10 damage to you are destroyed
             {
                 NPC npc = Main.npc[i];
 
-                if (npc.active && !npc.friendly && npc.lifeMax > 5 && !npc.dontTakeDamage && npc.Distance(player.Center) < dist)
+                if (npc.active && !npc.friendly && npc.lifeMax > 5 && !npc.dontTakeDamage)
                 {
-                    if (modPlayer.WoodForce && npc.life < 200 && !npc.boss && !(npc.realLife > -1 && Main.npc[npc.realLife].active && Main.npc[npc.realLife].boss))
-                        npc.StrikeNPC(npc.life, 0f, 0);
-
-                    if (modPlayer.WoodForce || Collision.CanHitLine(player.Left, 0, 0, npc.Center, 0, 0) || Collision.CanHitLine(player.Right, 0, 0, npc.Center, 0, 0))
+                    Vector2 npcComparePoint = FargoSoulsUtil.ClosestPointInHitbox(npc, player.Center);
+                    if (player.Distance(npcComparePoint) < dist)
                     {
-                        npc.AddBuff(BuffID.ShadowFlame, 10);
+                        if (modPlayer.WoodForce && npc.life < 200 && !npc.boss && !(npc.realLife > -1 && Main.npc[npc.realLife].active && Main.npc[npc.realLife].boss))
+                        {
+                            npc.StrikeNPC(npc.lifeMax + npc.defense, 0f, 0);
+                        }
+                        else if (modPlayer.WoodForce || Collision.CanHitLine(player.Center, 0, 0, npcComparePoint, 0, 0))
+                        {
+                            npc.AddBuff(BuffID.ShadowFlame, 10);
+                        }
                     }
                 }
             }

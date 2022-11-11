@@ -73,3 +73,18 @@ abom
 	only spawns 3 saucers in p2
 	p2 scythe splits into 8, was 10
 added nice dust to rockeater on sweetspot
+
+made qb no longer cancel dash state mid-dash if a subject spawns
+	aka, no longer floats up into you for a meme hit if you spawn a subject mid-dash
+fixed boc confusion being wrong?
+buffed base iron ench range a bit
+ebon and shade ench have better aura npc detection
+ebon ench
+	fixed it using base proj damage for calcs (x0.25 the damage it does to you in standard expert)
+	cant destroy projs marked with deletion resistance (projs immune to gutted heart)
+	can only destroy 15 projs per second (30 in force)
+	prioritizes projs closer to you
+fixed twins install disappearing
+adjusted cultist pillar telegraphs
+adjusted destroyer light show telegraphs
+fixed ninja ench making phantasm and similar "held proj" weapons overpowered

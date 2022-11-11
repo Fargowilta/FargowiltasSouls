@@ -310,7 +310,7 @@ namespace FargowiltasSouls.Projectiles
                 projectile.ArmorPenetration += projectile.damage / 2;
             }
 
-            if (modPlayer.NinjaEnchantItem != null)
+            if (modPlayer.NinjaEnchantItem != null && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, source, true) && Array.IndexOf(noSplit, projectile.type) <= -1)
             {
                 NinjaEnchant.NinjaSpeedSetup(modPlayer, projectile, this);
             }
@@ -1023,6 +1023,8 @@ namespace FargowiltasSouls.Projectiles
             if (projectile.whoAmI == player.heldProj || projectile.aiStyle == ProjAIStyleID.HeldProjectile)
             {
                 DeletionImmuneRank = 2;
+
+                NinjaSpeedup = 0;
 
                 if (player.HeldItem.damage > 0 && player.HeldItem.pick == 0)
                 {

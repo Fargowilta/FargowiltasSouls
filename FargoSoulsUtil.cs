@@ -51,13 +51,15 @@ namespace FargowiltasSouls
             }
         }
 
+        public static float ProjWorldDamage => Main.GameModeInfo.IsJourneyMode
+            ? CreativePowerManager.Instance.GetPower<CreativePowers.DifficultySliderPower>().StrengthMultiplierToGiveNPCs
+            : Main.GameModeInfo.EnemyDamageMultiplier;
+
         //npcDamageCalcsOffset because i wrote all the code around expert mode and my npcs do same contact damage in normal and expert
         public static int ScaledProjectileDamage(int npcDamage, float modifier = 1, int npcDamageCalculationsOffset = 2)
         {
             const float inherentHostileProjMultiplier = 2;
-            float worldDamage = Main.GameModeInfo.IsJourneyMode
-                ? CreativePowerManager.Instance.GetPower<CreativePowers.DifficultySliderPower>().StrengthMultiplierToGiveNPCs
-                : Main.GameModeInfo.EnemyDamageMultiplier;
+            float worldDamage = ProjWorldDamage;
             return (int)(modifier * npcDamage / inherentHostileProjMultiplier / Math.Max(npcDamageCalculationsOffset, worldDamage));
         }
 
@@ -508,17 +510,17 @@ namespace FargowiltasSouls
             }
         }
 
-        public static bool OnSpawnEnchCanAffectProjectile(Projectile projectile, IEntitySource source)
+        public static bool OnSpawnEnchCanAffectProjectile(Projectile projectile, IEntitySource source, bool allowMinions = false)
         {
+            if (!allowMinions && (projectile.minion || projectile.sentry || projectile.minionSlots <= 0))
+                return false;
+
             return projectile.friendly
                 && projectile.damage > 0
                 && !projectile.hostile
                 && !projectile.npcProj
                 && !projectile.trap
-                && projectile.DamageType != DamageClass.Default
-                && !projectile.minion
-                && !projectile.sentry
-                && projectile.minionSlots <= 0;
+                && projectile.DamageType != DamageClass.Default;
         }
 
         public static void SpawnBossTryFromNPC(int playerTarget, int originalType, int bossType)

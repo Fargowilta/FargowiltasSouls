@@ -53,10 +53,12 @@ Enemies struck while Bleeding spew damaging blood
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC npc = Main.npc[i];
-                if (npc.active && !npc.friendly && npc.lifeMax > 5 && npc.Distance(player.Center) < dist && (modPlayer.WoodForce || Collision.CanHitLine(player.Left, 0, 0, npc.Center, 0, 0) || Collision.CanHitLine(player.Right, 0, 0, npc.Center, 0, 0)))
-                    npc.AddBuff(ModContent.BuffType<SuperBleed>(), 120);
-
-                npc.netUpdate = true;
+                if (npc.active && !npc.friendly && npc.lifeMax > 5 && !npc.dontTakeDamage)
+                {
+                    Vector2 npcComparePoint = FargoSoulsUtil.ClosestPointInHitbox(npc, player.Center);
+                    if (player.Distance(npcComparePoint) < dist && (modPlayer.WoodForce || Collision.CanHitLine(player.Center, 0, 0, npcComparePoint, 0, 0)))
+                        npc.AddBuff(ModContent.BuffType<SuperBleed>(), 120);
+                }
             }
 
             for (int i = 0; i < 20; i++)

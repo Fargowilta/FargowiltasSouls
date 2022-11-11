@@ -80,7 +80,8 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.lifeMax = brain.lifeMax;
             NPC.knockBackResist = brain.knockBackResist;
 
-            if (NPC.Distance(Main.player[NPC.target].Center) > 360) //immune to knockback unless this close
+            //if maso or this far away, be immune to knockback
+            if (FargoSoulsWorld.MasochistModeReal || Main.player[NPC.target].Distance(FargoSoulsUtil.ClosestPointInHitbox(NPC, Main.player[NPC.target].Center)) > 360)
                 NPC.knockBackResist = 0;
 
             if (NPC.alpha > 0 && (NPC.ai[0] == 2 || NPC.ai[0] == -3) && NPC.HasValidTarget) //stay at a minimum distance

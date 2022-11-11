@@ -280,7 +280,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == npc.type)
                                 {
-                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer = DoTheWave ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
+                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer = DoTheWave && UTurnTotalSpacingDistance != 0 ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
                                     if (FargoSoulsWorld.MasochistModeReal)
                                         Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer += 60;
                                     Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = UTurnTotalSpacingDistance;

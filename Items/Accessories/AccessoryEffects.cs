@@ -3045,7 +3045,7 @@ namespace FargowiltasSouls
 
                 if (SilverEnchantItem != null)
                 {
-                    extrashieldCD = IRON_SHIELD_COOLDOWN;
+                    extrashieldCD = BASE_SHIELD_COOLDOWN;
 
                     if (TerraForce)
                         Player.AddBuff(BuffID.ParryDamageBuff, 300);
@@ -3071,8 +3071,8 @@ namespace FargowiltasSouls
             return false;
         }
 
-        private const int IRON_PARRY_WINDOW = 20;
-        private const int IRON_SHIELD_COOLDOWN = 100;
+        private const int BASE_PARRY_WINDOW = 20;
+        private const int BASE_SHIELD_COOLDOWN = 100;
         private const int HARD_PARRY_WINDOW = 10;
         private const int LONG_SHIELD_COOLDOWN = 360;
 
@@ -3112,11 +3112,11 @@ namespace FargowiltasSouls
                     Player.velocity.Y *= 0.85f;
             }
 
-            int cooldown = IRON_SHIELD_COOLDOWN;
+            int cooldown = BASE_SHIELD_COOLDOWN;
             if (DreadShellItem != null || PumpkingsCapeItem != null)
                 cooldown = LONG_SHIELD_COOLDOWN;
             if (SilverEnchantItem != null)
-                cooldown = IRON_SHIELD_COOLDOWN;
+                cooldown = BASE_SHIELD_COOLDOWN;
 
             if (shieldCD < cooldown)
                 shieldCD = cooldown;
@@ -3162,7 +3162,7 @@ namespace FargowiltasSouls
                         if (DreadShellItem != null || PumpkingsCapeItem != null)
                             shieldTimer = HARD_PARRY_WINDOW;
                         if (SilverEnchantItem != null)
-                            shieldTimer = IRON_PARRY_WINDOW;
+                            shieldTimer = BASE_PARRY_WINDOW;
                     }
 
                     Player.itemAnimation = 0;

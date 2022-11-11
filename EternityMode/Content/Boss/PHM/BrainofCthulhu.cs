@@ -131,6 +131,27 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 {
                     ConfusionTimer = confusionThreshold;
 
+                    if (!Main.player[npc.target].HasBuff(BuffID.Confused))
+                    {
+                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
+
+                        Vector2 offset = npc.Center - Main.player[npc.target].Center;
+                        Vector2 spawnPos = Main.player[npc.target].Center;
+
+                        TelegraphConfusion(new Vector2(spawnPos.X + offset.X, spawnPos.Y + offset.Y));
+                        TelegraphConfusion(new Vector2(spawnPos.X + offset.X, spawnPos.Y - offset.Y));
+                        TelegraphConfusion(new Vector2(spawnPos.X - offset.X, spawnPos.Y + offset.Y));
+                        TelegraphConfusion(new Vector2(spawnPos.X - offset.X, spawnPos.Y - offset.Y));
+                    }
+
+                    npc.netUpdate = true;
+                    NetSync(npc);
+                }
+                else if (ConfusionTimer == confusionThreshold2)
+                {
+                    //npc.netUpdate = true; //disabled because might be causing mp issues???
+                    //NetSync(npc);
+
                     if (Main.player[npc.target].HasBuff(BuffID.Confused))
                     {
                         SoundEngine.PlaySound(SoundID.ForceRoarPitched, npc.Center);
@@ -173,27 +194,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                     else
                     {
-                        SoundEngine.PlaySound(SoundID.Roar, npc.Center);
-
-                        Vector2 offset = npc.Center - Main.player[npc.target].Center;
-                        Vector2 spawnPos = Main.player[npc.target].Center;
-
-                        TelegraphConfusion(new Vector2(spawnPos.X + offset.X, spawnPos.Y + offset.Y));
-                        TelegraphConfusion(new Vector2(spawnPos.X + offset.X, spawnPos.Y - offset.Y));
-                        TelegraphConfusion(new Vector2(spawnPos.X - offset.X, spawnPos.Y + offset.Y));
-                        TelegraphConfusion(new Vector2(spawnPos.X - offset.X, spawnPos.Y - offset.Y));
-                    }
-
-                    npc.netUpdate = true;
-                    NetSync(npc);
-                }
-                else if (ConfusionTimer == confusionThreshold2)
-                {
-                    //npc.netUpdate = true; //disabled because might be causing mp issues???
-                    //NetSync(npc);
-
-                    if (!Main.player[npc.target].HasBuff(BuffID.Confused))
-                    {
                         Vector2 offset = npc.Center - Main.player[npc.target].Center;
                         Vector2 spawnPos = Main.player[npc.target].Center;
 
@@ -205,7 +205,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                     if (npc.Distance(Main.LocalPlayer.Center) < 3000 && !Main.LocalPlayer.HasBuff(BuffID.Confused)) //inflict confusion
                     {
-                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold2 + 5);
+                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold + 5);
                     }
                 }
 

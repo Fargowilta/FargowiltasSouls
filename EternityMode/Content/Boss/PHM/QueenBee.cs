@@ -157,10 +157,20 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 int dustId3 = Dust.NewDust(npc.position, npc.width, npc.height, 1, 0f, 0f, 100, default(Color), 2f);
                 Main.dust[dustId3].noGravity = true;
 
-                npc.ai[0] = 3; //always shoot stingers mode
+                //if in dash mode, but not actually dashing right this second
+                if (npc.ai[0] == 0 && npc.ai[1] % 2 == 0)
+                {
+                    npc.ai[0] = 3;
+                    npc.ai[1] = 0;
+                    npc.netUpdate = true;
+                }
 
-                if (npc.ai[1] > 1)
-                    npc.ai[1] -= 0.5f; //slower stingers
+                //shoot stingers mode
+                if (npc.ai[0] == 3)
+                {
+                    if (npc.ai[1] > 1 && !FargoSoulsWorld.MasochistModeReal)
+                        npc.ai[1] -= 0.5f; //slower stingers
+                }
             }
             else
             {

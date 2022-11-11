@@ -87,6 +87,7 @@ namespace FargowiltasSouls
         public Item PalmEnchantItem;
         public Item PearlwoodEnchantItem;
         public int PearlwoodCD;
+        public Item EbonwoodEnchantItem;
         public Item ShadewoodEnchantItem;
         public int ShadewoodCD;
         public Item WoodEnchantItem;
@@ -819,6 +820,7 @@ namespace FargowiltasSouls
             BorealEnchantItem = null;
             WoodEnchantItem = null;
             PalmEnchantItem = null;
+            EbonwoodEnchantItem = null;
             ShadewoodEnchantItem = null;
             PearlwoodEnchantItem = null;
 
@@ -1687,8 +1689,11 @@ namespace FargowiltasSouls
 
             StatLifePrevious = Player.statLife;
 
+            if (EbonwoodEnchantItem != null)
+                EbonwoodEnchant.EbonwoodEffect(Player);
 
-            if (Player.HasBuff(ModContent.BuffType<TitaniumDRBuff>()) && prevDyes == null)
+
+            if (TitaniumDRBuff && prevDyes == null)
             {
                 prevDyes = new List<int>();
                 byte reflectiveSilver = (byte)GameShaders.Armor.GetShaderIdFromItemId(ItemID.ReflectiveSilverDye);

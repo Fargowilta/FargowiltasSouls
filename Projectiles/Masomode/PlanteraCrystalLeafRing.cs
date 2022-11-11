@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             base.SetDefaults();
             Projectile.scale = 1.5f;
             CooldownSlot = -1;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
 
         public override void AI()
