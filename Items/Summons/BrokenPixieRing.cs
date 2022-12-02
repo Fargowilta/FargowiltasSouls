@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Items.Summons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Broken Pixie Ring");
-            Tooltip.SetDefault("Summons Lifelight");
+            Tooltip.SetDefault("Summons Lifelight while in the Hallow during day");
         }
 
         public override void SetDefaults()

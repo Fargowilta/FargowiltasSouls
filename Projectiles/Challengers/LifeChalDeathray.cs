@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                //SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

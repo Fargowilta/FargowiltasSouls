@@ -13,14 +13,13 @@ namespace FargowiltasSouls.Projectiles.Challengers
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Splitting Life Shot");
-            Main.projFrames[Projectile.type] = 3;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
 		{
-			Projectile.width = 6;
-			Projectile.height = 6;
+			Projectile.width = 8;
+			Projectile.height = 8;
 			Projectile.aiStyle = 0;
 			Projectile.hostile = true;
 			AIType = 14;
@@ -29,18 +28,25 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			Projectile.ignoreWater = true;
 			Projectile.light = 0.5f;
 		}
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
+        {
+            int clampedX = projHitbox.Center.X - targetHitbox.Center.X;
+            int clampedY = projHitbox.Center.Y - targetHitbox.Center.Y;
 
-		public override void AI()
+            if (Math.Abs(clampedX) > targetHitbox.Width / 2)
+                clampedX = targetHitbox.Width / 2 * Math.Sign(clampedX);
+            if (Math.Abs(clampedY) > targetHitbox.Height / 2)
+                clampedY = targetHitbox.Height / 2 * Math.Sign(clampedY);
+
+            int dX = projHitbox.Center.X - targetHitbox.Center.X - clampedX;
+            int dY = projHitbox.Center.Y - targetHitbox.Center.Y - clampedY;
+
+            return Math.Sqrt(dX * dX + dY * dY) <= Projectile.width / 2;
+        }
+        public override void AI()
 		{
 			//Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 91, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.25f);
 			Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-
-            if (++Projectile.frameCounter >= 6)
-            {
-                Projectile.frameCounter = 0;
-                if (++Projectile.frame >= 3)
-                    Projectile.frame = 0;
-            }
 
             if (Projectile.ai[0] == 45f)
 			{

@@ -26,8 +26,10 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			Projectile.ignoreWater = true;
 			Projectile.light = 0.5f;
 		}
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
+			return false; //no hitbox
+			/*
             int clampedX = projHitbox.Center.X - targetHitbox.Center.X;
             int clampedY = projHitbox.Center.Y - targetHitbox.Center.Y;
 
@@ -40,6 +42,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             int dY = projHitbox.Center.Y - targetHitbox.Center.Y - clampedY;
 
             return Math.Sqrt(dX * dX + dY * dY) <= Projectile.width / 2;
+			*/
         }
 
         public override void AI()

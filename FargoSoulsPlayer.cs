@@ -8,6 +8,7 @@ using FargowiltasSouls.Items.Armor;
 using FargowiltasSouls.Items.Dyes;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.ChallengerItems;
 using FargowiltasSouls.Projectiles.Masomode;
 using FargowiltasSouls.Projectiles.Minions;
 using FargowiltasSouls.Projectiles.Souls;
@@ -450,6 +451,7 @@ namespace FargowiltasSouls
         public int shieldTimer;
         public int shieldCD;
         public bool wasHoldingShield;
+        public int LightslingerHitShots = 0;
 
         public bool NoUsingItems;
 
@@ -2397,6 +2399,15 @@ namespace FargowiltasSouls
             {
                 target.AddBuff(ModContent.BuffType<OriPoison>(), 300);
                 target.immune[proj.owner] = 2;
+            }
+
+            if (proj.type == ModContent.ProjectileType<LightslingerShot>())
+            {
+                LightslingerHitShots++;
+                if (LightslingerHitShots == 20)
+                {
+                    SoundEngine.PlaySound(SoundID.Item4, Player.Center);
+                }
             }
 
 

@@ -38,7 +38,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
             if (Main.rand.NextBool(6))
             {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87);
+                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemTopaz);
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 0.5f;
             }

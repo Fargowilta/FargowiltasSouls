@@ -63,15 +63,15 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
                 Projectile.Opacity += 3 / 60f;
             }
-            if (Projectile.ai[1] >= 1170)
+            if (Projectile.ai[1] >= 1620)
 			{
 				Projectile.Opacity -= 1 / 60f;
 			}
-			if (Projectile.ai[1] >= 1200f)
+			if (Projectile.ai[1] >= 1650f)
 			{
 				Projectile.damage = 0;
 			}
-            if (Projectile.ai[1] > 1230f)
+            if (Projectile.ai[1] > 1680f)
 			{
 				Projectile.Kill();
 			}

@@ -32,9 +32,13 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void AI()
         {
+            if (Main.LocalPlayer.active && Main.LocalPlayer.statLife <= 0)
+            {
+                Main.LocalPlayer.KillMe(PlayerDeathReason.ByCustomReason(Main.LocalPlayer.name + " was executed."), 999999, 0); //kills you 1 frame after it sets your health down
+            }
             if (Main.LocalPlayer.active && Projectile.Colliding(Projectile.Hitbox, Main.LocalPlayer.Hitbox))
             {
-                Main.LocalPlayer.KillMe(PlayerDeathReason.ByCustomReason(Main.LocalPlayer.name + " was executed."), 999999, 0);
+                Main.LocalPlayer.statLife = -100;
             }
             if (Projectile.ai[1] > 0)
             {

@@ -5,14 +5,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace FargowiltasSouls.Projectiles.Challengers
+namespace FargowiltasSouls.Projectiles.ChallengerItems
 {
 
-	public class LifeProjSmall : ModProjectile
+	public class LightslingerBombshot : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Life Shot");
+            DisplayName.SetDefault("Light Shot");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -21,44 +21,35 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.width = 8;
             Projectile.height = 8;
             Projectile.aiStyle = 0;
-            Projectile.hostile = true;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
             AIType = 14;
             Projectile.penetrate = 1;
-            Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.ignoreWater = true; 
             Projectile.light = 0.5f;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
         {
-            int clampedX = projHitbox.Center.X - targetHitbox.Center.X;
-            int clampedY = projHitbox.Center.Y - targetHitbox.Center.Y;
-
-            if (Math.Abs(clampedX) > targetHitbox.Width / 2)
-                clampedX = targetHitbox.Width / 2 * Math.Sign(clampedX);
-            if (Math.Abs(clampedY) > targetHitbox.Height / 2)
-                clampedY = targetHitbox.Height / 2 * Math.Sign(clampedY);
-
-            int dX = projHitbox.Center.X - targetHitbox.Center.X - clampedX;
-            int dY = projHitbox.Center.Y - targetHitbox.Center.Y - clampedY;
-
-            return Math.Sqrt(dX * dX + dY * dY) <= Projectile.width / 2;
+            if (projHitbox.Intersects(targetHitbox))
+            {
+                return true;
+            }
+            float collisionPoint = 0f;
+            if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.Center - Projectile.velocity, Projectile.width, ref collisionPoint))
+            {
+                return true;
+            }
+            return false;
         }
+
         public override void AI()
         {
-            //Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 91, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.25f);
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
 
             if (Projectile.ai[0] > 600f)
             {
                 Projectile.Kill();
-            }
-            if (Projectile.ai[1] == 1)
-            {
-                Projectile.scale = 1f;
-            }
-            else
-            {
-                Projectile.scale = 1f;
             }
             Projectile.ai[0] += 1f;
         }
