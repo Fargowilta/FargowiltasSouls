@@ -262,6 +262,27 @@ namespace FargowiltasSouls
                     false,
                     "NPCs/Challengers/TrojanSquirrel_Still"
                 );
+                Add("Boss",
+                    "LifeChallenger",
+                    new List<int> { ModContent.NPCType<LifeChallenger>() },
+                    11.49f,
+                    () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.LifeChallenger],
+                    () => true,
+                    //TryAddMusicBoxToCollectibles(
+                    //    "DeviMusicBox",
+                    //    ModContent.ItemType<DeviatingEnergy>(),
+                    //    ModContent.ItemType<DeviTrophy>(),
+                    //    ModContent.ItemType<ChibiHat>(),
+                    //    ModContent.ItemType<BrokenBlade>()
+                    //)
+                    new List<int>(new int[]
+                    {
+                        //ModContent.ItemType<LifeChallengerTrophy>() ADD TROPHY
+                    }),
+                    new List<int> { ModContent.ItemType<BrokenPixieRing>() },
+                    false,
+                    "NPCs/Challengers/LifeChallenger_Still"
+                );
 
                 #endregion challengers
             }

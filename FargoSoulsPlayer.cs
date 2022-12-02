@@ -414,6 +414,7 @@ namespace FargowiltasSouls
         public byte lightningRodTimer;
         public bool ReverseManaFlow;
         public bool CurseoftheMoon;
+        public bool FadingSoul;
         public bool OceanicMaul;
         public int MaxLifeReduction;
         public int CurrentLifeReduction;
@@ -960,6 +961,7 @@ namespace FargowiltasSouls
             Jammed = false;
             ReverseManaFlow = false;
             CurseoftheMoon = false;
+            FadingSoul = false;
             OceanicMaul = false;
             DeathMarked = false;
             Hypothermia = false;
@@ -1901,6 +1903,10 @@ namespace FargowiltasSouls
 
             if (CurseoftheMoon)
                 DamageOverTime(20);
+            if (FadingSoul)
+            {
+                DamageOverTime(200);
+            }
 
             if (Oiled && Player.lifeRegen < 0)
             {
@@ -2114,6 +2120,22 @@ namespace FargowiltasSouls
                     Main.dust[d].velocity *= 2f;
                     drawInfo.DustCache.Add(d);
                 }
+            }
+
+            if (FadingSoul)
+            {
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
+                {
+                    int dust2 = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, DustID.Water_Hallowed, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default(Color), 3f);
+                    Main.dust[dust2].noGravity = true;
+                    Main.dust[dust2].velocity *= 1.8f;
+                    Main.dust[dust2].velocity.Y -= 0.5f;
+                    drawInfo.DustCache.Add(dust2);
+                }
+                r *= 0.1f;
+                g *= 0.2f;
+                b *= 0.7f;
+                fullBright = true;
             }
 
             if (DeathMarked)
