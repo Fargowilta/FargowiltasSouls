@@ -11,6 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Pungent Eyeball");
             Tooltip.SetDefault(@"Grants immunity to Blackout and Obstructed
+Increases spawn rate of rare enemies
 Your cursor causes nearby enemies to take increased damage
 Effect intensifies the longer you track them
 'It's fermenting'");

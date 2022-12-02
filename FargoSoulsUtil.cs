@@ -412,6 +412,10 @@ namespace FargowiltasSouls
         {
             return Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese;
         }
+        public static bool IsPortuguese()
+        {
+            return Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Portuguese;
+        }
 
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
 
@@ -449,7 +453,10 @@ namespace FargowiltasSouls
         {
             int p = Projectile.NewProjectile(source, spawn, velocity, type, rawBaseDamage, knockback, owner, ai0, ai1);
             if (p != Main.maxProjectiles)
+            {
                 Main.projectile[p].originalDamage = rawBaseDamage;
+                Main.projectile[p].ContinuouslyUpdateDamage = true;
+            }
             return p;
         }
 
@@ -510,7 +517,7 @@ namespace FargowiltasSouls
             }
         }
 
-        public static bool OnSpawnEnchCanAffectProjectile(Projectile projectile, IEntitySource source, bool allowMinions = false)
+        public static bool OnSpawnEnchCanAffectProjectile(Projectile projectile, bool allowMinions = false)
         {
             if (!allowMinions && (projectile.minion || projectile.sentry || projectile.minionSlots <= 0))
                 return false;

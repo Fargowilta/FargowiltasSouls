@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class BigBrainProj : ModProjectile
     {
-        public const int MaxMinionSlots = 11;
+        public const int MaxMinionSlots = 16;
 
         public override void SetStaticDefaults()
         {
@@ -78,7 +78,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     if (Projectile.owner == Main.myPlayer)
                     {
                         const float speed = 18f;
-                        int damage = (int)(Projectile.originalDamage * Projectile.scale); //damage directly proportional to Projectile scale, change later???
+                        int damage = (int)(Projectile.damage * Projectile.scale); //damage directly proportional to Projectile scale, change later???
                         int type = ModContent.ProjectileType<BigBrainIllusion>();
 
                         //Vector2 spawnpos = targetnpc.Center + Main.rand.NextVector2CircularEdge(150, 150);
@@ -86,7 +86,7 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                         Vector2 spawnFromMe = Main.player[Projectile.owner].Center + (Projectile.Center - Main.player[Projectile.owner].Center).RotatedBy(MathHelper.TwoPi / 4 * Main.rand.Next(4));
                         Vector2 vel = speed * Vector2.Normalize(targetnpc.Center + targetnpc.velocity * 15 - spawnFromMe);
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), spawnFromMe, vel, type, damage, Projectile.knockBack, Projectile.owner, Projectile.scale);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnFromMe, vel, type, damage, Projectile.knockBack, Projectile.owner, Projectile.scale);
                     }
                 }
             }

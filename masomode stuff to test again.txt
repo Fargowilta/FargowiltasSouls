@@ -88,3 +88,38 @@ fixed twins install disappearing
 adjusted cultist pillar telegraphs
 adjusted destroyer light show telegraphs
 fixed ninja ench making phantasm and similar "held proj" weapons overpowered
+
+resprites
+	fused lens
+	squeaky toy
+	boc minor adjustments
+	mutant pact
+	rabies shot
+	rockslide
+raised soe sell price
+gnomes can inflict stoned
+skeletron hands will tp back to head if they throw themselves too far (ie, will never despawn now)
+deerclops mash minigame max duration extended, aka you are forced to mash out (better for new players understanding that you do in fact need to do something)
+a sound plays when you mash in deerclops minigame to indicate it is actually do something
+deerclops runs faster to catch up if you're outrunning for too long
+deerclops has an enrage, uses ghost hands to freeze you if you are directly above him too much
+fixed ninja ench sometimes not working depending on accessory order?
+pungent eyeball new effect: x5 spawn rate of rare npcs (ones that appear on lifeform analyzer)
+fixed saucer minion shooting invisible rockets
+fixed all minions that shoot projectiles not having any damage scaling on their projectiles
+check balance of the following in particular
+	nano core minion mode
+	staff of unleashed ocean
+	drakovi fish minion
+	big brain buster (also raised its cap)
+tribal charm click bonus has a buff to better indicate it exists
+wretched pouch is much more obvious when its active
+maso wof shoots bigger rays lol
+removed thieving enemies they cant do it anymore you're safe it's over
+prime p2 at 80%, was 75%
+prime doesnt spawn more limbs until 60%
+qs has ACTUAL STARTUP on her stupid phase 2 sudden dive on your face attack
+restored vanilla qs stomp hitbox sorry
+made ml's phase timer smoother (previously had conspicuous "jumps" in cycle speed, now a continuous gradual transition)
+reduced ml's max rampup, phase time at 1hp is now 10sec (was 7.5sec)
+maso ml has way huger deathrays and more sphere rings in p2 all classes lmao you thought

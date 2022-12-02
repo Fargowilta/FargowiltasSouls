@@ -231,8 +231,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                 vel *= 8f;
                 for (int i = -1; i <= 1; i++)
                 {
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), spawn, vel.RotatedBy(Math.PI / 24 * i), ModContent.ProjectileType<PhantasmalBoltTrueEye>(),
-                        Projectile.originalDamage / 3 * 7, 6f, Projectile.owner);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, vel.RotatedBy(Math.PI / 24 * i), ModContent.ProjectileType<PhantasmalBoltTrueEye>(),
+                        Projectile.damage / 3 * 7, 6f, Projectile.owner);
                 }
             }
         }

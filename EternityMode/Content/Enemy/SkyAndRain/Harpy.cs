@@ -38,35 +38,35 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.SkyAndRain
             base.OnHitPlayer(npc, target, damage, crit);
 
             target.AddBuff(ModContent.BuffType<ClippedWings>(), 300);
-            if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
-            {
-                bool stolen = false;
-                if (Main.mouseItem.healLife > 0 && NPCs.EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem))
-                {
-                    stolen = true;
-                }
-                else
-                {
-                    for (int j = 0; j < target.inventory.Length; j++)
-                    {
-                        Item item = target.inventory[j];
-                        if (item.healLife > 0)
-                        {
-                            if (NPCs.EModeGlobalNPC.StealFromInventory(target, ref target.inventory[j]))
-                                stolen = true;
-                            break;
-                        }
-                    }
-                }
+            //if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
+            //{
+            //    bool stolen = false;
+            //    if (Main.mouseItem.healLife > 0 && NPCs.EModeGlobalNPC.StealFromInventory(target, ref Main.mouseItem))
+            //    {
+            //        stolen = true;
+            //    }
+            //    else
+            //    {
+            //        for (int j = 0; j < target.inventory.Length; j++)
+            //        {
+            //            Item item = target.inventory[j];
+            //            if (item.healLife > 0)
+            //            {
+            //                if (NPCs.EModeGlobalNPC.StealFromInventory(target, ref target.inventory[j]))
+            //                    stolen = true;
+            //                break;
+            //            }
+            //        }
+            //    }
 
-                if (stolen)
-                {
-                    string text = Language.GetTextValue($"Mods.{mod.Name}.Message.ItemStolen");
-                    Main.NewText(text, new Color(255, 50, 50));
-                    CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
-                }
-            }
-            target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
+            //    if (stolen)
+            //    {
+            //        string text = Language.GetTextValue($"Mods.{mod.Name}.Message.ItemStolen");
+            //        Main.NewText(text, new Color(255, 50, 50));
+            //        CombatText.NewText(target.Hitbox, new Color(255, 50, 50), text, true);
+            //    }
+            //}
+            //target.AddBuff(ModContent.BuffType<LoosePockets>(), 240);
         }
     }
 }

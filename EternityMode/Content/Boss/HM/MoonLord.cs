@@ -82,21 +82,24 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override int GetVulnerabilityState(NPC npc) => VulnerabilityState;
 
         public int VulnerabilityState;
-        public int VulnerabilityTimer;
-        public int AttackTimer;
         public int AttackMemory;
+
+        public float VulnerabilityTimer;
+        public float AttackTimer;
 
         public bool EnteredPhase2;
         public bool SpawnedRituals;
 
         public bool DroppedSummon;
+        public int SkyTimer;
 
         public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(VulnerabilityState), IntStrategies.CompoundStrategy },
-                { new Ref<object>(VulnerabilityTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(AttackMemory), IntStrategies.CompoundStrategy },
+
+                { new Ref<object>(VulnerabilityTimer), FloatStrategies.CompoundStrategy },
+                { new Ref<object>(AttackTimer), FloatStrategies.CompoundStrategy },
 
                 { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(SpawnedRituals), BoolStrategies.CompoundStrategy },
@@ -248,10 +251,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     {
                                         int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier, speed);
                                         if (p != Main.maxProjectiles)
-                                            Main.projectile[p].timeLeft = 1800 - VulnerabilityTimer;
+                                            Main.projectile[p].timeLeft = 1800 - (int)VulnerabilityTimer;
                                         p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, -rotationModifier, speed);
                                         if (p != Main.maxProjectiles)
-                                            Main.projectile[p].timeLeft = 1800 - VulnerabilityTimer;
+                                            Main.projectile[p].timeLeft = 1800 - (int)VulnerabilityTimer;
                                     }
                                 }
                                 SoundEngine.PlaySound(SoundID.Item84, npc.Center);
@@ -389,6 +392,29 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     }
                                 }
                             }
+
+                            if (FargoSoulsWorld.MasochistModeReal && AttackTimer > 300)
+                            {
+                                AttackTimer -= 540;
+
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                {
+                                    const int max = 8;
+                                    const int speed = 8;
+                                    const float rotationModifier = 0.5f;
+                                    int damage = 40;
+                                    float rotation = 2f * (float)Math.PI / max;
+                                    Vector2 vel = Vector2.UnitY * speed;
+                                    int type = ModContent.ProjectileType<Projectiles.MutantBoss.MutantSphereRing>();
+                                    for (int i = 0; i < max; i++)
+                                    {
+                                        vel = vel.RotatedBy(rotation);
+                                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier, speed);
+                                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, -rotationModifier, speed);
+                                    }
+                                    SoundEngine.PlaySound(SoundID.Item84, npc.Center);
+                                }
+                            }
                         }
                         break;
                 }
@@ -402,11 +428,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
             else //moon lord isn't dead
             {
-                const float maxRampup = 4;
+                const float maxRampup = 3;
                 float lerp = (float)npc.life / npc.lifeMax;
                 if (FargoSoulsWorld.MasochistModeReal)
                     lerp *= lerp;
-                int increment = (int)Math.Round(MathHelper.Lerp(maxRampup, 1, lerp));
+                float increment = (int)Math.Round(MathHelper.Lerp(maxRampup, 1, lerp));
 
                 VulnerabilityTimer += increment;
                 AttackTimer += increment;
@@ -498,23 +524,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 break;
 
                             default:
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                {
-                                    const int max = 8;
-                                    const int speed = 8;
-                                    const float rotationModifier = 0.5f;
-                                    int damage = 40;
-                                    float rotation = 2f * (float)Math.PI / max;
-                                    Vector2 vel = Vector2.UnitY * speed;
-                                    int type = ModContent.ProjectileType<Projectiles.MutantBoss.MutantSphereRing>();
-                                    for (int i = 0; i < max; i++)
-                                    {
-                                        vel = vel.RotatedBy(rotation);
-                                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, rotationModifier, speed);
-                                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, type, damage, 0f, Main.myPlayer, -rotationModifier, speed);
-                                    }
-                                    SoundEngine.PlaySound(SoundID.Item84, npc.Center);
-                                }
                                 break;
                         }
                     }
@@ -525,8 +534,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (Main.GameModeInfo.IsJourneyMode && CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().Enabled)
                 CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().SetPowerInfo(false);
 
-            if (!Main.dedServ && VulnerabilityTimer % 30 == 0 && NPC.FindFirstNPC(npc.type) == npc.whoAmI)
+            if (!Main.dedServ && ++SkyTimer > 30 && NPC.FindFirstNPC(npc.type) == npc.whoAmI)
             {
+                SkyTimer = 0;
+
                 if (!SkyManager.Instance["FargowiltasSouls:MoonLordSky"].IsActive())
                     SkyManager.Instance.Activate("FargowiltasSouls:MoonLordSky");
 

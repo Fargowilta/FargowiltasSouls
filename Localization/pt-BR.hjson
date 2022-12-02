@@ -25,15 +25,25 @@ Mods: {
 				Reduz a defesa em 20, vida máxima em 10%, e redução de danos em 15%
 				'''
 
-			Eridanus:
+			EridanusOff:
 				'''
-				Aperte {0} duas vezes para alternar a bênção de Eridanus e fortalecer uma classe de armas
+				20% de aumento nos danos para sua classe de armas atual
+				10% de aumento na chance de acerto crítico para sua classe de armas atual
+				10% de aumento na velocidade do ataque pra sua classe de armas atual
+				Aperte {0} duas vezes para ativar a bênção de Eridanus 
+				'''
+			
+			EridanusOn:
+				'''
+				A bênção de Eridanus fortalece uma classe de armas
 				A classe fortalecida muda a cada 10 segundos
 				Eridanus luta ao seu lado quando você usa a classe fortalecida
-				80% de aumento nos danos, 30% de aumento na chance de acerto crítico, e 30% de aumento na velocidade do ataque para a classe fortalecida
-				Quando a bênção de Eridanus está desativada, 20% de aumento nos danos e 10% de aumento na chance de acerto crítico para sua classe de armas atual
+				80% de aumento nos danos para a classe fortalecida
+				30% de aumento na chance de acerto crítico para a classe fortalecida
+				30% de aumento na velocidade do ataque para a classe fortalecida
+				Aperte {0} duas vezes para desativar a bênção de Eridanus
 				'''
-
+			
 			Styx:
 				'''
 				20% de aumento nos danos da sua classe de armas atual
@@ -141,6 +151,8 @@ Mods: {
 			SouloftheMasochist: Alma dos Irmãos
 			TrueEyes: Verdadeiros Olhos de Cthulhu
 			TwinsEX: Gêmeos X
+
+			TrojanSquirrelMountBuff: Esquilo de Tróia
 			
 			AccursedSarcophagusBuff: Sarcófago Maldito
 			BabyAbomBuff: Abom Bebê
@@ -169,6 +181,8 @@ Mods: {
 			SuperBleed: Gêiser de Sangue
 			TimeFrozen: Tempo Congelado
 			TimeStopCooldown: Tempo de Recarga da Parada no Tempo
+			TitaniumCD: Tempo de Recarga do Escudo de Titânio
+			TitaniumDRBuff: Escudo de Titânio
 			VortexCD: Tempo de Recarga do Vórtice
 			
 			KingSlimeMinionBuff: Mini Geleia Rei
@@ -271,6 +285,8 @@ Mods: {
 			TrueEyes: Os olhos de Cthulhu protegerão você
 			TwinsEX: Os verdadeiros Gêmeos lutarão por você
 			
+			TrojanSquirrelMountBuff: Você está montado em um esquilo mecânico
+
 			AccursedSarcophagusBuff: Ele não tocará em nada
 			BabyAbomBuff: Fazendo kickflips em uma foice
 			BabySilhouetteBuff: Ele não verá a luz até que já esteja crescido
@@ -294,6 +310,8 @@ Mods: {
 			ShellHide: Os projéteis estão sendo bloqueados
 			TimeFrozen: Você está parado no tempo
 			TimeStopCooldown: Você não pode parar o tempo ainda
+			TitaniumCD: Você está carregando o Escudo de Titânio
+			TitaniumDRBuff: Você tem resistência adicional aos danos
 			VortexCD: Você não pode invocar outro vórtice ainda
 			
 			KingSlimeMinionBuff: A Mini Geleia Rei protegerá você
@@ -330,7 +348,7 @@ Mods: {
 			ForbiddenEnchant: Encantamento Proibído
 			FossilEnchant: Encantamento de Fóssil
 			FrostEnchant: Encantamento Congelado
-			GladiatorEnchant: Encantamento Congelado
+			GladiatorEnchant: Encantamento do Gladiador
 			GoldEnchant: Encantamento de Ouro
 			HallowEnchant: Encantamento Consagrado
 			HuntressEnchant: Encantamento da Caçadora
@@ -467,17 +485,14 @@ Mods: {
 			VoidSoul: Alma do Vazio
 			WorldShaperSoul: Alma do Modelador do Mundo
 			
-			// Ammo
-			
+			// Ammo		
 			FargoArrow: Aljava de Flecha Amalgamada
 			FargoBullet: Bolsa de Projétil Amalgamada
 			
 			// Armor
-			
 			EridanusBattleplate: Placas de Batalha de Eridanus
 			EridanusHat: Chapéu de Eridanus
 			EridanusLegwear: Calças de Eridanus
-			
 			GaiaGreaves: Grevas de Gaia
 			GaiaHelmet: Elmo de Gaia
 			GaiaPlate: Placas de Gaia
@@ -495,7 +510,6 @@ Mods: {
 			StyxLeggings: Calças de Styx
 			
 			// Boss Bags
-			
 			AbomBag: Bolsa do Tesouro
 			CosmosBag: Bolsa do Tesouro
 			DeviBag: Bolsa do Tesouro
@@ -503,7 +517,6 @@ Mods: {
 			TrojanSquirrelBag: Bolsa do Tesouro
 			
 			// Consumables
-			
 			DeerSinew: Tendão de Cervo
 			MutantsCreditCard: Cartão de Crédito do Mutant
 			MutantsDiscountCard: Cartão de Desconto do Mutant
@@ -513,13 +526,11 @@ Mods: {
 			RabiesVaccine: Vacina de Raiva
 			
 			// Dyes
-			
 			LifeDye: Tintura Celestial
 			WillDye: Tintura da Força de Vontade
 			GaiaDye: Tintura de Gaia
 			
 			// Materials
-			
 			AbomEnergy: Energia Abominável
 			BrokenBlade: Lâmina Quebrada
 			BrokenHilt: Cabo Quebrado
@@ -529,15 +540,16 @@ Mods: {
 			PhantasmalEnergy: Energia Fantasmagórica
 			
 			// Misc
-			
 			EternityAdvisor: Orientador da Eternidade
 			GalacticReformer: Reformador Galáctico
 			MutantsFury: Fúria do Mutant
 			TopHatSquirrelCaught: Esquilo com Cartola
 			UniversalCollapse: Colapso Universal
 			
+			// Mounts
+			AcornConstruct: Fusão de Bolotas
+
 			// Pets
-			
 			AccursedRags: Trapos Malditos
 			BabyScythe: Foice Bebê
 			ChibiHat: Chapéu Chibi
@@ -548,7 +560,6 @@ Mods: {
 			
 			// Placeables
 			// Relics
-			
 			AbomRelic: Relíquia do Abominationn
 			DeviRelic: Relíquia da Deviantt
 			EarthChampionRelic: Relíquia do Campeão da Terra
@@ -564,7 +575,6 @@ Mods: {
 			WillChampionRelic: Relíquia do Campeão da Vontade
 			
 			// Trophies
-			
 			AbomTrophy: Troféu do Abominationn
 			DeviTrophy: Troféu da Deviantt
 			EridanusTrophy: Troféu de Eridanus
@@ -578,7 +588,6 @@ Mods: {
 			TwentyTwoPainting: Pintura 22
 			
 			//Summons
-			
 			AbominationnVoodooDoll: Boneco de Vodu do Abominationn
 			AbomsCurse: Maldição do Abominationn
 			ChampionySigil: Símbolo meio Campeão
@@ -589,7 +598,6 @@ Mods: {
 			
 			// Weapons
 			// Boss Drops
-			
 			BoneZone: Canhão Furiosso
 			BrainStaff: Quebra Cerebral
 			DestroyerGun: Arma do Destruidor
@@ -606,7 +614,6 @@ Mods: {
 			TwinRangs: Gemeorangues
 			
 			// Challengers
-			
 			KamikazeSquirrelStaff: Cajado de Esquilo Kamikaze
 			MountedAcornGun: Arma de Bolota Montada
 			SnowballStaff: O Efeito Bola de Neve
@@ -614,7 +621,6 @@ Mods: {
 			TreeSword: Espada de Árvore
 			
 			// Final Upgrades
-			
 			HentaiSpear: O Penetrador
 			PhantasmalLeashOfCthulhu: Coleira Fantasmagórica de Cthulhu
 			SlimeRain: Chuva de Geleias
@@ -622,14 +628,12 @@ Mods: {
 			StyxGazer: Contemplador de Styx
 			
 			// Misc
-			
 			Mahoguny: Armogno
 			OvergrownKey: Chave Coberta
 			TophatSquirrelWeapon: Esquilo com Cartola
 			Vineslinger: Lança-vinhas
 			
 			// Swarm Drops
-			
 			BigBrainBuster: Grande Destruidor de Cérebros
 			Blender: O Liquidificador
 			DestroyerGun2: Canhão da Destruição
@@ -652,7 +656,6 @@ Mods: {
 			MasochistReal: Presente Esquecido
 			
 			// Patreon
-			
 			MedallionoftheFallenKing: Medalhão do Rei Caído
 			ComputationOrb: Esfera da Computação
 			StaffOfUnleashedOcean: Cajado do Oceano Desencadeado
@@ -668,9 +671,7 @@ Mods: {
 			SquidwardDoor: Porta do Lula Molusco
 			MissDrakovisFishingPole: Vara de Pesca da Senhorita Drakovi
 			CrimetroidEgg: Ovo Crimetroid
-			
-			
-			
+			NanoCore: Nanonúcleo
 		}
 		
 		ItemTooltip: {
@@ -686,7 +687,7 @@ Mods: {
 				
 			AncientCobaltEnchant: 
 				'''
-				Oferece um pulo explosivo
+				Oferece um pulo explosivo que inflige Oleoso
 				'Kobold-o Antigo'
 				'''
 			
@@ -694,8 +695,7 @@ Mods: {
 				'''
 				Você ganha um escudo que pode refletir projéteis
 				Invoca uma Terraprisma familiar que fica mais forte com dano por invocação
-				Aumenta consideravelmente a velocidade dos lacaios
-				'Santificado seja a sua espada e escudo'
+				'Você tem poder suficiente para me empunhar?'
 				'''
 			
 			AncientShadowEnchant: 
@@ -762,7 +762,7 @@ Mods: {
 			
 			CobaltEnchant: 
 				'''
-				Oferece um pulo explosivo
+				Oferece um pulo explosivo que inflige Oleoso e brevemente concede invulnerabilidade
 				Quando você é atingido, você explode violentamente para machucar inimigos próximos
 				'Eu não posso acreditar que não é Paládio'
 				'''
@@ -785,10 +785,11 @@ Mods: {
 			CrystalAssassinEnchant: 
 				'''
 				Permite correr
-				Use a hotkey de Ninja para lançar uma bomba de fumaça, use-a novamente para teleportar-se a ela e ganhar o efeito Primeiro Ataque
+				Use a hotkey de Assassino para lançar uma bomba de fumaça, use-a novamente para teleportar-se a ela e ganhar o efeito Primeiro Ataque
 				Usar o Cajado da Discórdia também concederá esse efeito
 				Efeitos da Gelatina Volátil
-				'Enganosamente frágil'
+				O Primeiro Ataque garante que seu próximo ataque atinja um ponto fraco, causando 3x o dano e reduzindo a defesa em 10
+				'Sumiu!'
 				'''
 			
 			DarkArtistEnchant: 
@@ -803,7 +804,8 @@ Mods: {
 				
 			EbonwoodEnchant: 
 				'''
-				Você tem uma aura de Chamas das Sombras
+				Você é envolto por uma aura de Chamas das sombras
+				Qualquer projétil que causaria menos que 10 de dano a você é destruído
 				'Potencial inexplorado'
 				'''
 				
@@ -827,7 +829,7 @@ Mods: {
 				Gelos começarão a aparecer ao seu redor
 				Atacar lançará eles na direção do cursor
 				Quando eles atingem um inimigo, ele é congelado
-				Aperte a tecla Congelar para esfriar tudo por 15 segundos
+				Aperte a tecla Congelar para esfriar tudo por 20 segundos
 				Todos os projéteis hostis se movem na metade da velocidade
 				'Vamos cobrir o mundo em um congelamento profundo'
 				'''
@@ -835,6 +837,7 @@ Mods: {
 			GladiatorEnchant: 
 				'''
 				Lanças choverão em inimigos atingidos
+				Oferece imunidade a recuos quando você está encarando o ataque
 				'Não se divertiram?'
 				'''
 			
@@ -865,10 +868,9 @@ Mods: {
 			
 			IronEnchant: 
 				'''
-				Clique com o botão direito para defender-se com seu escudo
-				Defenda pouco antes de ser atingido para negar o dano
 				Você atrai itens de um alcance maior
-				'Malhe no ferro enquanto está quente'
+				33% de chance de não consumir ingredientes de criação em uma Bigorna de Ferro
+				'Eita, ferrou!'
 				'''
 			
 			JungleEnchant: 
@@ -881,6 +883,7 @@ Mods: {
 			
 			LeadEnchant: 
 				'''
+				Você sofre 40% menos dano de efeitos negativos
 				Ataques infligem inimigos com Envenenamento por Chumbo
 				Envenenamento por Chumbo causa danos ao longo do tempo e se espalha para inimigos próximos
 				'Não recomendado como comida'
@@ -888,6 +891,8 @@ Mods: {
 			
 			MeteorEnchant: 
 				'''
+				Reduz o impulso em 50%
+				Você deixa para trás uma rastro de chamas
 				Uma chuva de meteoros é iniciada a cada poucos segundos enquanto você ataca
 				'Derrube um draco neles'
 				'''
@@ -943,24 +948,24 @@ Mods: {
 			
 			NinjaEnchant: 
 				'''
-				Use a hotkey de Ninja para lançar uma bomba de fumaça, use-a novamente para teleportar-se a ela e ganhar o efeito Primeiro Ataque
-				O Primeiro Ataque garante que seu próximo ataque atinja um ponto vital, causando 3x o dano e reduzindo a defesa em 10
-				'Agora você me vê, agora não'
+				Aumenta drasticamente a velocidade dos projéteis
+				Reduz o dano para compensar pela velocidade aumentada
+				Aumenta a perfuração de blindagem em 10
+				'Ataque mais rápido do que o olho pode ver'
 				'''
 			
 			ObsidianEnchant: 
 				'''
 				Oferece imunidade a fogo e lava
 				Você tem movimento normal e pode nadar na lava
-				Enquanto você está na lava ou molhado de lava, seus ataques invocam explosões
-				Aumenta o alcance dos chicotes em 50%
+				Enquanto você está na lava ou molhado de lava, seus ataques invocam explosões e aplicam Estalinho
 				'A terra chama'
 				'''
 			
 			OrichalcumEnchant: 
 				'''
 				Pétalas de flores causarão danos adicionais em seu alvo e infligem Veneno de Oricalco
-				Efeitos negativos causarão 3x o dano
+				Efeitos negativos causarão 2,5x o dano
 				'A natureza te abençoa'
 				'''
 			
@@ -1018,7 +1023,7 @@ Mods: {
 			RichMahoganyEnchant: 
 				'''
 				Todos os ganchos puxam 1.5x mais rápido, disparam 2x mais rápido, e retraem 3x mais rápido
-				Enquanto você usa um gancho, você ganha 10 de defesa e um efeito de espinhos de 50%
+				Enquanto você usa um gancho, você ganha 10% de resistência aos danos para um ataque e um efeito de espinhos de 50%
 				'Irá manter você preso'
 				'''
 			
@@ -1057,16 +1062,15 @@ Mods: {
 				
 			SilverEnchant: 
 				'''
-				Invoca uma espada familiar que fica mais forte com dano por invocação
-				Aumenta a velocidade dos lacaios consideravelmente
-				Reduz o dano por lacaios para compensar pela velocidade aumentada
-				'Você tem poder suficiente para me empunhar?'
+				Clique com o botão direito para defender-se com seu escudo
+				Defenda pouco antes de ser atingido para negar o dano
+				'Reflexão'
 				'''
 			
 			SnowEnchant: 
 				'''
-				Invoca uma tempestade de neve no seu cursor
-				Qualquer projétil ou NPC na tempestade de neve é desacelerado em 50%
+				Aperte a tecla Congelar para esfriar tudo por 15 segundos
+				Há um tempo de recarga de 60 segundos para este efeito
 				'Está Queimando Frio Lá Fora'
 				'''
 				
@@ -1131,7 +1135,9 @@ Mods: {
 			
 			TitaniumEnchant: 
 				'''
-				Atacar gera uma barreira defensiva de fragmentos de titânio
+				Atacar gera uma barreira defensiva de até 20 fragmentos de titânio
+				Quando você atinge a quantidade máxima, você ganha 75% de resistência aos danos por 3 segundos
+				Isto tem um tempo de recarga de 10 segundos
 				'O poder de titânio na palma da sua mão'
 				'''
 			
@@ -1177,7 +1183,7 @@ Mods: {
 				
 			WoodEnchant:
 				'''
-				As entradas no bestiário são completadas duas vezes mais rápido
+				As entradas no bestiário e das bandeiras são completadas duas vezes mais rápido
 				Você recebe um disconto nas lojas com base na conclusão do bestiário
 				'''
 			
@@ -1215,9 +1221,10 @@ Mods: {
 				'''
 			
 			// Expert
-			
 			BoxofGizmos:
 				'''
+				Funciona em seu inventário
+				Fique parado para expor tesouros próximos
 				Oferece disparo automático a todos os itens
 				Reduz a velocidade de uso dos itens afetados em 20%
 				'''
@@ -1230,7 +1237,6 @@ Mods: {
 				'''
 			
 			// Masomode
-			
 			AbominableWand:
 				'''
 				Oferece imunidade a Presa Abominável e Presença Abominável
@@ -1267,8 +1273,8 @@ Mods: {
 			BetsysHeart:
 				'''
 				Oferece imunidade a Esvaído, Arma Ressecada e Armadura Ressecada
-				Seus ataques críticos infligem Maldição de Betsy
 				Aperte a tecla Corrida Especial para fazer uma corrida de bola de fogo invencível curta
+				Atingir inimigos com a corrida inflige Maldição de Betsy
 				'Levemente torrado e mal passado'
 				'''
 			
@@ -1390,7 +1396,7 @@ Mods: {
 			
 			GalacticGlobe:
 				'''
-				Oferece imunidade a Invertido, Instável e Maldição da Lua
+				Oferece imunidade a Maldição da Anulação, Invertido, Instável e Maldição da Lua
 				Permite que o usuário controle a gravidade
 				Estabiliza a gravidade no espaço e em líquidos
 				Invoca os verdadeiros olhos de Cthulhu para te proteger
@@ -1433,11 +1439,11 @@ Mods: {
 				Oferece imunidade a Molhado, Eletrizado, Malha Oceânica, Mordida Oceânica, Sanguessuga da Lua, Maldição da Anulação e efeitos negativos aquáticos
 				Aumenta o dano e a chance a chance de acerto crítico em 10% e aumenta a redução de danos em 5%
 				Aumenta o tempo de voo em 100%
-				Seus ataques críticos infligem Maldição de Betsy
 				Clique com o botão direito para defender-se com sua capa
 				Você pode disparar ataques adicionais periodicamente dependendo do tipo da arma
 				Seus ataques críticos infligem Apodrecendo e Maldição de Betsy
 				Aperte a tecla Corrida Especial para fazer uma corrida de bola de fogo invencível curta
+				Aperte a tecla Ciclar Munição para ciclar munições (este efeito funciona passivamente do inventário)
 				Concede os efeitos do efeito negativo Molhado ao montar no Peixe-dragão Fofinho e controle da gravidade
 				Você congela tudo quando atingido, mas sofrer acertos consecutivos acumula penalidades na sua redução de danos
 				Invoca um Mini Disco Voador e verdadeiros olhos de Cthulhu amigáveis
@@ -1518,6 +1524,7 @@ Mods: {
 			NecromanticBrew:
 				'''
 				Oferece imunidade a Letárgico
+				Aumenta a velocidade enquanto faz uma corrida em 50%
 				Enquanto faz uma corrida, você sofre 75% menos dano de contato e reflete 100% do dano de contato no atacante
 				Invoca 2 braços do Esqueletron para bater nos inimigos
 				'A solução de crescimento ósseo de um inimigo derrotado'
@@ -1536,6 +1543,7 @@ Mods: {
 				Oferece imunidade a Julgamento
 				Reduz o tamanho da sua hurtbox para projéteis
 				Segure a tecla Selo de Precisão para desativar corridas e pulos duplos
+				O tamanha da sua hurtbox é reduzido mesmo quando não é exibido
 				'Esquiva tão perto que você quase consegue prová-lo'
 				'''
 			
@@ -1599,6 +1607,7 @@ Mods: {
 			SaucerControlConsole:
 				'''
 				Oferece imunidade a Eletrizado e Distorcido
+				Aperte a tecla Ciclar Munição para ciclar munições (este efeito funciona passivamente do inventário)
 				Invoca um Mini Disco Voador amigável
 				O raio trator do disco voador desacelera inimigos atingidos por ele
 				'Basta mantê-lo no modo avião'
@@ -1615,7 +1624,7 @@ Mods: {
 				'''
 				Oferece imunidade a Azarado e Estonteado
 				Aumenta a taxa de criação
-				Inimigos com 2000 ou menos de vida máxima deixarão cair o dobro de espólios
+				Inimigos não-chefes deixarão cair o dobro de espólios
 				'Definitivamente não está vivo'
 				'''
 			
@@ -1663,6 +1672,7 @@ Mods: {
 				Ao fazer corridas ou correr rapidamente, você criará um rastro de gadanhas sangrentas
 				Aperte a tecla Instalar Efeitos Negativos para ficar furioso
 				Aperte a tecla Corrida Especial para fazer uma corrida de abelha curta e rápida
+				Aumenta a velocidade enquanto faz uma corrida em 50%
 				Enquanto faz uma corrida, você sofre 75% menos dano de contato e reflete 100% do dano de contato no atacante
 				Abelhas e Vespas fracas tornam-se mais amigáveis
 				Invoca 2 braços do Esqueletron para bater nos inimigos
@@ -1709,7 +1719,6 @@ Mods: {
 				'''
 			
 			// Souls
-			
 			ArchWizardsSoul:
 				'''
 				30% de aumento nos danos por magia
@@ -1745,8 +1754,8 @@ Mods: {
 			ConjuristsSoul:
 				'''
 				30% de aumento nos danos por lacaios
-				Aumenta o número máximo de lacaios em 3
-				Aumenta o número máximo de sentinelas em 3
+				Aumenta o número máximo de lacaios em 5
+				Aumenta o número máximo de sentinelas em 5
 				Maior recuo dos lacaios
 				'Um exército à sua disposição'
 				'''
@@ -1874,7 +1883,7 @@ Mods: {
 				Todas as varas de pesca terão 10 iscas extras
 				Você pega peixes quase instantaneamente
 				Efeitos Sonar e Caixote permanentes
-				Efeitos da Bolsa do Pescador e Bolsa de Esporos
+				Efeitos da Bolsa do Pescador, Gel Volátil, e Bolsa de Esporos
 				Efeitos do Balão da Ferradura Cor-de-rosa e Equipamento de Mergulho Ártico
 				'Os peixes se pescam'
 				'''
@@ -1888,8 +1897,8 @@ Mods: {
 				Críticos causam 4x em vez de 2x
 				Todas as armas têm o recuo dobrado
 				Aumenta a sua mana máxima em 300
-				Aumenta o número máximo de lacaios em 4
-				Aumenta o número máximo de sentinelas em 4
+				Aumenta o número máximo de lacaios em 2
+				Aumenta o número máximo de sentinelas em 2
 				Todos os ataques infligem Chamas do Universo
 				Efeitos da Manopla de Fogo, Bolsa de Ioiô, e Casco Celestial
 				Efeitos da Luneta do Atirador, Algemas Celestiais e Flor de Mana
@@ -1931,7 +1940,6 @@ Mods: {
 				'''
 			
 			// Armor
-			
 			EridanusBattleplate:
 				'''
 				10% de aumento nos danos
@@ -2035,14 +2043,13 @@ Mods: {
 				'''
 			
 			// Boss Bags
-			
 			AbomBag: Clique com o botão direito para abrir
 			CosmosBag: Clique com o botão direito para abrir
 			DeviBag: Clique com o botão direito para abrir
 			MutantBag: Clique com o botão direito para abrir
 			TrojanSquirrelBag: Clique com o botão direito para abrir
-			// Consumables
 			
+			// Consumables
 			DeerSinew:
 				'''
 				Permite correr
@@ -2079,7 +2086,6 @@ Mods: {
 			RabiesVaccine: Oferece imunidade permanente a Mordida Feroz
 			
 			// Materials
-			
 			Eridanium: Um fragmento de poder cósmico
 			EternalEnergy:
 				'''
@@ -2088,7 +2094,6 @@ Mods: {
 				'''
 			
 			// Misc
-			
 			EternityAdvisor: Sugere equipamentos para o Modo Eternidade baseado na progressão
 			GalacticReformer:
 				'''
@@ -2103,8 +2108,10 @@ Mods: {
 			
 			UniversalCollapse: Destrói o Universo
 			
+			// Mounts
+			AcornConstruct: Monte no Esquilo
+
 			// Pets
-			
 			AccursedRags:
 				'''
 				Invoca um pequeno sarcófago maldito
@@ -2150,7 +2157,6 @@ Mods: {
 				'''
 			
 			//Summons
-			
 			AbominationnVoodooDoll:
 				'''
 				Invoca o Abominationn para a sua cidade
@@ -2175,7 +2181,6 @@ Mods: {
 			
 			// Weapons
 			// Boss Drops
-			
 			BoneZone:
 				'''
 				Utiliza ossos como munição
@@ -2258,7 +2263,6 @@ Mods: {
 				'''
 			
 			// Challengers
-			
 			KamikazeSquirrelStaff:
 				'''
 				Invoca esquilos amigáveis para abraçar os seus inimigos
@@ -2288,7 +2292,6 @@ Mods: {
 			TreeSword: Dispara uma bolota
 			
 			// Final Upgrades
-			
 			HentaiSpear:
 				'''
 				Tem ataques diferentes ao usar o botão esquerdo ou direito
@@ -2320,7 +2323,6 @@ Mods: {
 				'''
 			
 			// Misc
-			
 			Mahoguny:
 				'''
 				Utiliza bolotas como munição
@@ -2341,9 +2343,7 @@ Mods: {
 			Vineslinger: Atingir um inimigo dispara folhas
 			
 			// Swarm Drops
-			
-			// Not sure how to translate Big Brain Buster's tooltip
-			
+			/// Not sure how to translate Big Brain Buster's tooltip
 			Blender:
 				'''
 				'A recompensa por matar muitos...'
@@ -2435,7 +2435,6 @@ Mods: {
 				'''
 			
 			// Others
-			
 			ForgorGift:
 				'''
 				[c/ff0000:Item de depuração]
@@ -2465,7 +2464,6 @@ Mods: {
 				'''
 			
 			// Patreon
-			
 			MedallionoftheFallenKing: Invoca uma Geleia Rei que escala com o dano por invocação
 			ComputationOrb:
 				'''
@@ -2477,7 +2475,7 @@ Mods: {
 			StaffOfUnleashedOcean:
 				'''
 				Invoca o Duque Peixe-dragão para lutar por você
-				Precisa de 2 espaços de lacaio
+				O Duque Peixe-dragão ignora até 400 de defesa do inimigo
 				'Agora, canalize a sua raiva contra eles!'
 				'''
 			
@@ -2543,6 +2541,12 @@ Mods: {
 				Não deve ser confundido com andróides criminosos
 				'''
 			
+			NanoCore:
+				'''
+				Ao segurar isso, 7 nanounidades aparecerão e construirão armas.
+				Clique com o botão esquerdo para atacar e clique com o botão direito para trocar de arma.
+				'A ciência está ao nosso lado.'
+				'''
 			
 		}
 		
@@ -3208,6 +3212,12 @@ Mods: {
 			SpikyLure: Isca com Espinhos
 			WaterStream: Fluxo de Água
 			Crimetroid: Crimetroid
+			NanoBase: Nanonúcleo
+			NanoBlade: Lâmina de Plasma
+			NanoProbe: Nanosonda
+			PlasmaArrow: Flecha de Plasma
+			PlasmaDeathray: Raio da Morte de Plasma
+			PlasmaProj: Raio de Plasma
 		}
 		
 		
@@ -3302,6 +3312,7 @@ Mods: {
 			MasochistWrongDifficulty: O mundo deve ser de dificuldade Perito ou mais difícil!
 			MasochistModeUnlocked: "{$Mods.FargowiltasSouls.ItemName.Masochist} surge com novos poderes...!"
 			MasochistPreTooltip: Ativa o Modo Masoquista quando usado no Modo Mestre
+			ForgottenGift: '''mundo atualmente maso: '''
 
 			FargoSoulsWorld: {
 				EternityOn: Modo Eternidade ativado!
@@ -3349,10 +3360,14 @@ Mods: {
 			PatreonItem: ">> Item do Patreon <<"
 			PatreonNameEffect: Seus efeitos especiais do patreon estão ativos
 
-			SkeletronRegrow: renasceu os seus braços!
-			SkeletronGuardian: entrou na forma do Guardião do Calabouço!
+			SkeletronRegrow: "{$NPCName.SkeletronHead} renasceu seus braços!"
+			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime} renasceu seus braços!"
+			SkeletronGuardian: "{$NPCName.SkeletronHead} entrou na forma de Guardião do Calabouço!"
+			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime} entrou na forma de Guardião do Calabouço!"
 			TwinsEndure: aguentou o golpe fatal para lutar junto de seu gêmeo!
 			GelatinSubjects: Sujeitos Gelatinosos acordaram!
+			RoyalSubject: Sujeito Real acordou!
+			QueenBeeEnrage: "{$NPCName.QueenBee} se enfureceu fora da Selva Subterrânea!"
 			
 			MoonsDeathPenalty: O progresso da onda regrediu!
 		}
@@ -3483,7 +3498,7 @@ Mods: {
 			TerraHeader: "{$Mods.FargowiltasSouls.ItemName.TerraForce}"
 			CopperConfig: Cobre: Relâmpago
 			IronMConfig: Ferro: Ímã
-			IronSConfig: Ferro: Bloqueio
+			SilverS: Prata: Bloqueio
 			TinConfig: Estanho: Acertos Críticos
 			TungstenConfig: Tungstênio: Efeito do Item
 			TungstenProjConfig: Tungstênio: Efeito do Projétil
@@ -3540,7 +3555,7 @@ Mods: {
 			HallowedConfig: Consagrado Antigo: Familiar da Terraprisma
 			HallowSConfig: Consagrado Antigo: Escudo
 			SilverConfig: Prata: Familiar da Espada de Prata
-			SilverSpeedConfig: Prata: Velocidade dos Lacaios
+			NinjaSpeedConfig: Ninja: Velocidade dos Projéteis
 			SpectreConfig: Espectro: Esferas
 			TikiConfig: Tiki: Lacaios
 
@@ -3677,6 +3692,7 @@ Mods: {
 			TrawlerSporeConfig: Arrastão: Bolsa de Esporos
 			TrawlerConfig: Arrastão: Iscas Extras
 			TrawlerJumpConfig: Arrastão: Pulo
+			TrawlerGelConfig: Arrastão: Gelatina Volátil
 
 			EternityHeader: "{$Mods.FargowiltasSouls.ItemName.EternitySoul}"
 			EternityConfig: Eternidade: Acumulação
@@ -3982,7 +3998,7 @@ Mods: {
 					Bônus de armadura de Auric Tesla
 					Bônus de armadura de Mollusk
 					Bônus de armadura de Reaver
-					Bônus de armadura de Ataxia
+					Bônus de armadura de Hydrothermic
 					Bônus de armadura de Astral
 					Bônus de armadura de Tarragon
 					Bônus de armadura de Demonshade
@@ -4013,7 +4029,7 @@ Mods: {
 					Efeitos de The Sponge
 					Efeitos de Giant Pearl
 					Efeitos de Amidias' Pendant
-					Efeitos de Fabled Tortoise Shell
+					Efeitos de Flame-Licked Shell
 					Efeitos de Plague Hive
 					Efeitos de Astral Arcanum
 					Efeitos de Hide of Astrum Deus
@@ -4086,7 +4102,6 @@ Mods: {
 			ChlorophyteBullet: Velocidade e duração reduzidos
 			WaterBolt: Não pode ser usado até que Esqueletron seja derrotado
 			HolyDodge: A ativação da Esquiva Divina reduzirá temporariamente a sua velocidade do ataque 
-			SpectreHood: Esferas de cura se movem mais devagar e desaparecem rapidamente
 			FrozenTurtleShell: A barreira congelada reduz levemente o seu dano causado
 			BrainOfConfusion: Reduz o seu dano ao efetuar uma esquiva
 
@@ -4105,6 +4120,9 @@ Mods: {
 			WhipStack: Efeitos e efeitos negativos de chicote não podem acumular
 			MinionStack: O dano dos lacaios diminui ao invocar mais de 3 cópias (o limite do efeito é 12)
 			SummonMulticlass: O dano por lacaios diminui quando você ataca usando outras classes (exceto no EdA)
+			
+			ShadowDodge: Modo Eternidade: Esquivar reduzirá sua velocidade de ataque
+			IceBarrier: Modo Eternidade: 10% de redução nos danos
 		}
 
 		

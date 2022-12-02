@@ -103,7 +103,7 @@ namespace FargowiltasSouls.Patreon.Sasha
 
                 //summon
                 case 4:
-                    FargoSoulsUtil.NewSummonProjectile(source, position, velocity, ModContent.ProjectileType<FishMinion>(), (int)(Item.damage / 2 * 1.2), knockback, player.whoAmI);
+                    FargoSoulsUtil.NewSummonProjectile(source, position, velocity, ModContent.ProjectileType<FishMinion>(), (int)(Item.damage / 2 / 3), knockback, player.whoAmI);
                     break;
 
                 //throwing

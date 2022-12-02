@@ -111,7 +111,7 @@ This stacks up to 950 times until you get hit");
             base.SetDefaults();
 
             Item.rare = ItemRarityID.Red;
-            Item.value = 100000000;
+            Item.value = 1000000000;
             Item.shieldSlot = 5;
             Item.defense = 100;
 

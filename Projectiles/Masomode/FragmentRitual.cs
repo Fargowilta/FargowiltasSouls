@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
                 Projectile.Center = npc.Center;
 
-                Projectile.localAI[0] = npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityTimer / 56.25f; //number to hide
+                Projectile.localAI[0] = (int)npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityTimer / 56.25f; //number to hide
                 Projectile.localAI[0]--;
 
                 switch (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState) //match ML vulnerability to fragment

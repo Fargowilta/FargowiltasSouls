@@ -62,7 +62,7 @@ namespace FargowiltasSouls.Buffs.Minions
 
                 if (player.GetToggleValue("MasoPlant"))
                 {
-                    fargoPlayer.MagicalBulb = true;
+                    fargoPlayer.PlanterasChild = true;
                     const int damage = 120;
                     if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.PlanterasChild>()] < 1)
                         FargoSoulsUtil.NewSummonProjectile(player.GetSource_Buff(buffIndex), player.Center, -Vector2.UnitY, ModContent.ProjectileType<Projectiles.Minions.PlanterasChild>(), damage, 3f, player.whoAmI);

@@ -299,6 +299,7 @@ namespace FargowiltasSouls
         public bool Supercharged;
         public bool Probes;
         public bool MagicalBulb;
+        public bool PlanterasChild;
         public bool SkullCharm;
         public bool PungentEyeball;
         public bool LumpOfFlesh;
@@ -740,6 +741,8 @@ namespace FargowiltasSouls
 
             WingTimeModifier = 1f;
 
+            NinjaEnchantItem = null;
+
             QueenStingerItem = null;
             EridanusSet = false;
             GaiaSet = false;
@@ -878,6 +881,7 @@ namespace FargowiltasSouls
             Supercharged = false;
             Probes = false;
             MagicalBulb = false;
+            PlanterasChild = false;
             SkullCharm = false;
             PungentEyeball = false;
             LumpOfFlesh = false;
@@ -1198,9 +1202,6 @@ namespace FargowiltasSouls
                 Player.controlUseItem = true;
                 Player.releaseUseItem = true;
             }
-
-            //moved here so that it can affect minions spawned by buffs
-            NinjaEnchantItem = null;
         }
 
         public override void ModifyLuck(ref float luck)
@@ -1230,19 +1231,7 @@ namespace FargowiltasSouls
 
             if (TribalCharmEquipped)
             {
-                if (Player.controlUseItem || Player.controlUseTile)
-                {
-                    if (TribalCharmClickBonus)
-                    {
-                        TribalCharmClickBonus = false;
-                        if (Player.GetToggleValue("TribalCharmClickBonus"))
-                            Player.GetDamage(DamageClass.Generic) += 0.30f;
-                    }
-                }
-                else if (Player.ItemTimeIsZero)
-                {
-                    TribalCharmClickBonus = true;
-                }
+                Items.Accessories.Masomode.TribalCharm.Effects(this);
             }
 
             if (PungentEyeball && Player.whoAmI == Main.myPlayer && Player.GetToggleValue("MasoPungentCursor"))

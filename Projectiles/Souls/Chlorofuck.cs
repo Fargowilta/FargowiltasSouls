@@ -106,7 +106,7 @@ namespace FargowiltasSouls.Projectiles.Souls
                     num404 *= num406;
                     num405 *= num406;
                     if (Projectile.owner == Main.myPlayer)
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(num404, num405), ProjectileID.CrystalLeafShot, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(num404, num405), ProjectileID.CrystalLeafShot, Projectile.damage, Projectile.knockBack, Projectile.owner);
                     Projectile.ai[0] = cooldown;
                 }
             }

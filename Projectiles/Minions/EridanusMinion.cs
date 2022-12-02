@@ -209,9 +209,9 @@ namespace FargowiltasSouls.Projectiles.Minions
                                     if (Main.myPlayer == Projectile.owner && !playerIsAttacking)
                                     {
                                         int modifier = Math.Sign(Projectile.Center.Y - npc.Center.Y);
-                                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + 3000 * Projectile.DirectionFrom(npc.Center) * modifier,
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + 3000 * Projectile.DirectionFrom(npc.Center) * modifier,
                                             Projectile.DirectionTo(npc.Center) * modifier, ModContent.ProjectileType<EridanusDeathray>(),
-                                            Projectile.originalDamage, Projectile.knockBack / 4, Main.myPlayer);
+                                            Projectile.damage, Projectile.knockBack / 4, Main.myPlayer);
                                     }
                                 }
 

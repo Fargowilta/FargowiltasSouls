@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     {
                         Projectile.localAI[0] = 0;
                         if (Projectile.owner == Main.myPlayer)
-                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity + Projectile.DirectionTo(npc.Center) * 30, ModContent.ProjectileType<AbomMinionScythe>(), Projectile.originalDamage, Projectile.knockBack / 2, Projectile.owner, npc.whoAmI);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity + Projectile.DirectionTo(npc.Center) * 30, ModContent.ProjectileType<AbomMinionScythe>(), Projectile.damage, Projectile.knockBack / 2, Projectile.owner, npc.whoAmI);
                     }
                 }
                 else //forget target

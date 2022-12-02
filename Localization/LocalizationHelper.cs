@@ -63,8 +63,25 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
             }
-            else
+            else if (FargoSoulsUtil.IsPortuguese())
             {
+                AddBossSpawnInfo("DeviBoss", $"Invoque usando [i:{ModContent.ItemType<DevisCurse>()}]");
+                AddBossSpawnInfo("AbomBoss", $"Invoque usando [i:{ModContent.ItemType<AbomsCurse>()}]");
+                AddBossSpawnInfo("MutantBoss", $"Arremesse [i:{ModContent.ItemType<AbominationnVoodooDoll>()}] em uma poça de lava enquanto Abominationn está vivo na presença de Mutant.");
+
+                AddBossSpawnInfo("TimberChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] na superfície durante o dia.");
+                AddBossSpawnInfo("TerraChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no subterrâneo.");
+                AddBossSpawnInfo("EarthChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no submundo.");
+                AddBossSpawnInfo("NatureChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] na neve subterrânea.");
+                AddBossSpawnInfo("LifeChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no Sagrado de dia.");
+                AddBossSpawnInfo("ShadowChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] na Corrupção ou Carmim de noite.");
+                AddBossSpawnInfo("SpiritChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no deserto subterrâneo.");
+                AddBossSpawnInfo("WillChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no oceano.");
+                AddBossSpawnInfo("CosmosChampion", $"Invoque usando [i:{ModContent.ItemType<SigilOfChampions>()}] no espaço.");
+
+                AddBossSpawnInfo("TrojanSquirrel", $"Invoque usando [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
+            }
+            else {
                 AddBossSpawnInfo("DeviBoss", $"Spawn by using [i:{ModContent.ItemType<DevisCurse>()}]");
                 AddBossSpawnInfo("AbomBoss", $"Spawn by using [i:{ModContent.ItemType<AbomsCurse>()}]");
                 AddBossSpawnInfo("MutantBoss", $"Throw [i:{ModContent.ItemType<AbominationnVoodooDoll>()}] into a pool of lava while Abominationn is alive in Mutant's presence.");

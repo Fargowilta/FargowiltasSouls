@@ -58,14 +58,14 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
             {
                 Vector2 baseSpeed = velocity.RotatedBy(spread * (-modifier / 2 + 0.5f)); //half offset for v spread
                 for (int i = 0; i < modifier; i++)
-                    FargoSoulsUtil.NewSummonProjectile(source, position, baseSpeed.RotatedBy(spread * (i + Main.rand.NextFloat(-0.5f, 0.5f))), type, Item.damage, knockback, player.whoAmI);
+                    Projectile.NewProjectile(source, position, baseSpeed.RotatedBy(spread * (i + Main.rand.NextFloat(-0.5f, 0.5f))), type, damage, knockback, player.whoAmI);
             }
             else
             {
                 Vector2 baseSpeed = velocity;
                 int max = (int)modifier / 2;
                 for (int i = -max; i <= max; i++)
-                    FargoSoulsUtil.NewSummonProjectile(source, position, baseSpeed.RotatedBy(spread * (i + Main.rand.NextFloat(-0.5f, 0.5f))), type, Item.damage, knockback, player.whoAmI);
+                    Projectile.NewProjectile(source, position, baseSpeed.RotatedBy(spread * (i + Main.rand.NextFloat(-0.5f, 0.5f))), type, damage, knockback, player.whoAmI);
             }
 
             return false;

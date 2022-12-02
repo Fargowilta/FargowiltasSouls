@@ -64,7 +64,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 {
                     for (int j = 0; j < 15; j++) //spray spikes
                     {
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)), ModContent.ProjectileType<RainbowSlimeSpikeFriendly>(), Projectile.originalDamage / 10, Projectile.knockBack, Main.myPlayer);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)), ModContent.ProjectileType<RainbowSlimeSpikeFriendly>(), Projectile.damage / 10, Projectile.knockBack, Main.myPlayer);
                     }
                 }
             }

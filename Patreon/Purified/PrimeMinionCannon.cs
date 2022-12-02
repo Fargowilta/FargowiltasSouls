@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Patreon.Purified
                         Projectile.localAI[0] = -Main.rand.Next(20);
                         if (Projectile.owner == Main.myPlayer)
                         {
-                            int p = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 16f * Projectile.DirectionTo(targetnpc.Center), ProjectileID.CannonballFriendly, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 16f * Projectile.DirectionTo(targetnpc.Center), ProjectileID.CannonballFriendly, Projectile.damage, Projectile.knockBack, Projectile.owner);
                             if (p != Main.maxProjectiles)
                             {
                                 Main.projectile[p].DamageType = DamageClass.Summon;

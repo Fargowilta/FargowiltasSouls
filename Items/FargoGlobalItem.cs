@@ -37,10 +37,14 @@ namespace FargowiltasSouls.Items
             if (player.whoAmI == Main.myPlayer && p.IronEnchantItem != null && player.GetToggleValue("IronM", false) && item.type != ItemID.CopperCoin && item.type != ItemID.SilverCoin && item.type != ItemID.GoldCoin && item.type != ItemID.PlatinumCoin && item.type != ItemID.CandyApple && item.type != ItemID.SoulCake &&
                 item.type != ItemID.Star && item.type != ItemID.CandyCane && item.type != ItemID.SugarPlum && item.type != ItemID.Heart)
             {
-                int rangeBonus = p.TerraForce ? 320 : 160;
+                int rangeBonus = 160;
+                if (p.TerraForce)
+                    rangeBonus = 320;
+                if (p.TerrariaSoul)
+                    rangeBonus = 640;
 
                 //half as effective on nebula bois
-                if (!p.TerrariaSoul && (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3))
+                if (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3)
                     rangeBonus /= 2;
 
                 grabRange += rangeBonus;

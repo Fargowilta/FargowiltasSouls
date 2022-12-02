@@ -805,7 +805,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (++ProbeReleaseTimer > 60)
                 {
                     ProbeReleaseTimer = -Main.rand.Next(360);
-                    float lifeThreshold = FargoSoulsWorld.MasochistModeReal ? 0.66f : 0.33f;
+                    float lifeThreshold = FargoSoulsWorld.MasochistModeReal ? 0.8f : 0.4f;
                     if (Main.npc[npc.realLife].life < Main.npc[npc.realLife].lifeMax * lifeThreshold && NPC.CountNPCS(NPCID.Probe) < 10 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (Main.rand.NextBool(FargoSoulsWorld.MasochistModeReal ? 5 : 10)) //higher chance in maso

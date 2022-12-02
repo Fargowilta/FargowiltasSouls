@@ -52,7 +52,8 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 [i:{0}] Envia moedas ao seu porquinho automaticamente quando coletadas
 [i:{1}] 20% de chance de que os inimigos deixem cair 5x os espólios
 [i:{2}] Lanças choverão em inimigos atingidos
-[i:{3}] Toque duas vezes para baixo para criar uma chuva de flechas localizada
+[i:{2}] Oferece imunidade a recuos quando você está encarando o ataque
+[i:{3}] Ataques sucessivos ganham dano bônus
 [i:{4}] Aumenta a eficiência de fontes de cura em 50%
 'Uma mente de determinação inquebrável'";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));

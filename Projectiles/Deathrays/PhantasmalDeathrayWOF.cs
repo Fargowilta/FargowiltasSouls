@@ -42,17 +42,23 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             {
                 SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/Zombie_104"), Projectile.Center);
             }
-            float num801 = 1f;
+            float maxScale = 1f;
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                maxScale = Main.rand.NextFloat(2.5f, 5f);
+                if (!Main.dedServ && Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake < 2)
+                    Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 2;
+            }
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] >= maxTime)
             {
                 Projectile.Kill();
                 return;
             }
-            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 5f * num801;
-            if (Projectile.scale > num801)
+            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 5f * maxScale;
+            if (Projectile.scale > maxScale)
             {
-                Projectile.scale = num801;
+                Projectile.scale = maxScale;
             }
             //float num804 = Projectile.velocity.ToRotation();
             //num804 += Projectile.ai[0];

@@ -10,6 +10,7 @@ using FargowiltasSouls.Projectiles.Masomode;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -77,6 +78,14 @@ namespace FargowiltasSouls.NPCs
 
         //        public static bool Revengeance => CalamityMod.World.CalamityWorld.revenge;
 
+        static HashSet<int> RareNPCs = new HashSet<int>();
+
+        public override void Unload()
+        {
+            base.Unload();
+            RareNPCs = null;
+        }
+
         public override void ResetEffects(NPC npc)
         {
             BrokenArmor = false;
@@ -106,9 +115,11 @@ namespace FargowiltasSouls.NPCs
             PungentGazeTime = 0;
         }
 
-        //        public override void SetDefaults(NPC npc)
-        //        {
-        //        }
+        public override void SetDefaults(NPC npc)
+        {
+            if (npc.rarity > 0 && !RareNPCs.Contains(npc.type))
+                RareNPCs.Add(npc.type);
+        }
 
         public override bool PreAI(NPC npc)
         {
@@ -779,6 +790,20 @@ namespace FargowiltasSouls.NPCs
             }
 
             //if (modPlayer.BuilderMode) maxSpawns = 0;
+        }
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.GetModPlayer<FargoSoulsPlayer>().PungentEyeball)
+            {
+                foreach (var entry in pool)
+                {
+                    if (RareNPCs.Contains(entry.Key))
+                    {
+                        pool[entry.Key] = entry.Value * 5;
+                    }
+                }
+            }
         }
 
         public override bool PreKill(NPC npc)

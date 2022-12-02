@@ -146,8 +146,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                     if (selectedTarget != -1) //shoot
                     {
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 10f * Projectile.DirectionTo(Main.npc[selectedTarget].Center),
-                            ProjectileID.MiniRetinaLaser, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 10f * Projectile.DirectionTo(Main.npc[selectedTarget].Center),
+                            ProjectileID.MiniRetinaLaser, Projectile.damage, Projectile.knockBack, Projectile.owner);
                         SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
                     }
                 }

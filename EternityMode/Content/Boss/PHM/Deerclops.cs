@@ -27,6 +27,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int BerserkSpeedupTimer;
         public int TeleportTimer;
+		public int WalkingSpeedUpTimer;
 
         public bool EnteredPhase2;
         public bool EnteredPhase3;
@@ -38,6 +39,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             new Dictionary<Ref<object>, CompoundStrategy> {
                 { new Ref<object>(BerserkSpeedupTimer), IntStrategies.CompoundStrategy },
                 { new Ref<object>(TeleportTimer), IntStrategies.CompoundStrategy },
+				{ new Ref<object>(WalkingSpeedUpTimer), IntStrategies.CompoundStrategy },
 
                 { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(EnteredPhase3), BoolStrategies.CompoundStrategy },
@@ -107,6 +109,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             switch ((int)npc.ai[0])
             {
                 case 0: //walking at player
+                    if (++WalkingSpeedUpTimer > 900) //scaling capped for edge case sanity
+                        WalkingSpeedUpTimer = 900;
+                    //after walking for a bit, begin walking faster to catch up to outrunning player
+                    npc.position.X += npc.velocity.X * Math.Max(0, WalkingSpeedUpTimer - 90) / 90f;
+
                     if (TeleportTimer < TeleportThreshold)
                     {
                         if (EnteredPhase3)
@@ -133,6 +140,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                         if (TeleportTimer > TeleportThreshold)
                         {
+                            WalkingSpeedUpTimer = 0;
+
                             npc.velocity.X *= 0.9f;
                             npc.dontTakeDamage = true;
                             npc.localAI[1] = 0; //reset walls attack counter
@@ -147,15 +156,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             {
                                 SoundEngine.PlaySound(SoundID.Roar, npc.Center);
 
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                {
-                                    const int max = 12;
-                                    for (int i = 0; i < 12; i++)
-                                    {
-                                        Vector2 spawnPos = Main.player[npc.target].Center + 16 * Main.rand.NextFloat(6, 36) * Vector2.UnitX.RotatedBy(MathHelper.TwoPi / max * (i + Main.rand.NextFloat()));
-                                        Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero, ModContent.ProjectileType<DeerclopsHand>(), 0, 0f, Main.myPlayer, npc.target);
-                                    }
-                                }
+                                SpawnFreezeHands(npc);
                             }
 
                             npc.alpha += 5;
@@ -223,10 +224,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                         npc.ai[1] = 0;
                         npc.netUpdate = true;
                     }
+					
                     break;
 
                 case 1: //ice wave, npc.localai[1] counts them, attacks at ai1=30, last spike 52, ends at ai1=80
-                    if (npc.ai[1] < 30)
+                    WalkingSpeedUpTimer = 0;
+					
+					if (npc.ai[1] < 30)
                     {
                         if (FargoSoulsWorld.MasochistModeReal)
                         {
@@ -240,6 +244,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     break;
 
                 case 3: //roar at 30, ends at ai1=60
+					WalkingSpeedUpTimer = 0;
+				
                     if (!FargoSoulsWorld.MasochistModeReal && npc.ai[1] < 30)
                     {
                         npc.ai[1] -= 0.5f;
@@ -286,6 +292,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 case 4: //both sides ice wave, attacks at ai1=50, last spike 70, ends at ai1=90
                     {
+						WalkingSpeedUpTimer = 0;
+						
                         int cooldown = 100; //stops deerclops from teleporting while old ice walls are still there
                         if (EnteredPhase3)
                             cooldown *= 2;
@@ -355,6 +363,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     }
                     break;
 
+                case 5: //another roar?
+                    if (npc.ai[1] == 30)
+                    {
+                        //if player is somehow directly above deerclops at moment of roar
+                        if (npc.HasValidTarget && Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) < 16 * 3
+                            && Main.player[npc.target].Bottom.Y < npc.Top.Y - 16 * 5)
+                        {
+                            //freeze them and drag them down
+                            SpawnFreezeHands(npc);
+                        }
+                    }
+                    break;
+
                 case 6: //trying to return home
                     npc.TargetClosest();
 
@@ -374,6 +395,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     break;
             }
 
+            FargoSoulsUtil.PrintAI(npc);
+
             if (EnteredPhase3 && !(npc.ai[0] == 0 && npc.alpha > 0))
             {
                 npc.localAI[3] += 3;
@@ -387,6 +410,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             return result;
         }
+		
+		void SpawnFreezeHands(NPC npc)
+		{
+			if (Main.netMode != NetmodeID.MultiplayerClient)
+			{
+				const int max = 12;
+				for (int i = 0; i < 12; i++)
+				{
+					Vector2 spawnPos = Main.player[npc.target].Center + 16 * Main.rand.NextFloat(6, 36) * Vector2.UnitX.RotatedBy(MathHelper.TwoPi / max * (i + Main.rand.NextFloat()));
+					Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero, ModContent.ProjectileType<DeerclopsHand>(), 0, 0f, Main.myPlayer, npc.target);
+				}
+			}
+		}
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {

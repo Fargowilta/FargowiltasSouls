@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Patreon.Purified
                         Projectile.localAI[0] = -Main.rand.Next(20);
                         if (Projectile.owner == Main.myPlayer)
                         {
-                            int p = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 10f * Projectile.DirectionTo(targetnpc.Center), ProjectileID.MiniRetinaLaser, Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 10f * Projectile.DirectionTo(targetnpc.Center), ProjectileID.MiniRetinaLaser, Projectile.damage, Projectile.knockBack, Projectile.owner);
                             if (p != Main.maxProjectiles)
                             {
                                 Main.projectile[p].usesIDStaticNPCImmunity = false;

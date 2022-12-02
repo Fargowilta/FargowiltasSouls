@@ -215,11 +215,11 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Vector2 speed = 2 * target / 90;
                     float acceleration = -speed.Length() / 90;
                     float rotation = speed.ToRotation() + (float)Math.PI / 2;
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed, ModContent.ProjectileType<SparklingLoveEnergyHeart>(),
-                        Projectile.originalDamage, Projectile.knockBack, Projectile.owner, rotation, acceleration);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed, ModContent.ProjectileType<SparklingLoveEnergyHeart>(),
+                        Projectile.damage, Projectile.knockBack, Projectile.owner, rotation, acceleration);
 
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 14f * Vector2.UnitY.RotatedBy(2 * Math.PI / max * (i + 0.5) + Projectile.localAI[1]),
-                        ModContent.ProjectileType<SparklingLoveHeart2>(), Projectile.originalDamage, Projectile.knockBack,
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, 14f * Vector2.UnitY.RotatedBy(2 * Math.PI / max * (i + 0.5) + Projectile.localAI[1]),
+                        ModContent.ProjectileType<SparklingLoveHeart2>(), Projectile.damage, Projectile.knockBack,
                         Projectile.owner, -1, 45);
                 }
             }

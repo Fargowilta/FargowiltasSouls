@@ -59,8 +59,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                     {
                         NPC npc = Main.rand.Next(npcs);
                         Projectile.rotation = Projectile.DirectionTo(npc.Center).ToRotation();
-                        int p = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(16f, 0f).RotatedBy(Projectile.rotation).RotatedByRandom(MathHelper.PiOver4 / 2),
-                            ModContent.ProjectileType<LightningArc>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner, Projectile.rotation, Main.rand.Next(100));
+                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(16f, 0f).RotatedBy(Projectile.rotation).RotatedByRandom(MathHelper.PiOver4 / 2),
+                            ModContent.ProjectileType<LightningArc>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.rotation, Main.rand.Next(100));
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].DamageType = Projectile.DamageType;
                         Projectile.rotation += MathHelper.Pi;
@@ -80,8 +80,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                         followMouse = false;
 
                         Projectile.rotation = Projectile.DirectionTo(Main.npc[n].Center).ToRotation();
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 0f).RotatedBy(Projectile.rotation),
-                            ModContent.ProjectileType<ProbeLaser>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 0f).RotatedBy(Projectile.rotation),
+                            ModContent.ProjectileType<ProbeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                         Projectile.rotation += MathHelper.Pi;
                     }
 

@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Lump of Flesh");
             Tooltip.SetDefault(@"Grants immunity to knockback, Anticoagulation, Blackout, Obstructed, Dazed, Slow, and Frozen
 Increases damage dealt by 15%
+Increases spawn rate of rare enemies
 Your cursor causes nearby enemies to take increased damage
 Effect intensifies the longer you track them
 Right Click to parry attacks with extremely tight timing

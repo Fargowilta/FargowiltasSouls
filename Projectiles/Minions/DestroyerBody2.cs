@@ -155,8 +155,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                     if (selectedTarget != -1) //shoot
                     {
-                        FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.DirectionTo(Main.npc[selectedTarget].Center).RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4)),
-                            ModContent.ProjectileType<DarkStarHomingFriendly>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner, selectedTarget);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.DirectionTo(Main.npc[selectedTarget].Center).RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4)),
+                            ModContent.ProjectileType<DarkStarHomingFriendly>(), Projectile.damage, Projectile.knockBack, Projectile.owner, selectedTarget);
                     }
                 }
             }

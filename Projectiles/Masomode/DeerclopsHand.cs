@@ -28,10 +28,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
         {
             Projectile.CloneDefaults(ProjectileID.InsanityShadowHostile);
             Projectile.aiStyle = -1;
-            Projectile.timeLeft = 300;
+            Projectile.timeLeft = 900;
         }
 
         bool spawned;
+		int oldMash;
 
         public override void AI()
         {
@@ -51,6 +52,20 @@ namespace FargowiltasSouls.Projectiles.Masomode
                         player.frozen = true;
                         player.AddBuff(ModContent.BuffType<MarkedforDeath>(), 2);
                         player.AddBuff(ModContent.BuffType<Grabbed>(), 2);
+						
+						if (oldMash < player.GetModPlayer<FargoSoulsPlayer>().MashCounter)
+						{
+							oldMash = player.GetModPlayer<FargoSoulsPlayer>().MashCounter;
+						    int handCount = Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] / 2 + 1;
+                            if (Main.rand.NextBool(handCount))
+                            {
+                                SoundEngine.PlaySound(SoundID.Item27, player.Center);
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    Dust.NewDust(player.position, player.width, player.height, DustID.IceRod);
+                                }
+                            }
+						}
                     }
 
                     Projectile.velocity = (player.Center - Projectile.Center) / 10f;

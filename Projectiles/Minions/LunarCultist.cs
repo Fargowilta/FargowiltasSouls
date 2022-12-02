@@ -197,7 +197,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                                 Vector2 spawn = Projectile.Center;
                                 spawn.Y -= Projectile.height;
                                 if (Projectile.owner == Main.myPlayer)
-                                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), spawn, Vector2.UnitX * -Projectile.spriteDirection * 12f, ModContent.ProjectileType<AncientVisionLunarCultist>(), Projectile.originalDamage, Projectile.knockBack * 3f, Projectile.owner);
+                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, Vector2.UnitX * -Projectile.spriteDirection * 12f, ModContent.ProjectileType<AncientVisionLunarCultist>(), Projectile.damage, Projectile.knockBack * 3f, Projectile.owner);
                             }
                             if (Projectile.localAI[0] > 90f)
                             {

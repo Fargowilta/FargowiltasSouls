@@ -352,7 +352,27 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 return result;
 
             NPC head = FargoSoulsUtil.NPCExists(npc.ai[1], NPCID.SkeletronHead);
-            if (head != null && (head.ai[1] == 1f || head.ai[1] == 2f)) //spinning or DG mode
+			if (head == null)
+				return result;
+			
+			if (npc.timeLeft < 60) //never despawn normally
+				npc.timeLeft = 60;
+				
+			//vanilla ai sometimes throws hand too far away and self despawns
+			//if too far, tp back and reset ai
+			if (npc.Distance(head.Center) > 1600)
+			{
+				npc.Center = head.Center;
+				npc.ai[2] = 0;
+				npc.ai[3] = 0;
+				npc.localAI[0] = 0;
+				npc.localAI[1] = 0;
+				npc.localAI[2] = 0;
+				npc.localAI[3] = 0;
+                npc.netUpdate = true;
+			}
+			
+            if (head.ai[1] == 1f || head.ai[1] == 2f) //spinning or DG mode
             {
                 if (AttackTimer > 0 && head.life >= head.lifeMax * .75) //for a short period
                 {

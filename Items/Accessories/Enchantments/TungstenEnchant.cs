@@ -82,7 +82,7 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 canAffect = true;
                 hasCD = false;
             }
-            else if (FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, source, true))
+            else if (FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true))
             {
                 if (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source))
                 {

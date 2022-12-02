@@ -92,9 +92,9 @@ namespace FargowiltasSouls.Projectiles.Minions
                             SoundEngine.PlaySound(SoundID.Item34, Projectile.Center);
                             if (Projectile.owner == Main.myPlayer)
                             {
-                                FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center - (Projectile.rotation + (float)Math.PI / 2).ToRotationVector2() * 60,
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - (Projectile.rotation + (float)Math.PI / 2).ToRotationVector2() * 60,
                                     8 * Projectile.DirectionTo(npc.Center).RotatedByRandom(MathHelper.ToRadians(12)), ModContent.ProjectileType<OpticFlame>(),
-                                    Projectile.originalDamage, Projectile.knockBack, Projectile.owner);
+                                    Projectile.damage, Projectile.knockBack, Projectile.owner);
                             }
                         }
                     }

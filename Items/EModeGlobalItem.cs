@@ -36,7 +36,9 @@ namespace FargowiltasSouls.Items
             }
 
             if (item.type == ItemID.RodofDiscord && FargoSoulsUtil.AnyBossAlive())
-                player.chaosState = true;
+			{
+				player.chaosState = true;
+			}
 
             return base.CanUseItem(item, player);
         }

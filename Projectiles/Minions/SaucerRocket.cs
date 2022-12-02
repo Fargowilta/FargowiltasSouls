@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.height = 14;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
-            Projectile.alpha = 255;
+            Projectile.alpha = 0;
             Projectile.timeLeft = 600;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.tileCollide = false;

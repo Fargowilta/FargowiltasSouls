@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
         {
             bool fade = false;
 
-            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0]);
+            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0], NPCID.PrimeCannon, NPCID.PrimeLaser, NPCID.PrimeSaw, NPCID.PrimeVice);
             if (npc != null)
             {
                 Projectile.Center = npc.Center;

@@ -188,7 +188,6 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.FairyQueenLance: //these are here due to mp sync concerns and edge case on spawn
                 case ProjectileID.HallowBossLastingRainbow:
                 case ProjectileID.HallowBossRainbowStreak:
-                case ProjectileID.QueenSlimeSmash:
                 case ProjectileID.PhantasmalSphere:
                     EModeCanHurt = false;
                     break;
@@ -402,18 +401,6 @@ namespace FargowiltasSouls.Projectiles
                     case ProjectileID.SharknadoBolt:
                         if (sourceNPC is NPC && sourceNPC.type == NPCID.DukeFishron && sourceNPC.GetEModeNPCMod<DukeFishron>().IsEX)
                             projectile.extraUpdates++;
-                        break;
-
-                    case ProjectileID.QueenSlimeSmash:
-                        if (!FargoSoulsWorld.MasochistModeReal && NonSwarmFight(projectile, NPCID.QueenSlimeBoss))
-                        {
-                            projectile.timeLeft = 0;
-                            EModeCanHurt = false;
-                        }
-                        else
-                        {
-                            EModeCanHurt = true;
-                        }
                         break;
 
                     case ProjectileID.HallowBossRainbowStreak:
@@ -985,13 +972,12 @@ namespace FargowiltasSouls.Projectiles
                         projectile.velocity = projectile.velocity.RotatedBy(projectile.ai[0] * 0.5f);
                         projectile.rotation = projectile.velocity.ToRotation() - MathHelper.PiOver2;
 
-                        if (sourceNPC is NPC && sourceNPC.type == NPCID.MoonLordHead)
-                        {
-                            projectile.scale *= 4f;
+                        projectile.scale *= sourceNPC is NPC && sourceNPC.type == NPCID.MoonLordHead
+                            ? Main.rand.NextFloat(6f, 9f)
+                            : Main.rand.NextFloat(4f, 6f);
 
-                            if (!Main.dedServ && Main.LocalPlayer.active)
-                                Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 2;
-                        }
+                        if (!Main.dedServ && Main.LocalPlayer.active)
+                            Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 2;
                     }
                     break;
 

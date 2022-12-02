@@ -108,10 +108,10 @@ namespace FargowiltasSouls.Projectiles.Minions
                     SoundEngine.PlaySound(SoundID.NPCDeath52, Projectile.Center);
                     if (Projectile.owner == Main.myPlayer)
                     {
-                        FargoSoulsUtil.NewSummonProjectile(
+                        Projectile.NewProjectile(
                             Projectile.GetSource_FromThis(), Projectile.Center,
                             12f * Projectile.DirectionTo(Main.MouseWorld).RotatedByRandom(MathHelper.ToRadians(4)),
-                            ModContent.ProjectileType<ShadowflamesFriendly>(), Projectile.originalDamage, Projectile.knockBack,
+                            ModContent.ProjectileType<ShadowflamesFriendly>(), Projectile.damage, Projectile.knockBack,
                             Projectile.owner);
                     }
                 }

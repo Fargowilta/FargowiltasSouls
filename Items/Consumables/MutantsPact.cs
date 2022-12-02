@@ -1,5 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Items.Consumables
@@ -12,6 +14,7 @@ namespace FargowiltasSouls.Items.Consumables
         {
             DisplayName.SetDefault("Mutant's Pact");
             Tooltip.SetDefault("Permanently increases the number of accessory slots");
+			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 6));
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -46,5 +49,7 @@ namespace FargowiltasSouls.Items.Consumables
             }
             return true;
         }
+		
+		public override Color? GetAlpha(Color lightColor) => Color.White;
     }
 }

@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Security Wallet");
-            Tooltip.SetDefault(@"Grants immunity to Midas and Loose Pockets
+            Tooltip.SetDefault(@"Grants immunity to Midas
 Drastically improves reforges
 'Not secure against being looted off of one's corpse'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "安全钱包");

@@ -45,14 +45,11 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacks generate titanium shards,
 
             string tooltip_pt =
 @"[i:{0}] Oferece um pulo explosivo e você explode ao ser atingido
-[i:{2}] Temporariamente aumenta a velocidade de uso depois de não atacar por um tempo
-[i:{2}] O bônus termina após atacar por 5 segundos e é reconstruído em 5 segundos
-[i:{1}] Aumenta bastante a regeneração de vida depois de atacar um inimigo
-[i:{1}] Você invoca uma esfera de energia vital que causa danos a cada 80 de vida regenerada
-[i:{3}] Pétalas de flores causarão danos adicionais em seu alvo
-[i:{3}] Efeitos negativos causarão 5x o dano
-[i:{4}] Toda arma disparada se dividirá em 2, causará 50% de dano e terá 50% menos quadros de imunidade
-[i:{5}] Atacar gera uma barreira defensiva de fragmentos de titânio
+[i:{2}] Pare de atacar para aumentar gradualmente a velocidade do ataque por até 5 segundos
+[i:{1}] Concede Cura rápida depois de atacar um inimigo e invoca esferas de vida baseada na cura
+[i:{3}] Ataques invocam pétalas de flores e efeitos negativos causam 4x o dano
+[i:{4}] Toda arma disparada se dividirá em 3, causará 50% de dano e terá 50% menos quadros de imunidade
+[i:{5}] Ataques geram fragmentos de titânio, atingir o máximo concede Escudo de Titânio
 'A bênção de Gaia brilha sobre você'";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
         }

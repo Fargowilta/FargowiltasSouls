@@ -161,7 +161,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             if (shootVel == Vector2.Zero) shootVel = new Vector2(0f, 1f);
                             shootVel.Normalize();
                             shootVel *= ShootSpeed;
-                            int proj = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootVel, Shoot, Projectile.originalDamage, Projectile.knockBack, Main.myPlayer);
+                            int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootVel, Shoot, Projectile.damage, Projectile.knockBack, Main.myPlayer);
                             Main.projectile[proj].timeLeft = 300;
                             Main.projectile[proj].netUpdate = true;
                             Projectile.netUpdate = true;

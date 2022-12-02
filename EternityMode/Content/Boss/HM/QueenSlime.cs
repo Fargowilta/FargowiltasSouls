@@ -166,10 +166,11 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         if (npc.DeathSound != null)
                             SoundEngine.PlaySound(npc.DeathSound.Value, npc.Center);
 
-                        //spray spikes
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            for (int j = -1; j <= 1; j += 2)
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ProjectileID.QueenSlimeSmash, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+
+                            for (int j = -1; j <= 1; j += 2) //spray spikes
                             {
                                 Vector2 baseVel = Vector2.UnitX.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(10) * j));
                                 const int max = 12;
@@ -402,6 +403,18 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     if (!Stompy(npc))
                         return false;
+
+                    if (!FargoSoulsWorld.MasochistModeReal)
+                    {
+                        if (npc.ai[1] == 0)
+                            SoundEngine.PlaySound(npc.DeathSound, npc.Center);
+
+                        if (npc.ai[1] < 75) //artificial startup on this stupid no-telegraph dive
+                        {
+                            float ratio = 1f - npc.ai[1] / 75;
+                            npc.position.Y -= npc.velocity.Y * ratio;
+                        }
+                    }
                 }
                 else if (npc.ai[0] == 5) //when shooting
                 {
@@ -411,7 +424,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
             }
 
-            //FargoSoulsUtil.PrintAI(npc);
+            FargoSoulsUtil.PrintAI(npc);
 
             EModeUtils.DropSummon(npc, "JellyCrystal", NPC.downedQueenSlime, ref DroppedSummon, Main.hardMode);
 

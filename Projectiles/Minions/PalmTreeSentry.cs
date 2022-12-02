@@ -78,7 +78,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                     {
                         Vector2 velocity = Vector2.Normalize(target.Center - Projectile.Center) * 10;
 
-                        int p = FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileID.SeedlerNut, Projectile.originalDamage, 2, Projectile.owner);
+                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileID.SeedlerNut, Projectile.damage, 2, Projectile.owner);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].DamageType = DamageClass.Summon;
                     }

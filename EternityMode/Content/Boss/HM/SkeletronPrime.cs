@@ -153,26 +153,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (npc.ai[0] != 2f) //in phase 1
             {
-                if (npc.life < npc.lifeMax * .75) //enter phase 2
+                if (npc.life < npc.lifeMax * .8) //enter phase 2
                 {
                     npc.ai[0] = 2f;
-
-                    npc.ai[1] = 0f; //revert to nonspin mode
-                    npc.ai[2] = 600f - 90f - 2f; //but only for telegraph and then go back into spin
-
-                    npc.ai[3] = 0f;
-                    npc.netUpdate = true;
-
-                    if (!NPC.AnyNPCs(NPCID.PrimeLaser)) //revive all dead limbs
-                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeLaser, npc.whoAmI, 1f, npc.whoAmI, 0f, 150f, npc.target);
-                    if (!NPC.AnyNPCs(NPCID.PrimeSaw))
-                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeSaw, npc.whoAmI, 1f, npc.whoAmI, 0f, 0f, npc.target);
-                    if (!NPC.AnyNPCs(NPCID.PrimeCannon))
-                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeCannon, npc.whoAmI, -1f, npc.whoAmI, 0f, 150f, npc.target);
-                    if (!NPC.AnyNPCs(NPCID.PrimeVice))
-                        FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeVice, npc.whoAmI, -1f, npc.whoAmI, 0f, 0f, npc.target);
-
-                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronPrimeRegrow", new Color(175, 75, 255));
 
                     SoundEngine.PlaySound(SoundID.Roar, npc.Center);
                     return result;
@@ -237,8 +220,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                     npc.position += npc.velocity / 4f;
                 }
 
-                if (!FullySpawnedLimbs && npc.ai[3] >= 0f) //spawn 4 more limbs
+                //spawn 4 more limbs
+                if (!FullySpawnedLimbs && (npc.life < npc.lifeMax * 0.6 || FargoSoulsWorld.MasochistModeReal) && npc.ai[3] >= 0f)
                 {
+                    if (npc.ai[3] == 0)
+                    {
+                        npc.ai[1] = 0f; //revert to nonspin mode
+                        npc.ai[2] = 600f - 90f - 2f; //but only for telegraph and then go back into spin
+
+                        npc.ai[3] = 0f;
+                        npc.netUpdate = true;
+
+                        SoundEngine.PlaySound(SoundID.ForceRoar, npc.Center);
+
+                        if (!NPC.AnyNPCs(NPCID.PrimeLaser)) //revive all dead limbs
+                            FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeLaser, npc.whoAmI, 1f, npc.whoAmI, 0f, 150f, npc.target);
+                        if (!NPC.AnyNPCs(NPCID.PrimeSaw))
+                            FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeSaw, npc.whoAmI, 1f, npc.whoAmI, 0f, 0f, npc.target);
+                        if (!NPC.AnyNPCs(NPCID.PrimeCannon))
+                            FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeCannon, npc.whoAmI, -1f, npc.whoAmI, 0f, 150f, npc.target);
+                        if (!NPC.AnyNPCs(NPCID.PrimeVice))
+                            FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.PrimeVice, npc.whoAmI, -1f, npc.whoAmI, 0f, 0f, npc.target);
+
+                        FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronPrimeRegrow", new Color(175, 75, 255));
+                    }
+
                     npc.ai[3]++;
                     if (npc.ai[3] == 60f) //first set of limb management
                     {

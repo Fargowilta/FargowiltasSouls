@@ -117,8 +117,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
                         if (player.whoAmI == Main.myPlayer)
                         {
-                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY, ModContent.ProjectileType<SaucerDeathray>(),
-                                Projectile.originalDamage / 2, Projectile.knockBack / 2f, Projectile.owner, 0f, Projectile.identity);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY, ModContent.ProjectileType<SaucerDeathray>(),
+                                Projectile.damage / 2, Projectile.knockBack / 2f, Main.myPlayer, 0f, Projectile.identity);
                         }
                     }
                 }
@@ -137,9 +137,9 @@ namespace FargowiltasSouls.Projectiles.Minions
                             Vector2 vel = Projectile.DirectionTo(Main.MouseWorld) * 16f;
                             SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
 
-                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.velocity * 2.5f,
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Projectile.velocity * 2.5f,
                                 vel.RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 3.0),
-                                ModContent.ProjectileType<SaucerLaser>(), Projectile.originalDamage / 2, Projectile.knockBack, Projectile.owner);
+                                ModContent.ProjectileType<SaucerLaser>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner);
                         }
                     }
 
@@ -154,7 +154,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                             NPC npc = Main.npc[i];
                             if (npc.CanBeChasedBy(Projectile) && Collision.CanHitLine(Projectile.Center, 0, 0, npc.Center, 0, 0))
                             {
-                                float npcDistance = player.Distance(npc.Center);
+                                float npcDistance = Projectile.Distance(npc.Center);
                                 if (npcDistance < maxDistance)
                                 {
                                     maxDistance = npcDistance;
@@ -166,8 +166,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                         if (possibleTarget >= 0) //shoot rocket
                         {
                             Vector2 vel = new Vector2(0f, -10f).RotatedBy((Main.rand.NextDouble() - 0.5) * Math.PI);
-                            FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<SaucerRocket>(),
-                                Projectile.originalDamage, Projectile.knockBack * 4f, Projectile.owner, possibleTarget, 20f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<SaucerRocket>(),
+                                Projectile.damage, Projectile.knockBack * 4f, Projectile.owner, possibleTarget, 20f);
                         }
                     }
                 }

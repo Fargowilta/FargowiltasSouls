@@ -233,18 +233,10 @@ namespace FargowiltasSouls.Projectiles.Masomode
             for (int i = 0; i < max; i++)
             {
                 vel = vel.RotatedBy(rotation);
-                if (Projectile.CountsAsClass(DamageClass.Summon))
-                {
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, Projectile.originalDamage / 3,
-                        Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);
-                }
-                else
-                {
-                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, Projectile.damage / 3,
-                        Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);
-                    if (p != Main.maxProjectiles)
-                        Main.projectile[p].DamageType = Projectile.DamageType;
-                }
+                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, Projectile.damage / 3,
+                    Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);
+                if (p != Main.maxProjectiles)
+                    Main.projectile[p].DamageType = Projectile.DamageType;
             }
         }
 

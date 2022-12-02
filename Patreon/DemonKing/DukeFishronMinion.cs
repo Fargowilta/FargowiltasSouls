@@ -301,11 +301,11 @@ namespace FargowiltasSouls.Patreon.DemonKing
             vel.Normalize();
             vel *= speed;
             int type = ModContent.ProjectileType<RazorbladeTyphoonFriendly2>();
-            int dmg = Projectile.originalDamage / 5;
+            int dmg = Projectile.damage / 10;
             for (int i = 0; i < max; i++)
             {
                 vel = vel.RotatedBy(rotation);
-                FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, dmg,
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, type, dmg,
                     Projectile.knockBack / 4f, Projectile.owner, rotationModifier * Projectile.spriteDirection);
             }
         }

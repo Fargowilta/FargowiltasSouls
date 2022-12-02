@@ -310,7 +310,7 @@ namespace FargowiltasSouls.Projectiles
                         alphaModifier = -1;
                         Projectile.Opacity = Math.Clamp((float)counter / maxTime, 0f, 1f);
 
-                        Projectile.scale = 0.5f;
+                        Projectile.scale = 0.75f;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.TheDestroyerBody, NPCID.TheDestroyerTail);
                         if (npc == null)
@@ -462,10 +462,10 @@ namespace FargowiltasSouls.Projectiles
                 case 16: //destroyer blue laser line up true telegraph
                     {
                         color = Color.SkyBlue;
-                        maxTime = 15;
+                        maxTime = 30;
                         alphaModifier = -1;
                         Projectile.Opacity = Math.Clamp(1f - (float)counter / maxTime, 0f, 1f);
-                        Projectile.scale = 0.5f;
+                        Projectile.scale = 0.75f;
 
                         Projectile.rotation = Projectile.velocity.ToRotation();
                         Projectile.position -= Projectile.velocity;
@@ -477,7 +477,7 @@ namespace FargowiltasSouls.Projectiles
                         color = Color.Purple;
                         maxTime = 270;
                         alphaModifier = 2;
-                        drawLayers = 3;
+                        drawLayers = 2;
                         Projectile.scale = 24f;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.MoonLordCore);

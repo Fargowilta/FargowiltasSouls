@@ -87,7 +87,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 const int max = 6;
                 for (int i = 0; i < max; i++)
                 {
-                    FargoSoulsUtil.NewSummonProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel.RotatedBy(MathHelper.TwoPi / max * i), ModContent.ProjectileType<AbomMinionSickle>(), Projectile.originalDamage, Projectile.knockBack, Projectile.owner, 30);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel.RotatedBy(MathHelper.TwoPi / max * i), ModContent.ProjectileType<AbomMinionSickle>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 30);
                 }
             }
         }
