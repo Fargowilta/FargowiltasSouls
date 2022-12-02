@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 		public bool First = true;
 
-		public NPC cumgod;
+		public NPC lifelight;
 
         private int RotDirect = 1;
 
@@ -85,17 +85,17 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			{
 				if (First)
 				{
-					cumgod = Main.npc[(int)Projectile.ai[1]];
+					lifelight = Main.npc[(int)Projectile.ai[1]];
 					Projectile.ai[1] = 0;
 					First = false;
 				}
-				Player Player = Main.player[cumgod.target];
+				Player Player = Main.player[lifelight.target];
 				Vector2 vectorToIdlePosition = Projectile.Center;
 				float speed = 8f;
 				float inertia = 5f;
 				if (Projectile.ai[1] <= 90f)
 				{
-					vectorToIdlePosition = cumgod.Center - Projectile.Center;
+					vectorToIdlePosition = lifelight.Center - Projectile.Center;
 					speed = 8f;
 				}
 				if (Projectile.ai[1] > 90f)

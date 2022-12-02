@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Items.Summons
         public override bool CanUseItem(Player Player)
         {
             if (Player.ZoneHallow && Main.dayTime)
-                return !(NPC.AnyNPCs(ModContent.NPCType<LifeChallenger>()) || NPC.AnyNPCs(ModContent.NPCType<LifeChallenger2>())); //not (x or y)
+                return !(NPC.AnyNPCs(ModContent.NPCType<LifeChallenger>()) || NPC.AnyNPCs(ModContent.NPCType<LifeChallenger>())); //not (x or y)
             return false;
         }
 

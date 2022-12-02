@@ -49,7 +49,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 }
                 SoundEngine.PlaySound(SoundID.Item56, Projectile.Center);
             }
-            if (NPC.CountNPCS(ModContent.NPCType<LifeChallenger2>()) < 1)
+            if (NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1)
             {
                     Projectile.Kill();
             }

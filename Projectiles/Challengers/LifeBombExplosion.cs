@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 0.5f;
             }
-            
+			
             if (Projectile.ai[0] > 2400f || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1)
 			{
 				int d2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87);

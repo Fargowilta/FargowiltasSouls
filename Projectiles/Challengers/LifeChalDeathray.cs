@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<LifeChallenger2>());
+            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<LifeChallenger>());
             if (npc == null)
             {
                 Projectile.Kill();

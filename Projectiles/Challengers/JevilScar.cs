@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 	{
 		private bool init = false;
 
-		private NPC cumgod;
+		private NPC lifelight;
 
 		Vector2 ScopeAtPlayer = new Vector2();
 
@@ -55,8 +55,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			if (!init)
 			{
 				//at this time, Projectile.ai[1] is rotation in degrees
-				cumgod = Main.npc[(int)Projectile.ai[0]]; //get npc
-				ScopeAtPlayer = cumgod.Center + new Vector2(0, 600);
+				lifelight = Main.npc[(int)Projectile.ai[0]]; //get npc
+				ScopeAtPlayer = lifelight.Center + new Vector2(0, 600);
 				Projectile.ai[0] = 0;
 				init = true;
 			}

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 namespace FargowiltasSouls.Projectiles.Challengers
 {
 
-	public class TpTelegraph : ModProjectile
+	public class LifeTpTelegraph : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{

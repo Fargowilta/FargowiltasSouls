@@ -30,8 +30,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void AI()
         {
-            NPC cumgod = Main.npc[(int)Projectile.ai[1]];
-            Player Player = Main.player[cumgod.target];
+            NPC lifelight = Main.npc[(int)Projectile.ai[1]];
+            Player Player = Main.player[lifelight.target];
             Projectile.position.X = Player.Center.X - Projectile.width / 2;
             Projectile.position.Y = Player.Center.Y - Projectile.height / 2;
             if (Projectile.ai[0] > 60f)

@@ -27,6 +27,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			Projectile.light = 0.5f;
+			Projectile.Opacity = 0f;
 		}
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
 		{
@@ -58,11 +59,24 @@ namespace FargowiltasSouls.Projectiles.Challengers
                     Projectile.frame = 0;
             }
             Projectile.rotation += 0.5f;
-			if (Projectile.ai[1] > 1200f)
+            if (Projectile.ai[0] <= 60f)
+            {
+                Projectile.Opacity += 3 / 60f;
+            }
+            if (Projectile.ai[1] >= 1170)
+			{
+				Projectile.Opacity -= 1 / 60f;
+			}
+			if (Projectile.ai[1] >= 1200f)
+			{
+				Projectile.damage = 0;
+			}
+            if (Projectile.ai[1] > 1230f)
 			{
 				Projectile.Kill();
 			}
 			Projectile.ai[1]++;
+			Projectile.ai[0]++;
 		}
 	}
 }
