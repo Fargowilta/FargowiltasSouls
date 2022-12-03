@@ -123,3 +123,15 @@ restored vanilla qs stomp hitbox sorry
 made ml's phase timer smoother (previously had conspicuous "jumps" in cycle speed, now a continuous gradual transition)
 reduced ml's max rampup, phase time at 1hp is now 10sec (was 7.5sec)
 maso ml has way huger deathrays and more sphere rings in p2 all classes lmao you thought
+
+disabled deerclops and qs debug printout
+fixed tungsten & adam affecting minions (can still affect most projs spawned by minions)
+also check that ninja works properly with minions, and that adam/ninja behave when used at the same time
+adjusted destro glow lines a bit, the blue lines dont appear in maso
+fixed oversight that made adam ench give you near-universal tungsten proj buff
+meteor ench rework
+	moved to pre hm
+	meteors have a chance to specifically aim for enemies (improved hit rate)
+	meteor shower lasts much longer if it doesnt hit enemies
+	damage nerfed
+removed destroyer resistance to meteor ench

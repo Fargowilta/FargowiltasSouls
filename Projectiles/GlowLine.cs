@@ -310,7 +310,7 @@ namespace FargowiltasSouls.Projectiles
                         alphaModifier = -1;
                         Projectile.Opacity = Math.Clamp((float)counter / maxTime, 0f, 1f);
 
-                        Projectile.scale = 0.75f;
+                        Projectile.scale = 0.6f;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.TheDestroyerBody, NPCID.TheDestroyerTail);
                         if (npc == null)
@@ -343,10 +343,14 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 if (counter == maxTime)
                                 {
-                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile),
-                                        Projectile.Center, Projectile.rotation.ToRotationVector2(),
-                                        Projectile.type,
-                                        Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
+									//only make blue telegraph in emode
+									if (!FargoSoulsWorld.MasochistModeReal)
+                                    {
+										Projectile.NewProjectile(Projectile.InheritSource(Projectile),
+											Projectile.Center, Projectile.rotation.ToRotationVector2(),
+											Projectile.type,
+											Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
+									}
 
                                     Projectile.NewProjectile(Projectile.InheritSource(Projectile),
                                         Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(),
@@ -358,10 +362,14 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 if (counter > maxTime - 20 && counter % 10 == 0)
                                 {
-                                    Projectile.NewProjectile(Projectile.InheritSource(Projectile),
-                                        Projectile.Center, Projectile.rotation.ToRotationVector2(),
-                                        Projectile.type,
-                                        Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
+									//only make blue telegraph in emode
+									if (!FargoSoulsWorld.MasochistModeReal)
+                                    {
+										Projectile.NewProjectile(Projectile.InheritSource(Projectile),
+											Projectile.Center, Projectile.rotation.ToRotationVector2(),
+											Projectile.type,
+											Projectile.damage, Projectile.knockBack, Projectile.owner, 16f);
+									}
 
                                     Projectile.NewProjectile(Projectile.InheritSource(Projectile),
                                         Projectile.Center, Projectile.localAI[0] * Projectile.rotation.ToRotationVector2(),
@@ -465,7 +473,7 @@ namespace FargowiltasSouls.Projectiles
                         maxTime = 30;
                         alphaModifier = -1;
                         Projectile.Opacity = Math.Clamp(1f - (float)counter / maxTime, 0f, 1f);
-                        Projectile.scale = 0.75f;
+                        Projectile.scale = 0.6f;
 
                         Projectile.rotation = Projectile.velocity.ToRotation();
                         Projectile.position -= Projectile.velocity;

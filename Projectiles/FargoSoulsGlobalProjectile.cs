@@ -294,7 +294,7 @@ namespace FargowiltasSouls.Projectiles
             }
 
             if (modPlayer.AdamantiteEnchantItem != null && player.GetToggleValue("Adamantite")
-                && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true)
+                && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, false)
                 && CanSplit && Array.IndexOf(noSplit, projectile.type) <= -1)
             {
                 if (projectile.owner == Main.myPlayer

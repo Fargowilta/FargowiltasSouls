@@ -82,7 +82,7 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 canAffect = true;
                 hasCD = false;
             }
-            else if (FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true))
+            else if (FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, false))
             {
                 if (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source))
                 {
@@ -115,19 +115,18 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 projectile.Center = projectile.position;
                 FargoSoulsGlobalProjectile globalProjectile = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>();
                 globalProjectile.TungstenScale = scale;
-                if (hasCD)
-                    modPlayer.TungstenCD = 30;
 
                 if (projectile.aiStyle == ProjAIStyleID.Spear || projectile.aiStyle == ProjAIStyleID.ShortSword)
                     projectile.velocity *= scale;
 
-                if (modPlayer.Eternity)
+                if (hasCD)
                 {
-                    modPlayer.TungstenCD = 0;
-                }
-                else if (modPlayer.TerraForce)
-                {
-                    modPlayer.TungstenCD /= 2;
+                    modPlayer.TungstenCD = 30;
+
+                    if (modPlayer.Eternity)
+                        modPlayer.TungstenCD = 0;
+                    else if (modPlayer.TerraForce)
+                        modPlayer.TungstenCD /= 2;
                 }
             }
         }

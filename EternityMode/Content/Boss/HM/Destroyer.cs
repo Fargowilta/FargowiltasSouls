@@ -686,9 +686,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 damage /= 2;
             if (projectile.type == ProjectileID.SoulDrain)
                 damage = (int)(damage * 0.75);
-            if (Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().meteorShower
-                && (projectile.type == ProjectileID.Meteor1 || projectile.type == ProjectileID.Meteor2 || projectile.type == ProjectileID.Meteor3))
-                damage = (int)(damage * 0.5);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
@@ -920,9 +917,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 damage /= 2;
             if (projectile.type == ProjectileID.SoulDrain)
                 damage = (int)(damage * 0.75);
-            if (Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().meteorShower
-                && (projectile.type == ProjectileID.Meteor1 || projectile.type == ProjectileID.Meteor2 || projectile.type == ProjectileID.Meteor3))
-                damage = (int)(damage * 0.5);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

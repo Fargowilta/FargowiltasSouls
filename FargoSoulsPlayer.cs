@@ -170,16 +170,16 @@ namespace FargowiltasSouls
         public bool HallowEnchantActive;
         public bool HuntressEnchantActive;
         public int HuntressStage;
-        public int HuntressCD = 0;
+        public int HuntressCD;
        
         public bool JungleEnchantActive;
         public int JungleCD;
         
         
-        public bool MeteorEnchantActive;
-        private int meteorTimer = 150;
-        private int meteorCD;
-        public bool meteorShower;
+        public Item MeteorEnchantItem;
+        public int MeteorTimer;
+        public int MeteorCD = 60;
+        public bool MeteorShower;
         public bool MoltenEnchantActive;
         public bool MonkEnchantActive;
         public int MonkDashing;
@@ -790,7 +790,7 @@ namespace FargowiltasSouls
             FrostEnchantActive = false;
             PalladEnchantItem = null;
             OriEnchantItem = null;
-            MeteorEnchantActive = false;
+            MeteorEnchantItem = null;
             MoltenEnchantActive = false;
             CopperEnchantItem = null;
             PlatinumEnchantActive = false;
@@ -1479,6 +1479,8 @@ namespace FargowiltasSouls
                 Player.setMonkT3 = true;
 
 
+            if (Player.channel && WeaponUseTimer < 2)
+                WeaponUseTimer = 2;
             if (--WeaponUseTimer < 0)
                 WeaponUseTimer = 0;
 

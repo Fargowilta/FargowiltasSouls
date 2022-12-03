@@ -395,6 +395,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     break;
             }
 
+            //FargoSoulsUtil.PrintAI(npc);
 
             if (EnteredPhase3 && !(npc.ai[0] == 0 && npc.alpha > 0))
             {

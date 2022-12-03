@@ -727,57 +727,63 @@ namespace FargowiltasSouls
             }
         }
 
-        public void MeteorEffect()
+        public void MeteorEffect(Item item)
         {
-            MeteorEnchantActive = true;
+            MeteorEnchantItem = item;
 
             if (Player.whoAmI == Main.myPlayer && Player.GetToggleValue("Meteor"))
             {
-                int damage = 50;
+                int damage = CosmoForce ? 50 : 20;
 
-                if (meteorShower)
+                if (MeteorShower)
                 {
-                    if (meteorTimer % 2 == 0)
+                    if (MeteorTimer % (CosmoForce ? 2 : 4) == 0)
                     {
-                        int p = Projectile.NewProjectile(Player.GetSource_Misc(""), Player.Center.X + Main.rand.Next(-1000, 1000), Player.Center.Y - 1000, Main.rand.Next(-2, 2), 0f + Main.rand.Next(8, 12), Main.rand.Next(424, 427), FargoSoulsUtil.HighestDamageTypeScaling(Player, damage), 0f, Player.whoAmI, 0f, 0.5f + (float)Main.rand.NextDouble() * 0.3f);
-                        if (p != Main.maxProjectiles)
+                        Vector2 pos = new Vector2(Player.Center.X + Main.rand.NextFloat(-1000, 1000), Player.Center.Y - 1000);
+                        Vector2 vel = new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(8, 12));
+                        
+                        //chance to focus on a nearby enemy with slight predictive aim
+                        if (Main.rand.NextBool())
                         {
-                            Main.projectile[p].GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
-                            Main.projectile[p].netUpdate = true;
-                            if (ModLoader.GetMod("Fargowiltas") != null)
-                                ModLoader.GetMod("Fargowiltas").Call("LowRenderProj", Main.projectile[p]);
+                            List<NPC> targetables = Main.npc.Where(n => n.CanBeChasedBy() && n.Distance(Player.Center) < 900).ToList();
+                            if (targetables.Count > 0)
+                            {
+                                NPC target = targetables[Main.rand.Next(targetables.Count)];
+                                pos.X = target.Center.X + Main.rand.NextFloat(-32, 32);
+
+                                //can retarget better at them, but dont aim meteors upwards
+                                Vector2 predictive = Main.rand.NextFloat(10f, 30f) * target.velocity;
+                                pos.X += predictive.X;
+                                Vector2 targetPos = target.Center + predictive;
+                                if (pos.Y < targetPos.Y)
+                                {
+                                    Vector2 accurateVel = vel.Length() * pos.DirectionTo(targetPos);
+                                    vel = Vector2.Lerp(vel, accurateVel, Main.rand.NextFloat());
+                                }
+                            }
                         }
+
+                        Projectile.NewProjectile(Player.GetSource_Accessory(item), pos, vel, Main.rand.Next(424, 427), FargoSoulsUtil.HighestDamageTypeScaling(Player, damage), 0.5f, Player.whoAmI, 0, 0.5f + (float)Main.rand.NextDouble() * 0.3f);
                     }
 
-                    meteorTimer--;
-
-                    if (meteorTimer <= 0)
+                    if (--MeteorTimer <= 0)
                     {
-                        meteorCD = 300;
-
-                        if (CosmoForce)
-                        {
-                            meteorCD = 200;
-                        }
-
-                        meteorTimer = 150;
-                        meteorShower = false;
+                        MeteorShower = false;
+                        MeteorCD = CosmoForce ? 240 : 480;
                     }
                 }
                 else
                 {
-                    if (Player.controlUseItem)
-                    {
-                        meteorCD--;
+                    MeteorTimer = 150 + MeteorEnchant.METEOR_ADDED_DURATION / (CosmoForce ? 1 : 2);
 
-                        if (meteorCD == 0)
-                        {
-                            meteorShower = true;
-                        }
-                    }
-                    else
+                    if (WeaponUseTimer > 0)
                     {
-                        meteorCD = 300;
+                        if (--MeteorCD <= 0)
+                            MeteorShower = true;
+                    }
+                    else if (MeteorCD < 150) //when not using weapons, gradually increment back up
+                    {
+                        MeteorCD++;
                     }
                 }
             }

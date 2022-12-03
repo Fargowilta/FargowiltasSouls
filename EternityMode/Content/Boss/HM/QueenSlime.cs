@@ -409,9 +409,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         if (npc.ai[1] == 0)
                             SoundEngine.PlaySound(npc.DeathSound, npc.Center);
 
-                        if (npc.ai[1] < 75) //artificial startup on this stupid no-telegraph dive
+                        if (npc.ai[1] < 70) //artificial startup on this stupid no-telegraph dive
                         {
-                            float ratio = 1f - npc.ai[1] / 75;
+                            float ratio = 1f - npc.ai[1] / 70;
                             npc.position.Y -= npc.velocity.Y * ratio;
                         }
                     }
@@ -424,7 +424,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
             }
 
-            FargoSoulsUtil.PrintAI(npc);
+            //FargoSoulsUtil.PrintAI(npc);
 
             EModeUtils.DropSummon(npc, "JellyCrystal", NPC.downedQueenSlime, ref DroppedSummon, Main.hardMode);
 

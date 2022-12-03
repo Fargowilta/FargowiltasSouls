@@ -66,7 +66,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
             modPlayer.CosmoForce = true;
 
             //meteor shower
-            modPlayer.MeteorEffect();
+            modPlayer.MeteorEffect(Item);
             //solar shields
             modPlayer.SolarEnchantActive = true;
             //stealth, voids, pet
