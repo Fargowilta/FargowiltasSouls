@@ -26,7 +26,8 @@ Right Click to guard with your cape
 Press the Special Dash key to perform a short invincible fireball dash
 Press the Ammo Cycle key to cycle ammos (this effect works passively from inventory)
 Grants effects of Wet debuff while riding Cute Fishron and gravity control
-You freeze everything when damaged but taking consecutive hits stacks penalties to your damage reduction
+Submerging in water refreshes flight time and gives you improved speed and increased max flight time
+Graze attacks to gain a bomb that will freeze almost all enemies and projectiles
 Reduces your hurtbox size for projectiles
 Hold the Precision Seal key to disable dashes and double jumps
 Summons a friendly Mini Saucer and true eyes of Cthulhu
@@ -85,8 +86,8 @@ Summons a friendly Mini Saucer and true eyes of Cthulhu
                 fargoPlayer.PumpkingsCapeItem = Item;
 
             //ice queen's crown
-            fargoPlayer.IceQueensCrown = true;
             player.buffImmune[ModContent.BuffType<Hypothermia>()] = true;
+            IceQueensCrown.Effects(player, Item);
 
             //saucer control console
             player.buffImmune[BuffID.Electrified] = true;

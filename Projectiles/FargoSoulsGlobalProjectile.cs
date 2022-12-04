@@ -1051,7 +1051,10 @@ namespace FargowiltasSouls.Projectiles
                         {
                             GrazeCD = 30 * projectile.MaxUpdates;
 
-                            SparklingAdoration.OnGraze(fargoPlayer, projectile.damage * 4);
+                            if (fargoPlayer.DeviGraze)
+                                SparklingAdoration.OnGraze(fargoPlayer, projectile.damage * 4);
+                            if (fargoPlayer.CirnoGraze)
+                                IceQueensCrown.OnGraze(fargoPlayer, projectile.damage * 4);
                         }
                     }
                 }

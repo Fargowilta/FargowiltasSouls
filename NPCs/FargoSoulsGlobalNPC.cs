@@ -287,7 +287,10 @@ namespace FargowiltasSouls.NPCs
                         {
                             npcForGrazeCD.GrazeCD = 30;
 
-                            SparklingAdoration.OnGraze(fargoPlayer, npc.damage);
+                            if (fargoPlayer.DeviGraze)
+                                SparklingAdoration.OnGraze(fargoPlayer, npc.damage);
+                            if (fargoPlayer.CirnoGraze)
+                                IceQueensCrown.OnGraze(fargoPlayer, npc.damage);
                         }
                     }
                 }
@@ -1125,9 +1128,9 @@ namespace FargowiltasSouls.NPCs
             //                damage *= 1.5;
             //            }
 
-            if (modPlayer.Graze)
+            if (modPlayer.DeviGraze)
             {
-                damage *= 1.0 + modPlayer.GrazeBonus;
+                damage *= 1.0 + modPlayer.DeviGrazeBonus;
             }
 
             //            //normal damage calc

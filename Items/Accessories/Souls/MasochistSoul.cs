@@ -264,7 +264,7 @@ Summons the aid of all Eternity Mode bosses to your side
             fargoPlayer.MagicalBulb = true;
 
             //ice queen's crown
-            fargoPlayer.IceQueensCrown = true;
+            IceQueensCrown.Effects(player, Item);
 
             //lihzahrd treasure
             player.buffImmune[BuffID.Burning] = true;

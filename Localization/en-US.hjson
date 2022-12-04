@@ -190,8 +190,6 @@ Mods: {
 			TrojanSquirrelDespawn: Trojan Squirrel returns to its squirrel clan...
 		}
 
-		BuffDescription.Coldheart: '''{0}% less damage reduction'''
-
 		Message: {
 			HasAwoken: has awoken!
 			SquirrelCoatofArms: "{$Mods.FargowiltasSouls.NPCName.TrojanSquirrel} {$Mods.FargowiltasSouls.Message.HasAwoken}"
@@ -546,7 +544,7 @@ Mods: {
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
 			MasoPumpConfig: Pumpking's Cape Parry
-			IceQueensCrownConfig: Freeze On Hit
+			IceQueensCrownConfig: Graze
 			MasoUfoConfig: Saucer Minion
 			MasoGravConfig: Gravity Control
 			MasoGrav2Config: Stabilized Gravity

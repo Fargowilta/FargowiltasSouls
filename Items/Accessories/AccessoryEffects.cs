@@ -1706,6 +1706,12 @@ namespace FargowiltasSouls
 
         public void SupersonicSoul(Item item, bool hideVisual)
         {
+            Player.hasMagiluminescence = true;
+
+            //amph boot
+            Player.autoJump = true;
+            Player.frogLegJumpBoost = true;
+
             if (Player.GetToggleValue("Supersonic") && !Player.GetModPlayer<FargoSoulsPlayer>().noSupersonic && !FargoSoulsUtil.AnyBossAlive())
             {
                 // 5 is the default value, I removed the config for it because the new toggler doesn't have sliders
@@ -2440,56 +2446,6 @@ namespace FargowiltasSouls
                 Player.whoAmI, Player.tileTargetX, Player.tileTargetY);
         }
 
-        public void IceQueensCrownHurt()
-        {
-            if (Player.GetToggleValue("IceQueensCrown"))
-            {
-                if (!MasochistSoul)
-                    Player.AddBuff(ModContent.BuffType<Coldheart>(), Coldheart.STACK_DURATION);
-
-                int freezeRange = 16 * 150;
-                //if (MasochistHeart)
-                //    freezeRange = 16 * 40;
-                //if (MasochistSoul)
-                //    freezeRange = 16 * 60;
-
-                int freezeDuration = 90; //30;
-                int slowDuration = freezeDuration + 180; //(MasochistHeart || MasochistSoul ? 120 : 60);
-
-                foreach (NPC n in Main.npc.Where(n => n.active && !n.friendly && n.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(n, Player.Center)) < freezeRange && !n.dontTakeDamage && !n.buffImmune[ModContent.BuffType<TimeFrozen>()]))
-                {
-                    n.AddBuff(ModContent.BuffType<TimeFrozen>(), freezeDuration);
-                    n.GetGlobalNPC<FargoSoulsGlobalNPC>().SnowChilled = true;
-                    n.GetGlobalNPC<FargoSoulsGlobalNPC>().SnowChilledTimer = slowDuration;
-                    n.netUpdate = true;
-                }
-
-                foreach (Projectile p in Main.projectile.Where(p => p.active && p.hostile && p.damage > 0 && Player.Distance(FargoSoulsUtil.ClosestPointInHitbox(p, Player.Center)) < freezeRange && FargoSoulsUtil.CanDeleteProjectile(p) && !p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune && p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFrozen == 0))
-                {
-                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFrozen = freezeDuration;
-                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().ChilledProj = true;
-                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().ChilledTimer = slowDuration;
-                    p.netUpdate = true;
-                }
-
-                for (int i = 0; i < 40; i++)
-                {
-                    int d = Dust.NewDust(Player.Center, 0, 0, 76, 0, 0, 100, Color.White, 2.5f);
-                    Main.dust[d].noGravity = true;
-                    Main.dust[d].velocity *= 6f;
-                }
-
-                for (int i = 0; i < 20; i++)
-                {
-                    int d = Dust.NewDust(Player.Center, 0, 0, 88, 0, 0, 0, default, 2f);
-                    Main.dust[d].noGravity = true;
-                    Main.dust[d].velocity *= 6f;
-                }
-
-                SoundEngine.PlaySound(SoundID.Item27, Player.Center);
-            }
-        }
-
         public void CelestialRuneSupportAttack(int damage, DamageClass damageType)
         {
             Vector2 position = Player.Center;
@@ -2626,9 +2582,9 @@ namespace FargowiltasSouls
             }
         }
 
-        public void MutantBombKey()
+        public void BombKey()
         {
-            if (MutantEyeCD <= 0)
+            if (MutantEyeItem != null && MutantEyeCD <= 0)
             {
                 MutantEyeCD = 3600;
 
@@ -2679,6 +2635,17 @@ namespace FargowiltasSouls
                 int damage = (int)(1700 * Player.ActualClassDamage(DamageClass.Magic));
                 SpawnSphereRing(24, 12f, damage, -1f);
                 SpawnSphereRing(24, 12f, damage, 1f);
+            }
+            else if (CirnoGraze)
+            {
+                Projectile cirnoBomb = Main.projectile.FirstOrDefault(p => p.active && p.friendly && p.owner == Player.whoAmI && p.type == ModContent.ProjectileType<CirnoBomb>());
+                if (cirnoBomb != null)
+                {
+                    cirnoBomb.ai[0] = 1;
+                    cirnoBomb.netUpdate = true;
+
+                    CirnoGrazeCounter = 0;
+                }
             }
         }
 

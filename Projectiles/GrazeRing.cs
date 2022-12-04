@@ -35,12 +35,18 @@ namespace FargowiltasSouls.Projectiles
                 return;
             }
 
+            if (fargoPlayer.CirnoGraze)
+                color = Color.Cyan;
+            else if (fargoPlayer.DeviGraze)
+                color = Color.HotPink;
+
             float radius = Player.defaultHeight + fargoPlayer.GrazeRadius;
 
             Projectile.timeLeft = 2;
             Projectile.Center = player.Center;
 
-            Projectile.alpha = 0;
+            Projectile.Opacity = Main.mouseTextColor / 255f;
+            Projectile.Opacity *= Projectile.Opacity;
 
             Projectile.scale = radius * 2f / 1000f;
 
@@ -51,7 +57,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return base.GetAlpha(lightColor) * 0.8f;
+            return base.GetAlpha(lightColor) * 0.8f * Projectile.Opacity;
         }
     }
 }
