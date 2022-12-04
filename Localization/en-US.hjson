@@ -1083,5 +1083,17 @@ Mods: {
 			//AmmoCycle: Ammo Cycle
 		//}
 		//enable this when tml updated
+
+		DropRate: {
+			Eternity: "[i:{0}] Eternity Mode drop rate"
+			HMEternity: "[i:{0}] Hardmode Eternity Mode drop rate"
+			PHMEternity: "[i:{0}] Pre-Hardmode Eternity Mode drop rate"
+			EternityMaster: "This is a Master/Eternity Mode drop rate"
+			NotEternity: "[i:{0}] Non-Eternity Mode drop rate"
+			Patreon: "Patreon Drop"
+			EPatreon: "in Eternity Mode"
+			PatreonPlant: " in Jungle on Blood Moon"
+			TimAcc: "[i:{0}] Tim's Concoction drop rate"
+		}
 	}
 }

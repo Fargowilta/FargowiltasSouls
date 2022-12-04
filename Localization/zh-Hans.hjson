@@ -67,6 +67,7 @@ Mods: {
 			Vortex: ""
 			Wood: 怪物图鉴和旗帜解锁速度从2倍变为5倍
 		}
+
 		SetBonus: {
 			Nekomi:
 				'''
@@ -4122,5 +4123,17 @@ Mods: {
 			//AmmoCycle: 弹药切换
 		//}
 		// 下一次tml更新去掉注释，FargowiltasSousl.cs里改好
+
+		DropRate: {
+			Eternity: "[i:{0}] 永恒模式掉落几率"
+			HMEternity: "[i:{0}] 困难模式中永恒模式掉落几率"
+			PHMEternity: "[i:{0}] 困难模式前永恒模式掉落几率"
+			EternityMaster: "大师或永恒模式掉落几率"
+			NotEternity: "[i:{0}] 非永恒模式掉落几率"
+			Patreon: "作为捐赠者物品掉落几率"
+			EPatreon: "永恒模式"
+			PatreonPlant: "（在血月期间的丛林）"
+			TimAcc: "[i:{0}] 佩戴蒂姆的秘药时掉落几率"
+		}
 	}
 }

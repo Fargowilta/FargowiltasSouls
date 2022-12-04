@@ -1,4 +1,5 @@
 ﻿using Terraria.GameContent.ItemDropRules;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.ItemDropRules.Conditions
@@ -20,7 +21,7 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
 
         public string GetConditionDescription()
         {
-            return $"[i:{ModContent.ItemType<Items.Masochist>()}]Non-Eternity Mode drop rate";
+            return Language.GetTextValue("Mods.FargowiltasSouls.DropRate.NotEternity", ModContent.ItemType<Items.Masochist>());
         }
     }
 }

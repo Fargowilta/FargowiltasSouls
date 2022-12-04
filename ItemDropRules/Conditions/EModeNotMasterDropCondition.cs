@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.ItemDropRules.Conditions
 {
@@ -20,7 +21,7 @@ namespace FargowiltasSouls.ItemDropRules.Conditions
 
         public string GetConditionDescription()
         {
-            return "This is a Master/Eternity Mode drop rate";
+            return Language.GetTextValue("Mods.FargowiltasSouls.DropRate.EternityMaster");
         }
     }
 }

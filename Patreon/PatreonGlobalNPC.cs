@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Patreon
@@ -23,14 +24,19 @@ namespace FargowiltasSouls.Patreon
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            string patreonDrop = FargoSoulsUtil.IsChinese() ? "捐赠者掉落" : "Patreon Drop";
+            string patreonDrop = Language.GetTextValue("Mods.FargowiltasSouls.DropRate.Patreon");
             string patreonDescription = $"[i:{ModContent.ItemType<Gittle.RoombaPet>()}]{patreonDrop}";
 
             void AddPatreonDrop(Func<bool> condition, int item, int chanceDenominator = 1, string extra = default)
             {
                 string description = patreonDescription;
                 if (extra != default)
-                    description += " " + extra;
+                {
+                    if (!FargoSoulsUtil.IsChinese())
+                        description += " " + extra;
+                    else
+                        description = $"[i:{ModContent.ItemType<Gittle.RoombaPet>()}]{extra + patreonDrop}";
+                }
                 RuntimeDropCondition dropCondition = new RuntimeDropCondition(condition, description);
                 npcLoot.Add(ItemDropRule.ByCondition(dropCondition, item, chanceDenominator));
             }
@@ -63,11 +69,11 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonKingSlime && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<Catsounds.MedallionoftheFallenKing>(),
                         100,
-                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
+                        Language.GetTextValue("Mods.FargowiltasSouls.DropRate.EPatreon"));
                     break;
 
                 case NPCID.Dryad:
-                    string PatreonPlantDropCondition = FargoSoulsUtil.IsChinese() ? "在血月的丛林" : " in Jungle on Blood Moon";
+                    string PatreonPlantDropCondition = Language.GetTextValue("Mods.FargowiltasSouls.DropRate.PatreonPlant");
                     npcLoot.Add(ItemDropRule.ByCondition(
                         new PatreonPlantDropCondition(patreonDescription + $"{PatreonPlantDropCondition}"),
                         ModContent.ItemType<LaBonez.PiranhaPlantVoodooDoll>()));
@@ -78,7 +84,7 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonDevious && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<DevAesthetic.DeviousAestheticus>(),
                         20,
-                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
+                        Language.GetTextValue("Mods.FargowiltasSouls.DropRate.EPatreon"));
                     break;
 
                 case NPCID.SkeletronPrime:
@@ -86,7 +92,7 @@ namespace FargowiltasSouls.Patreon
                         () => SoulConfig.Instance.PatreonPrime && FargoSoulsWorld.EternityMode,
                         ModContent.ItemType<Purified.PrimeStaff>(),
                         20,
-                        FargoSoulsUtil.IsChinese() ? "在永恒模式" : "in Eternity Mode");
+                        Language.GetTextValue("Mods.FargowiltasSouls.DropRate.EPatreon"));
                     break;
 
                 default:
