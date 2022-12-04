@@ -1503,7 +1503,7 @@ Mods: {
 
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
 			MasoPumpConfig: 南瓜王披肩格挡
-			IceQueensCrownConfig: 受击时冻住敌人
+			IceQueensCrownConfig: 擦弹
 			MasoUfoConfig: 迷你飞碟仆从
 			MasoGravConfig: 重力控制
 			MasoGrav2Config: 重力稳定
