@@ -44,7 +44,10 @@ Your attacks periodically summon life-draining hearts
             player.buffImmune[ModContent.BuffType<Buffs.Masomode.Lovestruck>()] = true;
 
             if (player.GetToggleValue("MasoGraze", false))
+            {
                 fargoPlayer.Graze = true;
+                fargoPlayer.DeviGraze = true;
+            }
 
             fargoPlayer.DevianttHeartItem = Item;
 
@@ -63,14 +66,14 @@ Your attacks periodically summon life-draining hearts
             if (fargoPlayer.AbomWandItem != null)
                 grazeGain *= 2;
 
-            fargoPlayer.GrazeBonus += grazeGain;
-            if (fargoPlayer.GrazeBonus > grazeCap)
+            fargoPlayer.DeviGrazeBonus += grazeGain;
+            if (fargoPlayer.DeviGrazeBonus > grazeCap)
             {
-                fargoPlayer.GrazeBonus = grazeCap;
+                fargoPlayer.DeviGrazeBonus = grazeCap;
                 if (fargoPlayer.StyxSet)
                     fargoPlayer.StyxMeter += FargoSoulsUtil.HighestDamageTypeScaling(Main.LocalPlayer, damage) * 4; //as if gaining the damage, times SOU crit
             }
-            fargoPlayer.GrazeCounter = -1; //reset counter whenever successful graze
+            fargoPlayer.DeviGrazeCounter = -1; //reset counter whenever successful graze
 
             if (fargoPlayer.NekomiSet)
             {
@@ -90,8 +93,8 @@ Your attacks periodically summon life-draining hearts
                 vector6 = vector6.RotatedBy((i - (max / 2 - 1)) * 6.28318548f / max) + Main.LocalPlayer.Center;
                 Vector2 vector7 = vector6 - Main.LocalPlayer.Center;
                 //changes color when bonus is maxed
-                int d = Dust.NewDust(vector6 + vector7, 0, 0, fargoPlayer.GrazeBonus >= grazeCap ? 86 : 228, 0f, 0f, 0, default(Color));
-                Main.dust[d].scale = fargoPlayer.GrazeBonus >= grazeCap ? 1f : 0.75f;
+                int d = Dust.NewDust(vector6 + vector7, 0, 0, fargoPlayer.DeviGrazeBonus >= grazeCap ? 86 : 228, 0f, 0f, 0, default(Color));
+                Main.dust[d].scale = fargoPlayer.DeviGrazeBonus >= grazeCap ? 1f : 0.75f;
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity = vector7;
             }

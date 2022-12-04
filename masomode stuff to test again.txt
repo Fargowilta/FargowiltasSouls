@@ -135,3 +135,6 @@ meteor ench rework
 	meteor shower lasts much longer if it doesnt hit enemies
 	damage nerfed
 removed destroyer resistance to meteor ench
+ice queens crown reworked yet again, graze attacks to gain a freeze bomb
+mutant antibodies buff, enter water to gain 30sec buff, more flight time and magilumi+frog leg
+fixed supersonic soul not actually having effects of magilumi or frog leg

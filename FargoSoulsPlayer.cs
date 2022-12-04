@@ -39,7 +39,7 @@ namespace FargowiltasSouls
 
         public bool IsStandingStill;
         public float AttackSpeed;
-        public float WingTimeModifier;
+        public float WingTimeModifier = 1f;
 
         public bool FreeEaterSummon = true;
         public int Screenshake;
@@ -337,6 +337,7 @@ namespace FargowiltasSouls
         public bool RainbowSlime;
         public bool SkeletronArms;
         public bool IceQueensCrown;
+        public bool CirnoGraze;
         public bool MiniSaucer;
         public bool CanAmmoCycle;
         public bool TribalCharm;
@@ -354,10 +355,12 @@ namespace FargowiltasSouls
         public bool TwinsEX;
         public bool TimsConcoction;
         public bool ReceivedMasoGift;
+        public bool DeviGraze;
         public bool Graze;
         public float GrazeRadius;
-        public int GrazeCounter;
-        public double GrazeBonus;
+        public int DeviGrazeCounter;
+        public int CirnoGrazeCounter;
+        public double DeviGrazeBonus;
         public Item DevianttHeartItem;
         public int DevianttHeartsCD;
         public Item MutantEyeItem;
@@ -703,9 +706,9 @@ namespace FargowiltasSouls
                 Player.doubleTapCardinalTimer[3] = 0;
             }
 
-            if (FargowiltasSouls.MutantBombKey.JustPressed && MutantEyeItem != null)
+            if (FargowiltasSouls.BombKey.JustPressed)
             {
-                MutantBombKey();
+                BombKey();
             }
 
             if (FargowiltasSouls.DebuffInstallKey.JustPressed)
@@ -910,6 +913,7 @@ namespace FargowiltasSouls
             RainbowSlime = false;
             SkeletronArms = false;
             IceQueensCrown = false;
+            CirnoGraze = false;
             MiniSaucer = false;
             CanAmmoCycle = false;
             TribalCharm = false;
@@ -921,6 +925,7 @@ namespace FargowiltasSouls
             PhantasmalRing = false;
             TwinsEX = false;
             TimsConcoction = false;
+            DeviGraze = false;
             Graze = false;
             GrazeRadius = 100f;
             DevianttHeartItem = null;
@@ -1060,6 +1065,8 @@ namespace FargowiltasSouls
             NekomiMeter = 0;
             NekomiTimer = 0;
 
+            CirnoGrazeCounter = 0;
+
             //debuffs
             unstableCD = 0;
             lightningRodTimer = 0;
@@ -1081,7 +1088,7 @@ namespace FargowiltasSouls
             NymphsPerfumeCD = 30;
             WretchedPouchCD = 0;
 
-            GrazeBonus = 0;
+            DeviGrazeBonus = 0;
             MutantEyeCD = 60;
 
             Mash = false;
@@ -1279,6 +1286,12 @@ namespace FargowiltasSouls
                 ShadowEffectPostEquips();
 
             Player.wingTimeMax = (int)(Player.wingTimeMax * WingTimeModifier);
+
+            if (MutantAntibodies && Player.wet)
+            {
+                Player.wingTime = Player.wingTimeMax;
+                Player.AddBuff(ModContent.BuffType<Refreshed>(), 30 * 60);
+            }
 
             if (StyxSet)
             {
@@ -1552,11 +1565,17 @@ namespace FargowiltasSouls
                 Player.InfoAccMechShowWires = false;
             }
 
-            if (Graze && ++GrazeCounter > 60) //decrease graze bonus over time
+            if (Graze) //decrease graze bonus over time
             {
-                GrazeCounter = 0;
-                if (GrazeBonus > 0f)
-                    GrazeBonus -= 0.01;
+                if (++DeviGrazeCounter > 60)
+                {
+                    DeviGrazeCounter = 0;
+                    if (DeviGrazeBonus > 0f)
+                        DeviGrazeBonus -= 0.01;
+                }
+
+                if (CirnoGrazeCounter > 0)
+                    CirnoGrazeCounter--;
             }
 
             if (GravityGlobeEXItem != null && Player.GetToggleValue("MasoGrav2", false))
@@ -2912,9 +2931,6 @@ namespace FargowiltasSouls
 
             if (FossilEnchantItem != null)
                 FossilEnchant.FossilHurt(this, (int)damage);
-
-            if (IceQueensCrown && damage > 1)
-                IceQueensCrownHurt();
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter)
@@ -2967,8 +2983,8 @@ namespace FargowiltasSouls
             if (Midas && Main.myPlayer == Player.whoAmI)
                 Player.DropCoins();
 
-            GrazeBonus = 0;
-            GrazeCounter = 0;
+            DeviGrazeBonus = 0;
+            DeviGrazeCounter = 0;
         }
 
         private PlayerDeathReason DeathByLocalization(string key)

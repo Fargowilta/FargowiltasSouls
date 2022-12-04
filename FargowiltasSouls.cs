@@ -38,7 +38,7 @@ namespace FargowiltasSouls
         internal static ModKeybind GoldKey;
         internal static ModKeybind SmokeBombKey;
         internal static ModKeybind SpecialDashKey;
-        internal static ModKeybind MutantBombKey;
+        internal static ModKeybind BombKey;
         internal static ModKeybind SoulToggleKey;
         internal static ModKeybind PrecisionSealKey;
         internal static ModKeybind MagicalBulbKey;
@@ -133,7 +133,7 @@ namespace FargowiltasSouls
             GoldKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "金身" : "Turn Gold", "O");
             SmokeBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "投掷烟雾弹" : "Throw Smoke Bomb", "I");
             SpecialDashKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "特殊冲刺" : "Special Dash", "C");
-            MutantBombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Mutant Bomb", "Z");
+            BombKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "突变炸弹" : "Bomb", "Z");
             SoulToggleKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "打开魂石效果设置" : "Open Soul Toggler", ".");
             PrecisionSealKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "玲珑圣印精确模式" : "Precision Movement", "LeftShift");
             MagicalBulbKey = KeybindLoader.RegisterKeybind(this, FargoSoulsUtil.IsChinese() ? "魔法净化" : "Magical Cleanse", "N");
@@ -277,7 +277,7 @@ namespace FargowiltasSouls
             GoldKey = null;
             SmokeBombKey = null;
             SpecialDashKey = null;
-            MutantBombKey = null;
+            BombKey = null;
             SoulToggleKey = null;
             PrecisionSealKey = null;
             MagicalBulbKey = null;
