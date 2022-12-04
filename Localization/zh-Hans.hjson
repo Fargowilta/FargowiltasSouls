@@ -241,7 +241,6 @@ Mods: {
 			BerserkerInstall: 狂暴负载
 			BerserkerInstallCD: 狂暴冷却
 			BetsyDash: 冲刺
-			Coldheart: 心冻
 			HellFire: 狱火
 			MagicalCleanseCD: 魔法净化冷却
 			MutantRebirth: 突变重生
@@ -305,6 +304,7 @@ Mods: {
 			PungentGaze: 尖刻注视
 			Purged: 涤荡
 			Purified: 净化
+			Refreshed: 神清气爽
 			ReverseManaFlow: 魔力逆流
 			Rotting: 腐败
 			RushJob: 急活
@@ -390,7 +390,6 @@ Mods: {
 			BerserkerInstall: '''“狂战士！干掉他们！”'''
 			BerserkerInstallCD: '''你还不能进入狂暴状态'''
 			BetsyDash: '''你正在高速移动！'''
-			Coldheart: '''减少{0}%伤害减免'''
 			MagicalCleanseCD: '''你还不能净化减益'''
 			MutantRebirth: '''复活死亡射线蓄力中'''
 			Supercharged: '''增加20%移动速度和10%攻击速度，你的攻击会造成带电和避雷针'''
@@ -452,6 +451,7 @@ Mods: {
 			Oiled: '''着火时受到更多伤害'''
 			Purged: '''闪避效果不会生效'''
 			Purified: '''你被净化了'''
+			Refreshed: '''增加最大飞行时间并增强移动力'''
 			ReverseManaFlow: '''你的魔法武器消耗生命而不是魔力'''
 			Rotting: '''你的身体逐渐衰弱'''
 			RushJob: '''护士现在还不能再次治疗你'''
@@ -530,6 +530,7 @@ Mods: {
 			AbomScytheFriendly: 憎恶镰刀
 			BeeDash: 冲刺
 			BetsyDash: 冲刺
+			CirnoBomb: 琪露诺炸弹
 			CreeperHitbox: 飞眼怪
 			Explosion: 爆炸
 			ExplosionSmall: 爆炸
@@ -2321,7 +2322,7 @@ Mods: {
 			GelicWings: 明胶羽翼
 			GroundStick: 遥控装置
 			GuttedHeart: 破碎之心
-			HeartoftheMasochist: 永恒者之心
+			HeartoftheMasochist: 大师之心
 			IceQueensCrown: 冰雪女王的皇冠
 			LihzahrdTreasureBox: 蜥蜴宝藏盒
 			LumpOfFlesh: 血肉团
@@ -3095,7 +3096,8 @@ Mods: {
 				按下“特殊冲刺”键后会进行短距离的无敌火球冲刺
 				按下“弹药切换”键循环切换弹药（这个效果放在物品栏中也被动生效）
 				骑乘猪龙鱼坐骑时获得潮湿状态效果，你能控制重力
-				受击时冻结一切，但连续受击会减少伤害减免
+				浸在液体中重置飞行时间，增加最大飞行时间并增强移动力
+				擦弹可以积攒一颗能冻住几乎所有敌怪和射弹的炸弹
 				召唤友善的迷你飞碟和克苏鲁真眼
 				“它还在跳动，很暖和，但没人想要”
 				'''
@@ -3103,8 +3105,8 @@ Mods: {
 				'''
 				免疫恐寒症减益
 				增加5%伤害减免
-				受击时冻结一切，但连续受击会减少伤害减免
-				受到的伤害只有1点时不会触发受击效果
+				擦弹可以积攒一颗能冻住几乎所有敌怪和射弹的炸弹
+				按下“炸弹”键投掷炸弹
 				“击败的皇家敌人的象征”
 				'''
 			LihzahrdTreasureBox:
@@ -3142,6 +3144,7 @@ Mods: {
 				免疫大多数由水造成的减益
 				骑乘猪龙鱼坐骑时获得潮湿状态效果
 				增加20%你手持武器职业的伤害，但是降低生命恢复速度
+				浸在液体中重置飞行时间，增加最大飞行时间并增强移动力
 				“很健康的药物，十个医生中有零个会推荐使用它”
 				'''
 			MutantEye:
@@ -3151,7 +3154,7 @@ Mods: {
 				将闪烁崇心的心攻击加强为爱之射线
 				增加闪烁崇心的擦弹伤害加成
 				提升幽灵憎恶的出现频率和攻击力
-				按下“突变炸弹”键时施放一圈幻影眼球，摧毁大多数敌对弹幕
+				按下“炸弹”键时施放一圈幻影眼球，摧毁大多数敌对弹幕
 				突变炸弹有60秒的冷却时间
 				“有点可疑”
 				'''
