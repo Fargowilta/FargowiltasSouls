@@ -530,7 +530,7 @@ namespace FargowiltasSouls.NPCs.Champions
                                     Vector2 vel = -Vector2.UnitY.RotatedBy(MathHelper.Pi * 0.4f * j);
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<CosmosGlowything>(), 0, 0f, Main.myPlayer);
                                 }
-                                SoundEngine.PlaySound(SoundID.NPCDeath7, NPC.Center);
+                                SoundEngine.PlaySound(SoundID.Item25, NPC.Center);
                             }
                         }
 

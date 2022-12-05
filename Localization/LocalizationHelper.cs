@@ -62,7 +62,7 @@ namespace FargowiltasSouls
                 AddBossSpawnInfo("CosmosChampion", $"在太空使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
 
                 AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
-                AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<BrokenPixieRing>()}] in the Hallow at day.");
+                AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
             }
             else
             {
@@ -81,7 +81,7 @@ namespace FargowiltasSouls
                 AddBossSpawnInfo("CosmosChampion", $"Spawn by using [i:{ModContent.ItemType<SigilOfChampions>()}] in space.");
 
                 AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
-                AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<BrokenPixieRing>()}] in the Hallow at day.");
+                AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
             }
 
             #endregion boss spawn info

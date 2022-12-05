@@ -279,7 +279,7 @@ namespace FargowiltasSouls
                     {
                         //ModContent.ItemType<LifeChallengerTrophy>() ADD TROPHY
                     }),
-                    new List<int> { ModContent.ItemType<BrokenPixieRing>() },
+                    new List<int> { ModContent.ItemType<FragilePixieLamp>() },
                     false,
                     "NPCs/Challengers/LifeChallenger_Still"
                 );

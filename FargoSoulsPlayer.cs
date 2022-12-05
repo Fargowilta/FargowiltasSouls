@@ -2406,7 +2406,7 @@ namespace FargowiltasSouls
                 LightslingerHitShots++;
                 if (LightslingerHitShots == 20)
                 {
-                    SoundEngine.PlaySound(SoundID.Item4, Player.Center);
+                    SoundEngine.PlaySound(SoundID.MaxMana, Player.Center);
                 }
             }
 

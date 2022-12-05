@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
 
         public override void SetDefaults()
         {
-            Item.damage = 40;
+            Item.damage = 40; //BALANCE
             Item.DamageType = DamageClass.Ranged;
             Item.width = 76;
             Item.height = 48;
@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 0.5f;
             Item.value = Item.sellPrice(0, 2);
-            Item.rare = ItemRarityID.Blue;
+            Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item12;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<LightslingerShot>();

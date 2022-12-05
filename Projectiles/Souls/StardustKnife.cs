@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             Projectile.width = Projectile.height = 80;
             Projectile.Center = Projectile.position;
 
-            SoundEngine.PlaySound(SoundID.NPCDeath7 with { Volume = 0.5f, Pitch = 0 }, Projectile.Center);
+            SoundEngine.PlaySound(SoundID.Item25 with { Volume = 0.5f, Pitch = 0 }, Projectile.Center);
 
             for (int index1 = 0; index1 < 2; ++index1)
             {
