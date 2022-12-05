@@ -11,13 +11,14 @@ namespace FargowiltasSouls.Projectiles.Champions
 {
     public class WillDeathray : Deathrays.BaseDeathray
     {
-        public WillDeathray() : base(420, "AbomDeathray") { }
+        public WillDeathray() : base(420, sheeting: TextureSheeting.Horizontal) { }
 
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Will Deathray");
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override bool? CanDamage()
@@ -111,6 +112,13 @@ namespace FargowiltasSouls.Projectiles.Champions
             //Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
 
             Projectile.position -= Projectile.velocity;
+
+            if (++Projectile.frameCounter > 2)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= Main.projFrames[Projectile.type])
+                    Projectile.frame = 0;
+            }
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

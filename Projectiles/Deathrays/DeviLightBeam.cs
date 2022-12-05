@@ -10,7 +10,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class DeviLightBeam : BaseDeathray
     {
-        public DeviLightBeam() : base(30 * 2, "AbomDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/AbomDeathray";
+        public DeviLightBeam() : base(30 * 2) { }
 
         public override void SetStaticDefaults()
         {

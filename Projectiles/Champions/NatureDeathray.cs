@@ -11,7 +11,8 @@ namespace FargowiltasSouls.Projectiles.Champions
 {
     public class NatureDeathray : Deathrays.BaseDeathray
     {
-        public NatureDeathray() : base(120, "NatureDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/NatureDeathray";
+        public NatureDeathray() : base(120) { }
 
         public override void SetStaticDefaults()
         {

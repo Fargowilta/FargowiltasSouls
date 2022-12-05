@@ -14,7 +14,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class GolemBeam : BaseDeathray
     {
-        public GolemBeam() : base(300, "GolemBeam") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/GolemBeam";
+        public GolemBeam() : base(300) { }
 
         public override void SetStaticDefaults()
         {

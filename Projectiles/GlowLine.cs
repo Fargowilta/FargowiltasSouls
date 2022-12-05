@@ -106,6 +106,7 @@ namespace FargowiltasSouls.Projectiles
                     {
                         color = Color.HotPink;
                         maxTime = 90;
+                        Projectile.scale = 0.5f;
                         Projectile.rotation = Projectile.ai[1];
                         alphaModifier = 1;
                         if (Projectile.velocity != Vector2.Zero)
@@ -288,7 +289,8 @@ namespace FargowiltasSouls.Projectiles
                     {
                         color = Color.Purple;
                         maxTime = 90;
-                        alphaModifier = 2;
+                        alphaModifier = 1;
+                        Projectile.scale = 0.5f;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.DeviBoss.DeviBoss>());
                         if (npc != null)

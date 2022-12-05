@@ -13,8 +13,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     public class PhantasmalDeathrayPungent : Deathrays.BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayWOF";
-
-        public PhantasmalDeathrayPungent() : base(120, "PhantasmalDeathrayWOF") { }
+        public PhantasmalDeathrayPungent() : base(120) { }
 
         public override void SetStaticDefaults()
         {

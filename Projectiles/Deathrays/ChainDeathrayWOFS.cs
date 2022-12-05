@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class ChainDeathrayWOFS : BaseDeathray
     {
-        public ChainDeathrayWOFS() : base(90, "PhantasmalDeathrayWOF", 0.5f) { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayWOF";
+        public ChainDeathrayWOFS() : base(90, 0.5f) { }
 
         public override void SetStaticDefaults()
         {

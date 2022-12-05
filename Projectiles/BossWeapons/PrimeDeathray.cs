@@ -10,7 +10,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     public class PrimeDeathray : Deathrays.BaseDeathray
     {
-        public PrimeDeathray() : base(90, "PhantasmalDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathray";
+        public PrimeDeathray() : base(90) { }
 
         public float Spinup { get { return Projectile.localAI[0] / 2.25f; } }
 

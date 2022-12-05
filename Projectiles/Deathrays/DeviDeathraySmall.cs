@@ -6,7 +6,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class DeviDeathraySmall : BaseDeathray
     {
-        public DeviDeathraySmall() : base(60, "DeviDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
+        public DeviDeathraySmall() : base(60) { }
 
         public override void SetStaticDefaults()
         {

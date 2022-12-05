@@ -6,7 +6,8 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 {
     public class AbomDeathraySmall : Deathrays.BaseDeathray
     {
-        public AbomDeathraySmall() : base(30, "AbomDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/AbomDeathray";
+        public AbomDeathraySmall() : base(30) { }
 
         public override void SetStaticDefaults()
         {

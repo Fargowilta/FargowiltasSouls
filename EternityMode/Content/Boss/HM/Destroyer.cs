@@ -875,7 +875,17 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return base.CanHitPlayer(npc, target, ref CooldownSlot);
 
             Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>(); //basically, don't hit player right around when a coil begins, segments inside radius may move eratically
-            return !(destroyerEmode.IsCoiling ? destroyerEmode.AttackModeTimer < 15 : destroyerEmode.AttackModeTimer >= 1080 - 15);
+            if (destroyerEmode.IsCoiling)
+            {
+                if (destroyerEmode.AttackModeTimer < 15)
+                    return false;
+            }
+            else if (destroyerEmode.PrepareToCoil)
+            {
+                return false;
+            }
+            
+            return true;
         }
 
         public override void ModifyHitByAnything(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit)

@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.AbomBoss
 {
     public class AbomSwordHandle : Deathrays.BaseDeathray
     {
-        public AbomSwordHandle() : base(150, "AbomDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/AbomDeathray";
+        public AbomSwordHandle() : base(150) { }
         public int counter;
 
         public override void SetStaticDefaults()

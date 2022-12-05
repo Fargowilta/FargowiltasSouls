@@ -4,8 +4,6 @@ namespace FargowiltasSouls.Projectiles
 {
     public class StyxGazerArmor : BossWeapons.StyxGazer
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/StyxGazer";
-
         public override void AI()
         {
             Projectile.damage = FargoSoulsUtil.HighestDamageTypeScaling(Main.player[Projectile.owner], 666);

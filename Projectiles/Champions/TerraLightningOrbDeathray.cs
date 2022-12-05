@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Champions
 {
     public class TerraLightningOrbDeathray : Deathrays.BaseDeathray
     {
-        public TerraLightningOrbDeathray() : base(1000, "TerraLightningOrbDeathray", 0.8f) { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/TerraLightningOrbDeathray";
+        public TerraLightningOrbDeathray() : base(1000, 0.8f) { }
 
         public override void SetStaticDefaults()
         {

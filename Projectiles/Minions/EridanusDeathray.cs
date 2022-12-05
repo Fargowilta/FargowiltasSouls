@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class EridanusDeathray : Deathrays.BaseDeathray
     {
-        public EridanusDeathray() : base(20, "ShadowDeathray", 0.7f) { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/ShadowDeathray";
+        public EridanusDeathray() : base(20, 0.7f) { }
 
         public override void SetStaticDefaults()
         {

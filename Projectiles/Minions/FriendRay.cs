@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 {
     public class FriendRay : Deathrays.BaseDeathray
     {
-        public FriendRay() : base(120, "DeviDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
+        public FriendRay() : base(120) { }
 
         public override void SetStaticDefaults()
         {

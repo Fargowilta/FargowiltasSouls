@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 {
     public class SparklingLoveDeathray2 : Deathrays.BaseDeathray
     {
-        public SparklingLoveDeathray2() : base(60, "DeviDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
+        public SparklingLoveDeathray2() : base(60) { }
 
         public override void SetStaticDefaults()
         {

@@ -11,8 +11,7 @@ namespace FargowiltasSouls.Projectiles.Minions
     public class SaucerDeathray : Deathrays.BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayGolem";
-
-        public SaucerDeathray() : base(25, "PhantasmalDeathrayGolem") { }
+        public SaucerDeathray() : base(25) { }
 
         public override void SetStaticDefaults()
         {

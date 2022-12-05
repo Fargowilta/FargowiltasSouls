@@ -8,7 +8,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
 {
     public class GuardianDeathraySmall : Deathrays.BaseDeathray
     {
-        public GuardianDeathraySmall() : base(30, "GuardianDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/GuardianDeathray";
+        public GuardianDeathraySmall() : base(30) { }
 
         private Vector2 offset;
 

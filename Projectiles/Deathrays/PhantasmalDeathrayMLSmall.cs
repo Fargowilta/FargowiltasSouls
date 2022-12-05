@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class PhantasmalDeathrayMLSmall : BaseDeathray
     {
-        public PhantasmalDeathrayMLSmall() : base(90, "PhantasmalDeathrayML") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayML";
+        public PhantasmalDeathrayMLSmall() : base(90) { }
 
         public override void SetStaticDefaults()
         {

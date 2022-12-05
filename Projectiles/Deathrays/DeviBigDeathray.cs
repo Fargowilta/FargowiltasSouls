@@ -10,7 +10,8 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class DeviBigDeathray : BaseDeathray
     {
-        public DeviBigDeathray() : base(180, "DeviDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
+        public DeviBigDeathray() : base(180) { }
 
         public override void SetStaticDefaults()
         {

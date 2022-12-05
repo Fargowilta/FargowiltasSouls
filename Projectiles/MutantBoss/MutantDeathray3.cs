@@ -11,7 +11,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantDeathray3 : Deathrays.BaseDeathray
     {
-        public MutantDeathray3() : base(270, "PhantasmalDeathray", grazeCD: 30) { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathray";
+        public MutantDeathray3() : base(270, grazeCD: 30) { }
 
         public override void SetStaticDefaults()
         {

@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
     public class MutantDeathray2 : Deathrays.MutantSpecialDeathray
     {
         public MutantDeathray2() : base(180) { }
-
+        
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

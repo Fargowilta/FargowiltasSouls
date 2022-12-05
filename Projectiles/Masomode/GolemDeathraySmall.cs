@@ -7,7 +7,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
 {
     public class GolemDeathraySmall : Deathrays.BaseDeathray
     {
-        public GolemDeathraySmall() : base(60, "PhantasmalDeathrayGolem") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathrayGolem";
+        public GolemDeathraySmall() : base(60) { }
 
         public override void SetStaticDefaults()
         {

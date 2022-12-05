@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Champions
 {
     public class WillDeathraySmall : Deathrays.BaseDeathray
     {
-        public WillDeathraySmall() : base(60, "AbomDeathray", drawDistance: 3600) { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/AbomDeathray";
+        public WillDeathraySmall() : base(60, drawDistance: 3600) { }
 
         public override void SetStaticDefaults()
         {
@@ -116,7 +117,7 @@ namespace FargowiltasSouls.Projectiles.Champions
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<WillDeathray2>(), Projectile.damage, 0f, Main.myPlayer, 0f, Projectile.ai[1]);
+                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<WillDeathrayBig>(), Projectile.damage, 0f, Main.myPlayer, 0f, Projectile.ai[1]);
             }
         }
 

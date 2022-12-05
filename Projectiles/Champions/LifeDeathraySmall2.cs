@@ -9,7 +9,8 @@ namespace FargowiltasSouls.Projectiles.Champions
 {
     public class LifeDeathraySmall2 : Deathrays.BaseDeathray
     {
-        public LifeDeathraySmall2() : base(90, "AbomDeathray") { }
+        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/AbomDeathray";
+        public LifeDeathraySmall2() : base(90) { }
 
         public override void SetStaticDefaults()
         {
