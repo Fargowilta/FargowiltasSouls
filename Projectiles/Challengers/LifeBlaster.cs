@@ -42,6 +42,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 damage = Projectile.damage;
                 Projectile.damage = 0;
                 Init = true;
+                Projectile.netUpdate = true;
             }
             Projectile.ai[0]++;
             Projectile.alpha -= 15;
@@ -66,6 +67,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 
                     }
+                    Projectile.netUpdate = true;
                 }
                 //damage projectiles
                 /*if ((Projectile.ai[0] >= 60 && Projectile.ai[0] % 11 == 10 && Projectile.ai[1] <= 1) || (Projectile.ai[0] >= 120 && Projectile.ai[0] % 11 == 10 && Projectile.ai[1] == 2))

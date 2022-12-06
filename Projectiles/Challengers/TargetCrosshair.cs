@@ -32,9 +32,12 @@ namespace FargowiltasSouls.Projectiles.Challengers
         {
             NPC lifelight = Main.npc[(int)Projectile.ai[1]];
             Player Player = Main.player[lifelight.target];
-            Projectile.position.X = Player.Center.X - Projectile.width / 2;
-            Projectile.position.Y = Player.Center.Y - Projectile.height / 2;
-            if (Projectile.ai[0] > 60f)
+            if (Player.active && !Player.dead)
+            {
+                Projectile.position.X = Player.Center.X - Projectile.width / 2;
+                Projectile.position.Y = Player.Center.Y - Projectile.height / 2;
+            }
+                if (Projectile.ai[0] > 60f)
             {
                 Projectile.Kill();
             }

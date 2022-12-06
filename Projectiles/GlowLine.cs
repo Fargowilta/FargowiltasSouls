@@ -107,7 +107,7 @@ namespace FargowiltasSouls.Projectiles
                         color = Color.HotPink;
                         maxTime = 90;
                         Projectile.rotation = Projectile.ai[1];
-                        alphaModifier = 1;
+                        alphaModifier = 0.5f;
                         if (Projectile.velocity != Vector2.Zero)
                         {
                             if (counter == 0)
@@ -583,6 +583,16 @@ namespace FargowiltasSouls.Projectiles
 
                         Projectile.position -= Projectile.velocity;
                         Projectile.rotation = Projectile.velocity.ToRotation();
+                    }
+                    break;
+                case 20: //lifelight shotgun
+                    {
+                        color = Color.Pink;
+                        Projectile.Opacity = 0.2f;
+                        alphaModifier = 1;
+                        Projectile.scale = 1f;
+                        maxTime = 40;
+                        Projectile.rotation = Projectile.ai[1];
                     }
                     break;
 

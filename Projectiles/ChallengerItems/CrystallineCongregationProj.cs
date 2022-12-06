@@ -69,7 +69,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 Projectile.alpha = 255;
                 Projectile.rotation = Main.rand.Next(100);
                 RotDirect = Main.rand.NextBool(2) ? -1 : 1;
-                player = Main.player[(int)Projectile.ai[1]];
+                player = Main.player[Projectile.owner];
                 Projectile.ai[1] = 0;
                 RealDamage = Projectile.damage;
             }

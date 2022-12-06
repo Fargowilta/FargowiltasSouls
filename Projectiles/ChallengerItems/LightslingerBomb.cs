@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.penetrate = 1;
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
-            Projectile.light = 5f;
+            Projectile.light = 2f;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
         {

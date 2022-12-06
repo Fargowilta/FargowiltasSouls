@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 {
     public class LifeChalDeathray : Deathrays.BaseDeathray
     {
-        public LifeChalDeathray() : base(2, "DeviDeathray") { }
+        public LifeChalDeathray() : base(3, "DeviDeathray") { }
 
         public override void SetStaticDefaults()
         {

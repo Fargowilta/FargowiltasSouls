@@ -71,25 +71,28 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 if (Projectile.ai[0] == 31f)
                     Projectile.ai[1] = Player.FindClosest(Projectile.Center, 0, 0);
 
-                Vector2 vectorToIdlePosition = Main.player[(int)Projectile.ai[1]].Center - Projectile.Center;
-                float num = vectorToIdlePosition.Length();
-				float speed = 24f;
-				float inertia = 15f;
-				float deadzone = 150f;
-				if (num > deadzone && home)
+				if (Main.player[(int)Projectile.ai[1]].active && !Main.player[(int)Projectile.ai[1]].dead)
 				{
-					vectorToIdlePosition.Normalize();
-					vectorToIdlePosition *= speed;
-					Projectile.velocity = (Projectile.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
-				}
-				else if (Projectile.velocity == Vector2.Zero)
-				{
-					Projectile.velocity.X = -0.15f;
-					Projectile.velocity.Y = -0.05f;
-				}
-				if (num < deadzone)
-				{
-					home = false;
+					Vector2 vectorToIdlePosition = Main.player[(int)Projectile.ai[1]].Center - Projectile.Center;
+					float num = vectorToIdlePosition.Length();
+					float speed = 24f;
+					float inertia = 15f;
+					float deadzone = 150f;
+					if (num > deadzone && home)
+					{
+						vectorToIdlePosition.Normalize();
+						vectorToIdlePosition *= speed;
+						Projectile.velocity = (Projectile.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
+					}
+					else if (Projectile.velocity == Vector2.Zero)
+					{
+						Projectile.velocity.X = -0.15f;
+						Projectile.velocity.Y = -0.05f;
+					}
+					if (num < deadzone)
+					{
+						home = false;
+					}
 				}
 			}
 			if (Projectile.ai[0] > 600f)

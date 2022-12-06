@@ -16,6 +16,8 @@ namespace FargowiltasSouls.Items.Summons
         {
             DisplayName.SetDefault("Fragile Pixie Lamp");
             Tooltip.SetDefault("While in the Hallow during day, hold out to break, angering the pixies' master");
+
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 5;
         }
 
         public override void SetDefaults()

@@ -16,18 +16,19 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public int counter;
 
-        public override string Texture => "Terraria/Images/NPC_75";
+        //public override string Texture => "Terraria/Images/NPC_75";
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pixie");
-            Main.projFrames[Projectile.type] = Main.npcFrameCount[NPCID.Pixie];
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
         {
             Projectile.netImportant = true;
-            Projectile.width = Projectile.height = 20;
+            Projectile.width = 36;
+            Projectile.height = 30;
             Projectile.timeLeft *= 5;
             Projectile.friendly = true;
             Projectile.minion = true;
@@ -55,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                 Projectile.velocity = Vector2.Normalize(player.Center - Projectile.Center);
             }
             Projectile.rotation = 0;
-            Projectile.spriteDirection = -Projectile.direction;
+            Projectile.spriteDirection = Projectile.direction;
             #region Targeting
 
             if (!foundTarget && Projectile.ai[0] == -1)
