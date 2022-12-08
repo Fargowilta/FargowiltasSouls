@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Items.Accessories.Expert;
+using FargowiltasSouls.Items.Placeables;
 using FargowiltasSouls.Items.Weapons.Challengers;
 using System.Data;
 using Terraria;
@@ -15,7 +16,7 @@ namespace FargowiltasSouls.Items.BossBags
 
         public override void OpenBossBag(Player player)
         {
-            //player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<LifeRevitalizer>()); EXPERT ITEM
+            player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<LifeRevitalizer>());
 
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), Main.rand.Next(new int[] {
                 ModContent.ItemType<EnchantedLifeblade>(),

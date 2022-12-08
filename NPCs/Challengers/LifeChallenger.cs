@@ -2363,6 +2363,18 @@ namespace FargowiltasSouls.NPCs.Challengers
             }
             return false;
         }
+        public override void HitEffect(int hitDirection, double HitDamage)
+        {
+            if (NPC.life <= 0)
+            {
+                for (int i = 0; i < 400; i++)
+                {
+                    SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemTopaz, 0, 0, 100, new Color(), 1f);
+                }
+                return;
+            }
+        }
         public override bool CheckDead()
         {
             if (!resigned) //no dying before final phase
@@ -2533,7 +2545,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 			if (PhaseThree && NPC.life < NPC.lifeMax / 10 && FargoSoulsWorld.MasochistModeReal)
 			{
 				state = 101;
-				oldstate = -666;
+				oldstate = -665;
 			}
 
             if (first)

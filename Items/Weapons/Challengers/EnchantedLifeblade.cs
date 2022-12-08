@@ -15,11 +15,13 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             Tooltip.SetDefault("A living blade that will attack your mouse position");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 3));
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         }
             public override void SetDefaults()
             {
-                Item.width = 56;
-                Item.height = 58;
+                Item.width = 80;
+                Item.height = 80;
                 Item.damage = 60;
                 Item.knockBack = 3f;
                 Item.useStyle = ItemUseStyleID.Swing;

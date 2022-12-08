@@ -16,13 +16,14 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Enchanted Lifeblade");
+            Main.projFrames[Projectile.type] = 3;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
         {
-            Projectile.width = 50; 
-            Projectile.height = 50;
+            Projectile.width = 54; //sqrt(sprite width^2 / 2) since diagonal
+            Projectile.height = 54;
             Projectile.aiStyle = 0;
             AIType = 14;
             Projectile.penetrate = 1;
@@ -40,11 +41,19 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         public override void AI()
         {
             
-            const int ProjSpriteWidth = 56;
-            //const int ProjSpriteHeight = 58;
+            const int ProjSpriteWidth = 74;
+            //const int ProjSpriteHeight = 74;
             const int SpinTime = 15 + 1;
             const int ChargeTime = 15;
             const int ChargeSpeed = 30;
+
+            if (Projectile.frameCounter > 4)
+            {
+                Projectile.frame %= Main.projFrames[Projectile.type];
+                Projectile.frameCounter = 0;
+            }
+            Projectile.frameCounter++;
+
             //for a duration, stays in place and spins around
             //after timer, dash towards mouse and then reset timer and spin again
 
