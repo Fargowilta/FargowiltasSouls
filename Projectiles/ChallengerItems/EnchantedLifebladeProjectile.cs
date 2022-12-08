@@ -38,18 +38,19 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         private Vector2 Aim = Vector2.Zero;
         private Vector2 AimDir = Vector2.Zero;
         private Vector2 Position = Vector2.Zero;
+        const int ProjSpriteWidth = 74;
+        const int ProjSpriteHeight = 74;
         public override void AI()
         {
             
-            const int ProjSpriteWidth = 74;
-            //const int ProjSpriteHeight = 74;
+            
             const int SpinTime = 15 + 1;
             const int ChargeTime = 15;
             const int ChargeSpeed = 30;
 
             if (Projectile.frameCounter > 4)
             {
-                Projectile.frame %= Main.projFrames[Projectile.type];
+                Projectile.frame %= 3;
                 Projectile.frameCounter = 0;
             }
             Projectile.frameCounter++;
