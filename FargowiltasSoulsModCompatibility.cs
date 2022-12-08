@@ -278,6 +278,21 @@ namespace FargowiltasSouls
                     false,
                     "NPCs/Challengers/LifeChallenger_Still"
                 );
+                Add("Boss",
+                    "CursedCoffin",
+                    //TODO: ADD LOOT
+                    new List<int> { ModContent.NPCType<CursedCoffin>() },
+                    4.75f,
+                    () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CursedCoffin],
+                    () => true,
+                    new List<int>(new int[]
+                    {
+                        
+                    }),
+                    new List<int> { ModContent.ItemType<CoffinSummon>() },
+                    false,
+                    "NPCs/Challengers/CursedCoffin_Still"
+                );
 
                 #endregion challengers
             }

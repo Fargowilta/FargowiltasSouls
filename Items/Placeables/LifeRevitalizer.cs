@@ -13,13 +13,13 @@ namespace FargowiltasSouls.Items.Placeables
             DisplayName.SetDefault("Life Revitalizer");
             Tooltip.SetDefault("Right click tile to set world spawn point \nOverridden by beds \nNo housing required");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(3, 3));
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 3));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            Item.width = 50;
+            Item.width = 46;
             Item.height = 46;
             Item.maxStack = 15;
             Item.useTurn = true;

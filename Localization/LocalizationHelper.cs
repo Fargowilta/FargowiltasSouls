@@ -63,6 +63,7 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
                 AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
+                AddBossSpawnInfo("CursedCoffin", $"Spawn by using [i:{ModContent.ItemType<CoffinSummon>()}] in the Underground Desert.");
             }
             else if (FargoSoulsUtil.IsPortuguese())
             {
@@ -99,6 +100,7 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
                 AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
+                AddBossSpawnInfo("CursedCoffin", $"Spawn by using [i:{ModContent.ItemType<CoffinSummon>()}] in the Underground Desert.");
             }
 
             #endregion boss spawn info

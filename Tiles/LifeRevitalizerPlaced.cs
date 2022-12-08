@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Tiles
             TileID.Sets.InteractibleByNPCs[Type] = true;
 
 
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.LavaDeath = true;
             //TileObjectData.newTile.Origin = new Point16(0, 1);
             //TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Tiles
             name.SetDefault("Life Revitalizer");
             AddMapEntry(Color.Pink, name);
 
-            AnimationFrameHeight = 34;
+            AnimationFrameHeight = 54;
         }
         public override bool RightClick(int i, int j)
         {
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Tiles
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (++frameCounter >= 3)
+            if (++frameCounter >= 6)
             {
                 frameCounter = 0;
                 frame = ++frame % 3;
@@ -77,7 +77,8 @@ namespace FargowiltasSouls.Tiles
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            if (Main.tile[i - 1, j - 1].TileType == ModContent.TileType<LifeRevitalizerPlaced>() && Main.tile[i + 1, j - 1].TileType == ModContent.TileType<LifeRevitalizerPlaced>())
+            //drawcode method for star
+            /*if (Main.tile[i - 1, j - 1].TileType == ModContent.TileType<LifeRevitalizerPlaced>() && Main.tile[i + 1, j - 1].TileType == ModContent.TileType<LifeRevitalizerPlaced>())
             {
                 spriteBatch.End(); spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
                 Texture2D star = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Effects/LifeStar", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
@@ -92,7 +93,7 @@ namespace FargowiltasSouls.Tiles
                 GameShaders.Misc["LCWingShader"].Apply(new DrawData?());
                 starDraw.Draw(spriteBatch);
                 spriteBatch.End(); spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            }
+            }*/
             return true; 
         }
 
