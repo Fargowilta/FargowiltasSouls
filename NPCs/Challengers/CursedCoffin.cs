@@ -19,6 +19,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json.Linq;
 using Terraria.GameContent.ItemDropRules;
 using Color = Microsoft.Xna.Framework.Color; //idk why i had to do this but i did
+using Terraria.Graphics.Shaders;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -38,9 +40,9 @@ namespace FargowiltasSouls.NPCs.Challengers
         }
         private bool Attacking = true;
         private bool Flying = false;
+        private bool ExtraTrail = false;
 
         private int StateCount = Enum.GetValues(typeof(StateEnum)).Length;
-
         private int Frame = 0;
 
         private List<int> availablestates = new List<int>(0);
@@ -137,17 +139,8 @@ namespace FargowiltasSouls.NPCs.Challengers
         {
             if (NPC.life <= 0)
             {
-                /*for (int i = 0; i < 100; i++) TODO: ADD DUST
-                {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemTopaz, 0, 0, 100, new Color(), 1f);
-                }*/
-                /*for (int i = 1; i <= 4; i++) TODO: ADD GORE
-                {
-                    Vector2 rand = new Vector2(Main.rand.NextFloat(NPC.width), Main.rand.NextFloat(NPC.height));
-                    if (!Main.dedServ)
-                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position + rand, NPC.velocity, ModContent.Find<ModGore>(Mod.Name, $"CursedCoffin_Gore{i}").Type, NPC.scale);
-                }*/
-                
+                //
+
                 return;
             }
         }
@@ -161,9 +154,15 @@ namespace FargowiltasSouls.NPCs.Challengers
             Vector2 drawPos = NPC.Center - screenPos;
             int currentFrame = NPC.frame.Y / (bodytexture.Height / Main.npcFrameCount[NPC.type]);
 
-            for (int i = 0; i < NPCID.Sets.TrailCacheLength[NPC.type]; i++)
+            for (int i = 0; i < (ExtraTrail ? NPCID.Sets.TrailCacheLength[NPC.type] : NPCID.Sets.TrailCacheLength[NPC.type] / 4); i++)
             {
-                //TODO: ADD TRAIL (ghosty guy should have trail i think)
+                Vector2 value4 = NPC.oldPos[i];
+                int oldFrame = Frame;
+                Rectangle oldRectangle = new Rectangle(0, oldFrame * bodytexture.Height / Main.npcFrameCount[NPC.type], bodytexture.Width, bodytexture.Height / Main.npcFrameCount[NPC.type]);
+                DrawData oldGlow = new DrawData(bodytexture, value4 + NPC.Size / 2f - screenPos + new Vector2(0, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(oldRectangle), drawColor * (0.5f / i), NPC.rotation, new Vector2(bodytexture.Width / 2, bodytexture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, SpriteEffects.None, 0);
+                GameShaders.Misc["LCWingShader"].UseColor(Color.Blue).UseSecondaryColor(Color.Black);
+                GameShaders.Misc["LCWingShader"].Apply(oldGlow);
+                oldGlow.Draw(spriteBatch);
             }
 
             spriteBatch.Draw(origin: new Vector2(bodytexture.Width / 2, bodytexture.Height / 2 / Main.npcFrameCount[NPC.type]), texture: bodytexture, position: drawPos, sourceRectangle: NPC.frame, color: drawColor, rotation: NPC.rotation, scale: NPC.scale, effects: SpriteEffects.None, layerDepth: 0f);
@@ -259,6 +258,7 @@ namespace FargowiltasSouls.NPCs.Challengers
         {
             //TODO: add slam when it hits ground (little shockwave, dust)
             Flying = false;
+            ExtraTrail = true;
             NPC.velocity.Y *= 1.04f;
             if (NPC.Center.Y >= LockVector1.Y)
             {
@@ -267,6 +267,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                 {
                     SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
                     //dust explosion
+                    ExtraTrail = false;
                     StateReset();
                 }
             }
