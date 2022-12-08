@@ -1549,10 +1549,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                 {
                     LockVector1 = NPC.Center;
                     LockVector2 = (NPC.DirectionTo(Player.Center) * ProjectileSpeed).RotatedBy(MathHelper.Pi / 80 * (Main.rand.NextFloat() - 0.5f));
-                    for (int i = 0; (float)i <= NPC.ai[3]; i++)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        double rotationrad = MathHelper.ToRadians(0f - NPC.ai[3] * spread / 2 + (float)(i * spread));
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 20, LockVector2.RotatedBy(rotationrad).ToRotation());
+                        for (int i = 0; (float)i <= NPC.ai[3]; i++)
+                        {
+                            double rotationrad = MathHelper.ToRadians(0f - NPC.ai[3] * spread / 2 + (float)(i * spread));
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<GlowLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 20, LockVector2.RotatedBy(rotationrad).ToRotation());
+                        }
                     }
                     NPC.netUpdate = true;
                 }
