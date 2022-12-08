@@ -68,6 +68,11 @@ $"[i:{ModContent.ItemType<PearlwoodEnchant>()}] Projectiles may spawn a star whe
             PalmWoodEnchant.PalmEffect(player, Item);
             PearlwoodEnchant.PearlwoodEffect(player, Item);
         }
+		
+		public override void UpdateVanity(Player player)
+		{
+			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+		}
 
         public override void AddRecipes()
         {

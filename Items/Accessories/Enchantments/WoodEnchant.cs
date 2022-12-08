@@ -21,7 +21,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Wood Enchantment");
             Tooltip.SetDefault(
 @"Bestiary and banner entries complete twice as fast
-You gain a shop discount based on bestiary completion");
+You gain a shop discount based on bestiary completion
+Discount effect works in vanity slots");
         }
 
         public override void SafeModifyTooltips(List<TooltipLine> list)
@@ -47,10 +48,16 @@ You gain a shop discount based on bestiary completion");
         {
             WoodEffect(player, Item);
         }
+		
+		public override void UpdateVanity(Player player)
+		{
+			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+		}
 
         public static void WoodEffect(Player player, Item item)
         {
             player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantItem = item;
+			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
         }
 
         public static void WoodCheckDead(FargoSoulsPlayer modPlayer, NPC npc)

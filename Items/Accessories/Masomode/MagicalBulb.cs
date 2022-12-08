@@ -17,7 +17,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         {
             DisplayName.SetDefault("Magical Bulb");
             Tooltip.SetDefault(@"Grants immunity to Acid Venom, Ivy Venom, and Swarming
-Press the Magical Cleanse key to cure yourself of most debuffs
+Press the Magical Cleanse key to cure yourself of most debuffs on a cooldown
+Cleanse cooldown is faster when not attacking
 Increases life regeneration based on how much light you receive
 Attracts a legendary plant's offspring which flourishes in combat
 'Matricide?'");

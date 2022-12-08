@@ -28,7 +28,8 @@ namespace FargowiltasSouls
             SpiritChampion,
             WillChampion,
             CosmosChampion,
-            TrojanSquirrel
+            TrojanSquirrel,
+            LifeChallenger
         }
 
         public static bool SwarmActive;
@@ -675,6 +676,11 @@ namespace FargowiltasSouls
             //vanilla gold and plat ore
             group = new RecipeGroup(() => ItemXOrY(ItemID.GoldOre, ItemID.PlatinumOre), ItemID.GoldOre, ItemID.PlatinumOre);
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyGoldOre", group);
+
+            //vanilla gold and plat bar
+            group = new RecipeGroup(() => ItemXOrY(ItemID.GoldBar, ItemID.PlatinumBar), ItemID.GoldBar, ItemID.PlatinumBar);
+            RecipeGroup.RegisterGroup("FargowiltasSouls:AnyGoldBar", group);
+
         }
 
         public override void PostAddRecipes()

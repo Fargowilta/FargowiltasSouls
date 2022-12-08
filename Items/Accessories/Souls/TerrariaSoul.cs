@@ -92,6 +92,11 @@ Effects of Flower Boots and Greedy Ring
             //COSMOS
             ModContent.Find<ModItem>(Mod.Name, "CosmoForce").UpdateAccessory(player, hideVisual);
         }
+		
+		public override void UpdateVanity(Player player)
+		{
+			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+		}
 
         public override void AddRecipes()
         {

@@ -40,6 +40,7 @@ namespace FargowiltasSouls.Toggler.Content
         public string MasoSqueak;
         public string MasoPouch;
         public string MasoClipped;
+		public string MasoGrav2;
         public string TribalCharm;
         public string TribalCharmClickBonus;
 
@@ -71,7 +72,6 @@ namespace FargowiltasSouls.Toggler.Content
         public string IceQueensCrown;
         public string MasoUfo;
         public string MasoGrav;
-        public string MasoGrav2;
         public string MasoTrueEye;
 
         public int MutantArmorHeader = ModContent.ItemType<MutantBody>();

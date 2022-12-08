@@ -2047,10 +2047,9 @@ namespace FargowiltasSouls
                     electricAttack = true;
             }
 
-            if (electricAttack && Player.whoAmI == Main.myPlayer)
+            if (electricAttack && Player.whoAmI == Main.myPlayer && !Player.HasBuff(ModContent.BuffType<Supercharged>()))
             {
-                if (!Player.HasBuff(ModContent.BuffType<Supercharged>()))
-                    damage /= 2;
+                damage /= 2;
 
                 Player.AddBuff(ModContent.BuffType<Supercharged>(), 60 * 30);
 

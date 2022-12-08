@@ -142,7 +142,7 @@ Mods: {
 			TrojanSquirrel: 由松鼠建造，由松鼠拥有！从广阔土地上搜集的木头构成了它的身体。它比外观看起来更适合松鼠。
 			GuardianOfAncientTreasures: 潜伏在地底深处，小心翼翼地守护着成堆的珠宝和贵金属。它的鳞片坚硬如石。
 			CursedCoffin: 一百多个邪恶灵魂的无意识的融合体。它以迷路旅行者的尸体为食，并吸收他们的灵魂。
-			Lifelights: 从它的核心散发出的光辉令人舒心，但有催眠效果。它会控制那些乐意听从它命令的小生物。
+			LifeChallenger: 从它的核心散发出的光辉令人舒心，但有催眠效果。它会控制那些乐意听从它命令的小生物。
 			Silhouette: 一个难以捉摸的存在，总是在黑雾掩护下于黑夜中移动。当真实形态暴露时，它会变得十分敏感。
 			FrigidHydrangaea: 这只龙形野兽在冰封的洞穴中冬眠，只有在被激怒时才会醒来。它真的应该生活在这寒冷中吗？
 			BanishedBaron: 被驱逐出群落后，它一边隐藏着，一边试图自我修复。效果并不好，这给它的力量和速度拖了后腿。
@@ -188,6 +188,7 @@ Mods: {
 			CosmosChampionKilledAll: 宇宙英灵击败了每一个敌人。
 
 			TrojanSquirrelDespawn: 特洛伊松鼠回到了它的松鼠聚落中……
+			LifeChallengerDespawn: 生命之光消失在辉光中……
 		}
 
 		NPCName:{

@@ -110,8 +110,7 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                     Main.rand.Next(61, 64));
 
                 Main.gore[gore].velocity *= scaleFactor9;
-                Main.gore[gore].velocity.X += 1f;
-                Main.gore[gore].velocity.Y += 1f;
+                Main.gore[gore].velocity += new Vector2(1f, 1f).RotatedBy(MathHelper.TwoPi / 4 * j);
             }
         }
 

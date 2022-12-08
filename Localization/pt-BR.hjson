@@ -3235,7 +3235,7 @@ Mods: {
 			TrojanSquirrel: Construído por esquilos, para esquilos! Feito de madeiras coletadas de várias terras. Nele, cabe muito mais esquilos do que parece.
 			GuardianOfAncientTreasures: Espreitando nas profundezas do subterrâneo, ele guarda zelosamente sua horda de joias e metais preciosos. Suas escamas são duras como pedra.
 			CursedCoffin: Uma fusão irracional de mais de cem almas perversas. Ele se alimenta de corpos de viajantes perdidos e adiciona seus espíritos a si mesmo.
-			Lifelights: O brilho emitido de seu núcleo é calmante, mas hipnótico. Domina os organismos menores, que seguem alegremente seus comandos.
+			LifeChallenger: O brilho emitido de seu núcleo é calmante, mas hipnótico. Domina os organismos menores, que seguem alegremente seus comandos.
 			Silhouette: Um ser elusivo que sempre viaja sob a cobertura de uma núvem de névoa preta na noite. Ele se sente sensível quando sua verdadeira forma é exposta.
 			FrigidHydrangaea: Esta fera dracônica hiberna nas cavernas congeladas, acordando apenas quando provocada. Ela deveria realmente estar vivendo no frio?
 			BanishedBaron: Expulso da hierarquia, ele escondeu-se enquanto tentava se reparar. O trabalho imperfeito deixou sua força e velocidade prejudicadas.
@@ -3279,6 +3279,7 @@ Mods: {
 			CosmosChampionKilledAll: Eridanus, Campeão do Cosmos matou todos os inimigos.
 			
 			TrojanSquirrelDespawn: O Campeão de Madeira retorna a seu clã esquilo.
+			LifeChallengerDespawn: Lieflight desvanece...
 		}
 
 		Message: {

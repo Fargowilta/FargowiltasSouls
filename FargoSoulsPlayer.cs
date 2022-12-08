@@ -8,6 +8,7 @@ using FargowiltasSouls.Items.Armor;
 using FargowiltasSouls.Items.Dyes;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Projectiles.ChallengerItems;
 using FargowiltasSouls.Projectiles.Masomode;
 using FargowiltasSouls.Projectiles.Minions;
 using FargowiltasSouls.Projectiles.Souls;
@@ -91,6 +92,7 @@ namespace FargowiltasSouls
         public Item ShadewoodEnchantItem;
         public int ShadewoodCD;
         public Item WoodEnchantItem;
+		public bool WoodEnchantDiscount;
         //force of terra
         public Item CopperEnchantItem;
         public int CopperProcCD;
@@ -325,6 +327,7 @@ namespace FargowiltasSouls
         public bool HasClickedWrench;
         public bool SandsofTime;
         public bool DragonFang;
+		public bool StabilizedGravity;
         public bool SecurityWallet;
         public Item FrigidGemstoneItem;
         public int FrigidGemstoneCD;
@@ -454,6 +457,7 @@ namespace FargowiltasSouls
         public int shieldTimer;
         public int shieldCD;
         public bool wasHoldingShield;
+        public int LightslingerHitShots = 0;
 
         public bool NoUsingItems;
 
@@ -825,6 +829,7 @@ namespace FargowiltasSouls
             MahoganyEnchantItem = null;
             BorealEnchantItem = null;
             WoodEnchantItem = null;
+			WoodEnchantDiscount = false;
             PalmEnchantItem = null;
             EbonwoodEnchantItem = null;
             ShadewoodEnchantItem = null;
@@ -904,6 +909,7 @@ namespace FargowiltasSouls
             MasochistHeart = false;
             SandsofTime = false;
             DragonFang = false;
+			StabilizedGravity = false;
             SecurityWallet = false;
             FrigidGemstoneItem = null;
             WretchedPouchItem = null;
@@ -1578,7 +1584,7 @@ namespace FargowiltasSouls
                     CirnoGrazeCounter--;
             }
 
-            if (GravityGlobeEXItem != null && Player.GetToggleValue("MasoGrav2", false))
+            if (StabilizedGravity && Player.GetToggleValue("MasoGrav2", false))
                 Player.gravity = Math.Max(Player.gravity, Player.defaultGravity);
 
             if (TikiEnchantActive && Player.GetToggleValue("Tiki"))
@@ -2132,7 +2138,7 @@ namespace FargowiltasSouls
                 {
                     int dust = Dust.NewDust(Player.position - new Vector2(2f, 2f), Player.width, Player.height, 109, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 0, default(Color), 1.5f);
                     Main.dust[dust].velocity.Y--;
-                    if (Main.rand.Next(3) != 0)
+                    if (!Main.rand.NextBool(3))
                     {
                         Main.dust[dust].noGravity = true;
                         Main.dust[dust].scale += 0.5f;
@@ -2407,6 +2413,15 @@ namespace FargowiltasSouls
             {
                 target.AddBuff(ModContent.BuffType<OriPoison>(), 300);
                 target.immune[proj.owner] = 2;
+            }
+
+            if (proj.type == ModContent.ProjectileType<LightslingerShot>())
+            {
+                LightslingerHitShots++;
+                if (LightslingerHitShots == 20)
+                {
+                    SoundEngine.PlaySound(SoundID.MaxMana, Player.Center);
+                }
             }
 
 

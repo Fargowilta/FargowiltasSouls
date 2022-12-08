@@ -142,3 +142,43 @@ fixed supersonic soul not actually having effects of magilumi or frog leg
 HUUUUUGE deathray internal refactor, check they all work and dont throw errors
 resprited will deathray
 fixed destroyer no contact damage bug
+magical bulb debuff cleanse cd ends faster when not attacking
+wood ench discount works in vanity slots
+stabilized gravity moved from galactic globe to wyvern feather
+biocluster can give passive stable gravity
+tried again to make sibling and squrrl boss spawners always work in mp
+tweaked cultist arena vfx
+minor tweak to prime ai so that if spawned directly above you, arms dont stall for so long before they begin moving
+fixed getting graze from enemies flagged as no contact damage e.g. cultist, devi
+
+lieflight
+	added bestiary
+	aura is maso only
+	improved mp sync
+	no longer heals below maso, but increased max hp for equivalent effect
+	reduced DR to 50%, increased max hp
+	takes x0.33 damage when it used to have 200 defense
+	sans is maso only
+	sans disables all items instead of using cursed
+	reduced duration of ray spin
+	ray doesnt instakill outside maso
+	added a delay between attacks to fly around after you, not in maso
+	reworked p1 spam attack
+	adjusted hitboxes
+	reduced damage on some attacks
+	various vfx changes
+	fixed spawner not working when not stacked
+	walls of projs when p2 dive down are maso only
+	p3 is emode only
+	slurp&burp p3 extra projs are maso only
+	adjusted general movement to be lower elevation, not offscreen so much
+	made p3 rings while running minigun maso only
+	now gradually moves faster during p3 running minigun
+	p3 volleys into safespot in reaction shotgun is maso only
+	spread shots during p2 dive are more spread out below maso
+	most homing pixies have a slightly longer delay before homing begins, not in maso
+	pixies have worse homing unless in maso
+	adjusted slurp burp attack range and has a bit more startup outside maso
+fixed remote control reapplying with obnoxious dust whenever you get hit by electric attack
+
+various changes to lieflight

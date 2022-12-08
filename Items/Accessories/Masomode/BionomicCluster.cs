@@ -34,6 +34,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\n    You respawn with more life and when no boss is alive, respawn faster" +
                 "\n    Press the Frigid Spell key to cast Ice Rod" +
                 "\n    Right click to zoom and drastically improves reforges" +
+				"\n    Stabilizes gravity in space and in liquids" +
                 "\n'The amalgamate born of a thousand common enemies'");
 
             // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "生态集群");
@@ -90,6 +91,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             fargoPlayer.NymphsPerfumeRespawn = true;
             fargoPlayer.ConcentratedRainbowMatter = true;
             fargoPlayer.FrigidGemstoneItem = item;
+			fargoPlayer.StabilizedGravity = true;
         }
 
         public override void UpdateInventory(Player player) => PassiveEffect(player, Item);

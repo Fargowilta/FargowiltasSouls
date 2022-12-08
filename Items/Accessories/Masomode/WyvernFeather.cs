@@ -16,6 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Wyvern Feather");
             Tooltip.SetDefault(@"Grants immunity to Clipped Wings and Crippled
 Your attacks have a 10% chance to inflict Clipped Wings on non-boss enemies
+Stabilizes gravity in space and in liquids
 'Warm to the touch'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "龙牙");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'触感温暖'
@@ -40,6 +41,7 @@ Your attacks have a 10% chance to inflict Clipped Wings on non-boss enemies
             player.buffImmune[ModContent.BuffType<Crippled>()] = true;
             if (player.GetToggleValue("MasoClipped"))
                 player.GetModPlayer<FargoSoulsPlayer>().DragonFang = true;
+			player.GetModPlayer<FargoSoulsPlayer>().StabilizedGravity = true;
         }
     }
 }

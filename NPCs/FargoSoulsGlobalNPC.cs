@@ -283,7 +283,11 @@ namespace FargowiltasSouls.NPCs
                     if (fargoPlayer.Graze && !Main.LocalPlayer.immune && Main.LocalPlayer.hurtCooldowns[0] <= 0 && Main.LocalPlayer.hurtCooldowns[1] <= 0)
                     {
                         Vector2 point = FargoSoulsUtil.ClosestPointInHitbox(npc.Hitbox, Main.LocalPlayer.Center);
-                        if (Main.LocalPlayer.Distance(point) < fargoPlayer.GrazeRadius && (npc.noTileCollide || Collision.CanHitLine(point, 0, 0, Main.LocalPlayer.Center, 0, 0)))
+                        int dummy = -1;
+                        if (Main.LocalPlayer.Distance(point) < fargoPlayer.GrazeRadius
+                            && NPCLoader.CanHitPlayer(npc, Main.LocalPlayer, ref dummy)
+                            && (npc.ModNPC == null ? true : npc.ModNPC.CanHitPlayer(Main.LocalPlayer, ref dummy))
+                            && (npc.noTileCollide || Collision.CanHitLine(point, 0, 0, Main.LocalPlayer.Center, 0, 0)))
                         {
                             npcForGrazeCD.GrazeCD = 30;
 
@@ -1142,7 +1146,7 @@ namespace FargowiltasSouls.NPCs
             Player player = Main.player[Main.myPlayer];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (modPlayer.WoodEnchantItem != null)
+            if (modPlayer.WoodEnchantDiscount)
             {
                 WoodEnchant.WoodDiscount(shop);
             }

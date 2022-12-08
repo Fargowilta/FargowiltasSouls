@@ -108,7 +108,7 @@ namespace FargowiltasSouls.Projectiles
                         maxTime = 90;
                         Projectile.scale = 0.5f;
                         Projectile.rotation = Projectile.ai[1];
-                        alphaModifier = 1;
+                        alphaModifier = 0.5f;
                         if (Projectile.velocity != Vector2.Zero)
                         {
                             if (counter == 0)
@@ -542,15 +542,16 @@ namespace FargowiltasSouls.Projectiles
                 case 18: //cultist arena new visual
                     {
                         color = Color.Cyan * 0.75f;
-                        maxTime = 60;
-                        alphaModifier = 2;
-                        Projectile.scale = 3f;
+                        maxTime = 60 * 2;
+                        alphaModifier = 1;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.CultistBoss);
                         if (npc != null)
                         {
                             if (counter > maxTime / 2)
                                 counter = maxTime / 2;
+							float ratio = (float)counter / (maxTime / 2);
+							Projectile.scale = 0.5f + 2.5f * ratio;
 
                             if (npc.ai[0] == 5)
                             {
@@ -570,8 +571,8 @@ namespace FargowiltasSouls.Projectiles
                                         Projectile.localAI[0] = offset.X;
                                         Projectile.localAI[1] = offset.Y;
                                     }
-
-                                    Projectile.Center = Main.projectile[ritual].Center + new Vector2(Projectile.localAI[0], Projectile.localAI[1]);
+									
+                                    Projectile.Center = Main.projectile[ritual].Center + new Vector2(Projectile.localAI[0], Projectile.localAI[1]) * ratio;
                                 }
                             }
                         }
@@ -593,6 +594,15 @@ namespace FargowiltasSouls.Projectiles
 
                         Projectile.position -= Projectile.velocity;
                         Projectile.rotation = Projectile.velocity.ToRotation();
+                    }
+                    break;
+                case 20: //lifelight shotgun
+                    {
+                        color = Color.DeepPink; //Color.Lerp(Color.DeepPink, Color.Magenta, 0.5f);
+                        alphaModifier = 1;
+                        Projectile.scale = 0.6f;
+                        maxTime = 40;
+                        Projectile.rotation = Projectile.ai[1];
                     }
                     break;
 

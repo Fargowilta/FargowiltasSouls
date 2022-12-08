@@ -464,7 +464,18 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (DontActWhenSpawnedTimer > 0)
                 {
                     DontActWhenSpawnedTimer--;
+					
                     npc.Center = head.Center;
+					
+					//when into position above player, enter regular ai much more rapidly
+					if (head.HasValidTarget)
+					{
+						Vector2 targetPos = Main.player[head.target].Center;
+						targetPos.Y -= 16 * 16;
+						if (npc.Distance(targetPos) < 16 * 16 && head.velocity.Length() < 8)
+							DontActWhenSpawnedTimer = 0;
+					}
+					
                     return false;
                 }
             }
