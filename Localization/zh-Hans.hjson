@@ -188,7 +188,7 @@ Mods: {
 			CosmosChampionKilledAll: 宇宙英灵击败了每一个敌人。
 
 			TrojanSquirrelDespawn: 特洛伊松鼠回到了它的松鼠聚落中……
-			LifeChallengerDespawn: 生命之光消失在辉光中……
+			LifeChallengerDespawn: 生命曙光随辉光消逝……
 		}
 
 		NPCName:{
@@ -2051,12 +2051,14 @@ Mods: {
 			AbomsCurse: 憎恶诅咒
 			ChampionySigil: 英灵证章
 			DevisCurse: 戴薇安的诅咒
+			FragilePixieLamp: 易碎的妖精灯
 			MutantsCurse: 突变体的诅咒
 			SigilOfChampions: 唤灵魔符
 			SquirrelCoatofArms: 松鼠手臂的皮毛
 
 			// == Placables ==
 
+			LifeRevitalizer: 生命复苏站
 			MutantStatue: 突变体雕像
 			MutantStatueGift: 拿着礼物的突变体雕像
 			ScremPainting: 尖叫猫猫
@@ -2068,6 +2070,7 @@ Mods: {
 			AbomTrophy: 憎恶纪念章
 			DeviTrophy: 戴薇安纪念章
 			EridanusTrophy: 宇宙英灵纪念章
+			LifeChallengerTrophy: 生命曙光纪念章
 			MutantTrophy: 突变体纪念章
 			TrojanSquirrelTrophy: 特洛伊松鼠纪念章
 
@@ -2150,7 +2153,11 @@ Mods: {
 			TwinRangs: 双子
 
 			// === Challengers ===
-			
+
+			CrystallineCongregation: 魔引凝晶
+			EnchantedLifeblade: 附魔蕴生之剑
+			KamikazePixieStaff: 神风妖精杖
+			Lightslinger: 曙光投射器
 			KamikazeSquirrelStaff: 神风松鼠杖
 			MountedAcornGun: 安装好的橡实枪
 			SnowballStaff: 雪球效应
@@ -2858,6 +2865,7 @@ Mods: {
 				'''
 				怪物图鉴和旗帜解锁速度翻倍
 				商店价格会依据你的图鉴解锁度降低
+				在时装栏中，商店价格折扣效果同样生效
 				'''
 
 			// === Essences ===
@@ -2967,6 +2975,7 @@ Mods: {
 					你会以更高的生命值重生，没有Boss在场时加快重生速度
 					按下“寒霜咒语”键放置冰雪魔杖之冰
 					右键可改变视野范围，减少50%重铸价格
+					在太空和液体中恢复正常重力作用
 				“由上千普通敌人融合而成”
 				'''
 			CelestialRune:
@@ -3057,7 +3066,6 @@ Mods: {
 				'''
 				免疫无效诅咒、翻转、不稳定和月之诅咒减益
 				允许玩家改变重力
-				在太空和液体中恢复正常重力作用
 				召唤克苏鲁真眼保护你
 				增加100%飞行时间
 				“时刻凝视”
@@ -3135,7 +3143,8 @@ Mods: {
 			MagicalBulb:
 				'''
 				免疫毒液、常春藤毒素和蜂群减益
-				按下“魔法净化”键治愈你身上绝大多数的减益
+				按下“魔法净化”键治愈你身上绝大多数的减益，此效果有一定的冷却时间
+				不攻击时，冷却速度更快
 				根据你受到的光照增加生命恢复速度
 				吸引一株传奇植物的幼株，其会在战斗中茁壮成长
 				“弑母？”
@@ -3337,6 +3346,7 @@ Mods: {
 				'''
 				免疫折翼和跛足减益
 				攻击有10%概率对非Boss敌怪造成折翼减益
+				在太空和液体中恢复正常重力作用
 				“摸起来很暖和”
 				'''
 			ZephyrBoots:
@@ -3489,34 +3499,45 @@ Mods: {
 			// === Boss Summoning ===
 
 			AbominationnVoodooDoll:
-			'''
-			召唤憎恶到你的城镇
-			“你可真是个坏东西”
-			'''
+				'''
+				召唤憎恶到你的城镇
+				“你可真是个坏东西”
+				'''
+			AbomsCurse:
+				'''
+				必须在地表使用
+				'''
 			ChampionySigil:
-			'''
-			召唤英灵
-			'''
+				'''
+				召唤英灵
+				'''
+			FragilePixieLamp: 在白天的神圣之地中拿出它并打碎以激怒妖精之主
 			MutantsCurse:
-			'''
-			必须在地表使用
-			“至少不需要用娃娃了”
-			'''
+				'''
+				必须在地表使用
+				“至少不需要用娃娃了”
+				'''
 			SigilOfChampions:
-			'''
-			召唤英灵
-			根据所处环境和时间召唤不同的英灵
-			右键使用以查看可能召唤出的英灵
-			不消耗
-			'''
+				'''
+				召唤英灵
+				根据所处环境和时间召唤不同的英灵
+				右键使用以查看可能召唤出的英灵
+				不消耗
+				'''
 			SquirrelCoatofArms:
 			'''
 			召唤无法平息的松鼠之怒！
 			'''
-			AbomsCurse:
-			'''
-			必须在地表使用
-			'''
+
+
+			// === Placeables ===
+
+			LifeRevitalizer: 
+				'''
+				右键设置重生点
+				优先级低于床
+				不需要房屋
+				'''
 
 			// == Misc ==
 			
@@ -3731,33 +3752,45 @@ Mods: {
 			'''
 
 			// === Challengers ===
-			
+			CrystallineCongregation: 
+				'''
+				在指针处召唤至多20个向你飞来的水晶球 
+				松开鼠标把水晶球向指针处发射
+				'''
+			EnchantedLifeblade: 一把会向你的鼠标位置发动攻击的具有生命的剑
+			KamikazePixieStaff: 召唤友好的妖精，射击三秒之后冲向敌人并爆炸
+			Lightslinger: 
+				'''
+				把子弹转化为神圣曙光子弹
+				击中20次后可以按右键发射一颗光之炸弹
+				25%的几率不消耗弹药
+				'''
 			KamikazeSquirrelStaff:
-			'''
-			召唤出友善的松鼠，拥抱你的敌人
-			右键点击让松鼠爆炸
-			'''
+				'''
+				召唤出友善的松鼠，拥抱你的敌人
+				右键点击让松鼠爆炸
+				'''
 			MountedAcornGun:
-			'''
-			使用橡实作为弹药
-			50%的几率不消耗弹药
-			向敌怪射出会发芽的橡果
-			'''
+				'''
+				使用橡实作为弹药
+				50%的几率不消耗弹药
+				向敌怪射出会发芽的橡果
+				'''
 			SnowballStaff:
-			'''
-			制造一个会越滚越大的雪球，你可以通过主动推雪球来滚它
-			长按左键才能维持雪球
-			右键点击可以让雪球回到你身上
-			'''
+				'''
+				制造一个会越滚越大的雪球，你可以通过主动推雪球来滚它
+				长按左键才能维持雪球
+				右键点击可以让雪球回到你身上
+				'''
 			TheLightningRod:
-			'''
-			旋转时蓄力
-			扔出时，每次击中都会降低伤害
-			'''
+				'''
+				旋转时蓄力
+				扔出时，每次击中都会降低伤害
+				'''
 			TreeSword:
-			'''
-			射出橡实
-			'''
+				'''
+				射出橡实
+				'''
 
 			// === Final Upgrades
 			

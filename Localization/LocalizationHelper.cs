@@ -47,8 +47,8 @@ namespace FargowiltasSouls
 
             if (FargoSoulsUtil.IsChinese())
             {
-                AddBossSpawnInfo("DeviBoss", $"使用[i:{ModContent.ItemType<DevisCurse>()}]召唤");
-                AddBossSpawnInfo("AbomBoss", $"使用[i:{ModContent.ItemType<AbomsCurse>()}]召唤");
+                AddBossSpawnInfo("DeviBoss", $"使用[i:{ModContent.ItemType<DevisCurse>()}]召唤。");
+                AddBossSpawnInfo("AbomBoss", $"使用[i:{ModContent.ItemType<AbomsCurse>()}]召唤。");
                 AddBossSpawnInfo("MutantBoss", $"在突变体和憎恶存活时将[i:{ModContent.ItemType<AbominationnVoodooDoll>()}]投入岩浆池中。");
 
                 AddBossSpawnInfo("TimberChampion", $"白天时在地表使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
@@ -61,8 +61,8 @@ namespace FargowiltasSouls
                 AddBossSpawnInfo("WillChampion", $"在海洋使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
                 AddBossSpawnInfo("CosmosChampion", $"在太空使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
 
-                AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
-                AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
+                AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤。");
+                AddBossSpawnInfo("LifeChallenger", $"白天时在神圣之地使用[i:{ModContent.ItemType<FragilePixieLamp>()}]召唤。");
             }
             else if (FargoSoulsUtil.IsPortuguese())
             {
