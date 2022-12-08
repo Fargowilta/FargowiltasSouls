@@ -2367,10 +2367,17 @@ namespace FargowiltasSouls.NPCs.Challengers
         {
             if (NPC.life <= 0)
             {
-                for (int i = 0; i < 400; i++)
+                for (int i = 0; i < 100; i++)
                 {
-                    SoundEngine.PlaySound(SoundID.Item14, NPC.Center);
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemTopaz, 0, 0, 100, new Color(), 1f);
+                }
+                for (int i = 1; i <= 4; i++)
+                {
+                    Vector2 rand = new Vector2(Main.rand.NextFloat(NPC.width), Main.rand.NextFloat(NPC.height));
+                    if (!Main.dedServ)
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position + rand, NPC.velocity, ModContent.Find<ModGore>(Mod.Name, $"LifeChallenger_Gore{i}").Type, NPC.scale);
+                    if (!Main.dedServ && i == 4)
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position - rand, NPC.velocity, ModContent.Find<ModGore>(Mod.Name, $"LifeChallenger_Gore{i}").Type, NPC.scale);
                 }
                 return;
             }
