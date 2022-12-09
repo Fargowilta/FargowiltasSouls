@@ -22,6 +22,9 @@ namespace FargowiltasSouls.Projectiles.Minions
         {
             DisplayName.SetDefault("Pixie");
             Main.projFrames[Projectile.type] = 5;
+            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+            ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
 
         public override void SetDefaults()
@@ -34,12 +37,13 @@ namespace FargowiltasSouls.Projectiles.Minions
             Projectile.minion = true;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.penetrate = -1;
+            Projectile.aiStyle = -1;
             Projectile.tileCollide = false;
 
             Projectile.minionSlots = 1f / 3f;
 
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 1;
+            Projectile.localNPCHitCooldown = 10;
         }
 
         public override bool? CanDamage() => Projectile.timeLeft <= 0;
@@ -48,8 +52,13 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void AI()
         {
+            if (Projectile.localAI[0] == 0)
+            {
+                Projectile.localAI[0] = 1;
+                SoundEngine.PlaySound(SoundID.Pixie, Projectile.Center);
+            }
+
             Player player = Main.player[Projectile.owner];
-            SoundEngine.PlaySound(SoundID.Pixie, Projectile.Center);
             if (Projectile.ai[1] == 0)
             {
                 Projectile.ai[0] = -1;
@@ -185,6 +194,8 @@ namespace FargowiltasSouls.Projectiles.Minions
 
         public override void Kill(int timeLeft)
         {
+            SoundEngine.PlaySound(SoundID.Pixie, Projectile.Center);
+
             if (timeLeft == 1)
             {
                 for (int k = 0; k < 20; k++)
@@ -229,6 +240,8 @@ namespace FargowiltasSouls.Projectiles.Minions
                 }
             }
         }
+
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity;
 
         public override bool PreDraw(ref Color lightColor)
         {

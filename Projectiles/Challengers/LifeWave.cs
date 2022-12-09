@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			Projectile.hostile = true;
 			AIType = 14;
 			Projectile.penetrate = -1;
-			Projectile.tileCollide = true;
+			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 
             Projectile.scale = 1f;
@@ -50,6 +50,14 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
             if (Projectile.ai[0] > 60 && Projectile.ai[0] < 600)
                 Projectile.velocity = Projectile.velocity * 1.015f;
+
+            //a bit after spawning, become tangible when it finds an open space
+            if (!Projectile.tileCollide && Projectile.ai[0] > 60 * Projectile.MaxUpdates)
+            {
+                Tile tile = Framing.GetTileSafely(Projectile.Center);
+                if (!(tile.HasUnactuatedTile && Main.tileSolid[tile.TileType] && !Main.tileSolidTop[tile.TileType]))
+                    Projectile.tileCollide = true;
+            }
 
 			if (Projectile.ai[0] > 900f)
 			{

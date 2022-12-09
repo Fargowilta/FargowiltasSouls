@@ -28,16 +28,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            Projectile npc = FargoSoulsUtil.ProjectileExists(Projectile.ai[1], ModContent.ProjectileType<LifeBlaster>());
-            if (npc == null)
-            {
-                Projectile.Kill();
-                return;
-            }
-            else
-            {
-                Projectile.Center = npc.Center;
-            }
+
+            Projectile.position -= Projectile.velocity;
+
             if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
             {
                 Projectile.velocity = -Vector2.UnitY;

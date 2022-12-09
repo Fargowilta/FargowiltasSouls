@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using FargowiltasSouls.NPCs.Challengers;
 using System.IO;
 using Terraria.DataStructures;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Challengers
 {
@@ -20,12 +21,14 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.width = 184;
             Projectile.height = 184;
             Projectile.aiStyle = -1;
-            Projectile.hostile = false;
+            Projectile.hostile = true;
             Projectile.penetrate = 1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.alpha = 255;
         }
+
+        public override bool? CanDamage() => false;
 
         int npc = -1;
 
@@ -63,17 +66,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
             }
             Projectile.ai[0] += 1f;
 
-            if (Projectile.localAI[0] == 0)
-            {
-                Projectile.localAI[0] = Main.rand.NextBool() ? 1 : -1;
-                //Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
-            }
-
             Projectile.alpha -= 12;
             if (Projectile.alpha < 0)
                 Projectile.alpha = 0;
-            //else
-            //    Projectile.rotation += MathHelper.TwoPi / 15 * Projectile.localAI[0];
 
             Projectile.scale = 2f - Projectile.Opacity;
 
@@ -90,6 +85,15 @@ namespace FargowiltasSouls.Projectiles.Challengers
                     Vector2 offset = Main.player[parent.target].Center - parent.Center;
                     Projectile.Center = parent.Center + offset.RotatedBy(Projectile.localAI[1]);
                 }
+            }
+        }
+
+        public override void Kill(int timeLeft)
+        {
+            if (Projectile.ai[1] == 1 || Projectile.ai[1] == 3) //sans crosshairs
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LifeCageExplosion>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             }
         }
 

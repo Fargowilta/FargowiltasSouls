@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             float ratio = 1f - Math.Abs(Projectile.ai[0]) / Projectile.localAI[0];
             float rampupVfx = (float)Math.Sin(MathHelper.PiOver2 * ratio);
             Projectile.scale = 0.1f + 1.4f * rampupVfx;
-            Projectile.scale *= Main.rand.NextFloat(0.75f, 1f);
+            Projectile.scale *= Main.rand.NextFloat(0.8f, 1.2f);
             Projectile.rotation = 2f * MathHelper.TwoPi * rampupVfx;
 
             NPC parent = FargoSoulsUtil.NPCExists(npc);
@@ -78,7 +78,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
         public override Color? GetAlpha(Color lightColor)
         {
             Color color = Color.HotPink;
-            color.A = 100;
+            color.A = 50;
             return color;
         }
 
@@ -90,7 +90,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             SpriteEffects effects = Projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
                 Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, effects, 0);
             return false;
         }

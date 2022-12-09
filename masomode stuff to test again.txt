@@ -181,4 +181,22 @@ lieflight
 	adjusted slurp burp attack range and has a bit more startup outside maso
 fixed remote control reapplying with obnoxious dust whenever you get hit by electric attack
 
-various changes to lieflight
+maso probes dont shoot vanilla lasers
+lieflight
+	various misc changes
+	p2 is expert+ only
+	p2 6-nuke attack makes less projs
+	maso nukes dont make projs that split
+	p1 mine attack clears old mines first
+	p2 reaction shotgun has slower projs, they have old faster speed in p3 & maso
+	reduced how long p3 reaction shotgun lasts outside maso
+	tile-colliding projs now start with no tile collide, then gain it after 1sec when they reach open space
+	p2 rain attack ignores tiles and accelerates after a while (stop fallgodding)
+	added dusts to make sans crosshair explosions visible
+	slurp burp attack makes projs spawn further out if you move further out
+	made tp telegraph more visible
+	fixed? p2 shotgun glow lines not syncing properly in mp
+	disabled stupid vanilla mp redcode netcode npc smoothing
+	attempted? fixing gaster blasters in maso
+	made sans phase have regen instead of total immortality (should be functionally invincible on-tier, but eventually killable with endgame gear)
+	replaced instances of 9999 defense with the usual bonus dr

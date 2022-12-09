@@ -27,26 +27,21 @@ namespace FargowiltasSouls.Projectiles.Challengers
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			Projectile.scale = 1.5f;
+            Projectile.timeLeft = 80;
 		}
 
         public override bool? CanDamage() => false;
 
         public override void AI()
 		{
-			Projectile.ai[0] += 1f;
-            Projectile.rotation += Projectile.velocity.Length() * 0.075f * Math.Sign(Projectile.velocity.X);
-			Projectile.alpha = (int)(150 * Math.Sin(Projectile.ai[0]/3));
+			Projectile.rotation += Projectile.velocity.Length() * 0.075f * Math.Sign(Projectile.velocity.X);
+            Projectile.alpha = (int)(150 * Math.Sin(++Projectile.localAI[0] / 3));
 
 			for (int i = 0; i < 4; i++)
 			{
 				int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PinkTorch, Scale: 3f);
 				Main.dust[d].noGravity = true;
 				Main.dust[d].velocity *= 0.5f;
-			}
-
-            if (Projectile.ai[0] > 80f)
-			{
-				Projectile.Kill();
 			}
 		}
         public override void OnHitPlayer(Player target, int damage, bool crit)
@@ -58,7 +53,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 		{
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 
-            const int max = 32;
+            int max = (int)Projectile.ai[0];
             for (int i = 0; i < max; i++)
             {
                 float rad = MathHelper.TwoPi / max * i;
@@ -68,9 +63,10 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 Vector2 vector = Projectile.velocity.RotatedBy(rad) * speed;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    int type = FargoSoulsWorld.EternityMode ? ModContent.ProjectileType<LifeSplittingProjSmall>() : ModContent.ProjectileType<LifeProjSmall>();
-                    float ai0 = FargoSoulsWorld.EternityMode ? -180 : 0;
-                    float ai1 = FargoSoulsWorld.EternityMode ? 2 : 0;
+                    bool useSplitProj = Projectile.ai[1] != 0;
+                    int type = useSplitProj ? ModContent.ProjectileType<LifeSplittingProjSmall>() : ModContent.ProjectileType<LifeProjSmall>();
+                    float ai0 = useSplitProj ? -180 : 0;
+                    float ai1 = useSplitProj ? 2 : 0;
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector, type, damage, knockBack, Main.myPlayer, ai0, ai1);
                 }
             }
@@ -78,9 +74,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
             for (int i = 0; i < 30; i++)
             {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width,
-                    Projectile.height, 91, 0f, 0f, 100, default(Color), 3f);
+                int dust = Dust.NewDust(Projectile.Center, 0, 0, 91, 0f, 0f, 100, default(Color), 3f);
                 Main.dust[dust].velocity *= 1.4f;
+                Main.dust[dust].noGravity = true;
             }
 
             for (int i = 0; i < 20; i++)

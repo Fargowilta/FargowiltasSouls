@@ -32,8 +32,8 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         }
         public override void SetDefaults()
         {
-            Projectile.width = 20;
-            Projectile.height = 20;
+            Projectile.width = 16;
+            Projectile.height = 16;
             Projectile.aiStyle = 0;
             Projectile.hostile = false;
             Projectile.friendly = true;
@@ -44,22 +44,6 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.timeLeft = 1200;
             Projectile.light = 0.5f;
             Projectile.scale = 1f;
-        }
-
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
-        {
-            int clampedX = projHitbox.Center.X - targetHitbox.Center.X;
-            int clampedY = projHitbox.Center.Y - targetHitbox.Center.Y;
-
-            if (Math.Abs(clampedX) > targetHitbox.Width / 2)
-                clampedX = targetHitbox.Width / 2 * Math.Sign(clampedX);
-            if (Math.Abs(clampedY) > targetHitbox.Height / 2)
-                clampedY = targetHitbox.Height / 2 * Math.Sign(clampedY);
-
-            int dX = projHitbox.Center.X - targetHitbox.Center.X - clampedX;
-            int dY = projHitbox.Center.Y - targetHitbox.Center.Y - clampedY;
-
-            return Math.Sqrt(dX * dX + dY * dY) <= Projectile.width / 2;
         }
 
         public override void AI()
@@ -108,6 +92,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                     Projectile.friendly = true;
                     Projectile.tileCollide = true;
                     Projectile.penetrate = 1;
+                    Projectile.maxPenetrate = 1;
                     vectorToIdlePosition = Main.MouseWorld - Projectile.Center;
                     speed = 18f;
                     SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, player.Center);
@@ -155,6 +140,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 base.Kill(timeLeft);
             }
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity;
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
@@ -170,7 +156,8 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
 
             for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
             {
-                Color color27 = Color.Purple * Projectile.Opacity * 0.5f;
+                Color color27 = Color.DeepPink * Projectile.Opacity * 0.5f;
+                color27.A = color26.A;
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 Vector2 value4 = Projectile.oldPos[i];
                 float num165 = Projectile.oldRot[i];

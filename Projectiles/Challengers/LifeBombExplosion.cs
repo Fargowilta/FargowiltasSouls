@@ -19,34 +19,42 @@ namespace FargowiltasSouls.Projectiles.Challengers
 		{
 			Projectile.width = 50;
 			Projectile.height = 50;
-			Projectile.aiStyle = 0;
+			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
-			AIType = 14;
 			Projectile.penetrate = 1;
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 		}
 
-        public override void AI()
+		public override bool? CanDamage() => Projectile.alpha < 100;
+
+		public override void AI()
 		{
-            if (++Projectile.frameCounter >= 5)
-            {
-                Projectile.frameCounter = 0;
-                if (++Projectile.frame >= 3)
-                    Projectile.frame = 0;
-            }
+			if (++Projectile.frameCounter >= 5)
+			{
+				Projectile.frameCounter = 0;
+				if (++Projectile.frame >= 3)
+					Projectile.frame = 0;
+			}
 			Projectile.rotation += 2f;
 			if (Main.rand.NextBool(6))
 			{
 				int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 87);
-                Main.dust[d].noGravity = true;
-                Main.dust[d].velocity *= 0.5f;
-            }
+				Main.dust[d].noGravity = true;
+				Main.dust[d].velocity *= 0.5f;
+			}
 
 			//pulsate
 			if (Projectile.localAI[0] == 0)
 				Projectile.localAI[0] += Main.rand.Next(60);
-            Projectile.scale = 1.1f + 0.1f * (float)Math.Sin(MathHelper.TwoPi / 15 * ++Projectile.localAI[1]);
+			Projectile.scale = 1.1f + 0.1f * (float)Math.Sin(MathHelper.TwoPi / 15 * ++Projectile.localAI[1]);
+
+			if (Projectile.ai[0] > 2400 - 30)
+			{
+				Projectile.alpha += 8;
+				if (Projectile.alpha > 255)
+					Projectile.alpha = 255;
+			}
 
             if (Projectile.ai[0] > 2400f || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1)
 			{

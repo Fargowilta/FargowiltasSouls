@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -17,26 +19,43 @@ namespace FargowiltasSouls.Projectiles.Challengers
         {
             Projectile.width = 184;
             Projectile.height = 184;
-            Projectile.aiStyle = 0;
+            Projectile.aiStyle = -1;
             Projectile.hostile = true;
-            AIType = 14;
-            Projectile.penetrate = 1;
+            Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
-            Projectile.alpha = 120;
-            Projectile.light = 2f;
+            Projectile.timeLeft = 2;
+
+            Projectile.hide = true;
         }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+            => Projectile.Distance(FargoSoulsUtil.ClosestPointInHitbox(targetHitbox, Projectile.Center)) < projHitbox.Width / 2;
 
         public override void AI()
         {
-
-            if (Projectile.ai[0] > 1f)
+            if (Projectile.localAI[0] == 0)
             {
-                Projectile.Kill();
+                Projectile.localAI[0] = 1;
+                SoundEngine.PlaySound(SoundID.Item41, Projectile.Center);
+
+                for (int i = 0; i < 30; i++)
+                {
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.HallowedTorch, 0, 0, 0, default, 4f);
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity *= 6;
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 30; j++)
+                    {
+                        int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.HallowedTorch, 0, 0, 0, default, 2.5f);
+                        Main.dust[d].noGravity = true;
+                        Main.dust[d].velocity += Main.rand.NextFloat(32f) * Vector2.UnitX.RotatedBy(MathHelper.TwoPi / 4 * i);
+                    }
+                }
             }
-            for (int i = 0; i < 150; i++)
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 219, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.25f);
-            Projectile.ai[0] += 1f;
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

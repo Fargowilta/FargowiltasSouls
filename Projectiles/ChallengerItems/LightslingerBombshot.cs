@@ -13,6 +13,10 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Light Shot");
+            
+            ProjectileID.Sets.MinionShot[Projectile.type] = true;
+            ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -26,8 +30,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             AIType = 14;
             Projectile.penetrate = 1;
             Projectile.tileCollide = true;
-            Projectile.ignoreWater = true; 
-            Projectile.light = 0.5f;
+            Projectile.ignoreWater = true;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
         {
@@ -53,6 +56,8 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             }
             Projectile.ai[0] += 1f;
         }
+
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity;
 
         public override bool PreDraw(ref Color lightColor)
         {

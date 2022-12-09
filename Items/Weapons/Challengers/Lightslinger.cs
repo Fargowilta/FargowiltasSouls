@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
 
         public override void SetDefaults()
         {
-            Item.damage = 40; //BALANCE
+            Item.damage = 40;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 76;
             Item.height = 48;
@@ -29,12 +29,12 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             Item.useAnimation = 8;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 0.5f;
-            Item.value = Item.sellPrice(0, 2);
+            Item.value = Item.sellPrice(0, 25);
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item12;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<LightslingerShot>();
-            Item.shootSpeed = 24f;
+            Item.shootSpeed = 12f;
 
             Item.useAmmo = AmmoID.Bullet;
             Item.noMelee = true;
@@ -44,7 +44,9 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-                type = ShotType;
+            type = ShotType;
+            if (player.altFunctionUse == 2)
+                damage *= 5;
         }
         public override Vector2? HoldoutOffset()
         {
@@ -67,9 +69,9 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             {
                 Item.UseSound = SoundID.Item12;
                 ShotType = ModContent.ProjectileType<LightslingerShot>();
-                Item.shootSpeed = 60f; 
-                Item.useAnimation = 8;
-                Item.useTime = 8;
+                Item.shootSpeed = 16f; 
+                Item.useAnimation = 6;
+                Item.useTime = 6;
             }
             return base.CanUseItem(player);
         }
@@ -79,19 +81,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             {
                 player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots = 0;
             }
-                return base.UseItem(player);
-        }
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            if (player.altFunctionUse == 2)
-            {
-                damage = (int)(Item.damage * 3f);
-            }
-            else
-            {
-                damage = Item.damage;
-            }
-                return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            return base.UseItem(player);
         }
     }
 }
