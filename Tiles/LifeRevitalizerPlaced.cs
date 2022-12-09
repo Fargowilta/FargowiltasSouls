@@ -40,9 +40,9 @@ namespace FargowiltasSouls.Tiles
             Main.spawnTileX = i;
             Main.spawnTileY = j;
             if (Main.netMode == NetmodeID.SinglePlayer)
-                Main.NewText(Language.GetTextValue("Spawn point set to Life Revitalizer!"), Color.Pink);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.Message.LifeRevitalizerSP"), Color.Pink);
             else 
-                ChatHelper.BroadcastChatMessage(NetworkText.FromKey($"Spawn point set to Life Revitalizer by {Main.LocalPlayer.name}!"), Color.Pink);
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.FargowiltasSouls.Message.LifeRevitalizerMP", Main.LocalPlayer.name), Color.Pink);
 
 
             return true;

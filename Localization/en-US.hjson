@@ -283,6 +283,9 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee} has enraged outside the underground jungle!"
 
 			MoonsDeathPenalty: The wave progress has regressed!
+
+			LifeRevitalizerSP: Spawn point set to Life Revitalizer!
+			LifeRevitalizerMP: "Spawn point set to Life Revitalizer by {0}!"
 		}
 
 		DeathMessage: {

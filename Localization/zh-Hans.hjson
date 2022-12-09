@@ -207,6 +207,7 @@ Mods: {
 			CrystalLeaf: 叶绿水晶
 			GelatinSlime: 水晶史莱姆
 			AbomSaucer: 迷你飞碟
+			LifeChallenger: 生命曙光
 			TrojanSquirrel: 特洛伊松鼠
 			TrojanSquirrelArms: 特洛伊松鼠
 			TrojanSquirrelHead: 特洛伊松鼠
@@ -232,6 +233,7 @@ Mods: {
 
 		MapObject: {
 			FMMBanner: 旗帜
+			LifeRevitalizerPlaced: 生命复苏站
 			MutantStatue: 突变体雕像
 			MutantStatueGift: 突变体雕像
 			SquidwardDoorClosed: 章鱼哥的大门
@@ -680,6 +682,11 @@ Mods: {
 
 			// == ChallengerItems ==
 			Acorn: 橡实
+			CrystallineCongregationProj: 水晶球
+			EnchantedLifebladeProjectile: 附魔蕴生之剑
+			LightslingerBomb: 光之炸弹
+			LightslingerBombshot: 曙光子弹
+			LightslingerShot: 曙光子弹
 			RollingSnowball: 雪球
 			Sprout: 新芽
 			SproutingAcorn: 橡实
@@ -687,6 +694,29 @@ Mods: {
 			TheLightningRodProj: 避雷针
 
 			// == Challengers ==
+			JevilScar: 附魔光之剑
+			LifeBee: 小妖精
+			LifeBee2: 小妖精
+			LifeBlaster: 生命湮灭炮
+			LifeBomb: 生命雷
+			LifeBombExplosion: 生命雷
+			LifeCageExplosion: 囚笼爆炸
+			LifeCageProjectile: 生命囚笼
+			LifeCageTelegraph: 生命囚笼预警
+			LifeChalBlasterDeathray: 神圣死亡射线
+			LifeChalDeathray: 神圣死亡射线
+			LifeCrosshair: 生命瞄准点
+			LifeHomingProj: 小妖精
+			LifeNeggravProj: 水晶刺球
+			LifeNuke: 生命炸弹
+			LifeProjLarge: 水晶刺球
+			LifeProjSmall: 曙光子弹
+			LifeScar: 生命雷
+			LifeSlurp: 水晶刺球
+			LifeSplittingProjSmall: 分裂曙光子弹
+			LifeTpTelegraph: 传送预警
+			LifeWave: 生命涌波
+			TargetCrosshair: 瞄准点
 			TrojanAcorn: 橡实
 			TrojanHook: 松鼠钩
 			TrojanSnowball: 雪球
@@ -979,6 +1009,7 @@ Mods: {
 			FlameburstMinion: 爆炸烈焰仆从
 			FriendRay: 爱心射线
 			HallowSword: 泰拉棱镜
+			KamikazePixie: 神风妖精
 			KamikazeSquirrel: 神风松鼠
 			LunarCultist: 拜月教邪教徒
 			LunarCultistFireball: 火球
@@ -1241,6 +1272,9 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
+
+			LifeRevitalizerSP: 重生点已设置到生命复苏站！
+			LifeRevitalizerMP: "重生点已被{0}设置到生命复苏站！"
 		}
 
 		DeathMessage: {
@@ -3758,7 +3792,7 @@ Mods: {
 				松开鼠标把水晶球向指针处发射
 				'''
 			EnchantedLifeblade: 一把会向你的鼠标位置发动攻击的具有生命的剑
-			KamikazePixieStaff: 召唤友好的妖精，射击三秒之后冲向敌人并爆炸
+			KamikazePixieStaff: 召唤友善的妖精，射击三秒之后冲向敌人并爆炸
 			Lightslinger: 
 				'''
 				把子弹转化为神圣曙光子弹
