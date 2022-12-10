@@ -34,6 +34,8 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 20;
             Projectile.penetrate = -1;
+
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
         private Vector2 Aim = Vector2.Zero;
         private Vector2 AimDir = Vector2.Zero;
@@ -42,8 +44,8 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
         const int ProjSpriteHeight = 74;
         public override void AI()
         {
-            
-            
+
+
             const int SpinTime = 15 + 1;
             const int ChargeTime = 15;
             const int ChargeSpeed = 30;
@@ -60,64 +62,66 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
 
             Player player = Main.player[Projectile.owner];
             Vector2 vector = Vector2.Normalize(Main.MouseWorld - player.Center);
-            
+
             if (Main.myPlayer == Projectile.owner)
             {
                 if (Projectile.ai[1] < 5) //number of charges        //if (player.channel && !player.noItems && !player.CCed) for if only one sword
                 {
-                    
+
                     //if (player.inventory[player.selectedItem].shoot == Projectile.type)
                     //{
-                        if (Projectile.ai[0] == 0)
-                        {
-                            //Position = vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450); move dependent on player variant
-                            Projectile.position = player.Center + (vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450)); //move independently variant
-                            for (int i = 0; i < 30; i++)
-                            {
-                                int index3 = Dust.NewDust(Projectile.Center - new Vector2(ProjSpriteWidth / 2, ProjSpriteWidth / 2), ProjSpriteWidth, ProjSpriteWidth, DustID.PurpleCrystalShard,
-                                    Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1f);
-                                Main.dust[index3].noGravity = true;
-                            }
+                    if (Projectile.ai[0] == 0)
+                    {
+                        //Position = vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450); move dependent on player variant
+                        //Projectile.position = player.Center + (vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450)); //move independently variant
+                        //for (int i = 0; i < 30; i++)
+                        //{
+                        //    int index3 = Dust.NewDust(Projectile.Center - new Vector2(ProjSpriteWidth / 2, ProjSpriteWidth / 2), ProjSpriteWidth, ProjSpriteWidth, DustID.PurpleCrystalShard,
+                        //        Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1f);
+                        //    Main.dust[index3].noGravity = true;
+                        //}
 
-                            SoundEngine.PlaySound(SoundID.Item9, Projectile.Center);
-                            Projectile.friendly = false;
-                        }
-                        if (Projectile.ai[0] == SpinTime)
+                        //SoundEngine.PlaySound(SoundID.Item9, Projectile.Center);
+                        //Projectile.friendly = false;
+
+                        Projectile.ai[0] = SpinTime;
+                    }
+                    if (Projectile.ai[0] == SpinTime)
+                    {
+                        Aim = vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450);
+                        //AimDir = Vector2.Normalize(Aim - Position); move dependent on player variant
+                        AimDir = Vector2.Normalize((player.Center + Aim) - Projectile.Center); //move independently variant
+                        if (AimDir.HasNaNs())
+                            AimDir = Vector2.UnitX * (float)player.direction;
+                        AimDir = AimDir.RotatedByRandom(MathHelper.ToRadians(10));
+                        SoundEngine.PlaySound(SoundID.DD2_SonicBoomBladeSlash, player.Center + Position);
+                    }
+                    if (Projectile.ai[0] >= SpinTime)
+                    {
+                        //Position = Position + (AimDir * ChargeSpeed); move dependent on player variant
+                        Projectile.velocity = (AimDir * ChargeSpeed); //move independently variant
+                        Projectile.friendly = true;
+                    }
+                    if (Projectile.ai[0] == SpinTime + ChargeTime)
+                    {
+                        if (Projectile.ai[1] != 4)
+                            Projectile.velocity = Vector2.Zero; //move independently
+                        for (int i = 0; i < 30; i++)
                         {
-                            Aim = vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450);
-                            //AimDir = Vector2.Normalize(Aim - Position); move dependent on player variant
-                            AimDir = Vector2.Normalize((player.Center + Aim) - Projectile.Center); //move independently variant
-                            if (AimDir.HasNaNs())
-                            {
-                                AimDir = Vector2.UnitX * (float)player.direction;
-                            }
-                            SoundEngine.PlaySound(SoundID.DD2_SonicBoomBladeSlash, player.Center + Position);
+                            int index4 = Dust.NewDust(Projectile.Center - new Vector2(ProjSpriteWidth / 2, ProjSpriteWidth / 2), ProjSpriteWidth, ProjSpriteWidth, DustID.PurpleCrystalShard,
+                                Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1f);
+                            Main.dust[index4].noGravity = true;
                         }
-                        if (Projectile.ai[0] >= SpinTime)
-                        {
-                            //Position = Position + (AimDir * ChargeSpeed); move dependent on player variant
-                            Projectile.velocity = (AimDir * ChargeSpeed); //move independently variant
-                            Projectile.friendly = true;
-                        }
-                        if (Projectile.ai[0] == SpinTime + ChargeTime)
-                        {
-                            if (Projectile.ai[1] != 4)
-                                Projectile.velocity = Vector2.Zero; //move independently
-                            for (int i = 0; i < 30; i++)
-                            {
-                                int index4 = Dust.NewDust(Projectile.Center - new Vector2(ProjSpriteWidth / 2, ProjSpriteWidth / 2), ProjSpriteWidth, ProjSpriteWidth, DustID.PurpleCrystalShard,
-                                    Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1f);
-                                Main.dust[index4].noGravity = true;
-                            }
-                            Projectile.ai[0] = 1;
-                            Projectile.ai[1]++; //number of charges
-                        }
-                        //dust marker at aim position so you know the max range
-                        int index2 = Dust.NewDust(player.Center + vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450), 0, 0, DustID.PurpleCrystalShard,
-                            0, 0, 100, default, 1f);
-                        Main.dust[index2].noGravity = true;
-                        Main.dust[index2].velocity.X *= 0f;
-                        Main.dust[index2].velocity.Y *= 0f;
+                        Projectile.ai[0] = 1;
+                        Projectile.ai[1]++; //number of charges
+                    }
+
+                    //dust marker at aim position so you know the max range
+                    //int index2 = Dust.NewDust(player.Center + vector * Math.Min((Main.MouseWorld - player.Center).Length(), 450), 0, 0, DustID.PurpleCrystalShard,
+                    //    0, 0, 100, default, 1f);
+                    //Main.dust[index2].noGravity = true;
+                    //Main.dust[index2].velocity.X *= 0f;
+                    //Main.dust[index2].velocity.Y *= 0f;
                     //}
 
 
@@ -125,14 +129,14 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 else //if no longer holding, die
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath3, Projectile.Center);
-                    
+
                     Projectile.Kill();
                 }
             }
             //Projectile.velocity = Position + new Vector2(-Projectile.width / 2, -Projectile.height / 2); move dependent on player variant
             //Projectile.position = player.Center; move dependent on player variant
             DrawOffsetX = -(ProjSpriteWidth - Projectile.width);
-            
+
 
             //rotation
             if (Projectile.ai[0] < SpinTime)

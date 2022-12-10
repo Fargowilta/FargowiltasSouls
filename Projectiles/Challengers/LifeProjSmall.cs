@@ -18,8 +18,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
         }
         public override void SetDefaults()
         {
-            Projectile.width = 8;
-            Projectile.height = 8;
+            Projectile.width = 4;
+            Projectile.height = 4;
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.penetrate = 1;
@@ -43,9 +43,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
             //flag to be accelerating rain
             if (Projectile.ai[1] == -1)
             {
-                if (Projectile.ai[0] > 180)
-                    Projectile.velocity *= 1.03f;
-                if (Projectile.ai[0] > 360)
+                if (Projectile.ai[0] > 120)
+                    Projectile.velocity *= 1.04f;
+                if (Projectile.ai[0] > 240)
                     Projectile.Kill();
             }
             else //i.e. rain does not do this

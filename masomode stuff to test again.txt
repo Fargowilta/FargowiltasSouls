@@ -200,3 +200,13 @@ lieflight
 	attempted? fixing gaster blasters in maso
 	made sans phase have regen instead of total immortality (should be functionally invincible on-tier, but eventually killable with endgame gear)
 	replaced instances of 9999 defense with the usual bonus dr
+
+lieflight
+	will chase you if you try to run away from p3 ray
+	reduced duration and lingering hitbox of sans rays
+	reduced hitbox size of laser projs
+	adjusted rain acceleration to be harder to fallgod
+	disabled hooks during sans
+	in emode, gives its spawner every attempt before defeat like other bosses
+demons can noclip at you lol
+tweaked enchanted lifeblade

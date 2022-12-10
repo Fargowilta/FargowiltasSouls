@@ -4,16 +4,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Audio;
-using Terraria.Chat;
-using System.Linq;
 using System.Collections.Generic;
-using Terraria.Graphics.Effects;
 using Terraria.DataStructures;
-using FargowiltasSouls;
-using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Projectiles.Challengers;
 using Terraria.Graphics.Shaders;
 using FargowiltasSouls.Items.BossBags;
@@ -23,6 +17,7 @@ using FargowiltasSouls.Items.Placeables.Trophies;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Buffs.Masomode;
 using Terraria.GameContent.Bestiary;
+using FargowiltasSouls.Items.Summons;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -295,7 +290,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 
             //permanent DR and regen for sans phase
             //deliberately done this way so that you can still eventually muscle past with endgame gear (this is ok)
-            if (!resigned && NPC.life < NPC.lifeMax / 10 * 0.9) //x0.9 so that sans phase check goes through properly
+            if (!resigned && NPC.life < NPC.lifeMax / 10 * 0.75) //lowered so that sans phase check goes through properly
             {
                 useDR = true;
 
@@ -525,6 +520,9 @@ namespace FargowiltasSouls.NPCs.Challengers
         #region P1
         public void Opening()
         {
+            if (!NPC.HasValidTarget)
+                NPC.TargetClosest(false);
+
             Player Player = Main.player[NPC.target];
             NPC.position.X = Player.Center.X - (NPC.width / 2);
             NPC.position.Y = Player.Center.Y - 490 - (NPC.height / 2);
@@ -535,9 +533,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                 if (!Main.dedServ)
                     Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 60;
 
+                if (FargoSoulsWorld.EternityMode && !FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.LifeChallenger] && Main.netMode != NetmodeID.MultiplayerClient)
+                    Item.NewItem(NPC.GetSource_Loot(), Main.player[NPC.target].Hitbox, ModContent.ItemType<FragilePixieLamp>());
+
                 SoundEngine.PlaySound(SoundID.ScaryScream, NPC.Center);
                 SoundEngine.PlaySound(SoundID.Item62, NPC.Center);
-                for (int i = 0; i < 200; i++)
+
+                for (int i = 0; i < 150; i++)
                 {
                     Vector2 vel = new Vector2(1, 0).RotatedByRandom(MathHelper.Pi * 2) * Main.rand.Next(20);
                     Dust.NewDust(NPC.Center, 0, 0, DustID.PurpleCrystalShard, vel.X, vel.Y, 100, new Color(), 1f);
@@ -1046,7 +1048,8 @@ namespace FargowiltasSouls.NPCs.Challengers
         }
         public void AttackP3Start()
         {
-            useDR = true;
+            useDR = !resigned;
+            NPC.chaseable = resigned;
 
             if (AttackF1)
             {
@@ -1059,6 +1062,17 @@ namespace FargowiltasSouls.NPCs.Challengers
                     NPC.dontTakeDamage = true;
                 NPC.netUpdate = true;
                 rotspeed = 0;
+            }
+
+            Player Player = Main.player[NPC.target];
+            if (NPC.Distance(Player.Center) > 2000)
+            {
+                FlyingState(1.5f);
+            }
+            else
+            {
+                Flying = false;
+                NPC.velocity *= 0.9f;
             }
 
             //for a starting time, make it fade in, then make it spin faster and faster up to a max speed
@@ -1122,15 +1136,18 @@ namespace FargowiltasSouls.NPCs.Challengers
         {
             Player Player = Main.player[NPC.target];
 
-            //if (!resigned) //disable items
-            //{
-            //    if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && NPC.Distance(Main.LocalPlayer.Center) < 3000)
-            //    {
-            //        Main.LocalPlayer.controlUseItem = false;
-            //        Main.LocalPlayer.controlUseTile = false;
-            //        Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().NoUsingItems = true;
-            //    }
-            //}
+            if (!resigned) //disable items
+            {
+                if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && NPC.Distance(Main.LocalPlayer.Center) < 3000)
+                {
+                    if (Main.LocalPlayer.grapCount > 0)
+                        Main.LocalPlayer.RemoveAllGrapplingHooks();
+
+                    //Main.LocalPlayer.controlUseItem = false;
+                    //Main.LocalPlayer.controlUseTile = false;
+                    //Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().NoUsingItems = true;
+                }
+            }
 
             if (AttackF1) 
             {
@@ -2185,7 +2202,9 @@ namespace FargowiltasSouls.NPCs.Challengers
                 Flying = true;
                 NPC.netUpdate = true;
             }
-            if (PhaseThree && FargoSoulsWorld.MasochistModeReal ? (NPC.ai[1] > NPC.ai[2] + 340) : (NPC.ai[1] > NPC.ai[2] + 110))
+
+            int endtime = PhaseThree ? (FargoSoulsWorld.MasochistModeReal ? 340 : 240) : 110;
+            if (NPC.ai[1] > NPC.ai[2] + endtime)
             {
                 HitPlayer = false;
                 oldstate = state;

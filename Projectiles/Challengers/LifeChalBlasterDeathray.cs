@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
     public class LifeChalBlasterDeathray : Deathrays.BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
-        public LifeChalBlasterDeathray() : base(60) { }
+        public LifeChalBlasterDeathray() : base(40) { }
 
         public override void SetStaticDefaults()
         {
@@ -20,6 +20,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
             DisplayName.SetDefault("Holy Deathray");
         }
+
+        public override bool? CanDamage() => Projectile.scale >= 1f;
 
         public override void AI()
         {

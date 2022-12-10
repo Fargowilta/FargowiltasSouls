@@ -31,6 +31,14 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
         {
             base.AI(npc);
 
+            if (npc.HasValidTarget)
+            {
+                //doing it this way so demon regains collision as soon as any part of it has line of sight
+                Vector2 myClosestPoint = FargoSoulsUtil.ClosestPointInHitbox(npc, Main.player[npc.target].Center);
+                Vector2 targetClosestPoint = FargoSoulsUtil.ClosestPointInHitbox(Main.player[npc.target], npc.Center);
+                npc.noTileCollide = !Collision.CanHitLine(myClosestPoint, 0, 0, targetClosestPoint, 0, 0);
+            }
+
             if ((npc.type == NPCID.Demon && npc.ai[0] == 100f)
                 || (npc.type == NPCID.RedDevil && ++Counter > 300))
             {
@@ -44,7 +52,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
                     FargoSoulsUtil.XWay(amount, npc.GetSource_FromThis(), npc.Center, ProjectileID.DemonSickle, 1, damage, .5f);
                 }
             }
-            else if (npc.type == NPCID.VoodooDemon) //can ignite itself to burn up its doll
+
+            if (npc.type == NPCID.VoodooDemon) //can ignite itself to burn up its doll
             {
                 const int dollBurningTime = 720;
 
