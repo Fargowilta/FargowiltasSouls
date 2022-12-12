@@ -125,7 +125,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         {
                             SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
                             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, (prediction - Projectile.Center) / 10,
-                                            ModContent.ProjectileType<LightslingerBombshot>(), Projectile.damage / 3, 0f, Main.myPlayer, 0, Projectile.whoAmI);
+                                            ModContent.ProjectileType<LightslingerBombshot>(), Projectile.damage / 3, Projectile.knockBack, Main.myPlayer, 0, Projectile.whoAmI);
                         }
                     }
                     else //we lost em boys

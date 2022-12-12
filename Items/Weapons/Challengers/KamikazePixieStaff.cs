@@ -23,14 +23,14 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
 
         public override void SetDefaults()
         {
-            Item.damage = 100;
+            Item.damage = 110;
             Item.DamageType = DamageClass.Summon;
             Item.width = 50;
             Item.height = 50;
             Item.useTime = 46;
             Item.useAnimation = 46;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 8;
+            Item.knockBack = 2;
             Item.value = Item.sellPrice(0, 25);
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item44;

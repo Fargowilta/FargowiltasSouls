@@ -1,6 +1,6 @@
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
-using System.Security.Cryptography.X509Certificates;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -18,9 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Meteor Enchantment");
 
             string tooltip =
-@"Reduces momentum by 50%
-You leave behind a trail of flames
-A meteor shower initiates every few seconds while attacking
+@"A meteor shower initiates every few seconds while attacking
 'Drop a draco on 'em'";
             Tooltip.SetDefault(tooltip);
         }
@@ -41,7 +39,9 @@ A meteor shower initiates every few seconds while attacking
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
             modPlayer.MeteorEffect(Item);
+
         }
 
         public override void AddRecipes()
@@ -53,8 +53,7 @@ A meteor shower initiates every few seconds while attacking
             .AddIngredient(ItemID.MeteorLeggings)
             .AddIngredient(ItemID.SpaceGun)
             .AddIngredient(ItemID.StarCannon)
-            //.AddIngredient(ItemID.SuperStarCannon)
-            //.AddIngredient(ItemID.MeteorStaff)
+            .AddIngredient(ItemID.PlaceAbovetheClouds)
 
             .AddTile(TileID.DemonAltar)
             .Register();

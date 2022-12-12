@@ -28,6 +28,7 @@ namespace FargowiltasSouls.NPCs.Challengers
             DisplayName.SetDefault("Trojan Squirrel");
 
             Main.npcFrameCount[NPC.type] = 8;
+            NPCID.Sets.MPAllowedEnemies[Type] = true;
 
             NPCID.Sets.DebuffImmunitySets.Add(NPC.type, new NPCDebuffImmunityData
             {

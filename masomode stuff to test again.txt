@@ -146,7 +146,6 @@ magical bulb debuff cleanse cd ends faster when not attacking
 wood ench discount works in vanity slots
 stabilized gravity moved from galactic globe to wyvern feather
 biocluster can give passive stable gravity
-tried again to make sibling and squrrl boss spawners always work in mp
 tweaked cultist arena vfx
 minor tweak to prime ai so that if spawned directly above you, arms dont stall for so long before they begin moving
 fixed getting graze from enemies flagged as no contact damage e.g. cultist, devi
@@ -210,3 +209,11 @@ lieflight
 	in emode, gives its spawner every attempt before defeat like other bosses
 demons can noclip at you lol
 tweaked enchanted lifeblade
+
+tried again to make sibling and squrrl boss spawners always work in mp
+fixed abom boss ray not being sheeted properly
+lieflight maso sans phase is now only available if your char name also contains "cum"
+
+buffed expixieve staff damage a bit
+lieflight with sans ai will have a different theme with new music mod
+fixed lieflight sometimes making you fall through platform when spawned?

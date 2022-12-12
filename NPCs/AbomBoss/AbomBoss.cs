@@ -17,6 +17,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Creative;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
@@ -37,6 +38,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.NoMultiplayerSmoothingByType[NPC.type] = true;
+            NPCID.Sets.MPAllowedEnemies[Type] = true;
 
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type);
             NPCID.Sets.DebuffImmunitySets.Add(NPC.type, new Terraria.DataStructures.NPCDebuffImmunityData
@@ -292,6 +294,10 @@ namespace FargowiltasSouls.NPCs.AbomBoss
                         NPC.DelBuff(0);
                     if (++NPC.ai[1] > 120)
                     {
+                        //because this breaks the background???
+                        if (Main.GameModeInfo.IsJourneyMode && CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().Enabled)
+                            CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().SetPowerInfo(false);
+
                         if (FargoSoulsWorld.EternityMode && !SkyManager.Instance["FargowiltasSouls:AbomBoss"].IsActive())
                             SkyManager.Instance.Activate("FargowiltasSouls:AbomBoss");
 

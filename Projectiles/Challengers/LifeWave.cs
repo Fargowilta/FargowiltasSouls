@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             }
         }
 
-        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity;
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity * 0.9f;
 
         public override bool PreDraw(ref Color lightColor)
         {

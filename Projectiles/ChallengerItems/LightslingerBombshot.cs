@@ -32,19 +32,6 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
         }
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
-        {
-            if (projHitbox.Intersects(targetHitbox))
-            {
-                return true;
-            }
-            float collisionPoint = 0f;
-            if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.Center - Projectile.velocity, Projectile.width, ref collisionPoint))
-            {
-                return true;
-            }
-            return false;
-        }
 
         public override void AI()
         {

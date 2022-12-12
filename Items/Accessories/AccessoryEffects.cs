@@ -789,10 +789,6 @@ namespace FargowiltasSouls
             }
         }
 
-        
-
-
-
         public void NebulaEffect()
         {
             if (!Player.GetToggleValue("Nebula", false))
