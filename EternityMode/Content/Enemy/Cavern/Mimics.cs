@@ -45,6 +45,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
         public override void SetDefaults(NPC npc)
         {
             base.SetDefaults(npc);
+            if (!Main.hardMode)
+                npc.damage = 60; //base is 80
         }
 
         public override bool PreAI(NPC npc)
@@ -88,13 +90,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                         npc.velocity = npc.DirectionTo(player.Center) * 20;
                         SoundEngine.PlaySound(SoundID.DD2_SonicBoomBladeSlash, npc.Center);
                         npc.noGravity = true;
-                        npc.noTileCollide = true;
+                        //npc.noTileCollide = true;
                     }
                     npc.velocity *= 0.99f;
                     if (Timer == 140)
                     {
                         npc.noGravity = false;
-                        npc.noTileCollide = false;
+                        //npc.noTileCollide = false;
                     }
                     
                     
@@ -106,16 +108,13 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 void DaggerAttack()
                 {
                     int Timer = AttackTimer - AttackCD;
-                    const int DaggerAmount = 5;
                     npc.velocity.X = 0;
-                    if (Timer <= 5)
-                        LockVector = player.Center;
-                    if (Timer % 5 == 0 && Timer <= 60 && Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Timer % 20 == 0 && Timer <= 20 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         float DaggerSpeed = 4;
-                        float rot = MathHelper.ToRadians((LockVector.X - npc.Center.X < 0 ? -1 : 1) * (60 - (10 * (Timer/5))));
+                        float rot = MathHelper.ToRadians(Main.rand.NextFloat(-6, 6));
                         Vector2 DaggerPosition = npc.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10));
-                        Vector2 DaggerVelocity = (Vector2.Normalize(LockVector - DaggerPosition) * DaggerSpeed).RotatedBy(rot);
+                        Vector2 DaggerVelocity = (Vector2.Normalize(player.Center - DaggerPosition) * DaggerSpeed).RotatedBy(rot);
                         Projectile.NewProjectile(npc.GetSource_FromThis(), DaggerPosition, DaggerVelocity, ModContent.ProjectileType<MimicDagger>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
                     }
                     if (Timer >= 100)
@@ -126,20 +125,21 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 void StarveilAttack()
                 {
                     int Timer = AttackTimer - AttackCD;
-                    const int StarAmount = 16;
+                    const int StarAmount = 3;
                     npc.velocity.X = 0;
 
                     if (Timer == 5 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = 0; i < StarAmount; i++)
                         {
-                            float StarSpeed = 8 + Main.rand.NextFloat(3);
-                            float randrot = MathHelper.ToRadians(30);
+                            float StarSpeed = 12;
+                            float randrot = MathHelper.ToRadians(1);
                             Vector2 StarPosition = npc.Center + new Vector2(-300 + Main.rand.Next(800), -1000);
                             Vector2 StarVelocity = (Vector2.Normalize(player.Center - StarPosition) * StarSpeed).RotatedBy(Main.rand.NextFloat(-randrot, randrot));
-                            int p = Projectile.NewProjectile(npc.GetSource_FromThis(), StarPosition, StarVelocity, ProjectileID.HallowStar, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
+                            int p = Projectile.NewProjectile(npc.GetSource_FromThis(), StarPosition, StarVelocity, ModContent.ProjectileType<MimicHallowStar>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
                             Main.projectile[p].friendly = false;
                             Main.projectile[p].hostile = true;
+                            Main.projectile[p].tileCollide = false;
                         }
                     }
 
@@ -166,7 +166,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                     npc.localAI[3]++;
                     if (npc.Distance(player.Center) < 200 && Collision.CanHitLine(npc.position, npc.width, npc.height, player.position, player.width, player.height))
                     {
-                        FlightCD = 120;
+                        FlightCD = 60 * 15;
                         Flying = false;
                         npc.noGravity = false;
                         npc.noTileCollide = false;
@@ -176,14 +176,14 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 }
                 void FlyToward(Vector2 v)
                 {
-                    float inertia = 15f;
+                    float inertia = 5f;
                     float deadzone = 25f;
                     Vector2 vectorToIdlePosition = v - npc.Center;
                     float num = vectorToIdlePosition.Length();
                     if (num > deadzone)
                     {
                         vectorToIdlePosition.Normalize();
-                        vectorToIdlePosition *= 30;
+                        vectorToIdlePosition *= 6;
                         npc.velocity = (npc.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
                     }
                     else if (npc.velocity == Vector2.Zero)
@@ -194,18 +194,21 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                 }
                 if (npc.ai[0] == 1 && player.active && !player.dead) //if mimic awake and target active
                 {
-                    if (FlightCD == 0 && (npc.Distance(player.Center) > 1000 || !Collision.CanHitLine(npc.position, npc.width, npc.height, player.position, player.width, player.height))) //if far or collision, fly toward target
+                    if (AttackTimer < AttackCD) //only do flight when not attacking
                     {
-                        Flying = true;
-                    }
-                    if (Flying)
-                    {
-                        Flight();
-                        if (AttackTimer < AttackCD - 5)
+                        if (FlightCD == 0 && (npc.Distance(player.Center) > 1000 || (npc.Distance(player.Center) > 200 && !Collision.CanHitLine(npc.position, npc.width, npc.height, player.position, player.width, player.height)))) //if far or collision, fly toward target
                         {
-                            AttackTimer++; //progress attack timer up to attack, even while flying, so you dont cheese by just letting him charge forever
+                            Flying = true;
                         }
-                        return false; //no attacking or normal ai while flying
+                        if (Flying)
+                        {
+                            Flight();
+                            if (AttackTimer < AttackCD - 5)
+                            {
+                                AttackTimer++; //progress attack timer up to attack, even while flying, so you dont cheese by just letting him charge forever
+                            }
+                            return false; //no attacking or normal ai while flying
+                        }
                     }
                     if (FlightCD > 0)
                     {
