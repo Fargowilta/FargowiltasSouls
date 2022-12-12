@@ -1272,6 +1272,7 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
+			FatherOfLies: It was a mistake to come here.
 
 			LifeRevitalizerSP: 重生点已设置到生命复苏站！
 			LifeRevitalizerMP: "重生点已被{0}设置到生命复苏站！"
@@ -2642,11 +2643,8 @@ Mods: {
 				'''
 			MeteorEnchant:
 				'''
-				减少50%动量
-				你会留下火焰轨迹
 				攻击时每过几秒便会召唤一次流星雨
 				《Drop a draco on 'em》
-				（实际上，提示前两行的效果根本没有）
 				'''
 			MinerEnchant:
 				'''
