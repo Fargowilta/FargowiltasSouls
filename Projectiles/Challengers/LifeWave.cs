@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 Projectile.velocity = Projectile.velocity * 1.015f;
 
             //a bit after spawning, become tangible when it finds an open space
-            if (!Projectile.tileCollide && Projectile.ai[0] > 60 * Projectile.MaxUpdates)
+            if (!Projectile.tileCollide && Projectile.ai[0] > 90 * Projectile.MaxUpdates)
             {
                 Tile tile = Framing.GetTileSafely(Projectile.Center);
                 if (!(tile.HasUnactuatedTile && Main.tileSolid[tile.TileType] && !Main.tileSolidTop[tile.TileType]))
@@ -93,7 +93,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.5f)
             {
-                Color color27 = new Color(255, 51, 153, 560 - Main.mouseTextColor * 2) * Projectile.Opacity * 0.3f;
+                Color color27 = new Color(255, 51, 153, 260 - Main.mouseTextColor) * Projectile.Opacity * 0.5f;
                 float fade = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 color27 *= fade * fade;
                 int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);

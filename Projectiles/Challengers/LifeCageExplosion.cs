@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                 {
                     int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.HallowedTorch, 0, 0, 0, default, 4f);
                     Main.dust[d].noGravity = true;
-                    Main.dust[d].velocity *= 6;
+                    Main.dust[d].velocity *= 9;
                 }
 
                 for (int i = 0; i < 4; i++)

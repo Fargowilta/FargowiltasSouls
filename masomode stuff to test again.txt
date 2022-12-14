@@ -217,3 +217,8 @@ lieflight maso sans phase is now only available if your char name also contains 
 buffed expixieve staff damage a bit
 lieflight with sans ai will have a different theme with new music mod
 fixed lieflight sometimes making you fall through platform when spawned?
+fixed maso probes not having contact damage
+fixed fragile pixie lamp not being sold by mutant post-lieflight
+fixed post-ml spawners being sold under the hardmode tab in mutant shop
+adjusted hitbox of life proj small (the laser beam) to be longer
+fixed maso cum sans phase initial crosshair explosions not actually doing damage

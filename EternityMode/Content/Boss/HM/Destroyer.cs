@@ -978,7 +978,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot)
         {
-            return FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer);
+            return FargoSoulsWorld.SwarmActive
+                || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer)
+                || FargoSoulsWorld.MasochistModeReal;
         }
 
         public override void OnFirstTick(NPC npc)

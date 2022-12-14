@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Life Shot");
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
@@ -27,6 +27,21 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.ignoreWater = true;
             Projectile.scale = 1.5f;
         }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 2)
+            {
+                Rectangle trailHitbox = projHitbox;
+                Vector2 diff = Projectile.oldPos[i] - Projectile.Center;
+                trailHitbox.X += (int)diff.X;
+                trailHitbox.Y += (int)diff.Y;
+                if (trailHitbox.Intersects(targetHitbox))
+                    return true;
+            }
+            return false;
+        }
+
         public override void AI()
         {
             //Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 91, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.25f);
