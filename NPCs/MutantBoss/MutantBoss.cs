@@ -96,35 +96,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             NPC.aiStyle = -1;
             NPC.netAlways = true;
             NPC.timeLeft = NPC.activeTime * 30;
-            if (FargoSoulsWorld.AngryMutant)// || Fargowiltas.Instance.CalamityLoaded)
+            if (FargoSoulsWorld.AngryMutant)
             {
-                NPC.lifeMax = 177000000;
-                NPC.damage = (int)(NPC.damage * 4);
-                NPC.defense *= 2;
-                //if (FargowiltasSouls.Instance.CalamityLoaded)
-                //{
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("ExoFreeze")] = true;
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("GlacialState")] = true;
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness")] = true;
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("SilvaStun")] = true;
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("TimeSlow")] = true;
-                //    NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("PearlAura")] = true;
-                //}
+                NPC.lifeMax = 777000000;
+                NPC.damage *= 17;
+                NPC.defense *= 10;
             }
-
-            //if (Fargowiltas.Instance.MasomodeEXLoaded)
-            //{
-            //    music = Fargowiltas.Instance.MasomodeEXCompatibility.ModInstance.GetSoundSlot(SoundType.Music, "Assets/Music/rePrologue");
-            //}
-            //else
-            //{
-            //    Mod musicMod = ModLoader.GetMod("FargowiltasMusic");
-            //    if (musicMod == null)
-            //        music = MusicID.LunarBoss;
-            //    else
-            //        music = musicMod.GetSoundSlot(SoundType.Music, "Sounds/Music/SteelRed");
-            //}
-            //musicPriority = (MusicPriority)12;
 
             if (ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod))
             {
@@ -354,7 +331,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     {
                         //if (FargowiltasSouls.Instance.MasomodeEXLoaded) Projectile.NewProjectile(npc.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModLoader.GetMod("MasomodeEX").ProjectileType("MutantText"), 0, 0f, Main.myPlayer, NPC.whoAmI);
 
-                        if (FargoSoulsWorld.downedAbom && FargoSoulsWorld.AngryMutant)//(FargowiltasSouls.Instance.MasomodeEXLoaded || Fargowiltas.Instance.CalamityLoaded))
+                        if (FargoSoulsWorld.AngryMutant && FargoSoulsWorld.MasochistModeReal)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BossRush>(), 0, 0f, Main.myPlayer, NPC.whoAmI);
                     }
                 }
@@ -1626,7 +1603,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 else
                 {
                     NPC.velocity = NPC.localAI[0].ToRotationVector2() * 45f;
-                    float spearAi = 1f;
+                    float spearAi = 0f;
                     if (NPC.ai[2] == NPC.localAI[1])
                         spearAi = -2f;
 
@@ -3481,8 +3458,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
-            if (FargoSoulsWorld.AngryMutant)// || FargowiltasSouls.Instance.CalamityLoaded)
-                damage *= 0.7f;
+            if (FargoSoulsWorld.AngryMutant)
+                damage *= 0.07f;
             return true;
         }
 

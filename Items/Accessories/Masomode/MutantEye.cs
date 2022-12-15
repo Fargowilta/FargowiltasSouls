@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant Eye");
-            Tooltip.SetDefault(@"Grants immunity to Mutant Fang and Mutant Presence
+            Tooltip.SetDefault(@"Grants immunity to Mutant Fang
 25% increased graze bonus damage cap
 Upgrades Sparkling Adoration hearts to love rays
 Increases damage gained per graze
@@ -52,7 +52,7 @@ Mutant Bomb has a 60 second cooldown
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             player.buffImmune[ModContent.BuffType<Buffs.Boss.MutantFang>()] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.Boss.MutantPresence>()] = true;
+            //player.buffImmune[ModContent.BuffType<Buffs.Boss.MutantPresence>()] = true;
 
             fargoPlayer.MutantEyeItem = Item;
             if (!hideVisual)

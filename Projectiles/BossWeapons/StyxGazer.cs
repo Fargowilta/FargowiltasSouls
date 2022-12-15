@@ -181,7 +181,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         {
             Projectile.localNPCImmunity[target.whoAmI]++;
 
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center + Main.rand.NextVector2Circular(100, 100), Vector2.Zero, ModContent.ProjectileType<AbomBoss.AbomBlast>(), 0, 0f, Projectile.owner);
+            if (Projectile.owner == Main.myPlayer)
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center + Main.rand.NextVector2Circular(100, 100), Vector2.Zero, ModContent.ProjectileType<AbomBoss.AbomBlast>(), 0, 0f, Projectile.owner);
 
             target.AddBuff(BuffID.ShadowFlame, 300);
             target.AddBuff(ModContent.BuffType<Buffs.Masomode.MutantNibble>(), 300);

@@ -340,7 +340,7 @@ namespace FargowiltasSouls
             AddToggle("TrawlerSporeConfig", ModContent.ItemType<TrawlerSoul>());
             AddToggle("TrawlerConfig", ModContent.ItemType<TrawlerSoul>());
             AddToggle("TrawlerJumpConfig", ModContent.ItemType<TrawlerSoul>());
-            AddToggle("TrawlerGelConfig", ModContent.ItemType<CrystalAssassinEnchant>());
+            AddToggle("TrawlerGelConfig", ModContent.ItemType<TrawlerSoul>());
 
             AddToggle("EternityHeader", ModContent.ItemType<EternitySoul>());
             AddToggle("EternityConfig", ModContent.ItemType<EternitySoul>());

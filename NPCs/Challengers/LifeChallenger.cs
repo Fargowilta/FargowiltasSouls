@@ -108,10 +108,15 @@ namespace FargowiltasSouls.NPCs.Challengers
         private bool Draw = false;
 
         bool useDR;
+        bool phaseProtectionDR;
 
         int flyTimer = 9000;
 
         private List<int> intervalist = new List<int>(0);
+
+        int P2Threshold => Main.expertMode ? (int)(NPC.lifeMax * 0.66) : 0;
+        int P3Threshold => FargoSoulsWorld.EternityMode ? NPC.lifeMax / (FargoSoulsWorld.MasochistModeReal ? 2 : 3) : 0;
+        int SansThreshold => FargoSoulsWorld.MasochistModeReal && UseTrueOriginAI ? NPC.lifeMax / 10 : 0;
         #endregion
         #region Standard
         public override void SetStaticDefaults()
@@ -175,8 +180,8 @@ namespace FargowiltasSouls.NPCs.Challengers
 
         public override void OnSpawn(IEntitySource source)
         {
-            //only enable this in maso in presence of cum
-            if (FargoSoulsWorld.MasochistModeReal && Main.player.Any(p => p.active && p.name.ToLower().Contains("cum")))
+            //only enable this in maso
+            if (FargoSoulsWorld.MasochistModeReal)// && Main.player.Any(p => p.active && p.name.ToLower().Contains("cum")))
                 UseTrueOriginAI = true;
         }
 
@@ -215,13 +220,19 @@ namespace FargowiltasSouls.NPCs.Challengers
             Main.dayTime = true;
             NPC.defense = NPC.defDefense;
             useDR = false;
+            phaseProtectionDR = false;
 
-            //permanent DR and regen for sans phase
+            if (PhaseOne && NPC.life < P2Threshold)
+                phaseProtectionDR = true;
+            if (!PhaseThree && NPC.life < P3Threshold)
+                phaseProtectionDR = true;
+            if (UseTrueOriginAI && NPC.life < SansThreshold)
+                phaseProtectionDR = true;
+
+            //permanent regen for sans phase
             //deliberately done this way so that you can still eventually muscle past with endgame gear (this is ok)
-            if (UseTrueOriginAI && NPC.life < NPC.lifeMax / 10 * 0.75) //lowered so that sans phase check goes through properly
+            if (UseTrueOriginAI && NPC.life < SansThreshold * 0.5) //lowered so that sans phase check goes through properly
             {
-                useDR = true;
-
                 int healPerSecond = NPC.lifeMax / 10;
                 NPC.life += healPerSecond / 60;
                 CombatText.NewText(NPC.Hitbox, CombatText.HealLife, healPerSecond);
@@ -370,12 +381,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                         
                         bool resetFly = true;
                         
-                        if (!PhaseThree && FargoSoulsWorld.EternityMode && NPC.life < NPC.lifeMax * (FargoSoulsWorld.MasochistModeReal ? 0.5 : 0.33))
+                        if (!PhaseThree && NPC.life < P3Threshold)
                         {
                             state = 100;
                             resetFly = false;
                         }
-                        if (PhaseThree && NPC.life < NPC.lifeMax / 10 && UseTrueOriginAI)
+
+                        if (PhaseThree && NPC.life < SansThreshold)
                         {
                             state = 101;
                             oldstate = 0;
@@ -842,14 +854,14 @@ namespace FargowiltasSouls.NPCs.Challengers
 
             NPC.velocity *= 0.95f;
 
-            if (FargoSoulsWorld.MasochistModeReal)
-            {
-                int heal = (int)(NPC.lifeMax / 100f * Main.rand.NextFloat(1f, 1.5f));
-                NPC.life += heal;
-                if (NPC.life > NPC.lifeMax)
-                    NPC.life = NPC.lifeMax;
-                CombatText.NewText(NPC.Hitbox, CombatText.HealLife, heal);
-            }
+            //if (FargoSoulsWorld.MasochistModeReal)
+            //{
+            //    int heal = (int)(NPC.lifeMax / 100f * Main.rand.NextFloat(1f, 1.5f));
+            //    NPC.life += heal;
+            //    if (NPC.life > NPC.lifeMax)
+            //        NPC.life = NPC.lifeMax;
+            //    CombatText.NewText(NPC.Hitbox, CombatText.HealLife, heal);
+            //}
 
             if (NPC.ai[1] == 120f)
             {
@@ -1057,7 +1069,7 @@ namespace FargowiltasSouls.NPCs.Challengers
         }
         public void AttackP3Start()
         {
-            useDR = UseTrueOriginAI;
+            useDR = true;
             NPC.chaseable = !UseTrueOriginAI;
 
             if (AttackF1)
@@ -1241,13 +1253,13 @@ namespace FargowiltasSouls.NPCs.Challengers
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     for (int i = 0; i < 2; i++)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4 + (8 * i), -2f), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 3f, Main.myPlayer, 32f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4 + (8 * i), -2f), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 3f, Main.myPlayer, 24f);
             }
             if (NPC.ai[1] > Attack2Start && time2 % Attack2Time + 1 == Attack2Time && NPC.ai[1] < Attack2End) //fire shots down
             {
                 SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 4f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 3f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
             }
             #endregion
             #region Jevilsknife
@@ -2392,8 +2404,18 @@ namespace FargowiltasSouls.NPCs.Challengers
             if (useDR)
                 damage /= 2;
 
+            if (phaseProtectionDR)
+                damage /= 2;
+
             return true;
         }
+
+        public override void UpdateLifeRegen(ref int damage)
+        {
+            if ((useDR || phaseProtectionDR) && NPC.lifeRegen < 0)
+                NPC.lifeRegen /= 2;
+        }
+
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
         {
             if (HitPlayer)
@@ -2572,11 +2594,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                 if (P1state == oldP1state)
                     P1state = (P1state + 1) % P1statecount;
             }
-            if (NPC.life < NPC.lifeMax * 0.66 && Main.expertMode) //phase 2 switch?
+
+            if (NPC.life < P2Threshold) //phase 2 switch
             {
                 P1state = -1;
                 flyTimer = 9000;
             }
+
             NPC.netUpdate = true;
         }
         public void StateReset()
@@ -2609,11 +2633,12 @@ namespace FargowiltasSouls.NPCs.Challengers
 
 			}
 
-            if (!PhaseThree && FargoSoulsWorld.EternityMode && NPC.life < NPC.lifeMax * (FargoSoulsWorld.MasochistModeReal ? 0.5 : 0.33))
+            if (!PhaseThree && NPC.life < P3Threshold)
 			{
 				state = 100;
 			}
-			if (PhaseThree && NPC.life < NPC.lifeMax / 10 && FargoSoulsWorld.MasochistModeReal)
+
+			if (PhaseThree && NPC.life < SansThreshold)
 			{
 				state = 101;
 				oldstate = -665;

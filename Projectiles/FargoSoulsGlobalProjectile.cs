@@ -94,6 +94,7 @@ namespace FargowiltasSouls.Projectiles
             {
                 case ProjectileID.FinalFractal:
                     DeletionImmuneRank = 2;
+                    TimeFreezeImmune = true;
                     break;
 
                 case ProjectileID.StardustGuardian:

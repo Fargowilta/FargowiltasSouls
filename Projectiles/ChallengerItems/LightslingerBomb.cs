@@ -25,6 +25,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.aiStyle = 0;
             Projectile.hostile = false;
             Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
             AIType = 467;
             Projectile.penetrate = 1;
             Projectile.tileCollide = true;
@@ -62,7 +63,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
                 Vector2 vector = Projectile.velocity.RotatedBy(rad) * speed;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector, ModContent.ProjectileType<LightslingerBombshot>(), damage, knockBack, Main.myPlayer, 0, 1);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector, ModContent.ProjectileType<LightslingerShot>(), damage, knockBack, Main.myPlayer, 0, 1);
                 }
             }
 

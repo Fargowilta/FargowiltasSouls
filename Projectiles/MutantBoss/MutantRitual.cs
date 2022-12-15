@@ -3,6 +3,7 @@ using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Souls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -34,12 +35,20 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         protected override void Movement(NPC npc)
         {
-            //stationary during pillars
-            if (npc.ai[0] == 19)
+            //int[] unmovingArenaStates =
+            //{
+            //    19, //pillars
+            //    13, 14, 15, //predictive dash
+            //    21, 22, 23 //direct dash
+            //};
+
+            float targetRotation;
+            //if (unmovingArenaStates.Contains((int)npc.ai[0])) //be stationary
+            if (npc.ai[0] == 19) //pillars
             {
                 Projectile.velocity = Vector2.Zero;
 
-                rotationPerTick = -realRotation / 5; //denote arena isn't moving
+                targetRotation = -realRotation / 2; //denote arena isn't moving
             }
             else
             {
@@ -47,11 +56,25 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 if (npc.ai[0] == 36)
                     Projectile.velocity /= 20f; //much faster for slime rain
                 else if (npc.ai[0] == 22 || npc.ai[0] == 23 || npc.ai[0] == 25)
-                    Projectile.velocity /= 30f; //move faster for direct dash, predictive throw
+                    Projectile.velocity /= 40f; //move faster for direct dash, predictive throw
                 else
                     Projectile.velocity /= 60f;
 
-                rotationPerTick = realRotation;
+                targetRotation = realRotation;
+            }
+
+            const float increment = realRotation / 40;
+            if (rotationPerTick < targetRotation)
+            {
+                rotationPerTick += increment;
+                if (rotationPerTick > targetRotation)
+                    rotationPerTick = targetRotation;
+            }
+            else if (rotationPerTick > targetRotation)
+            {
+                rotationPerTick -= increment;
+                if (rotationPerTick < targetRotation)
+                    rotationPerTick = targetRotation;
             }
 
             MutantDead = npc.ai[0] <= -6;

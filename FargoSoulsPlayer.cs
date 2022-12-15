@@ -3417,8 +3417,9 @@ namespace FargowiltasSouls
 
             if ((SquireEnchantActive || ValhallaEnchantActive) && Player.GetToggleValue("Valhalla", false))
             {
-                //if (TerrariaSoul) bonus = 1f; else 
-                if (WillForce && ValhallaEnchantActive)
+                if (Eternity)
+                    bonus = 4f;
+                else if (WillForce && ValhallaEnchantActive)
                     bonus = 1f / 2f;
                 else if (ValhallaEnchantActive || (WillForce && SquireEnchantActive))
                     bonus = 1f / 3f;
@@ -3426,7 +3427,7 @@ namespace FargowiltasSouls
                     bonus = 1f / 4f;
             }
 
-            heal = (int)(heal * (1 + bonus));
+            heal = (int)(heal * (1f + bonus));
 
             return heal;
         }

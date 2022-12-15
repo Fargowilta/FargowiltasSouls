@@ -37,12 +37,12 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.aiStyle = 0;
             Projectile.hostile = false;
             Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
             AIType = 14;
             Projectile.penetrate = -1;
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 1200;
-            Projectile.light = 0.5f;
             Projectile.scale = 1f;
         }
 

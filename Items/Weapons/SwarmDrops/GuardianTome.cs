@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Items.Weapons.SwarmDrops
             Item.useTime = 50;
             Item.useAnimation = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.useTurn = true;
+            Item.useTurn = false;
             Item.noMelee = true;
             Item.knockBack = 2;
             Item.value = Item.sellPrice(0, 70);

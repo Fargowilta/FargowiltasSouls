@@ -31,6 +31,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.ignoreWater = true;
             //Projectile.light = 2f;
             Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 20;
             Projectile.penetrate = -1;

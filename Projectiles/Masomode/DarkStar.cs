@@ -35,6 +35,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.hostile = true;
         }
 
+        bool lastSecondAccel;
+
         public override void AI()
         {
             if (Projectile.soundDelay == 0)
@@ -48,6 +50,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.localAI[1] = 1f;
                 if (Projectile.ai[1] == 1f)
                     SoundEngine.PlaySound(SoundID.Item33, Projectile.position);
+
+                //doing it this way so projs that inherit from dark star dont inherit the accel
+                lastSecondAccel = Projectile.type == ModContent.ProjectileType<DarkStar>();
             }
 
             if (Projectile.localAI[0] == 0)
@@ -70,6 +75,9 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 58, (float)(Projectile.velocity.X * 0.5), (float)(Projectile.velocity.Y * 0.5), 150, default, 1.2f);
 
             Lighting.AddLight(Projectile.Center, 0.9f, 0.8f, 0.1f);
+
+            if (lastSecondAccel && Projectile.ai[0] == -1 && --Projectile.ai[1] < 0)
+                Projectile.velocity *= 1.03f;
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

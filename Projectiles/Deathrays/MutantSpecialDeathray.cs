@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Projectile.frame = (int)Math.Abs(Main.GameUpdateCount % Main.projFrames[Projectile.type]);
             }
 
-            Projectile.frameCounter += Main.rand.Next(3);
+            Projectile.frameCounter += 1;
             if (++Projectile.frameCounter > 3)
             {
                 Projectile.frameCounter = 0;

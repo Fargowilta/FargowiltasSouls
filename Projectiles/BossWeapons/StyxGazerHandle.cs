@@ -32,6 +32,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void AI()
         {
+            Projectile.maxPenetrate = 1;
+
             Vector2? vector78 = null;
             if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
             {
@@ -104,8 +106,26 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             }
         }
 
+        public override bool? CanDamage()
+        {
+            Projectile.maxPenetrate = 1;
+            return true;
+        }
+
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (Projectile.localNPCImmunity[target.whoAmI] >= 15)
+                return false;
+            return null;
+        }
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+            Projectile.localNPCImmunity[target.whoAmI]++;
+
+            if (Projectile.owner == Main.myPlayer)
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center + Main.rand.NextVector2Circular(100, 100), Vector2.Zero, ModContent.ProjectileType<AbomBoss.AbomBlast>(), 0, 0f, Projectile.owner);
+
             target.AddBuff(BuffID.ShadowFlame, 300);
             target.AddBuff(ModContent.BuffType<Buffs.Masomode.MutantNibble>(), 300);
             //target.immune[Projectile.owner] = Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<BossWeapons.StyxGazer>()] > 0 ? 1 : 3;

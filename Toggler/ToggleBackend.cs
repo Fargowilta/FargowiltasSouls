@@ -191,6 +191,8 @@ namespace FargowiltasSouls.Toggler
             player.SetToggleValue("Huntress", true);
             player.SetToggleValue("CrystalDash", true);
 
+            player.SetToggleValue("Eternity", true);
+
             player.SetToggleValue("DeerSinewDash", true);
             player.SetToggleValue("MasoGraze", true);
             //player.SetToggleValue("MasoGrazeRing", true);

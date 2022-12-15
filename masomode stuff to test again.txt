@@ -222,3 +222,13 @@ fixed fragile pixie lamp not being sold by mutant post-lieflight
 fixed post-ml spawners being sold under the hardmode tab in mutant shop
 adjusted hitbox of life proj small (the laser beam) to be longer
 fixed maso cum sans phase initial crosshair explosions not actually doing damage
+added slight accel to prime dark stars (generally shouldnt be a factor unless outrunning spin for too long)
+fixed none of lieflight's weapons actually having classed projs (melee weap can ichor now)
+adjusted dr to shield lieflight from being melted past phase transitions
+removed mutant eye immunity to mutant presence
+enraged mutant has much higher stats
+prime can do cardinal swipes
+
+lieflight maso cum sans "thorn ball + nukes": reduced density of nuke rings and fall speed of balls
+maso cum sans phase is no longer cum name only (it is just part of maso fight now)
+disabled lieflight maso p2 heal

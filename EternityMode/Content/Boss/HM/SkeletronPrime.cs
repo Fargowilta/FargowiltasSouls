@@ -189,10 +189,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 for (int j = -starMax; j <= starMax; j++)
                                 {
                                     int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed.RotatedBy(MathHelper.ToRadians(2f) * j),
-                                        ModContent.ProjectileType<DarkStar>(), damage, 0f, Main.myPlayer);
+                                        ModContent.ProjectileType<DarkStar>(), damage, 0f, Main.myPlayer, -1, 180);
                                     Main.projectile[p].soundDelay = -1; //dont play sounds
                                     if (p != Main.maxProjectiles)
-                                        Main.projectile[p].timeLeft = 480;
+                                        Main.projectile[p].timeLeft = 300;
                                 }
                             }
                         }
@@ -401,6 +401,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool IsSwipeLimb;
         public bool InSpinningMode;
         public bool ModeReset;
+        public bool CardinalSwipe;
 
         public int DontActWhenSpawnedTimer = 180;
 
@@ -417,6 +418,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(IsSwipeLimb), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(InSpinningMode), BoolStrategies.CompoundStrategy },
                 { new Ref<object>(ModeReset), BoolStrategies.CompoundStrategy },
+                { new Ref<object>(CardinalSwipe), BoolStrategies.CompoundStrategy },
             };
 
         public override void SetDefaults(NPC npc)
@@ -580,10 +582,13 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
                     if (++npc.ai[2] < 180)
                     {
-                        Vector2 target = Main.player[npc.target].Center;
-                        target.X += 400 * IdleOffsetX;
-                        target.Y += 400 * IdleOffsetY;
+                        Vector2 offset = new Vector2(400 * IdleOffsetX, 400 * IdleOffsetY);
+                        if (CardinalSwipe)
+                            offset = offset.RotatedBy(MathHelper.PiOver4);
+                        
+                        Vector2 target = Main.player[npc.target].Center + offset;
                         npc.velocity = (target - npc.Center) / 30;
+
                         if (npc.ai[2] == 140)
                         {
                             SoundEngine.PlaySound(SoundID.Item15 with { Volume = 1.5f }, npc.Center);
@@ -605,6 +610,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         npc.velocity = npc.DirectionTo(Main.player[npc.target].Center) * 20f;
                         IdleOffsetX *= -1;
                         IdleOffsetY *= -1;
+
+                        CardinalSwipe = !CardinalSwipe;
 
                         npc.netUpdate = true;
                     }
