@@ -9,6 +9,12 @@ namespace FargowiltasSouls.Toggler
         public abstract string SortCatagory { get; }
         public abstract int Priority { get; }
 
+        public abstract bool Active
+        {
+            get;
+        }
+
+
         public List<Toggle> Load(int offset)
         {
             // All string (toggles) and int (header) fields

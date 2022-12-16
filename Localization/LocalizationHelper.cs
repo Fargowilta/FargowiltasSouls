@@ -61,8 +61,9 @@ namespace FargowiltasSouls
                 AddBossSpawnInfo("WillChampion", $"在海洋使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
                 AddBossSpawnInfo("CosmosChampion", $"在太空使用[i:{ModContent.ItemType<SigilOfChampions>()}]召唤。");
 
-                AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤。");
+                AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
                 AddBossSpawnInfo("LifeChallenger", $"白天时在神圣之地使用[i:{ModContent.ItemType<FragilePixieLamp>()}]召唤。");
+                //AddBossSpawnInfo("CursedCoffin", $"在地下沙漠使用[i:{ModContent.ItemType<CoffinSummon>()}]召唤。");
             }
             else if (FargoSoulsUtil.IsPortuguese())
             {
@@ -99,6 +100,7 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
                 AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
+                //AddBossSpawnInfo("CursedCoffin", $"Spawn by using [i:{ModContent.ItemType<CoffinSummon>()}] in the Underground Desert.");
             }
 
             #endregion boss spawn info
@@ -348,45 +350,93 @@ namespace FargowiltasSouls
             #endregion soul toggles
 
             #region pet toggles
-
             AddToggle("PetHeader", ItemID.ZephyrFish);
+            AddToggle("PetDinoConfig", ItemID.AmberMosquito);
+            AddToggle("PetEaterConfig", ItemID.EatersBone);
+            AddToggle("PetFaceMonsterConfig", ItemID.BoneRattle);
+            AddToggle("PetGrinchConfig", ItemID.BabyGrinchMischiefWhistle);
+            AddToggle("PetHornetConfig", ItemID.Nectar);
+            AddToggle("PetImpConfig", ItemID.HellCake);
+            AddToggle("PetPenguinConfig", ItemID.Fish);
+            AddToggle("PetPandaConfig", ItemID.BambooLeaf);
+            AddToggle("PetDGConfig", ItemID.BoneKey);
+            AddToggle("PetSnowmanConfig", ItemID.ToySled);
+            AddToggle("PetShroomConfig", ItemID.StrangeGlowingMushroom);
+            AddToggle("PetWerewolfConfig", ItemID.FullMoonSqueakyToy);
+            AddToggle("PetBernieConfig", ItemID.BerniePetItem);
             AddToggle("PetBlackCatConfig", ItemID.UnluckyYarn);
+            //AddToggle("PetBlueChickenConfig", ItemID.egg);
+            //AddToggle("PetCavelingConfig", ItemID.glowt);
+            AddToggle("PetChesterConfig", ItemID.ChesterPetItem);
             AddToggle("PetCompanionCubeConfig", ItemID.CompanionCube);
             AddToggle("PetCursedSaplingConfig", ItemID.CursedSapling);
-            AddToggle("PetDinoConfig", ItemID.AmberMosquito);
-            AddToggle("PetDragonConfig", ItemID.DD2PetDragon);
-            AddToggle("PetEaterConfig", ItemID.EatersBone);
+            //public string PetDirt;
+            AddToggle("PetKittenConfig", ItemID.BallOfFuseWire);
+            AddToggle("PetEsteeConfig", ItemID.CelestialWand);
             AddToggle("PetEyeSpringConfig", ItemID.EyeSpring);
-            AddToggle("PetFaceMonsterConfig", ItemID.BoneRattle);
-            AddToggle("PetGatoConfig", ItemID.DD2PetGato);
-            AddToggle("PetHornetConfig", ItemID.Nectar);
+            AddToggle("PetFoxConfig", ItemID.ExoticEasternChewToy);
+            AddToggle("PetButterflyConfig", ItemID.BedazzledNectar);
+            AddToggle("PetGlommerConfig", ItemID.GlommerPetItem);
+            AddToggle("PetDragonConfig", ItemID.DD2PetDragon);
+            //AddToggle("PetJunimoConfig", ItemID.stardr);
+            AddToggle("PetHarpyConfig", ItemID.BirdieRattle);
             AddToggle("PetLizardConfig", ItemID.LizardEgg);
             AddToggle("PetMinitaurConfig", ItemID.TartarSauce);
             AddToggle("PetParrotConfig", ItemID.ParrotCracker);
-            AddToggle("PetPenguinConfig", ItemID.Fish);
+            AddToggle("PetPigmanConfig", ItemID.PigPetItem);
+            AddToggle("PetPlanteroConfig", ItemID.MudBud);
+            AddToggle("PetGatoConfig", ItemID.DD2PetGato);
             AddToggle("PetPupConfig", ItemID.DogWhistle);
             AddToggle("PetSeedConfig", ItemID.Seedling);
-            AddToggle("PetDGConfig", ItemID.BoneKey);
-            AddToggle("PetSnowmanConfig", ItemID.ToySled);
-            AddToggle("PetGrinchConfig", ItemID.BabyGrinchMischiefWhistle);
             AddToggle("PetSpiderConfig", ItemID.SpiderEgg);
+            AddToggle("PetMimicConfig", ItemID.OrnateShadowKey);
+            AddToggle("PetSharkConfig", ItemID.SharkBait);
+            //AddToggle("PetSpiffoConfig", ItemID.spiff);
             AddToggle("PetSquashConfig", ItemID.MagicalPumpkinSeed);
+            AddToggle("PetGliderConfig", ItemID.EucaluptusSap);
             AddToggle("PetTikiConfig", ItemID.TikiTotem);
-            AddToggle("PetShroomConfig", ItemID.StrangeGlowingMushroom);
             AddToggle("PetTurtleConfig", ItemID.Seaweed);
+            AddToggle("PetVoltConfig", ItemID.LightningCarrot);
             AddToggle("PetZephyrConfig", ItemID.ZephyrFish);
+
+            AddToggle("PetOrbConfig", ItemID.ShadowOrb);
             AddToggle("PetHeartConfig", ItemID.CrimsonHeart);
+            AddToggle("PetLanternConfig", ItemID.MagicLantern);
             AddToggle("PetNaviConfig", ItemID.FairyBell);
             AddToggle("PetFlickerConfig", ItemID.DD2OgrePetItem);
-            AddToggle("PetLanternConfig", ItemID.MagicLantern);
-            AddToggle("PetOrbConfig", ItemID.ShadowOrb);
-            AddToggle("PetSuspEyeConfig", ItemID.SuspiciousLookingTentacle);
             AddToggle("PetWispConfig", ItemID.WispinaBottle);
+            AddToggle("PetSuspEyeConfig", ItemID.SuspiciousLookingTentacle);
 
-            #endregion pet toggles
+            AddToggle("PetKSConfig", ItemID.KingSlimePetItem);
+            AddToggle("PetEoCConfig", ItemID.EyeOfCthulhuPetItem);
+            AddToggle("PetEoWConfig", ItemID.EaterOfWorldsPetItem);
+            AddToggle("PetBoCConfig", ItemID.BrainOfCthulhuPetItem);
+            AddToggle("PetDeerConfig", ItemID.DeerclopsPetItem);
+            AddToggle("PetQBConfig", ItemID.QueenBeePetItem);
+            AddToggle("PetSkeleConfig", ItemID.SkeletronPetItem);
+            AddToggle("PetQSConfig", ItemID.QueenSlimePetItem);
+            AddToggle("PetDestroyerConfig", ItemID.DestroyerPetItem);
+            AddToggle("PetTwinsConfig", ItemID.TwinsPetItem);
+            AddToggle("PetSkelePrimeConfig", ItemID.SkeletronPrimePetItem);
 
-            #region patreon toggles
-            AddToggle("PatreonHeader", ModContent.ItemType<Patreon.Gittle.RoombaPet>());
+            AddToggle("PetOgreConfig", ItemID.DD2OgrePetItem);
+            AddToggle("PetPlanteraConfig", ItemID.PlanteraPetItem);
+            AddToggle("PetPumpkingConfig", ItemID.PumpkingPetItem);
+            AddToggle("PetEverscreamConfig", ItemID.EverscreamPetItem);
+            AddToggle("PetIceQueenConfig", ItemID.IceQueenPetItem);
+            AddToggle("PetDukeConfig", ItemID.DukeFishronPetItem);
+            AddToggle("PetGolemConfig", ItemID.GolemPetItem);
+            AddToggle("PetEoLConfig", ItemID.FairyQueenPetItem);
+            AddToggle("PetBetsyConfig", ItemID.DD2BetsyPetItem);
+            AddToggle("PetMartianConfig", ItemID.MartianPetItem);
+            AddToggle("PetLCConfig", ItemID.LunaticCultistPetItem);
+            AddToggle("PetMLConfig", ItemID.MoonLordPetItem);
+
+
+        #endregion pet toggles
+
+        #region patreon toggles
+        AddToggle("PatreonHeader", ModContent.ItemType<Patreon.Gittle.RoombaPet>());
             AddToggle("PatreonRoomba", ModContent.ItemType<Patreon.Gittle.RoombaPet>());
             AddToggle("PatreonOrb", ModContent.ItemType<Patreon.Daawnz.ComputationOrb>());
             AddToggle("PatreonFishingRod", ModContent.ItemType<Patreon.Sasha.MissDrakovisFishingPole>());

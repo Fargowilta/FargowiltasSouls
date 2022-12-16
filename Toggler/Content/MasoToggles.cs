@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Toggler.Content
         public override string Mod => "Terraria";
         public override string SortCatagory => "Maso";
         public override int Priority => 2;
+        public override bool Active => true;
 
         public int MasoHeader2 = ModContent.ItemType<DeviatingEnergy>();
         public string DeerSinewDash;

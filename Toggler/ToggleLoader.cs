@@ -30,7 +30,12 @@ namespace FargowiltasSouls.Toggler
                 if (typeof(ToggleCollection).IsAssignableFrom(type) && !type.IsAbstract)
                 {
                     ToggleCollection toggles = (ToggleCollection)Activator.CreateInstance(type);
-                    collections.Add(toggles);
+
+                    if (toggles.Active)
+                    {
+                        collections.Add(toggles);
+                    }
+                    
                 }
             }
 

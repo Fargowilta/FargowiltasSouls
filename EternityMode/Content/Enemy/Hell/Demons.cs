@@ -33,10 +33,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hell
 
             if (npc.HasValidTarget)
             {
-                //doing it this way so demon regains collision as soon as any part of it has line of sight
-                Vector2 myClosestPoint = FargoSoulsUtil.ClosestPointInHitbox(npc, Main.player[npc.target].Center);
-                Vector2 targetClosestPoint = FargoSoulsUtil.ClosestPointInHitbox(Main.player[npc.target], npc.Center);
-                npc.noTileCollide = !Collision.CanHitLine(myClosestPoint, 0, 0, targetClosestPoint, 0, 0);
+                npc.noTileCollide = !Collision.CanHitLine(npc.Center, 0, 0, Main.player[npc.target].Center, 0, 0);
             }
 
             if ((npc.type == NPCID.Demon && npc.ai[0] == 100f)

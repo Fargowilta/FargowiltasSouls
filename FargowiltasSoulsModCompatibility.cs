@@ -1,6 +1,7 @@
 ﻿using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Items.Materials;
 using FargowiltasSouls.Items.Pets;
+using FargowiltasSouls.Items.Placeables.MusicBoxes;
 using FargowiltasSouls.Items.Placeables.Trophies;
 using FargowiltasSouls.Items.Summons;
 using FargowiltasSouls.Items.Weapons.Challengers;
@@ -65,13 +66,13 @@ namespace FargowiltasSouls
                     6.9f,
                     () => FargoSoulsWorld.downedDevi,
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "DeviMusicBox",
+                    new List<int>(new int[] {
+                        ModContent.ItemType<DeviMusicBox>(),
                         ModContent.ItemType<DeviatingEnergy>(),
                         ModContent.ItemType<DeviTrophy>(),
                         ModContent.ItemType<ChibiHat>(),
                         ModContent.ItemType<BrokenBlade>()
-                    ),
+                    }),
                     new List<int> { ModContent.ItemType<DevisCurse>() },
                     true
                 );
@@ -82,13 +83,13 @@ namespace FargowiltasSouls
                     20f,
                     () => FargoSoulsWorld.downedAbom,
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "AbomMusicBox",
+                    new List<int>(new int[] {
+                        ModContent.ItemType<AbomMusicBox>(),
                         ModContent.ItemType<AbomEnergy>(),
                         ModContent.ItemType<AbomTrophy>(),
                         ModContent.ItemType<BabyScythe>(),
                         ModContent.ItemType<BrokenHilt>()
-                    ),
+                    }),
                     new List<int> { ModContent.ItemType<AbomsCurse>() },
                     true
                 );
@@ -99,13 +100,13 @@ namespace FargowiltasSouls
                     23f,
                     () => FargoSoulsWorld.downedMutant,
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "MutantMusicBox",
+                    new List<int>(new int[] {
+                        ModContent.ItemType<MutantMusicBox>(),
                         ModContent.ItemType<EternalEnergy>(),
                         ModContent.ItemType<MutantTrophy>(),
                         ModContent.ItemType<SpawnSack>(),
                         ModContent.ItemType<PhantasmalEnergy>()
-                    ),
+                    }),
                     new List<int> { ModContent.ItemType<AbominationnVoodooDoll>() },
                     true
                 );
@@ -119,10 +120,7 @@ namespace FargowiltasSouls
                     18.1f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.TimberChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        TimberForce.Enchants
-                    ),
+                    new List<int>(TimberForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false
                 );
@@ -132,10 +130,7 @@ namespace FargowiltasSouls
                     18.15f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.TerraChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        TerraForce.Enchants
-                    ),
+                    new List<int>(TerraForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false,
                     "NPCs/Champions/TerraChampion_Still"
@@ -146,10 +141,7 @@ namespace FargowiltasSouls
                     18.2f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.EarthChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        EarthForce.Enchants
-                    ),
+                    new List<int>(EarthForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false,
                     "NPCs/Champions/EarthChampion_Still"
@@ -160,10 +152,7 @@ namespace FargowiltasSouls
                     18.25f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.NatureChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        NatureForce.Enchants
-                    ),
+                    new List<int>(NatureForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false,
                     "NPCs/Champions/NatureChampion_Still"
@@ -174,10 +163,7 @@ namespace FargowiltasSouls
                     18.3f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.LifeChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        LifeForce.Enchants
-                    ),
+                    new List<int>(LifeForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false,
                     "NPCs/Champions/LifeChampion_Still"
@@ -188,10 +174,7 @@ namespace FargowiltasSouls
                     18.35f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.ShadowChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        ShadowForce.Enchants
-                    ),
+                    new List<int>(ShadowForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false
                 );
@@ -201,10 +184,7 @@ namespace FargowiltasSouls
                     18.4f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.SpiritChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        SpiritForce.Enchants
-                    ),
+                    new List<int>(SpiritForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false,
                     "NPCs/Champions/SpiritChampion_Still"
@@ -215,10 +195,7 @@ namespace FargowiltasSouls
                     18.45f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.WillChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        WillForce.Enchants
-                    ),
+                    new List<int>(WillForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     false
                 );
@@ -229,10 +206,7 @@ namespace FargowiltasSouls
                     18.5f,
                     () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CosmosChampion],
                     () => true,
-                    TryAddMusicBoxToCollectibles(
-                        "ChampionMusicBox",
-                        CosmoForce.Enchants
-                    ),
+                    new List<int>(CosmoForce.Enchants).Append(ModContent.ItemType<ChampionMusicBox>()).ToList(),
                     new List<int> { ModContent.ItemType<SigilOfChampions>() },
                     true
                 );
@@ -278,6 +252,21 @@ namespace FargowiltasSouls
                     false,
                     "NPCs/Challengers/LifeChallenger_Still"
                 );
+                //Add("Boss",
+                //    "CursedCoffin",
+                //    //TODO: ADD LOOT
+                //    new List<int> { ModContent.NPCType<CursedCoffin>() },
+                //    4.75f,
+                //    () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.CursedCoffin],
+                //    () => true,
+                //    new List<int>(new int[]
+                //    {
+                        
+                //    }),
+                //    new List<int> { ModContent.ItemType<CoffinSummon>() },
+                //    false,
+                //    "NPCs/Challengers/CursedCoffin_Still"
+                //);
 
                 #endregion challengers
             }

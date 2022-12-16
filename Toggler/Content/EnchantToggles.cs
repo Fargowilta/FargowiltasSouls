@@ -8,6 +8,7 @@ namespace FargowiltasSouls.Toggler.Content
         public override string Mod => "Terraria";
         public override string SortCatagory => "Enchantments";
         public override int Priority => 0;
+        public override bool Active => true;
 
         public int WoodHeader = ModContent.ItemType<TimberForce>();
         public string Boreal;

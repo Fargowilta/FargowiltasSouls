@@ -27,6 +27,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.timeLeft = 2;
 
             Projectile.hide = true;
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 1;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

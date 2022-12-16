@@ -189,6 +189,7 @@ Mods: {
 
 			TrojanSquirrelDespawn: Trojan Squirrel returns to its squirrel clan...
 			LifeChallengerDespawn: Lieflight fades away...
+			CursedCoffinDespawn: The Cursed Coffin returns to its slumber...
 		}
 
 		Message: {
@@ -618,38 +619,82 @@ Mods: {
 
 
 			PetHeader: Pets
-			PetBlackCatConfig: Black Cat Pet
-			PetCompanionCubeConfig: Companion Cube Pet
-			PetCursedSaplingConfig: Cursed Sapling Pet
+
 			PetDinoConfig: Dino Pet
-			PetDragonConfig: Dragon Pet
-			PetEaterConfig: Eater Pet
-			PetEyeSpringConfig: Eye Spring Pet
-			PetFaceMonsterConfig: Face Monster Pet
-			PetGatoConfig: Gato Pet
-			PetHornetConfig: Hornet Pet
-			PetLizardConfig: Lizard Pet
-			PetMinitaurConfig: Mini Minotaur Pet
-			PetParrotConfig: Parrot Pet
-			PetPenguinConfig: Penguin Pet
-			PetPupConfig: Puppy Pet
-			PetSeedConfig: Seedling Pet
-			PetDGConfig: Skeletron Pet
-			PetSnowmanConfig: Snowman Pet
-			PetGrinchConfig: Grinch Pet
-			PetSpiderConfig: Spider Pet
-			PetSquashConfig: Squashling Pet
-			PetTikiConfig: Tiki Pet
-			PetShroomConfig: Truffle Pet
-			PetTurtleConfig: Turtle Pet
-			PetZephyrConfig: Zephyr Fish Pet
-			PetHeartConfig: Crimson Heart Pet
+            PetEaterConfig: Eater Pet
+            PetFaceMonsterConfig: Face Monster Pet
+            PetGrinchConfig: Grinch Pet
+            PetHornetConfig: Hornet Pet
+            PetImpConfig: Imp Pet
+            PetPenguinConfig: Penguin Pet
+            PetPandaConfig: Pet Red Panda
+            PetDGConfig: Dungeon Guardian Pet
+            PetSnowmanConfig: Snowman Pet
+            PetShroomConfig: Truffle Pet
+            PetWerewolfConfig: Pet Werewolf
+            PetBernieConfig: Pet Bernie
+            PetBlackCatConfig: Black Cat Pet
+            PetChesterConfig: Chester Pet
+            PetCompanionCubeConfig: Companion Cube Pet
+            PetCursedSaplingConfig: Cursed Sapling Pet
+            PetKittenConfig: Kitten Pet
+            PetEsteeConfig: Estee Pet
+            PetEyeSpringConfig: Eye Spring Pet
+            PetFoxConfig: Fennec Fox Pet
+            PetButterflyConfig: Butterfly Pet
+            PetGlommerConfig: Glommer Pet
+            PetDragonConfig: Dragon Pet
+            PetHarpyConfig: Harpy Pet
+            PetLizardConfig: Lizard Pet
+            PetMinitaurConfig: Mini Minotaur Pet
+            PetParrotConfig: Parrot Pet
+            PetPigmanConfig: Pigman Pet
+            PetPlanteroConfig: Plantero Pet
+            PetGatoConfig: Gato Pet
+            PetPupConfig: Puppy Pet
+            PetSeedConfig: Seedling Pet
+            PetSpiderConfig: Spider Pet
+            PetMimicConfig: Mimic Pet
+            PetSharkConfig: Shark Pet
+            PetSquashConfig: Squashling Pet
+            PetGliderConfig: Sugar Glider Pet
+            PetTikiConfig: Tiki Pet
+            PetTurtleConfig: Turtle Pet
+            PetVoltConfig: Volt Bunny Pet
+            PetZephyrConfig: Zephyr Fish Pet
+
+            PetHeartConfig: Crimson Heart Pet
 			PetNaviConfig: Fairy Pet
 			PetFlickerConfig: Flickerwick Pet
 			PetLanternConfig: Magic Lantern Pet
 			PetOrbConfig: Shadow Orb Pet
 			PetSuspEyeConfig: Suspicious Eye Pet
 			PetWispConfig: Wisp Pet
+
+            PetKSConfig: King Slime Pet
+            PetEoCConfig: Eye of Cthulhu Pet
+            PetEoWConfig: Eater of World Pet
+            PetBoCConfig: Brain of Cthulhu Pet
+            PetDeerConfig: Deerclops Pet
+            PetQBConfig: Queen Bee Pet
+            PetSkeleConfig: Skeletron Pet
+            PetQSConfig: Queen Slime Pet
+            PetDestroyerConfig: Destroyer Pet
+            PetTwinsConfig: Twins Pet
+            PetSkelePrimeConfig: Skeletron Prime Pet
+
+            PetOgreConfig: Ogre Pet
+            PetPlanteraConfig: Plantera Pet
+            PetPumpkingConfig: Pumpking Pet
+            PetEverscreamConfig: Everscream Pet
+            PetIceQueenConfig: Ice Queen Pet
+            PetDukeConfig: Duke Fishron Pet
+            PetGolemConfig: Golem Pet
+            PetEoLConfig: Empress of Light Pet
+            PetBetsyConfig: Besty Pet
+            PetMartianConfig: Martian Pet
+            PetLCConfig: Phantasmal Dragon Pet
+            PetMLConfig: Moonling Pet
 
 
 			PatreonHeader: Patreon Items

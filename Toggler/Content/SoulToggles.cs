@@ -8,6 +8,7 @@ namespace FargowiltasSouls.Toggler.Content
         public override string Mod => "Terraria";
         public override string SortCatagory => "Souls";
         public override int Priority => 1;
+        public override bool Active => true;
 
         public int UniverseHeader = ModContent.ItemType<UniverseSoul>();
         public string Melee;

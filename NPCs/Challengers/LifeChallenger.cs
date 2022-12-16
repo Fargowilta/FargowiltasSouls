@@ -19,6 +19,8 @@ using FargowiltasSouls.Buffs.Masomode;
 using Terraria.GameContent.Bestiary;
 using FargowiltasSouls.Items.Summons;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -549,7 +551,12 @@ namespace FargowiltasSouls.NPCs.Challengers
             if (NPC.ai[1] == 120)
             {
                 if (UseTrueOriginAI)
-                    FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.FatherOfLies", Color.LightGoldenrodYellow);
+                {
+                    string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.FatherOfLies");
+                    Color color = Color.Goldenrod;
+                    FargoSoulsUtil.PrintText(text, color);
+                    CombatText.NewText(Player.Hitbox, color, text, true);
+                }
 
                 if (!Main.dedServ)
                     Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 60;
@@ -1255,11 +1262,11 @@ namespace FargowiltasSouls.NPCs.Challengers
                     for (int i = 0; i < 2; i++)
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4 + (8 * i), -2f), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 3f, Main.myPlayer, 24f);
             }
-            if (NPC.ai[1] > Attack2Start && time2 % Attack2Time + 1 == Attack2Time && NPC.ai[1] < Attack2End) //fire shots down
+            if (NPC.ai[1] > Attack2Start && time2 % (Attack2Time * 2) + 1 == 1 && NPC.ai[1] < Attack2End) //fire shots down
             {
                 SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 3f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 2.5f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
             }
             #endregion
             #region Jevilsknife

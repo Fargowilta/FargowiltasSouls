@@ -10,6 +10,7 @@ using FargowiltasSouls.NPCs;
 using FargowiltasSouls.NPCs.EternityMode;
 using FargowiltasSouls.Shaders;
 using FargowiltasSouls.Sky;
+using FargowiltasSouls.Tiles;
 using FargowiltasSouls.Toggler;
 using FargowiltasSouls.UI;
 using Microsoft.Xna.Framework;
@@ -76,25 +77,6 @@ namespace FargowiltasSouls
 
         public static UIManager UserInterfaceManager => Instance._userInterfaceManager;
         private UIManager _userInterfaceManager;
-
-        //        #region Compatibilities
-
-        //        public CalamityCompatibility CalamityCompatibility { get; private set; }
-        //        public bool CalamityLoaded => CalamityCompatibility != null;
-
-        //        public ThoriumCompatibility ThoriumCompatibility { get; private set; }
-        //        public bool ThoriumLoaded => ThoriumCompatibility != null;
-
-        //        public SoACompatibility SoACompatibility { get; private set; }
-        //        public bool SoALoaded => SoACompatibility != null;
-
-        //        public MasomodeEXCompatibility MasomodeEXCompatibility { get; private set; }
-        //        public bool MasomodeEXLoaded => MasomodeEXCompatibility != null;
-
-        //        public BossChecklistCompatibility BossChecklistCompatibility { get; private set; }
-        //        public bool BossChecklistLoaded => BossChecklistCompatibility != null;
-
-        //        #endregion Compatibilities
 
         //public Fargowiltas()
         //{
@@ -195,6 +177,37 @@ namespace FargowiltasSouls
             //On.Terraria.GameContent.ItemDropRules.Conditions.IsMasterMode.CanShowItemDropInUI += IsMasterModeOrEMode_CanShowItemDropInUI;
             //On.Terraria.GameContent.ItemDropRules.DropBasedOnMasterMode.CanDrop += DropBasedOnMasterOrEMode_CanDrop;
             //On.Terraria.GameContent.ItemDropRules.DropBasedOnMasterMode.TryDroppingItem_DropAttemptInfo_ItemDropRuleResolveAction += DropBasedOnMasterOrEMode_TryDroppingItem_DropAttemptInfo_ItemDropRuleResolveAction;
+
+            On.Terraria.Player.CheckSpawn_Internal += LifeRevitalizer_CheckSpawn_Internal;
+        }
+
+        private static bool LifeRevitalizer_CheckSpawn_Internal(
+            On.Terraria.Player.orig_CheckSpawn_Internal orig,
+            int x, int y)
+        {
+            if (orig(x, y))
+                return true;
+
+            //Main.NewText($"{x} {y}");
+
+            int revitalizerType = ModContent.TileType<LifeRevitalizerPlaced>();
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -3; j <= -1; j++)
+                {
+                    int newX = x + i;
+                    int newY = y + j;
+                    
+                    if (!WorldGen.InWorld(newX, newY))
+                        return false;
+
+                    Tile tile = Framing.GetTileSafely(newX, newY);
+                    if (tile.TileType != revitalizerType)
+                        return false;
+                }
+            }
+
+            return true;
         }
 
         private static bool IsMasterModeOrEMode_CanDrop(
@@ -509,8 +522,6 @@ namespace FargowiltasSouls
                 //if (BossChecklistCompatibility != null)
                 //    BossChecklistCompatibility.Initialize();
 
-                BossChecklistCompatibility();
-
                 DebuffIDs = new List<int> { BuffID.Bleeding, BuffID.OnFire, BuffID.Rabies, BuffID.Confused, BuffID.Weak, BuffID.BrokenArmor, BuffID.Darkness, BuffID.Slow, BuffID.Cursed, BuffID.Poisoned, BuffID.Silenced, 39, 44, 46, 47, 67, 68, 69, 70, 80,
                             88, 94, 103, 137, 144, 145, 149, 156, 160, 163, 164, 195, 196, 197, 199 };
                 DebuffIDs.Add(ModContent.BuffType<Anticoagulation>());
@@ -569,6 +580,8 @@ namespace FargowiltasSouls
                 DebuffIDs.Add(ModContent.BuffType<AbomRebirth>());
 
                 DebuffIDs.Add(ModContent.BuffType<TimeFrozen>());
+
+                BossChecklistCompatibility();
 
                 //Mod bossHealthBar = ModLoader.GetMod("FKBossHealthBar");
                 //if (bossHealthBar != null)

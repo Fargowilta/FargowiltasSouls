@@ -56,9 +56,18 @@ Increases max number of minions and sentries by 3");
 
         public override void UpdateArmorSet(Player player)
         {
-            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
-            player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Styx", key);
+            player.setBonus = getSetBonusString();
+            StyxSetBonus(player, Item);
+        }
 
+        public static string getSetBonusString()
+        {
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            return Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Styx", key);
+        }
+
+        public static void StyxSetBonus(Player player, Item item)
+        {
             player.GetDamage(player.ProcessDamageTypeFromHeldItem()) += 0.20f;
 
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
@@ -70,7 +79,7 @@ Increases max number of minions and sentries by 3");
                 fargoPlayer.StyxMeter -= METER_THRESHOLD;
                 if (player.whoAmI == Main.myPlayer && player.ownedProjectileCounts[scytheType] < MAX_SCYTHES)
                 {
-                    Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, scytheType, 0, 10f, player.whoAmI, player.ownedProjectileCounts[scytheType], -1f);
+                    Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, scytheType, 0, 10f, player.whoAmI, player.ownedProjectileCounts[scytheType], -1f);
                 }
             }
 
@@ -104,7 +113,7 @@ Increases max number of minions and sentries by 3");
                     Vector2 speed = Vector2.Normalize(Main.MouseWorld - player.Center);
                     bool flip = speed.X < 0;
                     speed = speed.RotatedBy(MathHelper.PiOver2 * (flip ? 1 : -1));
-                    Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, speed, ModContent.ProjectileType<StyxGazerArmor>(), 0, 14f, player.whoAmI, MathHelper.Pi / 120 * (flip ? -1 : 1));
+                    Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, speed, ModContent.ProjectileType<StyxGazerArmor>(), 0, 14f, player.whoAmI, MathHelper.Pi / 120 * (flip ? -1 : 1));
 
                     player.controlUseItem = false; //this kills other heldprojs
                     player.releaseUseItem = true;

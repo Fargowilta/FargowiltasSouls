@@ -52,14 +52,25 @@ Increases your max number of sentries by 4");
 
         public override void UpdateArmorSet(Player player)
         {
+            player.setBonus = getSetBonusString(player);
+            EridanusSetBonus(player, Item);
+        }
+
+        public static string getSetBonusString(Player player)
+        {
+            FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+            
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            return Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Eridanus{(fargoPlayer.EridanusEmpower ? "On" : "Off")}", key);
+        }
+
+        public static void EridanusSetBonus(Player player, Item item)
+        {
             FargoSoulsPlayer fargoPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             fargoPlayer.EridanusSet = true;
 
             if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap)
                 fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
-
-            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
-            player.setBonus = Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Eridanus{(fargoPlayer.EridanusEmpower ? "On" : "Off")}", key);
 
             if (fargoPlayer.EridanusEmpower)
             {
@@ -142,11 +153,11 @@ Increases your max number of sentries by 4");
                 {
                     if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>()] < 1)
                     {
-                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>(), 300, 12f, player.whoAmI, -1);
+                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusMinion>(), 300, 12f, player.whoAmI, -1);
                     }
                     if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>()] < 1)
                     {
-                        Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>(), 0, 0f, player.whoAmI);
+                        Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.EridanusRitual>(), 0, 0f, player.whoAmI);
                     }
                 }
             }

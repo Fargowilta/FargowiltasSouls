@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.timeLeft = 80;
 		}
 
-        public override bool? CanDamage() => false;
+        public override bool? CanDamage() => FargoSoulsWorld.MasochistModeReal;
 
         public override void AI()
 		{

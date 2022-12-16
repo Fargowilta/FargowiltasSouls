@@ -18,11 +18,6 @@ namespace FargowiltasSouls.Items.Armor
 Increases max number of minions and sentries by 10
 25% reduced mana usage
 25% chance not to consume ammo");
-            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "真·突变之颅");
-            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"增加50%伤害和20%暴击率
-//增加10最大召唤栏和哨兵栏
-//减少25%法力消耗
-//25%概率不消耗弹药");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -60,11 +55,20 @@ Increases max number of minions and sentries by 10
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Mutant");
+            player.setBonus = getSetBonusString();
+            MutantSetBonus(player, Item);  
+        }
 
+        public static string getSetBonusString()
+        {
+            return Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Mutant");
+        }
+
+        public static void MutantSetBonus(Player player, Item item)
+        {
             player.AddBuff(ModContent.BuffType<MutantPower>(), 2);
 
-            player.GetModPlayer<FargoSoulsPlayer>().MutantSetBonusItem = Item;
+            player.GetModPlayer<FargoSoulsPlayer>().MutantSetBonusItem = item;
             player.GetModPlayer<FargoSoulsPlayer>().GodEaterImbue = true;
             player.GetModPlayer<FargoSoulsPlayer>().AttackSpeed += .2f;
         }

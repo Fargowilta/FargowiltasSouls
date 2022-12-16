@@ -14,7 +14,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
 {
     public class RoyalSubject : ModNPC
     {
-        public override string Texture => "Terraria/Images/NPC_222";
+        public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_222";
 
         public override void SetStaticDefaults()
         {
@@ -166,19 +166,19 @@ namespace FargowiltasSouls.NPCs.EternityMode
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            if (!Terraria.GameContent.TextureAssets.Npc[NPCID.QueenBee].IsLoaded)
-                return false;
+        //public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        //{
+        //    if (!Terraria.GameContent.TextureAssets.Npc[NPCID.QueenBee].IsLoaded)
+        //        return false;
 
-            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Npc[NPCID.QueenBee].Value;
-            Rectangle rectangle = NPC.frame;
-            Vector2 origin2 = rectangle.Size() / 2f;
+        //    Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Npc[NPCID.QueenBee].Value;
+        //    Rectangle rectangle = NPC.frame;
+        //    Vector2 origin2 = rectangle.Size() / 2f;
 
-            SpriteEffects effects = NPC.spriteDirection < 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-
-            Main.EntitySpriteDraw(texture2D13, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
-            return false;
-        }
+        //    SpriteEffects effects = NPC.spriteDirection < 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+        //    Color color = NPC.GetAlpha(drawColor);
+        //    Main.EntitySpriteDraw(texture2D13, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color, NPC.rotation, origin2, NPC.scale, effects, 0);
+        //    return true;
+        //}
     }
 }

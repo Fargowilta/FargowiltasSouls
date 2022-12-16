@@ -43,14 +43,23 @@ Increases max number of minions by 2");
             return body.type == ModContent.ItemType<NekomiHoodie>() && legs.type == ModContent.ItemType<NekomiLeggings>();
         }
 
+        public override void UpdateArmorSet(Player player)
+        {
+            player.setBonus = getSetBonusString();
+            NekomiSetBonus(player, Item);
+        }
+
+        public static string getSetBonusString()
+        {
+            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
+            return Language.GetTextValue($"Mods.FargowiltasSouls.SetBonus.Nekomi", key);
+        }
+
         public const int MAX_METER = 60 * 60;
         public const int MAX_HEARTS = 9;
 
-        public override void UpdateArmorSet(Player player)
+        public static void NekomiSetBonus(Player player, Item item)
         {
-            string key = Language.GetTextValue(Main.ReversedUpDownArmorSetBonuses ? "Key.UP" : "Key.DOWN");
-            player.setBonus = Language.GetTextValue($"Mods.{Mod.Name}.SetBonus.Nekomi", key);
-
             player.GetDamage(DamageClass.Generic) += 0.07f;
             player.GetCritChance(DamageClass.Generic) += 7;
 
@@ -84,7 +93,7 @@ Increases max number of minions by 2");
             {
                 int ritualType = ModContent.ProjectileType<NekomiRitual>();
                 if (player.ownedProjectileCounts[ritualType] < 1)
-                    Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ritualType, 0, 0f, player.whoAmI);
+                    Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, ritualType, 0, 0f, player.whoAmI);
 
                 bool doubleTap = Main.ReversedUpDownArmorSetBonuses
                     ? player.controlUp && player.releaseUp && player.doubleTapCardinalTimer[1] > 0 && player.doubleTapCardinalTimer[1] != 15
@@ -98,7 +107,7 @@ Increases max number of minions by 2");
                         int baseDamage = 2222 / 3;
                         if (!Main.hardMode)
                             baseDamage /= 2;
-                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);
+                        FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);
                         SoundEngine.PlaySound(SoundID.Item43, player.Center);
                         fargoPlayer.NekomiMeter = 0;
                     }
@@ -113,7 +122,7 @@ Increases max number of minions by 2");
                             Vector2 vel = speed * player.DirectionFrom(spawnPos);
                             int baseHeartDamage = 17;
                             const float ai1 = 150 / speed;
-                            FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(Item), spawnPos, vel, ModContent.ProjectileType<FriendHeart>(), baseHeartDamage, 3f, player.whoAmI, -1, ai1);
+                            FargoSoulsUtil.NewSummonProjectile(player.GetSource_Accessory(item), spawnPos, vel, ModContent.ProjectileType<FriendHeart>(), baseHeartDamage, 3f, player.whoAmI, -1, ai1);
                         }
 
                         if (hearts > 0)

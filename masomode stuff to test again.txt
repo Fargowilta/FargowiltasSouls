@@ -229,6 +229,13 @@ removed mutant eye immunity to mutant presence
 enraged mutant has much higher stats
 prime can do cardinal swipes
 
-lieflight maso cum sans "thorn ball + nukes": reduced density of nuke rings and fall speed of balls
+lieflight maso cum sans "thorn ball + nukes": reduced density of nuke rings, and rate & fall speed of balls
 maso cum sans phase is no longer cum name only (it is just part of maso fight now)
 disabled lieflight maso p2 heal
+moved music boxes from music mod to this one
+fixed hunter potion not revealing royal subject
+
+adjusted life revitalizer to set your spawn point like a bed instead of global spawn point
+gave skeletron 50% DR while hands alive because apparently respawning hands doesnt give him defense
+
+enabled maso skel growing more hands
