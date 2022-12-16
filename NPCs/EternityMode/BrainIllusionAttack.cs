@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.EternityMode
@@ -15,7 +14,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Brain of Cthulhu");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "克苏鲁之脑");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BrainofCthulhu];
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;
             NPCID.Sets.TrailingMode[NPC.type] = 1;

@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.Champions
@@ -15,7 +14,7 @@ namespace FargowiltasSouls.NPCs.Champions
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadow Orb");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影珠");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "暗影珠");
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type);
             NPCID.Sets.DebuffImmunitySets.Add(NPC.type, new Terraria.DataStructures.NPCDebuffImmunityData

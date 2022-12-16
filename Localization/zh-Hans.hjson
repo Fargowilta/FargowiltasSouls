@@ -195,12 +195,14 @@ Mods: {
 			AbomBoss: 憎恶
 			DeviBoss: 戴薇安
 			MutantBoss: 突变体
+			MutantIllusion: 突变体
 			GelatinSubject: 圣凝史莱姆
 			RoyalSubject: 皇家工蜂
 			TophatSquirrelCritter: 高顶礼帽松鼠
 			BrainClone: 克苏鲁之脑
 			BrainIllusion: 克苏鲁之脑
 			BrainIllusion2: 克苏鲁之脑
+			BrainIllusionAttack: 克苏鲁之脑
 			CreeperGutted: 爬行者
 			DetonatingBubble: 爆炸泡泡
 			DetonatingBubbleEX: 爆炸泡泡
@@ -238,6 +240,12 @@ Mods: {
 			MutantStatueGift: 突变体雕像
 			SquidwardDoorClosed: 章鱼哥的大门
 			SquidwardDoorOpen: 章鱼哥的大门
+			AbomMusicBoxSheet: 音乐盒
+			ChampionMusicBoxSheet: 音乐盒
+			DeviMusicBoxSheet: 音乐盒
+			MutantMusicBoxSheet: 音乐盒
+			RePrologueMusicBoxSheet: 音乐盒
+			StoriaMusicBoxSheet: 音乐盒
 		}
 
 		BuffName: {
@@ -1272,7 +1280,6 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
-			FatherOfLies: It was a mistake to come here.
 
 			LifeRevitalizerSP: 重生点已设置到生命复苏站！
 			LifeRevitalizerMP: "重生点已被{0}设置到生命复苏站！"
@@ -2099,6 +2106,12 @@ Mods: {
 			ScremPainting: 尖叫猫猫
 			TophatSquirrelBanner: 高顶礼帽松鼠旗
 			TwentyTwoPainting: 22号画作
+			AbomMusicBox: 音乐盒（憎恶）
+			ChampionMusicBox: 音乐盒（英灵）
+			DeviMusicBox: 音乐盒（戴薇安）
+			MutantMusicBox: 音乐盒（突变体）
+			RePrologueMusicBox: 音乐盒（？？？）
+			StoriaMusicBox: 音乐盒（？？？）
 			
 			// === Trophies ===
 
@@ -2348,7 +2361,7 @@ Mods: {
 			// === Masomode ===
 
 			AbominableWand: 憎恶手杖
-			AeolusBoots: 埃俄罗斯之靴
+			AeolusBoots: 风神之靴
 			AgitatingLens: 躁动晶状体
 			BetsysHeart: 双足翼龙之心
 			BionomicCluster: 生态球
@@ -3569,6 +3582,30 @@ Mods: {
 				右键设置重生点
 				优先级低于床
 				不需要房屋
+				'''
+			AbomMusicBox:
+				'''
+				削除 - 《Stigma》
+				'''
+			ChampionMusicBox:
+				'''
+				削除 - 《Ordeal》
+				'''
+			DeviMusicBox:
+				'''
+				削除 - 《Lexus Cyanixs》
+				'''
+			MutantMusicBox:
+				'''
+				削除 - 《Steel Red》
+				'''
+			RePrologueMusicBox:
+				'''
+				削除 - 《rePrologue》
+				'''
+			StoriaMusicBox:
+				'''
+				削除/xi - 《STORIA》
 				'''
 
 			// == Misc ==

@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.NPCs.MutantBoss
@@ -18,7 +17,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "突变体");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
 

@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 
             DisplayName.SetDefault("Force of Will");
 
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "意志之力");
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "意志之力");
 
             string tooltip =
 $"[i:{ModContent.ItemType<GoldEnchant>()}] Press the Gold hotkey to be encased in a Golden Shell\n" +
