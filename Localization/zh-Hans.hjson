@@ -700,6 +700,8 @@ Mods: {
 			SproutingAcorn: 橡实
 			TheLightning: 闪电弧
 			TheLightningRodProj: 避雷针
+			SpiritArrow: 心灵之箭
+			SpiritArrowFlame: 心灵焰火
 
 			// == Challengers ==
 			JevilScar: 附魔光之剑
@@ -1613,38 +1615,81 @@ Mods: {
 
 
 			PetHeader: 宠物
-			PetBlackCatConfig: 黑猫
-			PetCompanionCubeConfig: 同伴方块
-			PetCursedSaplingConfig: 诅咒树苗
 			PetDinoConfig: 恐龙宝宝
-			PetDragonConfig: Hoardagron
 			PetEaterConfig: 吞噬怪宝宝
-			PetEyeSpringConfig: 弹簧眼
-			PetFaceMonsterConfig: 脸怪宝宝
-			PetGatoConfig: 飞翔Gato
-			PetHornetConfig: 黄蜂宝宝
-			PetLizardConfig: 蜥蜴宝宝
-			PetMinitaurConfig: 迷你牛头怪
-			PetParrotConfig: 鹦鹉
-			PetPenguinConfig: 企鹅宝宝
-			PetPupConfig: 小狗
-			PetSeedConfig: 幼苗
-			PetDGConfig: 骷髅王头宝宝
-			PetSnowmanConfig: 雪人宝宝
-			PetGrinchConfig: 格林奇宝宝
-			PetSpiderConfig: 蜘蛛
-			PetSquashConfig: 南瓜娃娃
-			PetTikiConfig: 提基幽魂
-			PetShroomConfig: 松露人宝宝
-			PetTurtleConfig: 龟
-			PetZephyrConfig: 和风鱼
-			PetHeartConfig: 猩红之心
+            PetFaceMonsterConfig: 脸怪宝宝
+            PetGrinchConfig: 格林奇宝宝
+            PetHornetConfig: 黄蜂宝宝
+            PetImpConfig: 小鬼宝宝
+            PetPenguinConfig: 企鹅宝宝
+            PetPandaConfig: 小熊猫宝宝
+            PetDGConfig: 骷髅王头宝宝
+            PetSnowmanConfig: 雪人宝宝
+            PetShroomConfig: 松露人宝宝
+            PetWerewolfConfig: 狼人宝宝
+            PetBernieConfig: 伯尼
+            PetBlackCatConfig: 黑猫
+            PetChesterConfig: 切斯特
+            PetCompanionCubeConfig: 同伴方块
+            PetCursedSaplingConfig: 诅咒树苗
+            PetKittenConfig: 雷管小毛
+            PetEsteeConfig: 埃斯蒂
+            PetEyeSpringConfig: 弹簧眼
+            PetFoxConfig: 耳廓狐
+            PetButterflyConfig: 宠物蝴蝶
+            PetGlommerConfig: 咕噜咪
+            PetDragonConfig: Hoardagron
+            PetHarpyConfig: 鸟妖宝宝
+            PetLizardConfig: 蜥蜴宝宝
+            PetMinitaurConfig: 迷你牛头怪
+            PetParrotConfig: 鹦鹉
+            PetPigmanConfig: 小猪人
+            PetPlanteroConfig: 小植物
+            PetGatoConfig: 飞翔Gato
+            PetPupConfig: 小狗
+            PetSeedConfig: 幼苗
+            PetSpiderConfig: 蜘蛛
+            PetMimicConfig: 暗影宝箱怪
+            PetSharkConfig: 小鲨鱼
+            PetSquashConfig: 南瓜娃娃
+            PetGliderConfig: 蜜袋鼯
+            PetTikiConfig: 提基幽魂
+            PetTurtleConfig: 龟
+            PetVoltConfig: 伏特兔
+            PetZephyrConfig: 和风鱼
+
+            PetHeartConfig: 猩红之心
 			PetNaviConfig: 仙灵
 			PetFlickerConfig: 闪烁灯芯
 			PetLanternConfig: 魔法灯笼
 			PetOrbConfig: 暗影珠
 			PetSuspEyeConfig: 可疑眼球
 			PetWispConfig: 妖灵
+
+			PetKSConfig: 史莱姆王子
+            PetEoCConfig: 可疑眼睛
+            PetEoWConfig: 蠕虫吞噬怪
+            PetBoCConfig: 蜘蛛脑
+            PetDeerConfig: 微小鹿角怪
+            PetQBConfig: 蜜蜂
+            PetSkeleConfig: 小骷髅王
+            PetQSConfig: 史莱姆公主
+            PetDestroyerConfig: 小型毁灭工具
+            PetTwinsConfig: 小机械魔眼
+            PetSkelePrimeConfig: 小机械骷髅王
+
+            PetOgreConfig: 食人魔宝宝
+            PetPlanteraConfig: 新发芽的世纪之花
+            PetPumpkingConfig: 疯狂杰克南瓜灯
+            PetEverscreamConfig: 常绿尖叫怪树苗
+            PetIceQueenConfig: 小冰雪女王
+            PetDukeConfig: 小猪龙鱼
+            PetGolemConfig: 玩具石巨人
+            PetEoLConfig: 仙灵公主
+            PetBetsyConfig: 小双足翼龙
+            PetMartianConfig: 异星滑板小子
+            PetLCConfig: 幻影龙宝宝
+            PetMLConfig: 月精灵
 
 
 			PatreonHeader: 捐赠者物品
@@ -2209,6 +2254,7 @@ Mods: {
 			SnowballStaff: 雪球效应
 			TheLightningRod: 避雷针
 			TreeSword: 树剑
+			SpiritLongbow: 心灵长弓
 
 			// === Final Upgrades
 			
@@ -2259,7 +2305,6 @@ Mods: {
 			TerrariaSoul: 泰拉之魂
 			TrawlerSoul: 捕鱼之魂
 			UniverseSoul: 寰宇之魂
-			VoidSoul: 虚空之魂
 			WorldShaperSoul: 铸世者之魂
 
 			// === Enchantments ===
@@ -3203,7 +3248,7 @@ Mods: {
 				'''
 			MutantEye:
 				'''
-				免疫突变毒牙和突变驾到减益
+				免疫突变毒牙减益
 				闪烁崇心的擦弹伤害加成上限增加25%
 				将闪烁崇心的心攻击加强为爱之射线
 				增加闪烁崇心的擦弹伤害加成
@@ -3857,6 +3902,11 @@ Mods: {
 				'''
 				射出橡实
 				'''
+			SpiritLongbow:
+				'''
+				把箭矢转换为心灵之箭，在箭飞过的路径上释放心灵能量
+				按住左键来蓄力射击，蓄力造成更多的伤害以及更快的箭矢速度
+				'''
 
 			// === Final Upgrades
 			
@@ -4147,10 +4197,6 @@ Mods: {
 			拥有烈火手套、悠悠球袋和天界壳效果
 			拥有狙击镜、 天界手铐、和魔力花效果
 			“诸天也向你俯首”
-			'''
-			VoidSoul:
-			'''
-			召唤 某 些 东 西
 			'''
 			WorldShaperSoul:
 			'''
