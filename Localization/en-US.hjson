@@ -285,9 +285,6 @@ Mods: {
 
 			MoonsDeathPenalty: The wave progress has regressed!
 			FatherOfLies: It was a mistake to come here.
-
-			LifeRevitalizerSP: Spawn point set to Life Revitalizer!
-			LifeRevitalizerMP: "Spawn point set to Life Revitalizer by {0}!"
 		}
 
 		DeathMessage: {

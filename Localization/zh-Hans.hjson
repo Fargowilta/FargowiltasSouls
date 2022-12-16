@@ -1280,6 +1280,7 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
+			FatherOfLies: 你来到这里真是个致命错误。
 		}
 
 		DeathMessage: {
