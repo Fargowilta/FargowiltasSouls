@@ -1280,9 +1280,6 @@ Mods: {
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
-
-			LifeRevitalizerSP: 重生点已设置到生命复苏站！
-			LifeRevitalizerMP: "重生点已被{0}设置到生命复苏站！"
 		}
 
 		DeathMessage: {
@@ -3580,7 +3577,6 @@ Mods: {
 			LifeRevitalizer: 
 				'''
 				右键设置重生点
-				优先级低于床
 				不需要房屋
 				'''
 			AbomMusicBox:
