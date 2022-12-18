@@ -1385,6 +1385,7 @@ Mods: {
 			HideToggler: 只在开启物品栏时，才会显示饰品效果菜单
 			HideTogglerDescription: 如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏
 			DeviChatter: 迷你戴薇安会和你聊天
+			ToggleSearchReset: 魂石效果开关界面被关闭时重置搜索栏
 			MasoHeader: 永恒模式
 			MasoBossRecolors: Boss贴图替换
 			OncomingMutantX: 永恒模式图标水平位置
