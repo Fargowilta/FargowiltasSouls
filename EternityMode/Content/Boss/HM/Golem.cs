@@ -48,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (!FargoSoulsWorld.SwarmActive && !npc.dontTakeDamage && HealPerSecond != 0)
             {
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
@@ -118,9 +118,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.damage = (int)(npc.damage * 1.2);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             NPC.golemBoss = npc.whoAmI;
 
@@ -451,9 +451,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -499,9 +499,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool? DrawHealthBar(NPC npc, byte hbPosition, ref float scale, ref Vector2 position) => false;
 
-        public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+        public override void SafeOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
         {
-            base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
+            base.SafeOnHitByProjectile(npc, projectile, damage, knockback, crit);
 
             if (projectile.maxPenetrate != 1 && FargoSoulsUtil.CanDeleteProjectile(projectile))
                 projectile.timeLeft = 0;
@@ -552,9 +552,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanHitPlayer(npc, target, ref CooldownSlot) && npc.type != NPCID.GolemHeadFree;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -746,7 +746,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 if (golem.ai[0] == 0f && golem.velocity.Y == 0f && golem.ai[1] > 1f) //if golem is standing on ground and preparing to jump, stall it
                                     golem.ai[1] = 1f;
 
-                                golem.GetEModeNPCMod<Golem>().DoStompBehaviour = false; //disable stomp attacks
+                                golem.GetGlobalNPC<Golem>().DoStompBehaviour = false; //disable stomp attacks
                             }
                         }
                     }

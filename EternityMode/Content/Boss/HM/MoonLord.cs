@@ -112,9 +112,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.lifeMax = (int)Math.Round(npc.lifeMax * 2.5);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.moonBoss = npc.whoAmI;
 
@@ -597,7 +597,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override int GetVulnerabilityState(NPC npc)
         {
             NPC core = FargoSoulsUtil.NPCExists(npc.ai[3], NPCID.MoonLordCore);
-            return core == null ? -1 : core.GetEModeNPCMod<MoonLordCore>().VulnerabilityState;
+            return core == null ? -1 : core.GetGlobalNPC<MoonLordCore>().VulnerabilityState;
         }
 
         public int OnSpawnCounter;
@@ -617,7 +617,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 { new Ref<object>(SlowMode), BoolStrategies.CompoundStrategy },
             };
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (FargoSoulsWorld.SwarmActive)
                 return true;
@@ -708,7 +708,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override int GetVulnerabilityState(NPC npc)
         {
             NPC core = FargoSoulsUtil.NPCExists(npc.ai[3], NPCID.MoonLordCore);
-            return core == null ? -1 : core.GetEModeNPCMod<MoonLordCore>().VulnerabilityState;
+            return core == null ? -1 : core.GetGlobalNPC<MoonLordCore>().VulnerabilityState;
         }
 
         public override void SetDefaults(NPC npc)

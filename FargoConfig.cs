@@ -22,6 +22,10 @@ namespace FargowiltasSouls
         [DefaultValue(true)]
         public bool DeviChatter;
 
+        [Label($"$Mods.{ModName}.Config.ToggleSearchReset")]
+        [DefaultValue(false)]
+        public bool ToggleSearchReset;
+
         #region maso
 
         [Header($"$Mods.{ModName}.Config.MasoHeader")]

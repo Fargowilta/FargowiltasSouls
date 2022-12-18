@@ -239,3 +239,7 @@ adjusted life revitalizer to set your spawn point like a bed instead of global s
 gave skeletron 50% DR while hands alive because apparently respawning hands doesnt give him defense
 
 enabled maso skel growing more hands
+massive refactor to all emode npc ai, check that they work, especially vanilla bosses in emode mp
+also test blood feeder & snatcher in mp
+plantera makes same sound as mutant when throwing crystal leaf ring
+added config: soul toggle menu search bar resets when closed

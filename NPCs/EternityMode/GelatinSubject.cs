@@ -80,7 +80,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
             //move slower during rain attack
             if (NPC.Distance(Main.player[NPC.target].Center) < 600 &&
-                (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetEModeNPCMod<QueenSlime>().RainTimer > 0
+                (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetGlobalNPC<QueenSlime>().RainTimer > 0
                 || NPC.AnyNPCs(ModContent.NPCType<GelatinSlime>())))
             {
                 NPC.localAI[0] = cooldown;

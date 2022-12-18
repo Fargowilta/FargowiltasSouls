@@ -62,7 +62,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = false;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.destroyBoss = npc.whoAmI;
 
@@ -342,10 +342,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                         for (int i = 0; i < max; i++)
                                         {
                                             NPC probe = probes[attempt];
-                                            if (!probe.GetEModeNPCMod<Probe>().ShootLaser)
+                                            if (!probe.GetGlobalNPC<Probe>().ShootLaser)
                                             {
-                                                probe.GetEModeNPCMod<Probe>().ShootLaser = true;
-                                                probe.GetEModeNPCMod<Probe>().AttackTimer = 0;
+                                                probe.GetGlobalNPC<Probe>().ShootLaser = true;
+                                                probe.GetGlobalNPC<Probe>().AttackTimer = 0;
 
                                                 if (++probesActivated >= 2)
                                                     break;
@@ -676,9 +676,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.numHits > 0 && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * (2.0 / 3.0 + 1.0 / 3.0 * 1 / projectile.numHits));
@@ -747,9 +747,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = false;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -768,7 +768,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return result;
             }
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>();
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>();
 
             npc.defense = npc.defDefense;
             npc.localAI[0] = 0f; //disable vanilla lasers
@@ -874,7 +874,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (destroyer == null)
                 return base.CanHitPlayer(npc, target, ref CooldownSlot);
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>(); //basically, don't hit player right around when a coil begins, segments inside radius may move eratically
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>(); //basically, don't hit player right around when a coil begins, segments inside radius may move eratically
             if (destroyerEmode.IsCoiling)
             {
                 if (destroyerEmode.AttackModeTimer < 15)
@@ -897,7 +897,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (destroyer == null)
                 return;
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>();
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>();
 
             if (destroyerEmode.IsCoiling)
             {
@@ -917,9 +917,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.numHits > 0 && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * (2.0 / 3.0 + 1.0 / 3.0 * 1 / projectile.numHits));
@@ -993,14 +993,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 EModeGlobalNPC.Horde(npc, 8);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
                 return result;
 
-            //bool isCoiling = Main.npc[EModeGlobalNPC.destroyBoss].GetEModeNPCMod<Destroyer>().IsCoiling;
+            //bool isCoiling = Main.npc[EModeGlobalNPC.destroyBoss].GetGlobalNPC<Destroyer>().IsCoiling;
 
             if (FargoSoulsWorld.MasochistModeReal)
             {
@@ -1024,7 +1024,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 NetSync(npc);
             }
 
-            if (Main.npc[EModeGlobalNPC.destroyBoss].GetEModeNPCMod<Destroyer>().IsCoiling)
+            if (Main.npc[EModeGlobalNPC.destroyBoss].GetGlobalNPC<Destroyer>().IsCoiling)
                 ShootLaser = false;
 
             if (npc.HasValidTarget)

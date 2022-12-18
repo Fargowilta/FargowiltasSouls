@@ -33,7 +33,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (RayCounter > 3)
             {
@@ -73,7 +73,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss
                 return false;
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void AI(NPC npc)

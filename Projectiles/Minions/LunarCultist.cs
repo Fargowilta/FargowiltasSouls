@@ -79,7 +79,7 @@ namespace FargowiltasSouls.Projectiles.Minions
                         NPC moonLord = FargoSoulsUtil.NPCExists(NPCs.EModeGlobalNPC.moonBoss, NPCID.MoonLordCore);
                         if (moonLord != null)
                         {
-                            switch (moonLord.GetEModeNPCMod<MoonLordCore>().VulnerabilityState)
+                            switch (moonLord.GetGlobalNPC<MoonLordCore>().VulnerabilityState)
                             {
                                 case 0: Projectile.ai[1] = 1; break;
                                 case 1: Projectile.ai[1] = 3; break;

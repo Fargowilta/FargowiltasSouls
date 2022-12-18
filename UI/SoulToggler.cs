@@ -181,7 +181,7 @@ namespace FargowiltasSouls.UI
                 {
                     if (ToggleList.Count > 0) // Don't add for the first header
                         ToggleList.Add(new UIText("", 0.2f)); // Blank line
-
+                    
                     (string name, int item) header = ToggleLoader.LoadedHeaders[toggle.InternalName];
                     ToggleList.Add(new UIHeader(header.name, header.item, (BackWidth - 16, 20)));
                 }

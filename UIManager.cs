@@ -74,7 +74,16 @@ namespace FargowiltasSouls
         }
 
         public bool IsSoulTogglerOpen() => TogglerUserInterface?.CurrentState == null;
-        public void CloseSoulToggler() => TogglerUserInterface?.SetState(null);
+        public void CloseSoulToggler()
+        {
+            TogglerUserInterface?.SetState(null);
+            
+            if (SoulConfig.Instance.ToggleSearchReset)
+            {
+                SoulToggler.SearchBar.Input = "";
+                SoulToggler.NeedsToggleListBuilding = true;
+            }
+        }
         public bool IsTogglerOpen() => TogglerUserInterface.CurrentState == SoulToggler;
         public void OpenToggler() => TogglerUserInterface.SetState(SoulToggler);
 

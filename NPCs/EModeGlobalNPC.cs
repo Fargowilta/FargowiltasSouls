@@ -1316,7 +1316,7 @@ namespace FargowiltasSouls.NPCs
                     {
                         NPC newNPC = Main.npc[j];
                         newNPC.velocity = Vector2.UnitX.RotatedByRandom(2 * Math.PI) * 5f;
-                        newNPC.GetGlobalNPC<NewEModeGlobalNPC>().FirstTick = false;
+                        newNPC.GetGlobalNPC<EModeNPCBehaviour>(false).FirstTick = false;
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, j);
                     }

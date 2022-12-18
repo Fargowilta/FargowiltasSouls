@@ -51,7 +51,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.lifeMax = (int)Math.Round(npc.lifeMax * 4.0 / 3.0);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.betsyBoss = npc.whoAmI;
 

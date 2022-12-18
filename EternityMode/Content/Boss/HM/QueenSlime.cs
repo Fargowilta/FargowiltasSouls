@@ -202,7 +202,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.queenSlimeBoss = npc.whoAmI;
 
@@ -215,7 +215,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     check = true;
 
-                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.GelatinSubjects", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.GelatinSubjects", new Color(175, 75, 255));
 
                     for (int i = 0; i < 7; i++)
                     {

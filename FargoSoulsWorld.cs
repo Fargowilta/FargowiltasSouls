@@ -259,7 +259,7 @@ namespace FargowiltasSouls
                     if (!Main.dedServ)
                         SoundEngine.PlaySound(SoundID.Roar, Main.LocalPlayer.Center);
                 }
-                else if (!EternityMode && FargoSoulsUtil.WorldIsExpertOrHarder())
+                else if (!EternityMode && FargoSoulsUtil.WorldIsExpertOrHarder() && !FargoSoulsUtil.AnyBossAlive())
                 {
                     EternityMode = true;
                     FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.EternityOn", new Color(175, 75, 255));

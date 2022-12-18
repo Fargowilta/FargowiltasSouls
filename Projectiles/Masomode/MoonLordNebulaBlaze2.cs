@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             {
                 if (Projectile.Distance(ritual.Center) > 1600f) //bounce off arena walls
                 {
-                    if (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState != 2)
+                    if (npc.GetGlobalNPC<MoonLordCore>().VulnerabilityState != 2)
                     {
                         Projectile.Kill();
                         return;

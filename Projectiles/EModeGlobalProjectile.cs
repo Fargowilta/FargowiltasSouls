@@ -264,9 +264,9 @@ namespace FargowiltasSouls.Projectiles
                         if (Main.npc[EModeGlobalNPC.deerBoss].ai[0] == 4) //double walls
                         {
                             projectile.ai[0] -= 30;
-                            if (Main.npc[EModeGlobalNPC.deerBoss].GetEModeNPCMod<Deerclops>().EnteredPhase2)
+                            if (Main.npc[EModeGlobalNPC.deerBoss].GetGlobalNPC<Deerclops>().EnteredPhase2)
                                 projectile.ai[0] -= 30;
-                            if (Main.npc[EModeGlobalNPC.deerBoss].GetEModeNPCMod<Deerclops>().EnteredPhase3)
+                            if (Main.npc[EModeGlobalNPC.deerBoss].GetGlobalNPC<Deerclops>().EnteredPhase3)
                                 projectile.ai[0] -= 120;
                         }
                     }
@@ -274,7 +274,7 @@ namespace FargowiltasSouls.Projectiles
                     if (projectile.GetSourceNPC() is NPC && projectile.GetSourceNPC().type == NPCID.Deerclops && sourceProj is not Projectile)
                     {
                         //is a final spike of the attack
-                        if ((projectile.GetSourceNPC().ai[0] == 1 && projectile.GetSourceNPC().ai[1] == 52) || (projectile.GetSourceNPC().ai[0] == 4 && projectile.GetSourceNPC().ai[1] == 70 && !projectile.GetSourceNPC().GetEModeNPCMod<Deerclops>().DoLaserAttack))
+                        if ((projectile.GetSourceNPC().ai[0] == 1 && projectile.GetSourceNPC().ai[1] == 52) || (projectile.GetSourceNPC().ai[0] == 4 && projectile.GetSourceNPC().ai[1] == 70 && !projectile.GetSourceNPC().GetGlobalNPC<Deerclops>().DoLaserAttack))
                         {
                             bool isSingleWaveAttack = projectile.GetSourceNPC().ai[0] == 1;
 
@@ -300,9 +300,9 @@ namespace FargowiltasSouls.Projectiles
                                 //projectile.netUpdate = true;
 
                                 float ai1 = 1.3f;
-                                if (projectile.GetSourceNPC().GetEModeNPCMod<Deerclops>().EnteredPhase2)
+                                if (projectile.GetSourceNPC().GetGlobalNPC<Deerclops>().EnteredPhase2)
                                     ai1 = 1.35f; //triggers recursive ai
-                                                 //if (projectile.GetSourceNPC().GetEModeNPCMod<Deerclops>().EnteredPhase3 || FargoSoulsWorld.MasochistModeReal)
+                                                 //if (projectile.GetSourceNPC().GetGlobalNPC<Deerclops>().EnteredPhase3 || FargoSoulsWorld.MasochistModeReal)
                                                  //    ai1 = 1.4f;
                                 Vector2 spawnPos = projectile.Center + 200 * Vector2.Normalize(projectile.velocity);
 
@@ -367,7 +367,7 @@ namespace FargowiltasSouls.Projectiles
                         break;
 
                     case ProjectileID.CultistBossFireBall: //disable proj
-                        if (NonSwarmFight(projectile, NPCID.CultistBoss) && sourceNPC.GetEModeNPCMod<LunaticCultist>().EnteredPhase2)
+                        if (NonSwarmFight(projectile, NPCID.CultistBoss) && sourceNPC.GetGlobalNPC<LunaticCultist>().EnteredPhase2)
                         {
                             projectile.timeLeft = 0;
                             EModeCanHurt = false;
@@ -399,7 +399,7 @@ namespace FargowiltasSouls.Projectiles
                         break;
 
                     case ProjectileID.SharknadoBolt:
-                        if (sourceNPC is NPC && sourceNPC.type == NPCID.DukeFishron && sourceNPC.GetEModeNPCMod<DukeFishron>().IsEX)
+                        if (sourceNPC is NPC && sourceNPC.type == NPCID.DukeFishron && sourceNPC.GetGlobalNPC<DukeFishron>().IsEX)
                             projectile.extraUpdates++;
                         break;
 
@@ -425,11 +425,11 @@ namespace FargowiltasSouls.Projectiles
                             projectile.timeLeft += 60;
                             projectile.localAI[1] = projectile.velocity.ToRotation();
 
-                            if (sourceNPC.ai[0] == 7 && sourceNPC.ai[1] >= 255 && sourceNPC.GetEModeNPCMod<EmpressofLight>().DoParallelSwordWalls)
+                            if (sourceNPC.ai[0] == 7 && sourceNPC.ai[1] >= 255 && sourceNPC.GetGlobalNPC<EmpressofLight>().DoParallelSwordWalls)
                             {
                                 altBehaviour = true;
                             }
-                            else if (sourceNPC.GetEModeNPCMod<EmpressofLight>().AttackTimer == 1)
+                            else if (sourceNPC.GetGlobalNPC<EmpressofLight>().AttackTimer == 1)
                             {
                                 projectile.localAI[0] = 1f;
                             }
@@ -446,7 +446,7 @@ namespace FargowiltasSouls.Projectiles
                                 projectile.position -= appearVel * 60f;
                                 projectile.velocity = appearVel;
                             }
-                            else if (sourceNPC.GetEModeNPCMod<EmpressofLight>().DoParallelSwordWalls)
+                            else if (sourceNPC.GetGlobalNPC<EmpressofLight>().DoParallelSwordWalls)
                             {
                                 altBehaviour = true;
                             }
@@ -641,7 +641,7 @@ namespace FargowiltasSouls.Projectiles
                                 projectile.timeLeft = 0;
                             }
 
-                            if (npc.ai[0] == 6 && npc.GetEModeNPCMod<EmpressofLight>().AttackCounter % 2 == 0)
+                            if (npc.ai[0] == 6 && npc.GetGlobalNPC<EmpressofLight>().AttackCounter % 2 == 0)
                             {
                                 projectile.scale *= Utils.Clamp(npc.ai[1] / 80f, 0f, 2.5f);
                             }
@@ -783,7 +783,7 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 if (Main.netMode == NetmodeID.MultiplayerClient)
                                 {
-                                    LunaticCultist cultistData = npc.GetEModeNPCMod<LunaticCultist>();
+                                    LunaticCultist cultistData = npc.GetGlobalNPC<LunaticCultist>();
 
                                     var netMessage = Mod.GetPacket(); //sync damage contribution (which is client side) to server
                                     netMessage.Write((byte)FargowiltasSouls.PacketID.SyncCultistDamageCounterToServer);
@@ -859,7 +859,7 @@ namespace FargowiltasSouls.Projectiles
                             {
                                 float ai0 = Main.rand.Next(4);
 
-                                LunaticCultist cultistData = Main.npc[cult].GetEModeNPCMod<LunaticCultist>();
+                                LunaticCultist cultistData = Main.npc[cult].GetGlobalNPC<LunaticCultist>();
                                 int[] weight = new int[4];
                                 weight[0] = cultistData.MagicDamageCounter;
                                 weight[1] = cultistData.MeleeDamageCounter;
@@ -871,8 +871,7 @@ namespace FargowiltasSouls.Projectiles
                                 cultistData.MagicDamageCounter = 0;
                                 cultistData.MinionDamageCounter = 0;
 
-                                if (Main.netMode == NetmodeID.Server)
-                                    Main.npc[cult].GetGlobalNPC<NewEModeGlobalNPC>().NetSync(Main.npc[cult]);
+                                Main.npc[cult].netUpdate = true;
 
                                 int max = 0;
                                 for (int i = 1; i < 4; i++)
@@ -991,7 +990,7 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.DD2BetsyFireball: //when spawned, also spawn a phoenix
                     if (!firstTickAICheckDone && NonSwarmFight(projectile, NPCID.DD2Betsy))
                     {
-                        bool phase2 = sourceNPC.GetEModeNPCMod<Betsy>().InPhase2;
+                        bool phase2 = sourceNPC.GetGlobalNPC<Betsy>().InPhase2;
                         int max = phase2 ? 2 : 1;
                         for (int i = 0; i < max; i++)
                         {
@@ -1009,7 +1008,7 @@ namespace FargowiltasSouls.Projectiles
                 case ProjectileID.DD2BetsyFlameBreath:
                     if (NonSwarmFight(projectile, NPCID.DD2Betsy))
                     {
-                        bool phase2 = sourceNPC.GetEModeNPCMod<Betsy>().InPhase2;
+                        bool phase2 = sourceNPC.GetGlobalNPC<Betsy>().InPhase2;
 
                         //add chain blasts in maso p2
                         if (phase2 && !firstTickAICheckDone && FargoSoulsWorld.MasochistModeReal && Main.netMode != NetmodeID.MultiplayerClient)
@@ -1226,8 +1225,12 @@ namespace FargowiltasSouls.Projectiles
 
             NPC sourceNPC = projectile.GetSourceNPC();
 
-            if (sourceNPC is NPC && sourceNPC.GetEModeNPCMod<MoonLordBodyPart>() is MoonLordBodyPart)
+            if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.moonBoss, NPCID.MoonLordCore)
+                && sourceNPC is NPC
+                && sourceNPC.TryGetGlobalNPC(out MoonLordBodyPart _))
+            {
                 target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 180);
+            }
 
             //if (sourceNPC is NPC && sourceNPC.ModNPC is NPCs.MutantBoss.MutantBoss)
             //    target.AddBuff(ModContent.BuffType<MutantFang>(), 180);

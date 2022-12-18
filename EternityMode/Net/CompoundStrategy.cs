@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Terraria.ModLoader.IO;
 namespace FargowiltasSouls.EternityMode.Net
 {
     public struct CompoundStrategy
@@ -12,8 +13,10 @@ namespace FargowiltasSouls.EternityMode.Net
             RecieveStrategy = recieveStrategy;
         }
 
-        public void Send(object value, BinaryWriter writer) => SendStrategy.Send(value, writer);
+        public void Send(object value, BitWriter bitWriter, BinaryWriter binaryWriter)
+            => SendStrategy.Send(value, bitWriter, binaryWriter);
 
-        public void Recieve(ref object value, BinaryReader reader) => RecieveStrategy.Recieve(ref value, reader);
+        public void Recieve(ref object value, BitReader bitReader, BinaryReader binaryReader)
+            => RecieveStrategy.Recieve(ref value, bitReader, binaryReader);
     }
 }

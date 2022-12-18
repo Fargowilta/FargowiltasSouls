@@ -60,12 +60,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return npc.alpha == 0;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.brainBoss = npc.whoAmI;
 
             if (FargoSoulsWorld.SwarmActive)
-                return base.PreAI(npc);
+                return base.SafePreAI(npc);
 
             if (Main.LocalPlayer.active && Main.LocalPlayer.GetModPlayer<EModePlayer>().ShorterDebuffsTimer < 2)
                 Main.LocalPlayer.GetModPlayer<EModePlayer>().ShorterDebuffsTimer = 2;
@@ -272,7 +272,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.defense = 0;
             npc.defDefense = 0;
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
@@ -358,9 +358,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.buffImmune[BuffID.Ichor] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;

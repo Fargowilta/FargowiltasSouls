@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.EternityMode.Net.Strategies
 {
@@ -8,17 +9,17 @@ namespace FargowiltasSouls.EternityMode.Net.Strategies
 
         public class SendBool : ISendStrategy
         {
-            public void Send(object value, BinaryWriter writer)
+            public void Send(object value, BitWriter bitWriter, BinaryWriter binaryWriter)
             {
-                writer.Write((bool)value);
+                bitWriter.WriteBit((bool)value);
             }
         }
 
         public class RecieveBool : IRecieveStrategy
         {
-            public void Recieve(ref object value, BinaryReader writer)
+            public void Recieve(ref object value, BitReader bitReader, BinaryReader binaryReader)
             {
-                value = writer.ReadBoolean();
+                value = bitReader.ReadBit();
             }
         }
     }

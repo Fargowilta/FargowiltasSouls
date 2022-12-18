@@ -39,7 +39,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
             return base.CanHitPlayer(npc, target, ref CooldownSlot);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (!npc.HasValidTarget)
             {
@@ -171,7 +171,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.BloodMoon
                 }
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

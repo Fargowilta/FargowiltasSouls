@@ -10,17 +10,17 @@ namespace FargowiltasSouls.EternityMode.Net.Strategies
 
         public class SendInt : ISendStrategy
         {
-            public void Send(object value, BinaryWriter writer)
+            public void Send(object value, BitWriter bitWriter, BinaryWriter binaryWriter)
             {
-                writer.Write7BitEncodedInt((int)value);
+                binaryWriter.Write7BitEncodedInt((int)value);
             }
         }
 
         public class RecieveInt : IRecieveStrategy
         {
-            public void Recieve(ref object value, BinaryReader writer)
+            public void Recieve(ref object value, BitReader bitReader, BinaryReader binaryReader)
             {
-                value = writer.Read7BitEncodedInt();
+                value = binaryReader.Read7BitEncodedInt();
             }
         }
     }

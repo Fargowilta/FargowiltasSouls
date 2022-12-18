@@ -68,9 +68,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.cultBoss = npc.whoAmI;
 
@@ -321,9 +321,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return false;
         }
 
-        public override void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
+        public override void SafeOnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
         {
-            base.OnHitByItem(npc, player, item, damage, knockback, crit);
+            base.SafeOnHitByItem(npc, player, item, damage, knockback, crit);
 
             if (item.CountsAsClass(DamageClass.Melee) || item.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
@@ -335,9 +335,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 MinionDamageCounter += damage;
         }
 
-        public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+        public override void SafeOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
         {
-            base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
+            base.SafeOnHitByProjectile(npc, projectile, damage, knockback, crit);
 
             if (projectile.CountsAsClass(DamageClass.Melee) || projectile.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
@@ -402,9 +402,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             NPC cultist = FargoSoulsUtil.NPCExists(npc.ai[3], NPCID.CultistBoss);
             if (cultist != null)
@@ -502,9 +502,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanHitPlayer(npc, target, ref CooldownSlot) && npc.localAI[3] > 120;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (npc.localAI[3] == 0f)
             {
@@ -563,9 +563,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[BuffID.OnFire] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -663,9 +663,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             DamageReductionTimer++;
 
@@ -679,9 +679,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.maxPenetrate > 1)
                 damage /= projectile.maxPenetrate;

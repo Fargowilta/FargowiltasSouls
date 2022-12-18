@@ -48,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 { new Ref<object>(FinalPhaseDashHorizSpeedSet), BoolStrategies.CompoundStrategy },
             };
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.eyeBoss = npc.whoAmI;
 

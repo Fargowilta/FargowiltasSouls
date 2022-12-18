@@ -70,9 +70,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 13, npc.whoAmI);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.wallBoss = npc.whoAmI;
 
@@ -262,7 +262,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     {
                         if (Main.npc[i].active && Main.npc[i].type == NPCID.WallofFleshEye && Main.npc[i].realLife == npc.whoAmI)
                         {
-                            Main.npc[i].GetEModeNPCMod<WallofFleshEye>().PreventAttacks = 60;
+                            Main.npc[i].GetGlobalNPC<WallofFleshEye>().PreventAttacks = 60;
                         }
                     }
 
@@ -429,7 +429,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             NPC mouth = FargoSoulsUtil.NPCExists(npc.realLife, NPCID.WallofFlesh);
             if (FargoSoulsWorld.SwarmActive || RepeatingAI || mouth == null)
@@ -440,7 +440,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             float maxTime = 540f;
 
-            if (mouth.GetEModeNPCMod<WallofFlesh>().InDesperationPhase)
+            if (mouth.GetGlobalNPC<WallofFlesh>().InDesperationPhase)
             {
                 if (npc.ai[1] < maxTime - 180) //dont lower this if it's already telegraphing laser
                     maxTime = 240f;
@@ -566,7 +566,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             }
 
             //dont fire during mouth's special attacks (this is at bottom to override others)
-            if (((mouth.GetEModeNPCMod<WallofFlesh>().InPhase2 && mouth.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240) || mouth.GetEModeNPCMod<WallofFlesh>().InDesperationPhase) && !FargoSoulsWorld.MasochistModeReal)
+            if (((mouth.GetGlobalNPC<WallofFlesh>().InPhase2 && mouth.GetGlobalNPC<WallofFlesh>().WorldEvilAttackCycleTimer < 240) || mouth.GetGlobalNPC<WallofFlesh>().InDesperationPhase) && !FargoSoulsWorld.MasochistModeReal)
             {
                 npc.localAI[1] = -90f;
                 npc.localAI[2] = 0f;
@@ -625,7 +625,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             NPC wall = FargoSoulsUtil.NPCExists(EModeGlobalNPC.wallBoss, NPCID.WallofFlesh);
             if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 200 && wall != null
-                && wall.GetEModeNPCMod<WallofFlesh>().UseCorruptAttack && wall.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240
+                && wall.GetGlobalNPC<WallofFlesh>().UseCorruptAttack && wall.GetGlobalNPC<WallofFlesh>().WorldEvilAttackCycleTimer < 240
                 && !FargoSoulsWorld.MasochistModeReal)
             {
                 //snap away from player if too close during wof cursed flame wall

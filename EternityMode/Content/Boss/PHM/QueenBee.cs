@@ -64,9 +64,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.buffImmune[BuffID.Poisoned] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.beeBoss = npc.whoAmI;
 
@@ -79,7 +79,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             {
                 if (++EnrageFactor == 300)
                 {
-                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.QueenBeeEnrage", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.QueenBeeEnrage", new Color(175, 75, 255));
                 }
 
                 if (EnrageFactor > 300)
@@ -106,7 +106,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (n != Main.maxNPCs)
                     Main.npc[n].localAI[0] = 60f;
 
-                FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
 
                 npc.netUpdate = true;
                 NetSync(npc);
@@ -126,7 +126,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (n != Main.maxNPCs)
                     Main.npc[n].localAI[0] = 60f;
 
-                FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
+                FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.RoyalSubject", new Color(175, 75, 255));
 
                 NPC.SpawnOnPlayer(npc.target, ModContent.NPCType<RoyalSubject>()); //so that both dont stack for being spawned from qb
 

@@ -70,7 +70,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                 { new Ref<object>(Counter), IntStrategies.CompoundStrategy },
             };
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (Counter > 0)
             {
@@ -107,7 +107,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
                 return false;
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void AI(NPC npc)

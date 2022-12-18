@@ -322,7 +322,7 @@ namespace FargowiltasSouls.Projectiles
                         }
 
                         NPC destroyer = FargoSoulsUtil.NPCExists(npc.realLife, NPCID.TheDestroyer);
-                        if (destroyer == null || destroyer.GetEModeNPCMod<Destroyer>().IsCoiling)
+                        if (destroyer == null || destroyer.GetGlobalNPC<Destroyer>().IsCoiling)
                         {
                             Projectile.Kill();
                             return;
@@ -391,7 +391,7 @@ namespace FargowiltasSouls.Projectiles
                         alphaModifier = -1;
 
                         NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.WallofFleshEye);
-                        if (npc != null && (npc.GetEModeNPCMod<WallofFleshEye>().HasTelegraphedNormalLasers || Main.netMode == NetmodeID.MultiplayerClient))
+                        if (npc != null && (npc.GetGlobalNPC<WallofFleshEye>().HasTelegraphedNormalLasers || Main.netMode == NetmodeID.MultiplayerClient))
                         {
                             Projectile.rotation = npc.rotation + (npc.direction > 0 ? 0 : MathHelper.Pi);
                             Projectile.velocity = Projectile.rotation.ToRotationVector2();
@@ -519,7 +519,7 @@ namespace FargowiltasSouls.Projectiles
                             }
                             Projectile.rotation = -MathHelper.PiOver2;
 
-                            if (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState <= 2)
+                            if (npc.GetGlobalNPC<MoonLordCore>().VulnerabilityState <= 2)
                             {
                                 if (counter > maxTime / 2)
                                     counter = maxTime / 2;

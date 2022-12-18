@@ -56,7 +56,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
                     int bat = FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, npc.type,
                         velocity: new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-5, 5)));
                     if (bat != Main.maxNPCs)
-                        Main.npc[bat].GetEModeNPCMod<IlluminantBat>().IsFakeBat = true;
+                        Main.npc[bat].GetGlobalNPC<IlluminantBat>().IsFakeBat = true;
                 }
             }
         }

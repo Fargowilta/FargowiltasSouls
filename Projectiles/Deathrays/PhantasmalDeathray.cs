@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Vector2 offset = new Vector2(npc.width - 24, 0).RotatedBy(npc.rotation + 1.57079633);
                 Projectile.Center = npc.Center + offset;
 
-                if (npc.GetEModeNPCMod<Retinazer>().DeathrayState >= 3 && Projectile.localAI[0] < maxTime - 30)
+                if (npc.GetGlobalNPC<Retinazer>().DeathrayState >= 3 && Projectile.localAI[0] < maxTime - 30)
                     Projectile.localAI[0] = maxTime - 30;
             }
             else

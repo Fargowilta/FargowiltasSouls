@@ -110,7 +110,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Hallow
                         if (slimeIndex != Main.maxNPCs)
                         {
                             NPC slime = Main.npc[slimeIndex];
-                            slime.GetEModeNPCMod<RainbowSlime>().SpawnedByOtherSlime = true;
+                            slime.GetGlobalNPC<RainbowSlime>().SpawnedByOtherSlime = true;
                             slime.velocity = new Vector2(Main.rand.Next(-10, 11), Main.rand.Next(-10, 1));
 
                             if (Main.netMode == NetmodeID.Server)

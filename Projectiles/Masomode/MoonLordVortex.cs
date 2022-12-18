@@ -133,7 +133,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 if (ritual != null)
                     Projectile.position += ritual.position - ritual.oldPosition;
 
-                if (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState != 1 && Projectile.timeLeft > 60)
+                if (npc.GetGlobalNPC<MoonLordCore>().VulnerabilityState != 1 && Projectile.timeLeft > 60)
                     Projectile.timeLeft = 60;
             }
             else

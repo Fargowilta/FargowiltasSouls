@@ -61,7 +61,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.retiBoss = npc.whoAmI;
 
@@ -83,7 +83,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         Main.npc[n].life = Main.npc[n].lifeMax / 4;
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, number: n);
-                        string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
+                        string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.TwinsRevive");
                         if (FargoSoulsUtil.IsChinese())
                         {
                             FargoSoulsUtil.PrintText($"{Main.npc[n].FullName}{text}", new Color(175, 75, 255));
@@ -408,7 +408,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsEndure");
+                    string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.TwinsEndure");
                     if (FargoSoulsUtil.IsChinese())
                     {
                         FargoSoulsUtil.PrintText($"{npc.FullName}{text}", new Color(175, 75, 255));
@@ -468,7 +468,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[BuffID.Suffocation] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.spazBoss = npc.whoAmI;
 
@@ -490,7 +490,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         Main.npc[n].life = Main.npc[n].lifeMax / 4;
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.SyncNPC, number: n);
-                        string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsRevive");
+                        string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.TwinsRevive");
                         if (FargoSoulsUtil.IsChinese())
                         {
                             FargoSoulsUtil.PrintText($"{Main.npc[n].FullName}{text}", new Color(175, 75, 255));
@@ -591,7 +591,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
 
                 //reti is doing the spin
-                if (retinazer != null && retinazer.ai[0] >= 4f && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 0 && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 3)
+                if (retinazer != null && retinazer.ai[0] >= 4f && retinazer.GetGlobalNPC<Retinazer>().DeathrayState != 0 && retinazer.GetGlobalNPC<Retinazer>().DeathrayState != 3)
                 {
                     if (!FargoSoulsWorld.MasochistModeReal)
                     {
@@ -623,8 +623,8 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     Resist = true;
 
-                    if (retinazer != null && (retinazer.ai[0] < 4f || retinazer.GetEModeNPCMod<Retinazer>().DeathrayState == 0
-                        || retinazer.GetEModeNPCMod<Retinazer>().DeathrayState == 3)) //reti is in normal AI
+                    if (retinazer != null && (retinazer.ai[0] < 4f || retinazer.GetGlobalNPC<Retinazer>().DeathrayState == 0
+                        || retinazer.GetGlobalNPC<Retinazer>().DeathrayState == 3)) //reti is in normal AI
                     {
                         npc.ai[1] = 1; //switch to dashing
                         npc.ai[2] = 0;
@@ -644,7 +644,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                         float rotationInterval = 2f * (float)Math.PI * 1.2f / 4f / 60f * 0.65f;
                         if (FargoSoulsWorld.MasochistModeReal)
                             rotationInterval *= -1f;
-                        npc.rotation += rotationInterval * (retinazer.GetEModeNPCMod<Retinazer>().StoredDirectionToPlayer ? 1f : -1f);
+                        npc.rotation += rotationInterval * (retinazer.GetGlobalNPC<Retinazer>().StoredDirectionToPlayer ? 1f : -1f);
 
                         if (FlameWheelSpreadTimer < 0)
                             FlameWheelSpreadTimer = 0;
@@ -713,7 +713,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
                 else //dashing
                 {
-                    if (retinazer != null && retinazer.ai[0] >= 4f && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 0 && retinazer.GetEModeNPCMod<Retinazer>().DeathrayState != 3) //reti is doing the spin
+                    if (retinazer != null && retinazer.ai[0] >= 4f && retinazer.GetGlobalNPC<Retinazer>().DeathrayState != 0 && retinazer.GetGlobalNPC<Retinazer>().DeathrayState != 3) //reti is doing the spin
                     {
                         npc.ai[1] = 0; //switch to not dashing
 
@@ -855,7 +855,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    string text = Language.GetTextValue($"Mods.{mod.Name}.Message.TwinsEndure");
+                    string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.TwinsEndure");
                     if (FargoSoulsUtil.IsChinese())
                     {
                         FargoSoulsUtil.PrintText($"{npc.FullName}{text}", new Color(175, 75, 255));

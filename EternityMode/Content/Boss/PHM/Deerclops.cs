@@ -71,9 +71,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return base.CanHitPlayer(npc, target, ref CooldownSlot);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.deerBoss = npc.whoAmI;
 

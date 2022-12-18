@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Projectile.velocity = -Vector2.UnitY;
             }
             NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[1], NPCID.WallofFlesh);
-            if (npc != null && npc.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240 + 30) //cancel if the cursed flame attack is cancelled early
+            if (npc != null && npc.GetGlobalNPC<WallofFlesh>().WorldEvilAttackCycleTimer < 240 + 30) //cancel if the cursed flame attack is cancelled early
             {
                 Projectile.Center = npc.Center;
                 Projectile.position.X += 700 * Projectile.ai[0];

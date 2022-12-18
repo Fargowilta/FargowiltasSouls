@@ -387,6 +387,7 @@ Mods: {
 			HideToggler: Only show effect toggler when inventory is open
 			HideTogglerDescription: If true, the effect toggler is automatically hidden when your inventory is closed.
 			DeviChatter: Chibi Devi can talk
+			ToggleSearchReset: Accessory Effects menu resets search bar when closed
 			MasoHeader: Eternity Mode
 			MasoBossRecolors: Bosses use alternative sprites
 			OncomingMutantX: Eternity Mode inventory icon X position

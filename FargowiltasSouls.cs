@@ -92,19 +92,6 @@ namespace FargowiltasSouls
         {
             Instance = this;
 
-            // Load EModeNPCMods
-            foreach (Type type in Code.GetTypes().OrderBy(type => type.FullName, StringComparer.InvariantCulture))
-            {
-                if (type.IsSubclassOf(typeof(EModeNPCBehaviour)) && !type.IsAbstract)
-                {
-                    EModeNPCBehaviour mod = (EModeNPCBehaviour)Activator.CreateInstance(type);
-                    mod.Load();
-                }
-            }
-
-            // Just to make sure they're always in the same order
-            EModeNPCBehaviour.AllEModeNpcBehaviours.OrderBy(m => m.GetType().FullName, StringComparer.InvariantCulture);
-
             SkyManager.Instance["FargowiltasSouls:AbomBoss"] = new AbomSky();
             SkyManager.Instance["FargowiltasSouls:MutantBoss"] = new MutantSky();
             SkyManager.Instance["FargowiltasSouls:MutantBoss2"] = new MutantSky2();
@@ -281,7 +268,6 @@ namespace FargowiltasSouls
                 TextureAssets.Wof = TextureBuffer.Wof;
 
             ToggleLoader.Unload();
-            EModeNPCBehaviour.Unload();
 
             SoulToggler.RemoveItemTags = null;
             ToggleBackend.ConfigPath = null;
@@ -741,7 +727,7 @@ namespace FargowiltasSouls
             SyncCultistDamageCounterToServer,
             RequestCreeperHeal,
             RequestDeviGift,
-            SyncEModeNPC,
+            //SyncEModeNPC,
             SpawnFishronEX,
             SyncFishronEXLife,
             SyncTogglesOnJoin,
@@ -787,7 +773,7 @@ namespace FargowiltasSouls
                         {
                             int cult = reader.ReadByte();
 
-                            LunaticCultist cultist = Main.npc[cult].GetEModeNPCMod<LunaticCultist>();
+                            LunaticCultist cultist = Main.npc[cult].GetGlobalNPC<LunaticCultist>();
                             cultist.MeleeDamageCounter += reader.ReadInt32();
                             cultist.RangedDamageCounter += reader.ReadInt32();
                             cultist.MagicDamageCounter += reader.ReadInt32();
@@ -823,22 +809,22 @@ namespace FargowiltasSouls
                         break;
 
 
-                    case PacketID.SyncEModeNPC: // New maso sync
-                        {
-                            int npcToSync = reader.ReadInt32();
-                            int npcType = reader.ReadInt32();
-                            int bytesLength = reader.ReadInt32();
-                            //Logger.Debug($"got {npcToSync} {npcType}, real is {Main.npc[npcToSync].active} {Main.npc[npcToSync].type}");
-                            if (Main.npc[npcToSync].active && Main.npc[npcToSync].type == npcType)
-                            {
-                                Main.npc[npcToSync].GetGlobalNPC<NewEModeGlobalNPC>().NetRecieve(reader);
-                            }
-                            else if (bytesLength > 0) //in case of desync between client/server, just clear the rest of the message from the buffer
-                            {
-                                reader.ReadBytes(bytesLength);
-                            }
-                        }
-                        break;
+                    //case PacketID.SyncEModeNPC: // New maso sync
+                    //    {
+                    //        int npcToSync = reader.ReadInt32();
+                    //        int npcType = reader.ReadInt32();
+                    //        int bytesLength = reader.ReadInt32();
+                    //        //Logger.Debug($"got {npcToSync} {npcType}, real is {Main.npc[npcToSync].active} {Main.npc[npcToSync].type}");
+                    //        if (Main.npc[npcToSync].active && Main.npc[npcToSync].type == npcType)
+                    //        {
+                    //            Main.npc[npcToSync].GetGlobalNPC<NewEModeGlobalNPC>().NetRecieve(reader);
+                    //        }
+                    //        else if (bytesLength > 0) //in case of desync between client/server, just clear the rest of the message from the buffer
+                    //        {
+                    //            reader.ReadBytes(bytesLength);
+                    //        }
+                    //    }
+                    //    break;
 
                     case PacketID.SpawnFishronEX: //server side spawning fishron EX
                         if (Main.netMode == NetmodeID.Server)
