@@ -1989,6 +1989,11 @@ Mods: {
 
 			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
 			IceBarrier: 永恒模式：你造成的伤害减少10%
+			SpearRework: Reworked spear swing animation
+			PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
+			CobaltNaginataRework: Causes a small explosion on striking enemies
+			MythrilHalberdRework: Deals more damage after not attacking
+			TitaniumTridentRework: Charge up to throw instead of swinging
 		}
 
 		ItemName: {

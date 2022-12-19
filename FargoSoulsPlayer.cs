@@ -38,7 +38,7 @@ namespace FargowiltasSouls
         public Dictionary<string, bool> TogglesToSync = new Dictionary<string, bool>();
         public IList<string> disabledToggles = new List<string>();
 
-        public bool IsStandingStill;
+    public bool IsStandingStill;
         public float AttackSpeed;
         public float WingTimeModifier = 1f;
 
