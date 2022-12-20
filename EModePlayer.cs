@@ -1,8 +1,10 @@
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -38,8 +40,19 @@ namespace FargowiltasSouls
 
         public override void UpdateDead()
         {
+            ResetEffects();
+
             MasomodeMinionNerfTimer = 0;
             ShorterDebuffsTimer = 0;
+        }
+
+        public override void OnEnterWorld(Player player)
+        {
+            foreach (NPC npc in Main.npc.Where(npc => npc.active))
+            {
+                if (npc.TryGetGlobalNPC(out EModeNPCBehaviour eModeNPC, false))
+                    eModeNPC.TryLoadSprites(npc);
+            }
         }
 
         public override void PreUpdate()

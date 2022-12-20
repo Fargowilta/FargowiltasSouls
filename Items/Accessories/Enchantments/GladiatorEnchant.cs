@@ -52,11 +52,10 @@ Grants knockback immunity when you are facing the attack
             }
         }
 
-        public static void GladiatorSpearDrop(FargoSoulsPlayer modPlayer, Item item, Projectile projectile, NPC target, int damage)
+        public static void GladiatorSpearDrop(FargoSoulsPlayer modPlayer, NPC target, int damage)
         {
             Player player = modPlayer.Player;
-            int spearDamage = projectile != null ? projectile.damage : item != null ? item.damage : damage;
-            spearDamage /= 4;
+            int spearDamage = damage / 4;
 
             if (spearDamage > 0)
             {

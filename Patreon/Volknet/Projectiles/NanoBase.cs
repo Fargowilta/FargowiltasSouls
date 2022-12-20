@@ -81,6 +81,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                     //SummonDamageModifier = owner.ActualClassDamage(DamageClass.Summon);
 
                     Projectile.damage = owner.GetWeaponDamage(owner.HeldItem);
+                    Projectile.CritChance = owner.GetWeaponCrit(owner.HeldItem);
 
                     Projectile.timeLeft = 2;
                     Projectile.Center = owner.Center;

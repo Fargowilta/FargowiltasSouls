@@ -101,6 +101,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             if (player.HeldItem.type == ModContent.ItemType<Items.Weapons.FinalUpgrades.HentaiSpear>())
             {
                 Projectile.damage = Main.player[Projectile.owner].GetWeaponDamage(Main.player[Projectile.owner].HeldItem);
+                Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
                 Projectile.knockBack = Main.player[Projectile.owner].GetWeaponKnockback(Main.player[Projectile.owner].HeldItem, Main.player[Projectile.owner].HeldItem.knockBack);
             }
 

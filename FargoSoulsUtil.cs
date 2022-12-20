@@ -1,6 +1,7 @@
 ﻿using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
+using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -82,8 +83,19 @@ namespace FargowiltasSouls
         public static float ActualClassDamage(this Player player, DamageClass damageClass)
             => player.GetTotalDamage(damageClass).Additive * player.GetTotalDamage(damageClass).Multiplicative;
 
+        /// <summary>
+        /// Returns total crit chance, including class-specific and generic boosts.
+        /// This method returns 0 for summon crit if Spider Enchant isn't active and enabled.
+        /// This is here because generic boosts like Rage Potion DO increase the total summon crit chance value, even though it's normally not checked!
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="damageClass"></param>
+        /// <returns></returns>
         public static float ActualClassCrit(this Player player, DamageClass damageClass)
-            => player.GetTotalCritChance(damageClass);
+            => damageClass == DamageClass.Summon
+            && !(player.GetModPlayer<FargoSoulsPlayer>().SpiderEnchantActive && player.GetToggleValue("Spider", false))
+            ? 0
+            : player.GetTotalCritChance(damageClass);
 
         public static bool FeralGloveReuse(this Player player, Item item)
             => player.autoReuseGlove && (item.CountsAsClass(DamageClass.Melee) || item.CountsAsClass(DamageClass.SummonMeleeSpeed));

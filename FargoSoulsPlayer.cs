@@ -1082,6 +1082,8 @@ namespace FargowiltasSouls
             WingTimeModifier = 1f;
             FreeEaterSummon = true;
 
+            AbominableWandRevived = false;
+
             EridanusTimer = 0;
             StyxMeter = 0;
             StyxTimer = 0;
@@ -2244,7 +2246,7 @@ namespace FargowiltasSouls
             if (proj.hostile)
                 return;
 
-            if (SpiderEnchantActive && FargoSoulsUtil.IsSummonDamage(proj) && Player.GetToggleValue("Spider", false))
+            if (SpiderEnchantActive && FargoSoulsUtil.IsSummonDamage(proj))
             {
                 if (Main.rand.Next(100) < Player.ActualClassCrit(DamageClass.Summon))
                     crit = true;
@@ -2446,6 +2448,17 @@ namespace FargowiltasSouls
 
         private void OnHitNPCEither(NPC target, int damage, float knockback, bool crit, DamageClass damageClass, Projectile projectile = null, Item item = null)
         {
+            //doing this so that damage-inheriting effects dont double dip or explode due to taking on crit boost
+            int GetBaseDamage()
+            {
+                int baseDamage = damage;
+                if (projectile != null)
+                    baseDamage = (int)(projectile.damage * Player.ActualClassDamage(projectile.DamageType));
+                else if (item != null)
+                    baseDamage = (int)(item.damage * Player.ActualClassDamage(item.DamageType));
+                return baseDamage;
+            }
+
             if (StyxSet)
             {
                 StyxMeter += damage;
@@ -2460,7 +2473,7 @@ namespace FargowiltasSouls
 
             if (PearlwoodEnchantItem != null && Player.GetToggleValue("Pearl") && PearlwoodCD == 0 && !(projectile != null && projectile.type == ProjectileID.FairyQueenMagicItemShot && projectile.usesIDStaticNPCImmunity && projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames))
             {
-                PearlwoodEnchant.PearlwoodStarDrop(this, target, damage);
+                PearlwoodEnchant.PearlwoodStarDrop(this, target, GetBaseDamage());
             }
 
             if (BeeEnchantActive && Player.GetToggleValue("Bee") && BeeCD <= 0 && target.realLife == -1
@@ -2469,7 +2482,7 @@ namespace FargowiltasSouls
                 bool force = LifeForce;
                 if (force || Main.rand.NextBool())
                 {
-                    int beeDamage = projectile != null ? projectile.damage : item != null ? item.damage : damage;
+                    int beeDamage = GetBaseDamage();
                     if (beeDamage > 0)
                     {
                         if (!TerrariaSoul)
@@ -2479,7 +2492,6 @@ namespace FargowiltasSouls
 
                         int p = Projectile.NewProjectile(item != null ? Player.GetSource_ItemUse(item) : projectile.GetSource_FromThis(), target.Center.X, target.Center.Y, Main.rand.Next(-35, 36) * 0.2f, Main.rand.Next(-35, 36) * 0.2f,
                             force ? ProjectileID.GiantBee : Player.beeType(), beeDamage, Player.beeKB(beeKB), Player.whoAmI);
-
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].DamageType = damageClass;
                     }
@@ -2510,7 +2522,7 @@ namespace FargowiltasSouls
 
             if (Player.GetToggleValue("Obsidian") && ObsidianEnchantItem != null && ObsidianCD == 0)
             {
-                ObsidianEnchant.ObsidianProc(this, target, damage);
+                ObsidianEnchant.ObsidianProc(this, target, GetBaseDamage());
             }        
 
             if (DevianttHeartItem != null && DevianttHeartsCD <= 0 && Player.GetToggleValue("MasoDevianttHearts")
@@ -2556,7 +2568,7 @@ namespace FargowiltasSouls
 
             if (GladiatorEnchantActive && Player.whoAmI == Main.myPlayer && Player.GetToggleValue("Gladiator") && GladiatorCD <= 0 && (projectile == null || projectile.type != ModContent.ProjectileType<GladiatorJavelin>()))
             {
-                GladiatorEnchant.GladiatorSpearDrop(this, item, projectile, target, damage);
+                GladiatorEnchant.GladiatorSpearDrop(this, target, GetBaseDamage());
             }
 
             if (SolarEnchantActive && Player.GetToggleValue("SolarFlare") && Main.rand.NextBool(4))

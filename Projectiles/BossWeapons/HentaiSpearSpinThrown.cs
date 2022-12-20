@@ -145,19 +145,22 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
         public override void Kill(int timeLeft) //self reuse so you dont need to hold up always while autofiring
         {
-            if (Projectile.owner == Main.myPlayer && Main.player[Projectile.owner].controlUseTile && Main.player[Projectile.owner].altFunctionUse == 2
-                && !(Main.player[Projectile.owner].controlUp && Main.player[Projectile.owner].controlDown)
-                && Main.player[Projectile.owner].HeldItem.type == ModContent.ItemType<Items.Weapons.FinalUpgrades.HentaiSpear>()
-                && Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] == 1)
+            Player player = Main.player[Projectile.owner];
+
+            if (Projectile.owner == Main.myPlayer && player.controlUseTile && player.altFunctionUse == 2
+                && !(player.controlUp && player.controlDown)
+                && player.HeldItem.type == ModContent.ItemType<Items.Weapons.FinalUpgrades.HentaiSpear>()
+                && player.ownedProjectileCounts[Projectile.type] == 1)
             {
-                Vector2 spawnPos = Main.player[Projectile.owner].MountedCenter;
+                Vector2 spawnPos = player.MountedCenter;
                 Vector2 speed = Main.MouseWorld - spawnPos;
                 if (speed.Length() < 360)
                     speed = Vector2.Normalize(speed) * 360;
-                int damage = Main.player[Projectile.owner].GetWeaponDamage(Main.player[Projectile.owner].HeldItem);
-                float knockBack = Main.player[Projectile.owner].GetWeaponKnockback(Main.player[Projectile.owner].HeldItem, Main.player[Projectile.owner].HeldItem.knockBack);
+                int damage = player.GetWeaponDamage(player.HeldItem);
+                Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
+                float knockBack = player.GetWeaponKnockback(player.HeldItem, player.HeldItem.knockBack);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnPos, Vector2.Normalize(speed), Projectile.type, damage, knockBack, Projectile.owner, speed.X, speed.Y);
-                Main.player[Projectile.owner].ChangeDir(Math.Sign(speed.X));
+                player.ChangeDir(Math.Sign(speed.X));
             }
         }
 

@@ -30,15 +30,7 @@ namespace FargowiltasSouls.EternityMode
         {
             if (Matcher.Satisfies(entity.type))
             {
-                if (!Main.dedServ)
-                {
-                    bool recolor = SoulConfig.Instance.BossRecolors && FargoSoulsWorld.EternityMode;
-                    if (recolor || FargowiltasSouls.Instance.LoadedNewSprites)
-                    {
-                        FargowiltasSouls.Instance.LoadedNewSprites = true;
-                        LoadSprites(entity, recolor);
-                    }
-                }
+                TryLoadSprites(entity);
 
                 return FargoSoulsWorld.EternityMode || Main.gameMenu;
             }
@@ -165,6 +157,22 @@ namespace FargowiltasSouls.EternityMode
             //npc.GetGlobalNPC<NewEModeGlobalNPC>().NetSync(npc);
             if (Main.netMode != NetmodeID.SinglePlayer)
                 NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
+        }
+
+        /// <summary>
+        /// Checks if loading sprites is necessary and does it if so.
+        /// </summary>
+        public void TryLoadSprites(NPC npc)
+        {
+            if (!Main.dedServ)
+            {
+                bool recolor = SoulConfig.Instance.BossRecolors && FargoSoulsWorld.EternityMode;
+                if (recolor || FargowiltasSouls.Instance.LoadedNewSprites)
+                {
+                    FargowiltasSouls.Instance.LoadedNewSprites = true;
+                    LoadSprites(npc, recolor);
+                }
+            }
         }
 
         public virtual void LoadSprites(NPC npc, bool recolor) { }

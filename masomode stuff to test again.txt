@@ -243,3 +243,30 @@ massive refactor to all emode npc ai, check that they work, especially vanilla b
 also test blood feeder & snatcher in mp
 plantera makes same sound as mutant when throwing crystal leaf ring
 added config: soul toggle menu search bar resets when closed
+
+mutant p3 disables timestop only in maso
+maso mutant rangs attack is angled
+fixed abom wand revive not refreshing when you die
+
+fixed? maso enraged mutant 6hp bug
+adjusted damage inheritance, the following effects scale off the damage of proj/item instead of damage dealt (since damage dealt also includes crit multiplier, easiest to see with universe core)
+	obsidian ench
+	bee ench
+	glad ench
+	pearlwood ench
+frost ench tooltip specifies its icicles inflict frostbite
+fixed tungsten ench allowing enlarged summon projs to crit when they shouldnt
+marginal nerf to staff of unleashed ocean, 8-proj rings -> 7
+tried fixing npcs not having resprites if you join a server after they are spawned (NEEDS TESTING)
+the following update their crit chance in real time, for tin ench
+	all held projs
+	all yoyos
+	vortex ritual
+	nano tech, especially melee
+	penetrator big deathray
+	penetrator up+m2 (spin throw)
+	regurgitator chungy hungy
+	diffractor blaster
+adjusted boc to hopefully fix mp desync on confused?
+
+fixed last prism laser still not updating crit with tin ench

@@ -96,6 +96,7 @@ namespace FargowiltasSouls.Patreon.GreatestKraken
             }
 
             Projectile.damage = player.GetWeaponDamage(player.HeldItem);
+            Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
             Projectile.knockBack = player.GetWeaponKnockback(player.HeldItem, player.HeldItem.knockBack);
 
             //drain mana 3 times per second

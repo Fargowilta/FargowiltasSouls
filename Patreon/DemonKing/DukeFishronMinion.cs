@@ -288,8 +288,8 @@ namespace FargowiltasSouls.Patreon.DemonKing
                 if (Projectile.owner == Main.myPlayer)
                 {
                     int modifier = Main.rand.NextBool() ? -1 : 1;
-                    SpawnRazorbladeRing(8, 24f, -0.75f * modifier);
-                    SpawnRazorbladeRing(8, 24f, 1.5f * modifier);
+                    SpawnRazorbladeRing(7, 24f, -0.75f * modifier);
+                    SpawnRazorbladeRing(7, 24f, 1.5f * modifier);
                 }
             }
         }

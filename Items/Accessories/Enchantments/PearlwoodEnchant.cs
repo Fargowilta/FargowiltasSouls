@@ -46,7 +46,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
         public static void PearlwoodStarDrop(FargoSoulsPlayer modPlayer, NPC target, int damage)
         {
             int starDamage = (damage / 2);
-            starDamage = Math.Min(starDamage, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, modPlayer.WoodForce ? 250 : 100));
+            if (!modPlayer.TerrariaSoul)
+                starDamage = Math.Min(starDamage, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, modPlayer.WoodForce ? 250 : 100));
 
             Player player = modPlayer.Player;
             //holy star spawn code funny

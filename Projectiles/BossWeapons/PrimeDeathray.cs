@@ -50,12 +50,14 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             int byIdentity = FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, (int)Projectile.ai[1], ModContent.ProjectileType<RefractorBlaster2Held>());
             if (byIdentity != -1)
             {
-                Projectile.damage = Main.player[Projectile.owner].GetWeaponDamage(Main.player[Projectile.owner].HeldItem);
-                Projectile.knockBack = Main.player[Projectile.owner].GetWeaponKnockback(Main.player[Projectile.owner].HeldItem, Main.player[Projectile.owner].HeldItem.knockBack);
+                Player player = Main.player[Projectile.owner];
+                Projectile.damage = player.GetWeaponDamage(player.HeldItem);
+                Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
+                Projectile.knockBack = player.GetWeaponKnockback(player.HeldItem, player.HeldItem.knockBack);
 
-                float rotation = Main.player[Projectile.owner].itemRotation + (Main.player[Projectile.owner].direction < 0 ? MathHelper.Pi : 0);
+                float rotation = player.itemRotation + (player.direction < 0 ? MathHelper.Pi : 0);
                 Projectile.velocity = rotation.ToRotationVector2();
-                Projectile.Center = Main.player[Projectile.owner].MountedCenter + 87f * Projectile.velocity;
+                Projectile.Center = player.MountedCenter + 87f * Projectile.velocity;
 
                 Projectile.timeLeft++;
                 float rotdir = (Projectile.ai[0] > 0) ? 1 : -1;

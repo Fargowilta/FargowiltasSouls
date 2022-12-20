@@ -194,23 +194,6 @@ This stacks up to 950 times until you get hit");
             //MASOCHIST
             ModContent.Find<ModItem>(Mod.Name, "MasochistSoul").UpdateAccessory(player, hideVisual);
 
-            //if (ModLoader.GetMod("FargowiltasSoulsDLC") != null)
-            //{
-            //    Mod fargoDLC = ModLoader.GetMod("FargowiltasSoulsDLC");
-
-            //    if (ModLoader.GetMod("ThoriumMod") != null)
-            //    {
-            //        fargoDLC.GetItem("ThoriumSoul").UpdateAccessory(player, hideVisual);
-            //    }
-            //    if (ModLoader.GetMod("CalamityMod") != null)
-            //    {
-            //        fargoDLC.GetItem("CalamitySoul").UpdateAccessory(player, hideVisual);
-            //    }
-            //    if (ModLoader.GetMod("SacredTools") != null)
-            //    {
-            //        fargoDLC.GetItem("SoASoul").UpdateAccessory(player, hideVisual);
-            //    }
-            //}
         }
 
         public override void AddRecipes()
@@ -220,24 +203,6 @@ This stacks up to 950 times until you get hit");
             .AddIngredient(null, "DimensionSoul")
             .AddIngredient(null, "TerrariaSoul")
             .AddIngredient(null, "MasochistSoul")
-
-            //if (ModLoader.GetMod("FargowiltasSoulsDLC") != null)
-            //{
-            //    Mod fargoDLC = ModLoader.GetMod("FargowiltasSoulsDLC");
-
-            //    if (ModLoader.GetMod("ThoriumMod") != null)
-            //    {
-            //        .AddIngredient(fargoDLC.ItemType("ThoriumSoul"))
-            //    }
-            //    if (ModLoader.GetMod("CalamityMod") != null)
-            //    {
-            //        .AddIngredient(fargoDLC.ItemType("CalamitySoul"))
-            //    }
-            //    if (ModLoader.GetMod("SacredTools") != null)
-            //    {
-            //        .AddIngredient(fargoDLC.ItemType("SoASoul"))
-            //    }
-            //}
 
             .AddIngredient(null, "EternalEnergy", 30)
 
