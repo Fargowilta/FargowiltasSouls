@@ -1284,7 +1284,7 @@ Mods: {
 			MoonsDeathPenalty: 事件回溯，波数倒退！
 			FatherOfLies: 你来到这里真是个致命错误。
 
-			CustomSetSave: 已将饰品效果设置保存至自定义效果配置{0}!
+			CustomSetSave: 已将饰品效果设置保存至自定义效果配置{0}！
 			CustomSetNotFound: 在自定义效果配置{0}中未找到饰品效果设置。
 		}
 
