@@ -105,19 +105,22 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             Rectangle frameMid = GetFrame(rayMid);
             Rectangle frameEnd = GetFrame(rayEnd);
 
+            int heightModifier = sheeting == TextureSheeting.Vertical ? Main.projFrames[Projectile.type] : 1;
+
             float num223 = Projectile.localAI[1];
             Color color44 = Projectile.GetAlpha(lightColor);
             color44 = Color.Lerp(color44, Color.Transparent, transparency);
             Main.EntitySpriteDraw(rayBeg, Projectile.Center - Main.screenPosition, frameBeg, color44, Projectile.rotation, frameBeg.Size() / 2, Projectile.scale, spriteEffects, 0);
-            num223 -= (float)(rayBeg.Height / 2 + rayEnd.Height) * Projectile.scale;
+            num223 -= (float)(rayBeg.Height / 2 + rayEnd.Height) * Projectile.scale / heightModifier;
             Vector2 drawPos = Projectile.Center;
-            drawPos += Projectile.velocity * Projectile.scale * (float)rayBeg.Height / 2f;
+            drawPos += Projectile.velocity * Projectile.scale * rayBeg.Height / 2f / heightModifier;
             if (num223 > 0f)
             {
                 float num224 = 0f;
                 Rectangle rectangle7 = frameMid;
                 int skippedVerticalFrames = sheeting == TextureSheeting.Vertical ? rayMid.Height / Main.projFrames[Projectile.type] * Projectile.frame : 0;
                 int frameHeight = rectangle7.Height - skippedVerticalFrames;
+                rectangle7.Height /= heightModifier;
                 while (num224 + 1f < num223)
                 {
                     if (num223 - num224 < frameHeight)
@@ -128,9 +131,9 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                     num224 += (float)rectangle7.Height * Projectile.scale;
                     drawPos += Projectile.velocity * (float)rectangle7.Height * Projectile.scale;
                     rectangle7.Y += 16;
-                    if (rectangle7.Y + rectangle7.Height > rayMid.Height)
+                    if (rectangle7.Y + rectangle7.Height > rayMid.Height / heightModifier)
                     {
-                        rectangle7.Y = 0;
+                        rectangle7.Y = skippedVerticalFrames;
                     }
                 }
             }

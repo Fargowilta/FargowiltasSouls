@@ -11,12 +11,25 @@ namespace FargowiltasSouls.UI
     {
         public Texture2D Texture;
         public Action<ToggleBackend> ApplyPreset;
+        public Action<ToggleBackend> SavePreset;
         public string Text;
 
         public UIPresetButton(Texture2D tex, Action<ToggleBackend> preset, string text)
         {
             Texture = tex;
             ApplyPreset = preset;
+            SavePreset = null;
+            Text = text;
+
+            Width.Set(20, 0);
+            Height.Set(20, 0);
+        }
+
+        public UIPresetButton(Texture2D tex, Action<ToggleBackend> preset, Action<ToggleBackend> save, string text)
+        {
+            Texture = tex;
+            ApplyPreset = preset;
+            SavePreset = save;
             Text = text;
 
             Width.Set(20, 0);
@@ -40,6 +53,10 @@ namespace FargowiltasSouls.UI
                 if (Main.mouseLeft && Main.mouseLeftRelease)
                 {
                     ApplyPreset(Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Toggler);
+                }
+                if (SavePreset != null && Main.mouseRight && Main.mouseRightRelease)
+                {
+                    SavePreset(Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Toggler);
                 }
             }
 

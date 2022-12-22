@@ -282,7 +282,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 Vector2 speed = Vector2.UnitX.RotatedBy(npc.rotation);
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<PhantasmalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 0f, Main.myPlayer, 0f, npc.whoAmI);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<RetinazerDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 0f, Main.myPlayer, 0f, npc.whoAmI);
                             }
                             DeathrayState++;
                             npc.ai[0] = 4f;

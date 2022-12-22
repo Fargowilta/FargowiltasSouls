@@ -130,6 +130,8 @@ This stacks up to 950 times until you get hit");
 
             player.GetModPlayer<FargoSoulsPlayer>().CanAmmoCycle = true;
 
+            player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+
             //cell phone
             player.accWatch = 3;
             player.accDepthMeter = 1;

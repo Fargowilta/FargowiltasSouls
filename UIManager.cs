@@ -27,6 +27,7 @@ namespace FargowiltasSouls
         public Asset<Texture2D> PresetOffButton;
         public Asset<Texture2D> PresetOnButton;
         public Asset<Texture2D> PresetMinimalButton;
+        public Asset<Texture2D> PresetCustomButton;
         public Asset<Texture2D> OncomingMutantTexture;
         public Asset<Texture2D> OncomingMutantAuraTexture;
 
@@ -43,6 +44,7 @@ namespace FargowiltasSouls
                 PresetOffButton = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/PresetOff", AssetRequestMode.ImmediateLoad);
                 PresetOnButton = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/PresetOn", AssetRequestMode.ImmediateLoad);
                 PresetMinimalButton = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/PresetMinimal", AssetRequestMode.ImmediateLoad);
+                PresetCustomButton = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/PresetCustom", AssetRequestMode.ImmediateLoad);
                 OncomingMutantTexture = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/OncomingMutant", AssetRequestMode.ImmediateLoad);
                 OncomingMutantAuraTexture = ModContent.Request<Texture2D>("FargowiltasSouls/UI/Assets/OncomingMutantAura", AssetRequestMode.ImmediateLoad);
 

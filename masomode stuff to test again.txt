@@ -270,3 +270,7 @@ the following update their crit chance in real time, for tin ench
 adjusted boc to hopefully fix mp desync on confused?
 
 fixed last prism laser still not updating crit with tin ench
+wood ench discount secretly works in inventory too
+added 3 custom preset toggle slots
+
+resprited retinazer deathray
