@@ -141,7 +141,7 @@ namespace FargowiltasSouls.UI
                 CustomButton[i] = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetCustomButton.Value,
                 toggles => toggles.LoadCustomPreset(slot),
                 toggles => toggles.SaveCustomPreset(slot),
-                $"Custom preset {slot} (right click to save)");
+                FargoSoulsUtil.IsChinese() ? $"自定义效果配置{slot}（右键点击以保存）" : $"Custom preset {slot} (right click to save)");
                 CustomButton[i].Top.Set(6, 0);
                 CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
                 PresetPanel.Append(CustomButton[i]);

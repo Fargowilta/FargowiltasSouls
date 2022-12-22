@@ -285,6 +285,9 @@ Mods: {
 
 			MoonsDeathPenalty: The wave progress has regressed!
 			FatherOfLies: It was a mistake to come here.
+
+			CustomSetSave: Toggles saved to custom set {0}!
+			CustomSetNotFound: No toggles found in custom set {0}.
 		}
 
 		DeathMessage: {

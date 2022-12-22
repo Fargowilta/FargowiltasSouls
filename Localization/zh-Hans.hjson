@@ -829,7 +829,7 @@ Mods: {
 			DeviDeathraySmall: 爱之光
 			DeviLightBeam: 光束
 			GolemBeam: 烈焰死亡射线
-			PhantasmalDeathray: 烈焰死亡射线
+			RetinazerDeathray: 烈焰死亡射线
 			PhantasmalDeathrayML: 幻影死亡射线II型
 			PhantasmalDeathrayMLSmall: 幻影死亡射线II型
 			PhantasmalDeathrayWOF: 神圣死亡射线
@@ -1283,6 +1283,9 @@ Mods: {
 
 			MoonsDeathPenalty: 事件回溯，波数倒退！
 			FatherOfLies: 你来到这里真是个致命错误。
+
+			CustomSetSave: 已将饰品效果设置保存至自定义效果配置{0}!
+			CustomSetNotFound: 在自定义效果配置{0}中未找到饰品效果设置。
 		}
 
 		DeathMessage: {
@@ -2645,7 +2648,7 @@ Mods: {
 				'''
 				你的周围会出现冰锥
 				攻击时会将冰锥发射至光标位置
-				冰锥击中敌人时会使其短暂冻结
+				冰锥击中敌人时会使其短暂冻结，并造成冻伤减益
 				按下“冻结”键后将一切冻结20秒
 				效果有60秒的冷却时间
 				“让我们给这个世界披上一层厚厚的冰衣”

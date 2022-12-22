@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using Terraria;
 using Terraria.IO;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Toggler
 {
@@ -264,7 +265,7 @@ namespace FargowiltasSouls.Toggler
             {
                 CustomPresets[slot - 1] = togglesOff;
                 //Save();
-                Main.NewText($"Toggles saved to custom set {slot}!", Color.Yellow);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.Message.CustomSetSave", slot), Color.Yellow);
             }
         }
 
@@ -273,7 +274,7 @@ namespace FargowiltasSouls.Toggler
             List<string> togglesOff = CustomPresets[slot - 1];
             if (togglesOff == null)
             {
-                Main.NewText($"No toggles found in custom set {slot}.", Color.Yellow);
+                Main.NewText(Language.GetTextValue("Mods.FargowiltasSouls.Message.CustomSetNotFound", slot), Color.Yellow);
                 return;
             }
 
