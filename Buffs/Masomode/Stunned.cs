@@ -23,6 +23,7 @@ namespace FargowiltasSouls.Buffs.Masomode
             player.controlJump = false;
             player.controlDown = false;
             player.controlUseItem = false;
+            player.controlUseTile = false;
             player.controlHook = false;
             player.releaseHook = true;
             if (player.mount.Active)

@@ -1068,7 +1068,10 @@ namespace FargowiltasSouls.Projectiles
                 }
             }
 
-            
+            if (projectile.type == ProjectileID.IceBlock && modPlayer.FrigidGemstoneItem != null)
+            {
+                target.AddBuff(BuffID.Frostburn, 360);
+            }
         }
 
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)

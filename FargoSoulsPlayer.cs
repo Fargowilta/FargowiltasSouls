@@ -352,6 +352,7 @@ namespace FargowiltasSouls
         public int WretchedPouchCD;
         public bool NymphsPerfume;
         public bool NymphsPerfumeRespawn;
+        public int NymphsPerfumeRestoreLife;
         public int NymphsPerfumeCD = 30;
         public bool SqueakyAcc;
         public bool RainbowSlime;
@@ -1042,9 +1043,9 @@ namespace FargowiltasSouls
 
         public override void OnRespawn(Player Player)
         {
-            if (NymphsPerfumeRespawn && !FargoSoulsUtil.AnyBossAlive())
+            if (NymphsPerfumeRespawn)
             {
-                Player.statLife = Player.statLifeMax2;
+                NymphsPerfumeRestoreLife = 6;
             }
         }
 
@@ -1829,6 +1830,14 @@ namespace FargowiltasSouls
             if (!FreeEaterSummon && !Main.npc.Any(n => n.active && (n.type == NPCID.EaterofWorldsHead || n.type == NPCID.EaterofWorldsBody || n.type == NPCID.EaterofWorldsTail)))
             {
                 FreeEaterSummon = true;
+            }
+
+            if (NymphsPerfumeRestoreLife > 0 && --NymphsPerfumeRestoreLife == 0)
+            {
+                if (Player.statLife < Player.statLifeMax2)
+                    Player.statLife = Player.statLifeMax2;
+                //doing it like this so it accounts for your lifeMax after respawn
+                //regular OnRespawn() doesnt account for lifeforce, and is lowered by dying with oceanic maul
             }
 
             ConcentratedRainbowMatterTryAutoHeal();

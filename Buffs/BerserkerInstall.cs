@@ -17,8 +17,8 @@ namespace FargowiltasSouls.Buffs
 
         public static void DebuffPlayerStats(Player player)
         {
-            player.endurance -= 0.20f;
-            player.statDefense -= 20;
+            player.endurance -= 0.30f;
+            player.statDefense -= 30;
         }
 
         public override void Update(Player player, ref int buffIndex)
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Buffs
 
             if (player.buffTime[buffIndex] == 2)
             {
-                int stunDuration = 180;
+                int stunDuration = 150; //2.5sec
                 player.AddBuff(ModContent.BuffType<BerserkerInstallCD>(), stunDuration);
                 player.AddBuff(ModContent.BuffType<Stunned>(), stunDuration);
             }

@@ -274,3 +274,10 @@ wood ench discount secretly works in inventory too
 added 3 custom preset toggle slots
 
 resprited retinazer deathray
+frigid gem buff, ice rod blocks inflict frostburn
+agi lens adjustment, durations are 7.5/2.5, was 6/3, but defense/DR down is 30%, was 20%
+nymphs perfume implementation adjusted
+	will now respawn you with FULL full life
+	no longer respawns with less life when killed with oceanic maul life reduction
+	will respawn with full life with unlim lifeforce buff, unlike previous perfume
+fixed stunned not disabling right click

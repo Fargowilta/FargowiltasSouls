@@ -2677,7 +2677,7 @@ namespace FargowiltasSouls
             {
                 SoundEngine.PlaySound(SoundID.Item119, Player.Center);
 
-                Player.AddBuff(ModContent.BuffType<BerserkerInstall>(), 360);
+                Player.AddBuff(ModContent.BuffType<BerserkerInstall>(), 7 * 60 + 30); //7.5sec
 
                 for (int i = 0; i < 60; i++)
                 {

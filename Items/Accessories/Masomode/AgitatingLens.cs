@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\nWhile dashing or running quickly you will create a trail of demon scythes" +
                 "\nPress the Debuff Install key to go berserk" +
                 "\nWhen berserk, massively increased offenses, massively lowered defenses, and you cannot stop attacking or moving" +
-                "\nBerserk state lasts for 6 seconds and you are stunned for 3 seconds afterwards" +
+                "\nBerserk state lasts for 7.5 seconds and you are stunned for 2.5 seconds afterwards" +
                 "\n'The irritable remnant of a defeated foe'");
 
             // DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "躁动晶状体");
