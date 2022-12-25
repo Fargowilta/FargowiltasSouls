@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Titanium Enchantment");
             Tooltip.SetDefault(
 @"Attacking generates a defensive barrier of up to 20 titanium shards
-When you reach the maximum amount, you gain 75% damage resistance for 3 seconds
+When you reach the maximum amount, you gain 50% damage resistance for 3 seconds
 This has a cooldown of 10 seconds
 'The power of titanium in the palm of your hand'");
         }
