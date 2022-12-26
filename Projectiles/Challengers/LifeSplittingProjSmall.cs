@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 	{
         public override void AI()
 		{
-            if (Projectile.ai[0] == 45f)
+            if (Timer == 45f)
 			{
 				int damage = Projectile.damage;
 				float knockBack = 3f;

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,6 +11,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 	public class LifeProjSmall : ModProjectile
 	{
+        Projectile FrontProj = null;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Life Shot");
@@ -42,15 +44,16 @@ namespace FargowiltasSouls.Projectiles.Challengers
             return false;
         }
 
+        public float Timer = 0;
         public override void AI()
         {
             //Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 91, Projectile.velocity.X, Projectile.velocity.Y, 0, default(Color), 0.25f);
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
 
-            //if (Projectile.ai[0] > 120 && Projectile.ai[0] < 240)
+            //if (Timer > 120 && Timer < 240)
             //    Projectile.velocity *= 1.015f;
 
-            if (++Projectile.ai[0] > 600f)
+            if (++Timer > 600f)
             {
                 Projectile.Kill();
             }
@@ -58,20 +61,36 @@ namespace FargowiltasSouls.Projectiles.Challengers
             //flag to be accelerating rain
             if (Projectile.ai[1] == -1)
             {
-                if (Projectile.ai[0] > 120)
+                if (Timer > 120)
                     Projectile.velocity *= 1.04f;
-                if (Projectile.ai[0] > 240)
+                if (Timer > 240)
                     Projectile.Kill();
             }
             else //i.e. rain does not do this
             {
                 //a bit after spawning, become tangible when it finds an open space
-                if (!Projectile.tileCollide && Projectile.ai[0] > 60 * Projectile.MaxUpdates)
+                if (!Projectile.tileCollide && Timer > 60 * Projectile.MaxUpdates)
                 {
                     Tile tile = Framing.GetTileSafely(Projectile.Center);
                     if (!(tile.HasUnactuatedTile && Main.tileSolid[tile.TileType] && !Main.tileSolidTop[tile.TileType]))
                         Projectile.tileCollide = true;
                 }
+            }
+
+            //find front proj
+            if (FrontProj == null)
+            {
+                foreach (Projectile p in Main.projectile)
+                {
+                    if (p.type == Projectile.type && p.ai[0] == Projectile.ai[0] - 1)
+                        FrontProj = p;
+                }
+                FrontProj ??= Projectile; //if still null, assign to itself
+
+            }
+            else if (!FrontProj.active)
+            {
+                FrontProj = Projectile;
             }
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
@@ -88,7 +107,33 @@ namespace FargowiltasSouls.Projectiles.Challengers
             }
         }
         public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 610 - Main.mouseTextColor * 2) * Projectile.Opacity * 0.9f;
+        /*public override bool PreDraw(ref Color lightColor)
+        {
+            //Main.spriteBatch.End(); Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+            int drawLayers = 1;
 
+            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D GlowlineTexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/GlowLine", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            int num156 = texture2D13.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+            Vector2 origin2 = rectangle.Size() / 2f;
+
+            int length = (int)Projectile.Distance(FrontProj.Center);
+            Vector2 offset = Projectile.rotation.ToRotationVector2() * length / 2f;
+            Vector2 position = Projectile.Center - Main.screenLastPosition + new Vector2(0f, Projectile.gfxOffY) + offset;
+            const float resolutionCompensation = 128f / 24f; //i made the image higher res, this compensates to keep original display size
+            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, length, (int)(rectangle.Height * Projectile.scale / resolutionCompensation));
+
+            Color drawColor = Projectile.GetAlpha(lightColor);
+            float DrawRotation = Projectile.DirectionTo(FrontProj.Center).ToRotation();
+
+            for (int j = 0; j < drawLayers; j++)
+                Main.EntitySpriteDraw(new DrawData(GlowlineTexture, destination, new Rectangle?(rectangle), drawColor, DrawRotation, origin2, SpriteEffects.None, 0));
+
+            //Main.spriteBatch.End(); Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
+            return false;
+        }*/
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
