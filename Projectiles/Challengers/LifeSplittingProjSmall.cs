@@ -31,8 +31,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset1, type, damage, knockBack, Main.myPlayer);
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset2, type, damage, knockBack, Main.myPlayer);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset1, type, damage, knockBack, Main.myPlayer, Projectile.ai[0] - 10000000);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset2, type, damage, knockBack, Main.myPlayer,  Projectile.ai[0] - 20000000);
 				}
 
 				if (Projectile.ai[1] == 2 && FargoSoulsWorld.EternityMode)
