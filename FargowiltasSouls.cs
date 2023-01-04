@@ -408,7 +408,8 @@ namespace FargowiltasSouls
                             netMessage.Write((byte)Main.LocalPlayer.whoAmI);
                             netMessage.Send();
                         }
-                        Main.npcChatText = FargoSoulsUtil.IsChinese() ? "这个世界看起来比平时更艰难，所以我免费给你提供这些，仅此一次！如果你需要任何提示，请告诉我，好吗？" : "This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?";
+                        //Main.npcChatText = FargoSoulsUtil.IsChinese() ? "这个世界看起来比平时更艰难，所以我免费给你提供这些，仅此一次！如果你需要任何提示，请告诉我，好吗？" : "This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?";
+                        Main.npcChatText = Language.GetTextValue("Mods.FargowiltasSouls.Dialogues.GiveDevianttGifts");
                         break;
 
                     case "SummonCrit":

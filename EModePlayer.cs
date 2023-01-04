@@ -11,6 +11,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace FargowiltasSouls
 {
@@ -596,7 +597,8 @@ namespace FargowiltasSouls
 
             if (Main.LocalPlayer.HasBuff(ModContent.BuffType<RushJob>()))
             {
-                chatText = "I've done all I can in the time I have!";
+                //chatText = "I've done all I can in the time I have!";
+                chatText = Language.GetTextValue("Mods.FargowiltasSouls.Dialogues.NurseCantHeal");
                 return false;
             }
 

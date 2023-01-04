@@ -1384,6 +1384,11 @@ Mods: {
 			Count1: 嘘……你能听到我说话吗？这是一个秘密消息！嗨！
 		}
 
+		Dialogues:{
+		GiveDevianttGifts: 这个世界看起来比平时更艰难，所以我免费给你提供这些，仅此一次！如果你需要任何提示，请告诉我，好吗？
+		NurseCantHeal: 我已经在这有限的时间内尽我所能了！
+		}
+
 		Config: {
 			HideToggler: 只在开启物品栏时，才会显示饰品效果菜单
 			HideTogglerDescription: 如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏

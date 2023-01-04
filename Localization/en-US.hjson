@@ -386,6 +386,11 @@ Mods: {
 			Count1: Psst... can you hear me? This is a secret message! Hi!
 		}
 
+		Dialogues:{
+		GiveDevianttGifts: This world looks tougher than usual, so you can have these on the house just this once! Talk to me if you need any tips, yeah?
+		NurseCantHeal: I've done all I can in the time I have!
+		}
+
 		Config: {
 			HideToggler: Only show effect toggler when inventory is open
 			HideTogglerDescription: If true, the effect toggler is automatically hidden when your inventory is closed.
