@@ -198,6 +198,7 @@ Mods: {
 			DevisCurse: "{$Mods.FargowiltasSouls.NPCName.DeviBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
 			AbomsCurse: "{$Mods.FargowiltasSouls.NPCName.AbomBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
+			SpawnFishronEX: "Duke Fishron EX {$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "Mutant has been enraged by the death of his brother!"
 			AbominationnVoodooDollFail: "The doll teleports back into your hands. Maybe it shouldn't be used underground..."
@@ -1124,6 +1125,19 @@ Mods: {
 			Betsy27: " was banned>"
 			Betsy28: " was muted>"
 
+		}
+
+		UI: {
+			SetAllOff: "Turn all toggles off"
+			SetAllOn: "Turn all toggles on"
+			SomeEffects: "Some effects preset"
+			MinimalEffects: "Minimal effects preset"
+			PresetCustom1: "Custom preset "
+			PresetCustom2: " (right click to save)"
+			AccessoryEffects: "Configure Accessory Effects"
+			OncomingMutantE: "Eternity Mode is enabled"
+			OncomingMutantM: "Masochist Mode is enabled"
+			SearchHintText: "Search..."
 		}
 
 		Keybind: {
