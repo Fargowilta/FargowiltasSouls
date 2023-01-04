@@ -1275,8 +1275,8 @@ Mods: {
 			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime}的手臂又长出来了！"
 			SkeletronGuardian: "{$NPCName.SkeletronHead}进入了地牢守卫阶段！"
 			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime}进入了地牢守卫阶段！"
-			TwinsEndure: 挺住了致命攻击，它还能帮着它的兄弟打三百回合！
-			TwinsRevive: 复活了！
+			TwinsEndure: "{0}挺住了致命攻击，它还能帮着它的兄弟打三百回合！"
+			TwinsRevive: "{0}复活了！"
 			GelatinSubjects: 圣凝史莱姆已苏醒！
 			RoyalSubject: 皇家工蜂已苏醒！
 			QueenBeeEnrage: "{$NPCName.QueenBee}在地下丛林之外变得异常愤怒！"
@@ -1289,17 +1289,18 @@ Mods: {
 		}
 
 		DeathMessage: {
-			Rotting: 烂了。
-			Infested: 控制不住感染。
-			Anticoagulation: 出血过多。
-			DivineWrath: 湮灭于神明的忿怒中。
-			Shadowflame: 被暗影焰包裹着，控制不住火势。
-			NanoInjection: 被纳米机器人从内部吞噬。
+			Rotting: "{0}烂了。"
+			Infested: "{0}控制不住感染。"
+			Anticoagulation: "{0}出血过多。"
+			DivineWrath: "{0}湮灭于神明的忿怒中。"
+			Shadowflame: "{0}被暗影焰包裹着，控制不住火势。"
+			NanoInjection: "{0}被纳米机器人从内部吞噬。"
 
 			Fused:"{0}被炸成了碎片。"
 			Nutcracker: "{0}的“坚果”裂开了。"
 			Derpling: "{0}被吸干了。"
 			Snatchers: "{0}被食人怪咬成了“被吃掉”的男人。"
+			FakeHeart: "{0}感到了心碎。"
 		}
 
 		DeviChatter: {
@@ -4260,20 +4261,19 @@ Mods: {
 
 		}
 
-		//Keybind: {
-			//Freeze: 冻结
-			//Gold: 金身
-			//SmokeBomb: 投掷烟雾弹
-			//SpecialDash: 特殊冲刺
-			//MutantBomb: 突变炸弹
-			//SoulToggle: 打开魂石效果设置
-			//PrecisionSeal: 玲珑圣印精确模式
-			//MagicalBulb: 魔法净化
-			//FrigidSpell: 寒霜咒语
-			//DebuffInstall: 减益负载
-			//AmmoCycle: 弹药切换
-		//}
-		// 下一次tml更新去掉注释，FargowiltasSousl.cs里改好
+		Keybind: {
+			Freeze: 冻结
+			Gold: 金身
+			SmokeBomb: 投掷烟雾弹
+			SpecialDash: 特殊冲刺
+			Bomb: 炸弹
+			SoulToggle: 打开魂石效果设置
+			PrecisionSeal: 玲珑圣印精确模式
+			MagicalBulb: 魔法净化
+			FrigidSpell: 寒霜咒语
+			DebuffInstall: 减益负载
+			AmmoCycle: 弹药切换
+		}
 
 		DropRate: {
 			Eternity: "[i:{0}] 在永恒模式下的掉落率"

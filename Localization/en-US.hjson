@@ -277,8 +277,8 @@ Mods: {
 			SkeletronPrimeRegrow: "{$NPCName.SkeletronPrime} has regrown its arms!"
 			SkeletronGuardian: "{$NPCName.SkeletronHead} has entered Dungeon Guardian form!"
 			SkeletronPrimeGuardian: "{$NPCName.SkeletronPrime} has entered Dungeon Guardian form!"
-			TwinsEndure: endured the fatal blow to fight alongside its twin!
-			TwinsRevive: has been revived!
+			TwinsEndure: "{0} endured the fatal blow to fight alongside its twin!"
+			TwinsRevive: "{0} has been revived!"
 			GelatinSubjects: Gelatin Subjects have awoken!
 			RoyalSubject: Royal Subject has awoken!
 			QueenBeeEnrage: "{$NPCName.QueenBee} has enraged outside the underground jungle!"
@@ -291,17 +291,18 @@ Mods: {
 		}
 
 		DeathMessage: {
-			Rotting: rotted away.
-			Infested: could not handle the infection.
-			Anticoagulation: bled out.
-			DivineWrath: was annihilated by divine wrath.
-			Shadowflame: burned up in shadowy flames.
-			NanoInjection: was consumed from within by nanites.
+			Rotting: "{0} rotted away."
+			Infested: "{0} could not handle the infection."
+			Anticoagulation: "{0} bled out."
+			DivineWrath: "{0} was annihilated by divine wrath."
+			Shadowflame: "{0} burned up in shadowy flames."
+			NanoInjection: "{0} was consumed from within by nanites."
 
 			Fused:"{0} was blown to bits."
 			Nutcracker: "{0} had his nuts cracked."
 			Derpling: "{0} was sucked dry."
 			Snatchers: "{0} became a man eaten by Man Eater."
+			FakeHeart: "{0} felt heartbroken."
 		}
 
 		DeviChatter: {
@@ -1120,20 +1121,19 @@ Mods: {
 
 		}
 
-		//Keybind: {
-			//Freeze: Freeze
-			//Gold: Turn Gold
-			//SmokeBomb: Throw Smoke Bomb
-			//SpecialDash: Special Dash
-			//MutantBomb: Mutant Bomb
-			//SoulToggle: Open Soul Toggler
-			//PrecisionSeal: Precision Movement
-			//MagicalBulb: Magical Cleanse
-			//FrigidSpell: Frigid Spell
-			//DebuffInstall: Debuff Install
-			//AmmoCycle: Ammo Cycle
-		//}
-		//enable this when tml updated
+		Keybind: {
+			Freeze: Freeze
+			Gold: Turn Gold
+			SmokeBomb: Throw Smoke Bomb
+			SpecialDash: Special Dash
+			Bomb: Bomb
+			SoulToggle: Open Soul Toggler
+			PrecisionSeal: Precision Movement
+			MagicalBulb: Magical Cleanse
+			FrigidSpell: Frigid Spell
+			DebuffInstall: Debuff Install
+			AmmoCycle: Ammo Cycle
+		}
 
 		DropRate: {
 			Eternity: "[i:{0}] Eternity Mode drop rate"

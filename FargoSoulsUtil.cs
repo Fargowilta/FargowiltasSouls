@@ -429,6 +429,8 @@ namespace FargowiltasSouls
             return Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Portuguese;
         }
 
+        public static string GetModTranslation(string key, bool useFargoKey = true) => LocalizationLoader.GetOrCreateTranslation(useFargoKey ? $"Mods.FargowiltasSouls.{key}" : key).GetTranslation(Language.ActiveCulture);
+
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
 
         public static Vector2 ClosestPointInHitbox(Rectangle hitboxOfTarget, Vector2 desiredLocation)
