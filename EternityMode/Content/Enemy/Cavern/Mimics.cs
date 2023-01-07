@@ -192,7 +192,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                         npc.velocity.Y = -0.05f;
                     }
                 }
-                if (npc.ai[0] == 1 && player.active && !player.dead) //if mimic awake and target active
+                if (npc.ai[0] == 1 && player.active && !player.dead && (npc.life < npc.lifeMax || FargoSoulsWorld.MasochistModeReal) ) //if mimic awake and target active and mimic damaged (in non-maso), do ai rework
                 {
                     if (AttackTimer < AttackCD) //only do flight when not attacking
                     {
