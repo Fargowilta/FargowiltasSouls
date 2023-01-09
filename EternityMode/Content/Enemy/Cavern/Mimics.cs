@@ -192,7 +192,8 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
                         npc.velocity.Y = -0.05f;
                     }
                 }
-                if (npc.ai[0] == 1 && player.active && !player.dead) //if mimic awake and target active
+
+                if (npc.life < npc.lifeMax && npc.ai[0] == 1 && player.active && !player.dead) //if mimic awake and target active
                 {
                     if (AttackTimer < AttackCD) //only do flight when not attacking
                     {
