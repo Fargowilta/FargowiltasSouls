@@ -332,7 +332,7 @@ Mods: {
 			AncientCobaltEnchant: Encantamento de Cobalto Antigo
 			AncientHallowEnchant: Encantamento Consagrado Antigo
 			AncientShadowEnchant: Encantamento das Sombras Antigo
-			AnglerEnchantment: Encantamento do Pescador
+			AnglerEnchant: Encantamento do Pescador
 			ApprenticeEnchant: Encantamento do Aprendiz
 			BeeEnchant: Encantamento da Abelha
 			BeetleEnchant: Encantamento do Besouro
@@ -503,7 +503,7 @@ Mods: {
 			
 			NekomiHood: Capuz Nekomi
 			NekomiHoodie: Moletom Nekomi
-			NekomiHood: Calças Nekomi
+			NekomiLeggings: Calças Nekomi
 			
 			StyxChestplate: Peitoral de Styx
 			StyxCrown: Coroa de Styx
@@ -706,7 +706,7 @@ Mods: {
 				'Arcaico, mas funcional'
 				'''
 			
-			AnglerEnchantment: 
+			AnglerEnchant: 
 				'''
 				Aumenta o poder de pescaria
 				Você pega peixes quase instantaneamente
