@@ -45,7 +45,7 @@ namespace FargowiltasSouls
 
             #region boss spawn info
 
-            if (FargoSoulsUtil.IsChinese())
+            if (FargoSoulsUtil.IsChinese)
             {
                 AddBossSpawnInfo("DeviBoss", $"使用[i:{ModContent.ItemType<DevisCurse>()}]召唤。");
                 AddBossSpawnInfo("AbomBoss", $"使用[i:{ModContent.ItemType<AbomsCurse>()}]召唤。");
@@ -65,7 +65,7 @@ namespace FargowiltasSouls
                 AddBossSpawnInfo("LifeChallenger", $"白天时在神圣之地使用[i:{ModContent.ItemType<FragilePixieLamp>()}]召唤。");
                 //AddBossSpawnInfo("CursedCoffin", $"在地下沙漠使用[i:{ModContent.ItemType<CoffinSummon>()}]召唤。");
             }
-            else if (FargoSoulsUtil.IsPortuguese())
+            else if (FargoSoulsUtil.IsPortuguese)
             {
                 AddBossSpawnInfo("DeviBoss", $"Invoque usando [i:{ModContent.ItemType<DevisCurse>()}]");
                 AddBossSpawnInfo("AbomBoss", $"Invoque usando [i:{ModContent.ItemType<AbomsCurse>()}]");

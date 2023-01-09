@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Patreon
                 string description = patreonDescription;
                 if (extra != default)
                 {
-                    if (!FargoSoulsUtil.IsChinese())
+                    if (!FargoSoulsUtil.IsChinese)
                         description += " " + extra;
                     else
                         description = $"[i:{ModContent.ItemType<Gittle.RoombaPet>()}]{extra + patreonDrop}";

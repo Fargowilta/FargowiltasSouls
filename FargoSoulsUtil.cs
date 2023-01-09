@@ -420,14 +420,9 @@ namespace FargowiltasSouls
             }
         }
 
-        public static bool IsChinese()
-        {
-            return Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese;
-        }
-        public static bool IsPortuguese()
-        {
-            return Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Portuguese;
-        }
+        public static bool IsChinese => Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Chinese;
+
+        public static bool IsPortuguese => Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.Portuguese;
 
         public static string GetModTranslation(string key, bool useFargoKey = true) => LocalizationLoader.GetOrCreateTranslation(useFargoKey ? $"Mods.FargowiltasSouls.{key}" : key).GetTranslation(Language.ActiveCulture);
 
