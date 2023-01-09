@@ -1196,6 +1196,7 @@ Mods: {
 			DevisCurse: "{$Mods.FargowiltasSouls.NPCName.DeviBoss}{$Mods.FargowiltasSouls.Message.HasAwoken}"
 			AbomsCurse: "{$Mods.FargowiltasSouls.NPCName.AbomBoss}{$Mods.FargowiltasSouls.Message.HasAwoken}"
 			MutantsCurse: "{$Mods.FargowiltasSouls.NPCName.MutantBoss}{$Mods.FargowiltasSouls.Message.HasAwoken}"
+			SpawnFishronEX: "猪龙鱼公爵EX{$Mods.FargowiltasSouls.Message.HasAwoken}"
 			
 			AbominationnVoodooDoll: "突变体的兄弟死了，突变体被激怒了！"
 			AbominationnVoodooDollFail: "娃娃传送回了你的手中。也许不应该在地下使用它..."
@@ -4264,6 +4265,19 @@ Mods: {
 			Betsy27: 被踢出了世界>
 			Betsy28: 被禁言29天23小时59分钟>
 
+		}
+
+		UI: {
+			SetAllOff: "关闭所有饰品效果"
+			SetAllOn: "开启所有饰品效果"
+			SomeEffects: "部分效果预设"
+			MinimalEffects: "最小化影响预设"
+			PresetCustom1: "自定义效果配置"
+			PresetCustom2: "（右键点击以保存）"
+			AccessoryEffects: "设置饰品效果"
+			OncomingMutantE: "永恒模式已开启"
+			OncomingMutantM: "受虐模式已开启"
+			SearchHintText: "搜索……"
 		}
 
 		Keybind: {

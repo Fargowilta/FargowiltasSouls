@@ -8,6 +8,7 @@ using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.UI.Chat;
 
@@ -98,28 +99,28 @@ namespace FargowiltasSouls.UI
             OffButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOffButton.Value, (toggles) =>
             {
                 toggles.SetAll(false);
-            }, FargoSoulsUtil.IsChinese() ? "关闭所有饰品效果" : "Turn all toggles off");
+            }, FargoSoulsUtil.GetModTranslation("UI.SetAllOff"));
             OffButton.Top.Set(6, 0);
             OffButton.Left.Set(8, 0);
 
             OnButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetOnButton.Value, (toggles) =>
             {
                 toggles.SetAll(true);
-            }, FargoSoulsUtil.IsChinese() ? "开启所有饰品效果" : "Turn all toggles on");
+            }, FargoSoulsUtil.GetModTranslation("UI.SetAllOn"));
             OnButton.Top.Set(6, 0);
             OnButton.Left.Set(30, 0);
 
             SomeEffectsButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.SomeEffects();
-            }, FargoSoulsUtil.IsChinese() ? "部分效果预设" : "Some effects preset");
+            }, FargoSoulsUtil.GetModTranslation("UI.SomeEffects"));
             SomeEffectsButton.Top.Set(6, 0);
             SomeEffectsButton.Left.Set(52, 0);
 
             MinimalButton = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetMinimalButton.Value, (toggles) =>
             {
                 toggles.MinimalEffects();
-            }, FargoSoulsUtil.IsChinese() ? "最小化影响预设" : "Minimal effects preset");
+            }, FargoSoulsUtil.GetModTranslation("UI.MinimalEffects"));
             MinimalButton.Top.Set(6, 0);
             MinimalButton.Left.Set(74, 0);
 
@@ -141,7 +142,7 @@ namespace FargowiltasSouls.UI
                 CustomButton[i] = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetCustomButton.Value,
                 toggles => toggles.LoadCustomPreset(slot),
                 toggles => toggles.SaveCustomPreset(slot),
-                FargoSoulsUtil.IsChinese() ? $"自定义效果配置{slot}（右键点击以保存）" : $"Custom preset {slot} (right click to save)");
+                FargoSoulsUtil.GetModTranslation("UI.PresetCustom1") + slot + FargoSoulsUtil.GetModTranslation("UI.PresetCustom2"));
                 CustomButton[i].Top.Set(6, 0);
                 CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
                 PresetPanel.Append(CustomButton[i]);

@@ -837,7 +837,7 @@ namespace FargowiltasSouls
                             EModeGlobalNPC.spawnFishronEX = true;
                             NPC.NewNPC(NPC.GetBossSpawnSource(target), x, y, NPCID.DukeFishron, 0, 0f, 0f, 0f, 0f, target);
                             EModeGlobalNPC.spawnFishronEX = false;
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(FargoSoulsUtil.IsChinese() ? "猪龙鱼公爵EX已苏醒！" : "Duke Fishron EX has awoken!"), new Color(50, 100, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.FargowiltasSouls.Message.SpawnFishronEX"), new Color(50, 100, 255));
                         }
                         break;
 
