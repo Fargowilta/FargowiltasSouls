@@ -1720,12 +1720,6 @@ Mods: {
 			PatreonNanoCore: 纳米核心
 		}
 
-		UI: {
-			SoulTogglerButton: 设置饰品效果
-			EternityEnabled: 永恒模式已开启
-			MasochistEnabled: 受虐模式已开启
-			}
-
 		ItemExtra: {
 			WoodenDiscount: 当前折扣：{0}%
 			WoodenTooltip: “卑微的开始……”
@@ -4272,8 +4266,7 @@ Mods: {
 			SetAllOn: "开启所有饰品效果"
 			SomeEffects: "部分效果预设"
 			MinimalEffects: "最小化影响预设"
-			PresetCustom1: "自定义效果配置"
-			PresetCustom2: "（右键点击以保存）"
+			PresetCustom: "自定义效果配置{0}（右键点击以保存）"
 			AccessoryEffects: "设置饰品效果"
 			OncomingMutantE: "永恒模式已开启"
 			OncomingMutantM: "受虐模式已开启"

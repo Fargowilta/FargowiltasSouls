@@ -721,12 +721,6 @@ Mods: {
 			PatreonCrimetroid: Crimetroid
 			PatreonNanoCore: Nano Core
 		}
-    
-        UI: {
-            SoulTogglerButton: Configure Accessory Effects
-            EternityEnabled: Eternity Mode is enabled
-            MasochistEnabled: Masochist Mode is enabled
-        }
 
         ItemExtra: {
             WoodenDiscount: Current discount: {0}%
@@ -1132,8 +1126,7 @@ Mods: {
 			SetAllOn: "Turn all toggles on"
 			SomeEffects: "Some effects preset"
 			MinimalEffects: "Minimal effects preset"
-			PresetCustom1: "Custom preset "
-			PresetCustom2: " (right click to save)"
+			PresetCustom: "Custom preset {0} (right click to save)"
 			AccessoryEffects: "Configure Accessory Effects"
 			OncomingMutantE: "Eternity Mode is enabled"
 			OncomingMutantM: "Masochist Mode is enabled"

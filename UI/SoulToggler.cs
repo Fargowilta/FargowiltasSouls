@@ -142,7 +142,7 @@ namespace FargowiltasSouls.UI
                 CustomButton[i] = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetCustomButton.Value,
                 toggles => toggles.LoadCustomPreset(slot),
                 toggles => toggles.SaveCustomPreset(slot),
-                FargoSoulsUtil.GetModTranslation("UI.PresetCustom1") + slot + FargoSoulsUtil.GetModTranslation("UI.PresetCustom2"));
+                FargoSoulsUtil.GetModTranslation("UI.PresetCustom", args: slot));
                 CustomButton[i].Top.Set(6, 0);
                 CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
                 PresetPanel.Append(CustomButton[i]);
