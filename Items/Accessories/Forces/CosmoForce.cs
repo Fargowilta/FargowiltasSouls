@@ -11,11 +11,11 @@ namespace FargowiltasSouls.Items.Accessories.Forces
         public static int[] Enchants => new int[]
         {
             ModContent.ItemType<MeteorEnchant>(),
-            ModContent.ItemType<WizardEnchant>(),
             ModContent.ItemType<SolarEnchant>(),
             ModContent.ItemType<VortexEnchant>(),
             ModContent.ItemType<NebulaEnchant>(),
-            ModContent.ItemType<StardustEnchant>()
+            ModContent.ItemType<StardustEnchant>(),
+            ModContent.ItemType<WizardEnchant>()
         };
 
         public override void SetStaticDefaults()
