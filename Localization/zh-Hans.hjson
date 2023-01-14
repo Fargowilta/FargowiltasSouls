@@ -203,7 +203,7 @@ Mods: {
 			BrainIllusion: 克苏鲁之脑
 			BrainIllusion2: 克苏鲁之脑
 			BrainIllusionAttack: 克苏鲁之脑
-			CreeperGutted: 爬行者
+			CreeperGutted: 飞眼怪
 			DetonatingBubble: 爆炸泡泡
 			DetonatingBubbleEX: 爆炸泡泡
 			CrystalLeaf: 叶绿水晶
@@ -280,7 +280,7 @@ Mods: {
 			BloodDrinker: 饮血者
 			Bloodthirsty: 嗜血
 			BrainOfConfusionDebuff: 理智崩溃
-			ClippedWings: 剪除羽翼
+			ClippedWings: 折翼
 			Crippled: 跛足
 			CurseoftheMoon: 月之诅咒
 			Defenseless: 毫无防御
@@ -769,7 +769,7 @@ Mods: {
 			NatureBullet: 自然子弹
 			NatureCloudMoving: 自然雨云
 			NatureCloudRaining: 自然雨云
-			NatureCrystalLeaf: 叶状水晶
+			NatureCrystalLeaf: 叶绿水晶
 			NatureDeathray: 自然死亡射线
 			NatureDeathraySmall: 自然死亡射线
 			NatureExplosion: 自然爆炸
@@ -895,7 +895,7 @@ Mods: {
 			CelestialRuneLightningArc: 闪电弧
 			ClingerFlame: 诅咒焰
 			ClownBomb: 小丑炸弹
-			CrystalLeafShot: 叶状水晶
+			CrystalLeafShot: 叶绿水晶
 			CultistArrow: 教徒之箭
 			CultistFireball: 火球
 			CultistRitual: 教徒仪式
@@ -963,7 +963,7 @@ Mods: {
 			PhantasmalBolt2: 幻影矢
 			PhantasmalSphereDeathray: 幻影死亡射线
 			PhantasmalSphereRing: 幻影球
-			PlanteraCrystalLeafRing: 叶状水晶
+			PlanteraCrystalLeafRing: 叶绿水晶
 			PlanteraTentacle: 植物触手
 			PrimeGuardian: 机械地牢守卫
 			PrimeTrail: 轨迹
@@ -1070,7 +1070,7 @@ Mods: {
 			MutantBomb: 幻象爆炸
 			MutantBombSmall: 幻象爆炸
 			MutantBoss: 突变体
-			MutantCrystalLeaf: 叶状水晶
+			MutantCrystalLeaf: 叶绿水晶
 			MutantDeathray1: 幻影死亡射线
 			MutantDeathray2: 幻影死亡射线
 			MutantDeathray3: 烈焰死亡射线
@@ -1091,7 +1091,7 @@ Mods: {
 			MutantGuardian: 机械骷髅王
 			MutantHeal: 突变治疗
 			MutantMark1: 幻影球
-			MutantMark2: 叶状水晶
+			MutantMark2: 叶绿水晶
 			MutantNuke: 猪鲨核弹
 			MutantPillar: 天界柱
 			MutantReticle: 突变瞄准点
@@ -1751,7 +1751,7 @@ Mods: {
 					在你周围召唤火球
 					在你周围召唤暗影珠
 					在你周围召唤冰锥
-					在你周围召唤叶状水晶
+					在你周围召唤叶绿水晶
 					在你周围召唤神圣剑和神圣盾
 					召唤甲虫保护你
 					召唤爆炸烈焰哨兵
@@ -2586,7 +2586,7 @@ Mods: {
 				'''
 			ChlorophyteEnchant:
 				'''
-				召唤一圈叶状水晶攻击附近的敌人
+				召唤一圈叶绿水晶攻击附近的敌人
 				使你获得孢子二段跳能力
 				使用翅膀进行飞行时，你周围会不断生成孢子
 				你能进行短程冲刺
@@ -4159,7 +4159,7 @@ Mods: {
 			'''
 			TerrariaSoul:
 			'''
-			召唤火球、暗影珠、冰锥、叶状水晶、爆炸烈焰哨兵、神圣剑盾和甲虫
+			召唤火球、暗影珠、冰锥、叶绿水晶、爆炸烈焰哨兵、神圣剑盾和甲虫
 			右键进行盾牌格挡
 			双击“下”键后会召唤一个哨兵、传送门、风暴并切换至隐形状态
 			按下“金身”键后会将你包裹在一个黄金壳中，按下“冻结”键后会冻结9秒时间，召唤物会释放镰刀
