@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -38,14 +38,26 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool Resist;
         public int RespawnTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(DeathrayState), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AuraRadiusCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DarkStarTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(StoredDirectionToPlayer), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(DeathrayState);
+            binaryWriter.Write7BitEncodedInt(AuraRadiusCounter);
+            binaryWriter.Write7BitEncodedInt(DarkStarTimer);
+            bitWriter.WriteBit(StoredDirectionToPlayer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            DeathrayState = binaryReader.Read7BitEncodedInt();
+            AuraRadiusCounter = binaryReader.Read7BitEncodedInt();
+            DarkStarTimer = binaryReader.Read7BitEncodedInt();
+            StoredDirectionToPlayer = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -69,6 +81,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
+
+            //have some dr during phase transition animation
+            if (npc.ai[0] == 1 || npc.ai[0] == 2)
+                Resist = true;
 
             NPC spazmatism = FargoSoulsUtil.NPCExists(EModeGlobalNPC.spazBoss, NPCID.Spazmatism);
 
@@ -364,7 +380,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
             if (Resist)
-                damage *= 0.66;
+                damage *= 0.5;
 
             return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
@@ -438,14 +454,27 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool Resist;
         public int RespawnTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ProjectileTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FlameWheelSpreadTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FlameWheelCount), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DarkStarTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(P3DashPhaseDelay), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ProjectileTimer);
+            binaryWriter.Write7BitEncodedInt(FlameWheelSpreadTimer);
+            binaryWriter.Write7BitEncodedInt(FlameWheelCount);
+            binaryWriter.Write7BitEncodedInt(DarkStarTimer);
+            binaryWriter.Write7BitEncodedInt(P3DashPhaseDelay);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ProjectileTimer = binaryReader.Read7BitEncodedInt();
+            FlameWheelSpreadTimer = binaryReader.Read7BitEncodedInt();
+            FlameWheelCount = binaryReader.Read7BitEncodedInt();
+            DarkStarTimer = binaryReader.Read7BitEncodedInt();
+            P3DashPhaseDelay = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void OnFirstTick(NPC npc)
         {
@@ -462,6 +491,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
             if (FargoSoulsWorld.SwarmActive)
                 return true;
+
+            //have some dr during phase transition animation
+            if (npc.ai[0] == 1 || npc.ai[0] == 2)
+                Resist = true;
 
             NPC retinazer = FargoSoulsUtil.NPCExists(EModeGlobalNPC.retiBoss, NPCID.Retinazer);
 
@@ -784,7 +817,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
             if (Resist)
-                damage *= 0.66;
+                damage *= 0.5;
 
             return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }

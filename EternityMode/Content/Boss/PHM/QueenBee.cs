@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -39,16 +39,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(HiveThrowTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(StingerRingTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BeeSwarmTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(SpawnedRoyalSubjectWave1), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(SpawnedRoyalSubjectWave2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(HiveThrowTimer);
+            binaryWriter.Write7BitEncodedInt(StingerRingTimer);
+            binaryWriter.Write7BitEncodedInt(BeeSwarmTimer);
+            bitWriter.WriteBit(SpawnedRoyalSubjectWave1);
+            bitWriter.WriteBit(SpawnedRoyalSubjectWave2);
+            bitWriter.WriteBit(InPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            HiveThrowTimer = binaryReader.Read7BitEncodedInt();
+            StingerRingTimer = binaryReader.Read7BitEncodedInt();
+            BeeSwarmTimer = binaryReader.Read7BitEncodedInt();
+            SpawnedRoyalSubjectWave1 = bitReader.ReadBit();
+            SpawnedRoyalSubjectWave2 = bitReader.ReadBit();
+            InPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

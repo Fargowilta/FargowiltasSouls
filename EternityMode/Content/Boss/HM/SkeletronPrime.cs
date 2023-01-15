@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -37,14 +37,26 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool DroppedSummon;
         public bool HasSaidEndure;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(DungeonGuardianStartup), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MemorizedTarget), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(FullySpawnedLimbs), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(HaveShotGuardians), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(DungeonGuardianStartup);
+            binaryWriter.Write7BitEncodedInt(MemorizedTarget);
+            bitWriter.WriteBit(FullySpawnedLimbs);
+            bitWriter.WriteBit(HaveShotGuardians);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            DungeonGuardianStartup = binaryReader.Read7BitEncodedInt();
+            MemorizedTarget = binaryReader.Read7BitEncodedInt();
+            FullySpawnedLimbs = bitReader.ReadBit();
+            HaveShotGuardians = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -405,21 +417,39 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public int DontActWhenSpawnedTimer = 180;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(IdleOffsetX), IntStrategies.CompoundStrategy },
-                { new Ref<object>(IdleOffsetY), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(NoContactDamageTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(SpinRotation), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(RangedAttackMode), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsSwipeLimb), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InSpinningMode), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(ModeReset), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(CardinalSwipe), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(IdleOffsetX);
+            binaryWriter.Write7BitEncodedInt(IdleOffsetY);
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(NoContactDamageTimer);
+            binaryWriter.Write(SpinRotation);
+            bitWriter.WriteBit(RangedAttackMode);
+            bitWriter.WriteBit(IsSwipeLimb);
+            bitWriter.WriteBit(InSpinningMode);
+            bitWriter.WriteBit(ModeReset);
+            bitWriter.WriteBit(CardinalSwipe);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            IdleOffsetX = binaryReader.Read7BitEncodedInt();
+            IdleOffsetY = binaryReader.Read7BitEncodedInt();
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            NoContactDamageTimer = binaryReader.Read7BitEncodedInt();
+            SpinRotation = binaryReader.ReadSingle();
+            RangedAttackMode = bitReader.ReadBit();
+            IsSwipeLimb = bitReader.ReadBit();
+            InSpinningMode = bitReader.ReadBit();
+            ModeReset = bitReader.ReadBit();
+            CardinalSwipe = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

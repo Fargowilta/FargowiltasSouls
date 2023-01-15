@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using System.Collections.Generic;
 using Terraria;
@@ -19,10 +19,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Dungeon
 
         public bool SpawnedByTim;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(SpawnedByTim), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            bitWriter.WriteBit(SpawnedByTim);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            SpawnedByTim = bitReader.ReadBit();
+        }
 
         public override void OnSpawn(NPC npc, IEntitySource source)
         {

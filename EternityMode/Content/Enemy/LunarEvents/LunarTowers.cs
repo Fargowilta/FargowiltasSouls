@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles;
@@ -37,11 +37,21 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
 
         public bool spawned;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(SpawnedDuringLunarEvent), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            bitWriter.WriteBit(SpawnedDuringLunarEvent);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            SpawnedDuringLunarEvent = bitReader.ReadBit();
+        }
 
         public override void OnFirstTick(NPC npc)
         {
@@ -54,6 +64,9 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
         public override void AI(NPC npc)
         {
             base.AI(npc);
+
+            if (!FargoSoulsWorld.EternityMode)
+                return;
 
             if (!spawned)
             {
@@ -115,12 +128,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.LunarEvents
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
         {
             base.OnHitPlayer(npc, target, damage, crit);
+
+            if (!FargoSoulsWorld.EternityMode)
+                return;
+
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 600);
         }
 
         public override void ModifyHitByAnything(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit)
         {
             base.ModifyHitByAnything(npc, player, ref damage, ref knockback, ref crit);
+
+            if (!FargoSoulsWorld.EternityMode)
+                return;
 
             damage = npc.Distance(player.Center) > 2500 ? 0 : damage / 2;
         }

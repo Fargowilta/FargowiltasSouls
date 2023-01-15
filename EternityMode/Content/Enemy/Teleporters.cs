@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -13,12 +13,22 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
         public int TeleportTimer;
         public bool DoTeleport;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(TeleportTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoTeleport), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(TeleportTimer);
+            bitWriter.WriteBit(DoTeleport);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            TeleportTimer = binaryReader.Read7BitEncodedInt();
+            DoTeleport = bitReader.ReadBit();
+        }
 
         public override void AI(NPC npc)
         {

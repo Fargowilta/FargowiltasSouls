@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -33,15 +33,28 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(FuryRingTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FuryRingShotRotationCounter), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoFuryRingAttack), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InFuryRingAttackCooldown), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(FuryRingTimer);
+            binaryWriter.Write7BitEncodedInt(FuryRingShotRotationCounter);
+            bitWriter.WriteBit(DoFuryRingAttack);
+            bitWriter.WriteBit(InFuryRingAttackCooldown);
+            bitWriter.WriteBit(InPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            FuryRingTimer = binaryReader.Read7BitEncodedInt();
+            FuryRingShotRotationCounter = binaryReader.Read7BitEncodedInt();
+            DoFuryRingAttack = bitReader.ReadBit();
+            InFuryRingAttackCooldown = bitReader.ReadBit();
+            InPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

@@ -221,6 +221,7 @@ namespace FargowiltasSouls.NPCs.Challengers
             Main.time = 27000; //noon
             Main.dayTime = true;
             NPC.defense = NPC.defDefense;
+            NPC.chaseable = true;
             useDR = false;
             phaseProtectionDR = false;
 
@@ -1077,7 +1078,6 @@ namespace FargowiltasSouls.NPCs.Challengers
         public void AttackP3Start()
         {
             useDR = true;
-            NPC.chaseable = !UseTrueOriginAI;
 
             if (AttackF1)
             {
@@ -1166,6 +1166,8 @@ namespace FargowiltasSouls.NPCs.Challengers
 
             if (UseTrueOriginAI) //disable items
             {
+                NPC.chaseable = false;
+
                 if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && NPC.Distance(Main.LocalPlayer.Center) < 3000)
                 {
                     if (Main.LocalPlayer.grapCount > 0)
@@ -2122,7 +2124,17 @@ namespace FargowiltasSouls.NPCs.Challengers
                 HitPlayer = true;
                 NPC.netUpdate = true;
             }
-            NPC.velocity = Vector2.Zero;
+
+            if (NPC.Distance(Player.Center) > 1200)
+            {
+                FlyingState(1.5f);
+            }
+            else
+            {
+                Flying = false;
+                NPC.velocity *= 0.9f;
+            }
+
             if (NPC.ai[1] == 1)
             {
                 NPC.ai[2] = Main.rand.Next(140, 220);
@@ -2180,13 +2192,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                 {
                     int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (LockVector2).RotatedBy((i * -MathHelper.Pi / 48) + (i * NPC.ai[3] * MathHelper.Pi / 24)), ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack10, Main.myPlayer);
                     if (p != Main.maxProjectiles)
-                        Main.projectile[p].timeLeft = 240;
+                        Main.projectile[p].timeLeft = 120;
                     
                     if (PhaseThree)
                     {
                         p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (LockVector2).RotatedBy(((MathHelper.Pi / 4) + ((i + 4) * MathHelper.Pi / 48) - ((NPC.ai[3] * MathHelper.Pi / 2) + ((i + 4) * NPC.ai[3] * MathHelper.Pi / 24)))), ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack10, Main.myPlayer);
                         if (p != Main.maxProjectiles)
-                            Main.projectile[p].timeLeft = 240;
+                            Main.projectile[p].timeLeft = 120;
                     }
                 }
             }
@@ -2389,8 +2401,11 @@ namespace FargowiltasSouls.NPCs.Challengers
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float ai0 = FargoSoulsWorld.MasochistModeReal ? 32 : 24;
-                    float ai1 = FargoSoulsWorld.EternityMode ? 1 : 0;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f).RotatedBy((MathHelper.Pi / 3) * NPC.ai[2]), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 300f, Main.myPlayer, ai0, ai1);
+                    float ai1 = 0;
+                    float speed = 16;
+                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(speed, 0f).RotatedBy((MathHelper.Pi / 3) * NPC.ai[2]), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f), 300f, Main.myPlayer, ai0, ai1);
+                    if (p != Main.maxProjectiles)
+                        Main.projectile[p].timeLeft = 60;
                 }
                 NPC.ai[2]++;
             }
@@ -2409,10 +2424,10 @@ namespace FargowiltasSouls.NPCs.Challengers
             damage /= 2;
 
             if (useDR)
-                damage /= 2;
+                damage /= 3;
 
             if (phaseProtectionDR)
-                damage /= 2;
+                damage /= 3;
 
             return true;
         }

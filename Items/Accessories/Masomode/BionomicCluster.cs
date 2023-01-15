@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
                 "\nUse to teleport to your last death point" +
                 "\nYour attacks can inflict Clipped Wings and produce hearts" +
                 "\nAttacks have a chance to squeak and deal 1 damage to you" +
-                "\nWhile attacking, gain massively increased damage and shadowflame, but less move and attack speed bonuses" +
+                "\nWhile attacking, gain massively increased damage and shadowflame, but less move and defenses and attack speed bonuses" +
                 "\nSummons a friendly rainbow slime" +
                 "\nCertain enemies will drop potions when defeated" +
                 "\nWhen attacking by manually clicking, increases non-summon damage by 30%" +

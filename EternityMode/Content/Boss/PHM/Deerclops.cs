@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -35,16 +35,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(BerserkSpeedupTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(TeleportTimer), IntStrategies.CompoundStrategy },
-				{ new Ref<object>(WalkingSpeedUpTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(EnteredPhase3), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(DoLaserAttack), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(BerserkSpeedupTimer);
+            binaryWriter.Write7BitEncodedInt(TeleportTimer);
+            binaryWriter.Write7BitEncodedInt(WalkingSpeedUpTimer);
+            bitWriter.WriteBit(EnteredPhase2);
+            bitWriter.WriteBit(EnteredPhase3);
+            bitWriter.WriteBit(DoLaserAttack);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            BerserkSpeedupTimer = binaryReader.Read7BitEncodedInt();
+            TeleportTimer = binaryReader.Read7BitEncodedInt();
+            WalkingSpeedUpTimer = binaryReader.Read7BitEncodedInt();
+            EnteredPhase2 = bitReader.ReadBit();
+            EnteredPhase3 = bitReader.ReadBit();
+            DoLaserAttack = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

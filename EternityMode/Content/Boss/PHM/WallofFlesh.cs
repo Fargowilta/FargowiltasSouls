@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -38,17 +38,32 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(WorldEvilAttackCycleTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(ChainBarrageTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(UseCorruptAttack), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase3), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InDesperationPhase), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(MadeEyeInvul), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(WorldEvilAttackCycleTimer);
+            binaryWriter.Write7BitEncodedInt(ChainBarrageTimer);
+            bitWriter.WriteBit(UseCorruptAttack);
+            bitWriter.WriteBit(InPhase2);
+            bitWriter.WriteBit(InPhase3);
+            bitWriter.WriteBit(InDesperationPhase);
+            bitWriter.WriteBit(MadeEyeInvul);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            WorldEvilAttackCycleTimer = binaryReader.Read7BitEncodedInt();
+            ChainBarrageTimer = binaryReader.Read7BitEncodedInt();
+            UseCorruptAttack = bitReader.ReadBit();
+            InPhase2 = bitReader.ReadBit();
+            InPhase3 = bitReader.ReadBit();
+            InDesperationPhase = bitReader.ReadBit();
+            MadeEyeInvul = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -404,13 +419,24 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool RepeatingAI;
         public bool HasTelegraphedNormalLasers;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(PreventAttacks), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(RepeatingAI), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(HasTelegraphedNormalLasers), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(PreventAttacks);
+            bitWriter.WriteBit(RepeatingAI);
+            bitWriter.WriteBit(HasTelegraphedNormalLasers);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            PreventAttacks = binaryReader.Read7BitEncodedInt();
+            RepeatingAI = bitReader.ReadBit();
+            HasTelegraphedNormalLasers = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -35,16 +35,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool SpectralFishronRandom; //only for spawning projs (server-side only), no mp sync needed
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(GeneralTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(P3Timer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(EXTornadoTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(RemovedInvincibility), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(TakeNoDamageOnHit), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsEX), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(GeneralTimer);
+            binaryWriter.Write7BitEncodedInt(P3Timer);
+            binaryWriter.Write7BitEncodedInt(EXTornadoTimer);
+            bitWriter.WriteBit(RemovedInvincibility);
+            bitWriter.WriteBit(TakeNoDamageOnHit);
+            bitWriter.WriteBit(IsEX);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            GeneralTimer = binaryReader.Read7BitEncodedInt();
+            P3Timer = binaryReader.Read7BitEncodedInt();
+            EXTornadoTimer = binaryReader.Read7BitEncodedInt();
+            RemovedInvincibility = bitReader.ReadBit();
+            TakeNoDamageOnHit = bitReader.ReadBit();
+            IsEX = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

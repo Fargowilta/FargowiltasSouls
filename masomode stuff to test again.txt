@@ -1,278 +1,3 @@
-emode devi medusa ray attack slightly slower
-maso destroyer probes stop shooting during coils
-emode ks
-	now tps to your elevation in p1 too, no longer teleports under you ever
-	p2 begins at 66%
-	special teleport that makes you turn around now happens at 33%
-wyvern, ice golem, sand elemental
-	spawn POST 1 BOSS in pre hardmode
-	drop pre hm crates
-	no longer drop hm crates in pre hm
-	drop their accessories guaranteed in pre hm
-snow ench buff, chill is 10->15sec
-frost ench buff, chill is 15->20sec and icicles inflict frostbite
-raised boreal ench damage cap from 20 to 30
-precision seal tooltip specifies you have smaller hurtbox even when not visible
-betsy's heart nerf
-	no longer inflict betsy curse on crit
-	dash inflicts betsy curse for 15 seconds
-ice queens crown
-	freeze extended 1 -> 1.5sec
-	chill extended 2 -> 3sec
-gutted/pure heart buff, creepers have 95% DR against contact damage, was 50%
-reduced volume of lump of flesh ray
-boc nerfs
-	brain clone takes 0 damage instead of pretending it takes damage
-	real brain only cleanses debuffs when tp'ing, previously fully debuff immune
-	adjusted timing of p2 confusion and attacks, hopefully more intuitive
-ml suns do no damage until thrown and look more obviously "thrown"
-devi does an "empty" tp before rune wizard bolts
-leash of cthulhu buff +2 damage
-jungle ench jump is refreshed by grappling like normal double jumps
-removed mining helmet boosting undead miner spawn rate
-necro brew buff, your dashes are much faster
-
-stinger nerf, bee dash cd +1sec
-lead ench buff, halves dot taken
-fixed eri and cultist minion other class projs not having correct crit chance
-eri armor set bonus tooltip changes based on mode
-eri armor buff, gives +10% weapon speed with blessing off
-emode devi enters p2 at 66%
-sand ele doesnt spawn sand sharks pre hm
-ice golem and sand ele pre hm have 40% life and 25% defense, was 50% 50%
-spaz nerf, pauses on p3 enter isntead of instantly dashing
-twins nerf, spaz watches harmlessly in p1 while reti does spin
-added patreon toggle for nano core
-twins buff, have 33% DR while doing ray
-
-tried fixing boc despawn glitch
-nekomi nerf, regen 1->0.5hp/s
-devi has more life
-ebonwood force doesnt instakill everything, but base ench does have shadowflame again
-betsy dash dash curse debuff length buffed 15->20s
-boss arenas disable your items while sucking you in
-devi rune wizard empty tp is faster again
-rich mahog DR applies for one hit per grapple, nerfed force from +50% to +30% DR
-adjusted titanium DR so its 50/75% isnt additive or overriding
-toggle localization fixes
-made boc ichor sprite visible
-fused lens install is now toggled with the debuff install key
-adjusted boc confusion timing again
-rockeater launcher
-	rocket no longer pierces at all
-	removed guaranteed crit on sweetspot
-	adjusted knockback
-	reduced attack speed
-	made the sweetspot much more lenient
-fixed pumpking cape toggle not working
-
-abom
-	can now strafe around you while shooting scythes
-	no contact damage and sharper movement when shooting scythes
-	wont spawn saucers in p1 anymore
-	only spawns 3 saucers in p2
-	p2 scythe splits into 8, was 10
-added nice dust to rockeater on sweetspot
-
-made qb no longer cancel dash state mid-dash if a subject spawns
-	aka, no longer floats up into you for a meme hit if you spawn a subject mid-dash
-fixed boc confusion being wrong?
-buffed base iron ench range a bit
-ebon and shade ench have better aura npc detection
-ebon ench
-	fixed it using base proj damage for calcs (x0.25 the damage it does to you in standard expert)
-	cant destroy projs marked with deletion resistance (projs immune to gutted heart)
-	can only destroy 15 projs per second (30 in force)
-	prioritizes projs closer to you
-fixed twins install disappearing
-adjusted cultist pillar telegraphs
-adjusted destroyer light show telegraphs
-fixed ninja ench making phantasm and similar "held proj" weapons overpowered
-
-resprites
-	fused lens
-	squeaky toy
-	boc minor adjustments
-	mutant pact
-	rabies shot
-	rockslide
-raised soe sell price
-gnomes can inflict stoned
-skeletron hands will tp back to head if they throw themselves too far (ie, will never despawn now)
-deerclops mash minigame max duration extended, aka you are forced to mash out (better for new players understanding that you do in fact need to do something)
-a sound plays when you mash in deerclops minigame to indicate it is actually do something
-deerclops runs faster to catch up if you're outrunning for too long
-deerclops has an enrage, uses ghost hands to freeze you if you are directly above him too much
-fixed ninja ench sometimes not working depending on accessory order?
-pungent eyeball new effect: x5 spawn rate of rare npcs (ones that appear on lifeform analyzer)
-fixed saucer minion shooting invisible rockets
-fixed all minions that shoot projectiles not having any damage scaling on their projectiles
-check balance of the following in particular
-	nano core minion mode
-	staff of unleashed ocean
-	drakovi fish minion
-	big brain buster (also raised its cap)
-tribal charm click bonus has a buff to better indicate it exists
-wretched pouch is much more obvious when its active
-maso wof shoots bigger rays lol
-removed thieving enemies they cant do it anymore you're safe it's over
-prime p2 at 80%, was 75%
-prime doesnt spawn more limbs until 60%
-qs has ACTUAL STARTUP on her stupid phase 2 sudden dive on your face attack
-restored vanilla qs stomp hitbox sorry
-made ml's phase timer smoother (previously had conspicuous "jumps" in cycle speed, now a continuous gradual transition)
-reduced ml's max rampup, phase time at 1hp is now 10sec (was 7.5sec)
-maso ml has way huger deathrays and more sphere rings in p2 all classes lmao you thought
-
-disabled deerclops and qs debug printout
-fixed tungsten & adam affecting minions (can still affect most projs spawned by minions)
-also check that ninja works properly with minions, and that adam/ninja behave when used at the same time
-adjusted destro glow lines a bit, the blue lines dont appear in maso
-fixed oversight that made adam ench give you near-universal tungsten proj buff
-meteor ench rework
-	moved to pre hm
-	meteors have a chance to specifically aim for enemies (improved hit rate)
-	meteor shower lasts much longer if it doesnt hit enemies
-	damage nerfed
-removed destroyer resistance to meteor ench
-ice queens crown reworked yet again, graze attacks to gain a freeze bomb
-mutant antibodies buff, enter water to gain 30sec buff, more flight time and magilumi+frog leg
-fixed supersonic soul not actually having effects of magilumi or frog leg
-
-HUUUUUGE deathray internal refactor, check they all work and dont throw errors
-resprited will deathray
-fixed destroyer no contact damage bug
-magical bulb debuff cleanse cd ends faster when not attacking
-wood ench discount works in vanity slots
-stabilized gravity moved from galactic globe to wyvern feather
-biocluster can give passive stable gravity
-tweaked cultist arena vfx
-minor tweak to prime ai so that if spawned directly above you, arms dont stall for so long before they begin moving
-fixed getting graze from enemies flagged as no contact damage e.g. cultist, devi
-
-lieflight
-	added bestiary
-	aura is maso only
-	improved mp sync
-	no longer heals below maso, but increased max hp for equivalent effect
-	reduced DR to 50%, increased max hp
-	takes x0.33 damage when it used to have 200 defense
-	sans is maso only
-	sans disables all items instead of using cursed
-	reduced duration of ray spin
-	ray doesnt instakill outside maso
-	added a delay between attacks to fly around after you, not in maso
-	reworked p1 spam attack
-	adjusted hitboxes
-	reduced damage on some attacks
-	various vfx changes
-	fixed spawner not working when not stacked
-	walls of projs when p2 dive down are maso only
-	p3 is emode only
-	slurp&burp p3 extra projs are maso only
-	adjusted general movement to be lower elevation, not offscreen so much
-	made p3 rings while running minigun maso only
-	now gradually moves faster during p3 running minigun
-	p3 volleys into safespot in reaction shotgun is maso only
-	spread shots during p2 dive are more spread out below maso
-	most homing pixies have a slightly longer delay before homing begins, not in maso
-	pixies have worse homing unless in maso
-	adjusted slurp burp attack range and has a bit more startup outside maso
-fixed remote control reapplying with obnoxious dust whenever you get hit by electric attack
-
-maso probes dont shoot vanilla lasers
-lieflight
-	various misc changes
-	p2 is expert+ only
-	p2 6-nuke attack makes less projs
-	maso nukes dont make projs that split
-	p1 mine attack clears old mines first
-	p2 reaction shotgun has slower projs, they have old faster speed in p3 & maso
-	reduced how long p3 reaction shotgun lasts outside maso
-	tile-colliding projs now start with no tile collide, then gain it after 1sec when they reach open space
-	p2 rain attack ignores tiles and accelerates after a while (stop fallgodding)
-	added dusts to make sans crosshair explosions visible
-	slurp burp attack makes projs spawn further out if you move further out
-	made tp telegraph more visible
-	fixed? p2 shotgun glow lines not syncing properly in mp
-	disabled stupid vanilla mp redcode netcode npc smoothing
-	attempted? fixing gaster blasters in maso
-	made sans phase have regen instead of total immortality (should be functionally invincible on-tier, but eventually killable with endgame gear)
-	replaced instances of 9999 defense with the usual bonus dr
-
-lieflight
-	will chase you if you try to run away from p3 ray
-	reduced duration and lingering hitbox of sans rays
-	reduced hitbox size of laser projs
-	adjusted rain acceleration to be harder to fallgod
-	disabled hooks during sans
-	in emode, gives its spawner every attempt before defeat like other bosses
-demons can noclip at you lol
-tweaked enchanted lifeblade
-
-tried again to make sibling and squrrl boss spawners always work in mp
-fixed abom boss ray not being sheeted properly
-lieflight maso sans phase is now only available if your char name also contains "cum"
-
-buffed expixieve staff damage a bit
-lieflight with sans ai will have a different theme with new music mod
-fixed lieflight sometimes making you fall through platform when spawned?
-fixed maso probes not having contact damage
-fixed fragile pixie lamp not being sold by mutant post-lieflight
-fixed post-ml spawners being sold under the hardmode tab in mutant shop
-adjusted hitbox of life proj small (the laser beam) to be longer
-fixed maso cum sans phase initial crosshair explosions not actually doing damage
-added slight accel to prime dark stars (generally shouldnt be a factor unless outrunning spin for too long)
-fixed none of lieflight's weapons actually having classed projs (melee weap can ichor now)
-adjusted dr to shield lieflight from being melted past phase transitions
-removed mutant eye immunity to mutant presence
-enraged mutant has much higher stats
-prime can do cardinal swipes
-
-lieflight maso cum sans "thorn ball + nukes": reduced density of nuke rings, and rate & fall speed of balls
-maso cum sans phase is no longer cum name only (it is just part of maso fight now)
-disabled lieflight maso p2 heal
-moved music boxes from music mod to this one
-fixed hunter potion not revealing royal subject
-
-adjusted life revitalizer to set your spawn point like a bed instead of global spawn point
-gave skeletron 50% DR while hands alive because apparently respawning hands doesnt give him defense
-
-enabled maso skel growing more hands
-massive refactor to all emode npc ai, check that they work, especially vanilla bosses in emode mp
-also test blood feeder & snatcher in mp
-plantera makes same sound as mutant when throwing crystal leaf ring
-added config: soul toggle menu search bar resets when closed
-
-mutant p3 disables timestop only in maso
-maso mutant rangs attack is angled
-fixed abom wand revive not refreshing when you die
-
-fixed? maso enraged mutant 6hp bug
-adjusted damage inheritance, the following effects scale off the damage of proj/item instead of damage dealt (since damage dealt also includes crit multiplier, easiest to see with universe core)
-	obsidian ench
-	bee ench
-	glad ench
-	pearlwood ench
-frost ench tooltip specifies its icicles inflict frostbite
-fixed tungsten ench allowing enlarged summon projs to crit when they shouldnt
-marginal nerf to staff of unleashed ocean, 8-proj rings -> 7
-tried fixing npcs not having resprites if you join a server after they are spawned (NEEDS TESTING)
-the following update their crit chance in real time, for tin ench
-	all held projs
-	all yoyos
-	vortex ritual
-	nano tech, especially melee
-	penetrator big deathray
-	penetrator up+m2 (spin throw)
-	regurgitator chungy hungy
-	diffractor blaster
-adjusted boc to hopefully fix mp desync on confused?
-
-fixed last prism laser still not updating crit with tin ench
-wood ench discount secretly works in inventory too
-added 3 custom preset toggle slots
-
 resprited retinazer deathray
 frigid gem buff, ice rod blocks inflict frostburn
 agi lens adjustment, durations are 7.5/2.5, was 6/3, but defense/DR down is 30%, was 20%
@@ -281,3 +6,30 @@ nymphs perfume implementation adjusted
 	no longer respawns with less life when killed with oceanic maul life reduction
 	will respawn with full life with unlim lifeforce buff, unlike previous perfume
 fixed stunned not disabling right click
+
+adjusted concentrated rainbow matter heal conditions, will not autoheal unless hostile npcs nearby or below 40% health
+changed berserker install input to up+down+install key
+fixed mimic not working in mp
+refactored emode custom ai field mp sync
+added some dr to twins during phase transition anim so they dont get spawnkilled so hard
+raised twins dr during ray spin to 50%
+lightslinger now charges right click when you fire 25 shots instead of when landing 20
+force adam nerf, 33% damage 
+force adam adjustment, reduces iframes to 1/3rd
+ninja ench buff, has 15 armor pen as base
+abom wand buff, protection from DOT on revive lasts 15sec, was 5
+increased lieflight DR when protected e.g. phase transition, certain attacks from 50% to 66%
+lieflight reaction shotgun
+	waves despawn earlier to avoid projectile cap issues
+	will fly at you if you run too far during this attack
+lieflight 6 nukes attack adjusted to reduce projectile cap issues
+fixed homing projs not targeting lieflight in p3
+(ancient) cobalt nerf/exploit fix, jump only gives iframes if you dont currently have iframes from previous jump
+mutant's gift clarifies that emode enables master drops
+wretched pouch gives +120% damage, was 60%, attacking now slows fall speed and gives -20% DR
+fixed(?) lunar pillars still having their emode ais in normal worlds when leave/rejoin during lunar event
+pumpkin ench pumpkins and necro ench graves can be triggered by other players in mp
+builder mode now allows infinite tile/wall placement
+fixed starlight rod infinite first strike
+fixed trawler soul/sod not giving lava fishing
+fixed wood ench skipping banners

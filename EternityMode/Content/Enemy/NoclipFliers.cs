@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using System.Collections.Generic;
 using Terraria;
@@ -22,12 +22,22 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
 
         public bool CanNoclip;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(MPSyncSpawnTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(CanNoclip), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(MPSyncSpawnTimer);
+            bitWriter.WriteBit(CanNoclip);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            MPSyncSpawnTimer = binaryReader.Read7BitEncodedInt();
+            CanNoclip = bitReader.ReadBit();
+        }
 
         public override void AI(NPC npc)
         {

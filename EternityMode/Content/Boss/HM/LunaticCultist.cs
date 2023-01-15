@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -34,17 +34,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool EnteredPhase2;
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(RitualRotation), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(MeleeDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RangedDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MagicDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MinionDamageCounter), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write(RitualRotation);
+            binaryWriter.Write7BitEncodedInt(MeleeDamageCounter);
+            binaryWriter.Write7BitEncodedInt(RangedDamageCounter);
+            binaryWriter.Write7BitEncodedInt(MagicDamageCounter);
+            binaryWriter.Write7BitEncodedInt(MinionDamageCounter);
+            bitWriter.WriteBit(EnteredPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            RitualRotation = binaryReader.ReadSingle();
+            MeleeDamageCounter = binaryReader.Read7BitEncodedInt();
+            RangedDamageCounter = binaryReader.Read7BitEncodedInt();
+            MagicDamageCounter = binaryReader.Read7BitEncodedInt();
+            MinionDamageCounter = binaryReader.Read7BitEncodedInt();
+            EnteredPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -379,11 +393,21 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int TotalCultistCount;
         public int MyRitualPosition;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(TotalCultistCount), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MyRitualPosition), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(TotalCultistCount);
+            binaryWriter.Write7BitEncodedInt(MyRitualPosition);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            TotalCultistCount = binaryReader.Read7BitEncodedInt();
+            MyRitualPosition = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void OnFirstTick(NPC npc)
         {

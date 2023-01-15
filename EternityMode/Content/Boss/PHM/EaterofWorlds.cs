@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -116,18 +116,34 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int NoSelfDestructTimer = 15;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(FlamethrowerCDOrUTurnStoredTargetX), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnTotalSpacingDistance), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnIndividualSpacingPosition), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnAITimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnCountdownTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(CursedFlameTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(UTurn), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(DoTheWave), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(FlamethrowerCDOrUTurnStoredTargetX);
+            binaryWriter.Write7BitEncodedInt(UTurnTotalSpacingDistance);
+            binaryWriter.Write7BitEncodedInt(UTurnIndividualSpacingPosition);
+            binaryWriter.Write7BitEncodedInt(UTurnAITimer);
+            binaryWriter.Write7BitEncodedInt(UTurnCountdownTimer);
+            binaryWriter.Write7BitEncodedInt(CursedFlameTimer);
+            bitWriter.WriteBit(UTurn);
+            bitWriter.WriteBit(DoTheWave);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            FlamethrowerCDOrUTurnStoredTargetX = binaryReader.Read7BitEncodedInt();
+            UTurnTotalSpacingDistance = binaryReader.Read7BitEncodedInt();
+            UTurnIndividualSpacingPosition = binaryReader.Read7BitEncodedInt();
+            UTurnAITimer = binaryReader.Read7BitEncodedInt();
+            UTurnCountdownTimer = binaryReader.Read7BitEncodedInt();
+            CursedFlameTimer = binaryReader.Read7BitEncodedInt();
+            UTurn = bitReader.ReadBit();
+            DoTheWave = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

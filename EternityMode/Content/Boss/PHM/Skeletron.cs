@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -35,14 +35,26 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool SpawnedArms;
         public bool HasSaidEndure;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ReticleTarget), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BabyGuardianTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DGSpeedRampup), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ReticleTarget);
+            binaryWriter.Write7BitEncodedInt(BabyGuardianTimer);
+            binaryWriter.Write7BitEncodedInt(DGSpeedRampup);
+            bitWriter.WriteBit(InPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ReticleTarget = binaryReader.Read7BitEncodedInt();
+            BabyGuardianTimer = binaryReader.Read7BitEncodedInt();
+            DGSpeedRampup = binaryReader.Read7BitEncodedInt();
+            InPhase2 = bitReader.ReadBit();
+        }
 
         int BabyGuardianTimerRefresh(NPC npc) => !FargoSoulsWorld.MasochistModeReal && NPC.AnyNPCs(NPCID.SkeletronHand) && npc.life > npc.lifeMax * 0.25 ? 240 : 180;
         
@@ -357,10 +369,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int AttackTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+        }
 
         public override bool SafePreAI(NPC npc)
         {

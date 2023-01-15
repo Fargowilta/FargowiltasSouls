@@ -44,12 +44,6 @@ First Strike ensures your next attack hits a vital spot dealing 3x damage and re
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.CrystalEnchantActive = true;
 
-            //rod bonus
-            if (player.controlUseItem && player.HeldItem.type == ItemID.RodofDiscord)
-            {
-                player.AddBuff(ModContent.BuffType<FirstStrike>(), 60);
-            }
-
             //cooldown
             if (modPlayer.SmokeBombCD != 0)
             {

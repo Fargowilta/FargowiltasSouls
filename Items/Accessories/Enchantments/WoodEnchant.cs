@@ -77,8 +77,13 @@ Discount effect works in vanity slots");
 
             for (int i = 0; i < multiplier; i++)
             {
-                Main.BestiaryTracker.Kills.RegisterKill(npc);
-                NPC.killCount[Item.NPCtoBanner(npc.BannerID())]++;
+                //stop at 49, 99, 149, etc. so that game will increment on its own
+                //not doing this causes it to skip over 50, skipping the banner
+                if (NPC.killCount[Item.NPCtoBanner(npc.BannerID())] % 50 != 49)
+                {
+                    NPC.killCount[Item.NPCtoBanner(npc.BannerID())]++;
+                    Main.BestiaryTracker.Kills.RegisterKill(npc);
+                }
             }            
         }
 

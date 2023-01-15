@@ -1845,6 +1845,7 @@ namespace FargowiltasSouls
             Player.accFishingLine = true;
             Player.accTackleBox = true;
             Player.accFishFinder = true;
+            Player.accLavaFishing = true;
 
             //volatile gel
             if (Player.GetToggleValue("TrawlerGel"))
@@ -2252,11 +2253,11 @@ namespace FargowiltasSouls
             Main.dust[d].noGravity = true;
             Main.dust[d].velocity *= 5f;
 
-            Player.GetDamage(DamageClass.Generic) += 0.60f;
+            Player.GetDamage(DamageClass.Generic) += 1.20f;
+            Player.endurance -= 0.20f;
 
             Player.velocity.X *= 0.85f;
-            if (Player.velocity.Y < 0)
-                Player.velocity.Y *= 0.85f;
+            Player.velocity.Y *= 0.85f;
 
             if (--WretchedPouchCD <= 0)
             {
@@ -2672,6 +2673,7 @@ namespace FargowiltasSouls
 
             if (AgitatingLensItem != null
                 && Player.GetToggleValue("MasoEyeInstall", false)
+                && Player.controlUp && Player.controlDown
                 && !Player.HasBuff(ModContent.BuffType<BerserkerInstall>())
                 && !Player.HasBuff(ModContent.BuffType<BerserkerInstallCD>()))
             {

@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -93,17 +93,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool DroppedSummon;
         public int SkyTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(VulnerabilityState), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackMemory), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(VulnerabilityTimer), FloatStrategies.CompoundStrategy },
-                { new Ref<object>(AttackTimer), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(SpawnedRituals), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(VulnerabilityState);
+            binaryWriter.Write7BitEncodedInt(AttackMemory);
+            binaryWriter.Write(VulnerabilityTimer);
+            binaryWriter.Write(AttackTimer);
+            bitWriter.WriteBit(EnteredPhase2);
+            bitWriter.WriteBit(SpawnedRituals);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            VulnerabilityState = binaryReader.Read7BitEncodedInt();
+            AttackMemory = binaryReader.Read7BitEncodedInt();
+            VulnerabilityTimer = binaryReader.ReadSingle();
+            AttackTimer = binaryReader.ReadSingle();
+            EnteredPhase2 = bitReader.ReadBit();
+            SpawnedRituals = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -608,14 +622,26 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public float LastState;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(OnSpawnCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RitualProj), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(SpawnSynchronized), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(SlowMode), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(OnSpawnCounter);
+            binaryWriter.Write7BitEncodedInt(RitualProj);
+            bitWriter.WriteBit(SpawnSynchronized);
+            bitWriter.WriteBit(SlowMode);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            OnSpawnCounter = binaryReader.Read7BitEncodedInt();
+            RitualProj = binaryReader.Read7BitEncodedInt();
+            SpawnSynchronized = bitReader.ReadBit();
+            SlowMode = bitReader.ReadBit();
+        }
 
         public override bool SafePreAI(NPC npc)
         {

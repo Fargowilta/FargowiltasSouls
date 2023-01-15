@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -99,16 +99,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(StompAttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(SpikyBallTimer), IntStrategies.CompoundStrategy },
-                //{ new Ref<object>(AntiAirTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoStompBehaviour), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(HaveBoostedJumpHeight), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsInTemple), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(StompAttackCounter);
+            binaryWriter.Write7BitEncodedInt(SpikyBallTimer);
+            //binaryWriter.Write7BitEncodedInt(AntiAirTimer);
+            bitWriter.WriteBit(DoStompBehaviour);
+            bitWriter.WriteBit(HaveBoostedJumpHeight);
+            bitWriter.WriteBit(IsInTemple);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            StompAttackCounter = binaryReader.Read7BitEncodedInt();
+            SpikyBallTimer = binaryReader.Read7BitEncodedInt();
+            //AntiAirTimer = binaryReader.Read7BitEncodedInt();
+            DoStompBehaviour = bitReader.ReadBit();
+            HaveBoostedJumpHeight = bitReader.ReadBit();
+            IsInTemple = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -426,12 +440,22 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DoAttackOnFistImpact;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(FistAttackRateSlowdownTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoAttackOnFistImpact), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(FistAttackRateSlowdownTimer);
+            bitWriter.WriteBit(DoAttackOnFistImpact);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            FistAttackRateSlowdownTimer = binaryReader.Read7BitEncodedInt();
+            DoAttackOnFistImpact = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -525,19 +549,35 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool SweepToLeft;
         public bool IsInTemple;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DeathraySweepTargetHeight), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(SuppressedAi1), FloatStrategies.CompoundStrategy },
-                { new Ref<object>(SuppressedAi2), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoAttack), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(DoDeathray), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(SweepToLeft), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsInTemple), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(DeathraySweepTargetHeight);
+            binaryWriter.Write(SuppressedAi1);
+            binaryWriter.Write(SuppressedAi2);
+            bitWriter.WriteBit(DoAttack);
+            bitWriter.WriteBit(DoDeathray);
+            bitWriter.WriteBit(SweepToLeft);
+            bitWriter.WriteBit(IsInTemple);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            DeathraySweepTargetHeight = binaryReader.Read7BitEncodedInt();
+            SuppressedAi1 = binaryReader.ReadSingle();
+            SuppressedAi2 = binaryReader.ReadSingle();
+            DoAttack = bitReader.ReadBit();
+            DoDeathray = bitReader.ReadBit();
+            SweepToLeft = bitReader.ReadBit();
+            IsInTemple = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -63,17 +63,32 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(DicerTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RingTossTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(TentacleTimer), IntStrategies.CompoundStrategy },
-                //{ new Ref<object>(TentacleTimerMaso), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(IsVenomEnraged), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(DicerTimer);
+            binaryWriter.Write7BitEncodedInt(RingTossTimer);
+            binaryWriter.Write7BitEncodedInt(TentacleTimer);
+            //binaryWriter.Write7BitEncodedInt(TentacleTimerMaso);
+            bitWriter.WriteBit(IsVenomEnraged);
+            bitWriter.WriteBit(InPhase2);
+            bitWriter.WriteBit(EnteredPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            DicerTimer = binaryReader.Read7BitEncodedInt();
+            RingTossTimer = binaryReader.Read7BitEncodedInt();
+            TentacleTimer = binaryReader.Read7BitEncodedInt();
+            //TentacleTimerMaso = binaryReader.Read7BitEncodedInt();
+            IsVenomEnraged = bitReader.ReadBit();
+            InPhase2 = bitReader.ReadBit();
+            EnteredPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -437,13 +452,25 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ChangeDirectionTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RotationDirection), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MaxDistanceFromPlantera), IntStrategies.CompoundStrategy },
-                { new Ref<object>(CanHitTimer), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ChangeDirectionTimer);
+            binaryWriter.Write7BitEncodedInt(RotationDirection);
+            binaryWriter.Write7BitEncodedInt(MaxDistanceFromPlantera);
+            binaryWriter.Write7BitEncodedInt(CanHitTimer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ChangeDirectionTimer = binaryReader.Read7BitEncodedInt();
+            RotationDirection = binaryReader.Read7BitEncodedInt();
+            MaxDistanceFromPlantera = binaryReader.Read7BitEncodedInt();
+            CanHitTimer = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {

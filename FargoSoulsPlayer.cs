@@ -2442,17 +2442,6 @@ namespace FargowiltasSouls
                 target.AddBuff(ModContent.BuffType<OriPoison>(), 300);
                 target.immune[proj.owner] = 2;
             }
-
-            if (proj.type == ModContent.ProjectileType<LightslingerShot>())
-            {
-                LightslingerHitShots++;
-                if (LightslingerHitShots == 20)
-                {
-                    SoundEngine.PlaySound(SoundID.MaxMana, Player.Center);
-                }
-            }
-
-
         }
 
         private void OnHitNPCEither(NPC target, int damage, float knockback, bool crit, DamageClass damageClass, Projectile projectile = null, Item item = null)
@@ -2887,8 +2876,13 @@ namespace FargowiltasSouls
                 if (potion != null)
                 {
                     int heal = getHealMultiplier(potion.healLife);
-                    if (Player.statLife < Player.statLifeMax2 - heal)
+                    if (Player.statLife < Player.statLifeMax2 - heal && //only heal when full benefit (no wasted overheal)
+                        (Player.statLife < Player.statLifeMax2 * 0.4 || //heal when very low or when danger nearby (not after respawn in safety)
+                        Main.npc.Any(n => n.active && n.damage > 0 && !n.friendly
+                                     && Player.Distance(n.Center) < 1200 && (n.noTileCollide || Collision.CanHitLine(Player.Center, 0, 0, n.Center, 0, 0)))))
+                    {
                         Player.QuickHeal();
+                    }
                 }
             }
         }
@@ -3096,7 +3090,7 @@ namespace FargowiltasSouls
                     string text = Language.GetTextValue($"Mods.{Mod.Name}.Message.Revived");
                     CombatText.NewText(Player.Hitbox, Color.Yellow, text, true);
                     Main.NewText(text, Color.Yellow);
-                    Player.AddBuff(ModContent.BuffType<AbomRebirth>(), 300);
+                    Player.AddBuff(ModContent.BuffType<AbomRebirth>(), 900);
                     retVal = false;
                     for (int i = 0; i < 24; i++)
                     {

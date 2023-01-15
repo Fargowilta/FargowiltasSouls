@@ -76,9 +76,8 @@ namespace FargowiltasSouls.Items
             //    return false;
             //}
 
-            //if (p.BuilderMode && (item.createTile != -1 || item.createWall != -1) && item.type != ItemID.PlatinumCoin && item.type != ItemID.GoldCoin)
-            //    return false;
-            //return true;
+            if (modPlayer.BuilderMode && (item.createTile > 0 || item.createWall > 0))
+                return false;
 
             if (item.healLife > 0)
             {
@@ -234,7 +233,12 @@ namespace FargowiltasSouls.Items
         public override bool? UseItem(Item item, Player player)
         {
             if (item.type == ItemID.RodofDiscord)
+            {
                 player.ClearBuff(ModContent.BuffType<GoldenStasis>());
+
+                if (player.GetModPlayer<FargoSoulsPlayer>().CrystalEnchantActive)
+                    player.AddBuff(ModContent.BuffType<FirstStrike>(), 60);
+            }
 
             return base.UseItem(item, player);
         }

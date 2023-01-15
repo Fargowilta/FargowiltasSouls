@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -34,13 +34,25 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         private int SwordWallCap => FargoSoulsWorld.MasochistModeReal ? 4 : 3;
         public bool DoParallelSwordWalls => P2SwordsAttackCounter % SwordWallCap > 0;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(P2SwordsAttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DashCounter), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(AttackCounter);
+            binaryWriter.Write7BitEncodedInt(P2SwordsAttackCounter);
+            binaryWriter.Write7BitEncodedInt(DashCounter);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            AttackCounter = binaryReader.Read7BitEncodedInt();
+            P2SwordsAttackCounter = binaryReader.Read7BitEncodedInt();
+            DashCounter = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {

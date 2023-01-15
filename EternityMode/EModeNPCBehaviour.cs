@@ -1,20 +1,11 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using IL.Terraria.DataStructures;
-using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.EternityMode
 {
@@ -37,39 +28,11 @@ namespace FargowiltasSouls.EternityMode
             return false;
         }
 
-        public sealed override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
-        {
-            Dictionary<Ref<object>, CompoundStrategy> netInfo = GetNetInfo();
-            if (netInfo == default)
-                return;
-
-            for (int i = 0; i < netInfo.Count; i++)
-            {
-                KeyValuePair<Ref<object>, CompoundStrategy> query = netInfo.ElementAt(i);
-                query.Value.Send(query.Key.Value, bitWriter, binaryWriter);
-            }
-        }
-
-        public sealed override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
-        {
-            Dictionary<Ref<object>, CompoundStrategy> netInfo = GetNetInfo();
-            if (netInfo == default)
-                return;
-
-            for (int i = 0; i < netInfo.Count; i++)
-            {
-                KeyValuePair<Ref<object>, CompoundStrategy> query = netInfo.ElementAt(i);
-                query.Value.Recieve(ref query.Key.Value, bitReader, binaryReader);
-            }
-        }
-
         public override void Load()
         {
             Matcher = CreateMatcher();
             base.Load();
         }
-
-        public virtual Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() => default;
 
         public abstract NPCMatcher CreateMatcher();
         /// <summary>

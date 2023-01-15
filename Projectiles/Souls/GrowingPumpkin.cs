@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Projectiles.Souls
             }
             else
             {
-                if (player.Hitbox.Intersects(Projectile.Hitbox))
+                if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && Main.LocalPlayer.Hitbox.Intersects(Projectile.Hitbox))
                 {
                     int heal = 25;
 
@@ -85,8 +85,8 @@ namespace FargowiltasSouls.Projectiles.Souls
                         heal *= 2;
                     }
 
-                    player.GetModPlayer<FargoSoulsPlayer>().HealPlayer(heal);
-                    SoundEngine.PlaySound(SoundID.Item2, player.Center);
+                    Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().HealPlayer(heal);
+                    SoundEngine.PlaySound(SoundID.Item2, Main.LocalPlayer.Center);
                     Projectile.Kill();
                 }
             }

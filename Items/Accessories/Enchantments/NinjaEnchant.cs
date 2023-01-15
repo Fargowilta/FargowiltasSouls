@@ -57,7 +57,7 @@ Increases armor pen by 10
 
                 if (NeedsNinjaNerf(projectile))
                 {
-                    int armorPen = 10;
+                    int armorPen = 15;
                     if (modPlayer.TerraForce)
                         armorPen *= 3;
                     if (modPlayer.TerrariaSoul)

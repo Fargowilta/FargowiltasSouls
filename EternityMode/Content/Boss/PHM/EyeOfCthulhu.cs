@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -35,18 +35,34 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool DroppedSummon;
         public bool ScytheRingIsOnCD;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AITimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(ScytheSpawnTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FinalPhaseDashCD), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FinalPhaseDashStageDuration), IntStrategies.CompoundStrategy },
-                { new Ref<object>(FinalPhaseAttackCounter), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(IsInFinalPhase), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(FinalPhaseBerserkDashesComplete), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(FinalPhaseDashHorizSpeedSet), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AITimer);
+            binaryWriter.Write7BitEncodedInt(ScytheSpawnTimer);
+            binaryWriter.Write7BitEncodedInt(FinalPhaseDashCD);
+            binaryWriter.Write7BitEncodedInt(FinalPhaseDashStageDuration);
+            binaryWriter.Write7BitEncodedInt(FinalPhaseAttackCounter);
+            bitWriter.WriteBit(IsInFinalPhase);
+            bitWriter.WriteBit(FinalPhaseBerserkDashesComplete);
+            bitWriter.WriteBit(FinalPhaseDashHorizSpeedSet);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AITimer = binaryReader.Read7BitEncodedInt();
+            ScytheSpawnTimer = binaryReader.Read7BitEncodedInt();
+            FinalPhaseDashCD = binaryReader.Read7BitEncodedInt();
+            FinalPhaseDashStageDuration = binaryReader.Read7BitEncodedInt();
+            FinalPhaseAttackCounter = binaryReader.Read7BitEncodedInt();
+            IsInFinalPhase = bitReader.ReadBit();
+            FinalPhaseBerserkDashesComplete = bitReader.ReadBit();
+            FinalPhaseDashHorizSpeedSet = bitReader.ReadBit();
+        }
 
         public override bool SafePreAI(NPC npc)
         {

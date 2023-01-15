@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,21 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Crimson
         public int TrueMaxLife;
         public float DamageMultiplier = 1f;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(TrueMaxLife), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DamageMultiplier), FloatStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(TrueMaxLife);
+            binaryWriter.Write(DamageMultiplier);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            TrueMaxLife = binaryReader.Read7BitEncodedInt();
+            DamageMultiplier = binaryReader.ReadSingle();
+        }
 
         public override void SetDefaults(NPC npc)
         {
