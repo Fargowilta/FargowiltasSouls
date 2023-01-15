@@ -38,7 +38,7 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacks generate titanium shards,
 [i:{2}] 停止攻击以逐渐增加攻击速度，最多持续5秒
 [i:{1}] 暴击敌人会快速治疗，基于回复的血量放出生命能量球
 [i:{3}] 攻击生成花瓣，伤害性减益造成4倍伤害
-[i:{4}] 你发射的所有弹幕都会分裂成三个，造成50%伤害且伤害频率翻倍，弹幕增加与其一半伤害相等的护甲穿透
+[i:{4}] 你发射的所有弹幕都会分裂成三个，造成33%伤害且伤害频率提升到3倍，增加与其一半伤害相等的护甲穿透
 [i:{5}] 攻击生成钛金碎片防御屏障，达到最大个数获得钛金护盾
 “盖亚的祝福照耀着你”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
