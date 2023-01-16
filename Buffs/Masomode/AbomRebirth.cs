@@ -9,7 +9,6 @@ namespace FargowiltasSouls.Buffs.Masomode
         {
             DisplayName.SetDefault("Abominable Rebirth");
             Description.SetDefault("You cannot die unless struck");
-            Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
         }
 
