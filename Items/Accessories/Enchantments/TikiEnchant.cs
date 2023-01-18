@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Tiki Enchantment");
             Tooltip.SetDefault(
-@"You may continue to summon temporary minions and sentries after maxing out on your slots
-Reduces attack speed of summon weapons when effect is activated
+@"Increases whip range by 20%
+Whip your summons to make them work harder
 'Aku Aku!'");
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "提基魔石");
             //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese,

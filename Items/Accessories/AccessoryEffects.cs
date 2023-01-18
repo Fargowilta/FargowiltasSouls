@@ -1291,7 +1291,8 @@ namespace FargowiltasSouls
         public void StardustEffect(Item item)
         {
             StardustEnchantActive = true;
-            if (Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1 && Player.GetToggleValue("Stardust"))
+
+            if (Player.whoAmI == Main.myPlayer && Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1 && Player.GetToggleValue("Stardust"))
             {
                 FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(item), Player.Center, Vector2.Zero, ProjectileID.StardustGuardian, 30, 10f, Main.myPlayer);
             }
@@ -1367,8 +1368,10 @@ namespace FargowiltasSouls
 
         public void TikiEffect(bool hideVisual)
         {
-            TikiEnchantActive = true;
+            Player.whipRangeMultiplier += 0.2f;
 
+            if (Player.GetToggleValue("Tiki"))
+                TikiEnchantActive = true;
         }
 
         private int getNumSentries()

@@ -34,7 +34,7 @@ $"[i:{ModContent.ItemType<AncientHallowEnchant>()}] You gain a shield that can r
 $"[i:{ModContent.ItemType<AncientHallowEnchant>()}] Summons a Terraprisma familiar\n" +
 $"[i:{ModContent.ItemType<AncientHallowEnchant>()}] Drastically increases minion speed\n" +
 $"[i:{ModContent.ItemType<HallowEnchant>()}] Become immune after striking an enemy\n" +
-$"[i:{ModContent.ItemType<TikiEnchant>()}] You can summon temporary minions and sentries after maxing out on your slots\n" +
+$"[i:{ModContent.ItemType<TikiEnchant>()}] Whip your summons to make them work harder\n" +
 $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damaging and healing orbs\n" +
 "'Ascend from this mortal realm'";
             Tooltip.SetDefault(tooltip);

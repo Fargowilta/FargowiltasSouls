@@ -14,7 +14,8 @@ namespace FargowiltasSouls.Items.Accessories.Forces
             ModContent.ItemType<CrystalAssassinEnchant>(),
             ModContent.ItemType<SpookyEnchant>(),
             ModContent.ItemType<ShinobiEnchant>(),
-            ModContent.ItemType<DarkArtistEnchant>()
+            ModContent.ItemType<DarkArtistEnchant>(),
+            ModContent.ItemType<NecroEnchant>()
         };
 
         public override void SetStaticDefaults()

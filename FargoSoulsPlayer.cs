@@ -245,10 +245,6 @@ namespace FargowiltasSouls
         public int chillLength;
         public int CHILL_DURATION => FrostEnchantActive ? 60 * 20 : 60 * 15;
         public bool TikiEnchantActive;
-        public bool TikiMinion;
-        public int actualMinions;
-        public bool TikiSentry;
-        public int actualSentries;
         
         public bool TurtleEnchantActive;
         public int TurtleCounter;
@@ -835,8 +831,6 @@ namespace FargowiltasSouls
             LavaWet = false;
             TinEnchantItem = null;
             TikiEnchantActive = false;
-            TikiMinion = false;
-            TikiSentry = false;
             SolarEnchantActive = false;
             ShinobiEnchantActive = false;
             ValhallaEnchantActive = false;
@@ -1607,21 +1601,6 @@ namespace FargowiltasSouls
             if (StabilizedGravity && Player.GetToggleValue("MasoGrav2", false))
                 Player.gravity = Math.Max(Player.gravity, Player.defaultGravity);
 
-            if (TikiEnchantActive && Player.GetToggleValue("Tiki"))
-            {
-                actualMinions = Player.maxMinions;
-                Player.maxMinions = 999;
-
-                if (Player.slotsMinions >= actualMinions)
-                    TikiMinion = true;
-
-                actualSentries = Player.maxTurrets;
-                Player.maxTurrets = 999;
-
-                if (getNumSentries() >= actualSentries)
-                    TikiSentry = true;
-            }
-
             if (Atrophied)
             {
                 Player.GetDamage(DamageClass.Melee) *= 0.01f;
@@ -1868,11 +1847,6 @@ namespace FargowiltasSouls
             if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
             {
                 AttackSpeed += .2f;
-            }
-
-            if (item.CountsAsClass(DamageClass.Summon) && !ProjectileID.Sets.IsAWhip[item.shoot] && (TikiMinion || TikiSentry))
-            {
-                AttackSpeed *= 0.75f;
             }
 
             if (MythrilEnchantItem != null )
@@ -2549,6 +2523,11 @@ namespace FargowiltasSouls
                         FargoSoulsUtil.HeartDust(spawnPos, speed.ToRotation());
                     }
                 }
+            }
+
+            if (SnowEnchantActive)
+            {
+                target.AddBuff(BuffID.Frostburn, 120);
             }
 
             if (GodEaterImbue)

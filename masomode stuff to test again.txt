@@ -39,3 +39,9 @@ fixed wood ench giving more kill count bonus than intended
 fixed wood ench kill count bonus not working in mp
 wood ench accounts for nonstandard banner thresholds
 nerfed pumpkin ench, duration 30->20sec, grown damage 50->30
+
+fixed pumpkin ench embers still doing too much damage
+tiki rework, you whip your minions to give them 1sec speedup and crits
+fixed(?) stardust ench mp infinite guardian army bug?
+fixed necro ench being absent from shadow force recipe
+snow ench buff, your attacks inflict 2sec frostburn
