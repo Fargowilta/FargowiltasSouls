@@ -48,7 +48,7 @@ $"[i:{ModContent.ItemType<SpectreEnchant>()}] Damage has a chance to spawn damag
 [i:{2}] 召唤一柄泰拉棱镜，其伤害接受召唤伤害加成
 [i:{2}] 大幅提升召唤物攻击速度，但攻击力会降低，且会增加20点护甲穿透
 [i:{3}] 攻击敌人后会使你无敌一小段时间
-[i:{4}] 召唤栏位用光后你仍可以召唤临时的哨兵和仆从
+[i:{4}] 鞭打你的召唤物可以让它们更勤奋
 [i:{5}] 对敌人造成伤害时有几率生成幽灵珠
 “飘飘乎如遗世独立，羽化而登仙”";
             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4], Enchants[5]));
