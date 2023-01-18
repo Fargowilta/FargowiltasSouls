@@ -1016,7 +1016,7 @@ Mods: {
 			EridanusFist: 厄里达诺斯之拳
 			EridanusMinion: 厄里达诺斯
 			EridanusRitual: 月之仪式
-			FlameburstMinion: 爆炸烈焰仆从
+			FlameburstMinion: 爆炸烈焰召唤物
 			FriendRay: 爱心射线
 			HallowSword: 泰拉棱镜
 			KamikazePixie: 妖精
@@ -1411,7 +1411,7 @@ Mods: {
 			EbonConfig: 乌木 暗影焰光环
 			ShadeConfig: 阴影木 鲜血喷溅
 			ShadeOnHitConfig: 敌怪接近你时，你就会触发受伤效果
-			PalmConfig: 棕榈木 仆从
+			PalmConfig: 棕榈木 召唤物
 			PearlConfig: 珍珠木 星星雨
 
 			EarthHeader: "{$Mods.FargowiltasSouls.ItemName.EarthForce}"
@@ -1464,7 +1464,7 @@ Mods: {
 			ShroomiteShroomConfig: 蘑菇 蘑菇尾迹
 
 			ShadowHeader: "{$Mods.FargowiltasSouls.ItemName.ShadowForce}"
-			DarkArtConfig: 暗黑艺术家 爆炸烈焰仆从
+			DarkArtConfig: 暗黑艺术家 爆炸烈焰召唤物
 			ApprenticeConfig: 学徒 相关效果
 			NecroConfig: 死灵 骨堆
 			NecroGloveConfig: 死灵 骨头手套
@@ -1485,7 +1485,7 @@ Mods: {
 			HallowSConfig: 远古神圣 护盾
 			NinjaSpeedConfig: 忍者 弹幕速度加成
 			SpectreConfig: 幽魂 幽魂珠
-			TikiConfig: 提基 额外仆从
+			TikiConfig: 提基 鞭打召唤物
 
 			CosmoHeader: "{$Mods.FargowiltasSouls.ItemName.CosmoForce}"
 			MeteorConfig: 流星 流星雨
@@ -1523,7 +1523,7 @@ Mods: {
 			BionomicHeader: "{$Mods.FargowiltasSouls.ItemName.BionomicCluster}"
 			MasoConcoctionConfig: 蒂姆的秘药
 			MasoCarrotConfig: 狙击镜效果
-			MasoRainbowConfig: 彩虹史莱姆仆从
+			MasoRainbowConfig: 彩虹史莱姆召唤物
 			MasoHealingPotionConfig: 自动使用治疗药水
 			MasoNymphConfig: 攻击生成心
 			MasoSqueakConfig: 击中发出吱吱声
@@ -1535,7 +1535,7 @@ Mods: {
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
 			FusedLensInstallConfig: 双子负载
 			MasoLightningConfig: 受击超级充能
-			MasoProbeConfig: 探测器仆从
+			MasoProbeConfig: 探测器召唤物
 
 			PureHeartHeader: "{$Mods.FargowiltasSouls.ItemName.PureHeart}"
 			MasoEaterConfig: 迷你噬魂者
@@ -1543,13 +1543,13 @@ Mods: {
 
 			LumpofFleshHeader: "{$Mods.FargowiltasSouls.ItemName.LumpOfFlesh}"
 			MasoPungentCursorConfig: 易伤区域光标
-			MasoPugentConfig: 眼球仆从
+			MasoPugentConfig: 眼球召唤物
 			DeerclawpsConfig: 冲刺留下冰刺
 			DreadShellParryConfig: 恐惧螺壳格挡
 
 			ChaliceHeader: "{$Mods.FargowiltasSouls.ItemName.ChaliceoftheMoon}"
-			MasoCultistConfig: 拜月教徒仆从
-			MasoPlantConfig: 世纪之花仆从
+			MasoCultistConfig: 拜月教徒召唤物
+			MasoPlantConfig: 世纪之花召唤物
 			MasoGolemConfig: 蜥蜴快速下落
 			MasoBoulderConfig: 下落坠地火焰
 			MasoCelestConfig: 天界符文额外攻击
@@ -1558,17 +1558,17 @@ Mods: {
 			HeartHeader: "{$Mods.FargowiltasSouls.ItemName.HeartoftheMasochist}"
 			MasoPumpConfig: 南瓜王披肩格挡
 			IceQueensCrownConfig: 擦弹
-			MasoUfoConfig: 迷你飞碟仆从
+			MasoUfoConfig: 迷你飞碟召唤物
 			MasoGravConfig: 重力控制
 			MasoGrav2Config: 重力稳定
-			MasoTrueEyeConfig: 克苏鲁真眼仆从
+			MasoTrueEyeConfig: 克苏鲁真眼召唤物
 
 			CyclonicHeader: "{$Mods.FargowiltasSouls.ItemName.AbominableWand}"
 			MasoFishronConfig: 幽灵憎恶
 
 			MutantArmorHeader: 真·突变体套装
 			MasoAbomConfig: 幽灵憎恶
-			MasoRingConfig: 幻影球仆从
+			MasoRingConfig: 幻影球召唤物
 			MasoReviveDeathrayConfig: 复活死亡射线
 
 
@@ -1778,7 +1778,7 @@ Mods: {
 					增加物品和弹幕的尺寸
 					你的身后会留下一条火痕
 					引燃你附近的敌人
-					仆从会释放镰刀
+					召唤物会释放镰刀
 					鞭打你的召唤物可以让它们更勤奋
 					将某些小动物转化为武器
 					敌人死亡时会爆裂出针刺
@@ -1810,7 +1810,7 @@ Mods: {
 					免疫大多数减益
 					药草收获翻倍
 					普通蜜蜂有50%几率变成超级蜜蜂
-					仆从和哨兵有30%基础暴击率
+					召唤物和哨兵有30%基础暴击率
 					敌人死亡时有20%几率掉落更多战利品
 					你能超音速奔跑
 					你能无限飞行
@@ -2620,9 +2620,9 @@ Mods: {
 				'''
 			DarkArtistEnchant:
 				'''
-				召唤一个爆炸烈焰仆从，在充能完毕后会移动至光标位置
+				召唤一个爆炸烈焰召唤物，在充能完毕后会移动至光标位置
 				然后它会如同一个哨兵，固定在该位置并发射爆炸火球
-				持续攻击会使你被火焰包裹并为仆从充能，持续攻击两秒后完成充能
+				持续攻击会使你被火焰包裹并为召唤物充能，持续攻击两秒后完成充能
 				切换武器后，下次攻击的伤害增加50%，并造成地狱爆炸
 				大幅增加爆炸烈焰哨兵的索敌范围和攻击距离
 				“阴影蕴含之物远超其表象”
@@ -2878,7 +2878,7 @@ Mods: {
 				'''
 			SpiderEnchant:
 				'''
-				你的仆从和哨兵可以造成暴击
+				你的召唤物和哨兵可以造成暴击
 				召唤暴击造成1.5倍伤害而不是2倍
 				“蜘蛛恐惧者？作为惩罚，让他被蜘蛛干掉吧！”
 				'''
@@ -3721,7 +3721,7 @@ Mods: {
 
 			MedallionoftheFallenKing:
 			'''
-			召唤一个史莱姆王仆从，其伤害接受召唤伤害加成
+			召唤一个史莱姆王召唤物，其伤害接受召唤伤害加成
 			'''
 			ComputationOrb:
 			'''
@@ -4174,7 +4174,7 @@ Mods: {
 			弹幕有几率分裂或爆裂成碎片并生成星星，增加物品和弹幕的尺寸，扩大你的物品拾取范围
 			引燃你附近的敌人，你的身后会留下一条火痕，跳跃会释放孢子爆炸
 			给予你猩红魔石的恢复效果，免疫岩浆、火和摔落伤害并使药草收获翻倍
-			普通蜜蜂有50%几率变成大蜜蜂，你的仆从和哨兵现在可以造成暴击且有15%基础暴击率并增加30点护甲穿透，敌人死亡时有20%几率掉落更多战利品
+			普通蜜蜂有50%几率变成大蜜蜂，你的召唤物和哨兵现在可以造成暴击且有15%基础暴击率并增加30点护甲穿透，敌人死亡时有20%几率掉落更多战利品
 			增加小动物的防御力，小动物死亡后会释放它们的灵魂来帮助你，鞭打你的召唤物可以让它们更勤奋
 			强化钩爪的效果，钩爪会发射追踪弹幕，大幅强化旧日军团的塔防哨兵
 			你的攻击会造成迈达斯减益，敌人在死亡时会爆裂出针刺
