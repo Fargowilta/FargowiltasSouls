@@ -76,7 +76,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
         {
             NPC.width = 120;
             NPC.height = 120;
-            NPC.damage = 260;
+            NPC.damage = 240;
             NPC.defense = 80;
             NPC.lifeMax = FargoSoulsWorld.MasochistModeReal ? 624000 : 576000;
             if (Main.expertMode) //compensate universe core

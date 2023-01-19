@@ -43,10 +43,6 @@ namespace FargowiltasSouls.Items
                 if (p.TerrariaSoul)
                     rangeBonus = 640;
 
-                //half as effective on nebula bois
-                if (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3)
-                    rangeBonus /= 2;
-
                 grabRange += rangeBonus;
             }
         }

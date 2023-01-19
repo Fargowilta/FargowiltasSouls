@@ -169,6 +169,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             NPC.direction = NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;
 
+            bool drainLifeInP3 = true;
+
             switch ((int)NPC.ai[0])
             {
                 #region phase 1
@@ -263,7 +265,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                 #region phase 3
 
-                case -1: Phase3Transition(); break;
+                case -1: drainLifeInP3 = Phase3Transition(); break;
 
                 case -2: VoidRaysP3(); break;
 
@@ -294,9 +296,9 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.bloodMoon = false; //disable blood moon
             }
 
-            if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation
+            if (NPC.ai[0] < 0 && NPC.life > 1 && drainLifeInP3) //in desperation
             {
-                int time = FargoSoulsWorld.MasochistModeReal ? 3870 : 240 + 420 + 480 + 1020 - 60;
+                int time = FargoSoulsWorld.MasochistModeReal ? 4350 : 480 + 240 + 420 + 480 + 1020 - 60;
                 NPC.life -= NPC.lifeMax / time;
                 if (NPC.life < 1)
                     NPC.life = 1;
@@ -2945,8 +2947,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         #region p3
 
-        void Phase3Transition()
+        bool Phase3Transition()
         {
+            bool retval = true;
+
             NPC.localAI[3] = 3;
 
             EModeSpecialEffects();
@@ -2954,8 +2958,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             //NPC.damage = 0;
             if (NPC.buffType[0] != 0)
                 NPC.DelBuff(0);
+
             if (NPC.ai[1] == 0) //entering final phase, give healing
             {
+                NPC.life = NPC.lifeMax;
+
                 DramaticTransition(true);
             }
 
@@ -2967,19 +2974,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
 
-            if (NPC.ai[1] > 360 && NPC.life < NPC.lifeMax && NPC.ai[1] % 2 == 0)
-            {
-                int heal = (int)(NPC.lifeMax / (90 / 2) * Main.rand.NextFloat(1f, 1.2f));
-                NPC.life += heal;
-                if (NPC.life > NPC.lifeMax)
-                    NPC.life = NPC.lifeMax;
-                NPC.HealEffect(heal);
-            }
-
             if (++NPC.ai[1] > 480)
             {
+                retval = false; //dont drain life during this time, ensure it stays synced
+
                 if (!AliveCheck(player))
-                    return;
+                    return retval;
                 Vector2 targetPos = player.Center;
                 targetPos.Y -= 300;
                 Movement(targetPos, 1f, true, false);
@@ -3029,6 +3029,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.dust[d].noLight = true;
                 Main.dust[d].velocity *= 4f;
             }
+
+            return retval;
         }
 
         void VoidRaysP3()
