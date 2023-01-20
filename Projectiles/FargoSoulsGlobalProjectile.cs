@@ -607,7 +607,7 @@ namespace FargowiltasSouls.Projectiles
             return base.PreDraw(projectile, ref lightColor);
         }
 
-        public static List<Projectile> SplitProj(Projectile projectile, int number, float maxSpread, float damageRatio)
+        public static List<Projectile> SplitProj(Projectile projectile, int number, float maxSpread, float damageRatio, bool allowMoreSplit = false)
         {
             if (ModContent.TryFind("Fargowiltas", "SpawnProj", out ModProjectile spawnProj) && projectile.type == spawnProj.Type)
             {
@@ -641,7 +641,8 @@ namespace FargowiltasSouls.Projectiles
                         split.DamageType = projectile.DamageType;
 
                         //split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().numSplits = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().numSplits;
-                        split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
+                        if (!allowMoreSplit)
+                            split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
                         split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TungstenScale = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TungstenScale;
 
                         projList.Add(split);

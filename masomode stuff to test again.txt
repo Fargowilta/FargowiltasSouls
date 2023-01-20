@@ -49,3 +49,4 @@ snow ench buff, your attacks inflict 2sec frostburn
 reduced abom damage slightly
 removed iron ench nerfed range for nebula pickups
 adjusted mutant life recovery in p3 to hopefully be more clear that it is an endurance phase
+fixed slime king slasher with adamantite ench losing spikes

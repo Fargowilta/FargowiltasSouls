@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
                 spread = MathHelper.Pi / 5;
             }
 
-            FargoSoulsGlobalProjectile.SplitProj(Main.projectile[p], numSpikes, spread, 1);
+            FargoSoulsGlobalProjectile.SplitProj(Main.projectile[p], numSpikes, spread, 1, true);
 
             numSpikes += 2;
 
