@@ -1861,6 +1861,11 @@ namespace FargowiltasSouls
                 AttackSpeed -= diff;
             }
 
+            if (NinjaEnchantItem != null && Player.GetToggleValue("NinjaSpeed"))
+            {
+                AttackSpeed *= 2;
+            }
+
             //checks so weapons dont break
             while (useTime / AttackSpeed < 1)
             {
@@ -2314,6 +2319,11 @@ namespace FargowiltasSouls
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
+			if (NinjaEnchantItem != null && Player.GetToggleValue("NinjaSpeed"))
+			{
+				damage /= 2;
+			}
+			
             if (Hexed || (ReverseManaFlow && item.CountsAsClass(DamageClass.Magic)))
             {
                 target.life += damage;

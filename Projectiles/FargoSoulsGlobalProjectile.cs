@@ -69,7 +69,6 @@ namespace FargowiltasSouls.Projectiles
         public const int TimeFreezeMoveDuration = 10;
         public int TimeFrozen = 0;
         public bool TimeFreezeImmune;
-        public bool TimeFreezeCheck;
         public int DeletionImmuneRank;
 
         public bool canHurt = true;
@@ -455,7 +454,7 @@ namespace FargowiltasSouls.Projectiles
                         {
                             NPC target = Main.npc[npcIndex];
 
-                            if (Collision.CanHit(projectile.position, projectile.width, projectile.height, target.position, target.width, target.height))
+                            if (Collision.CanHit(projectile.Center, 0, 0, target.Center, 0, 0))
                             {
                                 Vector2 velocity = Vector2.Normalize(target.Center - projectile.Center) * 20;
 
@@ -861,19 +860,12 @@ namespace FargowiltasSouls.Projectiles
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (!TimeFreezeCheck)
-            {
-                TimeFreezeCheck = true;
-                if (projectile.whoAmI == Main.player[projectile.owner].heldProj)
-                    TimeFreezeImmune = true;
-            }
-
             if (projectile.whoAmI == player.heldProj
                 || projectile.aiStyle == ProjAIStyleID.HeldProjectile
                 || projectile.type == ProjectileID.LastPrismLaser)
             {
                 DeletionImmuneRank = 2;
-                NinjaSpeedup = 0;
+				TimeFreezeImmune = true;
 
                 projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
 
@@ -969,7 +961,7 @@ namespace FargowiltasSouls.Projectiles
             if (noInteractionWithNPCImmunityFrames)
                 tempIframe = target.immune[projectile.owner];
 
-            if (NinjaSpeedup > 0 && NinjaEnchant.NeedsNinjaNerf(projectile))
+            if (NinjaSpeedup > 0)
                 damage /= 2;
 
             if (projectile.type == ProjectileID.SharpTears && !projectile.usesLocalNPCImmunity && projectile.usesIDStaticNPCImmunity && projectile.idStaticNPCHitCooldown == 60 && noInteractionWithNPCImmunityFrames)
@@ -1024,27 +1016,33 @@ namespace FargowiltasSouls.Projectiles
                 }
             }
 
-            Player player = Main.player[projectile.owner];
-            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+			if (NinjaSpeedup > 0)
+				ReduceIFrames(projectile, target, 2);
+			
+			if (AdamModifier != 0)
+				ReduceIFrames(projectile, target, AdamModifier);
 
-            if (projectile.maxPenetrate != 1 && AdamModifier != 0 && !projectile.usesLocalNPCImmunity)
+            if (projectile.type == ProjectileID.IceBlock && Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().FrigidGemstoneItem != null)
+            {
+				target.AddBuff(BuffID.Frostburn, 360);
+            }
+        }
+		
+		void ReduceIFrames(Projectile projectile, NPC target, int iframeModifier)
+		{
+			if (projectile.maxPenetrate != 1 && !projectile.usesLocalNPCImmunity)
             {
                 if (projectile.usesIDStaticNPCImmunity)
                 {
                     if (projectile.idStaticNPCHitCooldown > 1)
-                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)(projectile.idStaticNPCHitCooldown / AdamModifier);
+                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)(projectile.idStaticNPCHitCooldown / iframeModifier);
                 }
                 else if (!noInteractionWithNPCImmunityFrames && target.immune[projectile.owner] > 1)
                 {
-                    target.immune[projectile.owner] /= AdamModifier;
+                    target.immune[projectile.owner] /= iframeModifier;
                 }
             }
-
-            if (projectile.type == ProjectileID.IceBlock && modPlayer.FrigidGemstoneItem != null)
-            {
-                target.AddBuff(BuffID.Frostburn, 360);
-            }
-        }
+		}
 
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)
         {

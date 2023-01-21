@@ -50,3 +50,14 @@ reduced abom damage slightly
 removed iron ench nerfed range for nebula pickups
 adjusted mutant life recovery in p3 to hopefully be more clear that it is an endurance phase
 fixed slime king slasher with adamantite ench losing spikes
+
+ninja ench reworks
+	removed force/wizard effect of triple projectile speed
+	gives +100% weapon use speed
+	halves all affected damage
+	halves iframes too
+	fixed it not reducing damage on certain projectiles shot by summons
+	fixed shadow force not actually containing ninja ench effect
+	fixed ninja ench benefiting from terra force instead of shadow force
+	can affect "held projectiles" e.g. phantasm, last prism, vortex beater
+adjusted spooky ench line of sight detection to hopefully fix it not working for minions standing on solid tiles
