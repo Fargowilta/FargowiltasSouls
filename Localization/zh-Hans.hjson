@@ -38,7 +38,7 @@ Mods: {
 			Mythril: 增加最大攻速加成，持续时间更长
 			Nebula: ""
 			Necro: ""
-			Ninja: 弹幕速度增加3倍而非2倍，护甲穿透再增加20点
+			Ninja: 护甲穿透增加提高到45点
 			Obsidian: 你不再需要岩浆来引发爆炸，冷却时间减少
 			Orichalcum: 倍数提高到4
 			Palladium: 快速治疗总是持续5秒，增加钯金珠伤害
@@ -1483,7 +1483,7 @@ Mods: {
 			HallowDodgeConfig: 神圣 神圣防护
 			HallowedConfig: 远古神圣 泰拉棱镜
 			HallowSConfig: 远古神圣 护盾
-			NinjaSpeedConfig: 忍者 弹幕速度加成
+			NinjaSpeedConfig: 忍者 弹幕、攻击速度加成
 			SpectreConfig: 幽魂 幽魂珠
 			TikiConfig: 提基 鞭打召唤物
 
@@ -2753,7 +2753,7 @@ Mods: {
 				'''
 			NinjaEnchant:
 				'''
-				大幅提升弹幕和召唤物速度
+				大幅提升弹幕和召唤物速度以及攻击速度
 				为了平衡加速度，伤害会降低
 				增加15点护甲穿透
 				“比肉眼所及更快”
