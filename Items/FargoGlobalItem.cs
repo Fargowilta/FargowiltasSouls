@@ -63,6 +63,16 @@ namespace FargowiltasSouls.Items
                 type = ProjectileID.ConfettiGun;
         }
 
+        public override void OnConsumeItem(Item item, Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            if (item.healLife > 0)
+            {
+                modPlayer.StatLifePrevious += modPlayer.getHealMultiplier(item.healLife);
+            }
+        }
+
         public override bool ConsumeItem(Item item, Player player)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
@@ -74,11 +84,6 @@ namespace FargowiltasSouls.Items
 
             if (modPlayer.BuilderMode && (item.createTile > 0 || item.createWall > 0))
                 return false;
-
-            if (item.healLife > 0)
-            {
-                modPlayer.StatLifePrevious += modPlayer.getHealMultiplier(item.healLife);
-            }
 
             return base.ConsumeItem(item, player);
         }

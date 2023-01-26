@@ -61,3 +61,26 @@ ninja ench reworks
 	fixed ninja ench benefiting from terra force instead of shadow force
 	can affect "held projectiles" e.g. phantasm, last prism, vortex beater
 adjusted spooky ench line of sight detection to hopefully fix it not working for minions standing on solid tiles
+
+updated sdf tooltip to say correct berserk install input
+berserk install now takes priority over twins install, pressing the key once will not install both anymore
+fixed wizard ench tooltip not also providing info for an ench equipped in 7th slot
+fixed mutant nibble causing concentrated rainbow matter to waste potions
+hopefully fixed phantasm proj array cap hyperspeed firing (shouldnt affect using it normally)
+nuke fishron and lunar flare explosions ignore most proj deletion effects e.g. earth champ hands
+dark star adjustments: has an additional hitbox that trails 1 tick behind, capped its speed (the cap is still very high, largely shouldnt be relevant), shouldnt phase through you anymore
+boc/destroyer laser hitbox adjusted to stretch with its velocity, shouldnt phase through you anymore
+adjusted wof golden shower to look less weird when it hits a surface (previously vanished instantly the moment its tip touched a block)
+titanium ench nerfed
+	now 50 base damage with no scaling. force effect simply gives scaling (used to be 120 damage with scaling)
+	dr buff length is always 4 seconds but refreshes when you hit an enemy, basically it persists until you take a hit and then begins counting down
+	you cannot gain shards while dr is on cooldown
+	dr cd doesn't begin until hit
+	to compensate, dr cd is true 10 seconds (was 10 + buff duration)
+pearlwood ench recipe uses pearlwood sword instead of star cannon
+
+fixed ninja ench not speeding up "held projectile" weapons e.g. phantasm, last prism, vortex beater
+fixed wizard ench tooltip in inventory phenomenon
+fixed mutant having 6 hp in journey master maso FTW fury enrage
+fixed pygmy staff not working with spooky ench
+fixed potions in general not working properly with mutant nibble/fang

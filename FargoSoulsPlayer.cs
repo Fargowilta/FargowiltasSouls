@@ -255,6 +255,7 @@ namespace FargowiltasSouls
         public bool VortexEnchantActive;
         public bool VortexStealth;
         public bool WizardEnchantActive;
+        public List<BaseEnchant> EquippedEnchants = new List<BaseEnchant>();
         
         public bool NebulaEnchantActive;
         public bool BeetleEnchantActive;
@@ -1007,6 +1008,8 @@ namespace FargowiltasSouls
             //IronEnchantShield = false;
             SilverEnchantItem = null;
             DreadShellItem = null;
+
+            EquippedEnchants.Clear();
 
             if (WizardEnchantActive)
             {
@@ -2974,6 +2977,12 @@ namespace FargowiltasSouls
             WasHurtBySomething = true;
 
             MahoganyCanUseDR = false;
+			
+			if (Player.HasBuff(ModContent.BuffType<TitaniumDRBuff>())
+				&& !Player.HasBuff(ModContent.BuffType<TitaniumCD>()))
+			{
+				Player.AddBuff(ModContent.BuffType<TitaniumCD>(), 60 * 10);
+			}
 
             if (NekomiSet)
             {

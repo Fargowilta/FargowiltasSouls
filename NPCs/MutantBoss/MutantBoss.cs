@@ -116,12 +116,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            NPC.damage = (int)(NPC.damage * 0.5f);
+            NPC.damage = (int)Math.Round(NPC.damage * 0.5);
             NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 0.5 * bossLifeScale);
-
-            //doing it here to avoid overflow i think
-            if (FargoSoulsWorld.AngryMutant)
-                NPC.lifeMax *= 100;
         }
 
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
@@ -317,8 +313,23 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         #region helper functions
 
+        bool spawned;
         void ManageAurasAndPreSpawn()
         {
+            if (!spawned)
+            {
+                spawned = true;
+
+                int prevLifeMax = NPC.lifeMax;
+                if (FargoSoulsWorld.AngryMutant) //doing it here to avoid overflow i think
+                {
+                    NPC.lifeMax *= 100;
+                    if (NPC.lifeMax < prevLifeMax)
+                        NPC.lifeMax = int.MaxValue;
+                }
+                NPC.life = NPC.lifeMax;
+            }
+
             if (FargoSoulsWorld.MasochistModeReal && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<MutantPresence>(), 2);
 

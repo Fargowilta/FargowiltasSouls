@@ -73,9 +73,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             .AddIngredient(ItemID.PearlwoodHelmet)
             .AddIngredient(ItemID.PearlwoodBreastplate)
             .AddIngredient(ItemID.PearlwoodGreaves)
+			.AddIngredient(ItemID.PearlwoodSword)
             .AddIngredient(ItemID.LightningBug)
             .AddIngredient(ItemID.Starfruit)
-            .AddIngredient(ItemID.StarCannon)
             
             .AddTile(TileID.CrystalBall)
             .Register();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Default;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -37,27 +38,10 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             if (tooltips.TryFindTooltipLine("ItemName", out TooltipLine itemNameLine))
                 itemNameLine.OverrideColor = nameColor;
 
-            Player player = Main.player[ Main.myPlayer];
-
-            for (int i = 3; i <= 9; i++)
+            foreach (BaseEnchant enchant in Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().EquippedEnchants)
             {
-                if (!player.armor[i].IsAir)
-                {
-                    ModItem item = player.armor[i].ModItem;
-
-                    if (item is BaseEnchant)
-                    {
-                        BaseEnchant enchant = item as BaseEnchant;
-                        string wizardText = enchant.wizardEffect;
-
-                        if (wizardText.Length == 0)
-                        {
-                            continue;
-                        }
-
-                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{item.Type}] " + wizardText));
-                    }
-                }
+                if (enchant.wizardEffect.Length != 0)
+                    tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{enchant.Item.type}] " + enchant.wizardEffect));
             }
         }
 
