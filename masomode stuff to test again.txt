@@ -84,3 +84,6 @@ fixed wizard ench tooltip in inventory phenomenon
 fixed mutant having 6 hp in journey master maso FTW fury enrage
 fixed pygmy staff not working with spooky ench
 fixed potions in general not working properly with mutant nibble/fang
+mythril nerfs
+	ench cd is 5 seconds, was 3
+	force speed up is +75%, was +100%

@@ -121,7 +121,7 @@ namespace FargowiltasSouls
         public Item MythrilEnchantItem;
         public int MythrilTimer;
         public int MythrilMaxTime => EarthForce ? 300 : 180;
-        public float MythrilMaxSpeedBonus => EarthForce ? 2.0f : 1.5f;
+        public float MythrilMaxSpeedBonus => EarthForce ? 1.75f : 1.5f;
         public Item OriEnchantItem;
         public Item PalladEnchantItem;
         public int PalladCounter;
