@@ -604,6 +604,21 @@ namespace FargowiltasSouls.Projectiles
                         }
                     }
                     break;
+                //Arkhalis and Terragrim fix to draw properly with Tungsten Enchantment
+                case ProjectileID.Arkhalis:
+                case ProjectileID.Terragrim:
+                    {
+                        Texture2D Texture = Terraria.GameContent.TextureAssets.Projectile[projectile.type].Value;
+                        int sizeY = Terraria.GameContent.TextureAssets.Projectile[projectile.type].Value.Height / Main.projFrames[projectile.type]; //ypos of lower right corner of sprite to draw
+                        int frameY = projectile.frame * sizeY;
+                        Rectangle rectangle = new Rectangle(0, frameY, Texture.Width, sizeY);
+                        Vector2 origin = rectangle.Size() / 2f;
+                        SpriteEffects spriteEffects = projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                        Main.EntitySpriteDraw(Texture, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor),
+                                projectile.rotation, origin, projectile.scale, spriteEffects, 0);
+                        return false;
+                    }
+                    //no break, above return false makes it unreachable
                 default:
                     break;
             }

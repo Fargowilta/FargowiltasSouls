@@ -11,6 +11,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
     public class LifeCageExplosion : ModProjectile
     {
+        public override string Texture => "FargowiltasSouls/NPCs/Challengers/LifeChallengerParts/Rune1";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cage Explosion");
@@ -62,6 +63,11 @@ namespace FargowiltasSouls.Projectiles.Challengers
         {
             if (FargoSoulsWorld.EternityMode)
                 target.AddBuff(ModContent.BuffType<Buffs.Masomode.Smite>(), 600);
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            return false;
         }
     }
 }

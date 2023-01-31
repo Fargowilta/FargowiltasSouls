@@ -596,15 +596,6 @@ namespace FargowiltasSouls.Projectiles
                         Projectile.rotation = Projectile.velocity.ToRotation();
                     }
                     break;
-                case 20: //lifelight shotgun
-                    {
-                        color = Color.DeepPink; //Color.Lerp(Color.DeepPink, Color.Magenta, 0.5f);
-                        alphaModifier = 1;
-                        Projectile.scale = 0.6f;
-                        maxTime = 40;
-                        Projectile.rotation = Projectile.ai[1];
-                    }
-                    break;
 
                 default:
                     Main.NewText("glow line: you shouldnt be seeing this text, show terry");
