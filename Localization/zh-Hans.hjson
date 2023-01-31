@@ -352,6 +352,7 @@ Mods: {
 			// == Pets ==
 			AccursedSarcophagusBuff: 被诅咒的石棺
 			BabyAbomBuff: 憎恶宝宝
+			BabyLifelightBuff: 照明圣光
 			BabySilhouetteBuff: 黑雾宝宝
 			BiteSizeBaronBuff: 小小公爵
 			ChibiDeviBuff: 小不点德薇
@@ -498,6 +499,7 @@ Mods: {
 			// == Pets ==
 			AccursedSarcophagusBuff: '''它会把手拿开的'''
 			BabyAbomBuff: '''在镰刀上踢翻镰刀'''
+			BabyLifelightBuff: '''看哪，那天使的圣光'''
 			BabySilhouetteBuff: '''见不到一点亮光，直到它成长完全'''
 			BiteSizeBaronBuff: '''不包括EX阶段'''
 			ChibiDeviBuff: '''她对“你”很感兴趣'''
@@ -659,6 +661,7 @@ Mods: {
 			PhantasmalSphere2: 幻影球
 			PrimeDeathray: 烈焰死亡射线
 			PrimeLaser: 机械激光
+			PrismaRegaliaProj: 七彩棱晶之御枪
 			RazorbladeTyphoonFriendly: 利刃台风
 			RefractorBlaster2Held: 衍射暗星炮
 			RetiDeathray: 烈焰死亡射线
@@ -1127,6 +1130,7 @@ Mods: {
 			// == Pets ==
 			AccursedSarcophagus: 被诅咒的石棺
 			BabyAbom: 憎恶宝宝
+			BabyLifelight: 照明圣光
 			BabySilhouette: 黑雾宝宝
 			BiteSizeBaron: 小小公爵
 			ChibiDevi: 小不点德薇
@@ -1396,6 +1400,7 @@ Mods: {
 			HideTogglerDescription: 如果开启，饰品效果菜单会在你关闭物品栏时自动隐藏
 			DeviChatter: 迷你戴薇安会和你聊天
 			ToggleSearchReset: 魂石效果开关界面被关闭时重置搜索栏
+			BigTossMode: 乱扔瞎甩模式，所有敌怪和弹幕都会把你撞飞
 			MasoHeader: 永恒模式
 			MasoBossRecolors: Boss贴图替换
 			OncomingMutantX: 永恒模式图标水平位置
@@ -2085,11 +2090,11 @@ Mods: {
 
 			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
 			IceBarrier: 永恒模式：你造成的伤害减少10%
-			SpearRework: Reworked spear swing animation
-			PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
-			CobaltNaginataRework: Causes a small explosion on striking enemies
-			MythrilHalberdRework: Deals more damage after not attacking
-			TitaniumTridentRework: Charge up to throw instead of swinging
+			SpearRework: 重做长矛挥舞动画
+			PalladiumPikeRework: 暴击敌人后大幅增加生命恢复速度
+			CobaltNaginataRework: 暴击敌人会造成小范围爆炸
+			MythrilHalberdRework: 一段时间不攻击后造成更多伤害
+			TitaniumTridentRework: 长按左键蓄力以投掷长矛而非挥舞
 		}
 
 		ItemName: {
@@ -2211,6 +2216,7 @@ Mods: {
 			BabyScythe: 小镰刀
 			ChibiHat: 小不点帽子
 			EnerGear: 能量齿轮
+			LifelightMasterPet: 缥缈圣光之灯
 			MostlyOrdinaryRock: 最普通的岩石
 			PortableFogMachine: 便携式烟雾机
 			SpawnSack: 卵袋
@@ -2247,6 +2253,7 @@ Mods: {
 			FishStick: 鱼杖
 			FleshHand: 血肉之手
 			LeashOfCthulhu: 克苏鲁连枷
+			PrismaRegalia: 七彩棱晶之御枪
 			RefractorBlaster: 变轨激光炮
 			RockSlide: 山崩
 			SlimeKingsSlasher: 史莱姆王屠戮者
@@ -2759,7 +2766,7 @@ Mods: {
 			NinjaEnchant:
 				'''
 				大幅提升弹幕和召唤物速度以及攻击速度
-				为了平衡加速度，伤害会降低
+				为了平衡加速度，伤害会降低，但魔力消耗减少50%
 				增加15点护甲穿透
 				“比肉眼所及更快”
 				'''
@@ -3707,6 +3714,10 @@ Mods: {
 			召唤一位小小的公爵
 			“100%防锈，不然就拿回你的钱”
 			'''
+			LifelightMasterPet:
+			'''
+			召唤一位小天使提供光照
+			'''
 			MostlyOrdinaryRock:
 			'''
 			召唤一位宝藏探索者
@@ -3851,6 +3862,12 @@ Mods: {
 			'''
 			“被击败的敌人的残尸...”
 			'''
+			PrismaRegalia:
+			'''
+			长按左键蓄力以造成更多伤害
+			蓄力完成后，松开左键以冲向光标处并攻击沿途敌人
+			“大概是某个敌人的某部分...”
+			'''
 			RefractorBlaster:
 			'''
 			“由一个被击败的敌人的手臂改装而来..”
@@ -3919,7 +3936,7 @@ Mods: {
 			SpiritLongbow:
 				'''
 				把箭矢转换为心灵之箭，在箭飞过的路径上释放心灵能量
-				按住左键来蓄力射击，蓄力造成更多的伤害以及更快的箭矢速度
+				长按左键来蓄力射击，蓄力造成更多的伤害以及更快的箭矢速度
 				'''
 
 			// === Final Upgrades
