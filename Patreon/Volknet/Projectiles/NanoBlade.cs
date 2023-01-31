@@ -114,6 +114,7 @@ namespace FargowiltasSouls.Patreon.Volknet.Projectiles
                     if (owner.GetModPlayer<NanoPlayer>().NanoCoreMode == 0 && owner.channel)
                     {
                         Projectile.damage = (int)(Projectile.ai[1]  * owner.GetWeaponDamage(owner.HeldItem));
+                        Projectile.CritChance = owner.GetWeaponCrit(owner.HeldItem);
 
                         Projectile.ai[0] = (Projectile.ai[0] + 1) % 30;
                         if (Projectile.ai[0] == 15)

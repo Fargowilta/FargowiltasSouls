@@ -1,7 +1,7 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.Buffs.Souls;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -40,18 +40,34 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public const int P2_ATTACK_SPACING = 480;
         public const int P2_COIL_BEGIN_TIME = P2_ATTACK_SPACING * 4;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackModeTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(CoilRadius), IntStrategies.CompoundStrategy },
-                { new Ref<object>(LaserTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(SecondaryAttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RotationDirection), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsCoiling), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(PrepareToCoil), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackModeTimer);
+            binaryWriter.Write7BitEncodedInt(CoilRadius);
+            binaryWriter.Write7BitEncodedInt(LaserTimer);
+            binaryWriter.Write7BitEncodedInt(SecondaryAttackTimer);
+            binaryWriter.Write7BitEncodedInt(RotationDirection);
+            bitWriter.WriteBit(InPhase2);
+            bitWriter.WriteBit(IsCoiling);
+            bitWriter.WriteBit(PrepareToCoil);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackModeTimer = binaryReader.Read7BitEncodedInt();
+            CoilRadius = binaryReader.Read7BitEncodedInt();
+            LaserTimer = binaryReader.Read7BitEncodedInt();
+            SecondaryAttackTimer = binaryReader.Read7BitEncodedInt();
+            RotationDirection = binaryReader.Read7BitEncodedInt();
+            InPhase2 = bitReader.ReadBit();
+            IsCoiling = bitReader.ReadBit();
+            PrepareToCoil = bitReader.ReadBit();
+        }
 
         public override void OnFirstTick(NPC npc)
         {
@@ -62,7 +78,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = false;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.destroyBoss = npc.whoAmI;
 
@@ -342,10 +358,10 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                         for (int i = 0; i < max; i++)
                                         {
                                             NPC probe = probes[attempt];
-                                            if (!probe.GetEModeNPCMod<Probe>().ShootLaser)
+                                            if (!probe.GetGlobalNPC<Probe>().ShootLaser)
                                             {
-                                                probe.GetEModeNPCMod<Probe>().ShootLaser = true;
-                                                probe.GetEModeNPCMod<Probe>().AttackTimer = 0;
+                                                probe.GetGlobalNPC<Probe>().ShootLaser = true;
+                                                probe.GetGlobalNPC<Probe>().AttackTimer = 0;
 
                                                 if (++probesActivated >= 2)
                                                     break;
@@ -471,25 +487,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     }
                                     else
                                     {
-                                        if (FargoSoulsWorld.MasochistModeReal)
-                                            maxSpeed /= 2;
-                                        else if (maxSpeed > 4)
-                                            maxSpeed = 4;
-
-                                        if (npc.velocity.Length() > maxSpeed)
-                                            npc.velocity *= 0.986f;
-
-                                        float turnModifier = FargoSoulsWorld.MasochistModeReal ? 1.5f : 15f;
-                                        num15 /= turnModifier; //garbage turning
-                                        num16 /= turnModifier;
-
-                                        //curve very slightly towards player
                                         double angle = npc.DirectionTo(target).ToRotation() - npc.velocity.ToRotation();
                                         while (angle > Math.PI)
                                             angle -= 2.0 * Math.PI;
                                         while (angle < -Math.PI)
                                             angle += 2.0 * Math.PI;
-                                        npc.velocity = npc.velocity.RotatedBy(MathHelper.ToRadians(0.3f) * Math.Sign(angle));
+                                        int rotationTowardsPlayer = Math.Sign(angle);
+
+                                        bool playerIsInFront = Math.Abs(angle) < MathHelper.ToRadians(45);
+                                        if (!playerIsInFront)
+                                        {
+                                            if (FargoSoulsWorld.MasochistModeReal)
+                                                maxSpeed /= 2;
+                                            else if (maxSpeed > 4)
+                                                maxSpeed = 4;
+
+                                            if (npc.velocity.Length() > maxSpeed)
+                                                npc.velocity *= 0.986f;
+
+                                            float turnModifier = 15f;
+                                            num15 /= turnModifier; //garbage turning
+                                            num16 /= turnModifier;
+                                        }
+
+                                        //curve very slightly towards player
+                                        npc.velocity = npc.velocity.RotatedBy(MathHelper.ToRadians(0.3f) * rotationTowardsPlayer);
 
                                         if (AttackModeTimer < laserThreshold + 300 && ++SecondaryAttackTimer % 90 == 20)
                                         {
@@ -676,9 +698,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.numHits > 0 && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * (2.0 / 3.0 + 1.0 / 3.0 * 1 / projectile.numHits));
@@ -724,12 +746,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int AttackTimer;
         public int ProbeReleaseTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ProjectileCooldownTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(ProbeReleaseTimer), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ProjectileCooldownTimer);
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(ProbeReleaseTimer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ProjectileCooldownTimer = binaryReader.Read7BitEncodedInt();
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            ProbeReleaseTimer = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -747,9 +780,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<TimeFrozen>()] = false;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -768,7 +801,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 return result;
             }
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>();
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>();
 
             npc.defense = npc.defDefense;
             npc.localAI[0] = 0f; //disable vanilla lasers
@@ -874,7 +907,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (destroyer == null)
                 return base.CanHitPlayer(npc, target, ref CooldownSlot);
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>(); //basically, don't hit player right around when a coil begins, segments inside radius may move eratically
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>(); //basically, don't hit player right around when a coil begins, segments inside radius may move eratically
             if (destroyerEmode.IsCoiling)
             {
                 if (destroyerEmode.AttackModeTimer < 15)
@@ -897,7 +930,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             if (destroyer == null)
                 return;
 
-            Destroyer destroyerEmode = destroyer.GetEModeNPCMod<Destroyer>();
+            Destroyer destroyerEmode = destroyer.GetGlobalNPC<Destroyer>();
 
             if (destroyerEmode.IsCoiling)
             {
@@ -917,9 +950,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.numHits > 0 && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * (2.0 / 3.0 + 1.0 / 3.0 * 1 / projectile.numHits));
@@ -957,16 +990,29 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool ShootLaser;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(OrbitChangeTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(OrbitDirection), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(TargetOrbitRotation), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(ShootLaser), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(OrbitChangeTimer);
+            binaryWriter.Write7BitEncodedInt(OrbitDirection);
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write(TargetOrbitRotation);
+            bitWriter.WriteBit(ShootLaser);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            OrbitChangeTimer = binaryReader.Read7BitEncodedInt();
+            OrbitDirection = binaryReader.Read7BitEncodedInt();
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            TargetOrbitRotation = binaryReader.ReadSingle();
+            ShootLaser = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -993,14 +1039,14 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 EModeGlobalNPC.Horde(npc, 8);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive || !FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.destroyBoss, NPCID.TheDestroyer))
                 return result;
 
-            //bool isCoiling = Main.npc[EModeGlobalNPC.destroyBoss].GetEModeNPCMod<Destroyer>().IsCoiling;
+            //bool isCoiling = Main.npc[EModeGlobalNPC.destroyBoss].GetGlobalNPC<Destroyer>().IsCoiling;
 
             if (FargoSoulsWorld.MasochistModeReal)
             {
@@ -1024,7 +1070,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 NetSync(npc);
             }
 
-            if (Main.npc[EModeGlobalNPC.destroyBoss].GetEModeNPCMod<Destroyer>().IsCoiling)
+            if (Main.npc[EModeGlobalNPC.destroyBoss].GetGlobalNPC<Destroyer>().IsCoiling)
                 ShootLaser = false;
 
             if (npc.HasValidTarget)

@@ -1,17 +1,20 @@
 ﻿using FargowiltasSouls.Buffs.Boss;
+using FargowiltasSouls.Primitives;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
-    public class MutantHeal : ModProjectile
+    public class MutantHeal : ModProjectile, IPixelPrimitiveDrawer
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/Champions/SpiritSpirit";
+        public PrimDrawer TrailDrawer { get; private set; } = null;
 
         public override void SetStaticDefaults()
         {
@@ -22,8 +25,8 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void SetDefaults()
         {
-            Projectile.width = 12;
-            Projectile.height = 12;
+            Projectile.width = 22;
+            Projectile.height = 22;
             Projectile.aiStyle = -1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
@@ -155,6 +158,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                     Projectile.position += Projectile.velocity;
                 }
             }
+            Projectile.rotation = Projectile.velocity.ToRotation();
         }
 
         public override void Kill(int timeLeft)
@@ -179,42 +183,64 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            int num156 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
-            int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
-            Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
-            Vector2 origin2 = rectangle.Size() / 2f;
+            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            #region Old drawcode
+            //int num156 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
+            //int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
+            //Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+            //Vector2 origin2 = rectangle.Size() / 2f;
 
-            Color color26 = lightColor;
-            color26 = Projectile.GetAlpha(color26);
+            //Color color26 = lightColor;
+            //color26 = Projectile.GetAlpha(color26);
 
-            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
-            {
-                Texture2D glow = texture2D13; //FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/BossWeapons/HentaiSpearSpinGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-                Color color27 = color26; //Color.Lerp(new Color(255, 255, 0, 210), Color.Transparent, 0.4f);
-                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-                float scale = Projectile.scale;
-                scale *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-                int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
-                if (max0 < 0)
-                    continue;
-                Vector2 center = Vector2.Lerp(Projectile.oldPos[(int)i], Projectile.oldPos[max0], 1 - i % 1);
-                float smoothtrail = i % 1 * MathHelper.Pi / 6.85f;
+            //for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
+            //{
+            //    Texture2D glow = texture2D13; //FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/BossWeapons/HentaiSpearSpinGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            //    Color color27 = color26; //Color.Lerp(new Color(255, 255, 0, 210), Color.Transparent, 0.4f);
+            //    color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+            //    float scale = Projectile.scale;
+            //    scale *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+            //    int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
+            //    if (max0 < 0)
+            //        continue;
+            //    Vector2 center = Vector2.Lerp(Projectile.oldPos[(int)i], Projectile.oldPos[max0], 1 - i % 1);
+            //    float smoothtrail = i % 1 * MathHelper.Pi / 6.85f;
 
-                center += Projectile.Size / 2;
+            //    center += Projectile.Size / 2;
 
-                Main.EntitySpriteDraw(
-                    glow,
-                    center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY),
-                    null,
-                    color27,
-                    Projectile.rotation,
-                    glow.Size() / 2,
-                    scale,
-                    SpriteEffects.None,
-                    0);
-            }
+            //    Main.EntitySpriteDraw(
+            //        glow,
+            //        center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY),
+            //        null,
+            //        color27,
+            //        Projectile.rotation,
+            //        glow.Size() / 2,
+            //        scale,
+            //        SpriteEffects.None,
+            //        0);
+            //}
+            #endregion
+            // Draw the base sprite.
+            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Color.Cyan, Projectile.rotation, texture.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0);
             return false;
+        }
+
+        public float WidthFunction(float completionRatio)
+        {
+            float baseWidth = Projectile.scale * Projectile.width * 1.9f;
+            return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
+        }
+
+        public Color ColorFunction(float completionRatio)
+        {
+            return Color.Lerp(Color.Cyan, Color.Transparent, completionRatio) * 0.7f;
+        }
+
+        public void DrawPixelPrimitives(SpriteBatch spriteBatch)
+        {
+            TrailDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:BlobTrail"]);
+            GameShaders.Misc["FargowiltasSouls:BlobTrail"].SetShaderTexture(FargosTextureRegistry.FadedStreak);
+            TrailDrawer.DrawPixelPrims(Projectile.oldPos, Projectile.Size * 0.5f - Main.screenPosition, 25);
         }
     }
 }

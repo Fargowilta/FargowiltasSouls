@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -35,14 +35,26 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool SpawnedArms;
         public bool HasSaidEndure;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ReticleTarget), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BabyGuardianTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DGSpeedRampup), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ReticleTarget);
+            binaryWriter.Write7BitEncodedInt(BabyGuardianTimer);
+            binaryWriter.Write7BitEncodedInt(DGSpeedRampup);
+            bitWriter.WriteBit(InPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ReticleTarget = binaryReader.Read7BitEncodedInt();
+            BabyGuardianTimer = binaryReader.Read7BitEncodedInt();
+            DGSpeedRampup = binaryReader.Read7BitEncodedInt();
+            InPhase2 = bitReader.ReadBit();
+        }
 
         int BabyGuardianTimerRefresh(NPC npc) => !FargoSoulsWorld.MasochistModeReal && NPC.AnyNPCs(NPCID.SkeletronHand) && npc.life > npc.lifeMax * 0.25 ? 240 : 180;
         
@@ -51,12 +63,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.SkeletronHand, npc.whoAmI, 1f, npc.whoAmI, 0f, 0f, npc.target);
             FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromAI(), npc.Center, NPCID.SkeletronHand, npc.whoAmI, -1f, npc.whoAmI, 0f, 0f, npc.target);
 
-            FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronRegrow", new Color(175, 75, 255));
+            FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.SkeletronRegrow", new Color(175, 75, 255));
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.skeleBoss = npc.whoAmI;
 
@@ -313,7 +325,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 if (!HasSaidEndure)
                 {
                     HasSaidEndure = true;
-                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.SkeletronGuardian", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.SkeletronGuardian", new Color(175, 75, 255));
                 }
                 return false;
             }
@@ -357,14 +369,23 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int AttackTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-            };
-
-        public override bool PreAI(NPC npc)
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
         {
-            bool result = base.PreAI(npc);
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+        }
+
+        public override bool SafePreAI(NPC npc)
+        {
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;

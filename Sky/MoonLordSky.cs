@@ -20,8 +20,8 @@ namespace FargowiltasSouls.Sky
             bool bossAlive = false;
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.moonBoss, NPCID.MoonLordCore))
             {
-                vulState = (int)Main.npc[EModeGlobalNPC.moonBoss].GetEModeNPCMod<MoonLordCore>().VulnerabilityState;
-                vulTimer = (int)Main.npc[EModeGlobalNPC.moonBoss].GetEModeNPCMod<MoonLordCore>().VulnerabilityTimer;
+                vulState = (int)Main.npc[EModeGlobalNPC.moonBoss].GetGlobalNPC<MoonLordCore>().VulnerabilityState;
+                vulTimer = (int)Main.npc[EModeGlobalNPC.moonBoss].GetGlobalNPC<MoonLordCore>().VulnerabilityTimer;
                 bossAlive = true;
             }
 

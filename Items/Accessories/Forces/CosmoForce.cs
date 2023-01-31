@@ -11,6 +11,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
         public static int[] Enchants => new int[]
         {
             ModContent.ItemType<MeteorEnchant>(),
+            ModContent.ItemType<WizardEnchant>(),
             ModContent.ItemType<SolarEnchant>(),
             ModContent.ItemType<VortexEnchant>(),
             ModContent.ItemType<NebulaEnchant>(),
@@ -22,8 +23,6 @@ namespace FargowiltasSouls.Items.Accessories.Forces
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Force of Cosmos");
-
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "宇宙之力");
 
             string tooltip =
 $"[i:{ModContent.ItemType<MeteorEnchant>()}] A meteor shower initiates every few seconds while attacking\n" +
@@ -64,7 +63,7 @@ $"[i:{ModContent.ItemType<StardustEnchant>()}] Press the Freeze Key to freeze ti
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             //meme speed, solar flare,
             modPlayer.CosmoForce = true;
-
+            modPlayer.WizardEnchantActive = true;
             //meteor shower
             modPlayer.MeteorEffect(Item);
             //solar shields

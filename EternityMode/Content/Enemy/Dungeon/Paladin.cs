@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
@@ -20,10 +20,19 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Dungeon
         public bool IsSmallPaladin;
         public bool FinishedSpawning;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(IsSmallPaladin), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            bitWriter.WriteBit(IsSmallPaladin);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            IsSmallPaladin = bitReader.ReadBit();
+        }
 
         public override void AI(NPC npc)
         {

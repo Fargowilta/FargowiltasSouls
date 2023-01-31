@@ -1,108 +1,15 @@
 Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls accessories, as well as a variety of bosses and minibosses.
 Features the highly challenging Eternity Mode!
 
-NEW UPDATE - V 1.4.1
--Readded Acorn Construct :tm:
--Removed Soul of the Void
-
--Shuffled around and changed items in several Enchantment recipes
--Wizard Enchantment now lists the bonuses it will give you if equipped
--Updated all Force tooltips to be accurate and more refined
-
--Wood Enchantment: now doubles banner rates as well. In Force, multiplier increased to 5
--Boreal Wood Enchantment: now fires 7 snowballs and twice as often in Force
--Rich Mahogany Enchantment: grants 10% DR while grappling instead of 10 defense. In force this increases to 50% DR and thorns increases to 500%
--Ebonwood Enchantment: Aura size decreased to match Shadewood and no longer inflicts Shadowflame. Aura now destroys any incoming projectiles that would deal less than 10 damage to you considering your defense. In the Force this is increased to 25 damage and any npc with less than 200 HP is instantly killed in the aura. Aura size is also doubled in Force.
--Shadewood Enchantment: in Force aura size is now slightly larger and blood damage is tripled
--Palm Wood Enchantment: in Force attack damage increased from 45 to 100 and you can spawn up to 3 of them
--Pearlwood Enchantment: star damage is now based on half of the attack that spawned it with a cap. Enchant cap is 100, Force cap is 250
-
--Copper Enchantment: now only procs on crits and deals slightly more damage, in Force cooldown is further reduced
--Tin Enchantment: in Force your crit can go up to 50% no matter what your base crit is
--Iron Enchantment: removed parry, added 33% chance to not consume materials at an Anvil (works at Mythril Anvil in Force), significantly reduced item range effectiveness to match 50% of Treasure Magnet, in Force increased to 2x Treasure Magnet
--Lead Enchantment: now grants 40% resistance to damage over time, 60% in Force
--Silver Enchantment: Now has Iron's parry, no longer has a sword familiar or increased minion speed and crafts into Terra Force.
--Tungsten Enchantment: now always effects Lances, in Force projectiles are increased twice as often (tooltip said it did already but it was lying)
--Obsidian Enchantment: removed whip range, when explosions spawn also applies Firecracker debuff
-
--Ancient Cobalt Enchantment: jump now inflicts Oiled
--Cobalt Enchantment: jump explosion is now smaller (the same size as Ancient Cobalt), but the jump is even higher and grants brief immunity frames, on hit explosion damage increased overall
--Palladium Enchantment: orb damage increased slightly
--Orichalcum Enchantment: dot multiplier nerfed to 2.5x and 4x in Force
--Adamantite Enchantment: splits projectiles into 3 in Force
--Titanium Enchantment reduced max shards from 25 to 20, when at max shards you gain 75% damage resistance (95% in Force) for 3 seconds (5 in Force), cooldown of 10 seconds. Shard damage now scales and has higher base damage in Force
-
--Snow Enchantment:
--Frost Enchantment:
--Jungle Enchantment:
--Chlorophyte Enchantment:
--Shadow Enchantment:
--Crimson Enchantment:
--Ashwood Enchantment:
--Molten Enchantment:
-
--Pumpkin Enchantment:
--Cactus Enchantment:
--Rain Enchantment:
--Bee Enchantment:
--Spider Enchantment:
--Turtle Enchantment:
--Beetle Enchantment:
--Shroomite Enchantment:
-
--Fossil Enchantment:
--Foridden Enchantment:
--Necro Enchantment:
--Spectre Enchantment:
--Hallowed Enchantment:
--Ancient Hallowed Enchantment:
--Tiki Enchantment:
-
--Ninja Enchantment: now grants the projectile speedup Silver used to but it affects all projectiles instead of just minions. In Force armor pen increased to 30 and speed increased to 3x. No longer crafts into Crystal Assassin 
--Crystal Assassin Enchantment: Now has Ninja's old effect all to itself. Removed Volatile Gel effect.
--Monk Enchantment:
--Shinobi Enchantment:
--Ancient Shadow Enchantment:
--Apprentice Enchantment:
--Dark Artist Enchantment:
--Spooky Enchantment:
-
--Gold Enchantment:
--Platinum Enchantment:
--Huntress Enchantment:
--Red Riding Enchantment:
--Squire Enchantment:
--Valhalla Enchantment:
--Gladiator Enchantment:
-
--Meteor Enchantment:
--Wizard Enchantment: moved to Force of Cosmos
--Solar Enchantment:
--Vortex Enchantment:
--Nebula Enchantment:
--Stardust Enchantment:
-
--Trawler's Soul: added Volatile Gel effect
-
-NEW UPDATE - V 1.4.0.7
--Bug fixes and balance changes
-
-NEW UPDATE - V 1.4.0.4
--Added Nekomi armor and more
-
-NEW UPDATE - V 1.4.0.3
--Added some pets, balance, and bug fixes
-
-NEW UPDATE - V 1.4.0.1
--Bug Fixes
-
-NEW UPDATE - V 1.4
--Ported to 1.4
--Tons of new Eternity Mode drops, boss changes, and adjustments
--Tons of accessory reworks and adjustements
--Much more
+NEW UPDATE - V 1.4.1.1
+-Fix various bugs and make some balance changes.
 
 -See the wiki for full details!
+
+NEW UPDATE - V 1.4.1
+-Added Lieflight and weapon drops
+-Added custom toggle presets 
+-Reworked and rebalanced several accessories, weapons, and various difficulty adjustments
 
 Fargo的魂石模组是一个内容模组，添加了强大的魔石以及魂类饰品，也改动了各种各样的Boss和小Boss。
 以高度挑战性的永恒模式作为招牌！
@@ -189,23 +96,3 @@ Fargo的魂石模组是一个内容模组，添加了强大的魔石以及魂类
 
 -捕鱼之魂：添加了挥发明胶效果
 
-新更新 - V 1.4.0.7
--Bug修复以及平衡更改
-
-新更新 - V 1.4.0.4
--添加了猫猫睡衣套以及更多
-
-新更新 - V 1.4.0.3
--添加了一些宠物，调整了平衡，修复Bug
-
-新更新 - V 1.4.0.1
--Bug修复
-
-新更新 - V 1.4
--移植到了1.4
--大量新永恒模式掉落、Boss改动和调整
--大量饰品重做和调整
--还有更多
-
--看Wiki以获取全部信息！
--Fargo魂的大量内部更改日志请见@Bilibili 小小法师的大决心 ！

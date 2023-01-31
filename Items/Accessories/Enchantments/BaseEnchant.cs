@@ -36,5 +36,11 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             Item.height = 20;
             Item.accessory = true;
         }
+
+        public sealed override void UpdateEquip(Player player)
+        {
+            //todo, change this to sealed UpdateAccessory and refactor every single enchantment file to accommodate
+            player.GetModPlayer<FargoSoulsPlayer>().EquippedEnchants.Add(this);
+        }
     }
 }

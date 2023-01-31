@@ -14,7 +14,8 @@ namespace FargowiltasSouls.Items.Accessories.Forces
             ModContent.ItemType<CrystalAssassinEnchant>(),
             ModContent.ItemType<SpookyEnchant>(),
             ModContent.ItemType<ShinobiEnchant>(),
-            ModContent.ItemType<DarkArtistEnchant>()
+            ModContent.ItemType<DarkArtistEnchant>(),
+            ModContent.ItemType<NecroEnchant>()
         };
 
         public override void SetStaticDefaults()
@@ -29,7 +30,8 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 $"[i:{ModContent.ItemType<ShadowEnchant>()}] Four Shadow Orbs will orbit around you\n" +
 $"[i:{ModContent.ItemType<AncientShadowEnchant>()}] Your attacks may inflict Darkness on enemies\n" +
 $"[i:{ModContent.ItemType<NecroEnchant>()}] Slain enemies may drop a pile of bones\n" +
-$"[i:{ModContent.ItemType<NinjaEnchant>()}] Throw a smoke bomb to teleport to it and gain the First Strike Buff\n" +
+$"[i:{ModContent.ItemType<NinjaEnchant>()}] Drastically increases projectile and attack speed but reduces damage\n" +
+$"[i:{ModContent.ItemType<CrystalAssassinEnchant>()}] Throw a smoke bomb to teleport to it and gain the First Strike Buff\n" +
 $"[i:{ModContent.ItemType<CrystalAssassinEnchant>()}] Effects of Volatile Gel\n" +
 $"[i:{ModContent.ItemType<SpookyEnchant>()}] All of your minions gain an extra scythe attack\n" +
 $"[i:{ModContent.ItemType<MonkEnchant>()}] Don't attack to gain a single use monk dash\n" +
@@ -76,7 +78,7 @@ $"[i:{ModContent.ItemType<DarkArtistEnchant>()}] Summons a Flameburst minion tha
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
             modPlayer.ShadowForce = true;
 
-            //NinjaEnchant.NinjaEffect(player);
+            modPlayer.NinjaEnchantItem = Item;
 
 
             modPlayer.DarkArtistEffect(hideVisual);

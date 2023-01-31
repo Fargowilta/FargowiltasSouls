@@ -65,6 +65,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 if (player.active && !player.dead && player.channel && player.HeldItem.type == ModContent.ItemType<Items.Weapons.SwarmDrops.FleshCannon>() && player.CheckMana(player.HeldItem.mana))
                 {
                     Projectile.damage = player.GetWeaponDamage(player.HeldItem);
+                    Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
                     Projectile.knockBack = player.GetWeaponKnockback(player.HeldItem, player.HeldItem.knockBack);
                 }
                 else

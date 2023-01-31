@@ -12,7 +12,6 @@ namespace FargowiltasSouls.Items.Accessories.Forces
             ModContent.ItemType<GoldEnchant>(),
             ModContent.ItemType<PlatinumEnchant>(),
             ModContent.ItemType<GladiatorEnchant>(),
-            ModContent.ItemType<WizardEnchant>(),
             ModContent.ItemType<RedRidingEnchant>(),
             ModContent.ItemType<ValhallaKnightEnchant>()
         };
@@ -45,7 +44,7 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 [i:{3}] 连续攻击命中会获得额外伤害加成
 [i:{4}] 回复生命值时，治疗量增加50%
 “坚不可摧的决心”";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, string.Format(tooltip_ch, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4]));
 
             string tooltip_pt =
 @"[i:{0}] Aperte a hotkey de Ouro para ser envolto em um Casco Dourado
@@ -56,7 +55,7 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
 [i:{3}] Ataques sucessivos ganham dano bônus
 [i:{4}] Aumenta a eficiência de fontes de cura em 50%
 'Uma mente de determinação inquebrável'";
-            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[4], Enchants[5]));
+            Tooltip.AddTranslation((int)GameCulture.CultureName.Portuguese, string.Format(tooltip_pt, Enchants[0], Enchants[1], Enchants[2], Enchants[3], Enchants[4]));
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -68,7 +67,6 @@ $"[i:{ModContent.ItemType<ValhallaKnightEnchant>()}] Increases the effectiveness
             modPlayer.PlatinumEnchantActive = true;
 
             GladiatorEnchant.GladiatorEffect(player);
-            modPlayer.WizardEnchantActive = true;
             RedRidingEnchant.RedRidingEffect(player, Item);
             HuntressEnchant.HuntressEffect(player);
             modPlayer.ValhallaEffect(hideVisual);

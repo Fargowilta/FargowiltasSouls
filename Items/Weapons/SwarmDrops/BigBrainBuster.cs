@@ -69,11 +69,6 @@ $"This caps at {Projectiles.Minions.BigBrainProj.MaxMinionSlots} slots\n" +
                         }
                     }
                 }
-
-                if (player.GetModPlayer<FargoSoulsPlayer>().TikiMinion && usedslots > player.GetModPlayer<FargoSoulsPlayer>().actualMinions && FargoSoulsUtil.ProjectileExists(brain, type) != null)
-                {
-                    Main.projectile[brain].GetGlobalProjectile<Projectiles.FargoSoulsGlobalProjectile>().tikiMinion = true;
-                }
             }
             return false;
         }

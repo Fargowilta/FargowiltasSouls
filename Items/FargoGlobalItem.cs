@@ -30,6 +30,12 @@ namespace FargowiltasSouls.Items
             if (player.manaCost <= 0f) player.manaCost = 0f;
         }
 
+        public override void ModifyManaCost(Item item, Player player, ref float reduce, ref float mult)
+        {
+            if (player.GetModPlayer<FargoSoulsPlayer>().NinjaEnchantItem != null && player.GetToggleValue("NinjaSpeed"))
+                mult *= 0.5f;
+        }
+
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
             FargoSoulsPlayer p = player.GetModPlayer<FargoSoulsPlayer>();
@@ -42,10 +48,6 @@ namespace FargowiltasSouls.Items
                     rangeBonus = 320;
                 if (p.TerrariaSoul)
                     rangeBonus = 640;
-
-                //half as effective on nebula bois
-                if (item.type == ItemID.NebulaPickup1 || item.type == ItemID.NebulaPickup2 || item.type == ItemID.NebulaPickup3)
-                    rangeBonus /= 2;
 
                 grabRange += rangeBonus;
             }
@@ -67,6 +69,16 @@ namespace FargowiltasSouls.Items
                 type = ProjectileID.ConfettiGun;
         }
 
+        public override void OnConsumeItem(Item item, Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            if (item.healLife > 0)
+            {
+                modPlayer.StatLifePrevious += modPlayer.getHealMultiplier(item.healLife);
+            }
+        }
+
         public override bool ConsumeItem(Item item, Player player)
         {
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
@@ -76,14 +88,8 @@ namespace FargowiltasSouls.Items
             //    return false;
             //}
 
-            //if (p.BuilderMode && (item.createTile != -1 || item.createWall != -1) && item.type != ItemID.PlatinumCoin && item.type != ItemID.GoldCoin)
-            //    return false;
-            //return true;
-
-            if (item.healLife > 0)
-            {
-                modPlayer.StatLifePrevious += modPlayer.getHealMultiplier(item.healLife);
-            }
+            if (modPlayer.BuilderMode && (item.createTile > 0 || item.createWall > 0))
+                return false;
 
             return base.ConsumeItem(item, player);
         }
@@ -234,7 +240,12 @@ namespace FargowiltasSouls.Items
         public override bool? UseItem(Item item, Player player)
         {
             if (item.type == ItemID.RodofDiscord)
+            {
                 player.ClearBuff(ModContent.BuffType<GoldenStasis>());
+
+                if (player.GetModPlayer<FargoSoulsPlayer>().CrystalEnchantActive)
+                    player.AddBuff(ModContent.BuffType<FirstStrike>(), 60);
+            }
 
             return base.UseItem(item, player);
         }

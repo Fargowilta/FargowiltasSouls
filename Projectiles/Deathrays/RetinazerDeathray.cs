@@ -8,16 +8,16 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Projectiles.Deathrays
 {
-    public class PhantasmalDeathray : BaseDeathray
+    public class RetinazerDeathray : BaseDeathray
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathray";
-        public PhantasmalDeathray() : base(240) { }
+        public RetinazerDeathray() : base(240, sheeting: TextureSheeting.Vertical) { }
 
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
 
             DisplayName.SetDefault("Blazing Deathray");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void AI()
@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 Vector2 offset = new Vector2(npc.width - 24, 0).RotatedBy(npc.rotation + 1.57079633);
                 Projectile.Center = npc.Center + offset;
 
-                if (npc.GetEModeNPCMod<Retinazer>().DeathrayState >= 3 && Projectile.localAI[0] < maxTime - 30)
+                if (npc.GetGlobalNPC<Retinazer>().DeathrayState >= 3 && Projectile.localAI[0] < maxTime - 30)
                     Projectile.localAI[0] = maxTime - 30;
             }
             else
@@ -108,7 +108,16 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             }
             //DelegateMethods.v3_1 = new Vector3(0.3f, 0.65f, 0.7f);
             //Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
+
+            if (++Projectile.frameCounter > 2)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= Main.projFrames[Projectile.type])
+                    Projectile.frame = 0;
+            }
         }
+
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 100, 100, 100) * 0.95f;
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

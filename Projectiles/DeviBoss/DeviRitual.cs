@@ -26,5 +26,14 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             target.AddBuff(ModContent.BuffType<Buffs.Masomode.Lovestruck>(), 240);
         }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Color color = Color.White;
+            color.A = 0;
+            float rotation = 2f * MathHelper.Pi + Projectile.ai[0];
+            Main.EntitySpriteDraw(FargosTextureRegistry.DeviBorderTexture.Value, Projectile.Center - Main.screenPosition, null, color * 0.95f, rotation, FargosTextureRegistry.DeviBorderTexture.Value.Size() * 0.5f, 0.67f * Projectile.scale, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
+            return false;
+        }
     }
 }

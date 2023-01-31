@@ -34,7 +34,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.Center = target;
             else if (Projectile.Distance(target) > threshold)
                 Projectile.velocity = (target - Projectile.Center) / 30;
-            else if (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState == 4 && npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityTimer < 60 && !npc.dontTakeDamage)
+            else if (npc.GetGlobalNPC<MoonLordCore>().VulnerabilityState == 4 && npc.GetGlobalNPC<MoonLordCore>().VulnerabilityTimer < 60 && !npc.dontTakeDamage)
                 Projectile.velocity = (Main.player[npc.target].Center - Projectile.Center) * 0.05f;
             else
                 Projectile.velocity = Projectile.DirectionTo(target);

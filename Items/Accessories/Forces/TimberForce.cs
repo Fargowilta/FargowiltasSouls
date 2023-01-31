@@ -74,6 +74,11 @@ $"[i:{ModContent.ItemType<PearlwoodEnchant>()}] Projectiles may spawn a star whe
 			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
 		}
 
+        public override void UpdateInventory(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

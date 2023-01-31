@@ -17,9 +17,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Ninja Enchantment");
             Tooltip.SetDefault(
-@"Drastically increases projectile speed
+@"Drastically increases projectile and attack speed
 Reduces damage to compensate for increased speed
-Increases armor pen by 10
+Increases armor pen by 15
 'Attack faster than the eye can see'");
         }
 
@@ -44,36 +44,20 @@ Increases armor pen by 10
         {
             Player player = modPlayer.Player;
 
-            if (projectile.friendly /*&& FargoSoulsUtil.IsSummonDamage(projectile, true, false)*/ && player.GetToggleValue("NinjaSpeed"))
+            if (player.GetToggleValue("NinjaSpeed"))
             {
-                int speedIncrease = 1;
-
-                if (modPlayer.TerraForce)
-                {
-                    speedIncrease = 2;
-                }
-
+                const int speedIncrease = 1;
                 globalProj.NinjaSpeedup = projectile.extraUpdates + speedIncrease;
 
-                if (NeedsNinjaNerf(projectile))
-                {
-                    int armorPen = 10;
-                    if (modPlayer.TerraForce)
-                        armorPen *= 3;
-                    if (modPlayer.TerrariaSoul)
-                        armorPen *= 5;
+				int armorPen = 15;
+				if (modPlayer.ShadowForce)
+					armorPen *= 3;
+				if (modPlayer.TerrariaSoul)
+					armorPen *= 2;
 
-                    projectile.ArmorPenetration += armorPen;
-                }
+				projectile.ArmorPenetration += armorPen;
             }
         }
-
-        public static bool NeedsNinjaNerf(Projectile projectile)
-            => projectile.maxPenetrate == 1
-            || projectile.usesLocalNPCImmunity
-            || projectile.type == ProjectileID.StardustCellMinionShot;
-
-
 
         public override void AddRecipes()
         {

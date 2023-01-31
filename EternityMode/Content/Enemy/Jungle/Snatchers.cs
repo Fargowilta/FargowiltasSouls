@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -24,12 +24,23 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Jungle
         public int BiteTimer;
         public int BittenPlayer = -1;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(DashTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BiteTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BittenPlayer), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(DashTimer);
+            binaryWriter.Write7BitEncodedInt(BiteTimer);
+            binaryWriter.Write7BitEncodedInt(BittenPlayer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            DashTimer = binaryReader.Read7BitEncodedInt();
+            BiteTimer = binaryReader.Read7BitEncodedInt();
+            BittenPlayer = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {

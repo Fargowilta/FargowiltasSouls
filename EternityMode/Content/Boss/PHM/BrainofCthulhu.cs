@@ -1,5 +1,5 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -32,13 +32,24 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(ConfusionTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(IllusionTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(ConfusionTimer);
+            binaryWriter.Write7BitEncodedInt(IllusionTimer);
+            bitWriter.WriteBit(EnteredPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            ConfusionTimer = binaryReader.Read7BitEncodedInt();
+            IllusionTimer = binaryReader.Read7BitEncodedInt();
+            EnteredPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -60,12 +71,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return npc.alpha == 0;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.brainBoss = npc.whoAmI;
 
             if (FargoSoulsWorld.SwarmActive)
-                return base.PreAI(npc);
+                return base.SafePreAI(npc);
 
             if (Main.LocalPlayer.active && Main.LocalPlayer.GetModPlayer<EModePlayer>().ShorterDebuffsTimer < 2)
                 Main.LocalPlayer.GetModPlayer<EModePlayer>().ShorterDebuffsTimer = 2;
@@ -205,7 +216,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                     if (npc.Distance(Main.LocalPlayer.Center) < 3000 && !Main.LocalPlayer.HasBuff(BuffID.Confused)) //inflict confusion
                     {
-                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold + 5);
+                        FargoSoulsUtil.AddDebuffFixedDuration(Main.LocalPlayer, BuffID.Confused, confusionThreshold + 10, false);
                     }
                 }
 
@@ -272,7 +283,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.defense = 0;
             npc.defDefense = 0;
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
@@ -337,10 +348,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int IchorAttackTimer;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(IchorAttackTimer), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(IchorAttackTimer);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            IchorAttackTimer = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -358,9 +378,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.buffImmune[BuffID.Ichor] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;

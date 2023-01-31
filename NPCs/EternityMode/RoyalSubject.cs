@@ -103,7 +103,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
         {
             NPC queenBee = FargoSoulsUtil.NPCExists(EModeGlobalNPC.beeBoss, NPCID.QueenBee);
             if (queenBee != null && Main.netMode != NetmodeID.MultiplayerClient
-                && queenBee.GetEModeNPCMod<QueenBee>().BeeSwarmTimer < 600) //dont change qb ai during bee swarm attack
+                && queenBee.GetGlobalNPC<QueenBee>().BeeSwarmTimer < 600) //dont change qb ai during bee swarm attack
             {
                 queenBee.ai[0] = 0f;
                 queenBee.ai[1] = 4f; //trigger dashes, but skip the first one

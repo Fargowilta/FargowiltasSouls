@@ -138,7 +138,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile arena = FargoSoulsUtil.ProjectileExists(FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, Projectile.ai[0], ModContent.ProjectileType<LunarRitual>()));
             if (moonLord != null && arena != null && moonLord.ai[0] != 2f)
             {
-                if (moonLord.GetEModeNPCMod<MoonLordCore>().VulnerabilityState == 4)
+                if (moonLord.GetGlobalNPC<MoonLordCore>().VulnerabilityState == 4)
                     Projectile.timeLeft = 60;
 
                 float orbitRange = Math.Abs(Projectile.ai[1]) + 400f * moonLord.life / moonLord.lifeMax;

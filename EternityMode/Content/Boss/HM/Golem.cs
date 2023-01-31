@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -48,7 +48,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[ModContent.BuffType<ClippedWings>()] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             if (!FargoSoulsWorld.SwarmActive && !npc.dontTakeDamage && HealPerSecond != 0)
             {
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 }
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
@@ -99,16 +99,30 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(StompAttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(SpikyBallTimer), IntStrategies.CompoundStrategy },
-                //{ new Ref<object>(AntiAirTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoStompBehaviour), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(HaveBoostedJumpHeight), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsInTemple), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(StompAttackCounter);
+            binaryWriter.Write7BitEncodedInt(SpikyBallTimer);
+            //binaryWriter.Write7BitEncodedInt(AntiAirTimer);
+            bitWriter.WriteBit(DoStompBehaviour);
+            bitWriter.WriteBit(HaveBoostedJumpHeight);
+            bitWriter.WriteBit(IsInTemple);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            StompAttackCounter = binaryReader.Read7BitEncodedInt();
+            SpikyBallTimer = binaryReader.Read7BitEncodedInt();
+            //AntiAirTimer = binaryReader.Read7BitEncodedInt();
+            DoStompBehaviour = bitReader.ReadBit();
+            HaveBoostedJumpHeight = bitReader.ReadBit();
+            IsInTemple = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -118,9 +132,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.damage = (int)(npc.damage * 1.2);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             NPC.golemBoss = npc.whoAmI;
 
@@ -426,12 +440,22 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public bool DoAttackOnFistImpact;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(FistAttackRateSlowdownTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoAttackOnFistImpact), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(FistAttackRateSlowdownTimer);
+            bitWriter.WriteBit(DoAttackOnFistImpact);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            FistAttackRateSlowdownTimer = binaryReader.Read7BitEncodedInt();
+            DoAttackOnFistImpact = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -451,9 +475,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -499,9 +523,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
 
         public override bool? DrawHealthBar(NPC npc, byte hbPosition, ref float scale, ref Vector2 position) => false;
 
-        public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+        public override void SafeOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
         {
-            base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
+            base.SafeOnHitByProjectile(npc, projectile, damage, knockback, crit);
 
             if (projectile.maxPenetrate != 1 && FargoSoulsUtil.CanDeleteProjectile(projectile))
                 projectile.timeLeft = 0;
@@ -525,19 +549,35 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool SweepToLeft;
         public bool IsInTemple;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DeathraySweepTargetHeight), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(SuppressedAi1), FloatStrategies.CompoundStrategy },
-                { new Ref<object>(SuppressedAi2), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(DoAttack), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(DoDeathray), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(SweepToLeft), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(IsInTemple), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(DeathraySweepTargetHeight);
+            binaryWriter.Write(SuppressedAi1);
+            binaryWriter.Write(SuppressedAi2);
+            bitWriter.WriteBit(DoAttack);
+            bitWriter.WriteBit(DoDeathray);
+            bitWriter.WriteBit(SweepToLeft);
+            bitWriter.WriteBit(IsInTemple);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            DeathraySweepTargetHeight = binaryReader.Read7BitEncodedInt();
+            SuppressedAi1 = binaryReader.ReadSingle();
+            SuppressedAi2 = binaryReader.ReadSingle();
+            DoAttack = bitReader.ReadBit();
+            DoDeathray = bitReader.ReadBit();
+            SweepToLeft = bitReader.ReadBit();
+            IsInTemple = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -552,9 +592,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanHitPlayer(npc, target, ref CooldownSlot) && npc.type != NPCID.GolemHeadFree;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -746,7 +786,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                 if (golem.ai[0] == 0f && golem.velocity.Y == 0f && golem.ai[1] > 1f) //if golem is standing on ground and preparing to jump, stall it
                                     golem.ai[1] = 1f;
 
-                                golem.GetEModeNPCMod<Golem>().DoStompBehaviour = false; //disable stomp attacks
+                                golem.GetGlobalNPC<Golem>().DoStompBehaviour = false; //disable stomp attacks
                             }
                         }
                     }

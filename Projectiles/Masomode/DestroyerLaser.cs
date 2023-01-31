@@ -31,6 +31,23 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.extraUpdates = 4;
             Projectile.timeLeft = 190 * Projectile.extraUpdates + 1;
         }
+		
+		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+		{
+			if (projHitbox.Intersects(targetHitbox))
+                return true;
+			
+			float length = Math.Max(Projectile.width, Projectile.velocity.Length() * 2);
+			float dummy = 0f;
+			Vector2 offset = length / 2 * Projectile.scale * (Projectile.rotation - MathHelper.ToRadians(135f)).ToRotationVector2();
+			Vector2 end = Projectile.Center - offset;
+            Vector2 tip = Projectile.Center + offset;
+			
+			if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), end, tip, Projectile.width / 2, ref dummy))
+                return true;
+			
+			return false;
+		}
 
         public override void AI()
         {
@@ -101,11 +118,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Vector2 scale = new Vector2(1, 1 + Projectile.velocity.Length() / 5 * (Projectile.extraUpdates + 1));
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, scale, SpriteEffects.None, 0);
 
-            if (Projectile.timeLeft > 10 * (Projectile.extraUpdates + 1))
+            /*if (Projectile.timeLeft > 10 * (Projectile.extraUpdates + 1))
             {
                 Main.EntitySpriteDraw(hitboxindicator, Projectile.Center - Main.screenPosition, new Rectangle(0, 0, hitboxindicator.Width, hitboxindicator.Height),
                     new Color(255, 133, 149) * Projectile.Opacity, 0, hitboxindicator.Size() / 2, 0.25f, SpriteEffects.None, 0);
-            }
+            }*/
 
             return false;
         }

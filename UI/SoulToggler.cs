@@ -35,6 +35,7 @@ namespace FargowiltasSouls.UI
         public UIPresetButton OnButton;
         public UIPresetButton MinimalButton;
         public UIPresetButton SomeEffectsButton;
+        public UIPresetButton[] CustomButton = new UIPresetButton[3];
 
         public override void OnInitialize()
         {
@@ -133,6 +134,19 @@ namespace FargowiltasSouls.UI
             PresetPanel.Append(SomeEffectsButton);
             PresetPanel.Append(MinimalButton);
 
+            const int xOffset = 74; //ensure this matches the Left.Set of preceding button
+            for (int i = 0; i < ToggleBackend.CustomPresetCount; i++)
+            {
+                int slot = i + 1;
+                CustomButton[i] = new UIPresetButton(FargowiltasSouls.UserInterfaceManager.PresetCustomButton.Value,
+                toggles => toggles.LoadCustomPreset(slot),
+                toggles => toggles.SaveCustomPreset(slot),
+                $"Custom preset {slot} (right click to save)");
+                CustomButton[i].Top.Set(6, 0);
+                CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
+                PresetPanel.Append(CustomButton[i]);
+            }
+
             base.OnInitialize();
         }
 
@@ -181,7 +195,7 @@ namespace FargowiltasSouls.UI
                 {
                     if (ToggleList.Count > 0) // Don't add for the first header
                         ToggleList.Add(new UIText("", 0.2f)); // Blank line
-
+                    
                     (string name, int item) header = ToggleLoader.LoadedHeaders[toggle.InternalName];
                     ToggleList.Add(new UIHeader(header.name, header.item, (BackWidth - 16, 20)));
                 }

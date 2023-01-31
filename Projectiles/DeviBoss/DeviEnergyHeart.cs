@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.NPCs;
+using FargowiltasSouls.Particles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -67,7 +68,14 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 8f;
             }*/
+            for (int i = 0; i < 5; i++)
+            {
+                // THESE DO NOT CURRENTLY WORK, DO NOT USE.
 
+                //Vector2 velocity = Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi) * Main.rand.NextFloat(4f, 6f);
+                //Particle heart = new HeartParticle(Projectile.Center, velocity, Color.HotPink, 60, 1f, 1f);
+                //ParticleManager.SpawnParticle(heart);
+            }
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.deviBoss, ModContent.NPCType<NPCs.DeviBoss.DeviBoss>()))
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)

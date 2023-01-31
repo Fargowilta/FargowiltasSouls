@@ -26,7 +26,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.slimeBoss = npc.whoAmI;
             npc.color = Main.DiscoColor * 0.3f; // Rainbow colour
@@ -255,7 +255,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             // Drop summon
             EModeUtils.DropSummon(npc, "SlimyCrown", NPC.downedSlimeKing, ref DroppedSummon);
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void OnKill(NPC npc)

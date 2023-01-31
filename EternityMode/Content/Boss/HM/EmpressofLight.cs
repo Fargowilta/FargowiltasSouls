@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -34,13 +34,25 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         private int SwordWallCap => FargoSoulsWorld.MasochistModeReal ? 4 : 3;
         public bool DoParallelSwordWalls => P2SwordsAttackCounter % SwordWallCap > 0;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(AttackTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(AttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(P2SwordsAttackCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(DashCounter), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(AttackTimer);
+            binaryWriter.Write7BitEncodedInt(AttackCounter);
+            binaryWriter.Write7BitEncodedInt(P2SwordsAttackCounter);
+            binaryWriter.Write7BitEncodedInt(DashCounter);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            AttackTimer = binaryReader.Read7BitEncodedInt();
+            AttackCounter = binaryReader.Read7BitEncodedInt();
+            P2SwordsAttackCounter = binaryReader.Read7BitEncodedInt();
+            DashCounter = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -58,12 +70,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return false;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.empressBoss = npc.whoAmI;
 
             if (FargoSoulsWorld.SwarmActive)
-                return base.PreAI(npc);
+                return base.SafePreAI(npc);
 
             if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<Purged>(), 2);
@@ -623,9 +635,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             target.AddBuff(ModContent.BuffType<Smite>(), 1800);
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (ProjectileID.Sets.CultistIsResistantTo[projectile.type] && !FargoSoulsUtil.IsSummonDamage(projectile))
                 damage = (int)(damage * 0.75);

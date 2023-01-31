@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using SteelSeries.GameSense;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using Terraria;
 using Terraria.IO;
 
@@ -15,6 +17,9 @@ namespace FargowiltasSouls.Toggler
         public Dictionary<string, Toggle> Toggles;
         //public Point TogglerPosition;
         public bool CanPlayMaso;
+
+        public const int CustomPresetCount = 3;
+        public List<string>[] CustomPresets = new List<string>[CustomPresetCount];
 
         public bool Initialized;
 
@@ -43,6 +48,14 @@ namespace FargowiltasSouls.Toggler
 
             CanPlayMaso = Config.Get("CanPlayMaso", false);
 
+            //TODO: figure out how to extract a plain list from json, only using Dict rn because i know it can be loaded from json
+            for (int i = 0; i < CustomPresets.Length; i++)
+            {
+                var toggleUnpack = Config.Get<Dictionary<string, bool>>($"CustomPresetsOff{i + 1}", null);
+                if (toggleUnpack != null)
+                    CustomPresets[i] = toggleUnpack.Keys.ToList();
+            }
+
             Initialized = true;
         }
 
@@ -51,10 +64,23 @@ namespace FargowiltasSouls.Toggler
             if (!Main.dedServ)
             {
                 Config.Put("CanPlayMaso", CanPlayMaso);
+
                 //Config.Put(TogglesByPlayer, ParsePackedToggles());
 
                 //TogglerPosition = FargowiltasSouls.UserInterfaceManager.SoulToggler.GetPositionAsPoint();
                 //Config.Put("TogglerPosition", UnpackPosition());
+
+                for (int i = 0; i < CustomPresets.Length; i++)
+                {
+                    if (CustomPresets[i] == null)
+                        continue;
+
+                    Dictionary<string, bool> togglesOff = new Dictionary<string, bool>(CustomPresets.Length);
+                    foreach (string toggle in CustomPresets[i])
+                        togglesOff[toggle] = false;
+                    Config.Put($"CustomPresetsOff{i + 1}", togglesOff);
+                }
+
                 Config.Save();
             }
         }
@@ -223,6 +249,39 @@ namespace FargowiltasSouls.Toggler
             player.SetToggleValue("MasoAeolus", true);
             player.SetToggleValue("MasoConcoction", true);
             player.SetToggleValue("ManaFlower", true);
+        }
+
+        public void SaveCustomPreset(int slot)
+        {
+            var togglesOff = new List<string>();
+            foreach (KeyValuePair<string, Toggle> entry in Toggles)
+            {
+                if (!Toggles[entry.Key].ToggleBool)
+                    togglesOff.Add(entry.Key);
+            }
+
+            if (!Main.dedServ)
+            {
+                CustomPresets[slot - 1] = togglesOff;
+                //Save();
+                Main.NewText($"Toggles saved to custom set {slot}!", Color.Yellow);
+            }
+        }
+
+        public void LoadCustomPreset(int slot)
+        {
+            List<string> togglesOff = CustomPresets[slot - 1];
+            if (togglesOff == null)
+            {
+                Main.NewText($"No toggles found in custom set {slot}.", Color.Yellow);
+                return;
+            }
+
+            FargoSoulsPlayer modPlayer = Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>();
+            modPlayer.disabledToggles = new List<string>(togglesOff);
+
+            LoadPlayerToggles(modPlayer);
+            modPlayer.disabledToggles.Clear();
         }
     }
 }

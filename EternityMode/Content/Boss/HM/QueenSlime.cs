@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -40,15 +40,28 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         private const float StompTravelTime = 60;
         private const float StompGravity = 1.6f;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(StompTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(StompCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RainTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(StompVelocityX), FloatStrategies.CompoundStrategy },
-                { new Ref<object>(StompVelocityY), FloatStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(StompTimer);
+            binaryWriter.Write7BitEncodedInt(StompCounter);
+            binaryWriter.Write7BitEncodedInt(RainTimer);
+            binaryWriter.Write(StompVelocityX);
+            binaryWriter.Write(StompVelocityY);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            StompTimer = binaryReader.Read7BitEncodedInt();
+            StompCounter = binaryReader.Read7BitEncodedInt();
+            RainTimer = binaryReader.Read7BitEncodedInt();
+            StompVelocityX = binaryReader.ReadSingle();
+            StompVelocityY = binaryReader.ReadSingle();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -202,7 +215,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.queenSlimeBoss = npc.whoAmI;
 
@@ -215,7 +228,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 {
                     check = true;
 
-                    FargoSoulsUtil.PrintLocalization($"Mods.{mod.Name}.Message.GelatinSubjects", new Color(175, 75, 255));
+                    FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.GelatinSubjects", new Color(175, 75, 255));
 
                     for (int i = 0; i < 7; i++)
                     {
@@ -503,10 +516,19 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool TimeToFly;
         public bool Landed;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(TimeToFly), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            bitWriter.WriteBit(TimeToFly);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            TimeToFly = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {

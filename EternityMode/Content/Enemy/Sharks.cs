@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.NPCs;
 using Microsoft.Xna.Framework;
@@ -26,12 +26,23 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy
         public int BleedCheckTimer;
         public int BleedCounter;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(JumpTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BleedCheckTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(BleedCounter), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(JumpTimer);
+            binaryWriter.Write7BitEncodedInt(BleedCheckTimer);
+            binaryWriter.Write7BitEncodedInt(BleedCounter);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            JumpTimer = binaryReader.Read7BitEncodedInt();
+            BleedCheckTimer = binaryReader.Read7BitEncodedInt();
+            BleedCounter = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void SetDefaults(NPC npc)
         {

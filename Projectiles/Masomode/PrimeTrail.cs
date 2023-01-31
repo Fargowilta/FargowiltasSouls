@@ -46,17 +46,17 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.Center = npc.Center;
                 if (Projectile.ai[1] == 0) //swipe limb
                 {
-                    if (!npc.GetEModeNPCMod<PrimeLimb>().IsSwipeLimb || npc.ai[2] < 140)
+                    if (!npc.GetGlobalNPC<PrimeLimb>().IsSwipeLimb || npc.ai[2] < 140)
                         fade = true;
                 }
                 else if (Projectile.ai[1] == 1) //attack limb while spinning
                 {
-                    if (npc.GetEModeNPCMod<PrimeLimb>().IsSwipeLimb || (Main.npc[(int)npc.ai[1]].ai[1] != 1 && Main.npc[(int)npc.ai[1]].ai[1] != 2))
+                    if (npc.GetGlobalNPC<PrimeLimb>().IsSwipeLimb || (Main.npc[(int)npc.ai[1]].ai[1] != 1 && Main.npc[(int)npc.ai[1]].ai[1] != 2))
                         fade = true;
                 }
                 else if (Projectile.ai[1] == 2) //attack limb doing attacks
                 {
-                    if (npc.GetEModeNPCMod<PrimeLimb>().IsSwipeLimb || Main.npc[(int)npc.ai[1]].ai[1] == 1 || Main.npc[(int)npc.ai[1]].ai[1] == 2)
+                    if (npc.GetGlobalNPC<PrimeLimb>().IsSwipeLimb || Main.npc[(int)npc.ai[1]].ai[1] == 1 || Main.npc[(int)npc.ai[1]].ai[1] == 2)
                         fade = true;
                 }
             }

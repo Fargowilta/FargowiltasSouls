@@ -80,6 +80,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.position += Projectile.velocity * 164 * spear.scale * 0.45f; //offset by part of spear's length (wand)
 
                 Projectile.damage = player.GetWeaponDamage(player.HeldItem);
+                Projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
                 Projectile.knockBack = player.GetWeaponKnockback(player.HeldItem, player.HeldItem.knockBack);
             }
             else if (++Projectile.localAI[0] > 5) //leeway for mp lag

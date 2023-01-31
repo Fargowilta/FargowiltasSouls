@@ -1291,7 +1291,8 @@ namespace FargowiltasSouls
         public void StardustEffect(Item item)
         {
             StardustEnchantActive = true;
-            if (Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1 && Player.GetToggleValue("Stardust"))
+
+            if (Player.whoAmI == Main.myPlayer && Player.ownedProjectileCounts[ProjectileID.StardustGuardian] < 1 && Player.GetToggleValue("Stardust"))
             {
                 FargoSoulsUtil.NewSummonProjectile(Player.GetSource_Accessory(item), Player.Center, Vector2.Zero, ProjectileID.StardustGuardian, 30, 10f, Main.myPlayer);
             }
@@ -1367,8 +1368,10 @@ namespace FargowiltasSouls
 
         public void TikiEffect(bool hideVisual)
         {
-            TikiEnchantActive = true;
+            Player.whipRangeMultiplier += 0.2f;
 
+            if (Player.GetToggleValue("Tiki"))
+                TikiEnchantActive = true;
         }
 
         private int getNumSentries()
@@ -1845,6 +1848,7 @@ namespace FargowiltasSouls
             Player.accFishingLine = true;
             Player.accTackleBox = true;
             Player.accFishFinder = true;
+            Player.accLavaFishing = true;
 
             //volatile gel
             if (Player.GetToggleValue("TrawlerGel"))
@@ -2252,11 +2256,11 @@ namespace FargowiltasSouls
             Main.dust[d].noGravity = true;
             Main.dust[d].velocity *= 5f;
 
-            Player.GetDamage(DamageClass.Generic) += 0.60f;
+            Player.GetDamage(DamageClass.Generic) += 1.20f;
+            Player.endurance -= 0.20f;
 
             Player.velocity.X *= 0.85f;
-            if (Player.velocity.Y < 0)
-                Player.velocity.Y *= 0.85f;
+            Player.velocity.Y *= 0.85f;
 
             if (--WretchedPouchCD <= 0)
             {
@@ -2646,7 +2650,26 @@ namespace FargowiltasSouls
 
         public void DebuffInstallKey()
         {
-            if (FusedLens && Player.GetToggleValue("FusedLensInstall", false))
+            if (AgitatingLensItem != null
+                && Player.GetToggleValue("MasoEyeInstall", false)
+                && Player.controlUp && Player.controlDown)
+            {
+				if (!Player.HasBuff(ModContent.BuffType<BerserkerInstall>())
+					&& !Player.HasBuff(ModContent.BuffType<BerserkerInstallCD>()))
+				{
+					SoundEngine.PlaySound(SoundID.Item119, Player.Center);
+
+					Player.AddBuff(ModContent.BuffType<BerserkerInstall>(), 7 * 60 + 30); //7.5sec
+
+					for (int i = 0; i < 60; i++)
+					{
+						int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.RedTorch, 0f, 0f, 0, default, 3f);
+						Main.dust[index2].noGravity = true;
+						Main.dust[index2].velocity *= 9;
+					}
+				}
+            }
+			else if (FusedLens && Player.GetToggleValue("FusedLensInstall", false))
             {
                 int buffType = ModContent.BuffType<TwinsInstall>();
                 if (Player.HasBuff(buffType))
@@ -2667,23 +2690,6 @@ namespace FargowiltasSouls
                         Main.dust[index2].noGravity = true;
                         Main.dust[index2].velocity *= scale * 3;
                     }
-                }
-            }
-
-            if (AgitatingLensItem != null
-                && Player.GetToggleValue("MasoEyeInstall", false)
-                && !Player.HasBuff(ModContent.BuffType<BerserkerInstall>())
-                && !Player.HasBuff(ModContent.BuffType<BerserkerInstallCD>()))
-            {
-                SoundEngine.PlaySound(SoundID.Item119, Player.Center);
-
-                Player.AddBuff(ModContent.BuffType<BerserkerInstall>(), 360);
-
-                for (int i = 0; i < 60; i++)
-                {
-                    int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.RedTorch, 0f, 0f, 0, default, 3f);
-                    Main.dust[index2].noGravity = true;
-                    Main.dust[index2].velocity *= 9;
                 }
             }
         }

@@ -1,6 +1,7 @@
 using FargowiltasSouls.Projectiles.ChallengerItems;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +15,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lightslinger");
-            Tooltip.SetDefault("Converts bullets to hallowed shots of light\nAfter hitting 20 shots, press Right Click to fire a lightbomb\n25% chance to not consume ammo");
+            Tooltip.SetDefault("Converts bullets to hallowed shots of light\nAfter 25 shots, press Right Click to fire a lightbomb\n25% chance to not consume ammo");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -81,6 +82,12 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             {
                 player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots = 0;
             }
+            else
+            {
+                if (++player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots >= 25)
+                    SoundEngine.PlaySound(SoundID.MaxMana, player.Center);
+            }
+
             return base.UseItem(player);
         }
     }

@@ -89,7 +89,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 //    }
                 //}
 
-                if (npc.GetEModeNPCMod<MoonLordCore>().VulnerabilityState != 1 && Projectile.timeLeft > 60)
+                if (npc.GetGlobalNPC<MoonLordCore>().VulnerabilityState != 1 && Projectile.timeLeft > 60)
                     Projectile.timeLeft = 60;
             }
             else

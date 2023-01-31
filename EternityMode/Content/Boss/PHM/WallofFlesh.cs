@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -38,17 +38,32 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(WorldEvilAttackCycleTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(ChainBarrageTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(UseCorruptAttack), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase2), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InPhase3), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(InDesperationPhase), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(MadeEyeInvul), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(WorldEvilAttackCycleTimer);
+            binaryWriter.Write7BitEncodedInt(ChainBarrageTimer);
+            bitWriter.WriteBit(UseCorruptAttack);
+            bitWriter.WriteBit(InPhase2);
+            bitWriter.WriteBit(InPhase3);
+            bitWriter.WriteBit(InDesperationPhase);
+            bitWriter.WriteBit(MadeEyeInvul);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            WorldEvilAttackCycleTimer = binaryReader.Read7BitEncodedInt();
+            ChainBarrageTimer = binaryReader.Read7BitEncodedInt();
+            UseCorruptAttack = bitReader.ReadBit();
+            InPhase2 = bitReader.ReadBit();
+            InPhase3 = bitReader.ReadBit();
+            InDesperationPhase = bitReader.ReadBit();
+            MadeEyeInvul = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -70,9 +85,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 13, npc.whoAmI);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.wallBoss = npc.whoAmI;
 
@@ -262,7 +277,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     {
                         if (Main.npc[i].active && Main.npc[i].type == NPCID.WallofFleshEye && Main.npc[i].realLife == npc.whoAmI)
                         {
-                            Main.npc[i].GetEModeNPCMod<WallofFleshEye>().PreventAttacks = 60;
+                            Main.npc[i].GetGlobalNPC<WallofFleshEye>().PreventAttacks = 60;
                         }
                     }
 
@@ -404,13 +419,24 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         public bool RepeatingAI;
         public bool HasTelegraphedNormalLasers;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(PreventAttacks), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(RepeatingAI), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(HasTelegraphedNormalLasers), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(PreventAttacks);
+            bitWriter.WriteBit(RepeatingAI);
+            bitWriter.WriteBit(HasTelegraphedNormalLasers);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            PreventAttacks = binaryReader.Read7BitEncodedInt();
+            RepeatingAI = bitReader.ReadBit();
+            HasTelegraphedNormalLasers = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -429,7 +455,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.buffImmune[ModContent.BuffType<Lethargic>()] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             NPC mouth = FargoSoulsUtil.NPCExists(npc.realLife, NPCID.WallofFlesh);
             if (FargoSoulsWorld.SwarmActive || RepeatingAI || mouth == null)
@@ -440,7 +466,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             float maxTime = 540f;
 
-            if (mouth.GetEModeNPCMod<WallofFlesh>().InDesperationPhase)
+            if (mouth.GetGlobalNPC<WallofFlesh>().InDesperationPhase)
             {
                 if (npc.ai[1] < maxTime - 180) //dont lower this if it's already telegraphing laser
                     maxTime = 240f;
@@ -566,7 +592,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             }
 
             //dont fire during mouth's special attacks (this is at bottom to override others)
-            if (((mouth.GetEModeNPCMod<WallofFlesh>().InPhase2 && mouth.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240) || mouth.GetEModeNPCMod<WallofFlesh>().InDesperationPhase) && !FargoSoulsWorld.MasochistModeReal)
+            if (((mouth.GetGlobalNPC<WallofFlesh>().InPhase2 && mouth.GetGlobalNPC<WallofFlesh>().WorldEvilAttackCycleTimer < 240) || mouth.GetGlobalNPC<WallofFlesh>().InDesperationPhase) && !FargoSoulsWorld.MasochistModeReal)
             {
                 npc.localAI[1] = -90f;
                 npc.localAI[2] = 0f;
@@ -625,7 +651,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
             NPC wall = FargoSoulsUtil.NPCExists(EModeGlobalNPC.wallBoss, NPCID.WallofFlesh);
             if (npc.HasValidTarget && npc.Distance(Main.player[npc.target].Center) < 200 && wall != null
-                && wall.GetEModeNPCMod<WallofFlesh>().UseCorruptAttack && wall.GetEModeNPCMod<WallofFlesh>().WorldEvilAttackCycleTimer < 240
+                && wall.GetGlobalNPC<WallofFlesh>().UseCorruptAttack && wall.GetGlobalNPC<WallofFlesh>().WorldEvilAttackCycleTimer < 240
                 && !FargoSoulsWorld.MasochistModeReal)
             {
                 //snap away from player if too close during wof cursed flame wall

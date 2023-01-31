@@ -98,6 +98,11 @@ Effects of Flower Boots and Greedy Ring
 			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
 		}
 
+        public override void UpdateInventory(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+        }
+
         public override void AddRecipes()
         {
             CreateRecipe()

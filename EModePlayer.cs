@@ -1,9 +1,11 @@
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.EternityMode;
 using FargowiltasSouls.NPCs;
 using FargowiltasSouls.Projectiles.Masomode;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -55,8 +57,19 @@ namespace FargowiltasSouls
 
         public override void UpdateDead()
         {
+            ResetEffects();
+
             MasomodeMinionNerfTimer = 0;
             ShorterDebuffsTimer = 0;
+        }
+
+        public override void OnEnterWorld(Player player)
+        {
+            foreach (NPC npc in Main.npc.Where(npc => npc.active))
+            {
+                if (npc.TryGetGlobalNPC(out EModeNPCBehaviour eModeNPC, false))
+                    eModeNPC.TryLoadSprites(npc);
+            }
         }
 
         public override void PreUpdate()
@@ -286,30 +299,29 @@ namespace FargowiltasSouls
                 if (!fargoSoulsPlayer.PureHeart && Main.bloodMoon)
                     Player.AddBuff(BuffID.WaterCandle, 2);
 
-                //no more because cactus harder to break now
-                /*if (!SandsofTime)
+                if (FargoSoulsWorld.MasochistModeReal)
                 {
                     Vector2 tileCenter = Player.Center;
                     tileCenter.X /= 16;
                     tileCenter.Y /= 16;
                     Tile currentTile = Framing.GetTileSafely((int)tileCenter.X, (int)tileCenter.Y);
-                    if (currentTile != null && currentTile.type == TileID.Cactus && currentTile.nactive())
+                    if (currentTile != null && currentTile.TileType == TileID.Cactus && currentTile.HasUnactuatedTile)
                     {
                         int damage = 10;
                         if (Player.ZoneCorrupt)
                         {
                             damage *= 2;
-                            Player.AddBuff(BuffID.CursedInferno, Main.expertMode && Main.expertDebuffTime > 1 ? 150 : 300);
+                            Player.AddBuff(BuffID.CursedInferno, 150);
                         }
                         if (Player.ZoneCrimson)
                         {
                             damage *= 2;
-                            Player.AddBuff(BuffID.Ichor, Main.expertMode && Main.expertDebuffTime > 1 ? 150 : 300);
+                            Player.AddBuff(BuffID.Ichor, 150);
                         }
-                        if (Player.ZoneHoly)
+                        if (Player.ZoneHallow)
                         {
                             damage *= 2;
-                            Player.AddBuff(BuffID.Confused, Main.expertMode && Main.expertDebuffTime > 1 ? 150 : 300);
+                            Player.AddBuff(BuffID.Confused, 150);
                         }
 
                         if (Main.hardMode)
@@ -318,7 +330,7 @@ namespace FargowiltasSouls
                         if (Player.hurtCooldowns[0] <= 0) //same i-frames as spike tiles
                             Player.Hurt(PlayerDeathReason.ByCustomReason(Player.name + " was pricked by a Cactus."), damage, 0, false, false, false, 0);
                     }
-                }*/
+                }
             }
         }
 

@@ -966,14 +966,17 @@ namespace FargowiltasSouls.NPCs
 
         public override bool CheckDead(NPC npc)
         {
-            Player player = Main.player[Main.myPlayer];
-            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
-
             if (TimeFrozen)
             {
                 npc.life = 1;
                 return false;
             }
+
+            Player player = FargoSoulsUtil.PlayerExists(npc.lastInteraction);
+            if (player == null)
+                return base.CheckDead(npc);
+
+            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
             //            /*if (npc.boss && FargoSoulsUtil.BossIsAlive(ref mutantBoss, ModContent.NPCType<MutantBoss.MutantBoss>()) && npc.type != ModContent.NPCType<MutantBoss.MutantBoss>())
             //            {
@@ -992,7 +995,7 @@ namespace FargowiltasSouls.NPCs
                 CactusEnchant.CactusProc(npc, player);
             }
 
-            return true;
+            return base.CheckDead(npc);
         }
 
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)

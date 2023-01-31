@@ -38,7 +38,7 @@ Slightly reduces use speed of affected items");
             if (++counter > 10)
             {
                 counter = 0;
-                if (player.whoAmI == Main.myPlayer && player.GetModPlayer<FargoSoulsPlayer>().IsStandingStill)
+                if (player.whoAmI == Main.myPlayer && player.GetModPlayer<FargoSoulsPlayer>().IsStandingStill && player.itemAnimation == 0)
                     Main.instance.SpelunkerProjectileHelper.AddSpotToCheck(player.Center);
             }
         }

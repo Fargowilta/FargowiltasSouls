@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
             DisplayName.SetDefault("Wretched Pouch");
             Tooltip.SetDefault(
 @"Grants immunity to Shadowflame
-While attacking, gain massively increased damage but massively decreased movement
+While attacking, increases damage by 120% but reduces damage reduction by 20% and massively decreases movement
 While attacking, shadowflame tentacles lash out at nearby enemies
 Attack speed bonuses are half as effective
 'The accursed incendiary powder of a defeated foe'");

@@ -64,7 +64,7 @@ namespace FargowiltasSouls.Projectiles
                         customScaleAlpha = true;
                         maxTime = 645;
 
-                        if (npc != null && npc.type == NPCID.WallofFleshEye && (npc.GetEModeNPCMod<WallofFleshEye>().HasTelegraphedNormalLasers || Main.netMode == NetmodeID.MultiplayerClient))
+                        if (npc != null && npc.type == NPCID.WallofFleshEye && (npc.GetGlobalNPC<WallofFleshEye>().HasTelegraphedNormalLasers || Main.netMode == NetmodeID.MultiplayerClient))
                         {
                             Projectile.rotation = npc.rotation + (npc.direction > 0 ? 0 : MathHelper.Pi);
                             Projectile.velocity = Projectile.rotation.ToRotationVector2();

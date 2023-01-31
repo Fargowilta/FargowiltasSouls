@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Mythril Enchantment");
             Tooltip.SetDefault(
 @"Temporarily increases attack speed after not attacking for a while
-Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
+Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
 'You feel the knowledge of your weapons seep into your mind'");
         }
 
@@ -46,15 +46,18 @@ Bonus ends after attacking for 3 seconds and rebuilds over 3 seconds
 
             fargoPlayer.MythrilEnchantItem = item;
 
-            if (fargoPlayer.WeaponUseTimer > 0)
+            const int cooldown = 60 * 5;
+            int mythrilEndTime = fargoPlayer.MythrilMaxTime - cooldown;
+
+            if (fargoPlayer.WeaponUseTimer > mythrilEndTime)
                 fargoPlayer.MythrilTimer--;
             else
                 fargoPlayer.MythrilTimer++;
 
             if (fargoPlayer.MythrilTimer > fargoPlayer.MythrilMaxTime)
                 fargoPlayer.MythrilTimer = fargoPlayer.MythrilMaxTime;
-            if (fargoPlayer.MythrilTimer < 0)
-                fargoPlayer.MythrilTimer = 0;
+            if (fargoPlayer.MythrilTimer < mythrilEndTime)
+                fargoPlayer.MythrilTimer = mythrilEndTime;
         }
 
         public static void CalcMythrilAttackSpeed(FargoSoulsPlayer modPlayer, Item item)

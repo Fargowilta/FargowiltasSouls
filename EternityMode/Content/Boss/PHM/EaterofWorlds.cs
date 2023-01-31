@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -48,17 +48,17 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return base.CheckDead(npc);
         }
 
-        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        public override void SafeModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
         {
-            base.ModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
+            base.SafeModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
 
             if (EaterofWorldsHead.HaveSpawnDR > 0)
                 damage /= 10;
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (EaterofWorldsHead.HaveSpawnDR > 0)
                 damage /= projectile.numHits + 1;
@@ -116,18 +116,34 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
         public int NoSelfDestructTimer = 15;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(FlamethrowerCDOrUTurnStoredTargetX), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnTotalSpacingDistance), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnIndividualSpacingPosition), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnAITimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(UTurnCountdownTimer), IntStrategies.CompoundStrategy },
-                { new Ref<object>(CursedFlameTimer), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(UTurn), BoolStrategies.CompoundStrategy },
-                { new Ref<object>(DoTheWave), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(FlamethrowerCDOrUTurnStoredTargetX);
+            binaryWriter.Write7BitEncodedInt(UTurnTotalSpacingDistance);
+            binaryWriter.Write7BitEncodedInt(UTurnIndividualSpacingPosition);
+            binaryWriter.Write7BitEncodedInt(UTurnAITimer);
+            binaryWriter.Write7BitEncodedInt(UTurnCountdownTimer);
+            binaryWriter.Write7BitEncodedInt(CursedFlameTimer);
+            bitWriter.WriteBit(UTurn);
+            bitWriter.WriteBit(DoTheWave);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            FlamethrowerCDOrUTurnStoredTargetX = binaryReader.Read7BitEncodedInt();
+            UTurnTotalSpacingDistance = binaryReader.Read7BitEncodedInt();
+            UTurnIndividualSpacingPosition = binaryReader.Read7BitEncodedInt();
+            UTurnAITimer = binaryReader.Read7BitEncodedInt();
+            UTurnCountdownTimer = binaryReader.Read7BitEncodedInt();
+            CursedFlameTimer = binaryReader.Read7BitEncodedInt();
+            UTurn = bitReader.ReadBit();
+            DoTheWave = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -137,7 +153,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             npc.damage = (int)(npc.damage * 4.0 / 3.0);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             EModeGlobalNPC.eaterBoss = npc.whoAmI;
             FargoSoulsGlobalNPC.boss = npc.whoAmI;
@@ -170,7 +186,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 {
                     for (int i = 0; i < Main.maxNPCs; i++) //cancel if anyone is doing the u-turn
                     {
-                        if (Main.npc[i].active && Main.npc[i].type == npc.type && Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn)
+                        if (Main.npc[i].active && Main.npc[i].type == npc.type && Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurn)
                         {
                             shoot = false;
                             CursedFlameTimer -= 30;
@@ -190,9 +206,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     {
                         if (Main.npc[i].active)
                         {
-                            /*if (Main.npc[i].type == npc.type && !Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().masobool0)
+                            /*if (Main.npc[i].type == npc.type && !Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().masobool0)
                             {
-                                Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().counter2 = 0; //stop others from triggering it
+                                Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().counter2 = 0; //stop others from triggering it
                             }
                             else */
                             if (Main.npc[i].type == NPCID.EaterofWorldsHead || Main.npc[i].type == NPCID.EaterofWorldsBody || Main.npc[i].type == NPCID.EaterofWorldsTail)
@@ -280,12 +296,12 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == npc.type)
                                 {
-                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer = DoTheWave && UTurnTotalSpacingDistance != 0 ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
+                                    Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnAITimer = DoTheWave && UTurnTotalSpacingDistance != 0 ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
                                     if (FargoSoulsWorld.MasochistModeReal)
-                                        Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnAITimer += 60;
-                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = UTurnTotalSpacingDistance;
-                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnIndividualSpacingPosition = headCounter;
-                                    Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn = true;
+                                        Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnAITimer += 60;
+                                    Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnTotalSpacingDistance = UTurnTotalSpacingDistance;
+                                    Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnIndividualSpacingPosition = headCounter;
+                                    Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurn = true;
 
                                     Main.npc[i].netUpdate = true;
                                     NetSync(Main.npc[i]);
@@ -411,9 +427,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     //    {
                     //        if (Main.npc[i].type == npc.type)
                     //        {
-                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnTotalSpacingDistance = 0;
-                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurnIndividualSpacingPosition = 0;
-                    //            Main.npc[i].GetEModeNPCMod<EaterofWorldsHead>().UTurn = false;
+                    //            Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnTotalSpacingDistance = 0;
+                    //            Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnIndividualSpacingPosition = 0;
+                    //            Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurn = false;
                     //            Main.npc[i].netUpdate = true;
                     //            if (Main.netMode == NetmodeID.Server)
                     //                NetSync(npc);

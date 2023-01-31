@@ -29,8 +29,5 @@ namespace FargowiltasSouls.EternityMode
                 droppedSummonFlag = true;
             }
         }
-
-        public static T GetEModeNPCMod<T>(this NPC npc) where T : EModeNPCBehaviour
-            => npc.GetGlobalNPC<NewEModeGlobalNPC>().EModeNpcBehaviours.FirstOrDefault(m => m is T) as T;
     }
 }

@@ -40,6 +40,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public float endTimeVariance;
 
+        public bool ShouldDrawAura;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mutant");
@@ -98,7 +100,6 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             NPC.timeLeft = NPC.activeTime * 30;
             if (FargoSoulsWorld.AngryMutant)
             {
-                NPC.lifeMax = 777000000;
                 NPC.damage *= 17;
                 NPC.defense *= 10;
             }
@@ -117,8 +118,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            NPC.damage = (int)(NPC.damage * 0.5f);
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.damage = (int)Math.Round(NPC.damage * 0.5);
+            NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 0.5 * bossLifeScale);
         }
 
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
@@ -161,10 +162,15 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
             NPC.dontTakeDamage = NPC.ai[0] < 0; //invul in p3
 
+            // Set this to false by default.
+            ShouldDrawAura = false;
+
             ManageAurasAndPreSpawn();
             ManageNeededProjectiles();
 
             NPC.direction = NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;
+
+            bool drainLifeInP3 = true;
 
             switch ((int)NPC.ai[0])
             {
@@ -260,7 +266,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
                 #region phase 3
 
-                case -1: Phase3Transition(); break;
+                case -1: drainLifeInP3 = Phase3Transition(); break;
 
                 case -2: VoidRaysP3(); break;
 
@@ -291,9 +297,9 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.bloodMoon = false; //disable blood moon
             }
 
-            if (NPC.ai[0] < -1 && NPC.life > 1) //in desperation
+            if (NPC.ai[0] < 0 && NPC.life > 1 && drainLifeInP3) //in desperation
             {
-                int time = FargoSoulsWorld.MasochistModeReal ? 3870 : 240 + 420 + 480 + 1020 - 60;
+                int time = FargoSoulsWorld.MasochistModeReal ? 4350 : 480 + 240 + 420 + 480 + 1020 - 60;
                 NPC.life -= NPC.lifeMax / time;
                 if (NPC.life < 1)
                     NPC.life = 1;
@@ -312,8 +318,23 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         #region helper functions
 
+        bool spawned;
         void ManageAurasAndPreSpawn()
         {
+            if (!spawned)
+            {
+                spawned = true;
+
+                int prevLifeMax = NPC.lifeMax;
+                if (FargoSoulsWorld.AngryMutant) //doing it here to avoid overflow i think
+                {
+                    NPC.lifeMax *= 100;
+                    if (NPC.lifeMax < prevLifeMax)
+                        NPC.lifeMax = int.MaxValue;
+                }
+                NPC.life = NPC.lifeMax;
+            }
+
             if (FargoSoulsWorld.MasochistModeReal && Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost)
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<MutantPresence>(), 2);
 
@@ -338,12 +359,14 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             }
             else if (NPC.localAI[3] == 1)
             {
-                EModeGlobalNPC.Aura(NPC, 2000f, true, 86, default, ModContent.BuffType<GodEater>(), ModContent.BuffType<MutantFang>());
+                ShouldDrawAura = true;
+                // -1 means no dust is drawn, as it looks ugly.
+                EModeGlobalNPC.Aura(NPC, 2000f, true, -1, default, ModContent.BuffType<GodEater>(), ModContent.BuffType<MutantFang>());
             }
             else
             {
                 if (Main.LocalPlayer.active && NPC.Distance(Main.LocalPlayer.Center) < 3000f)
-                {
+                {                 
                     if (Main.expertMode)
                     {
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<MutantPresence>(), 2);
@@ -352,7 +375,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     if (FargoSoulsWorld.EternityMode && NPC.ai[0] < 0 && NPC.ai[0] > -6)
                     {
                         Main.LocalPlayer.AddBuff(ModContent.BuffType<GoldenStasisCD>(), 2);
-                        Main.LocalPlayer.AddBuff(ModContent.BuffType<TimeStopCD>(), 2);
+                        if (FargoSoulsWorld.MasochistModeReal)
+                            Main.LocalPlayer.AddBuff(ModContent.BuffType<TimeStopCD>(), 2);
                     }
                     //if (FargowiltasSouls.Instance.CalamityLoaded)
                     //{
@@ -2711,7 +2735,6 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             int ringMax = FargoSoulsWorld.MasochistModeReal ? 5 : 4;
             if (NPC.ai[3] % ringDelay == 0 && NPC.ai[3] < ringDelay * ringMax)
             {
-                SoundEngine.PlaySound(SoundID.Item84, NPC.Center);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float rotationOffset = MathHelper.TwoPi / ringMax * NPC.ai[3] / ringDelay + NPC.localAI[0];
@@ -2749,10 +2772,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                     float spazSpeed = 2 * (float)Math.PI * spazRad / 180;
                     float retiAcc = retiSpeed * retiSpeed / retiRad * NPC.ai[2];
                     float spazAcc = spazSpeed * spazSpeed / spazRad * -NPC.ai[2];
+                    float rotationOffset = FargoSoulsWorld.MasochistModeReal ? MathHelper.PiOver4 : 0;
                     for (int i = 0; i < 4; i++)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i) * retiSpeed, ModContent.ProjectileType<MutantRetirang>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, retiAcc, 300);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i + Math.PI / 4) * spazSpeed, ModContent.ProjectileType<MutantSpazmarang>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, spazAcc, 180);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i + rotationOffset) * retiSpeed, ModContent.ProjectileType<MutantRetirang>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, retiAcc, 300);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i + Math.PI / 4 + rotationOffset) * spazSpeed, ModContent.ProjectileType<MutantSpazmarang>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, spazAcc, 180);
                     }
                 }
             }
@@ -2941,8 +2965,10 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         #region p3
 
-        void Phase3Transition()
+        bool Phase3Transition()
         {
+            bool retval = true;
+
             NPC.localAI[3] = 3;
 
             EModeSpecialEffects();
@@ -2950,8 +2976,11 @@ namespace FargowiltasSouls.NPCs.MutantBoss
             //NPC.damage = 0;
             if (NPC.buffType[0] != 0)
                 NPC.DelBuff(0);
+
             if (NPC.ai[1] == 0) //entering final phase, give healing
             {
+                NPC.life = NPC.lifeMax;
+
                 DramaticTransition(true);
             }
 
@@ -2963,19 +2992,12 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
             }
 
-            if (NPC.ai[1] > 360 && NPC.life < NPC.lifeMax && NPC.ai[1] % 2 == 0)
-            {
-                int heal = (int)(NPC.lifeMax / (90 / 2) * Main.rand.NextFloat(1f, 1.2f));
-                NPC.life += heal;
-                if (NPC.life > NPC.lifeMax)
-                    NPC.life = NPC.lifeMax;
-                NPC.HealEffect(heal);
-            }
-
             if (++NPC.ai[1] > 480)
             {
+                retval = false; //dont drain life during this time, ensure it stays synced
+
                 if (!AliveCheck(player))
-                    return;
+                    return retval;
                 Vector2 targetPos = player.Center;
                 targetPos.Y -= 300;
                 Movement(targetPos, 1f, true, false);
@@ -3025,6 +3047,8 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 Main.dust[d].noLight = true;
                 Main.dust[d].velocity *= 4f;
             }
+
+            return retval;
         }
 
         void VoidRaysP3()
@@ -3364,7 +3388,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
                 NPC.ai[3] = (float)-Math.PI / 2;
                 NPC.netUpdate = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient) //shoot harmless mega ray
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * -1, ModContent.ProjectileType<MutantGiantDeathray2>(), 0, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * -1, ModContent.ProjectileType<MutantGiantDeathray2>(), 0, 0f, Main.myPlayer, 1, NPC.whoAmI);
                 //EdgyBossText("I have not a single regret in my existence!");
             }
             if (--NPC.localAI[0] < 0)
@@ -3551,13 +3575,26 @@ namespace FargowiltasSouls.NPCs.MutantBoss
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Npc[NPC.type].Value;
+            Vector2 position = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY);
             Rectangle rectangle = NPC.frame;
             Vector2 origin2 = rectangle.Size() / 2f;
 
             SpriteEffects effects = NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            Main.EntitySpriteDraw(texture2D13, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
+            Main.EntitySpriteDraw(texture2D13, position, new Rectangle?(rectangle), NPC.GetAlpha(drawColor), NPC.rotation, origin2, NPC.scale, effects, 0);
+
+            if (ShouldDrawAura)
+                DrawAura(spriteBatch, position);
+
             return false;
+        }
+
+        public void DrawAura(SpriteBatch spriteBatch, Vector2 position)
+        {
+            // Outer ring.
+            Color outerColor = Color.CadetBlue;
+            outerColor.A = 0;
+            spriteBatch.Draw(FargosTextureRegistry.SoftEdgeRing.Value, position, null, outerColor * 0.7f, 0f, FargosTextureRegistry.SoftEdgeRing.Value.Size() * 0.5f, 9.2f, SpriteEffects.None, 0f);
         }
     }
 }

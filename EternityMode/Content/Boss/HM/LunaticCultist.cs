@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Buffs.Masomode;
-using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
+using System.IO;
+using Terraria.ModLoader.IO;
+using FargowiltasSouls.Buffs.Masomode;
 using FargowiltasSouls.EternityMode.NPCMatching;
 using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.Items.Accessories.Masomode;
@@ -34,17 +34,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public bool EnteredPhase2;
         public bool DroppedSummon;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(RitualRotation), FloatStrategies.CompoundStrategy },
 
-                { new Ref<object>(MeleeDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(RangedDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MagicDamageCounter), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MinionDamageCounter), IntStrategies.CompoundStrategy },
 
-                { new Ref<object>(EnteredPhase2), BoolStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write(RitualRotation);
+            binaryWriter.Write7BitEncodedInt(MeleeDamageCounter);
+            binaryWriter.Write7BitEncodedInt(RangedDamageCounter);
+            binaryWriter.Write7BitEncodedInt(MagicDamageCounter);
+            binaryWriter.Write7BitEncodedInt(MinionDamageCounter);
+            bitWriter.WriteBit(EnteredPhase2);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            RitualRotation = binaryReader.ReadSingle();
+            MeleeDamageCounter = binaryReader.Read7BitEncodedInt();
+            RangedDamageCounter = binaryReader.Read7BitEncodedInt();
+            MagicDamageCounter = binaryReader.Read7BitEncodedInt();
+            MinionDamageCounter = binaryReader.Read7BitEncodedInt();
+            EnteredPhase2 = bitReader.ReadBit();
+        }
 
         public override void SetDefaults(NPC npc)
         {
@@ -68,9 +82,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             EModeGlobalNPC.cultBoss = npc.whoAmI;
 
@@ -321,9 +335,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return false;
         }
 
-        public override void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
+        public override void SafeOnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
         {
-            base.OnHitByItem(npc, player, item, damage, knockback, crit);
+            base.SafeOnHitByItem(npc, player, item, damage, knockback, crit);
 
             if (item.CountsAsClass(DamageClass.Melee) || item.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
@@ -335,9 +349,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                 MinionDamageCounter += damage;
         }
 
-        public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+        public override void SafeOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
         {
-            base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
+            base.SafeOnHitByProjectile(npc, projectile, damage, knockback, crit);
 
             if (projectile.CountsAsClass(DamageClass.Melee) || projectile.CountsAsClass(DamageClass.Throwing))
                 MeleeDamageCounter += damage;
@@ -379,11 +393,21 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
         public int TotalCultistCount;
         public int MyRitualPosition;
 
-        public override Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() =>
-            new Dictionary<Ref<object>, CompoundStrategy> {
-                { new Ref<object>(TotalCultistCount), IntStrategies.CompoundStrategy },
-                { new Ref<object>(MyRitualPosition), IntStrategies.CompoundStrategy },
-            };
+        public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
+        {
+            base.SendExtraAI(npc, bitWriter, binaryWriter);
+
+            binaryWriter.Write7BitEncodedInt(TotalCultistCount);
+            binaryWriter.Write7BitEncodedInt(MyRitualPosition);
+        }
+
+        public override void ReceiveExtraAI(NPC npc, BitReader bitReader, BinaryReader binaryReader)
+        {
+            base.ReceiveExtraAI(npc, bitReader, binaryReader);
+
+            TotalCultistCount = binaryReader.Read7BitEncodedInt();
+            MyRitualPosition = binaryReader.Read7BitEncodedInt();
+        }
 
         public override void OnFirstTick(NPC npc)
         {
@@ -402,9 +426,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanBeHitByProjectile(npc, projectile);
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             NPC cultist = FargoSoulsUtil.NPCExists(npc.ai[3], NPCID.CultistBoss);
             if (cultist != null)
@@ -502,9 +526,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.CanHitPlayer(npc, target, ref CooldownSlot) && npc.localAI[3] > 120;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (npc.localAI[3] == 0f)
             {
@@ -563,9 +587,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             npc.buffImmune[BuffID.OnFire] = true;
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             if (FargoSoulsWorld.SwarmActive)
                 return result;
@@ -663,9 +687,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             }
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
-            bool result = base.PreAI(npc);
+            bool result = base.SafePreAI(npc);
 
             DamageReductionTimer++;
 
@@ -679,9 +703,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
             return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            base.SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
 
             if (projectile.maxPenetrate > 1)
                 damage /= projectile.maxPenetrate;

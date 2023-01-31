@@ -30,7 +30,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
             }
         }
 
-        public override bool PreAI(NPC npc)
+        public override bool SafePreAI(NPC npc)
         {
             int p = npc.HasPlayerTarget ? npc.target : npc.FindClosestPlayer();
             if (p != -1 && npc.Distance(Main.player[p].Center) < 2400)
@@ -38,7 +38,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Desert
                 Main.player[p].ZoneUndergroundDesert = true; //always attack them
             }
 
-            return base.PreAI(npc);
+            return base.SafePreAI(npc);
         }
 
         public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)

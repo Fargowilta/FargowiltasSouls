@@ -22,11 +22,10 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
         {
             Item.width = 80;
             Item.height = 80;
-            Item.damage = 60;
+            Item.damage = 50;
             Item.knockBack = 3f;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.useAnimation = 45; //adjust
-            Item.useTime = 45; //adjust
+            Item.useAnimation = Item.useTime = 40;
             Item.DamageType = DamageClass.Melee;
             Item.autoReuse = true;
             Item.noUseGraphic = true;

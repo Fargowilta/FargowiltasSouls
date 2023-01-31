@@ -140,7 +140,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.position.X -= NPC.width / 2;
             NPC.position.Y -= NPC.height / 2;
 
-            if (plantera.GetEModeNPCMod<Plantera>().RingTossTimer > 120 && plantera.GetEModeNPCMod<Plantera>().RingTossTimer < 120 + 45 && NPC.ai[1] == 130) //pause before shooting
+            if (plantera.GetGlobalNPC<Plantera>().RingTossTimer > 120 && plantera.GetGlobalNPC<Plantera>().RingTossTimer < 120 + 45 && NPC.ai[1] == 130) //pause before shooting
             {
                 NPC.localAI[3] = 1;
                 NPC.scale *= 1.5f;
@@ -165,7 +165,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
                 if (NPC.ai[1] > 130)
                 {
-                    /*if (plantera.GetEModeNPCMod<Plantera>().TentacleTimer < 0)
+                    /*if (plantera.GetGlobalNPC<Plantera>().TentacleTimer < 0)
                     {
                         NPC.localAI[0] -= 2;
                         if (NPC.localAI[0] < 0)

@@ -63,7 +63,9 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
                 Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, projType, damage, 0, player.whoAmI);
 
                 modPlayer.JustCobaltJumped = true;
-                modPlayer.CobaltImmuneTimer = 15;
+
+                if (modPlayer.CobaltImmuneTimer <= 0)
+                    modPlayer.CobaltImmuneTimer = 15;
             }
 
             if (modPlayer.CanCobaltJump || (modPlayer.JustCobaltJumped && !player.isPerformingJump_Cloud && !player.isPerformingJump_Blizzard && !player.isPerformingJump_Fart && !player.isPerformingJump_Sail && !player.isPerformingJump_Sandstorm && !modPlayer.JungleJumping))

@@ -54,6 +54,11 @@ Discount effect works in vanity slots");
 			player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
 		}
 
+        public override void UpdateInventory(Player player)
+        {
+            player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantDiscount = true;
+        }
+
         public static void WoodEffect(Player player, Item item)
         {
             player.GetModPlayer<FargoSoulsPlayer>().WoodEnchantItem = item;
@@ -62,18 +67,29 @@ Discount effect works in vanity slots");
 
         public static void WoodCheckDead(FargoSoulsPlayer modPlayer, NPC npc)
         {
-            //register extra kill per kill (X times as fast)
-            int multiplier = 2;
+            if (npc.ExcludedFromDeathTally())
+                return;
+            int banner = Item.NPCtoBanner(npc.BannerID());
+            if (banner <= 0)
+                return;
 
+            //register extra kill per kill
+            int addedKillBonus = 1;
             if (modPlayer.WoodForce)
-            {
-                multiplier = 5;
-            }
+                addedKillBonus = 4;
 
-            for (int i = 0; i < multiplier; i++)
+            //for nonstandard banner thresholds, e.g. some ooa npcs at 100 or 200
+            int bannerThreshold = ItemID.Sets.KillsToBanner[Item.BannerToItem(banner)];
+
+            for (int i = 0; i < addedKillBonus; i++)
             {
-                Main.BestiaryTracker.Kills.RegisterKill(npc);
-                NPC.killCount[Item.NPCtoBanner(npc.BannerID())]++;
+                //stop at 49, 99, 149, etc. so that game will increment on its own
+                //not doing this causes it to skip the banner
+                if (NPC.killCount[banner] % bannerThreshold != bannerThreshold - 1)
+                {
+                    NPC.killCount[banner]++;
+                    Main.BestiaryTracker.Kills.RegisterKill(npc);
+                }
             }            
         }
 

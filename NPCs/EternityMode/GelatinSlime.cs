@@ -55,13 +55,13 @@ namespace FargowiltasSouls.NPCs.EternityMode
         {
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.queenSlimeBoss, NPCID.QueenSlimeBoss))
             {
-                if (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetEModeNPCMod<QueenSlime>().RainTimer > -90)
-                    Main.npc[EModeGlobalNPC.queenSlimeBoss].GetEModeNPCMod<QueenSlime>().RainTimer = -90;
+                if (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetGlobalNPC<QueenSlime>().RainTimer > -90)
+                    Main.npc[EModeGlobalNPC.queenSlimeBoss].GetGlobalNPC<QueenSlime>().RainTimer = -90;
 
                 if (!FargoSoulsWorld.MasochistModeReal)
                 {
-                    if (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetEModeNPCMod<QueenSlime>().StompTimer > -30)
-                        Main.npc[EModeGlobalNPC.queenSlimeBoss].GetEModeNPCMod<QueenSlime>().StompTimer = -30;
+                    if (Main.npc[EModeGlobalNPC.queenSlimeBoss].GetGlobalNPC<QueenSlime>().StompTimer > -30)
+                        Main.npc[EModeGlobalNPC.queenSlimeBoss].GetGlobalNPC<QueenSlime>().StompTimer = -30;
                 }
             }
 

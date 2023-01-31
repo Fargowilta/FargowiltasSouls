@@ -1,94 +1,37 @@
-﻿using FargowiltasSouls.EternityMode.Net;
-using FargowiltasSouls.EternityMode.Net.Strategies;
-using FargowiltasSouls.EternityMode.NPCMatching;
-using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.EternityMode.NPCMatching;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.EternityMode
 {
-    public abstract class EModeNPCBehaviour
+    public abstract class EModeNPCBehaviour : GlobalNPC
     {
-        internal static Mod mod => FargowiltasSouls.Instance;
-
-        public static List<EModeNPCBehaviour> AllEModeNpcBehaviours = new List<EModeNPCBehaviour>();
-
         public NPCMatcher Matcher;
 
-        public void Register()
-        {
-            AllEModeNpcBehaviours.Add(this);
-        }
+        public override bool InstancePerEntity => true;
 
-        public void NetSend(BinaryWriter writer)
+        //gameMenu check so that npcloot actually populates
+        //TODO: find better way to make behaviour actually emode only but npcloot populate properly
+        public sealed override bool AppliesToEntity(NPC entity, bool lateInstantiation)
         {
-            Dictionary<Ref<object>, CompoundStrategy> netInfo = GetNetInfo();
-            if (netInfo == default)
-                return;
-
-            for (int i = 0; i < netInfo.Count; i++)
+            if (Matcher.Satisfies(entity.type))
             {
-                KeyValuePair<Ref<object>, CompoundStrategy> query = netInfo.ElementAt(i);
-                query.Value.Send(query.Key.Value, writer);
+                TryLoadSprites(entity);
+
+                return FargoSoulsWorld.EternityMode || Main.gameMenu;
             }
+            return false;
         }
 
-        public void NetRecieve(BinaryReader reader)
-        {
-            Dictionary<Ref<object>, CompoundStrategy> netInfo = GetNetInfo();
-            if (netInfo == default)
-                return;
-
-            for (int i = 0; i < netInfo.Count; i++)
-            {
-                KeyValuePair<Ref<object>, CompoundStrategy> query = netInfo.ElementAt(i);
-                query.Value.Recieve(ref query.Key.Value, reader);
-            }
-        }
-
-
-        public virtual void Load()
+        public override void Load()
         {
             Matcher = CreateMatcher();
-            Register();
-        }
-
-        public static void Unload()
-        {
-            AllEModeNpcBehaviours.Clear();
-        }
-
-        public virtual Dictionary<Ref<object>, CompoundStrategy> GetNetInfo() => default;
-
-        public int GetBytesNeeded()
-        {
-            int byteLength = 0;
-
-            Dictionary<Ref<object>, CompoundStrategy> netInfo = GetNetInfo();
-            if (netInfo == default)
-                return byteLength;
-
-            foreach (CompoundStrategy strategy in netInfo.Values)
-            {
-                if (strategy.Equals(BoolStrategies.CompoundStrategy))
-                    byteLength += 1;
-                else if (strategy.Equals(IntStrategies.CompoundStrategy))
-                    byteLength += 4;
-                else if (strategy.Equals(FloatStrategies.CompoundStrategy))
-                    byteLength += 4;
-                else
-                    FargowiltasSouls.Instance.Logger.Warn("didn't recognize strategy!");
-            }
-
-            return byteLength;
+            base.Load();
         }
 
         public abstract NPCMatcher CreateMatcher();
@@ -97,103 +40,148 @@ namespace FargowiltasSouls.EternityMode
         /// </summary>
         public virtual EModeNPCBehaviour NewInstance() => (EModeNPCBehaviour)MemberwiseClone();
 
-        public virtual void SetDefaults(NPC npc) { }
 
-        public virtual void OnSpawn(NPC npc, IEntitySource source) { }
-
-        public virtual bool PreAI(NPC npc) => true;
-
+        public bool FirstTick = true;
         public virtual void OnFirstTick(NPC npc) { }
 
-        public virtual void AI(NPC npc) { }
+        public virtual bool SafePreAI(NPC npc) => base.PreAI(npc);
+        public sealed override bool PreAI(NPC npc)
+        {
+            if (FirstTick)
+            {
+                FirstTick = false;
 
-        public virtual void PostAI(NPC npc) { }
+                OnFirstTick(npc);
+            }
 
-        /// <summary>
-        /// ModifyNPCLoot runs before entering a world. Make sure drops are properly wrapped in the EMode drop condition!
-        /// </summary>
-        /// <param name="npc"></param>
-        /// <param name="npcLoot"></param>
-        public virtual void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) { }
+            return SafePreAI(npc);
+        }
 
-        public virtual bool PreKill(NPC npc) => true;
-
-        public virtual void OnKill(NPC npc) { }
-
-        public virtual bool SpecialOnKill(NPC npc) => false;
-
-        public virtual bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot) => true;
-
-        public virtual void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit) { }
-
-        public virtual void OnHitPlayer(NPC npc, Player target, int damage, bool crit) { }
-
-        public virtual void OnHitNPC(NPC npc, NPC target, int damage, float knockback, bool crit) { }
 
         public virtual void ModifyHitByAnything(NPC npc, Player player, ref int damage, ref float knockback, ref bool crit) { }
 
-        public virtual void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit) => ModifyHitByAnything(npc, player, ref damage, ref knockback, ref crit);
+        public virtual void SafeModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit) { }
+        public sealed override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        {
+            base.ModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
 
-        public virtual void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) => ModifyHitByAnything(npc, Main.player[projectile.owner], ref damage, ref knockback, ref crit);
+            if (!FargoSoulsWorld.EternityMode)
+                return;
+
+            SafeModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
+            ModifyHitByAnything(npc, player, ref damage, ref knockback, ref crit);
+        }
+
+        public virtual void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) { }
+        public sealed override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            base.ModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+
+            if (!FargoSoulsWorld.EternityMode)
+                return;
+
+            SafeModifyHitByProjectile(npc, projectile, ref damage, ref knockback, ref crit, ref hitDirection);
+            ModifyHitByAnything(npc, Main.player[projectile.owner], ref damage, ref knockback, ref crit);
+        }
+
 
         public virtual void OnHitByAnything(NPC npc, Player player, int damage, float knockback, bool crit) { }
 
-        public virtual void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit) => OnHitByAnything(npc, player, damage, knockback, crit);
+        public virtual void SafeOnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit) { }
+        public sealed override void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
+        {
+            base.OnHitByItem(npc, player, item, damage, knockback, crit);
 
-        public virtual void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit) => OnHitByAnything(npc, Main.player[projectile.owner], damage, knockback, crit);
+            if (!FargoSoulsWorld.EternityMode)
+                return;
 
-        public virtual bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit) => true;
+            SafeOnHitByItem(npc, player, item, damage, knockback, crit);
+            ModifyHitByAnything(npc, player, ref damage, ref knockback, ref crit);
+        }
 
-        public virtual void HitEffect(NPC npc, int hitDirection, double damage) { }
+        public virtual void SafeOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit) { }
+        public sealed override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+        {
+            base.OnHitByProjectile(npc, projectile, damage, knockback, crit);
 
-        public virtual void UpdateLifeRegen(NPC npc, ref int damage) { }
+            if (!FargoSoulsWorld.EternityMode)
+                return;
 
-        public virtual bool CheckDead(NPC npc) => true;
+            SafeOnHitByProjectile(npc, projectile, damage, knockback, crit);
+            ModifyHitByAnything(npc, Main.player[projectile.owner], ref damage, ref knockback, ref crit);
+        }
 
-        public virtual Color? GetAlpha(NPC npc, Color drawColor) => null;
-
-        public virtual bool? DrawHealthBar(NPC npc, byte hbPosition, ref float scale, ref Vector2 position) => null;
-
-        public virtual bool? CanBeHitByItem(NPC npc, Player player, Item item) => null;
-
-        public virtual bool? CanBeHitByProjectile(NPC npc, Projectile projectile) => null;
 
         protected static void NetSync(NPC npc, bool onlySendFromServer = true)
         {
             if (onlySendFromServer && Main.netMode != NetmodeID.Server)
                 return;
 
-            npc.GetGlobalNPC<NewEModeGlobalNPC>().NetSync(npc);
+            //npc.GetGlobalNPC<NewEModeGlobalNPC>().NetSync(npc);
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, npc.whoAmI);
+        }
+
+        /// <summary>
+        /// Checks if loading sprites is necessary and does it if so.
+        /// </summary>
+        public void TryLoadSprites(NPC npc)
+        {
+            if (!Main.dedServ)
+            {
+                bool recolor = SoulConfig.Instance.BossRecolors && FargoSoulsWorld.EternityMode;
+                if (recolor || FargowiltasSouls.Instance.LoadedNewSprites)
+                {
+                    FargowiltasSouls.Instance.LoadedNewSprites = true;
+                    LoadSprites(npc, recolor);
+                }
+            }
         }
 
         public virtual void LoadSprites(NPC npc, bool recolor) { }
 
         #region Sprite Loading
         protected static Asset<Texture2D> LoadSprite(bool recolor, string texture)
-        {
-            return ModContent.Request<Texture2D>("FargowiltasSouls/NPCs/" + (recolor ? "Resprites/" : "Vanilla/") + texture, AssetRequestMode.ImmediateLoad);
-        }
+            => ModContent.Request<Texture2D>("FargowiltasSouls/NPCs/" + (recolor ? "Resprites/" : "Vanilla/") + texture, AssetRequestMode.ImmediateLoad);
 
         protected static void LoadSpriteBuffered(bool recolor, int type, Asset<Texture2D>[] vanillaTexture, Dictionary<int, Asset<Texture2D>> fargoBuffer, string texturePrefix)
         {
-            if (!recolor)
-                return;
-
-            if (!fargoBuffer.ContainsKey(type))
-                fargoBuffer[type] = vanillaTexture[type];
-
-            vanillaTexture[type] = LoadSprite(recolor, $"{texturePrefix}{type}");
+            if (recolor)
+            {
+                if (!fargoBuffer.ContainsKey(type))
+                {
+                    fargoBuffer[type] = vanillaTexture[type];
+                    vanillaTexture[type] = LoadSprite(recolor, $"{texturePrefix}{type}");
+                }
+            }
+            else
+            {
+                if (fargoBuffer.ContainsKey(type))
+                {
+                    vanillaTexture[type] = fargoBuffer[type];
+                    fargoBuffer.Remove(type);
+                }
+            }
         }
 
         protected static void LoadSpecial(bool recolor, ref Asset<Texture2D> vanillaResource, ref Asset<Texture2D> fargoSoulsBuffer, string name)
         {
-            if (!recolor)
-                return;
-
-            if (fargoSoulsBuffer == null)
-                fargoSoulsBuffer = vanillaResource;
-
-            vanillaResource = LoadSprite(recolor, name);
+            if (recolor)
+            {
+                if (fargoSoulsBuffer == null)
+                {
+                    fargoSoulsBuffer = vanillaResource;
+                    vanillaResource = LoadSprite(recolor, name);
+                }
+            }
+            else
+            {
+                if (fargoSoulsBuffer != null)
+                {
+                    vanillaResource = fargoSoulsBuffer;
+                    fargoSoulsBuffer = null;
+                }
+            }
         }
 
         protected static void LoadNPCSprite(bool recolor, int type)

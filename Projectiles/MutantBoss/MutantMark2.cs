@@ -40,22 +40,11 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void AI()
         {
-            /*if (Projectile.localAI[0] == 0) //spawn surrounding crystals
+            if (Projectile.localAI[0] == 0) //spawn surrounding crystals
             {
                 Projectile.localAI[0] = 1;
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    const int max = 5;
-                    const float distance = 125f;
-                    float rotation = 2f * (float)Math.PI / max;
-                    for (int i = 0; i < max; i++)
-                    {
-                        Vector2 spawnPos = Projectile.Center + new Vector2(distance, 0f).RotatedBy(rotation * i);
-                        Projectile.NewProjectile(Projectile.InheritSource(Projectile), spawnPos, Vector2.Zero, ModContent.ProjectileType<MutantCrystalLeaf>(), Projectile.damage, 0f, Projectile.owner, Projectile.whoAmI, rotation * i);
-                        //int n = NPC.NewNPC((int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<CrystalLeaf>(), 0, npc.whoAmI, distance, 300, rotation * i);
-                    }
-                }
-            }*/
+                SoundEngine.PlaySound(SoundID.Item84, Projectile.Center);
+            }
 
             if (--Projectile.ai[0] == 0)
             {
