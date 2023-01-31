@@ -229,7 +229,8 @@ namespace FargowiltasSouls.NPCs
 
             //no work?
             //is lava on screen
-            bool nearLava = Collision.LavaCollision(spawnInfo.Player.position, spawnInfo.SpawnTileX, spawnInfo.SpawnTileY);
+            //bool nearLava = Collision.LavaCollision(spawnInfo.Player.position, spawnInfo.SpawnTileX, spawnInfo.SpawnTileY);
+            bool deepUnderground = !underworld && spawnInfo.Player.position.Y > Main.maxTilesY - Main.UnderworldLayer * 3;
             bool noInvasion = FargowiltasSouls.NoInvasion(spawnInfo);
             bool normalSpawn = !spawnInfo.PlayerInTown && noInvasion && !oldOnesArmy && noEvent;
 
@@ -288,7 +289,7 @@ namespace FargowiltasSouls.NPCs
                     }
                     else if (wideUnderground)
                     {
-                        if (nearLava)
+                        if (deepUnderground && !jungle && !snow)
                         {
                             pool[NPCID.FireImp] = .02f;
                             pool[NPCID.LavaSlime] = .02f;
@@ -587,7 +588,7 @@ namespace FargowiltasSouls.NPCs
                             pool[NPCID.DesertDjinn] = .05f;
                         }
 
-                        if (nearLava)
+                        if (deepUnderground && !jungle && !snow)
                         {
                             pool[NPCID.FireImp] = .02f;
                             pool[NPCID.LavaSlime] = .02f;

@@ -10,6 +10,7 @@ using FargowiltasSouls.Projectiles.BossWeapons;
 using FargowiltasSouls.Projectiles.Minions;
 using FargowiltasSouls.Projectiles.Souls;
 using FargowiltasSouls.Toggler;
+using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -45,7 +46,7 @@ namespace FargowiltasSouls.Projectiles
         public float TungstenScale = 1;
         public int AdamModifier;
         public bool tikiMinion;
-        private int tikiTimer = 300;
+        public int tikiTimer;
         public int shroomiteMushroomCD;
         private int spookyCD;
         public bool FrostFreeze;
@@ -68,7 +69,6 @@ namespace FargowiltasSouls.Projectiles
         public const int TimeFreezeMoveDuration = 10;
         public int TimeFrozen = 0;
         public bool TimeFreezeImmune;
-        public bool TimeFreezeCheck;
         public int DeletionImmuneRank;
 
         public bool canHurt = true;
@@ -122,6 +122,10 @@ namespace FargowiltasSouls.Projectiles
                     break;
 
                 case ProjectileID.SandnadoFriendly:
+                    DeletionImmuneRank = 1;
+                    break;
+					
+				case ProjectileID.LunarFlare:
                     DeletionImmuneRank = 1;
                     break;
 
@@ -178,6 +182,18 @@ namespace FargowiltasSouls.Projectiles
 
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+
+            if (projectile.friendly && FargoSoulsUtil.IsSummonDamage(projectile, true, false))
+            {
+                //projs shot by tiki-buffed minions will also inherit the tiki buff
+                if (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj 
+                    && FargoSoulsUtil.IsSummonDamage(sourceProj, true, false)
+                    && sourceProj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().tikiMinion)
+                {
+                    tikiMinion = true;
+                    tikiTimer = sourceProj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().tikiTimer;
+                }
+            }
 
             switch (projectile.type)
             {
@@ -314,25 +330,6 @@ namespace FargowiltasSouls.Projectiles
                 projectile.ArmorPenetration += projectile.damage / 2;
             }
 
-            if (modPlayer.TikiEnchantActive && projectile.friendly)
-            {
-                if (FargoSoulsUtil.IsSummonDamage(projectile) && (projectile.sentry ? modPlayer.TikiSentry : modPlayer.TikiMinion))
-                {
-                    tikiMinion = true;
-
-                    if (projectile.type != ModContent.ProjectileType<EaterBody>() && projectile.type != ProjectileID.StardustDragon2 && projectile.type != ProjectileID.StardustDragon3)
-                    {
-                        tikiMinion = true;
-                        tikiTimer = 300;
-
-                        if (modPlayer.SpiritForce)
-                        {
-                            tikiTimer = 480;
-                        }
-                    }
-                }
-            }
-
             if (projectile.bobber && CanSplit && source is EntitySource_ItemUse)
             {
                 if (player.whoAmI == Main.myPlayer && modPlayer.FishSoul2)
@@ -405,80 +402,13 @@ namespace FargowiltasSouls.Projectiles
                         break;
                 }
 
-                if (tikiMinion)
-                {
-                    projectile.alpha = 120;
-
-                    //dust
-                    if (Main.rand.Next(4) < 2)
-                    {
-                        int dust = Dust.NewDust(new Vector2(projectile.position.X - 2f, projectile.position.Y - 2f), projectile.width + 4, projectile.height + 4, 44, projectile.velocity.X * 0.4f, projectile.velocity.Y * 0.4f, 100, Color.LimeGreen, .8f);
-                        Main.dust[dust].noGravity = true;
-                        Main.dust[dust].velocity *= 1.8f;
-                        Dust expr_1CCF_cp_0 = Main.dust[dust];
-                        expr_1CCF_cp_0.velocity.Y = expr_1CCF_cp_0.velocity.Y - 0.5f;
-                        if (Main.rand.NextBool(4))
-                        {
-                            Main.dust[dust].noGravity = false;
-                            Main.dust[dust].scale *= 0.5f;
-                        }
-                    }
-
-                    tikiTimer--;
-
-                    if (tikiTimer <= 0)
-                    {
-                        for (int num468 = 0; num468 < 20; num468++)
-                        {
-                            int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 44, -projectile.velocity.X * 0.2f,
-                                -projectile.velocity.Y * 0.2f, 100, Color.LimeGreen, 1f);
-                            Main.dust[num469].noGravity = true;
-                            Main.dust[num469].velocity *= 2f;
-                            num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 44, -projectile.velocity.X * 0.2f,
-                                -projectile.velocity.Y * 0.2f, 100, Color.LimeGreen, .5f);
-                            Main.dust[num469].velocity *= 2f;
-                        }
-
-                        //stardust dragon fix
-                        if (projectile.type == ProjectileID.StardustDragon2)
-                        {
-                            int tailIndex = -1;
-                            for (int i = 0; i < Main.maxProjectiles; i++)
-                            {
-                                Projectile p = Main.projectile[i];
-
-                                if (p.active && p.type == ProjectileID.StardustDragon4)
-                                {
-                                    tailIndex = i;
-                                    break;
-                                }
-                            }
-
-                            Projectile prev = Main.projectile[tailIndex];
-                            List<int> list = new List<int>();
-                            list.Add(prev.whoAmI);
-
-                            while (prev.type != ProjectileID.StardustDragon1)
-                            {
-                                list.Add((int)prev.ai[0]);
-                                prev = Main.projectile[(int)prev.ai[0]];
-                            }
-
-                            int listIndex = list.IndexOf(projectile.whoAmI);
-                            Main.projectile[list[listIndex - 2]].ai[0] = list[listIndex + 1];
-                        }
-
-                        projectile.Kill();
-                    }
-                }
-
                 //hook ai
                 if (modPlayer.MahoganyEnchantItem != null && player.GetToggleValue("Mahogany", false) && projectile.aiStyle == 7)
                 {
                     RichMahoganyEnchant.MahoganyHookAI(projectile, modPlayer);
                 }
 
-                if (projectile.friendly && !projectile.hostile)
+                if (!projectile.hostile && !projectile.trap && !projectile.npcProj)
                 {
                     if (modPlayer.Jammed && projectile.CountsAsClass(DamageClass.Ranged) && projectile.type != ProjectileID.ConfettiGun)
                     {
@@ -528,7 +458,7 @@ namespace FargowiltasSouls.Projectiles
                         {
                             NPC target = Main.npc[npcIndex];
 
-                            if (Collision.CanHit(projectile.position, projectile.width, projectile.height, target.position, target.width, target.height))
+                            if (Collision.CanHit(projectile.Center, 0, 0, target.Center, 0, 0))
                             {
                                 Vector2 velocity = Vector2.Normalize(target.Center - projectile.Center) * 20;
 
@@ -615,7 +545,7 @@ namespace FargowiltasSouls.Projectiles
 
             if (firstTick)
             {
-                if (modPlayer.NinjaEnchantItem != null && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true) && Array.IndexOf(noSplit, projectile.type) <= -1)
+                if (modPlayer.NinjaEnchantItem != null && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true) && projectile.type != ProjectileID.WireKite)
                 {
                     NinjaEnchant.NinjaSpeedSetup(modPlayer, projectile, this);
                 }
@@ -680,7 +610,7 @@ namespace FargowiltasSouls.Projectiles
             return base.PreDraw(projectile, ref lightColor);
         }
 
-        public static List<Projectile> SplitProj(Projectile projectile, int number, float maxSpread, float damageRatio)
+        public static List<Projectile> SplitProj(Projectile projectile, int number, float maxSpread, float damageRatio, bool allowMoreSplit = false)
         {
             if (ModContent.TryFind("Fargowiltas", "SpawnProj", out ModProjectile spawnProj) && projectile.type == spawnProj.Type)
             {
@@ -714,7 +644,8 @@ namespace FargowiltasSouls.Projectiles
                         split.DamageType = projectile.DamageType;
 
                         //split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().numSplits = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().numSplits;
-                        split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
+                        if (!allowMoreSplit)
+                            split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
                         split.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TungstenScale = projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TungstenScale;
 
                         projList.Add(split);
@@ -882,6 +813,50 @@ namespace FargowiltasSouls.Projectiles
                 if (projectile.wet && projectile.ai[0] == 0 && projectile.ai[1] == 0 && projectile.localAI[1] < 655)
                     projectile.localAI[1] = 655; //quick catch. not 660 and up, may break things
             }
+
+            if (ProjectileID.Sets.IsAWhip[projectile.type] && projectile.owner == Main.myPlayer
+                && Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().TikiEnchantActive)
+            {
+                foreach (Projectile p in Main.projectile.Where(p => p.active && !p.hostile && p.owner == Main.myPlayer
+                    && FargoSoulsUtil.IsSummonDamage(p, true, false)
+                    && !ProjectileID.Sets.IsAWhip[p.type]
+                    && projectile.Colliding(projectile.Hitbox, p.Hitbox)))
+                {
+                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().tikiMinion = true;
+                    p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().tikiTimer = 60 * p.MaxUpdates;
+                }
+            }
+
+            if (tikiMinion)
+            {
+                if (projectile.type != ProjectileID.UFOLaser) //avoid movement glitches
+                {
+                    //move faster
+                    projectile.position.X += projectile.velocity.X;
+                    if (!projectile.tileCollide || projectile.velocity.Y < 0 || projectile.shouldFallThrough)
+                        projectile.position.Y += projectile.velocity.Y;
+                }
+
+                if (tikiTimer > 0)
+                    tikiTimer--;
+                else
+                    tikiMinion = false;
+
+                //dust
+                if (Main.rand.NextBool(2))
+                {
+                    int dust = Dust.NewDust(new Vector2(projectile.position.X - 2f, projectile.position.Y - 2f), projectile.width + 4, projectile.height + 4, 44, projectile.velocity.X * 0.4f, projectile.velocity.Y * 0.4f, 100, Color.LimeGreen, .8f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 1.8f;
+                    Dust expr_1CCF_cp_0 = Main.dust[dust];
+                    expr_1CCF_cp_0.velocity.Y = expr_1CCF_cp_0.velocity.Y - 0.5f;
+                    if (Main.rand.NextBool(4))
+                    {
+                        Main.dust[dust].noGravity = false;
+                        Main.dust[dust].scale *= 0.5f;
+                    }
+                }
+            }
         }
 
         public override void PostAI(Projectile projectile)
@@ -889,19 +864,12 @@ namespace FargowiltasSouls.Projectiles
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
-            if (!TimeFreezeCheck)
-            {
-                TimeFreezeCheck = true;
-                if (projectile.whoAmI == Main.player[projectile.owner].heldProj)
-                    TimeFreezeImmune = true;
-            }
-
             if (projectile.whoAmI == player.heldProj
                 || projectile.aiStyle == ProjAIStyleID.HeldProjectile
                 || projectile.type == ProjectileID.LastPrismLaser)
             {
                 DeletionImmuneRank = 2;
-                NinjaSpeedup = 0;
+				TimeFreezeImmune = true;
 
                 projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
 
@@ -915,6 +883,13 @@ namespace FargowiltasSouls.Projectiles
                     if (projectile.type == ProjectileID.DD2PhoenixBow && modPlayer.MythrilEnchantItem != null && modPlayer.MythrilTimer > -60 && counter > 60)
                         projectile.Kill();
                 }
+				
+				//bandaid for how capping proj array lets phantasm spawn and fire arrows every tick
+				//reusedelay scales down to 0 after first shot
+				if (projectile.type == ProjectileID.Phantasm)
+				{
+					player.reuseDelay = Math.Max(0, 20 - counter);
+				}
             }
 
             //graze
@@ -997,19 +972,15 @@ namespace FargowiltasSouls.Projectiles
             if (noInteractionWithNPCImmunityFrames)
                 tempIframe = target.immune[projectile.owner];
 
-            if (projectile.type >= ProjectileID.StardustDragon1 && projectile.type <= ProjectileID.StardustDragon4
-                && Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().TikiMinion
-                && Main.player[projectile.owner].ownedProjectileCounts[ProjectileID.StardustDragon2] > Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().actualMinions)
-            {
-                int newDamage = (int)(projectile.damage * (1.69 + 0.46 * Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().actualMinions));
-                if (damage > newDamage)
-                    damage = newDamage;
-            }
-
-            if (NinjaSpeedup > 0 && NinjaEnchant.NeedsNinjaNerf(projectile))
+            if (NinjaSpeedup > 0)
                 damage /= 2;
 
             if (projectile.type == ProjectileID.SharpTears && !projectile.usesLocalNPCImmunity && projectile.usesIDStaticNPCImmunity && projectile.idStaticNPCHitCooldown == 60 && noInteractionWithNPCImmunityFrames)
+            {
+                crit = true;
+            }
+
+            if (tikiMinion)
             {
                 crit = true;
             }
@@ -1056,27 +1027,33 @@ namespace FargowiltasSouls.Projectiles
                 }
             }
 
-            Player player = Main.player[projectile.owner];
-            FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
+			if (NinjaSpeedup > 0)
+				ReduceIFrames(projectile, target, 2);
+			
+			if (AdamModifier != 0)
+				ReduceIFrames(projectile, target, AdamModifier);
 
-            if (projectile.maxPenetrate != 1 && AdamModifier != 0 && !projectile.usesLocalNPCImmunity)
+            if (projectile.type == ProjectileID.IceBlock && Main.player[projectile.owner].GetModPlayer<FargoSoulsPlayer>().FrigidGemstoneItem != null)
+            {
+				target.AddBuff(BuffID.Frostburn, 360);
+            }
+        }
+		
+		void ReduceIFrames(Projectile projectile, NPC target, int iframeModifier)
+		{
+			if (projectile.maxPenetrate != 1 && !projectile.usesLocalNPCImmunity)
             {
                 if (projectile.usesIDStaticNPCImmunity)
                 {
                     if (projectile.idStaticNPCHitCooldown > 1)
-                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)(projectile.idStaticNPCHitCooldown / AdamModifier);
+                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)(projectile.idStaticNPCHitCooldown / iframeModifier);
                 }
                 else if (!noInteractionWithNPCImmunityFrames && target.immune[projectile.owner] > 1)
                 {
-                    target.immune[projectile.owner] /= AdamModifier;
+                    target.immune[projectile.owner] /= iframeModifier;
                 }
             }
-
-            if (projectile.type == ProjectileID.IceBlock && modPlayer.FrigidGemstoneItem != null)
-            {
-                target.AddBuff(BuffID.Frostburn, 360);
-            }
-        }
+		}
 
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)
         {

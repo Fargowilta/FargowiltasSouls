@@ -20,9 +20,9 @@ Mining speed tripled
 Shows the location of enemies, traps, and treasures
 Auto paint and actuator effect
 Provides light and allows gravity control
-Grants the ability to enable Builder Mode:
-Anything that creates a tile will not be consumed and can be used much faster
-No enemies can spawn
+Grants toggleable Builder Mode:
+    Tiles and walls will not be consumed
+	Increased placement speed and range
 Effect can be disabled in Soul Toggles menu
 Effects of the Cell Phone and Royal Gel
 Summons a pet Magic Lantern

@@ -26,6 +26,10 @@ namespace FargowiltasSouls
         [DefaultValue(false)]
         public bool ToggleSearchReset;
 
+        [Label($"$Mods.{ModName}.Config.BigTossMode")]
+        [DefaultValue(false)]
+        public bool BigTossMode;
+
         #region maso
 
         [Header($"$Mods.{ModName}.Config.MasoHeader")]

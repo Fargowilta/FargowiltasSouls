@@ -38,7 +38,7 @@ Mods: {
 			Mythril: Max attack speed bonus increased and lasts longer
 			Nebula: ""
 			Necro: ""
-			Ninja: Increases projectile speed by 3x instead of 2x, armor pen increased to 20
+			Ninja: Armor pen increased to 45
 			Obsidian: You no longer need lava to spawn explosions, cooldown reduced
 			Orichalcum: Increases multiplier to 4x
 			Palladium: Rapid Healing always lasts 5 seconds, increases orb damage
@@ -388,6 +388,7 @@ Mods: {
 			HideTogglerDescription: If true, the effect toggler is automatically hidden when your inventory is closed.
 			DeviChatter: Chibi Devi can talk
 			ToggleSearchReset: Accessory Effects menu resets search bar when closed
+			BigTossMode: Big Toss Mode
 			MasoHeader: Eternity Mode
 			MasoBossRecolors: Bosses use alternative sprites
 			OncomingMutantX: Eternity Mode inventory icon X position
@@ -474,7 +475,7 @@ Mods: {
 			HallowDodgeConfig: Hallowed Dodge
 			HallowedConfig: Ancient Hallowed Terraprisma familiar
 			HallowSConfig: Ancient Hallowed Shield
-			NinjaSpeedConfig: Projectile Speed
+			NinjaSpeedConfig: Ninja Speed
 			SpectreConfig: Spectre Orbs
 			TikiConfig: Tiki Minions
 

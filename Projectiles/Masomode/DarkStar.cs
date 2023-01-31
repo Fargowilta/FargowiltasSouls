@@ -34,6 +34,20 @@ namespace FargowiltasSouls.Projectiles.Masomode
             Projectile.timeLeft = 600;
             Projectile.hostile = true;
         }
+		
+		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+		{
+			if (projHitbox.Intersects(targetHitbox))
+				return true;
+			
+			Rectangle trailHitbox = projHitbox;
+			trailHitbox.X = (int)Projectile.oldPosition.X;
+			trailHitbox.Y = (int)Projectile.oldPosition.Y;
+			if (trailHitbox.Intersects(targetHitbox))
+				return true;
+			
+			return false;
+		}
 
         bool lastSecondAccel;
 
@@ -78,6 +92,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             if (lastSecondAccel && Projectile.ai[0] == -1 && --Projectile.ai[1] < 0)
                 Projectile.velocity *= 1.03f;
+			
+			//cap proj velocity so to reduce the gap in its hitbox
+			float ratio = Projectile.velocity.Length() / (Projectile.width * 3);
+			if (ratio > 1)
+				Projectile.velocity /= ratio;
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

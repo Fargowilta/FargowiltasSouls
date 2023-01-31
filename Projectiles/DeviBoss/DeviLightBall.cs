@@ -52,8 +52,12 @@ namespace FargowiltasSouls.Projectiles.DeviBoss
 
             if (Projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Normalize(Projectile.velocity), ModContent.ProjectileType<Deathrays.DeviLightBeam>(),
-                    Projectile.damage, Projectile.knockBack, Projectile.owner, MathHelper.ToRadians(60f / 60) * Math.Sign(Projectile.ai[1]));
+                //wind velocity back slightly
+                Vector2 vel = Vector2.Normalize(Projectile.velocity).RotatedBy(MathHelper.ToRadians(30f) * Math.Sign(Projectile.ai[1]));
+                //make it cover the windback and then some more
+                float ai1 = MathHelper.ToRadians(30 + 60) * Math.Sign(Projectile.ai[1]);
+                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, vel, ModContent.ProjectileType<Deathrays.DeviLightBeam>(),
+                    Projectile.damage, Projectile.knockBack, Projectile.owner, ai1);
             }
         }
 

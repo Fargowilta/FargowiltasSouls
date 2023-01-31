@@ -1188,6 +1188,12 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                             if (NPC.ai[1] > 360)
                             {
+                                if (NPC.localAI[3] > 1 && FargoSoulsWorld.MasochistModeReal) //another wave in maso
+                                {
+                                    SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center); //eoc roar
+                                    BabyGuardianWall();
+                                }
+
                                 GetNextAttack();
                             }
 
@@ -1232,21 +1238,27 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                         {
                             for (int j = -1; j <= 1; j += 2)
                             {
-                                Vector2 target = player.Center;
-                                target.X += 16 * 24 * i;
-                                target.Y += Player.defaultHeight / 2 * j;
-                                target -= NPC.Center;
-
-                                Vector2 speed = 2 * target / 90;
-                                float acceleration = -speed.Length() / 90;
-
-                                int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
-                                float rotation = FargoSoulsWorld.MasochistModeReal ? MathHelper.ToRadians(Main.rand.NextFloat(-20, 20)) : 0;
-
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                int max = FargoSoulsWorld.MasochistModeReal ? 3 : 1;
+                                for (int k = 0; k < max; k++)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(),
-                                      damage, 0f, Main.myPlayer, rotation, acceleration);
+                                    Vector2 target = player.Center;
+                                    target.X += 16 * 24 * i;
+                                    target.Y += Player.defaultHeight / 2 * j;
+                                    if (FargoSoulsWorld.MasochistModeReal)
+                                        target += Main.rand.NextVector2Circular(16, 16);
+                                    target -= NPC.Center;
+
+                                    Vector2 speed = 2 * target / 90;
+                                    float acceleration = -speed.Length() / 90;
+
+                                    int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
+                                    float rotation = FargoSoulsWorld.MasochistModeReal ? MathHelper.ToRadians(Main.rand.NextFloat(-20, 20)) : 0;
+
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                    {
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed, ModContent.ProjectileType<DeviEnergyHeart>(),
+                                          damage, 0f, Main.myPlayer, rotation, acceleration);
+                                    }
                                 }
                             }
                         }
@@ -1278,11 +1290,16 @@ namespace FargowiltasSouls.NPCs.DeviBoss
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 Vector2 speed = 24 * Vector2.UnitY.RotatedBy(MathHelper.ToRadians(10) * NPC.ai[2]);
+                                //nerf to have no x speed in p1, unless in maso
+                                if (NPC.localAI[3] < 1 && !FargoSoulsWorld.MasochistModeReal)
+                                    speed.X = 0;
+
                                 int type = NPC.localAI[3] > 1 ? ModContent.ProjectileType<DeviRainHeart2>() : ModContent.ProjectileType<DeviRainHeart>();
                                 int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);
                                 int range = NPC.localAI[3] > 1 ? 8 : 10;
                                 float spacing = 1200f / range;
                                 float offset = Main.rand.NextFloat(-spacing, spacing);
+
                                 for (int i = -range; i <= range; i++)
                                 {
                                     Vector2 spawnPos = new Vector2(NPC.localAI[0], NPC.localAI[1]);

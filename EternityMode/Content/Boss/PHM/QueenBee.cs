@@ -174,7 +174,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                 //if in dash mode, but not actually dashing right this second
                 if (npc.ai[0] == 0 && npc.ai[1] % 2 == 0)
                 {
-                    npc.ai[0] = 3;
+                    npc.ai[0] = 3; //dont
                     npc.ai[1] = 0;
                     npc.netUpdate = true;
                 }
@@ -353,6 +353,16 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
                     npc.ai[2]++;
 
                     return false;
+                }
+            }
+
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                //if in dash mode, but not actually dashing right this second
+                if (npc.ai[0] == 0 && npc.ai[1] % 2 == 0)
+                {
+                    if (npc.HasValidTarget && Math.Abs(Main.player[npc.target].Center.Y - npc.Center.Y) > npc.velocity.Y * 2)
+                        npc.position.Y += npc.velocity.Y;
                 }
             }
 

@@ -66,9 +66,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
             if (--Projectile.ai[0] < 0)
                 Projectile.tileCollide = true;
 
-            Projectile.velocity.Y += 0.5f;
-
-            Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+            if (Projectile.localAI[0] == 0)
+            {
+                Projectile.velocity.Y += 0.5f;
+                Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+            }
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
@@ -76,6 +78,20 @@ namespace FargowiltasSouls.Projectiles.Masomode
             target.AddBuff(BuffID.Ichor, 900);
             target.AddBuff(BuffID.OnFire, 300);
         }
+		
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			//when hit a tile, linger there until most of the trail catches up with the head
+			if (Projectile.position != Projectile.oldPos[(int)(ProjectileID.Sets.TrailCacheLength[Projectile.type] * 0.75)])
+			{
+                Projectile.localAI[0] = 1;
+                Projectile.position += Projectile.velocity;
+				Projectile.velocity = Vector2.Zero;
+				return false;
+			}
+			
+			return base.OnTileCollide(oldVelocity);
+		}
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -90,6 +106,10 @@ namespace FargowiltasSouls.Projectiles.Masomode
 
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
             {
+				//don't draw if this pos overlaps the one before it
+				if (i >= 1 && Projectile.oldPos[(int)i] == Projectile.oldPos[(int)i - 1])
+					continue;
+				
                 Texture2D glow = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/BossWeapons/HentaiSpearSpinGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
                 Color color27 = Color.Lerp(new Color(255, 255, 0, 210), Color.Transparent, 0.4f);
                 color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];

@@ -34,6 +34,8 @@ namespace FargowiltasSouls.Projectiles.Masomode
             return false;
         }
 
+        int additive = 130;
+
         public override void AI()
         {
             if (Projectile.localAI[0] == 0)
@@ -44,13 +46,34 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 Projectile.alpha -= 2;
                 if (Projectile.alpha < 0) //fade in
                     Projectile.alpha = 0;
-            }
-            else if (Projectile.ai[0] < 145)
-            {
-                if (Projectile.ai[0] == 130 && Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -13);
 
-                if (Projectile.ai[0] % 6 == 0)
+                int modifier = Math.Min(110, (int)Projectile.ai[0]);
+                Projectile.scale = 4f - 3f / 110 * modifier; //start big, shrink down
+
+                /*Projectile.Center = Main.npc[ai0].Center;
+                Projectile.velocity = Main.player[Main.npc[ai0].target].Center - Projectile.Center;
+                Projectile.velocity = Projectile.velocity / 60 * modifier; //move from npc to player*/
+                Projectile.rotation = (float)Math.PI * 2f / 55 * modifier * Projectile.localAI[0];
+            }
+            else //if (Projectile.ai[0] < 145)
+            {
+                additive -= 7;
+                if (additive < 0)
+                    additive = 0;
+
+                Projectile.alpha += 15;
+                if (Projectile.alpha > 255) //fade out
+                {
+                    Projectile.alpha = 255;
+                    Projectile.Kill();
+                    return;
+                }
+
+                Projectile.scale = 4f - 3f * Projectile.Opacity; //scale back up
+
+                //if (Projectile.ai[0] == 130 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), 0, 0f, Main.myPlayer, -1, -13);
+
+                if (Projectile.ai[0] % 6 == 0 && Projectile.localAI[1]++ < 3)
                 {
                     //Vector2 spawnPos = Projectile.Center;
                     //spawnPos.X += Main.rand.NextFloat(-250, 250);
@@ -72,29 +95,11 @@ namespace FargowiltasSouls.Projectiles.Masomode
                     Projectile.localAI[0] *= -1;
                 }
             }
-            else
-            {
-                Projectile.alpha += 8;
-                if (Projectile.alpha > 255) //fade out
-                {
-                    Projectile.alpha = 255;
-                    Projectile.Kill();
-                }
-            }
-
-            int modifier = Math.Min(110, (int)Projectile.ai[0]);
-
-            Projectile.scale = 4f - 3f / 110 * modifier; //start big, shrink down
-
-            /*Projectile.Center = Main.npc[ai0].Center;
-            Projectile.velocity = Main.player[Main.npc[ai0].target].Center - Projectile.Center;
-            Projectile.velocity = Projectile.velocity / 60 * modifier; //move from npc to player*/
-            Projectile.rotation = (float)Math.PI * 2f / 55 * modifier * Projectile.localAI[0];
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return new Color(255, 255, 255, 128) * (1f - Projectile.alpha / 255f);
+            return new Color(255, 255, 255, additive) * Projectile.Opacity;
         }
 
         public override bool PreDraw(ref Color lightColor)

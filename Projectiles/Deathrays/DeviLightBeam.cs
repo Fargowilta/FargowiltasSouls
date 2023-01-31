@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public PrimDrawer LaserDrawer { get; private set; } = null;
 
-        public DeviLightBeam() : base(30 * 2) { }
+        public DeviLightBeam() : base(30 * 3) { }
 
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Projectile.extraUpdates = 1;
+            Projectile.extraUpdates = 2;
         }
 
         public override bool? CanDamage()
@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             if (Projectile.scale > num801)
                 Projectile.scale = num801;
             float num804 = Projectile.velocity.ToRotation();
-            num804 += Projectile.ai[0];
+            num804 += Projectile.ai[0] / Projectile.MaxUpdates;
             Projectile.rotation = num804 - 1.57079637f;
             Projectile.velocity = num804.ToRotationVector2();
             float num805 = 3f;

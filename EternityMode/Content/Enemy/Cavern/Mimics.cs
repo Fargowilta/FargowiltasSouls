@@ -60,7 +60,7 @@ namespace FargowiltasSouls.EternityMode.Content.Enemy.Cavern
         {
             base.SetDefaults(npc);
             if (!Main.hardMode)
-                npc.damage = (int)Math.Round(npc.damage * 0.75);
+                npc.damage = (int)Math.Round(npc.damage * 0.5);
         }
 
         public override bool SafePreAI(NPC npc)

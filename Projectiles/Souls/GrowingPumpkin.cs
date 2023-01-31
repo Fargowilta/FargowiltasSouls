@@ -103,15 +103,8 @@ namespace FargowiltasSouls.Projectiles.Souls
 
         private void SpawnFire(FargoSoulsPlayer modPlayer)
         {
-            int damage = 50;
-
-            if (modPlayer.LifeForce || modPlayer.WizardEnchantActive)
-            {
-                damage *= 2;
-            }
-
             //leave some fire behind
-            Projectile[] fires = FargoSoulsUtil.XWay(5, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<PumpkinFlame>(), 3, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, damage), 0);
+            Projectile[] fires = FargoSoulsUtil.XWay(5, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<PumpkinFlame>(), 3, Projectile.damage, 0);
             SoundEngine.PlaySound(SoundID.Item74, Projectile.Center);
         }
 
