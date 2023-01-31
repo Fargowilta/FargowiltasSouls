@@ -4,9 +4,11 @@ using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.Chat;
 using Terraria.DataStructures;
@@ -543,15 +545,11 @@ namespace FargowiltasSouls
 
         public static void SpawnBossTryFromNPC(int playerTarget, int originalType, int bossType)
         {
-            if (Main.netMode == NetmodeID.MultiplayerClient)// && playerTarget == Main.myPlayer)
-            {
-                //var packet = FargowiltasSouls.Instance.GetPacket();
-                //packet.Write((byte)FargowiltasSouls.PacketID.SpawnBossTryFromNPC);
-                //packet.Write(playerTarget);
-                //packet.Write(originalType);
-                //packet.Write(bossType);
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NPC.SpawnOnPlayer(playerTarget, bossType);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
                 return;
-            }
 
             NPC npc = NPCExists(NPC.FindFirstNPC(originalType));
             if (npc != null)
@@ -563,8 +561,6 @@ namespace FargowiltasSouls
                 if (Main.netMode == NetmodeID.Server)
                 {
                     NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-
-                    NPC.SpawnOnPlayer(playerTarget, bossType);
                 }
                 else //todo, figure out how to make this work 100% consistent in mp
                 {
@@ -578,10 +574,6 @@ namespace FargowiltasSouls
                         PrintText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[n].TypeName), new Color(175, 75, 255));
                     }
                 }
-            }
-            else
-            {
-                NPC.SpawnOnPlayer(playerTarget, bossType);
             }
         }
 
@@ -1023,6 +1015,48 @@ namespace FargowiltasSouls
             return lightColor;
         }
 
+        #endregion
+
+        #region Shader Utils
+
+        private static readonly FieldInfo shaderTextureField = typeof(MiscShaderData).GetField("_uImage1", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly FieldInfo shaderTextureField2 = typeof(MiscShaderData).GetField("_uImage2", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        /// <summary>
+        /// Uses reflection to set uImage1. Its underlying data is private and the only way to change it publicly
+        /// is via a method that only accepts paths to vanilla textures.
+        /// </summary>
+        /// <param name="shader">The shader</param>
+        /// <param name="texture">The texture to set</param>
+        public static void SetShaderTexture(this MiscShaderData shader, Asset<Texture2D> texture) => shaderTextureField.SetValue(shader, texture);
+
+        /// <summary>
+        /// Uses reflection to set uImage2. Its underlying data is private and the only way to change it publicly
+        /// is via a method that only accepts paths to vanilla textures.
+        /// </summary>
+        /// <param name="shader">The shader</param>
+        /// <param name="texture">The texture to set</param>
+        public static void SetShaderTexture2(this MiscShaderData shader, Asset<Texture2D> texture) => shaderTextureField2.SetValue(shader, texture);
+
+        /// <summary>
+        /// Prepares a <see cref="SpriteBatch"/> for shader-based drawing.
+        /// </summary>
+        /// <param name="spriteBatch">The sprite batch.</param>
+        public static void EnterShaderRegion(this SpriteBatch spriteBatch)
+        {
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+        }
+
+        /// <summary>
+        /// Ends changes to a <see cref="SpriteBatch"/> based on shader-based drawing in favor of typical draw begin states.
+        /// </summary>
+        /// <param name="spriteBatch">The sprite batch.</param>
+        public static void ExitShaderRegion(this SpriteBatch spriteBatch)
+        {
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+        }
         #endregion
     }
 }

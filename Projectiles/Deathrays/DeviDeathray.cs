@@ -1,15 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Primitives;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Deathrays
 {
-    public class DeviDeathray : BaseDeathray
+    public class DeviDeathray : BaseDeathray, IPixelPrimitiveDrawer
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
-        public DeviDeathray() : base(60) { }
+
+        public PrimDrawer LaserDrawer { get; private set; } = null;
+
+        public DeviDeathray() : base(60, drawDistance: 3500) { }
 
         public override void SetStaticDefaults()
         {
@@ -106,7 +115,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
             for (int num809 = 0; num809 < 1; num809 = num3 + 1)
             {
-                float num810 = Projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+                float num810 = Projectile.velocity.ToRotation() + ((Main.rand.NextBool(2)) ? -1f : 1f) * 1.57079637f;
                 float num811 = (float)Main.rand.NextDouble() * 2f + 2f;
                 Vector2 vector80 = new Vector2((float)Math.Cos((double)num810) * num811, (float)Math.Sin((double)num810) * num811);
                 int num812 = Dust.NewDust(Projectile.Center, 0, 0, 86, vector80.X, vector80.Y, 0, default(Color), 1f);
@@ -118,7 +127,59 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.Masomode.Lovestruck>(), 240);
+            target.AddBuff(ModContent.BuffType<Buffs.Masomode.Lovestruck>(), 240);
+        }
+
+        public float WidthFunction(float _) => Projectile.width * Projectile.scale * 1.2f;
+
+        public Color ColorFunction(float _) => Color.HotPink;//new(232, 140, 240);
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            //LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
+
+            //// Get the laser end position.
+            //Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
+
+            //// Create 8 points that span across the draw distance from the projectile center.
+            //Vector2 initialDrawPoint = Projectile.Center;
+            //Vector2[] baseDrawPoints = new Vector2[8];
+            //for (int i = 0; i < baseDrawPoints.Length; i++)
+            //    baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
+
+            //// Set shader parameters.
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240));
+            //Asset<Texture2D> fademap = ModContent.Request<Texture2D>("FargowiltasSouls/ExtraTextures/MutantStreak");
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(fademap);
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(3);
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(0.8f);
+            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(false);
+            //LaserDrawer.DrawPrims(baseDrawPoints.ToList(), -Main.screenPosition, 10);
+            return false;
+        }
+
+        public void DrawPixelPrimitives(SpriteBatch spriteBatch)
+        {
+            LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
+
+            // Get the laser end position.
+            Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
+
+            // Create 8 points that span across the draw distance from the projectile center.
+            Vector2 initialDrawPoint = Projectile.Center;
+            Vector2[] baseDrawPoints = new Vector2[8];
+            for (int i = 0; i < baseDrawPoints.Length; i++)
+                baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
+
+            // Set shader parameters.
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240));
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(FargosTextureRegistry.GenericStreak);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(3);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(0.8f);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(false);
+            LaserDrawer.DrawPixelPrims(baseDrawPoints.ToList(), -Main.screenPosition, 10);
         }
     }
 }

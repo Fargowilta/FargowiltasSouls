@@ -643,7 +643,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                     for (int i = -1; i <= 1; i++)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel.RotatedBy(rotationToUse * i), projType, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel.RotatedBy(rotationToUse * i), projType, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, (NPC.localAI[1]/threshold) + (1000*i));
                     }
                 }
             }
@@ -1351,12 +1351,13 @@ namespace FargowiltasSouls.NPCs.Challengers
             if (NPC.ai[1] >= Attack4Start && time4 % Attack4Time + 1 == Attack4Time && NPC.ai[1] < Attack4End - 240) // spawn walls
             {
                 SoundEngine.PlaySound(SoundID.Item12, NPC.Center);
+                NPC.localAI[1]++;
                 for (int i = -10; i <= 10; i++)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + new Vector2(1000, i * 120 + NPC.ai[0]), new Vector2(-3, 0), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 0, 1);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + new Vector2(i * 120 + NPC.ai[2], 1000), new Vector2(0, -3), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 0, 1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + new Vector2(1000, i * 120 + NPC.ai[0]), new Vector2(-3, 0), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, NPC.localAI[1] + (1000 * i) + (100000), 1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + new Vector2(i * 120 + NPC.ai[2], 1000), new Vector2(0, -3), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, NPC.localAI[1] + (1000 * i) + (200000), 1);
                     }
                 }
             }
@@ -1989,6 +1990,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                 NPC.Center = RouletteTpPos;
                 SoundEngine.PlaySound(SoundID.Item8, NPC.Center); //PLACEHOLDER
                 LockVector1 = NPC.DirectionTo(Player.Center);
+                NPC.localAI[1] = 0;
                 NPC.netUpdate = true;
             }
 
@@ -2016,13 +2018,13 @@ namespace FargowiltasSouls.NPCs.Challengers
                 }
 
                 //const int timeleft = 180;
-
+                NPC.localAI[1]++;
                 //int p =
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset1, ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, 0, 2);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset1, ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, -100000 + NPC.localAI[1], 2);
                 //if (p != Main.maxProjectiles)
                 //    Main.projectile[p].timeLeft = timeleft;
                 //p = 
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset2, ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, 0, 2);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset2, ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, -200000 + NPC.localAI[1], 2);
                 //if (p != Main.maxProjectiles)
                 //    Main.projectile[p].timeLeft = timeleft;
             }
@@ -2082,7 +2084,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                                 NPC.ai[0] = Main.rand.Next(8, 13);
                                 NPC.ai[2] = Main.rand.Next(-40, 40);
                                 Vector2 offsetRAND = (NPC.DirectionTo(Player.Center) * NPC.ai[0]).RotatedBy((MathHelper.Pi / 180) * NPC.ai[2]);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offsetRAND, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offsetRAND, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, i * 1000);
                             }
                         }
                         break;
@@ -2341,13 +2343,14 @@ namespace FargowiltasSouls.NPCs.Challengers
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
+                        NPC.ai[0]++;
                         float knockBack6 = 3f;
                         NPC.ai[3] = Main.rand.Next(-750, 750);
                         Vector2 spawnPos = new Vector2(Player.Center.X - NPC.ai[3], Player.Center.Y - 750f);
                         if (!FargoSoulsWorld.MasochistModeReal)
                             spawnPos.X += Player.velocity.X * 30; //malice
                         float ai1 = -1;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, new Vector2(0f, 7f), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack6, Main.myPlayer, 0, ai1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, new Vector2(0f, 7f), ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack6, Main.myPlayer, NPC.ai[0] * 1000, ai1);
                     }
                     NPC.ai[2] = 0f;
                 }
@@ -2634,6 +2637,7 @@ namespace FargowiltasSouls.NPCs.Challengers
 			NPC.ai[2] = 0f;
 			NPC.ai[3] = 0f;
 			NPC.ai[0] = 0f;
+            NPC.localAI[1] = 0;
 			AttackF1 = true;
 		}
 

@@ -4124,6 +4124,11 @@ Mods: {
 			
 			ShadowDodge: Modo Eternidade: Esquivar reduzirá sua velocidade de ataque
 			IceBarrier: Modo Eternidade: 10% de redução nos danos
+			SpearRework: Reworked spear swing animation
+			PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
+			CobaltNaginataRework: Causes a small explosion on striking enemies
+			MythrilHalberdRework: Deals more damage after not attacking
+			TitaniumTridentRework: Charge up to throw instead of swinging
 		}
 
 		

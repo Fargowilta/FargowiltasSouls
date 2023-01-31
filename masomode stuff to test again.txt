@@ -87,3 +87,22 @@ fixed potions in general not working properly with mutant nibble/fang
 mythril nerfs
 	ench cd is 5 seconds, was 3
 	force speed up is +75%, was +100%
+
+tried fixing devi/abom/mutant curse, squirrel coat of arms not working in mp for the 22nd time
+ninja ench secretly halves mana cost to compensate its double speed
+adjusted spawn condition of fire imp/lava slime to be deep underground instead of near lava, and not in ice or jungle
+nerfed pre hm mimic damage more, x0.75 -> x0.5
+box of gizmos nerf, spelunker glowstick effect requires you to also not be using items
+masomode has cactus damage again
+added big toss mode (in configs)
+maso buffs qb's vertical speed when positioning for dashes
+maso devi p2 shoots a third walls of baby guardians
+emode p1 devi heart rain is straight vertical downwards, should make it easier for first timers
+maso devi heart rain shoots more heart clusters
+adjusted devi light beams to cover more area better, shouldnt really impact the fight though
+destroyer will speed up if you are in front of it during light show
+adjusted visual for wof chain reticle disappearing
+fixed leash of cthulhu breaking its neck when tungsten ench
+visual rework for mutant final spark
+visual rework for devi medusa mega ray
+fixed terragrim and arkhalis being visually broken with tungsten ench

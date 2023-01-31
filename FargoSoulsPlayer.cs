@@ -11,6 +11,7 @@ using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.ChallengerItems;
 using FargowiltasSouls.Projectiles.Masomode;
 using FargowiltasSouls.Projectiles.Minions;
+using FargowiltasSouls.Projectiles.Pets;
 using FargowiltasSouls.Projectiles.Souls;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
@@ -38,7 +39,7 @@ namespace FargowiltasSouls
         public Dictionary<string, bool> TogglesToSync = new Dictionary<string, bool>();
         public IList<string> disabledToggles = new List<string>();
 
-        public bool IsStandingStill;
+    public bool IsStandingStill;
         public float AttackSpeed;
         public float WingTimeModifier = 1f;
 
@@ -72,6 +73,7 @@ namespace FargowiltasSouls
         public bool SeekerOfAncientTreasures;
         public bool AccursedSarcophagus;
         public bool BabySilhouette;
+        public bool BabyLifelight;
         public bool BiteSizeBaron;
         public bool ChibiDevi;
         public bool MutantSpawn;
@@ -780,6 +782,7 @@ namespace FargowiltasSouls
 
             SeekerOfAncientTreasures = false;
             AccursedSarcophagus = false;
+            BabyLifelight = false;
             BabySilhouette = false;
             BiteSizeBaron = false;
             ChibiDevi = false;
@@ -2854,6 +2857,19 @@ namespace FargowiltasSouls
                         Projectile.NewProjectile(Player.GetSource_OnHurt(source), Player.Center, Main.rand.NextVector2Circular(speed, speed), type, 0, 0f, Main.myPlayer, 0f);
                     }
                 }
+            }
+
+            if (ModContent.GetInstance<SoulConfig>().BigTossMode)
+            {
+                AddBuffNoStack(ModContent.BuffType<Stunned>(), 120);
+
+                Vector2 attacker = default;
+                if (npc != null)
+                    attacker = npc.Center;
+                else if (proj != null)
+                    attacker = proj.Center;
+                if (attacker != default)
+                    Player.velocity = Vector2.Normalize(Player.Center - attacker) * 30;
             }
         }
 

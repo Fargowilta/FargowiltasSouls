@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
 {
     public class LightBall : ModProjectile
     {
+        public virtual bool DoNotSpawnDust => false;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Light Ball");
@@ -35,7 +36,7 @@ namespace FargowiltasSouls.Projectiles.Masomode
                 SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
             }
 
-            if (!Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
+            if (!Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height) && !DoNotSpawnDust)
             {
                 int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 246, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, new Color(), 2f);
                 Main.dust[index2].noGravity = true;

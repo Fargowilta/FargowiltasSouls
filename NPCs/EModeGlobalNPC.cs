@@ -229,7 +229,8 @@ namespace FargowiltasSouls.NPCs
 
             //no work?
             //is lava on screen
-            bool nearLava = Collision.LavaCollision(spawnInfo.Player.position, spawnInfo.SpawnTileX, spawnInfo.SpawnTileY);
+            //bool nearLava = Collision.LavaCollision(spawnInfo.Player.position, spawnInfo.SpawnTileX, spawnInfo.SpawnTileY);
+            bool deepUnderground = !underworld && spawnInfo.Player.position.Y > Main.maxTilesY - Main.UnderworldLayer * 3;
             bool noInvasion = FargowiltasSouls.NoInvasion(spawnInfo);
             bool normalSpawn = !spawnInfo.PlayerInTown && noInvasion && !oldOnesArmy && noEvent;
 
@@ -288,7 +289,7 @@ namespace FargowiltasSouls.NPCs
                     }
                     else if (wideUnderground)
                     {
-                        if (nearLava)
+                        if (deepUnderground && !jungle && !snow)
                         {
                             pool[NPCID.FireImp] = .02f;
                             pool[NPCID.LavaSlime] = .02f;
@@ -587,7 +588,7 @@ namespace FargowiltasSouls.NPCs
                             pool[NPCID.DesertDjinn] = .05f;
                         }
 
-                        if (nearLava)
+                        if (deepUnderground && !jungle && !snow)
                         {
                             pool[NPCID.FireImp] = .02f;
                             pool[NPCID.LavaSlime] = .02f;
@@ -1330,13 +1331,13 @@ namespace FargowiltasSouls.NPCs
             Aura(npc, distance, reverse, dustid, color, buff);
         }
 
-        public static void Aura(NPC npc, float distance, bool reverse = false, int dustid = DustID.GoldFlame, Color color = default, params int[] buffs)
+        public static void Aura(NPC npc, float distance, bool reverse = false, int dustid = -1, Color color = default, params int[] buffs)
         {
             Player p = Main.LocalPlayer;
 
             //if (FargowiltasSouls.Instance.MasomodeEXLoaded) distance *= reverse ? 0.5f : 2f;
-
-            FargoSoulsUtil.AuraDust(npc, distance, dustid, color, reverse);
+            if (dustid != -1)
+                FargoSoulsUtil.AuraDust(npc, distance, dustid, color, reverse);
 
             if (buffs.Length == 0 || buffs[0] < 0)
                 return;

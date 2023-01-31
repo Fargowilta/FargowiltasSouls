@@ -398,6 +398,7 @@ Mods: {
 			HideTogglerDescription: If true, the effect toggler is automatically hidden when your inventory is closed.
 			DeviChatter: Chibi Devi can talk
 			ToggleSearchReset: Accessory Effects menu resets search bar when closed
+			BigTossMode: Big Toss Mode
 			MasoHeader: Eternity Mode
 			MasoBossRecolors: Bosses use alternative sprites
 			OncomingMutantX: Eternity Mode inventory icon X position
@@ -1087,6 +1088,11 @@ Mods: {
 
 			ShadowDodge: Eternity Mode: Dodging will reduce your attack speed
 			IceBarrier: Eternity Mode: 10% reduced damage
+			SpearRework: Reworked spear swing animation
+			PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
+			CobaltNaginataRework: Causes a small explosion on striking enemies
+			MythrilHalberdRework: Deals more damage after not attacking
+			TitaniumTridentRework: Charge up to throw instead of swinging
 		}
 
 		EternityMode: {

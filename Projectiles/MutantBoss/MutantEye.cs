@@ -1,17 +1,21 @@
 using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Primitives;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
-    public class MutantEye : ModProjectile
+    public class MutantEye : ModProjectile, IPixelPrimitiveDrawer
     {
+        public PrimDrawer TrailDrawer { get; private set; } = null;
         public override string Texture => "Terraria/Images/Projectile_452";
 
         public virtual int TrailAdditive => 0;
@@ -21,7 +25,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantasmal Eye");
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 
@@ -46,6 +50,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public override void AI()
         {
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.570796f;
 
             if (Projectile.localAI[0] < ProjectileID.Sets.TrailCacheLength[Projectile.type])
@@ -120,46 +125,82 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return Color.White * Projectile.Opacity;
         }
 
+        public float WidthFunction(float completionRatio)
+        {
+            float baseWidth = Projectile.scale * Projectile.width * 1.7f;
+            return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
+        }
+
+        public Color ColorFunction(float completionRatio)
+        {
+            return Color.Lerp(Color.Cyan, Color.Transparent, completionRatio) * 0.7f;
+        }
+
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glow = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/MutantBoss/MutantEye_Glow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            int rect1 = glow.Height / Main.projFrames[Projectile.type];
-            int rect2 = rect1 * Projectile.frame;
-            Rectangle glowrectangle = new Rectangle(0, rect2, glow.Width, rect1);
-            Vector2 gloworigin2 = glowrectangle.Size() / 2f;
-            Color glowcolor = Color.Lerp(new Color(31, 187, 192, TrailAdditive), Color.Transparent, 0.74f);
-            Vector2 drawCenter = Projectile.Center - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
+            //Texture2D glow = FargowiltasSouls.Instance.Assets.Request<Texture2D>("Projectiles/MutantBoss/MutantEye_Glow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            //int rect1 = glow.Height / Main.projFrames[Projectile.type];
+            //int rect2 = rect1 * Projectile.frame;
+            //Rectangle glowrectangle = new Rectangle(0, rect2, glow.Width, rect1);
+            //Vector2 gloworigin2 = glowrectangle.Size() / 2f;
+            //Color glowcolor = Color.Lerp(new Color(31, 187, 192, TrailAdditive), Color.Transparent, 0.74f);
+            //Vector2 drawCenter = Projectile.Center - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
 
-            for (int i = 0; i < 3; i++) //create multiple transparent trail textures ahead of the projectile
-            {
-                Vector2 drawCenter2 = drawCenter + (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 8).RotatedBy(MathHelper.Pi / 5 - (i * MathHelper.Pi / 5)); //use a normalized version of the projectile's velocity to offset it at different angles
-                drawCenter2 -= (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 8); //then move it backwards
-                float scale = Projectile.scale;
-                scale += (float)Math.Sin(Projectile.localAI[1]) / 10;
-                Main.EntitySpriteDraw(glow, drawCenter2 - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle),
-                    glowcolor, Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, scale, SpriteEffects.None, 0);
-            }
+            //for (int i = 0; i < 3; i++) //create multiple transparent trail textures ahead of the projectile
+            //{
+            //    Vector2 drawCenter2 = drawCenter + (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 8).RotatedBy(MathHelper.Pi / 5 - (i * MathHelper.Pi / 5)); //use a normalized version of the projectile's velocity to offset it at different angles
+            //    drawCenter2 -= (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 8); //then move it backwards
+            //    float scale = Projectile.scale;
+            //    scale += (float)Math.Sin(Projectile.localAI[1]) / 10;
+            //    Main.EntitySpriteDraw(glow, drawCenter2 - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle),
+            //        glowcolor, Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, scale, SpriteEffects.None, 0);
+            //}
 
-            for (float i = Projectile.localAI[0] - 1; i > 0; i -= Projectile.localAI[0] / ProjectileID.Sets.TrailCacheLength[Projectile.type]) //trail grows in length as projectile travels
-            {
+            //for (float i = Projectile.localAI[0] - 1; i > 0; i -= Projectile.localAI[0] / ProjectileID.Sets.TrailCacheLength[Projectile.type]) //trail grows in length as projectile travels
+            //{
 
-                float lerpamount = 0.2f;
-                if (i > 5 && i < 10)
-                    lerpamount = 0.4f;
-                if (i >= 10)
-                    lerpamount = 0.6f;
+            //    float lerpamount = 0.2f;
+            //    if (i > 5 && i < 10)
+            //        lerpamount = 0.4f;
+            //    if (i >= 10)
+            //        lerpamount = 0.6f;
 
-                Color color27 = Color.Lerp(glowcolor, Color.Transparent, 0.1f + lerpamount);
+            //    Color color27 = Color.Lerp(glowcolor, Color.Transparent, 0.1f + lerpamount);
 
-                color27 *= ((int)((Projectile.localAI[0] - i) / Projectile.localAI[0]) ^ 2);
-                float scale = Projectile.scale * (float)(Projectile.localAI[0] - i) / Projectile.localAI[0];
-                scale += (float)Math.Sin(Projectile.localAI[1]) / 10;
-                Vector2 value4 = Projectile.oldPos[(int)i] - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
-                Main.EntitySpriteDraw(glow, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle), color27,
-                    Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, scale * 0.8f, SpriteEffects.None, 0);
-            }
+            //    color27 *= ((int)((Projectile.localAI[0] - i) / Projectile.localAI[0]) ^ 2);
+            //    float scale = Projectile.scale * (float)(Projectile.localAI[0] - i) / Projectile.localAI[0];
+            //    scale += (float)Math.Sin(Projectile.localAI[1]) / 10;
+            //    Vector2 value4 = Projectile.oldPos[(int)i] - (Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14);
+            //    Main.EntitySpriteDraw(glow, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(glowrectangle), color27,
+            //        Projectile.velocity.ToRotation() + MathHelper.PiOver2, gloworigin2, scale * 0.8f, SpriteEffects.None, 0);
+            //}
+            Texture2D glow = FargosTextureRegistry.BlobBloomTexture.Value;
+            Color color = Color.Cyan;
+            color.A = 0;
+            Main.EntitySpriteDraw(glow, Projectile.Center - (Projectile.velocity * 0.5f) - Main.screenPosition, null, color * 0.6f, Projectile.rotation, glow.Size() * 0.5f, 0.25f, SpriteEffects.None, 0);
 
+            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, texture.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0);
+
+            
             return false;
+        }
+
+        public void DrawPixelPrimitives(SpriteBatch spriteBatch)
+        {
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
+            TrailDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:BlobTrail"]);
+            //if (Projectile.oldPos.Length >= 5)
+            //{
+            //    GameShaders.Misc["FargowiltasSouls:BlobTrail"].SetShaderTexture(FargosTextureRegistry.FadedStreak);
+            //    Vector2[] positions = new Vector2[5];
+            //    for (int i = 0; i < 5; i++)
+            //    {
+            //        if (i < Projectile.oldPos.Length)
+            //            positions[i] = Projectile.oldPos[i];
+            //}
+            if (Projectile.ModProjectile.GetType() != typeof(MutantEyeWavy))
+                TrailDrawer.DrawPixelPrims(Projectile.oldPos, Projectile.Size * 0.5f - Main.screenPosition, 25);
         }
 
         public override void PostDraw(Color lightColor)
@@ -169,7 +210,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Color.White, Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
 
         }
     }

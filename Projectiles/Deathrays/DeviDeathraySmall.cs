@@ -1,12 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
+using System.Linq;
 using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.Deathrays
 {
     public class DeviDeathraySmall : BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/DeviDeathray";
+
+        public PrimDrawer LaserDrawer { get; private set; } = null;
+
         public DeviDeathraySmall() : base(60) { }
 
         public override void SetStaticDefaults()
@@ -91,6 +99,33 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
             Projectile.position -= Projectile.velocity;
             Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
+        }
+        public float WidthFunction(float _) => Projectile.width * Projectile.scale * 1.2f;
+
+        public Color ColorFunction(float _) => new(232, 140, 240);
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
+
+            // Get the laser end position.
+            Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
+
+            // Create 8 points that span across the draw distance from the projectile center.
+            Vector2 initialDrawPoint = Projectile.Center;
+            Vector2[] baseDrawPoints = new Vector2[8];
+            for (int i = 0; i < baseDrawPoints.Length; i++)
+                baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
+
+            // Set shader parameters.
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240));
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(3);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(0.8f);
+
+            LaserDrawer.DrawPrims(baseDrawPoints.ToList(), -Main.screenPosition, 10);
+            return false;
         }
     }
 }

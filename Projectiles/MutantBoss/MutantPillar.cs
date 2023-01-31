@@ -171,21 +171,20 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 Main.LocalPlayer.GetModPlayer<FargoSoulsPlayer>().Screenshake = 30;
 
             SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
-            int type;
-            switch ((int)Projectile.ai[0])
+            var type = (int)Projectile.ai[0] switch
             {
-                case 0: type = 242; break; //nebula
-                case 1: type = 127; break; //solar
-                case 2: type = 229; break; //vortex
-                default: type = 135; break; //stardust
-            }
+                0 => 242,
+                1 => 127,
+                2 => 229,
+                _ => 135,
+            };
             for (int index = 0; index < 80; ++index)
             {
                 Dust dust = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, type, 0.0f, 0.0f, 0, new Color(), 1f)];
                 dust.velocity *= 10f;
                 dust.fadeIn = 1f;
                 dust.scale = 1 + Main.rand.NextFloat() + Main.rand.Next(4) * 0.3f;
-                if (Main.rand.Next(3) != 0)
+                if (!Main.rand.NextBool(3))
                 {
                     dust.noGravity = true;
                     dust.velocity *= 3f;

@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using FargowiltasSouls.Projectiles.BossWeapons;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -70,7 +71,8 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
                 || projectile.type == ProjectileID.PiercingStarlight
                 || projectile.type == ProjectileID.JoustingLance
                 || projectile.type == ProjectileID.HallowJoustingLance
-                || projectile.type == ProjectileID.ShadowJoustingLance;
+                || projectile.type == ProjectileID.ShadowJoustingLance
+                || projectile.type == ModContent.ProjectileType<PrismaRegaliaProj>();
         }
 
         public static void TungstenIncreaseProjSize(Projectile projectile, FargoSoulsPlayer modPlayer, IEntitySource source)

@@ -67,6 +67,7 @@ namespace FargowiltasSouls.Items
             Buff,
             Neutral
         }
+        
 
         void ItemBalance(List<TooltipLine> tooltips, EModeChange change, string key, int amount = 0)
         {
@@ -311,6 +312,41 @@ namespace FargowiltasSouls.Items
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops", item.type == ItemID.PumpkinMoonMedallion ? 12 : 15);
                     break;
 
+                case ItemID.Spear:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.AdamantiteGlaive:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.CobaltNaginata:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    ItemBalance(tooltips, EModeChange.Buff, "CobaltNaginataRework");
+                    break;
+                case ItemID.MythrilHalberd:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.OrichalcumHalberd:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.PalladiumPike:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    ItemBalance(tooltips, EModeChange.Buff, "PalladiumPikeRework");
+                    break;
+                case ItemID.TitaniumTrident:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.Trident:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.ObsidianSwordfish:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.Swordfish:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
+                case ItemID.ChlorophytePartisan:
+                    ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    break;
                 default:
                     break;
             }

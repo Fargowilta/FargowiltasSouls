@@ -487,25 +487,31 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.HM
                                     }
                                     else
                                     {
-                                        if (FargoSoulsWorld.MasochistModeReal)
-                                            maxSpeed /= 2;
-                                        else if (maxSpeed > 4)
-                                            maxSpeed = 4;
-
-                                        if (npc.velocity.Length() > maxSpeed)
-                                            npc.velocity *= 0.986f;
-
-                                        float turnModifier = FargoSoulsWorld.MasochistModeReal ? 1.5f : 15f;
-                                        num15 /= turnModifier; //garbage turning
-                                        num16 /= turnModifier;
-
-                                        //curve very slightly towards player
                                         double angle = npc.DirectionTo(target).ToRotation() - npc.velocity.ToRotation();
                                         while (angle > Math.PI)
                                             angle -= 2.0 * Math.PI;
                                         while (angle < -Math.PI)
                                             angle += 2.0 * Math.PI;
-                                        npc.velocity = npc.velocity.RotatedBy(MathHelper.ToRadians(0.3f) * Math.Sign(angle));
+                                        int rotationTowardsPlayer = Math.Sign(angle);
+
+                                        bool playerIsInFront = Math.Abs(angle) < MathHelper.ToRadians(45);
+                                        if (!playerIsInFront)
+                                        {
+                                            if (FargoSoulsWorld.MasochistModeReal)
+                                                maxSpeed /= 2;
+                                            else if (maxSpeed > 4)
+                                                maxSpeed = 4;
+
+                                            if (npc.velocity.Length() > maxSpeed)
+                                                npc.velocity *= 0.986f;
+
+                                            float turnModifier = 15f;
+                                            num15 /= turnModifier; //garbage turning
+                                            num16 /= turnModifier;
+                                        }
+
+                                        //curve very slightly towards player
+                                        npc.velocity = npc.velocity.RotatedBy(MathHelper.ToRadians(0.3f) * rotationTowardsPlayer);
 
                                         if (AttackModeTimer < laserThreshold + 300 && ++SecondaryAttackTimer % 90 == 20)
                                         {

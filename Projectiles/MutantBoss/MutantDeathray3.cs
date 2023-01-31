@@ -1,16 +1,21 @@
 ﻿using FargowiltasSouls.Buffs.Boss;
 using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Primitives;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Projectiles.MutantBoss
 {
-    public class MutantDeathray3 : Deathrays.BaseDeathray
+    public class MutantDeathray3 : Deathrays.BaseDeathray , IPixelPrimitiveDrawer
     {
+        public PrimDrawer LaserDrawer { get; private set; } = null;
+
         public override string Texture => "FargowiltasSouls/Projectiles/Deathrays/PhantasmalDeathray";
         public MutantDeathray3() : base(270, grazeCD: 30) { }
 
@@ -140,6 +145,42 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
                 target.AddBuff(BuffID.Burning, 300);
             }
             target.AddBuff(BuffID.OnFire, 300);
+        }
+
+        public override bool PreDraw(ref Color lightColor) => false;
+
+        public float WidthFunction(float trailInterpolant) => Projectile.width * Projectile.scale * 1.3f;
+
+        public Color ColorFunction(float trailInterpolant) => new(192, 36, 31);//Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant) * Projectile.Opacity;
+
+        public void DrawPixelPrimitives(SpriteBatch spriteBatch)
+        {
+            LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
+
+            // Get the laser end position.
+            Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
+
+            // Create 8 points that span across the draw distance from the projectile center.
+
+            // This allows the drawing to be pushed back, which is needed due to the shader fading in at the start to avoid
+            // sharp lines.
+            Vector2 initialDrawPoint = Projectile.Center - Projectile.velocity * 150f;
+            Vector2[] baseDrawPoints = new Vector2[8];
+            for (int i = 0; i < baseDrawPoints.Length; i++)
+                baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
+
+            // Set shader parameters. This one takes a fademap and a color.
+
+            // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);
+            // The laser should fade to this in the middle.
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(255, 108, 151));
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(1);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(3f);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(1f);
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(true);
+
+            LaserDrawer.DrawPixelPrims(baseDrawPoints, -Main.screenPosition, 20);
         }
     }
 }
