@@ -25,12 +25,13 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Projectile.width = 18;
             Projectile.height = 18;
             Projectile.aiStyle = 0;
-            Projectile.hostile = true;
+            Projectile.hostile = false;
             AIType = 14;
             Projectile.penetrate = 1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.scale = 1.5f;
+            Projectile.timeLeft = 600;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //line collision, needed because of the speed they move at when creating the arena, to form a solid wall
         {
@@ -65,6 +66,12 @@ namespace FargowiltasSouls.Projectiles.Challengers
             else //pink
             {
                 Dust.NewDust(Projectile.Center, 0, 0, DustID.PinkTorch);
+            }
+
+            //fix for weird bug (may not fix it)
+            if (Projectile.timeLeft < 595)
+            {
+                Projectile.hostile = true;
             }
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
