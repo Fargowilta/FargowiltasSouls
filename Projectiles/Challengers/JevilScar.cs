@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using FargowiltasSouls.NPCs.Challengers;
 
 namespace FargowiltasSouls.Projectiles.Challengers
 {
@@ -122,7 +123,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
                     }
                 }
             }
-            if (Projectile.ai[0] > 1200) //set to 1200 at end of attack by lieflight, then fades out
+            if (Projectile.ai[0] > 1200 || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1) //set to 1200 at end of attack by lieflight, then fades out
             {
                 Projectile.alpha += 17;
 				Projectile.hostile = false;

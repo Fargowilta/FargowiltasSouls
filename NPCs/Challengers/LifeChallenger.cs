@@ -51,11 +51,11 @@ namespace FargowiltasSouls.NPCs.Challengers
 
         public bool PhaseOne = true;
 
-        private bool PhaseThree;
+        public bool PhaseThree;
 
         private int dustcounter;
 
-        private int state;
+        public int state;
 
         private int oldstate = 999;
 
@@ -575,7 +575,6 @@ namespace FargowiltasSouls.NPCs.Challengers
             {
                 Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Lieflight");
             }
-
             if (NPC.ai[1] == 120)
             {
                 if (UseTrueOriginAI)
@@ -2343,7 +2342,10 @@ namespace FargowiltasSouls.NPCs.Challengers
                     NPC.netUpdate = true;
                     if (Main.netMode != NetmodeID.MultiplayerClient) //telegraph
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + LockVector1 * 600f, Vector2.Zero, ModContent.ProjectileType<LifeCrosshair>(), 0, 0f, Main.myPlayer, -55);
+                        int x = FargoSoulsWorld.MasochistModeReal ? 1 : 0; //1 shot below maso, 3 shots in maso
+                        for (int i = -x; i <= x; i++)
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, LockVector1.RotatedBy(MathHelper.Pi / 32 * i).ToRotation());
+                        //Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + LockVector1 * 600f, Vector2.Zero, ModContent.ProjectileType<LifeCrosshair>(), 0, 0f, Main.myPlayer, -55);
                     }
                 }
                 if ((NPC.ai[1] - NPC.ai[2]) % 61 > 55 && (NPC.ai[1] - NPC.ai[2]) % 2 == 0) //fire
