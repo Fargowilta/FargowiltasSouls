@@ -2355,7 +2355,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                     {
                         int x = FargoSoulsWorld.MasochistModeReal ? 1 : 0; //1 shot below maso, 3 shots in maso
                         for (int i = -x; i <= x; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30f * LockVector1.RotatedBy(MathHelper.Pi / 32 * i), ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30f * LockVector1.RotatedBy(MathHelper.Pi / 32 * i), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
                     }
                 }
 
