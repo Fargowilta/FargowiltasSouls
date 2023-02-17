@@ -6,7 +6,6 @@ namespace FargowiltasSouls.Buffs.Pets
 {
     public class BabyLifelightBuff : ModBuff
     {
-        public override string Texture => "FargowiltasSouls/Buffs/PlaceholderBuff";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Petlight");

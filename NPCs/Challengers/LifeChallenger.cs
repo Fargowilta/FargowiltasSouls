@@ -2954,16 +2954,15 @@ namespace FargowiltasSouls.NPCs.Challengers
                 Rectangle wingURectangle = new Rectangle(0, currentFrame * wingUHeight, wingUtexture.Width, wingUHeight);
                 int wingLHeight = wingLtexture.Height / Main.npcFrameCount[NPC.type];
                 Rectangle wingLRectangle = new Rectangle(0, currentFrame * wingLHeight, wingLtexture.Width, wingLHeight);
-                Vector2 wingUOrigin = new Vector2(wingLtexture.Width / 2, wingLtexture.Height / 2 / Main.npcFrameCount[NPC.type]);
+                Vector2 wingUOrigin = new Vector2(wingUtexture.Width / 2, wingUtexture.Height / 2 / Main.npcFrameCount[NPC.type]);
                 Vector2 wingLOrigin = new Vector2(wingLtexture.Width / 2, wingLtexture.Height / 2 / Main.npcFrameCount[NPC.type]);
 
-                for (int i = 0; i < 2; i++)
+                for (int i = -1; i < 2; i += 2)
                 {
-                    float wingLRotation = NPC.rotation + MathHelper.ToRadians(20 + (140 * i));
-                    float wingURotation = NPC.rotation + MathHelper.ToRadians(-20 + (220 * i));
-                    SpriteEffects flip = (i == 0 ? SpriteEffects.None : SpriteEffects.FlipVertically);
-                    float wingUscale = 1.5f;
-                    spriteBatch.Draw(origin: wingUOrigin, texture: wingUtexture, position: wingdrawPos + (wingURotation.ToRotationVector2() * ((DefaultWidth / 2) + (30 * wingUscale))), sourceRectangle: wingURectangle, color: drawColor, rotation: wingURotation, scale: NPC.scale * wingUscale, effects: flip, layerDepth: 0f);
+                    float wingLRotation = NPC.rotation - MathHelper.PiOver2 + MathHelper.ToRadians(110*i);
+                    float wingURotation = NPC.rotation - MathHelper.PiOver2 + MathHelper.ToRadians(70*i);
+                    SpriteEffects flip = (i == 1 ? SpriteEffects.None : SpriteEffects.FlipVertically);
+                    spriteBatch.Draw(origin: wingUOrigin, texture: wingUtexture, position: wingdrawPos + (wingURotation.ToRotationVector2() * ((DefaultWidth / 2) + 30)), sourceRectangle: wingURectangle, color: drawColor, rotation: wingURotation, scale: NPC.scale, effects: flip, layerDepth: 0f);
                     spriteBatch.Draw(origin: wingLOrigin, texture: wingLtexture, position: wingdrawPos + (wingLRotation.ToRotationVector2() * ((DefaultWidth / 2) + 30)), sourceRectangle: wingLRectangle, color: drawColor, rotation: wingLRotation, scale: NPC.scale, effects: flip, layerDepth: 0f);
                 }
 
