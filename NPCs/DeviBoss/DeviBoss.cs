@@ -1289,10 +1289,10 @@ namespace FargowiltasSouls.NPCs.DeviBoss
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                Vector2 speed = 24 * Vector2.UnitY.RotatedBy(MathHelper.ToRadians(10) * NPC.ai[2]);
-                                //nerf to have no x speed in p1, unless in maso
-                                if (NPC.localAI[3] < 1 && !FargoSoulsWorld.MasochistModeReal)
-                                    speed.X = 0;
+                                float angle = 10;
+                                if (!FargoSoulsWorld.MasochistModeReal) //nerf to have no x speed in p1, unless in maso
+                                    angle = NPC.localAI[3] > 1 ? 5 : 0;
+                                Vector2 speed = 24 * Vector2.UnitY.RotatedBy(MathHelper.ToRadians(angle) * NPC.ai[2]);
 
                                 int type = NPC.localAI[3] > 1 ? ModContent.ProjectileType<DeviRainHeart2>() : ModContent.ProjectileType<DeviRainHeart>();
                                 int damage = NPC.localAI[3] > 1 ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 4f / 3) : FargoSoulsUtil.ScaledProjectileDamage(NPC.damage);

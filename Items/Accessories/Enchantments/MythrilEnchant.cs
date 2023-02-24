@@ -49,7 +49,7 @@ Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
             const int cooldown = 60 * 5;
             int mythrilEndTime = fargoPlayer.MythrilMaxTime - cooldown;
 
-            if (fargoPlayer.WeaponUseTimer > mythrilEndTime)
+            if (fargoPlayer.WeaponUseTimer > 0)
                 fargoPlayer.MythrilTimer--;
             else
                 fargoPlayer.MythrilTimer++;

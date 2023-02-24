@@ -106,3 +106,11 @@ fixed leash of cthulhu breaking its neck when tungsten ench
 visual rework for mutant final spark
 visual rework for devi medusa mega ray
 fixed terragrim and arkhalis being visually broken with tungsten ench
+
+fixed devi light beams freaking out
+fixed devi heart geyser rain still having horiz speed in emode p1
+fixed frigid gemstone having no mana regen delay
+fixed world shaper soul builder mode recipe flickering
+fixed mythril ench without force not working
+tried something to fix destroyer star wall bug mostly (prioritizes using segments within 1600 units of you)
+attack speed nerfed. it rounds up.

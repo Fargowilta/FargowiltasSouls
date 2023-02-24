@@ -1926,8 +1926,7 @@ namespace FargowiltasSouls
             //toolbox
             if (Player.whoAmI == Main.myPlayer)
             {
-                Player.tileRangeX += 10;
-                Player.tileRangeY += 10;
+                Player.blockRange += 10;
             }
             //gizmo pack
             Player.autoPaint = true;
@@ -1973,13 +1972,11 @@ namespace FargowiltasSouls
                 //toolbox
                 if (Player.HeldItem.createWall == 0) //tiles
                 {
-                    Player.tileRangeX += 60;
-                    Player.tileRangeY += 60;
+                    Player.blockRange += 60;
                 }
                 else //walls
                 {
-                    Player.tileRangeX += 20;
-                    Player.tileRangeY += 20;
+                    Player.blockRange += 20;
                 }
             }
 
@@ -2436,6 +2433,7 @@ namespace FargowiltasSouls
                 return;
 
             FrigidGemstoneCD = 10;
+            Player.manaRegenDelay = Math.Max(Player.manaRegenDelay, 10);
 
             SoundEngine.PlaySound(SoundID.Item28, Player.Center);
 

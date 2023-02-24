@@ -1875,12 +1875,22 @@ namespace FargowiltasSouls
             //checks so weapons dont break
             while (useTime / AttackSpeed < 1)
             {
-                AttackSpeed -= .1f;
+                AttackSpeed -= .02f;
+            }
+
+            //modify attack speed so it rounds up
+            int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
+            if (useTimeRoundUp < useTime) //sanity check
+            {
+                while (useTime / AttackSpeed < useTimeRoundUp)
+                {
+                    AttackSpeed -= .02f; //small increments to avoid skipping past any integers
+                }
             }
 
             while (useAnimate / AttackSpeed < 3)
             {
-                AttackSpeed -= .1f;
+                AttackSpeed -= .02f;
             }
 
             if (AttackSpeed < .1f)
