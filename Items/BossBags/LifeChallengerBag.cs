@@ -32,8 +32,6 @@ namespace FargowiltasSouls.Items.BossBags
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.SoulofLight, 3);
             player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ItemID.PixieDust, 25);
 
-            //if (Main.rand.NextBool(5))
-                //player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.Find<ModItem>("Fargowiltas", "LumberJaxe").Type);
         }
     }
 }

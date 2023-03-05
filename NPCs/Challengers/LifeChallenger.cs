@@ -24,6 +24,7 @@ using Terraria.Localization;
 using FargowiltasSouls.EternityMode.Content.Enemy.FrostMoon;
 using static System.Formats.Asn1.AsnWriter;
 using FargowiltasSouls.Patreon.Sasha;
+using FargowiltasSouls.Items.Placeables.Relics;
 
 namespace FargowiltasSouls.NPCs.Challengers
 {
@@ -3069,7 +3070,7 @@ namespace FargowiltasSouls.NPCs.Challengers
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<LifeChallengerBag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LifeChallengerTrophy>(), 10));
 
-            //npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<LifeChallengerRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<LifeChallengerRelic>()));
 
             LeadingConditionRule rule = new LeadingConditionRule(new Conditions.NotExpert());
             rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<EnchantedLifeblade>(), ModContent.ItemType<Lightslinger>(), ModContent.ItemType<CrystallineCongregation>(), ModContent.ItemType<KamikazePixieStaff>()));
