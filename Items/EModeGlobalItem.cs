@@ -312,6 +312,8 @@ namespace FargowiltasSouls.Items
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops", item.type == ItemID.PumpkinMoonMedallion ? 12 : 15);
                     break;
 
+                //JAVYZ TODO: SPEAR REWORK
+                /*
                 case ItemID.Spear:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
                     break;
@@ -347,6 +349,7 @@ namespace FargowiltasSouls.Items
                 case ItemID.ChlorophytePartisan:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
                     break;
+                */
                 default:
                     break;
             }

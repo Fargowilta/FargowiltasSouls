@@ -1,3 +1,5 @@
+//JAVYZ TODO: CURSED COFFIN BOSS SUMMON
+/*
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
@@ -60,3 +62,4 @@ namespace FargowiltasSouls.Items.Summons
         }
     }
 }
+*/

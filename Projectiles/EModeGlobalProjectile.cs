@@ -514,6 +514,8 @@ namespace FargowiltasSouls.Projectiles
             }
             switch (projectile.type)
             {
+                //TODO JAVYZ: SPEAR REWORK
+                /*
                 case var _ when ReworkedSpears.Contains(projectile.type):
                     #region Special Spear Swing Style
                     Texture2D tex = (Texture2D)TextureAssets.Projectile[projectile.type];
@@ -573,6 +575,7 @@ namespace FargowiltasSouls.Projectiles
                     }
                     #endregion
                     return false;
+                */
                 default:
                     break;
                     
@@ -1309,6 +1312,8 @@ namespace FargowiltasSouls.Projectiles
             Player player = Main.player[projectile.owner];
             switch (projectile.type)
             {
+                //JAVYZ TODO: SPEAR REWORK
+                /*
                 case ProjectileID.PalladiumPike:
                     if (target.type != NPCID.TargetDummy && !target.friendly) //may add more checks here idk
                         player.AddBuff(BuffID.RapidHealing, 60*5);
@@ -1318,6 +1323,7 @@ namespace FargowiltasSouls.Projectiles
                     if (p != null)
                         p.GetGlobalProjectile<FargoSoulsGlobalProjectile>().CanSplit = false;
                     break;
+                */
                 default:
                     break;
             }

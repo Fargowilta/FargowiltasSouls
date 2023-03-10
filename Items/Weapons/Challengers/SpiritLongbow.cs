@@ -1,3 +1,6 @@
+//JAVYZ TODO: SPIRIT LONGBOW
+/*
+
 using FargowiltasSouls.Projectiles.ChallengerItems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -71,6 +74,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             Main.EntitySpriteDraw(texture2D13, Item.position, new Microsoft.Xna.Framework.Rectangle?(rectangle), Item.GetAlpha(lightColor), rotation, origin2, Item.scale, SpriteEffects.None, 0);
             return false;
         }*/
+/*
         public override void HoldItem(Player player)
         {
             Frame = (player.channel ? (int)Charge : 0);
@@ -133,3 +137,5 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
         }
     }
 }
+
+*/
