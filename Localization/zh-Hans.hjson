@@ -34,7 +34,7 @@ Mods: {
 			Lead: 增加铅中毒伤害，持续伤害减免提升到60%
 			Meteor: ""
 			Miner: ""
-			Molten: ""
+			Molten: 易伤效果增加到50%伤害加成，生效范围增加1.5倍
 			Mythril: 增加最大攻速加成，持续时间更长
 			Nebula: ""
 			Necro: ""
@@ -371,6 +371,7 @@ Mods: {
 			HuntressBleed: 女猎人流血
 			HuntressCD: 箭雨冷却
 			LeadPoison: 铅中毒
+			MoltenAmplify: 熔岩易伤
 			MonkBuff: 冥想
 			ObsidianLavaWetBuff: 熔岩之润
 			OriPoison: 山铜中毒
@@ -544,6 +545,7 @@ Mods: {
 			AbomScytheFriendly: 憎恶镰刀
 			BeeDash: 冲刺
 			BetsyDash: 冲刺
+			BloomLine: 预警光线
 			CirnoBomb: 琪露诺炸弹
 			CreeperHitbox: 飞眼怪
 			Explosion: 爆炸
@@ -708,8 +710,6 @@ Mods: {
 
 			// == Challengers ==
 			JevilScar: 附魔光之剑
-			LifeBee: 小妖精
-			LifeBee2: 小妖精
 			LifeBlaster: 生命湮灭炮
 			LifeBomb: 生命雷
 			LifeBombExplosion: 生命雷
@@ -720,16 +720,16 @@ Mods: {
 			LifeChalDeathray: 神圣死亡射线
 			LifeCrosshair: 生命瞄准点
 			LifeHomingProj: 小妖精
-			LifeNeggravProj: 水晶刺球
+			LifeNeggravProj: 水晶十字
 			LifeNuke: 生命炸弹
-			LifeProjLarge: 水晶刺球
+			LifeProjLarge: 水晶十字
 			LifeProjSmall: 曙光子弹
 			LifeScar: 生命雷
-			LifeSlurp: 水晶刺球
+			LifeSlurp: 水晶宝石
 			LifeSplittingProjSmall: 曙光子弹
 			LifeTpTelegraph: 传送预警
 			LifeWave: 生命涌波
-			TargetCrosshair: 瞄准点
+			LifeRuneHitbox: 生命符文
 			TrojanAcorn: 橡实
 			TrojanHook: 松鼠钩
 			TrojanSnowball: 雪球
@@ -2187,6 +2187,7 @@ Mods: {
 			EarthChampionRelic: 大地英灵圣物
 			EridanusRelic: 宇宙英灵圣物
 			LifeChampionRelic: 生命英灵圣物
+			LifeChallengerRelic: 飘渺游光圣物
 			MutantRelic: 突变体圣物
 			NatureChampionRelic: 自然英灵圣物
 			ShadowChampionRelic: 暗影英灵圣物
@@ -2216,7 +2217,7 @@ Mods: {
 			BabyScythe: 小镰刀
 			ChibiHat: 小不点帽子
 			EnerGear: 能量齿轮
-			LifelightMasterPet: 缥缈圣光之灯
+			LifelightMasterPet: 金铃之羽
 			MostlyOrdinaryRock: 最普通的岩石
 			PortableFogMachine: 便携式烟雾机
 			SpawnSack: 卵袋
