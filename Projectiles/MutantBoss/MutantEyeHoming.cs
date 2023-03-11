@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantEyeHoming : MutantEye
     {
-        public override string Texture => "Terraria/Images/Projectile_452";
+        public override string Texture => "FargowiltasSouls/Projectiles/MutantBoss/MutantEye"; //"Terraria/Images/Projectile_452";
 
         public override void SetDefaults()
         {

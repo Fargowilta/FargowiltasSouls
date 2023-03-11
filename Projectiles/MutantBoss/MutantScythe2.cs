@@ -8,7 +8,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantScythe2 : MutantScythe1
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/AbomBoss/AbomSickle";
+        //public override string Texture => "FargowiltasSouls/Projectiles/AbomBoss/AbomSickle";
 
         public override void SetStaticDefaults()
         {

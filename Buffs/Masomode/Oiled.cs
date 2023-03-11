@@ -5,8 +5,6 @@ namespace FargowiltasSouls.Buffs.Masomode
 {
     public class Oiled : ModBuff
     {
-        public override string Texture => "FargowiltasSouls/Buffs/PlaceholderDebuff";
-
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Oiled");

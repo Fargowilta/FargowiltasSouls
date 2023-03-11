@@ -5,28 +5,32 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using FargowiltasSouls.NPCs.Challengers;
 
 namespace FargowiltasSouls.Projectiles.Challengers
 {
 
 	public class JevilScar : ModProjectile
 	{
-		private bool init = false;
+        //private bool init = false;
 
-		private NPC lifelight;
+        //private NPC lifelight;
 
-		Vector2 ScopeAtPlayer = new Vector2();
+        //private Vector2 ScopeAtPlayer = Vector2.Zero;
 
-		public override void SetStaticDefaults()
+        private float rotspeed = 0;
+
+        public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Enchanted Lightblade");
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+            Main.projFrames[Projectile.type] = 3;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 		public override void SetDefaults()
 		{
-			Projectile.width = 90; //actually 56 but it's diagonal
-			Projectile.height = 90; //actually 56 but it's diagonal
+			Projectile.width = 54; //actually 56 but it's diagonal
+			Projectile.height = 54; //actually 56 but it's diagonal
             Projectile.aiStyle = 0;
 			Projectile.hostile = true;
 			Projectile.penetrate = 1;
@@ -54,6 +58,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 		public override void AI()
 		{
+            //Old AI, for jevilsknife attack
+            /*
 			if (!init)
 			{
 				//at this time, Projectile.ai[1] is rotation in degrees
@@ -68,21 +74,6 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 			if (Projectile.alpha > 250)
 				Projectile.Kill();
-
-			/* homing movement method, flawed and weak
-				Vector2 vectorToIdlePosition = ScopeAtPlayer - Projectile.Center;
-				float num = vectorToIdlePosition.Length();
-				float speed = 10f;
-				float inertia = 10f;
-				vectorToIdlePosition.Normalize();
-				vectorToIdlePosition *= speed;
-				Projectile.velocity = (Projectile.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
-				Projectile.velocity = Vector2.Normalize(Projectile.velocity) * speed;
-				if (Projectile.velocity == Vector2.Zero)
-				{
-					Projectile.velocity.X = -0.15f;
-					Projectile.velocity.Y = -0.05f;
-				}*/
 
 			//teleport method, correct and superior but less cool
 			//max amplitude MaxHeight, rotation during wave bounceTime, rotation starts at Projectile.ai[1] (provided by NewProjectile). 
@@ -100,12 +91,56 @@ namespace FargowiltasSouls.Projectiles.Challengers
 				Projectile.Center = ScopeAtPlayer + dist * spin.ToRotationVector2();
 				Projectile.ai[1] += (degPB / bounceTime); // degrees/bounce rotation
 			}
-			/*if (Projectile.ai[0] % bounceTime == 0) ; //play sound when at center
-			{ 
-				SoundEngine.PlaySound(SoundID.Item71, ScopeAtPlayer);
-			}*/
 			Projectile.ai[0]++;
-		}
+			*/
+
+            //New AI, for hexagon attack
+
+            if (Projectile.frameCounter > 4)
+            {
+                Projectile.frame %= 3;
+                Projectile.frameCounter = 0;
+            }
+            Projectile.frameCounter++;
+
+            if (Projectile.ai[0] > 30f)
+            {
+                if (Projectile.ai[0] == 31f)
+                    Projectile.ai[1] = Player.FindClosest(Projectile.Center, 0, 0);
+
+                if (Main.player[(int)Projectile.ai[1]].active && !Main.player[(int)Projectile.ai[1]].dead)
+                {
+                    Vector2 vectorToIdlePosition = Main.player[(int)Projectile.ai[1]].Center - Projectile.Center;
+                    float speed = FargoSoulsWorld.MasochistModeReal ? 24f : 20f;
+                    float inertia = 48f;
+                    vectorToIdlePosition.Normalize();
+                    vectorToIdlePosition *= speed;
+                    Projectile.velocity = (Projectile.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
+                    if (Projectile.velocity == Vector2.Zero)
+                    {
+                        Projectile.velocity.X = -0.15f;
+                        Projectile.velocity.Y = -0.05f;
+                    }
+                }
+            }
+            if (Projectile.ai[0] > 1200 || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1) //set to 1200 at end of attack by lieflight, then fades out
+            {
+                Projectile.alpha += 17;
+				Projectile.hostile = false;
+            }
+			if (Projectile.alpha >= 240)
+			{
+				Projectile.Kill();
+			}
+            Projectile.ai[0] += 1f;
+
+			if (rotspeed == 0)
+				Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
+            if (rotspeed < MathHelper.Pi / 10)
+				rotspeed += MathHelper.Pi / 10 / 90;
+
+			Projectile.rotation += rotspeed;
+        }
 
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
@@ -126,18 +161,25 @@ namespace FargowiltasSouls.Projectiles.Challengers
             Color color26 = lightColor;
             color26 = Projectile.GetAlpha(color26);
 
-            SpriteEffects effects = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            SpriteEffects effects = Projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
+            for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.5f)
             {
-                Color color27 = Color.Red * Projectile.Opacity * 0.5f;
-                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-                Vector2 value4 = Projectile.oldPos[i];
-                float num165 = Projectile.oldRot[i];
-                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, effects, 0);
+                Color color27 = new Color(255, 51, 153) * Projectile.Opacity * 0.5f;
+                color27.A = (byte)(color26.A / 2);
+                float fade = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+                color27 *= fade * fade;
+                int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);
+                if (max0 < 0)
+                    continue;
+                float num165 = Projectile.oldRot[max0];
+                Vector2 center = Vector2.Lerp(Projectile.oldPos[(int)i], Projectile.oldPos[max0], 1 - i % 1);
+                center += Projectile.Size / 2;
+                Main.EntitySpriteDraw(texture2D13, center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, effects, 0);
             }
 
-            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, effects, 0);
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26, Projectile.rotation, origin2, Projectile.scale, effects, 0);
+
             return false;
         }
     }

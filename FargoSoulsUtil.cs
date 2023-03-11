@@ -539,8 +539,8 @@ namespace FargowiltasSouls
                 && projectile.damage > 0
                 && !projectile.hostile
                 && !projectile.npcProj
-                && !projectile.trap
-                && (projectile.DamageType != DamageClass.Default || ProjectileID.Sets.MinionShot[projectile.type]);
+                && !projectile.trap;
+                //&& (projectile.DamageType != DamageClass.Default || ProjectileID.Sets.MinionShot[projectile.type]);
         }
 
         public static void SpawnBossTryFromNPC(int playerTarget, int originalType, int bossType)

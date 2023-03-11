@@ -7,7 +7,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantSpazmarang : MutantRetirang
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/Spazmarang";
+        //public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/Spazmarang";
 
         public override void SetStaticDefaults()
         {

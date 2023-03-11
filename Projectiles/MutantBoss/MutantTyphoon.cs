@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantTyphoon : ModProjectile
     {
-        public override string Texture => "Terraria/Images/Projectile_409";
+        //public override string Texture => "Terraria/Images/Projectile_409";
         //public Vector2 spawn = Vector2.Zero;
 
         public override void SetStaticDefaults()

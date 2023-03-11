@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
 	public class LifeHomingProj : ModProjectile
 	{
 		public bool home = true;
-
+		public bool BeenOutside = false;
         public override string Texture => "Terraria/Images/NPC_75";
 
         public override void SetStaticDefaults()
@@ -76,7 +76,11 @@ namespace FargowiltasSouls.Projectiles.Challengers
 						Projectile.velocity.X = -0.15f;
 						Projectile.velocity.Y = -0.05f;
 					}
-					if (num < deadzone)
+					if (num > deadzone)
+					{
+						BeenOutside = true;
+					}
+					if (num < deadzone && BeenOutside)
 					{
 						home = false;
 					}

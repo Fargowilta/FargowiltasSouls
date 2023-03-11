@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fragile Pixie Lamp");
+            DisplayName.SetDefault("Crystalline Effigy");
             Tooltip.SetDefault("While in the Hallow during day, hold out to break, angering the pixies' master");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 5;
@@ -23,8 +23,8 @@ namespace FargowiltasSouls.Items.Summons
 
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 32;
+            Item.width = 54;
+            Item.height = 44;
             Item.useAnimation = 120;
             Item.useTime = 120;
             Item.useStyle = ItemUseStyleID.HoldUp;
@@ -38,9 +38,9 @@ namespace FargowiltasSouls.Items.Summons
         {
             CreateRecipe()
                 .AddRecipeGroup("FargowiltasSouls:AnyGoldBar", 4)
-                .AddIngredient(ItemID.PixieDust, 4)
-                .AddIngredient(ItemID.SoulofLight, 3)
-                .AddIngredient(ItemID.Glass, 5)
+                .AddIngredient(ItemID.PixieDust, 2)
+                .AddIngredient(ItemID.SoulofLight, 2)
+                .AddIngredient(ItemID.CrystalShard, 3)
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
         }

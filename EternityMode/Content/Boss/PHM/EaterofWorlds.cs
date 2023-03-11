@@ -23,11 +23,50 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail);
 
+        int MassDefenseTimer;
+        bool UseMassDefense;
+
         public override void OnFirstTick(NPC npc)
         {
             base.OnFirstTick(npc);
 
             npc.buffImmune[BuffID.CursedInferno] = true;
+        }
+
+        public override bool SafePreAI(NPC npc)
+        {
+            if (--MassDefenseTimer < 0)
+            {
+                MassDefenseTimer = 15;
+
+                //only apply to head and the segment immediately before it
+                if (npc.type == NPCID.EaterofWorldsHead || (npc.type == NPCID.EaterofWorldsBody && FargoSoulsUtil.NPCExists(npc.ai[1], NPCID.EaterofWorldsHead) != null))
+                {
+                    npc.defense = npc.defDefense;
+                    UseMassDefense = false;
+
+                    int totalCount = Main.npc.Count(n => n.active && (n.type == NPCID.EaterofWorldsBody || n.type == NPCID.EaterofWorldsHead || n.type == NPCID.EaterofWorldsTail));
+                    int headCount = NPC.CountNPCS(NPCID.EaterofWorldsHead);
+                    if (totalCount > 12 && headCount < totalCount / 5 + 1)
+                    {
+                        UseMassDefense = true;
+                        npc.defense += 30;
+
+                        if (npc.life < npc.lifeMax / 2)
+                            npc.life += 2;
+                    }
+                }
+            }
+
+            return base.SafePreAI(npc);
+        }
+
+        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            if (UseMassDefense)
+                damage /= 2;
+
+            return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
         public override bool CheckDead(NPC npc)
@@ -149,7 +188,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.SetDefaults(npc);
 
-            npc.defense += 10;
             npc.damage = (int)(npc.damage * 4.0 / 3.0);
         }
 
@@ -481,12 +519,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             return true;
         }
 
-        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
-        {
-            damage /= 2;
-            return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
-        }
-
         public override void LoadSprites(NPC npc, bool recolor)
         {
             base.LoadSprites(npc, recolor);
@@ -505,18 +537,6 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
             base.SetDefaults(npc);
 
             npc.damage *= 2;
-        }
-
-        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
-        {
-            if (npc.type == NPCID.EaterofWorldsBody)
-            {
-                NPC head = FargoSoulsUtil.NPCExists(npc.ai[1], NPCID.EaterofWorldsHead);
-                if (head != null) //segment directly behind head takes less damage too
-                    damage /= 2;
-            }
-
-            return base.StrikeNPC(npc, ref damage, defense, ref knockback, hitDirection, ref crit);
         }
 
         public override bool CheckDead(NPC npc)

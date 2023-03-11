@@ -114,3 +114,25 @@ fixed world shaper soul builder mode recipe flickering
 fixed mythril ench without force not working
 tried something to fix destroyer star wall bug mostly (prioritizes using segments within 1600 units of you)
 attack speed nerfed. it rounds up.
+
+dev aesth nerf, 266->236 dmg
+nerfed ninja and adam, iframes can round either up or down (no longer always rounds down)
+fixed daybreak, betsys wrath, dragons demise benefiting WAY too much from ninja/adam
+fixed frigid gemstone having no mana regen delay
+fixed molten amplify aura not always working
+force buffs molten range
+improved abom's movement while throwing scythes to make his movement hopefully easier to follow
+fixed will rays being broken
+boc
+	5 million debuffs every hit is maso only
+	p2 clone is initially translucent and becomes more opaque as fight continues
+	p2 lasers dont begin until 50% life
+	has 25% more life
+eow
+	each head and the segment right behind head now use mass defense
+	mass defense is +20 defense, 50% DR, and when below half life, 8 life/sec regen
+	mass defense disabled whenever a certain number of worms are alive at once
+	mass defense removed permanently when just a few worms left
+
+fixed(?) drakovi fishing pole right click to switch modes skipping modes issues
+fixed oiled still showing the wrong debuff icon when you are oiled

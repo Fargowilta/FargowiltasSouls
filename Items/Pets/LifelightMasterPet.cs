@@ -10,11 +10,10 @@ namespace FargowiltasSouls.Items.Pets
 {
     public class LifelightMasterPet : SoulsItem
     {
-        public override string Texture => "FargowiltasSouls/Items/Placeholder";
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lifelight Master Pet");
+            DisplayName.SetDefault("Gold-Tinged Feather");
             Tooltip.SetDefault("Summons a lesser angel that provides light");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -22,6 +21,8 @@ namespace FargowiltasSouls.Items.Pets
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.DukeFishronPetItem);
+            Item.width = 20;
+            Item.height = 40;
             Item.shoot = ModContent.ProjectileType<BabyLifelight>();
             Item.buffType = ModContent.BuffType<BabyLifelightBuff>();
         }

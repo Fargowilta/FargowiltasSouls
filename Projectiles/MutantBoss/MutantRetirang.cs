@@ -10,7 +10,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantRetirang : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/Retirang";
+        //public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/Retirang";
 
         public override void SetStaticDefaults()
         {

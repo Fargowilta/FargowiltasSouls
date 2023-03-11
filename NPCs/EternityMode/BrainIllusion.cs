@@ -72,12 +72,15 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(BuffID.Poisoned, 120);
-            target.AddBuff(BuffID.Darkness, 120);
-            target.AddBuff(BuffID.Bleeding, 120);
-            target.AddBuff(BuffID.Slow, 120);
-            target.AddBuff(BuffID.Weak, 120);
-            target.AddBuff(BuffID.BrokenArmor, 120);
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                target.AddBuff(BuffID.Poisoned, 120);
+                target.AddBuff(BuffID.Darkness, 120);
+                target.AddBuff(BuffID.Bleeding, 120);
+                target.AddBuff(BuffID.Slow, 120);
+                target.AddBuff(BuffID.Weak, 120);
+                target.AddBuff(BuffID.BrokenArmor, 120);
+            }
         }
 
         public override void HitEffect(int hitDirection, double damage)

@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Projectiles.ChallengerItems
             Projectile.extraUpdates = 1;
             Projectile.DamageType = DamageClass.Ranged;
         }
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //circular hitbox
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) //line collision
         {
             float collisionPoint = 0f;
             if (Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.Center - Projectile.velocity, Projectile.width, ref collisionPoint))

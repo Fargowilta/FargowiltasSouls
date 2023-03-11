@@ -16,7 +16,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantSpearThrown : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/HentaiSpear";
+        public override string Texture => "FargowiltasSouls/Projectiles/MutantBoss/MutantSpear"; //"FargowiltasSouls/Projectiles/BossWeapons/HentaiSpear";
 
         public override void SetStaticDefaults()
         {

@@ -2433,7 +2433,7 @@ namespace FargowiltasSouls
                 return;
 
             FrigidGemstoneCD = 10;
-            Player.manaRegenDelay = Math.Max(Player.manaRegenDelay, 10);
+            Player.manaRegenDelay = Math.Max(Player.manaRegenDelay, 30);
 
             SoundEngine.PlaySound(SoundID.Item28, Player.Center);
 

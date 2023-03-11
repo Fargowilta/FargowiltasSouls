@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantNuke : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/FishNuke";
+        //public override string Texture => "FargowiltasSouls/Projectiles/BossWeapons/FishNuke";
 
         public override void SetStaticDefaults()
         {

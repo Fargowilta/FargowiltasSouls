@@ -21,8 +21,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
         }
         public override void SetDefaults()
 		{
-			Projectile.width = 16;
-			Projectile.height = 16;
+			Projectile.width = 18;
+			Projectile.height = 18;
 			Projectile.aiStyle = 0;
 			Projectile.hostile = true;
 			AIType = 14;
@@ -90,10 +90,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
             color26 = Projectile.GetAlpha(color26);
 
             SpriteEffects effects = SpriteEffects.None;
-
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.5f)
             {
-                Color color27 = new Color(255, 51, 153, 260 - Main.mouseTextColor) * Projectile.Opacity * 0.5f;
+                Color color27 = new Color(0, 255, 255, 260 - Main.mouseTextColor) * Projectile.Opacity * 0.5f;
                 float fade = (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
                 color27 *= fade * fade;
                 int max0 = (int)i - 1;//Math.Max((int)i - 1, 0);

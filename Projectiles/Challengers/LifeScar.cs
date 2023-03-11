@@ -12,7 +12,9 @@ namespace FargowiltasSouls.Projectiles.Challengers
 	{
 		bool init = false;
 
-		public override void SetStaticDefaults()
+        public override string Texture => "FargowiltasSouls/Projectiles/Challengers/LifeBombExplosion";
+
+        public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Life Mine");
             Main.projFrames[Projectile.type] = 3;

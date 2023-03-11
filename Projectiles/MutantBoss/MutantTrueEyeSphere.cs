@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantTrueEyeSphere : ModProjectile
     {
-        public override string Texture => "Terraria/Images/Projectile_454";
+        public override string Texture => "FargowiltasSouls/Projectiles/MutantBoss/MutantSphere"; //"Terraria/Images/Projectile_454";
 
         public override void SetStaticDefaults()
         {

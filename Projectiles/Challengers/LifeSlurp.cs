@@ -10,7 +10,11 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
 	public class LifeSlurp : ModProjectile
 	{
-		public bool home = true;
+        public override string Texture => "FargowiltasSouls/NPCs/Challengers/LifeChallengerParts/ShardGem1";
+
+		private int rGem = 1;
+
+        public bool home = true;
 
 		public bool homingonPlayer;
 
@@ -24,14 +28,14 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Ball");
+            DisplayName.SetDefault("Gem");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
 		{
-			Projectile.width = 32;
-			Projectile.height = 32;
+			Projectile.width = 24;
+			Projectile.height = 24;
 			Projectile.aiStyle = 0;
 			Projectile.hostile = true;
 			AIType = 14;
@@ -49,6 +53,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
                 Projectile.rotation = Main.rand.Next(100);
                 RotDirect = Main.rand.NextBool(2) ? -1 : 1;
+				rGem = Main.rand.Next(1, 9);
             }
             Projectile.rotation += 0.2f * RotDirect;
 
@@ -131,8 +136,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            int num156 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
+            Texture2D texture2D13 = FargowiltasSouls.Instance.Assets.Request<Texture2D>($"NPCs/Challengers/LifeChallengerParts/ShardGem{rGem}", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+            int num156 = texture2D13.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
             int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
             Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
             Vector2 origin2 = rectangle.Size() / 2f;

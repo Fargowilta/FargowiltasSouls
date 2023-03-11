@@ -11,6 +11,8 @@ namespace FargowiltasSouls.Patreon.Sasha
     {
         private int mode = 1;
 
+        int modeSwitchCD;
+
         public override string Texture => "Terraria/Images/Item_2296";
 
         public override void SetStaticDefaults()
@@ -39,19 +41,23 @@ namespace FargowiltasSouls.Patreon.Sasha
             return true;
         }
 
+        public override void HoldItem(Player player)
+        {
+            if (modeSwitchCD > 0)
+                modeSwitchCD--;
+        }
+
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             //right click
-            if (player.altFunctionUse == 2)
+            if (player.altFunctionUse == 2 && modeSwitchCD <= 0)
             {
-                mode++;
-
-                if (mode > 4)
-                {
+                if (++mode > 4)
                     mode = 1;
-                }
 
                 SetUpItem();
+
+                modeSwitchCD = Item.useTime;
 
                 return false;
             }

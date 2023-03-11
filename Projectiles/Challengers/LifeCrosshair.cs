@@ -18,8 +18,8 @@ namespace FargowiltasSouls.Projectiles.Challengers
         }
         public override void SetDefaults()
         {
-            Projectile.width = 184;
-            Projectile.height = 184;
+            Projectile.width = 110;
+            Projectile.height = 110;
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.penetrate = 1;

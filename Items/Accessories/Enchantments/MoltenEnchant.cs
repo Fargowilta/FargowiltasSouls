@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -51,6 +53,7 @@ Enemies take 25% increased damage while inside the inferno ring
 
                 if (modPlayer.NatureForce)
                 {
+                    distance *= 1.5f;
                     baseDamage *= 2;
                 }
 
@@ -72,7 +75,9 @@ Enemies take 25% increased damage while inside the inferno ring
                                     npc.AddBuff(buff, 120);
                                 }
 
-                                npc.GetGlobalNPC<FargoSoulsGlobalNPC>().MoltenAmplify = true;
+                                int moltenDebuff = ModContent.BuffType<Buffs.Souls.MoltenAmplify>();
+                                if (npc.FindBuffIndex(moltenDebuff) == -1)
+                                    npc.AddBuff(moltenDebuff, 10);
 
                                 //if (Vector2.Distance(player.Center, npc.Center) <= 50)
                                 //{

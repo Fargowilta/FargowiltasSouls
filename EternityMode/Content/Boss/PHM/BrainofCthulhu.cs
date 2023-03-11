@@ -55,7 +55,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.SetDefaults(npc);
 
-            //npc.lifeMax = (int)(npc.lifeMax * 1.25);
+            npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25);
             npc.scale += 0.25f;
         }
 
@@ -123,6 +123,9 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
 
                 void LaserSpread(Vector2 spawn)
                 {
+                    if (npc.life > npc.lifeMax / 2 && !FargoSoulsWorld.MasochistModeReal)
+                        return;
+
                     if (npc.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient) //laser spreads from each illusion
                     {
                         int max = FargoSoulsWorld.MasochistModeReal ? 7 : 3;
@@ -324,12 +327,15 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.OnHitPlayer(npc, target, damage, crit);
 
-            target.AddBuff(BuffID.Poisoned, 120);
-            target.AddBuff(BuffID.Darkness, 120);
-            target.AddBuff(BuffID.Bleeding, 120);
-            target.AddBuff(BuffID.Slow, 120);
-            target.AddBuff(BuffID.Weak, 120);
-            target.AddBuff(BuffID.BrokenArmor, 120);
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                target.AddBuff(BuffID.Poisoned, 120);
+                target.AddBuff(BuffID.Darkness, 120);
+                target.AddBuff(BuffID.Bleeding, 120);
+                target.AddBuff(BuffID.Slow, 120);
+                target.AddBuff(BuffID.Weak, 120);
+                target.AddBuff(BuffID.BrokenArmor, 120);
+            }
         }
 
         public override void LoadSprites(NPC npc, bool recolor)
@@ -366,7 +372,7 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.SetDefaults(npc);
 
-            npc.lifeMax = (int)(npc.lifeMax * 1.25);
+            npc.lifeMax = (int)Math.Round(npc.lifeMax * 1.25);
 
             IchorAttackTimer = Main.rand.Next(60 * NPC.CountNPCS(NPCID.Creeper)) + Main.rand.Next(61) + 60;
         }
@@ -413,12 +419,15 @@ namespace FargowiltasSouls.EternityMode.Content.Boss.PHM
         {
             base.OnHitPlayer(npc, target, damage, crit);
 
-            target.AddBuff(BuffID.Poisoned, 120);
-            target.AddBuff(BuffID.Darkness, 120);
-            target.AddBuff(BuffID.Bleeding, 120);
-            target.AddBuff(BuffID.Slow, 120);
-            target.AddBuff(BuffID.Weak, 120);
-            target.AddBuff(BuffID.BrokenArmor, 120);
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                target.AddBuff(BuffID.Poisoned, 120);
+                target.AddBuff(BuffID.Darkness, 120);
+                target.AddBuff(BuffID.Bleeding, 120);
+                target.AddBuff(BuffID.Slow, 120);
+                target.AddBuff(BuffID.Weak, 120);
+                target.AddBuff(BuffID.BrokenArmor, 120);
+            }
         }
 
         public override bool CheckDead(NPC npc)

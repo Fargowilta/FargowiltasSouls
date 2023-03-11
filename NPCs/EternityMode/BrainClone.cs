@@ -44,9 +44,11 @@ namespace FargowiltasSouls.NPCs.EternityMode
             NPC.aiStyle = -1;
         }
 
+        int trueAlpha;
+
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)
         {
-            return NPC.alpha == 0;
+            return trueAlpha == 0;
         }
 
         public override void AI()
@@ -84,7 +86,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
             if (FargoSoulsWorld.MasochistModeReal || Main.player[NPC.target].Distance(FargoSoulsUtil.ClosestPointInHitbox(NPC, Main.player[NPC.target].Center)) > 360)
                 NPC.knockBackResist = 0;
 
-            if (NPC.alpha > 0 && (NPC.ai[0] == 2 || NPC.ai[0] == -3) && NPC.HasValidTarget) //stay at a minimum distance
+            if (trueAlpha > 0 && (NPC.ai[0] == 2 || NPC.ai[0] == -3) && NPC.HasValidTarget) //stay at a minimum distance
             {
                 const float safeRange = 360;
                 /*Vector2 stayAwayFromHere = Main.player[NPC.target].Center + Main.player[NPC.target].velocity * 30f;
@@ -123,7 +125,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
                         NPC.netUpdate = true;
                         NPC.netSpam = 0;
                     }
-                    NPC.alpha = (int)NPC.ai[3];
+                    trueAlpha = (int)NPC.ai[3];
                 }
                 else if (NPC.ai[0] == -3)
                 {
@@ -138,7 +140,7 @@ namespace FargowiltasSouls.NPCs.EternityMode
                         NPC.netUpdate = true;
                         NPC.netSpam = 0;
                     }
-                    NPC.alpha = (int)NPC.ai[3];
+                    trueAlpha = (int)NPC.ai[3];
                 }
                 else
                 {
@@ -178,6 +180,10 @@ namespace FargowiltasSouls.NPCs.EternityMode
                     }
                 }
             }
+
+            NPC.alpha = trueAlpha;
+            if (!FargoSoulsWorld.MasochistModeReal)
+                NPC.Opacity *= 0.5f + (1f - (float)NPC.life / NPC.lifeMax) / 2f;
         }
 
         public override void FindFrame(int frameHeight)
@@ -190,12 +196,15 @@ namespace FargowiltasSouls.NPCs.EternityMode
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(BuffID.Poisoned, 120);
-            target.AddBuff(BuffID.Darkness, 120);
-            target.AddBuff(BuffID.Bleeding, 120);
-            target.AddBuff(BuffID.Slow, 120);
-            target.AddBuff(BuffID.Weak, 120);
-            target.AddBuff(BuffID.BrokenArmor, 120);
+            if (FargoSoulsWorld.MasochistModeReal)
+            {
+                target.AddBuff(BuffID.Poisoned, 120);
+                target.AddBuff(BuffID.Darkness, 120);
+                target.AddBuff(BuffID.Bleeding, 120);
+                target.AddBuff(BuffID.Slow, 120);
+                target.AddBuff(BuffID.Weak, 120);
+                target.AddBuff(BuffID.BrokenArmor, 120);
+            }
         }
 
         public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)

@@ -604,6 +604,21 @@ namespace FargowiltasSouls.Projectiles
                         }
                     }
                     break;
+                //Arkhalis and Terragrim fix to draw properly with Tungsten Enchantment
+                case ProjectileID.Arkhalis:
+                case ProjectileID.Terragrim:
+                    {
+                        Texture2D Texture = Terraria.GameContent.TextureAssets.Projectile[projectile.type].Value;
+                        int sizeY = Terraria.GameContent.TextureAssets.Projectile[projectile.type].Value.Height / Main.projFrames[projectile.type]; //ypos of lower right corner of sprite to draw
+                        int frameY = projectile.frame * sizeY;
+                        Rectangle rectangle = new Rectangle(0, frameY, Texture.Width, sizeY);
+                        Vector2 origin = rectangle.Size() / 2f;
+                        SpriteEffects spriteEffects = projectile.spriteDirection > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                        Main.EntitySpriteDraw(Texture, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), projectile.GetAlpha(lightColor),
+                                projectile.rotation, origin, projectile.scale, spriteEffects, 0);
+                        return false;
+                    }
+                    //no break, above return false makes it unreachable
                 default:
                     break;
             }
@@ -1043,14 +1058,17 @@ namespace FargowiltasSouls.Projectiles
 		{
 			if (projectile.maxPenetrate != 1 && !projectile.usesLocalNPCImmunity)
             {
+                //biased towards rounding down, making it a slight dps increase for compatible weapons
+                double RoundReduce(float iframes) => Math.Round(iframes / iframeModifier, 0, Main.rand.NextBool(3) ? MidpointRounding.AwayFromZero : MidpointRounding.ToZero);
+
                 if (projectile.usesIDStaticNPCImmunity)
                 {
                     if (projectile.idStaticNPCHitCooldown > 1)
-                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)(projectile.idStaticNPCHitCooldown / iframeModifier);
+                        Projectile.perIDStaticNPCImmunity[projectile.type][target.whoAmI] = Main.GameUpdateCount + (uint)RoundReduce(projectile.idStaticNPCHitCooldown);
                 }
                 else if (!noInteractionWithNPCImmunityFrames && target.immune[projectile.owner] > 1)
                 {
-                    target.immune[projectile.owner] /= iframeModifier;
+                    target.immune[projectile.owner] = (int)RoundReduce(target.immune[projectile.owner]);
                 }
             }
 		}
