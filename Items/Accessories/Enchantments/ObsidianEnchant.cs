@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using System;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -71,10 +72,12 @@ While standing in lava or lava wet, your attacks spawn explosions and apply Fire
 
         public static void ObsidianProc(FargoSoulsPlayer modPlayer, NPC target, int damage)
         {
+            damage = Math.Min(damage, FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, 300));
+
             Player player = modPlayer.Player;
             Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.ObsidianEnchantItem), target.Center, Vector2.Zero, ModContent.ProjectileType<ExplosionSmall>(), damage, 0, player.whoAmI);
 
-            target.AddBuff(BuffID.FlameWhipEnemyDebuff, 30); ;
+            target.AddBuff(BuffID.FlameWhipEnemyDebuff, 30);
 
             if (modPlayer.TerraForce)
             {

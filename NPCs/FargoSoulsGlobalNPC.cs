@@ -1107,24 +1107,6 @@ namespace FargowiltasSouls.NPCs
                 damage *= 1.0 + 0.15 * PungentGazeTime / PungentGaze.MAX_TIME;
             }
 
-            if (OceanicMaul)
-            {
-                damage += 10;
-                //damage *= 1.3;
-            }
-
-            if (CurseoftheMoon)
-            {
-                damage += 5;
-                //damage *= 1.1;
-            }
-
-            if (Rotting)
-            {
-                damage += 5;
-            }
-
-
             //            //if (modPlayer.KnightEnchant && Villain && !npc.boss)
             //            //{
             //            //    damage *= 1.5;

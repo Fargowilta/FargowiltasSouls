@@ -134,30 +134,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public Color ColorFunction(float _) => Color.HotPink;//new(232, 140, 240);
 
-        public override bool PreDraw(ref Color lightColor)
-        {
-            //LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
-
-            //// Get the laser end position.
-            //Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
-
-            //// Create 8 points that span across the draw distance from the projectile center.
-            //Vector2 initialDrawPoint = Projectile.Center;
-            //Vector2[] baseDrawPoints = new Vector2[8];
-            //for (int i = 0; i < baseDrawPoints.Length; i++)
-            //    baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
-
-            //// Set shader parameters.
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240));
-            //Asset<Texture2D> fademap = ModContent.Request<Texture2D>("FargowiltasSouls/ExtraTextures/MutantStreak");
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(fademap);
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(3);
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(0.8f);
-            //GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(false);
-            //LaserDrawer.DrawPrims(baseDrawPoints.ToList(), -Main.screenPosition, 10);
-            return false;
-        }
+        public override bool PreDraw(ref Color lightColor) => false;
 
         public void DrawPixelPrimitives(SpriteBatch spriteBatch)
         {
@@ -179,6 +156,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(0.8f);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(false);
+            // I cannot gut this much more than this, so if its lagging im afraid im not sure what to tell you.
             LaserDrawer.DrawPixelPrims(baseDrawPoints.ToList(), -Main.screenPosition, 10);
         }
     }

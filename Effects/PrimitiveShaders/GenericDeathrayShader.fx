@@ -64,10 +64,10 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     float4 colorCorrected = lerp(color, float4(uColor, 1), opacity * uColorFadeScaler);
 
     // Fade out at the end of the streak.
-    if (coords.x < 0.015 && useFadeIn)
-        opacity *= pow(coords.x / 0.015, 6);
-    if (coords.x > 0.9 && useFadeIn)
-        opacity *= pow(1 - (coords.x - 0.9) / 0.1, 6);
+    if (coords.x < 0.075 && useFadeIn)
+        opacity *= pow(coords.x / 0.075, 6);
+    if (coords.x > 0.83 && useFadeIn)
+        opacity *= pow(1 - (coords.x - 0.83) / 0.17, 10);
     
     return colorCorrected * opacity * (uColorFadeScaler * 1.3);
 }

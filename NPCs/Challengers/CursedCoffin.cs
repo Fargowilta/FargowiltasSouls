@@ -1,4 +1,6 @@
-﻿using System;
+﻿//JAVYZ TODO: CURSED COFFIN BOSS
+/*
+using System;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -309,3 +311,4 @@ namespace FargowiltasSouls.NPCs.Challengers
         #endregion
     }
 }
+*/

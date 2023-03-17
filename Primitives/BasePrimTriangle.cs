@@ -35,7 +35,8 @@ namespace FargowiltasSouls.Primitives
         }
     }
 
-    public struct PrimTriangle3D : IVertexType
+    // This isnt needed rn but I will leave it here.
+    /* public struct PrimTriangle3D : IVertexType
     {
         public Vector2 Position;
         public Color Color;
@@ -56,6 +57,6 @@ namespace FargowiltasSouls.Primitives
             Color = color;
             SideCoordinates = sideCoordinates;
         }
-    }
+    } */
 
 }

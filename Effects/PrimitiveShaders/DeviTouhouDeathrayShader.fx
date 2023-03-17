@@ -64,10 +64,10 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
 
     float widthScale = float((y + (1 - coords.x * 0.25)) / 2);
     
-    if (coords.x < 0.05)
-        widthScale /= pow(coords.x / 0.05, 0.4);
+    if (coords.x < 0.07)
+        widthScale /= pow(coords.x / 0.07, 1);
     
-    coords.y = ((coords.y - 0.5) * clamp(widthScale, 0, 1.7)) + 0.5;
+    coords.y = ((coords.y - 0.5) * clamp(widthScale, 0, 2)) + 0.5;
     // <-
     
     // Get the pixel of the fade map. What coords.x is being multiplied by determines
@@ -92,8 +92,8 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
         finalColor = lerp(color, innerColorFinal, innerColor.r) * 1.2;  
     
     //// Fade out at the top and bottom of the streak.
-    if (coords.x < 0.02)
-        finalOpacity *= pow(coords.x / 0.02, 1.4);
+    if (coords.x < 0.05)
+        finalOpacity *= pow(coords.x / 0.05, 2);
     if (coords.x > 0.8)
         finalOpacity *= pow(1 - (coords.x - 0.8) / 0.2, 3);
     

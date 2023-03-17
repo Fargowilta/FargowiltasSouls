@@ -158,7 +158,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
             // This allows the drawing to be pushed back, which is needed due to the shader fading in at the start to avoid
             // sharp lines.
-            Vector2 initialDrawPoint = Projectile.Center - Projectile.velocity;
+            Vector2 initialDrawPoint = Projectile.Center - Projectile.velocity * 150f;
             Vector2[] baseDrawPoints = new Vector2[8];
             for (int i = 0; i < baseDrawPoints.Length; i++)
                 baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
@@ -174,7 +174,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(1f);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["useFadeIn"].SetValue(true);
 
-            LaserDrawer.DrawPixelPrims(baseDrawPoints, -Main.screenPosition, 20);
+            LaserDrawer.DrawPixelPrims(baseDrawPoints, -Main.screenPosition, 25);
         }
     }
 }

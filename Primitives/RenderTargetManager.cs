@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Primitives
         #region Fields And Properities
         private static RenderTarget2D PixelRenderTarget;
 
-        private static List<IPixelPrimitiveDrawer> PixelPrimDrawersList = new();
+        private static readonly List<IPixelPrimitiveDrawer> PixelPrimDrawersList = new();
 
         private Vector2 PreviousScreenSize;
         #endregion

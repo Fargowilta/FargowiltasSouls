@@ -199,8 +199,9 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             //        if (i < Projectile.oldPos.Length)
             //            positions[i] = Projectile.oldPos[i];
             //}
+
             if (Projectile.ModProjectile.GetType() != typeof(MutantEyeWavy))
-                TrailDrawer.DrawPixelPrims(Projectile.oldPos, Projectile.Size * 0.5f - Main.screenPosition, 25);
+                TrailDrawer.DrawPixelPrims(Projectile.oldPos, Projectile.Size * 0.5f - Main.screenPosition, 5);
         }
 
         public override void PostDraw(Color lightColor)

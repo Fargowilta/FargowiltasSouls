@@ -283,7 +283,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             return MathHelper.Lerp(baseWidth, baseWidth * 2, trailInterpolant);
         }
 
-        public Color ColorFunction(float trailInterpolant) => Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant) * Projectile.Opacity;
+        public Color ColorFunction(float trailInterpolant) => Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant);
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -301,7 +301,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
             // This allows the drawing to be pushed back, which is needed due to the shader fading in at the start to avoid
             // sharp lines.
-            Vector2 initialDrawPoint = Projectile.Center - Projectile.velocity * 650;
+            Vector2 initialDrawPoint = Projectile.Center - Projectile.velocity * 400f;
             Vector2[] baseDrawPoints = new Vector2[8];
             for (int i = 0; i < baseDrawPoints.Length; i++)
                 baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
@@ -310,8 +310,6 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
             // The laser should fade to white in the middle.
             Color brightColor = new(194, 255, 242);
-            if (BeBrighter)
-                brightColor *= 2;
             GameShaders.Misc["FargowiltasSouls:MutantDeathray"].UseColor(brightColor);
             // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
             GameShaders.Misc["FargowiltasSouls:MutantDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);

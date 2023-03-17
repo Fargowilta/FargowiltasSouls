@@ -249,20 +249,20 @@ namespace FargowiltasSouls.NPCs
                         {
                             if (noBiome)
                             {
-                                pool[NPCID.CorruptBunny] = NPC.downedBoss1 ? .05f : .025f;
-                                pool[NPCID.CrimsonBunny] = NPC.downedBoss1 ? .05f : .025f;
+                                pool[NPCID.CorruptBunny] = NPC.downedBoss1 ? .02f : .01f;
+                                pool[NPCID.CrimsonBunny] = NPC.downedBoss1 ? .02f : .01f;
                             }
 
                             if (snow)
                             {
-                                pool[NPCID.CorruptPenguin] = NPC.downedBoss1 ? .1f : .05f;
-                                pool[NPCID.CrimsonPenguin] = NPC.downedBoss1 ? .1f : .05f;
+                                pool[NPCID.CorruptPenguin] = NPC.downedBoss1 ? .04f : .02f;
+                                pool[NPCID.CrimsonPenguin] = NPC.downedBoss1 ? .04f : .02f;
                             }
 
                             if (ocean || Main.raining)
                             {
-                                pool[NPCID.CorruptGoldfish] = NPC.downedBoss1 ? .1f : .05f;
-                                pool[NPCID.CrimsonGoldfish] = NPC.downedBoss1 ? .1f : .05f;
+                                pool[NPCID.CorruptGoldfish] = NPC.downedBoss1 ? .04f : .02f;
+                                pool[NPCID.CrimsonGoldfish] = NPC.downedBoss1 ? .04f : .02f;
                             }
 
                             if (NPC.downedBoss1)
@@ -278,10 +278,10 @@ namespace FargowiltasSouls.NPCs
                         if (normalSpawn && FargoSoulsWorld.downedAnyBoss)
                         {
                             if (snow)
-                                pool[NPCID.IceGolem] = .005f;
+                                pool[NPCID.IceGolem] = .001f;
 
                             if (desert)
-                                pool[NPCID.SandElemental] = .005f;
+                                pool[NPCID.SandElemental] = .001f;
                         }
 
                         if (Main.slimeRain && NPC.downedBoss2 && bossCanSpawn)
@@ -291,13 +291,13 @@ namespace FargowiltasSouls.NPCs
                     {
                         if (deepUnderground && !jungle && !snow)
                         {
-                            pool[NPCID.FireImp] = .02f;
-                            pool[NPCID.LavaSlime] = .02f;
+                            pool[NPCID.FireImp] = .01f;
+                            pool[NPCID.LavaSlime] = .01f;
                         }
 
                         if (marble && NPC.downedBoss2)
                         {
-                            pool[NPCID.Medusa] = .05f;
+                            pool[NPCID.Medusa] = .04f;
                         }
 
                         if (granite)
@@ -309,7 +309,7 @@ namespace FargowiltasSouls.NPCs
                         if (cavern)
                         {
                             if (noBiome && NPC.downedBoss3)
-                                pool[NPCID.DarkCaster] = .025f;
+                                pool[NPCID.DarkCaster] = .02f;
                         }
 
                         if (NPC.downedGoblins && !NPC.savedGoblin && !NPC.AnyNPCs(NPCID.BoundGoblin))
@@ -320,8 +320,8 @@ namespace FargowiltasSouls.NPCs
                     }
                     else if (underworld)
                     {
-                        pool[NPCID.LeechHead] = .05f;
-                        pool[NPCID.BlazingWheel] = .1f;
+                        pool[NPCID.LeechHead] = .02f;
+                        pool[NPCID.BlazingWheel] = .05f;
                         //if (!FargoSoulsUtil.BossIsAlive(ref wallBoss, NPCID.WallofFlesh))
                         //pool[NPCID.RedDevil] = .025f;
                     }
@@ -332,7 +332,7 @@ namespace FargowiltasSouls.NPCs
                             pool[NPCID.AngryNimbus] = .02f;
 
                             if (FargoSoulsWorld.downedAnyBoss)
-                                pool[NPCID.WyvernHead] = .005f;
+                                pool[NPCID.WyvernHead] = .001f;
                         }
                     }
 
@@ -341,7 +341,7 @@ namespace FargowiltasSouls.NPCs
                     {
                         if (NPC.downedBoss2)
                         {
-                            pool[NPCID.SeekerHead] = .01f;
+                            pool[NPCID.SeekerHead] = .005f;
                             if (normalSpawn && NPC.downedBoss3 && !underworld && bossCanSpawn)
                                 pool[NPCID.EaterofWorldsHead] = .0002f;
                         }
@@ -351,7 +351,7 @@ namespace FargowiltasSouls.NPCs
                     {
                         if (NPC.downedBoss2)
                         {
-                            pool[NPCID.IchorSticker] = .01f;
+                            pool[NPCID.IchorSticker] = .005f;
                             if (normalSpawn && NPC.downedBoss3 && !underworld && bossCanSpawn)
                                 pool[NPCID.BrainofCthulhu] = .0002f;
                         }
@@ -359,25 +359,25 @@ namespace FargowiltasSouls.NPCs
 
                     if (mushroom)
                     {
-                        pool[NPCID.FungiBulb] = .1f;
-                        pool[NPCID.MushiLadybug] = .1f;
-                        pool[NPCID.ZombieMushroom] = .1f;
-                        pool[NPCID.ZombieMushroomHat] = .1f;
-                        pool[NPCID.AnomuraFungus] = .1f;
+                        pool[NPCID.FungiBulb] = .02f;
+                        pool[NPCID.MushiLadybug] = .02f;
+                        pool[NPCID.ZombieMushroom] = .02f;
+                        pool[NPCID.ZombieMushroomHat] = .02f;
+                        pool[NPCID.AnomuraFungus] = .02f;
                     }
 
                     if (ocean)
                     {
-                        pool[NPCID.PigronCorruption] = .005f;
-                        pool[NPCID.PigronCrimson] = .005f;
-                        pool[NPCID.PigronHallow] = .005f;
+                        pool[NPCID.PigronCorruption] = .002f;
+                        pool[NPCID.PigronCrimson] = .002f;
+                        pool[NPCID.PigronHallow] = .002f;
                     }
 
                     if (!surface && normalSpawn)
                     {
-                        pool[NPCID.Mimic] = .01f;
+                        pool[NPCID.Mimic] = .002f;
                         if (desert && NPC.downedBoss2)
-                            pool[NPCID.DuneSplicerHead] = .005f;
+                            pool[NPCID.DuneSplicerHead] = .002f;
                     }
                 }
                 else //all the hardmode

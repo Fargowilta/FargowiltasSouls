@@ -114,7 +114,7 @@ namespace FargowiltasSouls.Patreon.DevAesthetic
             Projectile.timeLeft = 0;
             if (Projectile.localAI[1] == 0)
                 Projectile.localAI[1] = 1;
-            target.immune[Projectile.owner] = 2;
+            target.immune[Projectile.owner] = 3;
         }
 
         public override Color? GetAlpha(Color lightColor)

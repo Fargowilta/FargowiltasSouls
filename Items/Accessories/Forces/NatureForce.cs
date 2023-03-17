@@ -27,7 +27,7 @@ namespace FargowiltasSouls.Items.Accessories.Forces
 
             string tooltip =
 $"[i:{ModContent.ItemType<CrimsonEnchant>()}] After taking a hit, regen is greatly increased until the hit is healed off\n" +
-$"[i:{ModContent.ItemType<MoltenEnchant>()}] Nearby enemies are ignited\n" +
+$"[i:{ModContent.ItemType<MoltenEnchant>()}] Nearby enemies are ignited in a greater radius\n" +
 $"[i:{ModContent.ItemType<MoltenEnchant>()}] When you are hurt, you violently explode to damage nearby enemies\n" +
 $"[i:{ModContent.ItemType<RainEnchant>()}] Spawns a miniature storm to follow you around\n" +
 $"[i:{ModContent.ItemType<FrostEnchant>()}] Icicles will start to appear around you\n" +

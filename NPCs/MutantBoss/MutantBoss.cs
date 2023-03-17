@@ -44,7 +44,7 @@ namespace FargowiltasSouls.NPCs.MutantBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yharim");
+            DisplayName.SetDefault("Godkiller Yharim");
 
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.NoMultiplayerSmoothingByType[NPC.type] = true;
