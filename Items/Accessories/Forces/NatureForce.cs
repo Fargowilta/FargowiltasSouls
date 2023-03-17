@@ -41,7 +41,7 @@ $"[i:{ModContent.ItemType<ShroomiteEnchant>()}] All attacks gain trails of mushr
 
             string tooltip_ch =
 @"[i:{0}] 在你受到伤害后大幅增加你的生命恢复速度，直至你恢复的生命量等同于这次受到的伤害量
-[i:{1}] 引燃你附近的敌人
+[i:{1}] 引燃你附近较大范围内的敌人
 [i:{1}] 所有敌怪在狱火圈内时多受到50%伤害
 [i:{2}] 召唤一个微型雨云跟着你的光标
 [i:{2}] 拥有浮游圈的效果
