@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Items.Summons
 
         public override bool? UseItem(Player player)
         {
-            FargoSoulsUtil.SpawnBossTryFromNPC(player.whoAmI, "Fargowiltas/Deviantt", ModContent.NPCType<DeviBoss>());
+            FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<DeviBoss>());
             return true;
         }
 

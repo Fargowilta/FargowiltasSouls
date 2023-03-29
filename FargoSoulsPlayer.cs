@@ -474,9 +474,9 @@ namespace FargowiltasSouls
         public int shieldTimer;
         public int shieldCD;
         public bool wasHoldingShield;
-        public int LightslingerHitShots = 0;
+        public int LightslingerHitShots;
 
-        public bool NoUsingItems;
+        public int NoUsingItems;
 
         public bool HasDash;
 
@@ -760,6 +760,9 @@ namespace FargowiltasSouls
             AttackSpeed = 1f;
             if (Screenshake > 0)
                 Screenshake--;
+
+            if (NoUsingItems > 0)
+                NoUsingItems--;
 
             //            Wood = false;
 
@@ -1098,7 +1101,7 @@ namespace FargowiltasSouls
             lightningRodTimer = 0;
 
             BuilderMode = false;
-            NoUsingItems = false;
+            NoUsingItems = 0;
 
             FreezeTime = false;
             freezeLength = 0;
@@ -1810,8 +1813,6 @@ namespace FargowiltasSouls
 
         public override void PostUpdate()
         {
-            NoUsingItems = false; //set here so that when something else sets this, it actually blocks items
-
             if (!FreeEaterSummon && !Main.npc.Any(n => n.active && (n.type == NPCID.EaterofWorldsHead || n.type == NPCID.EaterofWorldsBody || n.type == NPCID.EaterofWorldsTail)))
             {
                 FreeEaterSummon = true;
@@ -2796,15 +2797,6 @@ namespace FargowiltasSouls
 
             if (npc.GetGlobalNPC<FargoSoulsGlobalNPC>().CurseoftheMoon)
                 damage = (int)(damage * 0.8);
-
-            if (ParryDebuffImmuneTime > 0 || BetsyDashing || GoldShell || Player.HasBuff(ModContent.BuffType<ShellHide>()) || MonkDashing > 0 || CobaltImmuneTimer > 0)
-            {
-                foreach (int debuff in FargowiltasSouls.DebuffIDs) //immune to all debuffs
-                {
-                    if (!Player.HasBuff(debuff))
-                        Player.buffImmune[debuff] = true;
-                }
-            }
         }
 
         public override void ModifyHitByProjectile(Projectile proj, ref int damage, ref bool crit)
@@ -2827,15 +2819,6 @@ namespace FargowiltasSouls
 
             //if (npc.GetGlobalNPC<FargoSoulsGlobalNPC>().CurseoftheMoon)
             //damage = (int)(damage * 0.8);
-
-            if (ParryDebuffImmuneTime > 0 || BetsyDashing || GoldShell || Player.HasBuff(ModContent.BuffType<ShellHide>()) || MonkDashing > 0)
-            {
-                foreach (int debuff in FargowiltasSouls.DebuffIDs) //immune to all debuffs
-                {
-                    if (!Player.HasBuff(debuff))
-                        Player.buffImmune[debuff] = true;
-                }
-            }
         }
 
         public override void OnHitByNPC(NPC npc, int damage, bool crit)

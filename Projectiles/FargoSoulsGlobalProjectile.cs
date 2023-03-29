@@ -1015,7 +1015,7 @@ namespace FargowiltasSouls.Projectiles
                 crit = true;
             }
 
-            if (tikiMinion && tikiTimer > MAX_TIKI_TIMER * projectile.MaxUpdates / 2)
+            if (tikiMinion && tikiTimer > MAX_TIKI_TIMER * projectile.MaxUpdates / 4)
             {
                 crit = true;
             }

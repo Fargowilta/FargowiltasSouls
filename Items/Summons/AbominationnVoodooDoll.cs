@@ -74,7 +74,7 @@ namespace FargowiltasSouls.Items.Summons
                             abom.life = 0;
                             abom.StrikeNPC(9999, 0f, 0);
 
-                            FargoSoulsUtil.SpawnBossTryFromNPC(p, "Fargowiltas/Mutant", ModContent.NPCType<MutantBoss>());
+                            FargoSoulsUtil.SpawnBossNetcoded(Main.player[p], ModContent.NPCType<MutantBoss>(), false);
 
                             Item.active = false;
                             Item.type = 0;

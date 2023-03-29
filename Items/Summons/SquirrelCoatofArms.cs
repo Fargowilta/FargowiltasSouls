@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Items.Summons
 
         public override bool? UseItem(Player player)
         {
-            FargoSoulsUtil.SpawnBossTryFromNPC(player.whoAmI, "Fargowiltas/Squirrel", ModContent.NPCType<TrojanSquirrel>());
+            FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<TrojanSquirrel>());
             return true;
         }
 

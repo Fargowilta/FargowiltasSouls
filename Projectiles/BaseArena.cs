@@ -115,7 +115,7 @@ namespace FargowiltasSouls.Projectiles
                                 player.mount.Dismount(player);
                             player.velocity.X = 0f;
                             player.velocity.Y = -0.4f;
-                            player.GetModPlayer<FargoSoulsPlayer>().NoUsingItems = true;
+                            player.GetModPlayer<FargoSoulsPlayer>().NoUsingItems = 2;
                         }
 
                         Vector2 movement = Projectile.Center - player.Center;

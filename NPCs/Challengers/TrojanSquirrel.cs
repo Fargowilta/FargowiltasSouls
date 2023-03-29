@@ -257,6 +257,23 @@ namespace FargowiltasSouls.NPCs.Challengers
             arms = FargoSoulsUtil.NPCExists(reader.ReadInt32());
         }
 
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (ModContent.TryFind("Fargowiltas", "Squirrel", out ModNPC modNPC))
+            {
+                int n = NPC.FindFirstNPC(modNPC.Type);
+                if (n != -1 && n != Main.maxNPCs)
+                {
+                    NPC.Bottom = Main.npc[n].Bottom;
+
+                    Main.npc[n].life = 0;
+                    Main.npc[n].active = false;
+                    if (Main.netMode == NetmodeID.Server)
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
+                }
+            }
+        }
+
         private void TileCollision(bool fallthrough = false, bool dropDown = false)
         {
             bool onPlatforms = false;

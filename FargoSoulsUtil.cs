@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.ItemDropRules.Conditions;
 using FargowiltasSouls.NPCs;
+using FargowiltasSouls.NPCs.Challengers;
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Toggler;
 using Microsoft.Xna.Framework;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
@@ -543,44 +545,26 @@ namespace FargowiltasSouls
                 //&& (projectile.DamageType != DamageClass.Default || ProjectileID.Sets.MinionShot[projectile.type]);
         }
 
-        public static void SpawnBossTryFromNPC(int playerTarget, int originalType, int bossType)
+        public static void SpawnBossNetcoded(Player player, int bossType, bool obeyLocalPlayerCheck = true)
         {
-            if (Main.netMode != NetmodeID.SinglePlayer)
-                NPC.SpawnOnPlayer(playerTarget, bossType);
-
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-                return;
-
-            NPC npc = NPCExists(NPC.FindFirstNPC(originalType));
-            if (npc != null)
+            if (player.whoAmI == Main.myPlayer || !obeyLocalPlayerCheck)
             {
-                Vector2 pos = npc.Bottom;
+                // If the player using the item is the client
+                // (explicitely excluded serverside here)
+                SoundEngine.PlaySound(SoundID.Roar, player.position);
 
-                npc.life = 0;
-                npc.active = false;
-                if (Main.netMode == NetmodeID.Server)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
+                    // If the player is not in multiplayer, spawn directly
+                    NPC.SpawnOnPlayer(player.whoAmI, bossType);
                 }
-                else //todo, figure out how to make this work 100% consistent in mp
+                else
                 {
-                    int n = NewNPCEasy(NPC.GetBossSpawnSource(playerTarget), pos, bossType);
-                    if (n != Main.maxNPCs)
-                    {
-                        Main.npc[n].Bottom = pos;
-                        if (Main.netMode == NetmodeID.Server)
-                            NetMessage.SendData(MessageID.SyncNPC, number: n);
-
-                        PrintText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[n].TypeName), new Color(175, 75, 255));
-                    }
+                    // If the player is in multiplayer, request a spawn
+                    // This will only work if NPCID.Sets.MPAllowedEnemies[type] is true, set in NPC code
+                    NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: bossType);
                 }
             }
-        }
-
-        public static void SpawnBossTryFromNPC(int playerTarget, string originalType, int bossType)
-        {
-            int type = ModContent.TryFind(originalType, out ModNPC modNPC) ? modNPC.Type : 0;
-            SpawnBossTryFromNPC(playerTarget, type, bossType);
         }
 
         public static bool IsProjSourceItemUseReal(Projectile proj, IEntitySource source)

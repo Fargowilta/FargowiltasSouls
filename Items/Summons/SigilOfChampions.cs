@@ -74,14 +74,14 @@ Not consumed on use");
                 if (player.altFunctionUse == 2)
                     PrintChampMessage("Spirit");
                 else
-                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<SpiritChampion>());
+                    FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<SpiritChampion>());
             }
             else if (player.ZoneUnderworldHeight)
             {
                 if (player.altFunctionUse == 2)
                     PrintChampMessage("Earth");
                 else
-                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<EarthChampion>());
+                    FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<EarthChampion>());
             }
             else if (player.Center.Y >= Main.worldSurface * 16) //is underground
             {
@@ -90,14 +90,14 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Nature");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NatureChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<NatureChampion>());
                 }
                 else
                 {
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Terra");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TerraChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<TerraChampion>());
                 }
             }
             else //above ground
@@ -107,28 +107,28 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Cosmos");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<CosmosChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<CosmosChampion>());
                 }
                 else if (player.ZoneBeach)
                 {
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Will");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<WillChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<WillChampion>());
                 }
                 else if (player.ZoneHallow && Main.dayTime)
                 {
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Life");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<LifeChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<LifeChampion>());
                 }
                 else if ((player.ZoneCorrupt || player.ZoneCrimson) && !Main.dayTime) //night
                 {
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Shadow");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<ShadowChampion>());
                 }
                 else if (!player.ZoneHallow && !player.ZoneCorrupt && !player.ZoneCrimson
                     && !player.ZoneDesert && !player.ZoneSnow && !player.ZoneJungle && Main.dayTime) //purity day
@@ -136,7 +136,7 @@ Not consumed on use");
                     if (player.altFunctionUse == 2)
                         PrintChampMessage("Timber");
                     else
-                        NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<TimberChampion>());
+                        FargoSoulsUtil.SpawnBossNetcoded(player, ModContent.NPCType<TimberChampion>());
                 }
                 else //nothing to summon
                 {
