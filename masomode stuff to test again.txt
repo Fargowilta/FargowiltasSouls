@@ -160,4 +160,7 @@ necro ench
 removed cascade from obsidian ench recipe, making it pre-skeletron
 increased obsidian ench cooldown from 30 to 40 ticks (force cd unchanged)
 adjusted how spears interact with adam ench (yes i know it breaks north pole idk how to fix it)
-did something so that attack speed doesn't reduce spear range
+
+fixed spear crash with adam?
+fixed necro ench spawning graves with 0 damage
+fixed magical bulb regen breaking in multiplayer

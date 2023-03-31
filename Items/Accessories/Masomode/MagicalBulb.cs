@@ -47,7 +47,8 @@ Attracts a legendary plant's offspring which flourishes in combat
             player.buffImmune[ModContent.BuffType<Swarming>()] = true;
 
             Point pos = player.Center.ToTileCoordinates();
-            if (pos.X > 0 && pos.Y > 0 && pos.X < Main.maxTilesX && pos.Y < Main.maxTilesY)
+            if (pos.X > 0 && pos.Y > 0 && pos.X < Main.maxTilesX && pos.Y < Main.maxTilesY
+                && player.whoAmI == Main.myPlayer) //check for multiplayer hopefully
             {
                 float lightStrength = Lighting.GetColor(pos).ToVector3().Length();
                 float ratio = lightStrength / 1.732f; //this value is 1,1,1 lighting

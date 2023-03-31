@@ -66,7 +66,9 @@ Effects of Bone Glove
         {
             if (player.ownedProjectileCounts[ModContent.ProjectileType<NecroGrave>()] < 15)
             {
-                Projectile.NewProjectile(player.GetSource_Misc(""), npc.Bottom, new Vector2(0, -4), ModContent.ProjectileType<NecroGrave>(), 0, 0, player.whoAmI, npc.lifeMax / 3);
+                int damage = npc.lifeMax / 3;
+                if (damage > 0)
+                    Projectile.NewProjectile(player.GetSource_Misc(""), npc.Bottom, new Vector2(0, -4), ModContent.ProjectileType<NecroGrave>(), 0, 0, player.whoAmI, damage);
 
                 //if (modPlayer.ShadowForce || modPlayer.WizardEnchantActive)
                 //{
@@ -87,7 +89,9 @@ Effects of Bone Glove
             {
                 globalNPC.NecroDamage = 0;
 
-                Projectile.NewProjectile(player.GetSource_Misc(""), npc.Bottom, new Vector2(0, -4), ModContent.ProjectileType<NecroGrave>(), 0, 0, player.whoAmI, npc.lifeMax / 25);
+                int dam = npc.lifeMax / 25;
+                if (dam > 0)
+                    Projectile.NewProjectile(player.GetSource_Misc(""), npc.Bottom, new Vector2(0, -4), ModContent.ProjectileType<NecroGrave>(), 0, 0, player.whoAmI, dam);
             }
         }
 

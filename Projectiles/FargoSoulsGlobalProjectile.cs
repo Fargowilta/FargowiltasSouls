@@ -304,15 +304,6 @@ namespace FargowiltasSouls.Projectiles
                 TungstenEnchant.TungstenIncreaseProjSize(projectile, modPlayer, source);
             }
 
-            if (projectile.aiStyle == ProjAIStyleID.Spear && modPlayer.AttackSpeed > 1)
-            {
-                //still doesn't work properly, very high aspeed slightly extends spear range
-                //better than shortening it, fuck it we ball
-                float something = modPlayer.AttackSpeed - 1f;
-                something /= 3;
-                projectile.velocity *= 1f + something;
-            }
-
             if (modPlayer.HuntressEnchantActive && player.GetToggleValue("Huntress")
                 && FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
                 && projectile.damage > 0 && projectile.friendly && !projectile.hostile && !projectile.trap
@@ -325,7 +316,8 @@ namespace FargowiltasSouls.Projectiles
 
             if (modPlayer.AdamantiteEnchantItem != null && player.GetToggleValue("Adamantite")
                 && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, false)
-                && CanSplit && Array.IndexOf(noSplit, projectile.type) <= -1)
+                && CanSplit && Array.IndexOf(noSplit, projectile.type) <= -1
+                && projectile.aiStyle != ProjAIStyleID.Spear)
             {
                 if (projectile.owner == Main.myPlayer
                     && (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
