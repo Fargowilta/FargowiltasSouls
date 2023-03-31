@@ -156,7 +156,7 @@ namespace FargowiltasSouls.Projectiles.Souls
                 Color color26 = lightColor;
                 color26 = Projectile.GetAlpha(color26);
 
-                if (Projectile.ai[0] % 8 < 4)
+                if (Projectile.ai[0] % 10 < 5)
                     color26.A = 0;
 
                 SpriteEffects effects = SpriteEffects.None;

@@ -85,7 +85,7 @@ While standing in lava or lava wet, your attacks spawn explosions and apply Fire
             }
             else
             {
-                modPlayer.ObsidianCD = 30;
+                modPlayer.ObsidianCD = 40;
             }
         }
 
@@ -96,7 +96,7 @@ While standing in lava or lava wet, your attacks spawn explosions and apply Fire
             .AddIngredient(ItemID.ObsidianShirt)
             .AddIngredient(ItemID.ObsidianPants)
             .AddIngredient(ItemID.MoltenSkullRose) //molten skull rose
-            .AddIngredient(ItemID.Cascade)
+            //.AddIngredient(ItemID.Cascade)
             .AddIngredient(ItemID.Fireblossom)
 
             .AddTile(TileID.DemonAltar)

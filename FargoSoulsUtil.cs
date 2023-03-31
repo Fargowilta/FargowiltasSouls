@@ -359,21 +359,33 @@ namespace FargowiltasSouls
             Main.gore[index7].velocity *= 0.4f;
         }
 
-        public static int FindClosestHostileNPC(Vector2 location, float detectionRange, bool lineCheck = false)
+        public static int FindClosestHostileNPC(Vector2 location, float detectionRange, bool lineCheck = false, bool prioritizeBoss = false)
         {
             NPC closestNpc = null;
-            foreach (NPC n in Main.npc)
+
+            void FindClosest(IEnumerable<NPC> npcs)
             {
-                if (n.CanBeChasedBy() && n.Distance(location) < detectionRange && (!lineCheck || Collision.CanHitLine(location, 0, 0, n.Center, 0, 0)))
+                float range = detectionRange;
+                foreach (NPC n in npcs)
                 {
-                    detectionRange = n.Distance(location);
-                    closestNpc = n;
+                    if (n.CanBeChasedBy() && n.Distance(location) < range
+                        && (!lineCheck || Collision.CanHitLine(location, 0, 0, n.Center, 0, 0)))
+                    {
+                        range = n.Distance(location);
+                        closestNpc = n;
+                    }
                 }
             }
+
+            if (prioritizeBoss)
+                FindClosest(Main.npc.Where(n => n.boss));
+            if (closestNpc == null)
+                FindClosest(Main.npc);
+            
             return closestNpc == null ? -1 : closestNpc.whoAmI;
         }
 
-        public static int FindClosestHostileNPCPrioritizingMinionFocus(Projectile projectile, float detectionRange, bool lineCheck = false, Vector2 center = default)
+        public static int FindClosestHostileNPCPrioritizingMinionFocus(Projectile projectile, float detectionRange, bool lineCheck = false, Vector2 center = default, bool prioritizeBoss = false)
         {
             if (center == default)
                 center = projectile.Center;
@@ -384,7 +396,7 @@ namespace FargowiltasSouls
             {
                 return minionAttackTargetNpc.whoAmI;
             }
-            return FindClosestHostileNPC(center, detectionRange, lineCheck);
+            return FindClosestHostileNPC(center, detectionRange, lineCheck, prioritizeBoss);
         }
 
         public static void DustRing(Vector2 location, int max, int dust, float speed, Color color = default, float scale = 1f, bool noLight = false)

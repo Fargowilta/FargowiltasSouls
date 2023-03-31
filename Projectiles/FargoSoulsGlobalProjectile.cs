@@ -304,6 +304,15 @@ namespace FargowiltasSouls.Projectiles
                 TungstenEnchant.TungstenIncreaseProjSize(projectile, modPlayer, source);
             }
 
+            if (projectile.aiStyle == ProjAIStyleID.Spear && modPlayer.AttackSpeed > 1)
+            {
+                //still doesn't work properly, very high aspeed slightly extends spear range
+                //better than shortening it, fuck it we ball
+                float something = modPlayer.AttackSpeed - 1f;
+                something /= 3;
+                projectile.velocity *= 1f + something;
+            }
+
             if (modPlayer.HuntressEnchantActive && player.GetToggleValue("Huntress")
                 && FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
                 && projectile.damage > 0 && projectile.friendly && !projectile.hostile && !projectile.trap
@@ -320,14 +329,15 @@ namespace FargowiltasSouls.Projectiles
             {
                 if (projectile.owner == Main.myPlayer
                     && (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
-                    || (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.minion || sourceProj.sentry || (ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))))
+                    || (source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.aiStyle == ProjAIStyleID.Spear || sourceProj.minion || sourceProj.sentry || (ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))))
                 {
+                    //apen is inherited from proj to proj
+                    projectile.ArmorPenetration += projectile.damage / 2;
+
                     AdamantiteEnchant.AdamantiteSplit(projectile, modPlayer);
                 }
 
                 AdamModifier = modPlayer.EarthForce ? 3 : 2;
-
-                projectile.ArmorPenetration += projectile.damage / 2;
             }
 
             if (projectile.bobber && CanSplit && source is EntitySource_ItemUse)
@@ -545,6 +555,11 @@ namespace FargowiltasSouls.Projectiles
 
             if (firstTick)
             {
+                if (projectile.aiStyle == ProjAIStyleID.Spear)
+                {
+
+                }
+
                 if (modPlayer.NinjaEnchantItem != null && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, true) && projectile.type != ProjectileID.WireKite)
                 {
                     NinjaEnchant.NinjaSpeedSetup(modPlayer, projectile, this);
@@ -991,7 +1006,7 @@ namespace FargowiltasSouls.Projectiles
 
                 int actualDefenseIgnored = Math.Min(defenseIgnored, target.defense);
                 int effectOnDamage = actualDefenseIgnored / 2;
-
+                
                 return effectOnDamage / modifier;
             }
 

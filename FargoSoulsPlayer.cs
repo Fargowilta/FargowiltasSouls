@@ -459,6 +459,7 @@ namespace FargowiltasSouls
         public bool CerebralMindbreak;
         public bool NanoInjection;
         public bool Stunned;
+        public bool HaveCheckedAttackSpeed;
 
 
 
@@ -1010,6 +1011,7 @@ namespace FargowiltasSouls
             CerebralMindbreak = false;
             NanoInjection = false;
             Stunned = false;
+            HaveCheckedAttackSpeed = false;
             BoxofGizmos = false;
             //IronEnchantShield = false;
             SilverEnchantItem = null;
@@ -1834,8 +1836,10 @@ namespace FargowiltasSouls
             int useTime = item.useTime;
             int useAnimate = item.useAnimation;
 
-            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
+            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0 || HaveCheckedAttackSpeed)
                 return base.UseSpeedMultiplier(item);
+
+            HaveCheckedAttackSpeed = true;
 
             if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
             {
@@ -1876,7 +1880,7 @@ namespace FargowiltasSouls
             //checks so weapons dont break
             while (useTime / AttackSpeed < 1)
             {
-                AttackSpeed -= .02f;
+                AttackSpeed -= .01f;
             }
 
             //modify attack speed so it rounds up
@@ -1885,13 +1889,13 @@ namespace FargowiltasSouls
             {
                 while (useTime / AttackSpeed < useTimeRoundUp)
                 {
-                    AttackSpeed -= .02f; //small increments to avoid skipping past any integers
+                    AttackSpeed -= .01f; //small increments to avoid skipping past any integers
                 }
             }
 
             while (useAnimate / AttackSpeed < 3)
             {
-                AttackSpeed -= .02f;
+                AttackSpeed -= .01f;
             }
 
             if (AttackSpeed < .1f)

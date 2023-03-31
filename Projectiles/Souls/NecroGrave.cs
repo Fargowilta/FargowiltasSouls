@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,6 +32,12 @@ namespace FargowiltasSouls.Projectiles.Souls
             return false;
         }
 
+        public override void OnSpawn(IEntitySource source)
+        {
+            //move it up when spawned, synchronizes with necro ench spawning at npc.Bottom
+            Projectile.Bottom = Projectile.Center;
+        }
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -43,30 +50,37 @@ namespace FargowiltasSouls.Projectiles.Souls
                 SoundEngine.PlaySound(SoundID.Item2, Projectile.Center);
             }
 
-            if (!player.GetModPlayer<FargoSoulsPlayer>().WizardEnchantActive && !player.GetModPlayer<FargoSoulsPlayer>().ShadowForce)
+            if (player.GetModPlayer<FargoSoulsPlayer>().WizardEnchantActive || player.GetModPlayer<FargoSoulsPlayer>().ShadowForce)
+            {
+                Projectile.velocity.Y = 0;
+
+                for (int i = 0; i < 4; i++) //smoke to make the floating convincing
+                {
+                    int d = Dust.NewDust(Projectile.BottomLeft, Projectile.width, 0, DustID.Wraith);
+                    Main.dust[d].position.Y -= 4;
+                    Main.dust[d].velocity *= 0.5f;
+                    Main.dust[d].noGravity = true;
+                }
+            }
+            else
             {
                 Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
                 if (Projectile.velocity.Y > 16f)
-                {
                     Projectile.velocity.Y = 16f;
-                }
             }
 
-            if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && Main.LocalPlayer.Hitbox.Intersects(Projectile.Hitbox))
+            if (Main.LocalPlayer.active && !Main.LocalPlayer.dead && !Main.LocalPlayer.ghost && Main.LocalPlayer.Hitbox.Intersects(Projectile.Hitbox)
+                && player.GetModPlayer<FargoSoulsPlayer>().NecroEnchantActive && player.GetToggleValue("Necro"))
             {
-                if (player.GetModPlayer<FargoSoulsPlayer>().NecroEnchantActive && player.GetToggleValue("Necro"))
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -20), ModContent.ProjectileType<DungeonGuardianNecro>(), (int)Projectile.ai[0], 1, Projectile.owner);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -12), ModContent.ProjectileType<DungeonGuardianNecro>(), (int)Projectile.ai[0], 1, Projectile.owner);
 
-                //dust ring
-                int num1 = 36;
-                for (int index1 = 0; index1 < num1; ++index1)
+                SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
+
+                for (int i = 0; i < 36; i++)
                 {
-                    Vector2 vector2_1 = (Vector2.Normalize(Projectile.velocity) * new Vector2((float)Projectile.width / 2f, (float)Projectile.height) * 0.75f).RotatedBy((double)(index1 - (num1 / 2 - 1)) * 6.28318548202515 / (double)num1, new Vector2()) + Projectile.Center;
-                    Vector2 vector2_2 = vector2_1 - Projectile.Center;
-                    int index2 = Dust.NewDust(vector2_1 + vector2_2, 0, 0, DustID.Blood, vector2_2.X * 2f, vector2_2.Y * 2f, 100, new Color(), 1.4f);
-                    Main.dust[index2].noGravity = true;
-                    Main.dust[index2].noLight = true;
-                    Main.dust[index2].velocity = vector2_2;
+                    int d = Dust.NewDust(Projectile.Center, 0, 0, DustID.Blood, 0, -3, Scale: 2f);
+                    Main.dust[d].velocity *= 2;
+                    Main.dust[d].noGravity = Main.rand.NextBool();
                 }
 
                 Projectile.Kill();
@@ -96,7 +110,7 @@ namespace FargowiltasSouls.Projectiles.Souls
 
             Color color26 = lightColor;
             color26 = Projectile.GetAlpha(color26);
-            if (Projectile.timeLeft % 8 < 4)
+            if (Projectile.timeLeft % 10 < 5)
                 color26.A = 0;
 
             SpriteEffects effects = SpriteEffects.None;
