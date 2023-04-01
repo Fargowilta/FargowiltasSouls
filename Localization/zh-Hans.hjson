@@ -663,7 +663,7 @@ Mods: {
 			PhantasmalSphere2: 幻影球
 			PrimeDeathray: 烈焰死亡射线
 			PrimeLaser: 机械激光
-			PrismaRegaliaProj: 七彩棱晶之御枪
+			PrismaRegaliaProj: 晶霞华枪
 			RazorbladeTyphoonFriendly: 利刃台风
 			RefractorBlaster2Held: 衍射暗星炮
 			RetiDeathray: 烈焰死亡射线
@@ -2091,8 +2091,8 @@ Mods: {
 			ShadowDodge: 永恒模式：闪避会降低你的攻击速度
 			IceBarrier: 永恒模式：你造成的伤害减少10%
 			SpearRework: 重做长矛挥舞动画
-			PalladiumPikeRework: 暴击敌人后大幅增加生命恢复速度
-			CobaltNaginataRework: 暴击敌人会造成小范围爆炸
+			PalladiumPikeRework: 击中敌人后大幅增加生命恢复速度
+			CobaltNaginataRework: 击中敌人会造成小范围爆炸
 			MythrilHalberdRework: 一段时间不攻击后造成更多伤害
 			TitaniumTridentRework: 长按左键蓄力以投掷长矛而非挥舞
 		}
