@@ -1,27 +1,16 @@
 Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls accessories, as well as a variety of bosses and minibosses.
 Features the highly challenging Eternity Mode!
 
-NEW UPDATE - V 1.4.1.1
--Fix various bugs and make some balance changes.
+NEW UPDATE - V 1.4.2
+-Vastly improves the mod in every respect possible
+-Revolutionize gameplay with a slew of highly engaging new mechanics
+-Adds another 200 hours of polished content
+-Fully fleshes out the deeply moving and philosophically stimulating lore
+-Fixes every bug forever
+-Achieved perfect balance to a point that no further balance changes will be needed again ever
 
 -See the wiki for full details!
 
-NEW UPDATE - V 1.4.1
--Added Lieflight and weapon drops
--Added custom toggle presets 
--Reworked and rebalanced several accessories, weapons, and various difficulty adjustments
 
-Fargo的魂石模组是一个内容模组，添加了强大的魔石以及魂类饰品，也改动了各种各样的Boss和小Boss。
-以高度挑战性的永恒模式作为招牌！
-
-新更新 - V 1.4.1.1
--修复了各种Bug，进行了一些平衡调整。
-
--查看Wiki以获取全部信息！
--Fargo魂石的大量内部更改日志请见Bilibili @小小法师的大决心 ！
-
-新更新 - V 1.4.1
--添加了飘渺游光Boss和它的掉落武器
--添加了自定义饰品效果配置
--重做、重新平衡了很多饰品和武器，以及各种难度调整
-
+Fargo�Ļ�ʯģ����һ������ģ�飬������ǿ���ħʯ�Լ�������Ʒ��Ҳ�Ķ��˸��ָ�����Boss��СBoss��
+�Ը߶���ս�Ե�����ģʽ��Ϊ���ƣ�
