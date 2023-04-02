@@ -26,7 +26,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             Vertical
         }
 
-        protected BaseDeathray(float maxTime, float transparency = 0f, float hitboxModifier = 1f, int drawDistance = 2400, int grazeCD = 15, TextureSheeting sheeting = TextureSheeting.Horizontal)
+        protected BaseDeathray(float maxTime, float transparency = 0f, float hitboxModifier = 1f, int drawDistance = 3000, int grazeCD = 15, TextureSheeting sheeting = TextureSheeting.Horizontal)
         {
             this.maxTime = maxTime;
             this.transparency = transparency;

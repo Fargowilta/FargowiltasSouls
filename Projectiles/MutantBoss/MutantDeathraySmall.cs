@@ -125,10 +125,13 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public void DrawPixelPrimitives(SpriteBatch spriteBatch)
         {
+            if (Projectile.hide)
+                return;
+
             LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:GenericDeathray"]);
 
             // Get the laser end position.
-            Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance;
+            Vector2 laserEnd = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitY) * drawDistance * 1.1f;
 
             // Create 8 points that span across the draw distance from the projectile center.
 
