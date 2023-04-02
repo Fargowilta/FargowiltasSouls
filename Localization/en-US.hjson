@@ -299,7 +299,8 @@ Mods: {
 			Shadowflame: "{0} burned up in shadowy flames."
 			NanoInjection: "{0} was consumed from within by nanites."
 
-			Fused:"{0} was blown to bits."
+			Fused: "{0} was blown to bits."
+			ReverseManaFlow: "{0} was destroyed by their own magic."
 			Nutcracker: "{0} had his nuts cracked."
 			Derpling: "{0} was sucked dry."
 			Snatchers: "{0} became a man eaten by Man Eater."

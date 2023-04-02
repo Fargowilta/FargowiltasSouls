@@ -1302,6 +1302,7 @@ Mods: {
 			NanoInjection: "{0}被纳米机器人从内部吞噬。"
 
 			Fused:"{0}被炸成了碎片。"
+			ReverseManaFlow: "{0}被自己的魔法摧毁了。"
 			Nutcracker: "{0}的“坚果”裂开了。"
 			Derpling: "{0}被吸干了。"
 			Snatchers: "{0}被食人怪咬成了“被吃掉”的男人。"
