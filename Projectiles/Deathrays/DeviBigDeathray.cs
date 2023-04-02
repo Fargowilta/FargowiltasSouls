@@ -186,6 +186,9 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             if (Projectile.velocity == Vector2.Zero)
                 return;
 
+            if (Projectile.hide)
+                return;
+
             // Initialize the drawers.
             LaserDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["FargowiltasSouls:DeviBigDeathray"]);
             RingDrawer ??= new PrimDrawer(RingWidthFunction, RingColorFunction, GameShaders.Misc["FargowiltasSouls:DeviRing"]);

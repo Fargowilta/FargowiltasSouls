@@ -164,3 +164,6 @@ adjusted how spears interact with adam ench (yes i know it breaks north pole idk
 fixed spear crash with adam?
 fixed necro ench spawning graves with 0 damage
 fixed magical bulb regen breaking in multiplayer
+
+fixed tips of mutant's predictive spear dash rays being visually misleading
+fixed lag issues with mutant's homing phantasmal eyes
