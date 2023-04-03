@@ -1926,7 +1926,8 @@ namespace FargowiltasSouls
             //toolbox
             if (Player.whoAmI == Main.myPlayer)
             {
-                Player.blockRange += 10;
+                Player.tileRangeX += 10;
+                Player.tileRangeY += 10;
             }
             //gizmo pack
             Player.autoPaint = true;
@@ -1972,11 +1973,13 @@ namespace FargowiltasSouls
                 //toolbox
                 if (Player.HeldItem.createWall == 0) //tiles
                 {
-                    Player.blockRange += 60;
+                    Player.tileRangeX += 60;
+                    Player.tileRangeY += 60;
                 }
                 else //walls
                 {
-                    Player.blockRange += 20;
+                    Player.tileRangeX += 20;
+                    Player.tileRangeY += 20;
                 }
             }
 

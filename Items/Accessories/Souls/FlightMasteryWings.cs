@@ -22,14 +22,20 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             //}
             //else
             //{
-            player.wingsLogic = ArmorIDs.Wing.Hoverboard;
+            player.wingsLogic = ArmorIDs.Wing.LongTrailRainbowWings;
             ascentWhenFalling = 0.85f;
             if (player.GetToggleValue("FlightMasteryGravity", false))
                 ascentWhenFalling *= 1.5f;
             ascentWhenRising = 0.25f;
             maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 3f;
+            maxAscentMultiplier = 1.75f;
             constantAscend = 0.135f;
+            if (player.controlUp)
+            {
+                ascentWhenFalling *= 3f;
+                ascentWhenRising *= 3f;
+                constantAscend *= 3f;
+            }
             //}
         }
 

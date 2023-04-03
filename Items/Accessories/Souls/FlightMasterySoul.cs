@@ -18,6 +18,7 @@ namespace FargowiltasSouls.Items.Accessories.Souls
             Tooltip.SetDefault(
 @"Allows for infinite flight
 Hold DOWN and JUMP to hover
+Hold UP to boost faster
 Increases gravity
 Allows the control of gravity
 'Ascend'");

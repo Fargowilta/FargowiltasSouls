@@ -51,23 +51,23 @@ Summons a pet Magic Lantern
             Item.value = 750000;
 
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.useTime = 1;
             Item.UseSound = SoundID.Item6;
-            Item.useAnimation = 1;
+            Item.useTime = Item.useAnimation = 90;
         }
 
         protected override Color? nameColor => new Color(255, 239, 2);
 
-        public override bool? UseItem(Player player)
+        public override bool? UseItem(Player player) => true;
+
+        public override void UseItemFrame(Player player)
         {
-            player.Spawn(PlayerSpawnContext.RecallFromItem);
-
-            for (int num348 = 0; num348 < 70; num348++)
+            if (player.itemTime == player.itemTimeMax / 2)
             {
-                Dust.NewDust(player.position, player.width, player.height, 15, 0f, 0f, 150, default(Color), 1.5f);
-            }
+                player.Spawn(PlayerSpawnContext.RecallFromItem);
 
-            return true;
+                for (int d = 0; d < 70; d++)
+                    Dust.NewDust(player.position, player.width, player.height, 15, 0f, 0f, 150, default(Color), 1.5f);
+            }
         }
 
         public override void UpdateInventory(Player player)

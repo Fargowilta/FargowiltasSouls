@@ -167,3 +167,9 @@ fixed magical bulb regen breaking in multiplayer
 
 fixed tips of mutant's predictive spear dash rays being visually misleading
 fixed lag issues with mutant's homing phantasmal eyes
+
+flight mastery soul and upgrades
+	have celestial starboard's fast ascent ability
+	reduced max ascension speed to ~100mph (was >170mph, unreasonably high)
+fixed world shaper soul not giving proper tool range up
+adjusted world shaper soul magic mirror implementation

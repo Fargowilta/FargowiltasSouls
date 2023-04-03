@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Items
         {
             DisplayName.SetDefault("Mutant's Gift");
             Tooltip.SetDefault(@"World must be in Expert Mode
-[c/ff0000:Not]] intended for use with Master Mode
+[c/ff0000:Not] intended for use with Master Mode
 Toggles Eternity Mode and enables Master Mode drops
 Deviantt provides a starter pack and progress-based advice
 Improves base stats
