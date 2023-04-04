@@ -1606,7 +1606,7 @@ Mods: {
 
 			FlightMasteryHeader: "{$Mods.FargowiltasSouls.ItemName.FlightMasterySoul}"
 			FlightMasteryInsigniaConfig: 翱翔徽章加速
-			FlightMasteryGravityConfig: 太空中重力正常
+			FlightMasteryGravityConfig: 增加重力
 
 			SupersonicHeader: "{$Mods.FargowiltasSouls.ItemName.SupersonicSoul}"
 			RunSpeedConfig: 提高基础奔跑速度
