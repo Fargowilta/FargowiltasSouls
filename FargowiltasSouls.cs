@@ -88,6 +88,16 @@ namespace FargowiltasSouls
         //    };
         //}
 
+        private void RegisterWiki()
+        {
+            ModLoader.TryGetMod("Wikithis", out Mod wikithis);
+            
+            if (wikithis != null && !main.dedServ)
+            {
+                wikithis.Call("AddModURL", this, "https://terrariamods.wiki.gg/wiki/Fargo's_Mod/{}");
+            }
+        }
+
         public override void Load()
         {
             Instance = this;
@@ -116,6 +126,7 @@ namespace FargowiltasSouls
             _userInterfaceManager.LoadUI();
 
             AddLocalizations();
+            RegisterWiki();
 
             if (Main.netMode != NetmodeID.Server)
             {
