@@ -1535,7 +1535,7 @@ Mods: {
 			MasoSqueakConfig: 击中发出吱吱声
 			MasoPouchConfig: 更强更慢的暗影焰攻击
 			MasoClippedConfig: 造成折翼减益
-			TribalCharmConfig: 武器自动攻击
+			TribalCharmConfig: 武器自动攻击（此效果无视配置常开）
 			TribalCharmClickBonusConfig: 部落挂坠点击加成
 
 			DubiousHeader: "{$Mods.FargowiltasSouls.ItemName.DubiousCircuitry}"
