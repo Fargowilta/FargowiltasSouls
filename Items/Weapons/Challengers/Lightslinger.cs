@@ -10,19 +10,20 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
 {
     public class Lightslinger : SoulsItem
     {
+        const int ReqShots = 40;
         int ShotType = ModContent.ProjectileType<LightslingerShot>();
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lightslinger");
-            Tooltip.SetDefault("Converts bullets to hallowed shots of light\nAfter 25 shots, press Right Click to fire a lightbomb\n25% chance to not consume ammo");
+            Tooltip.SetDefault("Converts bullets to hallowed shots of light\nAfter 40 shots, press Right Click to fire a lightbomb\n25% chance to not consume ammo");
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 40;
+            Item.damage = 22;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 76;
             Item.height = 48;
@@ -54,7 +55,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             return new Vector2(-27f, -12f);
         }
 
-        public override bool AltFunctionUse(Player player) => player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots >= 20 ? true : false;
+        public override bool AltFunctionUse(Player player) => player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots >= ReqShots ? true : false;
         public override bool CanUseItem(Player player)
         {
             if (player.altFunctionUse == 2)
@@ -84,7 +85,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
             }
             else
             {
-                if (++player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots >= 25)
+                if (++player.GetModPlayer<FargoSoulsPlayer>().LightslingerHitShots >= ReqShots)
                     SoundEngine.PlaySound(SoundID.MaxMana, player.Center);
             }
 

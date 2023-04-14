@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Items.Weapons.Challengers
         {
             Item.width = 80;
             Item.height = 80;
-            Item.damage = 50;
+            Item.damage = 22;
             Item.knockBack = 3f;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = Item.useTime = 40;

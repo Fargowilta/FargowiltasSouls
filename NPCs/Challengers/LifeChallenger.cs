@@ -2846,31 +2846,6 @@ namespace FargowiltasSouls.NPCs.Challengers
         const int ChunkSpriteCount = 12;
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) //DRAW BODY AND WINGS
 		{
-            /*if (Draw)
-            {
-			    Texture2D bodytexture = Terraria.GameContent.TextureAssets.Npc[NPC.type].Value;
-                Texture2D wingtexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("NPCs/Challengers/LifeChallenger_Wings", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-                Vector2 drawPos = NPC.Center - screenPos;
-                int currentFrame = NPC.frame.Y / (bodytexture.Height / Main.npcFrameCount[NPC.type]);
-                int wingHeight = wingtexture.Height / Main.npcFrameCount[NPC.type];
-                Rectangle wingRectangle = new Rectangle(0, currentFrame * wingHeight, wingtexture.Width, wingHeight);
-                Vector2 wingOrigin = new Vector2(wingtexture.Width / 2, wingtexture.Height / 2 / Main.npcFrameCount[NPC.type]);
-
-                for (int i = 0; i < NPCID.Sets.TrailCacheLength[NPC.type]; i++)
-                {
-                    Vector2 value4 = NPC.oldPos[i];
-                    double fpf = (int)(60 / Main.npcFrameCount[NPC.type] * RPS); //multiply by sec/rotation)
-                    int oldFrame = (int)((NPC.frameCounter - i) / fpf);
-                    Rectangle oldWingRectangle = new Rectangle(0, oldFrame * wingHeight, wingtexture.Width, wingHeight);
-                    DrawData wingTrailGlow = new DrawData(wingtexture, value4 + NPC.Size / 2f - screenPos + new Vector2(0, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(oldWingRectangle), drawColor * (0.5f / i), NPC.rotation, wingOrigin, NPC.scale, SpriteEffects.None, 0);
-                    GameShaders.Misc["LCWingShader"].UseColor(Color.HotPink).UseSecondaryColor(Color.HotPink);
-                    GameShaders.Misc["LCWingShader"].Apply(wingTrailGlow);
-                    wingTrailGlow.Draw(spriteBatch);
-                }
-
-                spriteBatch.Draw(origin: new Vector2(bodytexture.Width / 2, bodytexture.Height / 2 / Main.npcFrameCount[NPC.type]), texture: bodytexture, position: drawPos, sourceRectangle: NPC.frame, color: drawColor, rotation: BodyRotation, scale: NPC.scale, effects: SpriteEffects.None, layerDepth: 0f);
-                spriteBatch.Draw(origin: wingOrigin, texture: wingtexture, position: drawPos, sourceRectangle: wingRectangle, color: drawColor, rotation: NPC.rotation, scale: NPC.scale, effects: SpriteEffects.None, layerDepth: 0f);
-            }*/
 
             if (Draw)
             {
@@ -2950,7 +2925,7 @@ namespace FargowiltasSouls.NPCs.Challengers
                 Texture2D wingUtexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("NPCs/Challengers/LifeChallengerParts/LifeChallenger_WingUpper", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
                 Texture2D wingLtexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("NPCs/Challengers/LifeChallengerParts/LifeChallenger_WingLower", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
                 Vector2 wingdrawPos = NPC.Center - screenPos;
-                int currentFrame = NPC.frame.Y / (wingUtexture.Height / Main.npcFrameCount[NPC.type]);
+                int currentFrame = NPC.frame.Y;
                 int wingUHeight = wingUtexture.Height / Main.npcFrameCount[NPC.type];
                 Rectangle wingURectangle = new Rectangle(0, currentFrame * wingUHeight, wingUtexture.Width, wingUHeight);
                 int wingLHeight = wingLtexture.Height / Main.npcFrameCount[NPC.type];
@@ -3050,12 +3025,12 @@ namespace FargowiltasSouls.NPCs.Challengers
 
         public override void FindFrame(int frameHeight)
         {
-            Texture2D wingUtexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("NPCs/Challengers/LifeChallengerParts/LifeChallenger_WingUpper", ReLogic.Content.AssetRequestMode.DoNotLoad).Value;
+            //Texture2D wingUtexture = FargowiltasSouls.Instance.Assets.Request<Texture2D>("NPCs/Challengers/LifeChallengerParts/LifeChallenger_WingUpper", ReLogic.Content.AssetRequestMode.DoNotLoad).Value;
             double fpf = 60/10; //  60/fps
             NPC.spriteDirection = NPC.direction;
             NPC.frameCounter += 1;
             NPC.frameCounter %= Main.npcFrameCount[NPC.type] * fpf;
-            NPC.frame.Y = wingUtexture.Height / (Main.npcFrameCount[NPC.type]) * (int)(NPC.frameCounter / fpf);
+            NPC.frame.Y = (int)(NPC.frameCounter / fpf);
         }
         public override void OnKill()
         {
