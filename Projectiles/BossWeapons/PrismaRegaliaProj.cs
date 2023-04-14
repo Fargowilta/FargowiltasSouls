@@ -62,8 +62,10 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.ai[0] ++;
                 if (Projectile.ai[0] == 60 * 3 - 1)
                 {
-                    SoundEngine.PlaySound(SoundID.MaxMana, Projectile.Center + (Projectile.velocity * Projectile.Size.Length()/2));
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ChargeSound"), Projectile.Center + (Projectile.velocity * Projectile.Size.Length()/2));
                 }
+                int d = Dust.NewDust(player.MountedCenter + (Projectile.velocity * Projectile.Size.Length()), 0, 0, DustID.CrystalPulse);
+                Main.dust[d].noGravity = true;
             }
             else
             {
@@ -75,6 +77,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.ai[0] = -1;
                     
                 }
+                /*
                 if (Charged) //charge until spear will hit mouse
                 {
                     //this charge is super janky and unfinished. please do this better than me. the rest is pretty polished though. there's also no sound or dust effects here.
@@ -114,6 +117,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 }
                 else //normal swing
                 {
+                */
                     int duration = (int)(OrigAnimMax / 1.5f);
                     int WaitTime = OrigAnimMax / 5;
 
@@ -151,7 +155,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                     Projectile.ai[1]++;
                     Projectile.velocity = Vector2.Normalize(Projectile.velocity); //store direction
                     Projectile.Center = player.MountedCenter + Vector2.SmoothStep(Projectile.velocity * HoldoutRangeMin, Projectile.velocity * HoldoutRangeMax, Extension);
-                }
+                //}
             }
             Projectile.rotation = Projectile.velocity.ToRotation();
             Projectile.spriteDirection = Projectile.direction;
@@ -168,6 +172,18 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
                 Projectile.rotation += MathHelper.ToRadians(-135f) + (float)Math.PI;
             }
 
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Extension > 0.75f)
+            {
+                Vector2 pos = Projectile.Center + (Projectile.velocity * (Projectile.Size.Length() / 2f));
+                SoundEngine.PlaySound(SoundID.DD2_BookStaffCast, pos);
+                int count = Charged ? 8 : 4;
+                for (int i = 0; i < count; i++)
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Main.rand.NextFloat(MathHelper.TwoPi).ToRotationVector2() * 5,
+                    ModContent.ProjectileType<PrismaRegaliaStar>(), Projectile.damage / 3, Projectile.knockBack, Projectile.owner);
+            }
         }
         public override bool PreDraw(ref Color lightColor)
         {

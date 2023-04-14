@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantCrystalLeaf : ModProjectile
     {
-        //public override string Texture => "Terraria/Images/Projectile_226";
+        public override string Texture => "Terraria/Images/Projectile_226";
 
         public override void SetStaticDefaults()
         {

@@ -2097,8 +2097,8 @@ Mods: {
 			SpearRework: 重做长矛挥舞动画
 			PalladiumPikeRework: 击中敌人后大幅增加生命恢复速度
 			CobaltNaginataRework: 击中敌人会造成小范围爆炸
-			MythrilHalberdRework: 一段时间不攻击后造成更多伤害
-			TitaniumTridentRework: 长按左键蓄力以投掷长矛而非挥舞
+			MythrilHalberdRework: 不攻击持续2秒后下一击造成三倍伤害
+			OrichalcumHalberdRework: Releases flower petals at apex of swing
 		}
 
 		ItemName: {

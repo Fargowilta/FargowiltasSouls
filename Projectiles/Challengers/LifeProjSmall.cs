@@ -58,6 +58,14 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
                 Projectile.Kill();
             }
+            if (Projectile.ai[0] == 45 || Projectile.ai[0] == 90) //hexagon area turning
+            {
+                if (Projectile.ai[1] == 3)
+                    Projectile.velocity = Projectile.velocity.RotatedBy(-Math.PI / 3.0);
+                if (Projectile.ai[1] == 4)
+                    Projectile.velocity = Projectile.velocity.RotatedBy(Math.PI / 3.0);
+            }
+
 
             //flag to be accelerating rain 
             //commented out because rain is unused
@@ -73,7 +81,7 @@ namespace FargowiltasSouls.Projectiles.Challengers
             {
             */
                 //a bit after spawning, become tangible when it finds an open space
-                if (!Projectile.tileCollide && Projectile.ai[0] > 60 * Projectile.MaxUpdates)
+                if ((!Projectile.tileCollide && Projectile.ai[0] > 60 * Projectile.MaxUpdates) && Projectile.ai[1] < 3)
                 {
                     Tile tile = Framing.GetTileSafely(Projectile.Center);
                     if (!(tile.HasUnactuatedTile && Main.tileSolid[tile.TileType] && !Main.tileSolidTop[tile.TileType]))

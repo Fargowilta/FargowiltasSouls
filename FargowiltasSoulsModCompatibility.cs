@@ -250,7 +250,7 @@ namespace FargowiltasSouls
                     }),
                     new List<int> { ModContent.ItemType<FragilePixieLamp>() },
                     false,
-                    "NPCs/Challengers/LifeChallenger_Still"
+                    "NPCs/Challengers/LifeChallenger"
                 );
                 //Add("Boss",
                 //    "CursedCoffin",

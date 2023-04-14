@@ -12,7 +12,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantBomb : ModProjectile
     {
-        //public override string Texture => "Terraria/Images/Projectile_645";
+        public override string Texture => "Terraria/Images/Projectile_645";
 
         public override void SetStaticDefaults()
         {

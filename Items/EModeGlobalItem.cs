@@ -1,8 +1,12 @@
+using FargowiltasSouls.Buffs.Masomode;
+using FargowiltasSouls.Buffs.Souls;
+using FargowiltasSouls.Items.Accessories.Forces;
 using FargowiltasSouls.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -22,7 +26,28 @@ namespace FargowiltasSouls.Items
             //    damage -= (int)Math.Round(ammo.damage * player.GetDamage(DamageClass.Ranged).Additive * 0.5, MidpointRounding.AwayFromZero); //always round up
             //}
         }
+        public override void HoldItem(Item item, Player player)
+        {
+            EModePlayer ePlayer = player.GetModPlayer<EModePlayer>();
+            if (item.type == ItemID.MythrilHalberd)
+            {
+                if (!player.ItemAnimationActive)
+                    ePlayer.MythrilHalberdTimer++;
 
+                if (ePlayer.MythrilHalberdTimer > 121)
+                    ePlayer.MythrilHalberdTimer = 121;
+                    
+                if (ePlayer.MythrilHalberdTimer == 120)
+                {
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Sounds/ChargeSound"), player.Center);
+                }
+            }
+            else
+            {
+                ePlayer.MythrilHalberdTimer = 0;
+            }
+            base.HoldItem(item, player);
+        }
         public override bool CanUseItem(Item item, Player player)
         {
             if (!FargoSoulsWorld.EternityMode)
@@ -42,7 +67,6 @@ namespace FargowiltasSouls.Items
 
             return base.CanUseItem(item, player);
         }
-
         public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
             if (!FargoSoulsWorld.EternityMode)
@@ -58,6 +82,12 @@ namespace FargowiltasSouls.Items
             {
                 type = ProjectileID.ConfettiGun;
                 damage = 0;
+            }
+
+            if (player.GetModPlayer<EModePlayer>().MythrilHalberdTimer >= 120 && item.type == ItemID.MythrilHalberd)
+            {
+                damage *= 3;
+                player.GetModPlayer<EModePlayer>().MythrilHalberdTimer = 0;
             }
         }
 
@@ -312,8 +342,6 @@ namespace FargowiltasSouls.Items
                     ItemBalance(tooltips, EModeChange.Nerf, "MoonsDrops", item.type == ItemID.PumpkinMoonMedallion ? 12 : 15);
                     break;
 
-                //JAVYZ TODO: SPEAR REWORK
-                /*
                 case ItemID.Spear:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
                     break;
@@ -326,9 +354,11 @@ namespace FargowiltasSouls.Items
                     break;
                 case ItemID.MythrilHalberd:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    ItemBalance(tooltips, EModeChange.Buff, "MythrilHalberdRework");
                     break;
                 case ItemID.OrichalcumHalberd:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
+                    ItemBalance(tooltips, EModeChange.Buff, "OrichalcumHalberdRework");
                     break;
                 case ItemID.PalladiumPike:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
@@ -349,7 +379,6 @@ namespace FargowiltasSouls.Items
                 case ItemID.ChlorophytePartisan:
                     ItemBalance(tooltips, EModeChange.Buff, "SpearRework");
                     break;
-                */
                 default:
                     break;
             }

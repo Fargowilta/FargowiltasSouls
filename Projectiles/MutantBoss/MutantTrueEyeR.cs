@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantTrueEyeR : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Projectiles/MutantBoss/MutantTrueEye"; //"Terraria/Images/Projectile_650";
+        public override string Texture => "Terraria/Images/Projectile_650";
 
         private float localAI0;
         private float localAI1;

@@ -35,7 +35,7 @@ namespace FargowiltasSouls.NPCs.AbomBoss
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Gamer Yrimir");
+            DisplayName.SetDefault("Abominationn");
 
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.NoMultiplayerSmoothingByType[NPC.type] = true;

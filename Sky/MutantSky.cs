@@ -114,7 +114,7 @@ namespace FargowiltasSouls.Sky
 
         private Color ColorToUse(ref float opacity)
         {
-            Color color = new Color(255, 51, 51); //new Color(51, 255, 191);
+            Color color = new Color(51, 255, 191);
             opacity = intensity * 0.5f + lifeIntensity * 0.5f;
 
             if (specialColorLerp > 0 && specialColor != null)

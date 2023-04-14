@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantFishron : ModProjectile
     {
-        //public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_370";
+        public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_370";
 
         int p = -1;
 

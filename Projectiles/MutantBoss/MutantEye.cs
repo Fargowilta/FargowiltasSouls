@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantEye : ModProjectile
     {
-        //public override string Texture => "Terraria/Images/Projectile_452";
+        public override string Texture => "Terraria/Images/Projectile_452";
 
         public virtual int TrailAdditive => 0;
 

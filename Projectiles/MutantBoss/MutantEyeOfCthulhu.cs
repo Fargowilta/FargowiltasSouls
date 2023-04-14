@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantEyeOfCthulhu : ModProjectile
     {
-        //public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_4";
+        public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_4";
 
         public override void SetStaticDefaults()
         {

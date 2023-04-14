@@ -17,26 +17,21 @@ namespace FargowiltasSouls.Projectiles.Challengers
 				int damage = Projectile.damage;
 				float knockBack = 3f;
 
-				if (Projectile.ai[1] != 2)
-				{
-					Projectile.velocity *= 2;
-					if (Projectile.velocity.Length() < 15)
-						Projectile.velocity = 15 * Vector2.Normalize(Projectile.velocity);
-				}
+                Projectile.velocity *= 2;
+                if (Projectile.velocity.Length() < 15)
+                    Projectile.velocity = 15 * Vector2.Normalize(Projectile.velocity);
 
-				Vector2 shootoffset1 = Projectile.velocity.RotatedBy(-Math.PI / 3.0);
+                Vector2 shootoffset1 = Projectile.velocity.RotatedBy(-Math.PI / 3.0);
 				Vector2 shootoffset2 = Projectile.velocity.RotatedBy(Math.PI / 3.0);
 
-				int type = Projectile.ai[1] == 2 && FargoSoulsWorld.EternityMode ? Projectile.type : ModContent.ProjectileType<LifeProjSmall>();
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset1, type, damage, knockBack, Main.myPlayer);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset2, type, damage, knockBack, Main.myPlayer);
+					if (Projectile.ai[1] != 11 && Projectile.ai[1] != 9)
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset1, ModContent.ProjectileType<LifeProjSmall>(), damage, knockBack, Main.myPlayer);
+                    if (Projectile.ai[1] != 10 && Projectile.ai[1] != 8)
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, shootoffset2, ModContent.ProjectileType<LifeProjSmall>(), damage, knockBack, Main.myPlayer);
                 }
-
-				if (Projectile.ai[1] == 2 && FargoSoulsWorld.EternityMode)
-					Projectile.Kill();
 			}
 
             base.AI();

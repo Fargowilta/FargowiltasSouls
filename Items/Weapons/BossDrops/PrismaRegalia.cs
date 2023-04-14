@@ -1,3 +1,5 @@
+// JAVYZ TODO: PRISMA REGALIA
+/*
 using FargowiltasSouls.Projectiles;
 using FargowiltasSouls.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
@@ -15,7 +17,7 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Prisma Regalia");
-            Tooltip.SetDefault("Hold to charge for more damage \nWhile fully charged, dash and strike towards the mouse\n'The something of a foe something something...'");
+            Tooltip.SetDefault("Hitting with the tip of the spear releases homing stars\nHold to charge for more damage \nWhile fully charged, tip hits release twice as many stars\n'The radiant power of a foe's pure essence...'");
             //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "");
             //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "");
         }
@@ -52,3 +54,4 @@ namespace FargowiltasSouls.Items.Weapons.BossDrops
         }
     }
 }
+*/

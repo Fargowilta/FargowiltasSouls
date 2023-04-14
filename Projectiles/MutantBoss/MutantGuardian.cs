@@ -11,7 +11,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 {
     public class MutantGuardian : ModProjectile
     {
-        //public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_127";
+        public override string Texture => "FargowiltasSouls/NPCs/Resprites/NPC_127";
 
         public override void SetStaticDefaults()
         {

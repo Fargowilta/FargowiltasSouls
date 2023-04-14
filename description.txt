@@ -1,6 +1,32 @@
 Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls accessories, as well as a variety of bosses and minibosses.
 Features the highly challenging Eternity Mode!
 
+NEW UPDATE - V 1.4.2.4
+-After countless generations of setbacks and failures Yharim and Yrimir are finally defeatedy
+-Added Eternity-specific spear swing style, used by:
+Spear, Adamantite Glaive, Cobalt Naginata, Mythril Halberd, Orichalcum Halberd, Palladium Pike, Titanium Trident, Trident, Obsidian Swordfish, Swordfish, Chlorophyte Partisan.
+Damage adjusted to compensate for the new swing style (hits once instead of twice, spears are now more consistent and feel better)
+-Some of these weapons have also gotten Eternity-specific extra effects:
+-Palladium Pike: Greatly increases life regeneration after striking an enemy
+-Cobalt Naginata: Causes a small explosion on striking enemies
+-Mythril Halberd: After not attacking for 2 seconds, your next attack deals triple damage
+-Orichalcum Halberd: Releases flower petals at apex of swing
+-Lieflight now has contact damage while firing lasers during rune circle expansion attack, projectiles now form a full circle
+-Lieflight hexagon arena projectiles reduced in amount and removed excessive splits to reduce lag
+-Lieflight health and damage reduction functionality changed to reduce the massive difference between Eternity Mode and Masochist Mode difficulty
+-Lieflight is now immune during the Phase 3 opening attack in Eternity Mode only
+-New "charge" sound effect used by equipment to communicate fully charged effects, Max Mana sound was previously used
+-Charge sound effect added to Mythril Enchant
+-Fixed Lieflight boss checklist display
+-Changed Lieflight drawcode so bestiary works better
+
+NEW UPDATE - V 1.4.2.2
+-Lieflight multiplayer despawn issue fixed
+-Enchanted Lifeblade: Damage 50 -> 22
+-Lightslinger: Damage 40 -> 22, Shots for lightbomb 25 -> 40
+-Crystalline Congregation: Damage 70 -> 47
+-Expixive Staff: Damage 110 -> 95
+
 NEW UPDATE - V 1.4.2.1
 -Attempted and failed to remove Yharim
 -Fixed lag issues
