@@ -663,6 +663,7 @@ Mods: {
 			PhantasmalSphere2: 幻影球
 			PrimeDeathray: 烈焰死亡射线
 			PrimeLaser: 机械激光
+			PrismaRegaliaStar: 追踪之星
 			PrismaRegaliaProj: 晶霞华枪
 			RazorbladeTyphoonFriendly: 利刃台风
 			RefractorBlaster2Held: 衍射暗星炮
@@ -2098,7 +2099,7 @@ Mods: {
 			PalladiumPikeRework: 击中敌人后大幅增加生命恢复速度
 			CobaltNaginataRework: 击中敌人会造成小范围爆炸
 			MythrilHalberdRework: 不攻击持续2秒后下一击造成三倍伤害
-			OrichalcumHalberdRework: Releases flower petals at apex of swing
+			OrichalcumHalberdRework: 挥舞时矛的顶端会释放花瓣
 		}
 
 		ItemName: {
@@ -3870,9 +3871,10 @@ Mods: {
 			'''
 			PrismaRegalia:
 			'''
+			长矛顶端击中敌人会释放追踪之星
 			长按左键蓄力以造成更多伤害
-			蓄力完成后，松开左键以冲向光标处并攻击沿途敌人
-			“大概是某个敌人的某部分……”
+			蓄力完成后，顶端击中会释放两倍数量的追踪之星
+			“一个敌人的纯粹精华，淬炼出的辐辉之力……”
 			'''
 			RefractorBlaster:
 			'''
@@ -3910,7 +3912,7 @@ Mods: {
 			Lightslinger: 
 				'''
 				把子弹转化为神圣曙光子弹
-				射击25次后可以按右键发射一颗光之炸弹
+				射击40次后可以按右键发射一颗光之炸弹
 				25%的几率不消耗弹药
 				'''
 			KamikazeSquirrelStaff:
