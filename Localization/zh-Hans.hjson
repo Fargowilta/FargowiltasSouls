@@ -543,6 +543,7 @@ Mods: {
 
 		ProjectileName: {
 			AbomScytheFriendly: 憎恶镰刀
+			ArcTelegraph: Arc Telegraph
 			BeeDash: 冲刺
 			BetsyDash: 冲刺
 			BloomLine: 预警光线
@@ -555,7 +556,7 @@ Mods: {
 			GiantDeathray: 幻影死亡射线
 			GlowLine: 预警光线
 			GlowRing: 预警光环
-			GlowRingHallow: 预警光环
+			GlowRingHollow: 预警光环
 			GrazeRing: 擦弹光环
 			HostileLightning: 闪电弧
 			LightningArc: 闪电弧
@@ -624,6 +625,7 @@ Mods: {
 			FishNuke: 猪鲨核弹
 			FishNukeExplosion: 猪鲨核弹
 			FishStickProj: 鱼杖
+			FishStickProjTornado: 鱼杖
 			FishStickShark: 鲨鱼
 			FleshLaser: 红色激光
 			GibExplosion: 爆炸
@@ -648,7 +650,7 @@ Mods: {
 			HentaiSpearSpinThrown: 洞察者
 			HentaiSpearThrown: 洞察者
 			HentaiSpearWand: 洞察者
-			HentaiSpearRing: 洞察者
+			HentaiSphereRing: 幻影球
 			Hungry: 饿鬼
 			Hungry2: 饿鬼
 			LeashFlail: 克苏鲁连枷
@@ -762,7 +764,7 @@ Mods: {
 			EarthChainBlast: 连锁爆炸
 			EarthChainBlast2: 连锁爆炸
 			EarthGeyser: 喷泉
-			EatrhPalladOrb: 钯金治疗珠
+			EarthPalladOrb: 钯金治疗珠
 			FlowerPetal: 花瓣
 			LifeDeathray: 神圣死亡射线
 			LifeDeathray2: 神圣死亡射线
@@ -802,7 +804,7 @@ Mods: {
 			TimberJumpMark: 森林爆炸
 			TimberLaser: 激光
 			TimberLightningOrb: 闪电珠
-			TimerPalmTree: 棕榈树
+			TimberPalmTree: 棕榈树
 			TimberSnowball: 雪球
 			TimberSnowball2: 雪球
 			TimberTree: 树
@@ -1172,10 +1174,14 @@ Mods: {
 			Void: 虚空
 
 			// == Patreons ==
+			KingSlimeBallPiercing: 粘液球
 			KingSlimeMinion: 史莱姆王
+			KingSlimeSpike: 史莱姆尖刺
 			DukeFishronMinion: 猪龙鱼公爵
+			RazorbladeTyphoonFriendly2: 利刃台风
 			DevRocket: 艳岚火箭
 			RailgunBlast: 电磁炮爆炸
+			VortexBolt: 闪电弧
 			VortexRitualProj: 星旋圣仪
 			WolfDashProj: 狼魂冲刺
 			ChibiiRemii: 小蕾米
