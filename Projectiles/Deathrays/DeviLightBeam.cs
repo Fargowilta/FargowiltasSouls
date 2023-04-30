@@ -113,7 +113,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
         public float WidthFunction(float _) => Projectile.width * Projectile.scale * 1.2f;
 
-        public Color ColorFunction(float _) => new(232, 216, 77);
+        public Color ColorFunction(float _) => new(232, 216, 77, 100);
 
         public override bool PreDraw(ref Color lightColor)
         {

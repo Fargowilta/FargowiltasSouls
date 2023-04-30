@@ -70,7 +70,7 @@ Any projectiles that would deal less than 10 damage to you are destroyed
                 {
                     Projectile proj = Main.projectile[i];
 
-                    if (proj.active && proj.hostile && proj.damage > 0 && (proj.ModProjectile == null || proj.ModProjectile.CanDamage() != false))
+                    if (proj.active && proj.hostile && proj.damage > 0 && proj.aiStyle != ProjAIStyleID.FallingTile && (proj.ModProjectile == null || proj.ModProjectile.CanDamage() != false))
                     {
                         float projDist = proj.Distance(player.Center);
                         if (projDist < closestProjDist && proj.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank <= 0)

@@ -30,6 +30,8 @@ namespace FargowiltasSouls.Projectiles.Souls
             Player player = Main.player[Projectile.owner];
             FargoSoulsPlayer modPlayer = player.GetModPlayer<FargoSoulsPlayer>();
 
+            Projectile.Center = player.Center;
+
             if (Projectile.frame != 6)
             {
                 Projectile.frameCounter++;

@@ -5,6 +5,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using FargowiltasSouls.Items.Accessories.Forces;
+using FargowiltasSouls.Projectiles;
+using System;
 
 namespace FargowiltasSouls.Items.Accessories.Enchantments
 {
@@ -17,7 +20,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
             DisplayName.SetDefault("Titanium Enchantment");
             Tooltip.SetDefault(
 @"Attacking generates a defensive barrier of up to 20 titanium shards
-When you reach the maximum amount, you gain 50% damage resistance
+When you reach the maximum amount, you gain resistance to most debuffs on hit and 50% damage resistance against contact damage and projectiles in close range
 This has a cooldown of 10 seconds during which you cannot gain shards
 'The power of titanium in the palm of your hand'");
         }
@@ -43,6 +46,25 @@ This has a cooldown of 10 seconds during which you cannot gain shards
             if (player.GetToggleValue("Titanium"))
             {
                 player.GetModPlayer<FargoSoulsPlayer>().TitaniumEnchantItem = item;
+            }
+        }
+
+        public static void TryTitaniumDR(FargoSoulsPlayer modPlayer, Entity attacker)
+        {
+            if (!modPlayer.TitaniumDRBuff)
+                return;
+
+            Player player = modPlayer.Player;
+
+            bool canUseDR = attacker is NPC ||
+                (attacker is Projectile projectile && projectile.GetSourceNPC() is NPC sourceNPC 
+                && player.Distance(sourceNPC.Center) < Math.Max(sourceNPC.width, sourceNPC.height) + 16 * 8);
+
+            if (canUseDR)
+            {
+                float diff = 1f - player.endurance;
+                diff *= modPlayer.EarthForce ? 0.75f : 0.5f;
+                player.endurance += diff;
             }
         }
 

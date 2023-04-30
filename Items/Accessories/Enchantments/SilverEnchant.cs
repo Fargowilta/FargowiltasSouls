@@ -20,7 +20,8 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             string tooltip =
 @"Right Click to guard with your shield
-Guard just before being hit to negate damage
+Guard just before being hit to parry and negate damage
+Parry blocks up to 100 damage
 'Reflection'";
             Tooltip.SetDefault(tooltip);
         }

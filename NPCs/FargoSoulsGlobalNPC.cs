@@ -1101,7 +1101,7 @@ namespace FargowiltasSouls.NPCs
 
             if (Smite)
             {
-                damage *= 1.1;
+                damage *= 1.2;
             }
 
             if (MoltenAmplify)

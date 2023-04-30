@@ -173,3 +173,25 @@ flight mastery soul and upgrades
 	reduced max ascension speed to ~100mph (was >170mph, unreasonably high)
 fixed world shaper soul not giving proper tool range up
 adjusted world shaper soul magic mirror implementation
+
+fixed fire imps and lava slimes spawning above intended region (should only spawn roughly within 2x the height of hell above the top of hell)
+adjusted most new deathrays (particularly, mutant reti fan rays less obviously "on top of" one another)
+changed death message of fake hearts
+fixed mutant despawning when self healing in ftw enrage maso
+parries nerfed
+	silver+dread/pumpkin parry window and cooldown nerfed to halfway between them
+	capped how much damage is blocked at once, you still take any leftover damage on parry
+	silver caps at 100
+	force, dread, pumpking cap at 200
+made blender orbital immune to timestop and fixed being able to use it with other "held proj" weapons
+fixed smite inconsistency where everything took x1.1 damage except players when hit by projs, who took x1.2. everything takes x1.2 now
+titanium ench rebalance
+	only works on contact damage and projectiles near their source npc (within ~8 blocks of the edge of their hitbox)
+	gives immunity to most debuffs similar to parrying or gold shell
+fixed being able to ammo cycle without being able to ammo cycle
+ebonwood ench no longer triggers on falling tiles e.g. sand
+you can no longer graze falling tiles
+fixed empty space in turtle ench tooltip
+fixed buggy attack speed
+fixed visual glitch of leaving behind turtle ench shell by recalling
+did SOMETHING to toggles, CHECK THAT THEY WORK IN MP AND IT MOSTLY SYNCS FOR OTHER PLAYERS LIKE BEFORE

@@ -18,7 +18,8 @@ namespace FargowiltasSouls.Items.Accessories.Masomode
 Grants immunity to knockback
 Right Click to guard with your shield
 Defense and damage reduction drastically decreased while and shortly after guarding
-Guard exactly as an attack touches you to counter it on a very long cooldown
+Guard exactly as an attack touches you to parry and counter it on a very long cooldown
+Parry blocks up to 200 damage
 Counterattack deals massive damage and inflicts Anticoagulation
 Absorb Anticoagulation blood clots to gain 30% increased damage
 'It was a mistake to chum here'");

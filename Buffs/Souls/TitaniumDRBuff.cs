@@ -9,7 +9,7 @@ namespace FargowiltasSouls.Buffs.Souls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Titanium Shield");
-            Description.SetDefault("You have extra damage resistance");
+            Description.SetDefault("You have extra damage resistance in close range and resist most debuffs");
             Main.buffNoSave[Type] = true;
         }
 

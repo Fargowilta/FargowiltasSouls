@@ -102,7 +102,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         }
         public float WidthFunction(float _) => Projectile.width * Projectile.scale * 1.2f;
 
-        public Color ColorFunction(float _) => new(232, 140, 240);
+        public Color ColorFunction(float _) => new(232, 140, 240, 100);
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -118,7 +118,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                 baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
 
             // Set shader parameters.
-            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240));
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(240, 220, 240, 100));
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(3);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(1f);

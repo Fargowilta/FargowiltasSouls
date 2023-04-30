@@ -235,14 +235,15 @@ namespace FargowiltasSouls
         {
             FargoSoulsPlayer modPlayer = self.GetModPlayer<FargoSoulsPlayer>();
             if (Main.debuff[type]
-                && timeToAdd > 2 //dont affect auras
+                && timeToAdd > 3 //dont affect auras
                 && !Main.buffNoTimeDisplay[type] //dont affect hidden time debuffs
                 && (modPlayer.ParryDebuffImmuneTime > 0
                     || modPlayer.BetsyDashing 
                     || modPlayer.GoldShell 
                     || modPlayer.ShellHide 
                     || modPlayer.MonkDashing > 0 
-                    || modPlayer.CobaltImmuneTimer > 0)
+                    || modPlayer.CobaltImmuneTimer > 0
+                    || modPlayer.TitaniumDRBuff)
                 && DebuffIDs.Contains(type))
             {
                 return; //doing it this way so that debuffs previously had are retained, but existing debuffs also cannot be extended by reapplying

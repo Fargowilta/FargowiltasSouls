@@ -158,7 +158,7 @@ namespace FargowiltasSouls.Projectiles.Champions
 
         public float WidthFunction(float _) => Projectile.width * Projectile.scale * 3;
 
-        public Color ColorFunction(float _) => new(253, 254, 32);
+        public Color ColorFunction(float _) => new(253, 254, 32, 100);
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -183,7 +183,7 @@ namespace FargowiltasSouls.Projectiles.Champions
             // Set shader parameters. This one takes a fademap and a color.
 
             // The laser should fade to this in the middle.
-            Color brightColor = new(252, 252, 192);
+            Color brightColor = new(252, 252, 192, 100);
             GameShaders.Misc["FargowiltasSouls:WillBigDeathray"].UseColor(brightColor);
             // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
             Asset<Texture2D> fademap = ModContent.Request<Texture2D>("FargowiltasSouls/ExtraTextures/Trails/WillStreak");

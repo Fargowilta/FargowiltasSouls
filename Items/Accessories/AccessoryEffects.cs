@@ -2937,7 +2937,8 @@ namespace FargowiltasSouls
                     Player.statLife = Player.statLifeMax2;
                 Player.HealEffect(heal);
 
-                int counterDamage = Math.Min(1000, damage);
+                int counterDamage = damage;
+
                 for (int i = 0; i < 30; i++)
                 {
                     Vector2 vel = Vector2.UnitX.RotatedByRandom(MathHelper.TwoPi);
@@ -3009,7 +3010,7 @@ namespace FargowiltasSouls
 
         #endregion maso acc
 
-        public bool TryParryAttack(int damage)
+        public bool TryParryAttack(ref int damage)
         {
             if (GuardRaised && shieldTimer > 0 && !Player.immune)
             {
@@ -3017,11 +3018,37 @@ namespace FargowiltasSouls
                 int invul = Player.longInvince ? 90 : 60;
                 int extrashieldCD = 40;
 
+                int damageBlockCap = 100;
+                const int higherCap = 200;
+
                 if (DreadShellItem != null || PumpkingsCapeItem != null)
                 {
+                    damageBlockCap = higherCap;
+
                     invul += 60;
+
                     extrashieldCD = LONG_SHIELD_COOLDOWN;
+                    if (SilverEnchantItem != null)
+                        extrashieldCD = (LONG_SHIELD_COOLDOWN + BASE_SHIELD_COOLDOWN) / 2;
                 }
+                else if (SilverEnchantItem != null)
+                {
+                    extrashieldCD = BASE_SHIELD_COOLDOWN;
+                }
+
+                if (SilverEnchantItem != null)
+                {
+                    if (TerraForce)
+                    {
+                        damageBlockCap = higherCap;
+                        Player.AddBuff(BuffID.ParryDamageBuff, 300);
+                    }
+
+                    Projectile.NewProjectile(Player.GetSource_Misc(""), Player.Center, Vector2.Zero, ModContent.ProjectileType<IronParry>(), 0, 0f, Main.myPlayer);
+                }
+
+                int damageBlocked = Math.Min(damageBlockCap, damage);
+                damage -= damageBlockCap;
 
                 if (DreadShellItem != null)
                 {
@@ -3030,17 +3057,7 @@ namespace FargowiltasSouls
 
                 if (PumpkingsCapeItem != null)
                 {
-                    PumpkingsCapeCounter(damage);
-                }
-
-                if (SilverEnchantItem != null)
-                {
-                    extrashieldCD = BASE_SHIELD_COOLDOWN;
-
-                    if (TerraForce)
-                        Player.AddBuff(BuffID.ParryDamageBuff, 300);
-
-                    Projectile.NewProjectile(Player.GetSource_Misc(""), Player.Center, Vector2.Zero, ModContent.ProjectileType<IronParry>(), 0, 0f, Main.myPlayer);
+                    PumpkingsCapeCounter(damageBlocked);
                 }
 
                 Player.immuneTime = invul;
@@ -3054,11 +3071,8 @@ namespace FargowiltasSouls
                     if (!Player.HasBuff(debuff))
                         Player.buffImmune[debuff] = true;
                 }
-
-                return true;
             }
-
-            return false;
+            return damage <= 0; //return whether parry completely blocked the attack
         }
 
         private const int BASE_PARRY_WINDOW = 20;
@@ -3150,9 +3164,15 @@ namespace FargowiltasSouls
                     if (shieldCD == 0) //if cooldown over, enable parry
                     {
                         if (DreadShellItem != null || PumpkingsCapeItem != null)
+                        {
                             shieldTimer = HARD_PARRY_WINDOW;
-                        if (SilverEnchantItem != null)
+                            if (SilverEnchantItem != null)
+                                shieldTimer += (BASE_PARRY_WINDOW - HARD_PARRY_WINDOW) / 2;
+                        }
+                        else if (SilverEnchantItem != null)
+                        {
                             shieldTimer = BASE_PARRY_WINDOW;
+                        }
                     }
 
                     Player.itemAnimation = 0;
