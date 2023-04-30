@@ -3118,9 +3118,15 @@ namespace FargowiltasSouls
 
             int cooldown = BASE_SHIELD_COOLDOWN;
             if (DreadShellItem != null || PumpkingsCapeItem != null)
+            {
                 cooldown = LONG_SHIELD_COOLDOWN;
-            if (SilverEnchantItem != null)
+                if (SilverEnchantItem != null)
+                    cooldown = (LONG_SHIELD_COOLDOWN + BASE_SHIELD_COOLDOWN) / 2;
+            }
+            else if (SilverEnchantItem != null)
+            {
                 cooldown = BASE_SHIELD_COOLDOWN;
+            }
 
             if (shieldCD < cooldown)
                 shieldCD = cooldown;

@@ -174,7 +174,6 @@ flight mastery soul and upgrades
 fixed world shaper soul not giving proper tool range up
 adjusted world shaper soul magic mirror implementation
 
-fixed fire imps and lava slimes spawning above intended region (should only spawn roughly within 2x the height of hell above the top of hell)
 adjusted most new deathrays (particularly, mutant reti fan rays less obviously "on top of" one another)
 changed death message of fake hearts
 fixed mutant despawning when self healing in ftw enrage maso
@@ -195,3 +194,6 @@ fixed empty space in turtle ench tooltip
 fixed buggy attack speed
 fixed visual glitch of leaving behind turtle ench shell by recalling
 did SOMETHING to toggles, CHECK THAT THEY WORK IN MP AND IT MOSTLY SYNCS FOR OTHER PLAYERS LIKE BEFORE
+
+fixed fire imps and lava slimes spawning above intended region (should only spawn roughly within 2x the height of hell above the top of hell)
+parry synergy cooldown is midway as intended

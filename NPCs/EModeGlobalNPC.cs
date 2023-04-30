@@ -230,7 +230,7 @@ namespace FargowiltasSouls.NPCs
             //no work?
             //is lava on screen
             //bool nearLava = Collision.LavaCollision(spawnInfo.Player.position, spawnInfo.SpawnTileX, spawnInfo.SpawnTileY);
-            bool deepUnderground = !underworld && spawnInfo.Player.position.Y > Main.maxTilesY - (Main.maxTilesY - Main.UnderworldLayer) * 3;
+            bool deepUnderground = !underworld && spawnInfo.SpawnTileY > Main.maxTilesY - (Main.maxTilesY - Main.UnderworldLayer) * 3;
             bool noInvasion = FargowiltasSouls.NoInvasion(spawnInfo);
             bool normalSpawn = !spawnInfo.PlayerInTown && noInvasion && !oldOnesArmy && noEvent;
 
