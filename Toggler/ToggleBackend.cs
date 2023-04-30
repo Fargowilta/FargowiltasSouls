@@ -24,10 +24,13 @@ namespace FargowiltasSouls.Toggler
 
         public bool Initialized;
 
-        public void LoadInMenu()
+        //not doing it in player.initialize because multiplayer clones players which makes new togglers which tries config load which has high overhead (lag)
+        public void TryLoad()
         {
             if (Initialized)
                 return;
+
+            Initialized = true;
 
             //Main.NewText("OOBA");
             Config = new Preferences(ConfigPath);
@@ -56,12 +59,13 @@ namespace FargowiltasSouls.Toggler
                 if (toggleUnpack != null)
                     CustomPresets[i] = toggleUnpack.Keys.ToList();
             }
-
-            Initialized = true;
         }
 
         public void Save()
         {
+            if (!Initialized)
+                return;
+
             if (!Main.dedServ)
             {
                 Config.Put("CanPlayMaso", CanPlayMaso);
@@ -88,6 +92,9 @@ namespace FargowiltasSouls.Toggler
 
         public void LoadPlayerToggles(FargoSoulsPlayer modPlayer)
         {
+            if (!Initialized)
+                return;
+
             Toggles = ToggleLoader.LoadedToggles;
             SetAll(true);
 

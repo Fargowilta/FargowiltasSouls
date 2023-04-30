@@ -13,11 +13,7 @@ namespace FargowiltasSouls.Items.Accessories.Enchantments
 
             DisplayName.SetDefault("Turtle Enchantment");
             Tooltip.SetDefault(
-@"
-
-
-
-100% of contact damage is reflected
+@"100% of contact damage is reflected
 When standing still and not attacking, you will enter your shell
 While in your shell, you will gain 90% damage resistance 
 Additionally you will destroy incoming projectiles and deal 10x more thorns damage

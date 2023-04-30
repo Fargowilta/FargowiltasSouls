@@ -151,7 +151,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
 
         public float WidthFunction(float trailInterpolant) => Projectile.width * Projectile.scale * 1.3f;
 
-        public Color ColorFunction(float trailInterpolant) => new(192, 36, 31);//Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant) * Projectile.Opacity;
+        public Color ColorFunction(float trailInterpolant) => new(192, 36, 31, 0);//Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant) * Projectile.Opacity;
 
         public void DrawPixelPrimitives(SpriteBatch spriteBatch)
         {
@@ -177,7 +177,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);
             // The laser should fade to this in the middle.
-            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(255, 108, 151));
+            GameShaders.Misc["FargowiltasSouls:GenericDeathray"].UseColor(new Color(255, 108, 151, 0));
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["stretchAmount"].SetValue(1);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["scrollSpeed"].SetValue(3f);
             GameShaders.Misc["FargowiltasSouls:GenericDeathray"].Shader.Parameters["uColorFadeScaler"].SetValue(1f);

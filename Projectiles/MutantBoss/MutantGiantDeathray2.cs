@@ -277,13 +277,13 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             // Grow rapidly from the start to full length. Any more than this notably distorts the texture.
             float baseWidth = Projectile.scale * Projectile.width;
             //if (trailInterpolant < 0.05f)
-                return baseWidth;
+            return baseWidth;
 
             // Grow to 2x width by the end. Any more than this distorts the texture too much.
-            return MathHelper.Lerp(baseWidth, baseWidth * 2, trailInterpolant);
+            //return MathHelper.Lerp(baseWidth, baseWidth * 2, trailInterpolant);
         }
 
-        public Color ColorFunction(float trailInterpolant) => Color.Lerp(new(31, 187, 192), new(51, 255, 191), trailInterpolant);
+        public Color ColorFunction(float trailInterpolant) => Color.Lerp(new(31, 187, 192, 100), new(51, 255, 191, 100), trailInterpolant);
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -309,7 +309,7 @@ namespace FargowiltasSouls.Projectiles.MutantBoss
             // Set shader parameters. This one takes a fademap and a color.
 
             // The laser should fade to white in the middle.
-            Color brightColor = new(194, 255, 242);
+            Color brightColor = new(194, 255, 242, 100);
             GameShaders.Misc["FargowiltasSouls:MutantDeathray"].UseColor(brightColor);
             // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
             GameShaders.Misc["FargowiltasSouls:MutantDeathray"].SetShaderTexture(FargosTextureRegistry.MutantStreak);

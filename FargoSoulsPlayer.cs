@@ -546,11 +546,12 @@ namespace FargowiltasSouls
 
         public override void Initialize()
         {
-            Toggler.LoadInMenu();
+            //Toggler.LoadInMenu();
         }
 
         public override void OnEnterWorld(Player Player)
         {
+            Toggler.TryLoad();
             Toggler.LoadPlayerToggles(this);
             disabledToggles.Clear();
 
@@ -738,7 +739,7 @@ namespace FargowiltasSouls
                 DebuffInstallKey();
             }
 
-            if (FargowiltasSouls.AmmoCycleKey.JustPressed)
+            if (FargowiltasSouls.AmmoCycleKey.JustPressed && CanAmmoCycle)
             {
                 AmmoCycleKey();
             }
@@ -1134,6 +1135,8 @@ namespace FargowiltasSouls
 
         public override void PreUpdate()
         {
+            Toggler.TryLoad();
+
             if (Player.CCed)
             {
                 Player.doubleTapCardinalTimer[2] = 2;
@@ -1410,13 +1413,6 @@ namespace FargowiltasSouls
 
             if (PalladEnchantItem != null)
                 PalladiumEnchant.PalladiumUpdate(this);
-
-            if (TitaniumDRBuff)
-            {
-                float diff = 1f - Player.endurance;
-                diff *= EarthForce ? 0.75f : 0.5f;
-                Player.endurance += diff;
-            }
 
             if (noDodge)
             {
@@ -1836,70 +1832,73 @@ namespace FargowiltasSouls
             int useTime = item.useTime;
             int useAnimate = item.useAnimation;
 
-            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0 || HaveCheckedAttackSpeed)
+            if (useTime <= 0 || useAnimate <= 0 || item.damage <= 0)
                 return base.UseSpeedMultiplier(item);
 
-            HaveCheckedAttackSpeed = true;
-
-            if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
+            if (!HaveCheckedAttackSpeed)
             {
-                int targetUseTime = useTime + 6;
-                while (useTime / AttackSpeed < targetUseTime)
+                HaveCheckedAttackSpeed = true;
+
+                if (!Berserked && !TribalCharm && BoxofGizmos && !item.autoReuse && !Player.FeralGloveReuse(item))
                 {
-                    AttackSpeed -= .05f;
+                    int targetUseTime = useTime + 6;
+                    while (useTime / AttackSpeed < targetUseTime)
+                    {
+                        AttackSpeed -= .05f;
+                    }
                 }
-            }
 
-            if (Berserked)
-            {
-                AttackSpeed += .1f;
-            }
-
-            if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
-            {
-                AttackSpeed += .2f;
-            }
-
-            if (MythrilEnchantItem != null )
-            {
-                MythrilEnchant.CalcMythrilAttackSpeed(this, item);
-            }
-
-            if (WretchedPouchItem != null && !MasochistSoul && AttackSpeed > 1f)
-            {
-                float diff = AttackSpeed - 1f;
-                diff /= 2;
-                AttackSpeed -= diff;
-            }
-
-            if (NinjaEnchantItem != null && Player.GetToggleValue("NinjaSpeed"))
-            {
-                AttackSpeed *= 2;
-            }
-
-            //checks so weapons dont break
-            while (useTime / AttackSpeed < 1)
-            {
-                AttackSpeed -= .01f;
-            }
-
-            //modify attack speed so it rounds up
-            int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
-            if (useTimeRoundUp < useTime) //sanity check
-            {
-                while (useTime / AttackSpeed < useTimeRoundUp)
+                if (Berserked)
                 {
-                    AttackSpeed -= .01f; //small increments to avoid skipping past any integers
+                    AttackSpeed += .1f;
                 }
-            }
 
-            while (useAnimate / AttackSpeed < 3)
-            {
-                AttackSpeed -= .01f;
-            }
+                if (MagicSoul && item.CountsAsClass(DamageClass.Magic))
+                {
+                    AttackSpeed += .2f;
+                }
 
-            if (AttackSpeed < .1f)
-                AttackSpeed = .1f;
+                if (MythrilEnchantItem != null)
+                {
+                    MythrilEnchant.CalcMythrilAttackSpeed(this, item);
+                }
+
+                if (WretchedPouchItem != null && !MasochistSoul && AttackSpeed > 1f)
+                {
+                    float diff = AttackSpeed - 1f;
+                    diff /= 2;
+                    AttackSpeed -= diff;
+                }
+
+                if (NinjaEnchantItem != null && Player.GetToggleValue("NinjaSpeed"))
+                {
+                    AttackSpeed *= 2;
+                }
+
+                //modify attack speed so it rounds up
+                //int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
+                //if (useTimeRoundUp < useTime) //sanity check
+                //{
+                //    while (useTime / AttackSpeed < useTimeRoundUp)
+                //    {
+                //        AttackSpeed -= .01f; //small increments to avoid skipping past any integers
+                //    }
+                //}
+
+                //checks so weapons dont break
+                while (useTime / AttackSpeed < 1)
+                {
+                    AttackSpeed -= .01f;
+                }
+
+                while (useAnimate / AttackSpeed < 3)
+                {
+                    AttackSpeed -= .01f;
+                }
+
+                if (AttackSpeed < .1f)
+                    AttackSpeed = .1f;
+            }
 
             return AttackSpeed;
         }
@@ -2788,13 +2787,13 @@ namespace FargowiltasSouls
                 damage /= 4;
             }
 
-
+            TitaniumEnchant.TryTitaniumDR(this, npc);
 
             if (GladiatorEnchantActive && Player.direction == Math.Sign(npc.Center.X - Player.Center.X))
                 Player.noKnockback = true;
 
             if (Smite)
-                damage = (int)(damage * 1.1);
+                damage = (int)(damage * 1.2);
 
             if (npc.coldDamage && Hypothermia)
                 damage = (int)(damage * 1.2);
@@ -2810,7 +2809,7 @@ namespace FargowiltasSouls
                 GroundStickCheck(proj, ref damage);
             }
 
-
+            TitaniumEnchant.TryTitaniumDR(this, proj);
 
             if (GladiatorEnchantActive && Player.direction == Math.Sign(proj.Center.X - Player.Center.X))
                 Player.noKnockback = true;
@@ -2903,9 +2902,6 @@ namespace FargowiltasSouls
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.mutantBoss, ModContent.NPCType<NPCs.MutantBoss.MutantBoss>()))
                 ((NPCs.MutantBoss.MutantBoss)Main.npc[EModeGlobalNPC.mutantBoss].ModNPC).playerInvulTriggered = true;
 
-            if (TryParryAttack(damage))
-                return false;
-
             if (DeathMarked)
             {
                 damage = (int)(damage * 1.5);
@@ -2916,6 +2912,9 @@ namespace FargowiltasSouls
                 Squeak(Player.Center);
                 damage = 1;
             }
+
+            if (TryParryAttack(ref damage))
+                return false;
 
             if (CrimsonEnchantActive && Player.GetToggleValue("Crimson"))
             {

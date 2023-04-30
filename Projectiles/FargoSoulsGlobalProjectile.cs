@@ -917,7 +917,7 @@ namespace FargowiltasSouls.Projectiles
             }
 
             //graze
-            if (projectile.hostile && projectile.damage > 0 && --GrazeCD < 0)
+            if (projectile.hostile && projectile.damage > 0 && projectile.aiStyle != ProjAIStyleID.FallingTile && --GrazeCD < 0)
             {
                 GrazeCD = 6; //don't check per tick ech
 

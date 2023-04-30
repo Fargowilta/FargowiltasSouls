@@ -3,6 +3,7 @@ using FargowiltasSouls.Primitives;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using SteelSeries.GameSense;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -170,12 +171,15 @@ namespace FargowiltasSouls.Projectiles.Deathrays
 
             return baseWidth * 0.7f;
         }
-        public static Color[] DeviColors => new Color[] { new(216, 108, 224), new(232, 140, 240), new(224, 16, 216), new(240, 220, 240)};
+
+        public static Color[] DeviColors => new Color[] { new(216, 108, 224, 100), new(232, 140, 240, 100), new(224, 16, 216, 100), new(240, 220, 240, 100)};
         public Color ColorFunction(float trailInterpolant)
         {
             float time = (float)(0.5 * (1 + Math.Sin(1.5f * Main.GlobalTimeWrappedHourly % 1)));
             float localInterpolant = (time + (1 - trailInterpolant)) / 2;
-            return Color.Lerp(Color.MediumVioletRed, Color.Purple, localInterpolant) * 2;
+            Color color = Color.Lerp(Color.MediumVioletRed, Color.Purple, localInterpolant) * 2;
+            color.A = 100;
+            return color;
         }
 
         public override bool PreDraw(ref Color lightColor) => false;
@@ -210,7 +214,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
             #region MainLaser
 
             // Set shader parameters. This one takes two lots of fademaps and colors for two different overlayed textures.
-            GameShaders.Misc["FargowiltasSouls:DeviBigDeathray"].UseColor(new Color(255, 180, 243) * 2);
+            GameShaders.Misc["FargowiltasSouls:DeviBigDeathray"].UseColor(new Color(255, 180, 243, 100) * 2);
             // GameShaders.Misc["FargoswiltasSouls:MutantDeathray"].UseImage1(); cannot be used due to only accepting vanilla paths.
             GameShaders.Misc["FargowiltasSouls:DeviBigDeathray"].SetShaderTexture(FargosTextureRegistry.DeviBackStreak);
 
@@ -236,14 +240,13 @@ namespace FargowiltasSouls.Projectiles.Deathrays
         public Color RingColorFunction(float trailInterpolant)
         {
             float time = (float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly - trailInterpolant) / 2));
-            float localInterpolant = (time + (1 - trailInterpolant)) / 2;
-
-            return Color.Lerp(Color.Blue, Color.Red, trailInterpolant) * 2;
+            Color color = Color.Lerp(Color.Blue, Color.Red, trailInterpolant) * 2;
+            color.A = 100;
+            return color;
         }
 
         private void DrawRings(Vector2[] baseDrawPoints, bool inBackground)
         {
-
             Vector2 velocity = Projectile.velocity.SafeNormalize(Vector2.UnitY);
             velocity = velocity.RotatedBy(MathHelper.PiOver2) * 1250;
 
@@ -288,7 +291,7 @@ namespace FargowiltasSouls.Projectiles.Deathrays
                         ringDrawPoints[j] -= Projectile.velocity * offsetStrength * 75f;
                 }
 
-                GameShaders.Misc["FargowiltasSouls:DeviRing"].UseColor(new Color(216, 108, 224));
+                GameShaders.Misc["FargowiltasSouls:DeviRing"].UseColor(new Color(216, 108, 224, 100));
                 GameShaders.Misc["FargowiltasSouls:DeviRing"].SetShaderTexture(RingTextures[iterator]);
                 GameShaders.Misc["FargowiltasSouls:DeviRing"].Shader.Parameters["stretchAmount"].SetValue(0.2f);
 

@@ -37,6 +37,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             Projectile.aiStyle = -1;
 
+            Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().TimeFreezeImmune = true;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().DeletionImmuneRank = 2;
             Projectile.GetGlobalProjectile<FargoSoulsGlobalProjectile>().noInteractionWithNPCImmunityFrames = true;
         }
@@ -54,14 +55,16 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
         }
 
         int soundtimer;
+        int dieTimer;
         public override void AI()
         {
             int byIdentity = FargoSoulsUtil.GetProjectileByIdentity(Projectile.owner, (int)Projectile.localAI[0], ModContent.ProjectileType<BlenderYoyoProj>());
             if (byIdentity == -1)
             {
-                if (Projectile.owner == Main.myPlayer && Projectile.rotation > 0)
+                if (Projectile.owner == Main.myPlayer)
                 {
-                    Projectile.Kill();
+                    if (++dieTimer > 30)
+                        Projectile.Kill();
                     return;
                 }
             }
@@ -101,6 +104,8 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
 
             if (soundtimer > 0)
                 soundtimer--;
+
+            dieTimer = 0;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
