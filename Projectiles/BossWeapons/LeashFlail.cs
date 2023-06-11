@@ -176,7 +176,7 @@ namespace FargowiltasSouls.Projectiles.BossWeapons
             Vector2 origin2 = rectangle.Size() / 2f;
             Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY),
                 new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2,
-                Projectile.scale * 4, SpriteEffects.None, 0);
+                Projectile.scale, SpriteEffects.None, 0);
 
             return false;
         }

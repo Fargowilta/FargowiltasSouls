@@ -520,10 +520,13 @@ namespace FargowiltasSouls
             tag.Add($"{Mod.Name}.{Player.name}.Data", playerData);
 
             var togglesOff = new List<string>();
-            foreach (KeyValuePair<string, Toggle> entry in Toggler.Toggles)
+            if (Toggler != null && Toggler.Toggles != null)
             {
-                if (!Toggler.Toggles[entry.Key].ToggleBool)
-                    togglesOff.Add(entry.Key);
+                foreach (KeyValuePair<string, Toggle> entry in Toggler.Toggles)
+                {
+                    if (!Toggler.Toggles[entry.Key].ToggleBool)
+                        togglesOff.Add(entry.Key);
+                }
             }
             tag.Add($"{Mod.Name}.{Player.name}.TogglesOff", togglesOff);
 

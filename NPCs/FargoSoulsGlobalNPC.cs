@@ -940,7 +940,7 @@ namespace FargowiltasSouls.NPCs
 
                     //JAVYZ TODO: Prisma Regalia
                     /*
-                case NPCID.EmpressButterfly:
+                case NPCID.HallowBoss:
                     npcLoot.Add(BossDrop(ModContent.ItemType<PrismaRegalia>()));
                     break;
                     */

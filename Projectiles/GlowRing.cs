@@ -4,6 +4,7 @@ using FargowiltasSouls.NPCs.EternityMode;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -38,6 +39,7 @@ namespace FargowiltasSouls.Projectiles
 
         public override void AI()
         {
+
             NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0]);
             if (npc != null)
                 Projectile.Center = npc.Center;
@@ -48,6 +50,17 @@ namespace FargowiltasSouls.Projectiles
 
             switch ((int)Projectile.ai[1])
             {
+                case -24: //baron debuff apply at opening
+                    {
+                        //customScaleAlpha = true;
+                        maxTime = 60;
+                        float modifier = Projectile.localAI[0] / maxTime;
+                        scale = 1 + (50 * modifier);
+                        color = Color.Blue;
+                        Projectile.alpha = (int)(255f * (1f - modifier));
+                        color.A = 0;
+                    }
+                    break;
                 case -23: //eridanus general punch telegraph
                     {
                         customScaleAlpha = true;

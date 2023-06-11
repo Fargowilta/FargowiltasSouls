@@ -9,7 +9,7 @@ using FargowiltasSouls.NPCs.Challengers;
 namespace FargowiltasSouls.Projectiles.Challengers
 {
 
-    public class LifeRuneHitbox : ModProjectile //note: not actually bee
+    public class LifeRuneHitbox : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/NPCs/Challengers/LifeChallengerParts/Rune1";
 
@@ -45,6 +45,11 @@ namespace FargowiltasSouls.Projectiles.Challengers
 
         public override void AI()
         {
+            if (Main.npc[(int)Projectile.ai[0]] == null)
+            {
+                Main.NewText("he's dead");
+                Projectile.Kill();
+            }
             lifelight = Main.npc[(int)Projectile.ai[0]]; //get npc
             float RuneDistance = lifelight.localAI[0];
             float BodyRotation = lifelight.localAI[1];

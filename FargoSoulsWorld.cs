@@ -30,7 +30,8 @@ namespace FargowiltasSouls
             CosmosChampion,
             TrojanSquirrel,
             LifeChallenger,
-            CursedCoffin
+            CursedCoffin,
+            BanishedBaron
         }
 
         public static bool SwarmActive;

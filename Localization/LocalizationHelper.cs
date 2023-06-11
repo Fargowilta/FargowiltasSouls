@@ -63,7 +63,9 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"使用[i:{ModContent.ItemType<SquirrelCoatofArms>()}]召唤");
                 AddBossSpawnInfo("LifeChallenger", $"白天时在神圣之地使用[i:{ModContent.ItemType<FragilePixieLamp>()}]召唤。");
+                //JAVYZ TODO: Cursed Coffin and Banished Baron
                 //AddBossSpawnInfo("CursedCoffin", $"在地下沙漠使用[i:{ModContent.ItemType<CoffinSummon>()}]召唤。");
+                //AddBossSpawnInfo("BanishedBaron", $"在海洋的水中使用[i:{ModContent.ItemType<BaronSummon>()}]召唤。");
             }
             else if (FargoSoulsUtil.IsPortuguese)
             {
@@ -100,7 +102,9 @@ namespace FargowiltasSouls
 
                 AddBossSpawnInfo("TrojanSquirrel", $"Spawn by using [i:{ModContent.ItemType<SquirrelCoatofArms>()}]");
                 AddBossSpawnInfo("LifeChallenger", $"Spawn by using [i:{ModContent.ItemType<FragilePixieLamp>()}] in the Hallow at day.");
+                //JAVYZ TODO: Cursed Coffin and Banished Baron
                 //AddBossSpawnInfo("CursedCoffin", $"Spawn by using [i:{ModContent.ItemType<CoffinSummon>()}] in the Underground Desert.");
+                //AddBossSpawnInfo("BanishedBaron", $"Spawn by using [i:{ModContent.ItemType<BaronSummon>()}] underwater at the ocean.");
             }
 
             #endregion boss spawn info

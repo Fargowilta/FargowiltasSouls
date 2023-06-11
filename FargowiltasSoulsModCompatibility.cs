@@ -246,12 +246,30 @@ namespace FargowiltasSouls
                         ModContent.ItemType<EnchantedLifeblade>(),
                         ModContent.ItemType<Lightslinger>(),
                         ModContent.ItemType<CrystallineCongregation>(),
-                        ModContent.ItemType<KamikazePixieStaff>()
+                        ModContent.ItemType<KamikazePixieStaff>(),
+                        ModContent.ItemType<LifelightMasterPet>()
                     }),
                     new List<int> { ModContent.ItemType<FragilePixieLamp>() },
                     false,
                     "NPCs/Challengers/LifeChallenger"
                 );
+                //JAVYZ TODO: Banished Baron
+                /*
+                Add("Boss",
+                    "BanishedBaron",
+                    //TODO: ADD LOOT
+                    new List<int> { ModContent.NPCType<BanishedBaron>() },
+                    8.7f,
+                    () => FargoSoulsWorld.downedBoss[(int)FargoSoulsWorld.Downed.BanishedBaron],
+                    () => true,
+                    new List<int>(new int[]
+                    {
+
+                    }),
+                    new List<int> { ModContent.ItemType<BaronSummon>() },
+                    true
+                );
+                */
                 //Add("Boss",
                 //    "CursedCoffin",
                 //    //TODO: ADD LOOT
@@ -261,7 +279,7 @@ namespace FargowiltasSouls
                 //    () => true,
                 //    new List<int>(new int[]
                 //    {
-                        
+
                 //    }),
                 //    new List<int> { ModContent.ItemType<CoffinSummon>() },
                 //    false,

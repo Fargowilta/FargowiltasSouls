@@ -93,6 +93,51 @@ namespace FargowiltasSouls.Projectiles
                         Projectile.rotation = Projectile.ai[1];
                     }
                     break;
+                //JAVYZ TODO: Banished Baron
+                /*
+                case 2: //banished baron dash telegraph
+                    {
+                        NPC baron = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.Challengers.BanishedBaron>());
+                        if (baron != null)
+                        {
+                            Projectile.rotation = baron.rotation;
+                            Projectile.Center = baron.Center;
+                        }
+                        color = Color.Gray; //Color.Lerp(Color.DeepPink, Color.Magenta, 0.5f);
+                        alphaModifier = 1;
+                        Projectile.scale = 1f;
+                        maxTime = 60;
+                    }
+                    break;
+                case 3: //banished baron nuke telegraph
+                    {
+                        NPC baron = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.Challengers.BanishedBaron>());
+                        if (baron != null)
+                        {
+                            Projectile.rotation = baron.rotation;
+                            Projectile.Center = baron.Center;
+                        }
+                        color = Color.Gray; //Color.Lerp(Color.DeepPink, Color.Magenta, 0.5f);
+                        alphaModifier = 1;
+                        Projectile.scale = 1f;
+                        maxTime = 30;
+                    }
+                    break;
+                case 4: //banished baron mine flurry telegraph
+                    {
+                        NPC baron = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<NPCs.Challengers.BanishedBaron>());
+                        if (baron != null)
+                        {
+                            Projectile.rotation = baron.rotation;
+                            Projectile.Center = baron.Center;
+                        }
+                        color = Color.Gray; //Color.Lerp(Color.DeepPink, Color.Magenta, 0.5f);
+                        alphaModifier = 1;
+                        Projectile.scale = 1f;
+                        maxTime = 29;
+                    }
+                    break;
+                */
                 default:
                     Main.NewText("gloom line: you shouldnt be seeing this text, show terry or javyz");
                     break;

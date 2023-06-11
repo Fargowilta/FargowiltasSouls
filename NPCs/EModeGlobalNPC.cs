@@ -289,11 +289,11 @@ namespace FargowiltasSouls.NPCs
                     }
                     else if (wideUnderground)
                     {
-                        if (deepUnderground && !jungle && !snow)
-                        {
-                            pool[NPCID.FireImp] = .01f;
-                            pool[NPCID.LavaSlime] = .01f;
-                        }
+                        //if (deepUnderground && !jungle && !snow)
+                        //{
+                        //    pool[NPCID.FireImp] = .01f;
+                        //    pool[NPCID.LavaSlime] = .01f;
+                        //}
 
                         if (marble && NPC.downedBoss2)
                         {
@@ -588,11 +588,11 @@ namespace FargowiltasSouls.NPCs
                             pool[NPCID.DesertDjinn] = .05f;
                         }
 
-                        if (deepUnderground && !jungle && !snow)
-                        {
-                            pool[NPCID.FireImp] = .02f;
-                            pool[NPCID.LavaSlime] = .02f;
-                        }
+                        //if (deepUnderground && !jungle && !snow)
+                        //{
+                        //    pool[NPCID.FireImp] = .02f;
+                        //    pool[NPCID.LavaSlime] = .02f;
+                        //}
 
                         if (cavern)
                         {

@@ -195,5 +195,7 @@ fixed buggy attack speed
 fixed visual glitch of leaving behind turtle ench shell by recalling
 did SOMETHING to toggles, CHECK THAT THEY WORK IN MP AND IT MOSTLY SYNCS FOR OTHER PLAYERS LIKE BEFORE
 
-fixed fire imps and lava slimes spawning above intended region (should only spawn roughly within 2x the height of hell above the top of hell)
 parry synergy cooldown is midway as intended
+removed fire imp and lava slime modified spawns i give up
+fixed leash sprite being 4x bigger than it should
+fixed being unable to make new characters
