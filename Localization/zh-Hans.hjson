@@ -195,6 +195,7 @@ Mods: {
 
 		NPCName:{
 			AbomBoss: 憎恶
+			BanishedBaron: 放逐遗爵
 			DeviBoss: 戴薇安
 			MutantBoss: 突变体
 			MutantIllusion: 突变体
@@ -267,6 +268,7 @@ Mods: {
 			
 			AbomFang: 憎恶毒牙
 			AbomPresence: 憎恶驾到
+			BaronsBurden: 遗爵重负
 			DeviPresence: 戴薇安驾到
 			Grabbed: 抓住你了！
 			MutantFang: 突变毒牙
@@ -417,6 +419,12 @@ Mods: {
 			
 			AbomFang: '''永恒模式的力量压迫着你'''
 			AbomPresence: '''减少防御力、伤害减免和生命恢复速度，附带月蛭凝块效果'''
+			BaronsBurden:
+			'''
+			在水外大幅增加中立
+			只能在水中而非空气中呼吸
+			“给我回来！”
+			'''
 			DeviPresence: '''大幅增加友方NPC受到的伤害'''
 			Grabbed: '''狂敲你的移动键来逃离！'''
 			MutantFang: '''永恒模式的力量压迫着你'''
@@ -714,6 +722,11 @@ Mods: {
 			SpiritArrowFlame: 心灵焰火
 
 			// == Challengers ==
+			BaronMine: 遗爵火箭
+			BaronNuke: 遗爵火箭
+			BaronRocket: 遗爵火箭
+			BaronScrap: 遗爵碎片
+			BaronShrapnel: 遗爵火箭弹片
 			JevilScar: 附魔光之剑
 			LifeBlaster: 生命湮灭炮
 			LifeBomb: 生命雷
@@ -2162,6 +2175,7 @@ Mods: {
 
 			AbominationnVoodooDoll: 憎恶巫毒娃娃
 			AbomsCurse: 憎恶诅咒
+			BaronSummon: 遗爵召唤物
 			ChampionySigil: 英灵证章
 			DevisCurse: 戴薇安的诅咒
 			FragilePixieLamp: 水晶圣像
@@ -3636,6 +3650,7 @@ Mods: {
 				'''
 				必须在地表使用
 				'''
+			BaronSummon: 在海洋的水中使用以召唤放逐遗爵
 			ChampionySigil:
 				'''
 				召唤英灵
