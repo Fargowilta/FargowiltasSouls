@@ -1,89 +1,17 @@
 Fargo's Souls Mod is a content mod that adds the powerful Enchantments and Souls accessories, as well as a variety of bosses and minibosses.
 Features the highly challenging Eternity Mode!
 
-NEW UPDATE - V 1.4.2.4
--After countless generations of setbacks and failures Yharim and Yrimir are finally defeatedy
--Added Eternity-specific spear swing style, used by:
-Spear, Adamantite Glaive, Cobalt Naginata, Mythril Halberd, Orichalcum Halberd, Palladium Pike, Titanium Trident, Trident, Obsidian Swordfish, Swordfish, Chlorophyte Partisan.
-Damage adjusted to compensate for the new swing style (hits once instead of twice, spears are now more consistent and feel better)
--Some of these weapons have also gotten Eternity-specific extra effects:
--Palladium Pike: Greatly increases life regeneration after striking an enemy
--Cobalt Naginata: Causes a small explosion on striking enemies
--Mythril Halberd: After not attacking for 2 seconds, your next attack deals triple damage
--Orichalcum Halberd: Releases flower petals at apex of swing
--Lieflight now has contact damage while firing lasers during rune circle expansion attack, projectiles now form a full circle
--Lieflight hexagon arena projectiles reduced in amount and removed excessive splits to reduce lag
--Lieflight health and damage reduction functionality changed to reduce the massive difference between Eternity Mode and Masochist Mode difficulty
--Lieflight is now immune during the Phase 3 opening attack in Eternity Mode only
--New "charge" sound effect used by equipment to communicate fully charged effects, Max Mana sound was previously used
--Charge sound effect added to Mythril Enchant
--Fixed Lieflight boss checklist display
--Changed Lieflight drawcode so bestiary works better
+NEW UPDATE - V 1.4.2.5
+-Added minor polish and bug fixes.
 
-NEW UPDATE - V 1.4.2.2
--Lieflight multiplayer despawn issue fixed
--Enchanted Lifeblade: Damage 50 -> 22
--Lightslinger: Damage 40 -> 22, Shots for lightbomb 25 -> 40
--Crystalline Congregation: Damage 70 -> 47
--Expixive Staff: Damage 110 -> 95
-
-NEW UPDATE - V 1.4.2.1
--Attempted and failed to remove Yharim
--Fixed lag issues
--Enhanced Flight Mastery Soul
--Fixed World Shaper Soul tool range and 
-
-NEW UPDATE - V 1.4.2
--Vastly improves the mod in every respect possible
--Revolutionize gameplay with a slew of highly engaging new mechanics
--Adds another 200 hours of polished content
--Fully fleshes out the deeply moving and philosophically stimulating lore
--Fixes every bug forever
--Achieved perfect balance to a point that no further balance changes will be needed again ever
 
 -See the wiki for full details!
 
 Fargo的魂石模组是一个内容模组，添加了强大的魔石以及魂类饰品，也改动了各种各样的Boss和小Boss。
 以高度挑战性的永恒模式作为招牌！
 
-新更新 - V 1.4.2.4
--在经过了数不胜数的挫折和失败以后，亚利姆和伊里米尔终于被击败了
--添加了新的永恒模式独占长矛挥舞动画重做，以下武器使用：
-长矛，精金关刀，钴剃刀，秘银长戟，山铜长戟，钯金刺矛，钛金三叉戟，三叉戟，黑曜石剑鱼，剑鱼，叶绿镋。
-调整了伤害以平衡新的挥舞动画（击中一次而非两次，长矛的手感更加连贯）
--其中一些武器也得到了永恒模式独占的额外效果：
--钯金刺矛：击中敌人后大幅增加生命恢复速度
--钴剃刀：击中敌人会造成小范围爆炸
--秘银长戟：不攻击持续2秒后下一击造成三倍伤害
--山铜长戟：挥舞时矛的顶端会释放花瓣
--飘渺游光在符文展开攻击中发射激光时带有碰撞伤害，弹幕现在会形成一个完整的圆
--飘渺游光的六边形区域弹幕数量减少，并移除了多余的分裂弹幕以缓解卡顿
--飘渺游光的生命值和伤害减免降低，以减少永恒模式和受虐模式之间巨大的难度差异
--飘渺游光（仅）在永恒模式下的三阶段开场攻击会进入无敌状态
--装备使用新的“蓄力”音效以提示效果完全蓄力，先前使用魔力恢复最大值音效
--蓄力音效添加到秘银魔石上
--修复了飘渺游光的Boss列表显示
--调整了飘渺游光的绘制代码，所以现在图鉴图标会看起来更好
+新更新 - V 1.4.2.5
+-微小的优化以及Bug修复。
 
-新更新 - V 1.4.2.2
--多人模式下飘渺游光的脱战问题修复
--附魔蕴生之剑：面板伤害 50 ->22
--曙光投射器：面板伤害 40 -> 22，曙光炸弹所需射击次数 25 -> 40
--魔引凝晶：面板伤害 70 -> 47
--爆炸妖精杖：面板伤害 110 -> 95
-
-新更新 - V 1.4.2.1
--试图移除寻神者，亚利姆，但失败了
--修复了卡顿问题
--优化了飞行大师之魂
--修复了铸世者之魂的放置和挖掘距离加成不生效
-
-新更新 - V 1.4.2
--在各个方面都极大改进了模组！
--通过一系列极具吸引力的新机制，彻底改革了游戏玩法！
--额外添加了可供游玩200小时的精雕细琢的内容！
--充分丰满了令人感动万分且富有哲思的刺激传说！
--永久性修复了所有漏洞！
--实现了完美的平衡，再也不需要任何平衡调整了！
 
 -查看Wiki以获得全部信息！
