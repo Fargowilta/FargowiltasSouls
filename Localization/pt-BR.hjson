@@ -2,6 +2,65 @@
 
 Mods: {
 	FargowiltasSouls: {
+		WizardEffect:{
+			Adamantite: Os projéteis agora se dividem em 3
+			AncientHallow: ""
+			AncientShadow: ""
+			Angler: ""
+			Bee: ""
+			Beetle: ""
+			Boreal: Dispara mais bolas de neve mais frequentemente
+			Cactus: ""
+			Chlorophyte: ""
+			Cobalt: Dano da explosão aumentado
+			Copper: Dano do relâmpago aumentado, tempo de recarga reduzido
+			Crimson: ""
+			CrystalAssassin:
+			DarkArtist: ""
+			Ebonwood: Limite de dano aumentado para 25, adicionalmente mata qualquer NPC com menos de 200 de vida
+			Forbidden: ""
+			Fossil: ""
+			Frost: ""
+			Gladiator: ""
+			Gold: ""
+			Hallow: ""
+			Iron: Aumenta o alcance de item em 4x, o bônus de criação agora afeta a Bigorna de Mithril
+			Lead: Dano do Envenenamento por Chumbo aumentado, resistência aos danos por efeitos negativos aumentada para 60%
+			Meteor: ""
+			Miner: ""
+			Molten: ""
+			Mythril: Limite de bônus de velocidade de ataque aumentado e o efeito dura mais
+			Nebula: ""
+			Necro: ""
+			Ninja: Aumenta a velocidade dos projéteis em 3x em vez de 2x, perfuração da blindagem aumentada para 20
+			Obsidian: Não é mais necessário lava para invocar explosões, tempo de recarga reduzido
+			Orichalcum: Aumenta o multiplicador para 4x
+			Palladium: Cura Rápida sempre dura 5 segundos, aumenta o dano da esfera
+			PalmWood: Velocidade de ataque e dano aumentados, mais 2 árvores podem ser invocadas
+			Pearlwood: Dano aumentado e tempo de recarga reduzido
+			Platinum: ""
+			Pumpkin: ""
+			Rain: ""
+			RedRiding: ""
+			RichMahogany: Ganchos te puxam 2.5 mais rápido, resistência aos danos e dano de espinhos aumentados consideravelmente
+			Shadewood: Tamanho da aura e dano do sangue aumentados, adicionalmente aplica Ichor
+			Shinobi: ""
+			Shroomite: ""
+			Silver: Bloquear também concede o efeito Momento do Ataque
+			Solar: ""
+			Spectre: ""
+			Spider: ""
+			Spooky: ""
+			Stardust: ""
+			Tiki: ""
+			Tin: Crítico mínimo aumentado para 10%, crítico máximo é pelo menos 50%, tempo de recarga da ativação reduzido
+			Titanium: Dano dos fragmentos aumentado, duração do Escudo de Titânio aumentado para 5 segundos e resistência aos danos aumentada para 75%
+			Tungsten: Tamanho da arma aumentado para 300%, dano bônus para 20%, tempo de recarga reduzido
+			Turtle: ""
+			ValhallaKnight: ""
+			Vortex: ""
+			Wood: Multiplicador do bestiário e das bandeiras aumentado para 5
+		}
 		SetBonus: {
 			Nekomi:
 				'''
@@ -3284,6 +3343,8 @@ Mods: {
 			BanishedBaronDespawn: The Banished Baron dives deeper into the ocean...
 		}
 
+		BuffDescription.Coldheart: '''{0}% de redução na redução dos danos'''
+
 		Message: {
 			HasAwoken: acordou!
 			DevisCurse: "{$Mods.FargowiltasSouls.NPCName.DeviBoss} {$Mods.FargowiltasSouls.Message.HasAwoken}"
@@ -3382,6 +3443,10 @@ Mods: {
 			DivineWrath: foi aniquilado pela ira divina.
 			Shadowflame: queimou em chamas sombrias.
 			NanoInjection: foi consumido de dentro por nanobôs.
+			Fused:"{0} foi explodido em pedaçinhos."
+			Nutcracker: "{0} teve suas nozes quebradas."
+			Derpling: "{0} foi sugado a seco."
+			Snatchers: "{0} virou um homem devorado por um Devorador de Homens."
 		}
 		
 		DeviChatter: {
