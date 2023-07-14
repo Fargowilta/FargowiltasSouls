@@ -329,7 +329,7 @@ namespace FargowiltasSouls
                             damage *= 2;
 
                         if (Player.hurtCooldowns[0] <= 0) //same i-frames as spike tiles
-                            Player.Hurt(PlayerDeathReason.ByCustomReason(Player.name + " was pricked by a Cactus."), damage, 0, false, false, false, 0);
+                            Player.Hurt(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Cactus", Player.name)), damage, 0, false, false, false, 0);
                     }
                 }
             }

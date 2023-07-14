@@ -1326,12 +1326,13 @@ Mods: {
 			Shadowflame: "{0}被暗影焰包裹着，控制不住火势。"
 			NanoInjection: "{0}被纳米机器人从内部吞噬。"
 
+			Cactus: "{0}被仙人掌扎死了。" //todo
 			Fused:"{0}被炸成了碎片。"
 			ReverseManaFlow: "{0}被自己的魔法摧毁了。"
 			Nutcracker: "{0}的“坚果”裂开了。"
 			Derpling: "{0}被吸干了。"
-			Snatchers: "{0}被食人怪咬成了“被吃掉”的男人。"
-			FakeHeart: "{0}被假心欺骗了。"
+			Snatchers: "{0}被食人怪咬成了“被吃掉”的男人。" //todo
+			FakeHeart: "{0}被假心欺骗了。" //todo
 		}
 
 		DeviChatter: {

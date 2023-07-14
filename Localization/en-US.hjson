@@ -300,6 +300,7 @@ Mods: {
 			Shadowflame: "{0} burned up in shadowy flames."
 			NanoInjection: "{0} was consumed from within by nanites."
 
+			Cactus: "{0} was pricked by a Cactus."
 			Fused: "{0} was blown to bits."
 			ReverseManaFlow: "{0} was destroyed by their own magic."
 			Nutcracker: "{0} had his nuts cracked."
