@@ -231,8 +231,8 @@ Mods: {
 			TerraChampion: 泰拉英灵
 			TerraChampionBody: 泰拉英灵
 			TerraChampionTail: 泰拉英灵
-			TimberChampion: 木英灵
-			TimberChampionHead: 木英灵
+			TimberChampion: 森林英灵
+			TimberChampionHead: 森林英灵
 			WillChampion: 意志英灵
 		}
 
@@ -2221,7 +2221,7 @@ Mods: {
 			ShadowChampionRelic: 暗影英灵圣物
 			SpiritChampionRelic: 心灵英灵圣物
 			TerraChampionRelic: 泰拉英灵圣物
-			TimberChampionRelic: 木英灵圣物
+			TimberChampionRelic: 森林英灵圣物
 			TrojanSquirrelRelic: 特洛伊松鼠圣物
 			WillChampionRelic: 意志英灵圣物
 
@@ -2284,7 +2284,7 @@ Mods: {
 			LeashOfCthulhu: 克苏鲁连枷
 			PrismaRegalia: 晶霞华枪
 			RefractorBlaster: 变轨激光炮
-			RockSlide: 山崩
+			RockSlide: 岩倾
 			SlimeKingsSlasher: 史莱姆王屠戮者
 			TheSmallSting: 小刺
 			TwinRangs: 双子
@@ -2325,8 +2325,8 @@ Mods: {
 			DragonBreath2: 龙之终焉
 			EaterLauncher: 吞噬者发射器
 			FleshCannon: 反叛者
-			GeminiGlaives: 双子座飞轮刃
-			GolemTome2: 山崩EX
+			GeminiGlaives: 双生旋刃
+			GolemTome2: 山崩
 			GuardianTome: 守卫者
 			HellZone: 地狱领域
 			MechanicalLeashOfCthulhu: 机械克苏鲁连枷
