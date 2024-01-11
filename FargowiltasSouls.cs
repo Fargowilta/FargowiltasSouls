@@ -34,6 +34,7 @@ using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 using FargowiltasSouls.Content.Patreon.Volknet;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls
 {
@@ -217,7 +218,7 @@ namespace FargowiltasSouls
                     || modPlayer.ShellHide 
                     || modPlayer.MonkDashing > 0 
                     || modPlayer.CobaltImmuneTimer > 0
-                    || modPlayer.TitaniumDRBuff)
+                    || self.GetEffectFields<TitaniumFields>().TitaniumDRBuff)
                 && DebuffIDs.Contains(type))
             {
                 return; //doing it this way so that debuffs previously had are retained, but existing debuffs also cannot be extended by reapplying

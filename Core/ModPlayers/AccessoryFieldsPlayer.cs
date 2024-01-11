@@ -73,9 +73,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public int TungstenCD;
         public int AshwoodCD;
         //force of earth
-        public Item AdamantiteEnchantItem;
-        public bool AdamantiteCanSplit;
-        public double AdamantiteSpread;
         public Item CobaltEnchantItem;
         public bool CanCobaltJump;
         public bool JustCobaltJumped;
@@ -88,9 +85,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public Item OriEnchantItem;
         public Item PalladEnchantItem;
         public int PalladCounter;
-        public Item TitaniumEnchantItem;
-        public bool TitaniumDRBuff;
-        public bool TitaniumCD;
         //force of nature
         public Item CrimsonEnchantItem;
         //force of life

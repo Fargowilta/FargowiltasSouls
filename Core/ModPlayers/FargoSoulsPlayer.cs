@@ -262,7 +262,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             ChloroEnchantItem = null;
             JungleEnchantItem = null;
             VortexEnchantActive = false;
-            AdamantiteEnchantItem = null;
             FrostEnchantActive = false;
             PalladEnchantItem = null;
             OriEnchantItem = null;
@@ -303,9 +302,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             MonkEnchantActive = false;
             SnowEnchantActive = false;
             SnowVisual = false;
-            TitaniumEnchantItem = null;
-            TitaniumDRBuff = false;
-            TitaniumCD = false;
 
             cosmoForce = false;
             earthForce = false;
@@ -577,7 +573,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             Unlucky = false;
         }
 
-        List<int> prevDyes = null;
+        internal List<int> prevDyes = null;
 
         public void ManageLifeReduction()
         {

@@ -227,9 +227,9 @@ namespace FargowiltasSouls.Core.ModPlayers
             }
 
 
-            if (TitaniumEnchantItem != null && (projectile == null || projectile.type != ProjectileID.TitaniumStormShard))
+            if (Player.HasEffect<TitaniumEffect>() && (projectile == null || projectile.type != ProjectileID.TitaniumStormShard))
             {
-                TitaniumEnchant.TitaniumShards(this, Player);
+                TitaniumEffect.TitaniumShards(this, Player);
             }
 
             if (DevianttHeartItem != null && DevianttHeartsCD <= 0 && Player.GetToggleValue("MasoDevianttHearts")

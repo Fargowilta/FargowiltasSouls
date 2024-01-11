@@ -733,43 +733,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             }
 
             StatLifePrevious = Player.statLife;
-
-            if (TitaniumDRBuff && prevDyes == null)
-            {
-                prevDyes = new List<int>();
-                int reflectiveSilver = GameShaders.Armor.GetShaderIdFromItemId(ItemID.ReflectiveSilverDye);
-
-                for (int i = 0; i < Player.dye.Length; i++)
-                {
-                    prevDyes.Add(Player.dye[i].dye);
-                    Player.dye[i].dye = reflectiveSilver;
-                }
-
-                for (int j = 0; j < Player.miscDyes.Length; j++)
-                {
-                    prevDyes.Add(Player.miscDyes[j].dye);
-                    Player.miscDyes[j].dye = reflectiveSilver;
-                }
-
-                Player.UpdateDyes();
-            }
-            else if (!Player.HasBuff(ModContent.BuffType<TitaniumDRBuff>()) && prevDyes != null)
-            {
-                for (int i = 0; i < Player.dye.Length; i++)
-                {
-                    Player.dye[i].dye = prevDyes[i];
-                }
-
-                for (int j = 0; j < Player.miscDyes.Length; j++)
-                {
-                    Player.miscDyes[j].dye = prevDyes[j + Player.dye.Length];
-                }
-
-                Player.UpdateDyes();
-
-                prevDyes = null;
-            }
-
         }
     }
 }

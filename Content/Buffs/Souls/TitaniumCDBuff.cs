@@ -1,6 +1,8 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Content.Buffs.Souls
 {
@@ -17,8 +19,7 @@ namespace FargowiltasSouls.Content.Buffs.Souls
 
         public override void Update(Player player, ref int buffIndex)
         {
-            FargoSoulsPlayer modPlayer = player.FargoSouls();
-            modPlayer.TitaniumCD = true;
+            player.GetEffectFields<TitaniumFields>().TitaniumCD = true;
         }
     }
 }

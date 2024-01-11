@@ -1,5 +1,8 @@
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.ModPlayers;
+using FargowiltasSouls.Core.Toggler.Content;
 
 using Microsoft.Xna.Framework;
 using System.Linq;
@@ -35,30 +38,51 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            AdamantiteEffect(player, Item);
+            player.AddEffect<AdamantiteEffect>(Item);
         }
 
-        public static void AdamantiteEffect(Player player, Item item)
+
+        public override void AddRecipes()
         {
-            player.DisplayToggle("Adamantite");
+            CreateRecipe()
+                .AddRecipeGroup("FargowiltasSouls:AnyAdamHead")
+                .AddIngredient(ItemID.AdamantiteBreastplate)
+                .AddIngredient(ItemID.AdamantiteLeggings)
+                .AddIngredient(ItemID.Boomstick)
+                .AddIngredient(ItemID.QuadBarrelShotgun)
+                .AddIngredient(ItemID.DarkLance)
+                .AddTile(TileID.CrystalBall)
+                .Register();
+        }
+    }
+
+    public class AdamantiteEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<EarthHeader>();
+        public override bool HasToggle => true;
+
+        public override void PostUpdateEquips(Player player)
+        {
+            //player.DisplayToggle("Adamantite");
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            modPlayer.AdamantiteEnchantItem = item;
+            //modPlayer.AdamantiteEnchantItem = item;
 
             int adaCap = 60; //ada cap in DEGREES
 
+            AdamantiteFields fields = player.GetEffectFields<AdamantiteFields>();
+
             const float incSeconds = 10;
             const float decSeconds = 1.5f;
-            if (modPlayer.WeaponUseTimer > 0) 
-                modPlayer.AdamantiteSpread += (adaCap / 60f) / incSeconds; //ada spread change per frame, based on total amount of seconds to reach cap
-            else 
-                modPlayer.AdamantiteSpread -= (adaCap / 60f) / decSeconds;
+            if (modPlayer.WeaponUseTimer > 0)
+                fields.AdamantiteSpread += (adaCap / 60f) / incSeconds; //ada spread change per frame, based on total amount of seconds to reach cap
+            else
+                fields.AdamantiteSpread -= (adaCap / 60f) / decSeconds;
 
-            if (modPlayer.AdamantiteSpread < 0) 
-                modPlayer.AdamantiteSpread = 0; 
+            if (fields.AdamantiteSpread < 0)
+                fields.AdamantiteSpread = 0;
 
-            if (modPlayer.AdamantiteSpread > adaCap) 
-                modPlayer.AdamantiteSpread = adaCap;
-            
+            if (fields.AdamantiteSpread > adaCap)
+                fields.AdamantiteSpread = adaCap;
         }
 
         public static int[] AdamIgnoreItems = new int[]
@@ -70,9 +94,10 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             ItemID.TerraBlade,
             ModContent.ItemType<DecrepitAirstrikeRemote>()
         };
+
         public static void AdamantiteSplit(Projectile projectile, FargoSoulsPlayer modPlayer, int splitDegreeAngle)
         {
-            bool adaForce = modPlayer.ForceEffect(modPlayer.AdamantiteEnchantItem.type);
+            bool adaForce = modPlayer.ForceEffect(modPlayer.Player.EffectItem<AdamantiteEffect>().ModItem);
             bool isProjHoming = ProjectileID.Sets.CultistIsResistantTo[projectile.type];
 
             if (AdamIgnoreItems.Contains(modPlayer.Player.HeldItem.type))
@@ -103,18 +128,10 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 projectile.damage = (int)(projectile.damage * adaDamageRatio);
             }
         }
+    }
 
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddRecipeGroup("FargowiltasSouls:AnyAdamHead")
-                .AddIngredient(ItemID.AdamantiteBreastplate)
-                .AddIngredient(ItemID.AdamantiteLeggings)
-                .AddIngredient(ItemID.Boomstick)
-                .AddIngredient(ItemID.QuadBarrelShotgun)
-                .AddIngredient(ItemID.DarkLance)
-                .AddTile(TileID.CrystalBall)
-                .Register();
-        }
+    public class AdamantiteFields : EffectFields
+    {
+        public double AdamantiteSpread;
     }
 }

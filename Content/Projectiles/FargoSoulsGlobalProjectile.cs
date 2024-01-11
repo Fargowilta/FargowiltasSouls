@@ -359,25 +359,23 @@ namespace FargowiltasSouls.Content.Projectiles
                 HuntressProj = 1;
             }
 
-            if (modPlayer.AdamantiteEnchantItem != null && player.GetToggleValue("Adamantite")
+            if (player.HasEffect<AdamantiteEffect>()
                 && FargoSoulsUtil.OnSpawnEnchCanAffectProjectile(projectile, false)
                 && CanSplit && Array.IndexOf(NoSplit, projectile.type) <= -1
                 && projectile.aiStyle != ProjAIStyleID.Spear)
             {
                 if (projectile.owner == Main.myPlayer
-                    && !(AdamantiteEnchant.AdamIgnoreItems.Contains(modPlayer.Player.HeldItem.type) || modPlayer.Player.heldProj == projectile.whoAmI)
+                    && !(AdamantiteEffect.AdamIgnoreItems.Contains(modPlayer.Player.HeldItem.type) || modPlayer.Player.heldProj == projectile.whoAmI)
                     && (FargoSoulsUtil.IsProjSourceItemUseReal(projectile, source)
                     || source is EntitySource_Parent parent && parent.Entity is Projectile sourceProj && (sourceProj.aiStyle == ProjAIStyleID.Spear || sourceProj.minion || sourceProj.sentry || ProjectileID.Sets.IsAWhip[sourceProj.type] && !ProjectileID.Sets.IsAWhip[projectile.type])))
                 {
                     //apen is inherited from proj to proj
                     projectile.ArmorPenetration += projectile.damage / 2;
 
-
-
-                    AdamantiteEnchant.AdamantiteSplit(projectile, modPlayer, 1 + (int)modPlayer.AdamantiteSpread);
+                    AdamantiteEffect.AdamantiteSplit(projectile, modPlayer, 1 + (int)player.GetEffectFields<AdamantiteFields>().AdamantiteSpread);
                     
                 }
-                AdamModifier = modPlayer.ForceEffect(modPlayer.AdamantiteEnchantItem.type) ? 3 : 2;
+                AdamModifier = modPlayer.ForceEffect(player.EffectItem<AdamantiteEffect>().ModItem) ? 3 : 2;
             }
 
             if (projectile.bobber && CanSplit && source is EntitySource_ItemUse)
@@ -1292,9 +1290,10 @@ namespace FargowiltasSouls.Content.Projectiles
                 }
             }
 
-            FargoSoulsPlayer modPlayer = Main.player[projectile.owner].FargoSouls();
+            Player player = Main.player[projectile.owner];
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
             if (AdamModifier != 0)
-                ReduceIFrames(projectile, target, modPlayer.AdamantiteEnchantItem != null && modPlayer.ForceEffect(modPlayer.AdamantiteEnchantItem.type) ? 3 : 2);
+                ReduceIFrames(projectile, target, player.HasEffect<AdamantiteEffect>() && modPlayer.ForceEffect(player.EffectItem<AdamantiteEffect>().ModItem) ? 3 : 2);
 
             if (projectile.type == ProjectileID.IceBlock && Main.player[projectile.owner].FargoSouls().FrigidGemstoneItem != null)
             {

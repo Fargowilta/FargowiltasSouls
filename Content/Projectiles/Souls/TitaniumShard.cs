@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
@@ -27,7 +29,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Player player = Main.player[Projectile.owner];
             FargoSoulsPlayer modPlayer = player.FargoSouls();
 
-            if (Projectile.owner == Main.myPlayer && (!player.GetToggleValue("Titanium") || modPlayer.TitaniumEnchantItem == null))
+            if (Projectile.owner == Main.myPlayer && Main.LocalPlayer.HasEffect<TitaniumEffect>())
             {
                 Projectile.Kill();
             }
