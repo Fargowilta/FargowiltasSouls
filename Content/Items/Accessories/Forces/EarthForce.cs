@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
@@ -59,17 +60,13 @@ $"[i:{ModContent.ItemType<TitaniumEnchant>()}] Attacks generate titanium shards,
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
             modPlayer.earthForce = true;
-            //mythril
-            MythrilEnchant.MythrilEffect(player, Item);
-            //shards
-            modPlayer.CobaltEnchantItem = Item;
-            AncientCobaltEnchant.AncientCobaltEffect(player, Item, 250);
-            //regen on hit, heals
-            PalladiumEnchant.PalladiumEffect(player, Item);
-            //fireballs and petals
-            OrichalcumEnchant.OrichalcumEffect(player, Item);
-            AdamantiteEnchant.AdamantiteEffect(player, Item);
-            TitaniumEnchant.TitaniumEffect(player, Item);
+            player.AddEffect<AncientCobaltEffect>(Item);
+            player.AddEffect<CobaltEffect>(Item);
+            player.AddEffect<PalladiumEffect>(Item);
+            player.AddEffect<MythrilEffect>(Item);
+            player.AddEffect<OrichalcumEffect>(Item);
+            player.AddEffect<AdamantiteEffect>(Item);
+            player.AddEffect<TitaniumEffect>(Item);
         }
 
         public override void AddRecipes()
