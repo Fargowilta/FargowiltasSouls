@@ -1,6 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ModLoader;
+using FargowiltasSouls.Content.Buffs;
 using Terraria.ID;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -30,26 +34,35 @@ Damaging debuffs deal 2.5x damage
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            OrichalcumEffect(player, Item);
+            player.AddEffect<OrichalcumEffect>(Item);
         }
 
-        public static void OrichalcumEffect(Player player, Item item)
+
+        public override void AddRecipes()
         {
-            player.DisplayToggle("Orichalcum");
+            CreateRecipe()
+            .AddRecipeGroup("FargowiltasSouls:AnyOriHead")
+            .AddIngredient(ItemID.OrichalcumBreastplate)
+            .AddIngredient(ItemID.OrichalcumLeggings)
+            .AddIngredient(ItemID.FlowerofFire)
+            .AddIngredient(ItemID.FlowerofFrost)
+            .AddIngredient(ItemID.CursedFlames)
 
-            player.FargoSouls().OriEnchantItem = item;
-
-            if (!player.GetToggleValue("Orichalcum"))
-                return;
-
-            player.onHitPetal = true;
+            .AddTile(TileID.CrystalBall)
+            .Register();
         }
+    }
+
+    public class OrichalcumEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<EarthHeader>();
+        public override bool HasToggle => true;
 
         public static void OriDotModifier(NPC npc, FargoSoulsPlayer modPlayer, ref int damage)
         {
             float multiplier = 2.5f;
 
-            if (modPlayer.ForceEffect(modPlayer.OriEnchantItem.type))
+            if (modPlayer.Player.ForceEffect<OrichalcumEffect>())
             {
                 multiplier = 4f;
             }
@@ -65,18 +78,18 @@ Damaging debuffs deal 2.5x damage
             }
         }
 
-        public override void AddRecipes()
+        public override void PostUpdateEquips(Player player)
         {
-            CreateRecipe()
-            .AddRecipeGroup("FargowiltasSouls:AnyOriHead")
-            .AddIngredient(ItemID.OrichalcumBreastplate)
-            .AddIngredient(ItemID.OrichalcumLeggings)
-            .AddIngredient(ItemID.FlowerofFire)
-            .AddIngredient(ItemID.FlowerofFrost)
-            .AddIngredient(ItemID.CursedFlames)
+            player.onHitPetal = true;
+        }
 
-            .AddTile(TileID.CrystalBall)
-            .Register();
+        public override void OnHitNPCWithProj(Player player, Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (proj.type == ProjectileID.FlowerPetal)
+            {
+                target.AddBuff(ModContent.BuffType<Content.Buffs.Souls.OriPoisonBuff>(), 300);
+                target.immune[proj.owner] = 2;
+            }
         }
     }
 }

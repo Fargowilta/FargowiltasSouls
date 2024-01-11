@@ -248,7 +248,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             BeeEnchantItem = null;
             SpiderEnchantActive = false;
             StardustEnchantActive = false;
-            MythrilEnchantItem = null;
             FossilEnchantItem = null;
             JungleEnchantActive = false;
             ShroomEnchantActive = false;
@@ -264,7 +263,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             VortexEnchantActive = false;
             FrostEnchantActive = false;
             PalladEnchantItem = null;
-            OriEnchantItem = null;
             MeteorEnchantItem = null;
             MoltenEnchantActive = false;
             PlatinumEnchantActive = false;
@@ -559,8 +557,6 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             MaxLifeReduction = 0;
             CurrentLifeReduction = 0;
-
-            MythrilTimer = MythrilMaxTime;
         }
 
         
@@ -653,9 +649,9 @@ namespace FargowiltasSouls.Core.ModPlayers
                     AttackSpeed += .2f;
                 }
 
-                if (MythrilEnchantItem != null)
+                if (Player.HasEffect<MythrilEffect>())
                 {
-                    MythrilEnchant.CalcMythrilAttackSpeed(this, item);
+                    MythrilEffect.CalcMythrilAttackSpeed(this, item);
                 }
 
                 if (WretchedPouchItem != null && !MasochistSoul && AttackSpeed > 1f)

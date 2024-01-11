@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using FargowiltasSouls.Content.Items.Weapons.BossDrops;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -34,48 +36,9 @@ Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            MythrilEffect(player, Item);
+            player.AddEffect<MythrilEffect>();
         }
 
-        public static void MythrilEffect(Player player, Item item)
-        {
-            player.DisplayToggle("Mythril");
-
-            FargoSoulsPlayer modPlayer = player.FargoSouls();
-
-            if (!player.GetToggleValue("Mythril"))
-                return;
-
-            modPlayer.MythrilEnchantItem = item;
-
-            const int cooldown = 60 * 5;
-            int mythrilEndTime = modPlayer.MythrilMaxTime - cooldown;
-
-            if (modPlayer.WeaponUseTimer > 0)
-                modPlayer.MythrilTimer--;
-            else
-            {
-                modPlayer.MythrilTimer++;
-                if (modPlayer.MythrilTimer == modPlayer.MythrilMaxTime - 1 && player.whoAmI == Main.myPlayer)
-                {
-                    SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/ChargeSound"), player.Center);
-                }
-            }
-
-            if (modPlayer.MythrilTimer > modPlayer.MythrilMaxTime)
-                modPlayer.MythrilTimer = modPlayer.MythrilMaxTime;
-            if (modPlayer.MythrilTimer < mythrilEndTime)
-                modPlayer.MythrilTimer = mythrilEndTime;
-        }
-
-        public static void CalcMythrilAttackSpeed(FargoSoulsPlayer modPlayer, Item item)
-        {
-            if (item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0 && item.type != ModContent.ItemType<PrismaRegalia>())
-            {
-                float ratio = Math.Max((float)modPlayer.MythrilTimer / modPlayer.MythrilMaxTime, 0);
-                modPlayer.AttackSpeed += modPlayer.MythrilMaxSpeedBonus * ratio;
-            }
-        }
 
         public override void AddRecipes()
         {
@@ -90,5 +53,59 @@ Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
             .AddTile(TileID.CrystalBall)
             .Register();
         }
+    }
+
+    public class MythrilEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<EarthHeader>();
+        public override bool HasToggle => true;
+
+        public static void CalcMythrilAttackSpeed(FargoSoulsPlayer modPlayer, Item item)
+        {
+            MythrilFields fields = modPlayer.Player.GetEffectFields<MythrilFields>();
+
+            if (item.DamageType != DamageClass.Default && item.pick == 0 && item.axe == 0 && item.hammer == 0 && item.type != ModContent.ItemType<PrismaRegalia>())
+            {
+                float ratio = Math.Max((float)fields.MythrilTimer / fields.MythrilMaxTime, 0);
+                modPlayer.AttackSpeed += fields.MythrilMaxSpeedBonus * ratio;
+            }
+        }
+
+        public override void PostUpdateEquips(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            MythrilFields fields = modPlayer.Player.GetEffectFields<MythrilFields>();
+
+            const int cooldown = 60 * 5;
+            int mythrilEndTime = fields.MythrilMaxTime - cooldown;
+
+            if (modPlayer.WeaponUseTimer > 0)
+                fields.MythrilTimer--;
+            else
+            {
+                fields.MythrilTimer++;
+                if (fields.MythrilTimer == fields.MythrilMaxTime - 1 && player.whoAmI == Main.myPlayer)
+                {
+                    SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/ChargeSound"), player.Center);
+                }
+            }
+
+            if (fields.MythrilTimer > fields.MythrilMaxTime)
+                fields.MythrilTimer = fields.MythrilMaxTime;
+            if (fields.MythrilTimer < mythrilEndTime)
+                fields.MythrilTimer = mythrilEndTime;
+        }
+    }
+
+    public class MythrilFields : EffectFields
+    {
+        public override void UpdateDead()
+        {
+            MythrilTimer = MythrilMaxTime;
+        }
+
+        public int MythrilTimer;
+        public int MythrilMaxTime => Player.HasEffect<MythrilEffect>() ? Player.ForceEffect<MythrilEffect>() ? 300 : 180 : 180;
+        public float MythrilMaxSpeedBonus => Player.HasEffect<MythrilEffect>() ? Player.ForceEffect<MythrilEffect>() ? 1.75f : 1.5f : 1.5f;
     }
 }

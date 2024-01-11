@@ -5,6 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static FargowiltasSouls.Core.Systems.DashManager;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
@@ -78,10 +80,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool JustCobaltJumped;
         public int CobaltCooldownTimer;
         public int CobaltImmuneTimer;
-        public Item MythrilEnchantItem;
-        public int MythrilTimer;
-        public int MythrilMaxTime => MythrilEnchantItem != null ? ForceEffect(MythrilEnchantItem.type) ? 300 : 180 : 180;
-        public float MythrilMaxSpeedBonus => MythrilEnchantItem != null ? ForceEffect(MythrilEnchantItem.type) ? 1.75f : 1.5f : 1.5f;
         public Item OriEnchantItem;
         public Item PalladEnchantItem;
         public int PalladCounter;

@@ -123,6 +123,8 @@ namespace FargowiltasSouls //lets everything access it without using
             => player.GetModPlayer<EModePlayer>();
         public static AccessoryEffectPlayer AccessoryEffects(this Player player) 
             => player.GetModPlayer<AccessoryEffectPlayer>();
+        public static bool ForceEffect<T>(this Player player) where T : AccessoryEffect
+            => player.FargoSouls().ForceEffect(player.EffectItem<T>().ModItem);
 
         public static T As<T>(this NPC npc) where T : ModNPC => npc.ModNPC as T;
         public static T As<T>(this Projectile projectile) where T : ModProjectile => projectile.ModProjectile as T;

@@ -162,12 +162,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                 TryAdditionalAttacks(proj.damage, proj.DamageType);
 
             OnHitNPCEither(target, hit, proj.DamageType, projectile: proj);
-
-            if (OriEnchantItem != null && proj.type == ProjectileID.FlowerPetal)
-            {
-                target.AddBuff(ModContent.BuffType<OriPoisonBuff>(), 300);
-                target.immune[proj.owner] = 2;
-            }
         }
 
         private void OnHitNPCEither(NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, Projectile projectile = null, Item item = null)

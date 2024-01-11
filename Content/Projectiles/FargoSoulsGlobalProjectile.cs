@@ -1117,7 +1117,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     modPlayer.TryAdditionalAttacks(projectile.damage, projectile.DamageType);
 
                     //because the bow refuses to acknowledge changes in attack speed after initial spawning
-                    if (projectile.type == ProjectileID.DD2PhoenixBow && modPlayer.MythrilEnchantItem != null && modPlayer.MythrilTimer > -60 && counter > 60)
+                    if (projectile.type == ProjectileID.DD2PhoenixBow && player.HasEffect<MythrilEffect>() && modPlayer.Player.GetEffectFields<MythrilFields>().MythrilTimer > -60 && counter > 60)
                         projectile.Kill();
                 }
 
