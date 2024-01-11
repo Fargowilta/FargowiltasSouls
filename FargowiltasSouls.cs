@@ -217,7 +217,7 @@ namespace FargowiltasSouls
                     || modPlayer.GoldShell 
                     || modPlayer.ShellHide 
                     || modPlayer.MonkDashing > 0 
-                    || modPlayer.CobaltImmuneTimer > 0
+                    || self.GetEffectFields<AncientCobaltFields>().CobaltImmuneTimer > 0
                     || self.GetEffectFields<TitaniumFields>().TitaniumDRBuff)
                 && DebuffIDs.Contains(type))
             {

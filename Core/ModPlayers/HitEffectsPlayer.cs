@@ -215,10 +215,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             }
             */
 
-            if (PalladEnchantItem != null && !Player.onHitRegen)
-            {
-                Player.AddBuff(BuffID.RapidHealing, Math.Min(300, hitInfo.Damage / 3)); //heal time based on damage dealt, capped at 5sec
-            }
 
 
             if (Player.HasEffect<TitaniumEffect>() && (projectile == null || projectile.type != ProjectileID.TitaniumStormShard))
@@ -655,9 +651,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                     }
                 }
             }
-
-            if (CobaltEnchantItem != null)
-                CobaltEnchant.CobaltHurt(Player, damage);
 
             if (FossilEnchantItem != null)
                 FossilEnchant.FossilHurt(this, (int)damage);

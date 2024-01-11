@@ -251,7 +251,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             FossilEnchantItem = null;
             JungleEnchantActive = false;
             ShroomEnchantActive = false;
-            CobaltEnchantItem = null;
             SpookyEnchantActive = false;
             NebulaEnchantActive = false;
             BeetleEnchantActive = false;
@@ -262,7 +261,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             JungleEnchantItem = null;
             VortexEnchantActive = false;
             FrostEnchantActive = false;
-            PalladEnchantItem = null;
             MeteorEnchantItem = null;
             MoltenEnchantActive = false;
             PlatinumEnchantActive = false;

@@ -75,14 +75,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public int TungstenCD;
         public int AshwoodCD;
         //force of earth
-        public Item CobaltEnchantItem;
-        public bool CanCobaltJump;
-        public bool JustCobaltJumped;
-        public int CobaltCooldownTimer;
-        public int CobaltImmuneTimer;
-        public Item OriEnchantItem;
-        public Item PalladEnchantItem;
-        public int PalladCounter;
         //force of nature
         public Item CrimsonEnchantItem;
         //force of life

@@ -326,9 +326,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (WretchedPouchItem != null)
                 WretchedPouchEffect();
 
-            if (PalladEnchantItem != null)
-                PalladiumEnchant.PalladiumUpdate(this);
-
             if (noDodge)
             {
                 Player.onHitDodge = false;

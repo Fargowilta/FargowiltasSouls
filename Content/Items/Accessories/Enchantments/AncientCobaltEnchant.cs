@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -30,64 +32,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            AncientCobaltEffect(player, Item, 100);
-        }
-
-        public static void AncientCobaltEffect(Player player, Item item, int damage)
-        {
-            player.DisplayToggle("AncientCobalt");
-            FargoSoulsPlayer modPlayer = player.FargoSouls();
-            if (modPlayer.CobaltEnchantItem != null)
-            {
-                player.DisplayToggle("Cobalt");
-            }
-            if (modPlayer.CobaltImmuneTimer > 0)
-            {
-                player.immune = true;
-                modPlayer.CobaltImmuneTimer--;
-            }
-            if (modPlayer.CobaltCooldownTimer > 0)
-            {
-                modPlayer.CobaltCooldownTimer--;
-            }
-
-
-            if (player.jump <= 0 && player.velocity.Y == 0f)
-            {
-                modPlayer.CanCobaltJump = true;
-                modPlayer.JustCobaltJumped = false;
-            }
-            else
-            {
-                modPlayer.CanCobaltJump = false;
-            }
-
-            if (player.controlJump && player.releaseJump && player.GetToggleValue("AncientCobalt") && modPlayer.CanCobaltJump && !modPlayer.JustCobaltJumped && modPlayer.CobaltCooldownTimer <= 0)
-            {
-                int projType = ModContent.ProjectileType<CobaltExplosion>();
-
-                Projectile.NewProjectile(player.GetSource_Accessory(item), player.Center, Vector2.Zero, projType, damage, 0, player.whoAmI);
-
-                modPlayer.JustCobaltJumped = true;
-
-                if (modPlayer.CobaltImmuneTimer <= 0)
-                    modPlayer.CobaltImmuneTimer = 15;
-
-                if (modPlayer.CobaltCooldownTimer <= 10)
-                    modPlayer.CobaltCooldownTimer = 10;
-            }
-
-            if (modPlayer.CanCobaltJump || modPlayer.JustCobaltJumped && !player.GetJumpState(ExtraJump.CloudInABottle).Active && !player.GetJumpState(ExtraJump.BlizzardInABottle).Active && !player.GetJumpState(ExtraJump.FartInAJar).Active && !player.GetJumpState(ExtraJump.TsunamiInABottle).Active && !player.GetJumpState(ExtraJump.SandstormInABottle).Active && !modPlayer.JungleJumping)
-            {
-                if (modPlayer.CobaltEnchantItem != null)
-                {
-                    player.jumpSpeedBoost += 10f;
-                }
-                else
-                {
-                    player.jumpSpeedBoost += 5f;
-                }
-            }
+            player.AddEffect<AncientCobaltEffect>(Item);
         }
 
         public override void AddRecipes()
@@ -104,5 +49,74 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             .AddTile(TileID.DemonAltar)
             .Register();
         }
+    }
+
+    public class AncientCobaltEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<EarthHeader>();
+        public override bool HasToggle => true;
+
+        public override void PostUpdateEquips(Player player)
+        {
+            AncientCobaltFields fields = player.GetEffectFields<AncientCobaltFields>();
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            if (fields.CobaltImmuneTimer > 0)
+            {
+                player.immune = true;
+                fields.CobaltImmuneTimer--;
+            }
+            if (fields.CobaltCooldownTimer > 0)
+            {
+                fields.CobaltCooldownTimer--;
+            }
+
+
+            if (player.jump <= 0 && player.velocity.Y == 0f)
+            {
+                fields.CanCobaltJump = true;
+                fields.JustCobaltJumped = false;
+            }
+            else
+            {
+                fields.CanCobaltJump = false;
+            }
+
+            if (player.controlJump && player.releaseJump && player.GetToggleValue(this) && fields.CanCobaltJump && !fields.JustCobaltJumped && fields.CobaltCooldownTimer <= 0)
+            {
+                int projType = ModContent.ProjectileType<CobaltExplosion>();
+                int damage = 100;
+                if (player.HasEffect<CobaltEffect>()) damage = 250;
+
+                Projectile.NewProjectile(player.GetSource_Accessory(player.EffectItem<AncientCobaltEffect>()), player.Center, Vector2.Zero, projType, damage, 0, player.whoAmI);
+
+                fields.JustCobaltJumped = true;
+
+                if (fields.CobaltImmuneTimer <= 0)
+                    fields.CobaltImmuneTimer = 15;
+
+                if (fields.CobaltCooldownTimer <= 10)
+                    fields.CobaltCooldownTimer = 10;
+            }
+
+            if (fields.CanCobaltJump || fields.JustCobaltJumped && !player.GetJumpState(ExtraJump.CloudInABottle).Active && !player.GetJumpState(ExtraJump.BlizzardInABottle).Active && !player.GetJumpState(ExtraJump.FartInAJar).Active && !player.GetJumpState(ExtraJump.TsunamiInABottle).Active && !player.GetJumpState(ExtraJump.SandstormInABottle).Active && !modPlayer.JungleJumping)
+            {
+                if (player.HasEffect<CobaltEffect>())
+                {
+                    player.jumpSpeedBoost += 10f;
+                }
+                else
+                {
+                    player.jumpSpeedBoost += 5f;
+                }
+            }
+        }
+    }
+
+    public class AncientCobaltFields : EffectFields
+    {
+        public bool CanCobaltJump;
+        public bool JustCobaltJumped;
+        public int CobaltCooldownTimer;
+        public int CobaltImmuneTimer;
     }
 }
