@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -40,39 +42,7 @@ Enemies that touch them will destroy them and take damage
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            PumpkinEffect(player, Item);
-        }
-
-        public static void PumpkinEffect(Player player, Item accessorySource)
-        {
-            player.DisplayToggle("Pumpkin");
-            FargoSoulsPlayer modPlayer = player.FargoSouls();
-
-            if (player.GetToggleValue("Pumpkin") && (player.controlLeft || player.controlRight) && !modPlayer.IsStandingStill && player.whoAmI == Main.myPlayer)
-            {
-                if (modPlayer.PumpkinSpawnCD <= 0 && player.ownedProjectileCounts[ModContent.ProjectileType<GrowingPumpkin>()] < 10)
-                {
-                    int x = (int)player.Center.X / 16;
-                    int y = (int)(player.position.Y + player.height - 1f) / 16;
-
-                    //if (Main.tile[x, y] == null)
-                    //{
-                    //    Main.tile[x, y] = new Tile();
-                    //}
-
-                    if (!Main.tile[x, y].HasTile && Main.tile[x, y].LiquidType == 0 && Main.tile[x, y + 1] != null && (WorldGen.SolidTile(x, y + 1) || Main.tile[x, y + 1].TileType == TileID.Platforms)
-                        || modPlayer.ForceEffect<PumpkinEnchant>())
-                    {
-                        Projectile.NewProjectile(player.GetSource_Accessory(accessorySource), player.Center, Vector2.Zero, ModContent.ProjectileType<GrowingPumpkin>(), 0, 0, player.whoAmI);
-                        modPlayer.PumpkinSpawnCD = 450;
-                    }
-                }
-            }
-
-            if (modPlayer.PumpkinSpawnCD > 0)
-            {
-                modPlayer.PumpkinSpawnCD--;
-            }
+            player.AddEffect<PumpkinEffect>(Item);
         }
 
         public override void AddRecipes()
@@ -88,5 +58,49 @@ Enemies that touch them will destroy them and take damage
             .AddTile(TileID.DemonAltar)
             .Register();
         }
+    }
+
+    public class PumpkinEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<LifeHeader>();
+        public override bool HasToggle => true;
+
+        public override void PostUpdateEquips(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            PumpkinFields fields = player.GetEffectFields<PumpkinFields>();
+
+            if ((player.controlLeft || player.controlRight) && !modPlayer.IsStandingStill && player.whoAmI == Main.myPlayer)
+            {
+                if (fields.PumpkinSpawnCD <= 0 && player.ownedProjectileCounts[ModContent.ProjectileType<GrowingPumpkin>()] < 10)
+                {
+                    int x = (int)player.Center.X / 16;
+                    int y = (int)(player.position.Y + player.height - 1f) / 16;
+
+                    //if (Main.tile[x, y] == null)
+                    //{
+                    //    Main.tile[x, y] = new Tile();
+                    //}
+
+                    if (!Main.tile[x, y].HasTile && Main.tile[x, y].LiquidType == 0 && Main.tile[x, y + 1] != null && (WorldGen.SolidTile(x, y + 1) || Main.tile[x, y + 1].TileType == TileID.Platforms)
+                        || modPlayer.ForceEffect<PumpkinEnchant>())
+                    {
+                        Projectile.NewProjectile(player.GetSource_Accessory(player.EffectItem<PumpkinEffect>()), player.Center, Vector2.Zero, ModContent.ProjectileType<GrowingPumpkin>(), 0, 0, player.whoAmI);
+                        fields.PumpkinSpawnCD = 450;
+                    }
+                }
+            }
+
+            if (fields.PumpkinSpawnCD > 0)
+            {
+                fields.PumpkinSpawnCD--;
+            }
+        }
+    }
+
+    // hehe
+    public class PumpkinFields : EffectFields
+    {
+        public int PumpkinSpawnCD;
     }
 }

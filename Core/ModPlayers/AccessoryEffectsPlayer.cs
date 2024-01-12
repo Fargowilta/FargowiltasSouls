@@ -30,13 +30,6 @@ namespace FargowiltasSouls.Core.ModPlayers
 {
 	public partial class FargoSoulsPlayer
     {
-        public void BeeEffect(bool hideVisual, Item item)
-        {
-            Player.DisplayToggle("Bee");
-            Player.strongBees = true;
-            //bees ignore defense
-            BeeEnchantItem = item;
-        }
         public void BeetleEffect()
         {
             Player.DisplayToggle("Beetle");
@@ -1210,15 +1203,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             num8 *= num10;
             num9 *= num10;
             Projectile.NewProjectile(proj.GetSource_FromThis(), proj.position.X, proj.position.Y, num8, num9, ProjectileID.SpectreWrath, num, 0f, proj.owner, (float)num6, 0);
-        }
-
-        public void SpiderEffect(bool hideVisual)
-        {
-            Player.DisplayToggle("Spider");
-            //minion crits
-            SpiderEnchantActive = true;
-
-            Player.GetCritChance(DamageClass.Summon) += 4;
         }
 
         public void SpookyEffect(bool hideVisual)
