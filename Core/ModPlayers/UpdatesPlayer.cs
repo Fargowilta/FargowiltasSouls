@@ -273,9 +273,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                     Player.GetArmorPenetration(DamageClass.Generic) += 10;
             }
 
-            if (BeetleEnchantDefenseTimer > 0)
-                BeetleEnchantDefenseTimer--;
-
             if (RabiesVaccine)
                 Player.buffImmune[BuffID.Rabies] = true;
 

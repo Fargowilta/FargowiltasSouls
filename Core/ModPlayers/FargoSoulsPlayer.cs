@@ -252,7 +252,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             ShroomEnchantActive = false;
             SpookyEnchantActive = false;
             NebulaEnchantActive = false;
-            BeetleEnchantActive = false;
             HallowEnchantItem = null;
             AncientHallowEnchantActive = false;
             ChloroEnchantActive = false;
@@ -505,8 +504,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                 if (Main.netMode == NetmodeID.MultiplayerClient && Main.npc[FargoSoulsGlobalNPC.boss].HasValidTarget && Main.npc[FargoSoulsGlobalNPC.boss].HasPlayerTarget)
                     Player.Center = Main.player[Main.npc[FargoSoulsGlobalNPC.boss].target].Center;
             }
-
-            BeetleEnchantDefenseTimer = 0;
 
             ReallyAwfulDebuffCooldown = 0;
             ParryDebuffImmuneTime = 0;

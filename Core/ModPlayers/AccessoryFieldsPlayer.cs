@@ -210,8 +210,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public Item WizardedItem;
 
         public bool NebulaEnchantActive;
-        public bool BeetleEnchantActive;
-        public int BeetleEnchantDefenseTimer;
 
         public int CritterAttackTimer;
 

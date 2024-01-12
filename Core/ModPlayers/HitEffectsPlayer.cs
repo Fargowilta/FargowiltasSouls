@@ -186,10 +186,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                     StyxTimer = 60;
             }
 
-            if (BeetleEnchantActive && Player.beetleOffense && damageClass != DamageClass.Melee)
-            {
-                Player.beetleCounter += hitInfo.Damage;
-            }
             /*
             if (BeeEnchantItem != null && Player.GetToggleValue("Bee") && BeeCD <= 0 && target.realLife == -1
                 && (projectile == null || (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee && projectile.maxPenetrate != 1 && !projectile.usesLocalNPCImmunity && !projectile.usesIDStaticNPCImmunity && projectile.owner == Main.myPlayer)))
@@ -685,9 +681,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                 if (NekomiMeter < 0)
                     NekomiMeter = 0;
             }
-
-            if (BeetleEnchantActive)
-                BeetleHurt();
 
 
             if (CrimsonEnchantActive && Player.GetToggleValue("Crimson"))
