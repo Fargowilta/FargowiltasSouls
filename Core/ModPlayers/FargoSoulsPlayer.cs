@@ -245,6 +245,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             CrimsonEnchantActive = false;
             //CrimsonRegen = false;
             SpectreEnchantActive = false;
+            BeeEnchantItem = null;
             SpiderEnchantActive = false;
             StardustEnchantActive = false;
             FossilEnchantItem = null;
@@ -1444,6 +1445,11 @@ namespace FargowiltasSouls.Core.ModPlayers
         {
             if (Player.whoAmI != Main.myPlayer)
                 return;
+
+            if (CactusEnchantItem != null)
+            {
+                CactusEnchant.CactusSelfProc(this);
+            }
 
             if (AdditionalAttacks && AdditionalAttacksTimer <= 0)
             {

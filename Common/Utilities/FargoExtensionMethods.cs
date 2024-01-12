@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Content.Projectiles;
+﻿using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Globals;
 using Microsoft.Xna.Framework;
@@ -166,7 +165,7 @@ namespace FargowiltasSouls //lets everything access it without using
         /// <returns></returns>
         public static float ActualClassCrit(this Player player, DamageClass damageClass)
             => damageClass == DamageClass.Summon
-            && !(player.HasEffect<SpiderEffect>())
+            && !(player.FargoSouls().SpiderEnchantActive && player.GetToggleValue("Spider", false))
             ? 0
             : player.GetTotalCritChance(damageClass);
 

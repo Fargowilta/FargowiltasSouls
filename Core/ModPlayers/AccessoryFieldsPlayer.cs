@@ -111,6 +111,8 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool AncientShadowEnchantActive;
         public Item ApprenticeEnchantItem;
         public int ApprenticeCD;
+        public Item BeeEnchantItem;
+        public int BeeCD;
 
         public Item CactusEnchantItem;
         public int CactusProcCD;
@@ -166,6 +168,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
 
 
+        public int PumpkinSpawnCD;
         public Item RainEnchantItem;
         //public int RainCD;
 

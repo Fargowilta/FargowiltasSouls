@@ -1114,7 +1114,7 @@ namespace FargowiltasSouls.Core.Globals
 
             if (Needled && npc.lifeMax > 1 && npc.lifeMax != int.MaxValue) //super dummy
             {
-                CactusEffect.CactusProc(npc, player);
+                CactusEnchant.CactusProc(npc, player);
             }
 
             return base.CheckDead(npc);

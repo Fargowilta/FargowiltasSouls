@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -43,7 +40,7 @@ Summon crits do x1.5 damage instead of x2
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.AddEffect<SpiderEffect>(Item);
+            player.FargoSouls().SpiderEffect(hideVisual);
         }
 
         public override void AddRecipes()
@@ -62,19 +59,6 @@ Summon crits do x1.5 damage instead of x2
 
             .AddTile(TileID.CrystalBall)
             .Register();
-        }
-    }
-
-    public class SpiderEffect : AccessoryEffect
-    {
-        public override Header ToggleHeader => Header.GetHeader<LifeHeader>();
-        public override bool HasToggle => true;
-        public override void PostUpdateEquips(Player player)
-        {
-            //minion crits
-            player.FargoSouls().SpiderEnchantActive = true;
-
-            player.GetCritChance(DamageClass.Summon) += 4;
         }
     }
 }

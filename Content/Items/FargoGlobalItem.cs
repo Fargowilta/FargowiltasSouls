@@ -448,17 +448,16 @@ namespace FargowiltasSouls.Content.Items
                 }
             }
 
-            if (player.HasEffect<BeeEffect>() && inUse)
+            if (modPlayer.BeeEnchantItem != null && player.GetToggleValue("Bee") && inUse)
             {
-                BeeFields beeFields = player.GetEffectFields<BeeFields>();
-                if (player.GetEffectFields<BeeFields>().BeeCD == 0)
+                if (modPlayer.BeeCD == 0)
                 {
-                    int damage = player.ForceEffect<BeeEffect>() ? 88 : 22; //22
-                    Projectile.NewProjectile(player.GetSource_Accessory(player.EffectItem<BeeEffect>()), player.Center, Vector2.Zero, ModContent.ProjectileType<BeeFlower>(), damage, 0.5f, player.whoAmI);
-                    beeFields.BeeCD = 50;
+                    int damage = modPlayer.ForceEffect(modPlayer.BeeEnchantItem.type) ? 88 : 22; //22
+                    Projectile.NewProjectile(player.GetSource_Accessory(modPlayer.BeeEnchantItem), player.Center, Vector2.Zero, ModContent.ProjectileType<BeeFlower>(), damage, 0.5f, player.whoAmI);
+                    modPlayer.BeeCD = 50;
                 }
-                if (beeFields.BeeCD > 0)
-                    beeFields.BeeCD--;
+                if (modPlayer.BeeCD > 0)
+                    modPlayer.BeeCD--;
             }
 
             return base.WingUpdate(wings, player, inUse);
