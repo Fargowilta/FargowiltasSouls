@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.ModPlayers;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
@@ -39,23 +41,48 @@ Enemies will explode into needles on death if they are struck with your needles
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            CactusEffect(player, Item);
+            player.AddEffect<CactusEffect>(Item);
+        }     
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ItemID.CactusHelmet)
+                .AddIngredient(ItemID.CactusBreastplate)
+                .AddIngredient(ItemID.CactusLeggings)
+                .AddIngredient(ItemID.Waterleaf)
+                .AddIngredient(ItemID.Flounder)
+                .AddIngredient(ItemID.SecretoftheSands)
+                .AddTile(TileID.DemonAltar)
+                .Register();
+        }
+    }
+
+    public class CactusEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<LifeHeader>();
+        public override bool HasToggle => true;
+
+        public override void PostUpdateEquips(Player player)
+        {
+            CactusFields fields = player.GetEffectFields<CactusFields>();
+
+            if (fields.CactusProcCD > 0)
+            {
+                fields.CactusProcCD--;
+            }
         }
 
-        public static void CactusEffect(Player player, Item item)
+        public override void TryAdditionalAttacks(Player player, int damage, DamageClass damageType)
         {
-            player.DisplayToggle("Cactus");
-            //player.thorns = .25f;
+            if (player.whoAmI != Main.myPlayer)
+                return;
 
-            if (player.GetToggleValue("Cactus"))
+            var fields = player.GetEffectFields<CactusFields>();
+            if (fields.CactusProcCD == 0)
             {
-                FargoSoulsPlayer modPlayer = player.FargoSouls();
-                modPlayer.CactusEnchantItem = item;
-
-                if (modPlayer.CactusProcCD > 0)
-                {
-                    modPlayer.CactusProcCD--;
-                }
+                CactusSpray(player, player.Center);
+                fields.CactusProcCD = 15;
             }
         }
 
@@ -64,15 +91,6 @@ Enemies will explode into needles on death if they are struck with your needles
             CactusSpray(player, npc.Center);
         }
 
-        public static void CactusSelfProc(FargoSoulsPlayer modPlayer)
-        {
-            if (modPlayer.CactusProcCD == 0)
-            {
-                Player player = modPlayer.Player;
-                CactusSpray(player, player.Center);
-                modPlayer.CactusProcCD = 15;
-            }
-        }
         private static void CactusSpray(Player player, Vector2 position)
         {
             int dmg = 20;
@@ -96,21 +114,14 @@ Enemies will explode into needles on death if they are struck with your needles
 
                         proj.ai[0] = 1; //these needles can inflict enemies with needled
                     }
-                    
+
                 }
             }
         }
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddIngredient(ItemID.CactusHelmet)
-                .AddIngredient(ItemID.CactusBreastplate)
-                .AddIngredient(ItemID.CactusLeggings)
-                .AddIngredient(ItemID.Waterleaf)
-                .AddIngredient(ItemID.Flounder)
-                .AddIngredient(ItemID.SecretoftheSands)
-                .AddTile(TileID.DemonAltar)
-                .Register();
-        }
+    }
+
+    public class CactusFields : EffectFields
+    {
+        public int CactusProcCD;
     }
 }
