@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.SolarEclipse
 {
-	public class ThePossessed : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ThePossessed);
+    public class ThePossessed : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ThePossessed);
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<HexedBuff>(), 240);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<HexedBuff>(), 240);
+        }
+    }
 }

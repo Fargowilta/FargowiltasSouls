@@ -5,46 +5,46 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Minions
 {
-	public class OpticFlame : ModProjectile
-	{
-		public override string Texture => "Terraria/Images/Projectile_101";
+    public class OpticFlame : ModProjectile
+    {
+        public override string Texture => "Terraria/Images/Projectile_101";
 
-		public int targetID = -1;
-		public int searchTimer = 3;
+        public int targetID = -1;
+        public int searchTimer = 3;
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Eye Fire");
-			ProjectileID.Sets.MinionShot[Projectile.type] = true;
-			ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Eye Fire");
+            ProjectileID.Sets.MinionShot[Projectile.type] = true;
+            ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+        }
 
-		public override void SendExtraAI(BinaryWriter writer)
-		{
-			writer.Write(targetID);
-		}
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(targetID);
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			targetID = reader.ReadInt32();
-		}
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            targetID = reader.ReadInt32();
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.CloneDefaults(ProjectileID.EyeFire);
-			AIType = ProjectileID.EyeFire;
-			Projectile.hostile = false;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Summon;
-			Projectile.tileCollide = false;
-			Projectile.penetrate = -1;
-			Projectile.ignoreWater = true;
+        public override void SetDefaults()
+        {
+            Projectile.CloneDefaults(ProjectileID.EyeFire);
+            AIType = ProjectileID.EyeFire;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Summon;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.ignoreWater = true;
 
-			/*Projectile.usesIDStaticNPCImmunity = true;
+            /*Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 10;*/
-		}
+        }
 
-		/*public override void AI()
+        /*public override void AI()
         {
             if (targetID == -1) //no target atm
             {
@@ -125,10 +125,10 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             }
         }*/
 
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			target.immune[Projectile.owner] = 8;
-			target.AddBuff(BuffID.CursedInferno, 600);
-		}
-	}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.immune[Projectile.owner] = 8;
+            target.AddBuff(BuffID.CursedInferno, 600);
+        }
+    }
 }

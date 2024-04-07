@@ -1,7 +1,7 @@
 ﻿namespace FargowiltasSouls.Core.Systems
 {
-	// TODO: 1.7 pyramid gen 
-	/*
+    // TODO: 1.7 pyramid gen 
+    /*
     public class PyramidGenSystem : ModSystem
     {
         public override void Load()

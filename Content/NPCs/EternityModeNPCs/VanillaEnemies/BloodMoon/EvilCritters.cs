@@ -7,22 +7,22 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.BloodMoon
 {
-	public class EvilCritters : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
-			NPCID.CorruptBunny,
-			NPCID.CrimsonBunny,
-			NPCID.CorruptGoldfish,
-			NPCID.CrimsonGoldfish,
-			NPCID.CorruptPenguin,
-			NPCID.CrimsonPenguin
-		);
+    public class EvilCritters : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
+            NPCID.CorruptBunny,
+            NPCID.CrimsonBunny,
+            NPCID.CorruptGoldfish,
+            NPCID.CrimsonGoldfish,
+            NPCID.CorruptPenguin,
+            NPCID.CrimsonPenguin
+        );
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<SqueakyToyBuff>(), 120);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<SqueakyToyBuff>(), 120);
+        }
+    }
 }

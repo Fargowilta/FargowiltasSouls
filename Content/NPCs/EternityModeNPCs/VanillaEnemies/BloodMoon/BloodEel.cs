@@ -7,19 +7,19 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.BloodMoon
 {
-	public class BloodEelSegment : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
-			NPCID.BloodEelHead,
-			NPCID.BloodEelBody,
-			NPCID.BloodEelTail
-		);
+    public class BloodEelSegment : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
+            NPCID.BloodEelHead,
+            NPCID.BloodEelBody,
+            NPCID.BloodEelTail
+        );
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<AnticoagulationBuff>(), 600);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<AnticoagulationBuff>(), 600);
+        }
+    }
 }

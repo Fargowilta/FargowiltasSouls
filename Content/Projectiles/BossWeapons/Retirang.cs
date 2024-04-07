@@ -9,136 +9,136 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.BossWeapons
 {
-	public class Retirang : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Retirang");
-			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
-			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-		}
+    public class Retirang : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Retirang");
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.friendly = true;
-			Projectile.light = 0.4f;
+        public override void SetDefaults()
+        {
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.friendly = true;
+            Projectile.light = 0.4f;
 
-			Projectile.width = 50;
-			Projectile.height = 50;
-			Projectile.penetrate = -1;
-			Projectile.aiStyle = -1;
-		}
+            Projectile.width = 50;
+            Projectile.height = 50;
+            Projectile.penetrate = -1;
+            Projectile.aiStyle = -1;
+        }
 
-		public override bool? CanDamage()
-		{
-			return false;
-		}
+        public override bool? CanDamage()
+        {
+            return false;
+        }
 
-		int counter;
+        int counter;
 
-		public override bool PreAI()
-		{
-			//fire lasers at cursor
-			if (++counter > 15)
-			{
-				counter = 0;
+        public override bool PreAI()
+        {
+            //fire lasers at cursor
+            if (++counter > 15)
+            {
+                counter = 0;
 
-				if (Projectile.owner == Main.myPlayer)
-				{
-					Vector2 cursor = Main.MouseWorld;
-					Vector2 velocity = Vector2.Normalize(cursor - Projectile.Center) * 20;
+                if (Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 cursor = Main.MouseWorld;
+                    Vector2 velocity = Vector2.Normalize(cursor - Projectile.Center) * 20;
 
-					SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item12, Projectile.Center);
 
-					int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<PrimeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-					if (p != Main.maxProjectiles)
-					{
-						Main.projectile[p].DamageType = DamageClass.Melee;
-					}
-				}
-			}
+                    int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ModContent.ProjectileType<PrimeLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                    if (p != Main.maxProjectiles)
+                    {
+                        Main.projectile[p].DamageType = DamageClass.Melee;
+                    }
+                }
+            }
 
-			if (Projectile.ai[0] == 1)
-			{
-				Projectile.ai[1]++;
+            if (Projectile.ai[0] == 1)
+            {
+                Projectile.ai[1]++;
 
-				//stay in place
-				Projectile.position = Projectile.oldPosition;
-				Projectile.velocity *= 0.1f;
-				Projectile.rotation += Projectile.direction * 0.4f;
+                //stay in place
+                Projectile.position = Projectile.oldPosition;
+                Projectile.velocity *= 0.1f;
+                Projectile.rotation += Projectile.direction * 0.4f;
 
-				counter += 2;
+                counter += 2;
 
-				if (Projectile.ai[1] > 15)
-				{
-					Projectile.ai[0] = 2;
-				}
+                if (Projectile.ai[1] > 15)
+                {
+                    Projectile.ai[0] = 2;
+                }
 
-				return false;
-			}
+                return false;
+            }
 
-			return true;
-		}
+            return true;
+        }
 
-		public override void AI()
-		{
-			//travelling out
-			if (Projectile.ai[0] == 0)
-			{
-				Projectile.ai[1]++;
+        public override void AI()
+        {
+            //travelling out
+            if (Projectile.ai[0] == 0)
+            {
+                Projectile.ai[1]++;
 
-				if (Projectile.ai[1] > 30)
-				{
-					Projectile.ai[0] = 1;
-					Projectile.ai[1] = 0;
-					Projectile.netUpdate = true;
-				}
-			}
-			//travel back to player
-			else if (Projectile.ai[0] == 2)
-			{
-				float speed = Math.Max(Projectile.velocity.Length() * 1.02f, 20f);
-				Projectile.velocity = Vector2.Normalize(Main.player[Projectile.owner].Center - Projectile.Center);
-				Projectile.velocity *= speed;
+                if (Projectile.ai[1] > 30)
+                {
+                    Projectile.ai[0] = 1;
+                    Projectile.ai[1] = 0;
+                    Projectile.netUpdate = true;
+                }
+            }
+            //travel back to player
+            else if (Projectile.ai[0] == 2)
+            {
+                float speed = Math.Max(Projectile.velocity.Length() * 1.02f, 20f);
+                Projectile.velocity = Vector2.Normalize(Main.player[Projectile.owner].Center - Projectile.Center);
+                Projectile.velocity *= speed;
 
-				//kill when back to player
-				if (Projectile.Distance(Main.player[Projectile.owner].Center) <= speed * 2)
-					Projectile.Kill();
-			}
+                //kill when back to player
+                if (Projectile.Distance(Main.player[Projectile.owner].Center) <= speed * 2)
+                    Projectile.Kill();
+            }
 
-			//spin
-			Projectile.rotation += Projectile.direction * 0.4f;
+            //spin
+            Projectile.rotation += Projectile.direction * 0.4f;
 
-			//dust!
-			int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.RedTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 2f);
-			Main.dust[dustId].noGravity = true;
+            //dust!
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.RedTorch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 2f);
+            Main.dust[dustId].noGravity = true;
 
-			if (Projectile.ai[0] == 1)
-			{
-				Projectile.localAI[0] += 0.1f;
-				Projectile.position += Projectile.SafeDirectionTo(Main.player[Projectile.owner].Center) * Projectile.localAI[0];
+            if (Projectile.ai[0] == 1)
+            {
+                Projectile.localAI[0] += 0.1f;
+                Projectile.position += Projectile.SafeDirectionTo(Main.player[Projectile.owner].Center) * Projectile.localAI[0];
 
-				if (Projectile.Distance(Main.player[Projectile.owner].Center) <= Projectile.localAI[0])
-					Projectile.Kill();
-			}
-		}
+                if (Projectile.Distance(Main.player[Projectile.owner].Center) <= Projectile.localAI[0])
+                    Projectile.Kill();
+            }
+        }
 
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			if (Projectile.ai[0] == 0)
-			{
-				Projectile.ai[0] = 1;
-				Projectile.ai[1] = 0;
-			}
-			Projectile.tileCollide = false;
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            if (Projectile.ai[0] == 0)
+            {
+                Projectile.ai[0] = 1;
+                Projectile.ai[1] = 0;
+            }
+            Projectile.tileCollide = false;
 
-			return false;
-		}
+            return false;
+        }
 
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			/*if (!hitSomething)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            /*if (!hitSomething)
             {
                 hitSomething = true;
                 if (Projectile.owner == Main.myPlayer)
@@ -167,38 +167,38 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                     }
                 }
             }*/
-		}
+        }
 
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-		{
-			//smaller tile hitbox
-			width = 22;
-			height = 22;
-			return true;
-		}
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            //smaller tile hitbox
+            width = 22;
+            height = 22;
+            return true;
+        }
 
-		public override bool PreDraw(ref Color lightColor)
-		{
-			Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
-			int num156 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
-			int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
-			Rectangle rectangle = new(0, y3, texture2D13.Width, num156);
-			Vector2 origin2 = rectangle.Size() / 2f;
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
+            int num156 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
+            int y3 = num156 * Projectile.frame; //ypos of upper left corner of sprite to draw
+            Rectangle rectangle = new(0, y3, texture2D13.Width, num156);
+            Vector2 origin2 = rectangle.Size() / 2f;
 
-			Color color26 = lightColor;
-			color26 = Projectile.GetAlpha(color26);
+            Color color26 = lightColor;
+            color26 = Projectile.GetAlpha(color26);
 
-			for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
-			{
-				Color color27 = color26;
-				color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
-				Vector2 value4 = Projectile.oldPos[i];
-				float num165 = Projectile.oldRot[i];
-				Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, SpriteEffects.None, 0);
-			}
+            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
+            {
+                Color color27 = color26;
+                color27 *= (float)(ProjectileID.Sets.TrailCacheLength[Projectile.type] - i) / ProjectileID.Sets.TrailCacheLength[Projectile.type];
+                Vector2 value4 = Projectile.oldPos[i];
+                float num165 = Projectile.oldRot[i];
+                Main.EntitySpriteDraw(texture2D13, value4 + Projectile.Size / 2f - Main.screenPosition + new Vector2(0, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), color27, num165, origin2, Projectile.scale, SpriteEffects.None, 0);
+            }
 
-			Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
-			return false;
-		}
-	}
+            Main.EntitySpriteDraw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0);
+            return false;
+        }
+    }
 }

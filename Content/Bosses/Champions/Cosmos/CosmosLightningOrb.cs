@@ -4,53 +4,53 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
 {
-	public class CosmosLightningOrb : TerraLightningOrb
-	{
-		public override string Texture => "Terraria/Images/Projectile_465";
+    public class CosmosLightningOrb : TerraLightningOrb
+    {
+        public override string Texture => "Terraria/Images/Projectile_465";
 
-		public override void SetDefaults()
-		{
-			base.SetDefaults();
-			Projectile.timeLeft = 600;
-		}
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.timeLeft = 600;
+        }
 
-		public override bool? CanDamage()
-		{
-			return Projectile.alpha == 0;
-		}
+        public override bool? CanDamage()
+        {
+            return Projectile.alpha == 0;
+        }
 
-		public override void AI()
-		{
-			if (Projectile.timeLeft > 30)
-			{
-				Projectile.alpha -= 10;
-				if (Projectile.alpha < 0)
-					Projectile.alpha = 0;
-			}
-			else
-			{
-				Projectile.alpha += 10;
-				if (Projectile.alpha > 255)
-				{
-					Projectile.alpha = 255;
-					Projectile.Kill();
-				}
-			}
+        public override void AI()
+        {
+            if (Projectile.timeLeft > 30)
+            {
+                Projectile.alpha -= 10;
+                if (Projectile.alpha < 0)
+                    Projectile.alpha = 0;
+            }
+            else
+            {
+                Projectile.alpha += 10;
+                if (Projectile.alpha > 255)
+                {
+                    Projectile.alpha = 255;
+                    Projectile.Kill();
+                }
+            }
 
-			if (++Projectile.localAI[1] > 120 && Projectile.localAI[1] < 240)
-				Projectile.velocity *= 1.05f;
+            if (++Projectile.localAI[1] > 120 && Projectile.localAI[1] < 240)
+                Projectile.velocity *= 1.05f;
 
-			Lighting.AddLight(Projectile.Center, 0.4f, 0.85f, 0.9f);
-			Projectile.frameCounter++;
-			if (Projectile.frameCounter > 3)
-			{
-				Projectile.frameCounter = 0;
-				Projectile.frame++;
-				if (Projectile.frame > 3)
-					Projectile.frame = 0;
-			}
+            Lighting.AddLight(Projectile.Center, 0.4f, 0.85f, 0.9f);
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 3)
+            {
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
+            }
 
-			/*if (Main.rand.NextBool(3))
+            /*if (Main.rand.NextBool(3))
             {
                 float num11 = (float)(Main.rand.NextDouble() * 1.0 - 0.5); //vanilla dust :echbegone:
                 if ((double)num11 < -0.5)
@@ -73,12 +73,12 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                 Main.dust[index2].position = Projectile.Center + vector2 * Projectile.scale;
                 Main.dust[index2].noGravity = true;
             }*/
-		}
+        }
 
-		public override void OnHitPlayer(Player target, Player.HurtInfo info)
-		{
-			target.AddBuff(BuffID.Electrified, 360);
-			//if (WorldSavingSystem.MasochistMode) target.AddBuff(ModContent.BuffType<LightningRod>(), 360);
-		}
-	}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            target.AddBuff(BuffID.Electrified, 360);
+            //if (WorldSavingSystem.MasochistMode) target.AddBuff(ModContent.BuffType<LightningRod>(), 360);
+        }
+    }
 }

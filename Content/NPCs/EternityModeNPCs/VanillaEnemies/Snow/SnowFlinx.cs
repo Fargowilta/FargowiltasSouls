@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Snow
 {
-	public class SnowFlinx : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.SnowFlinx);
+    public class SnowFlinx : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.SnowFlinx);
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<HypothermiaBuff>(), 600);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<HypothermiaBuff>(), 600);
+        }
+    }
 }

@@ -5,19 +5,19 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Dungeon
 {
-	public class CursedSkulls : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
-			NPCID.CursedSkull,
-			NPCID.GiantCursedSkull,
-			NPCID.DungeonSpirit
-		);
+    public class CursedSkulls : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
+            NPCID.CursedSkull,
+            NPCID.GiantCursedSkull,
+            NPCID.DungeonSpirit
+        );
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.FargoSouls().AddBuffNoStack(BuffID.Cursed, 30);
-		}
-	}
+            target.FargoSouls().AddBuffNoStack(BuffID.Cursed, 30);
+        }
+    }
 }

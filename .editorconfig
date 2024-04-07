@@ -97,6 +97,6 @@ dotnet_style_namespace_match_folder = true:suggestion
 
 # IDE0028: Simplify collection initialization
 dotnet_diagnostic.IDE0028.severity = none
-indent_style = tab
+indent_style = space
 
 

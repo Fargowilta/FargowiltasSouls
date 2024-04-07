@@ -7,23 +7,23 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PumpkinMoon
 {
-	public class Hellhound : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Hellhound);
+    public class Hellhound : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Hellhound);
 
-		public override void SetDefaults(NPC npc)
-		{
-			base.SetDefaults(npc);
+        public override void SetDefaults(NPC npc)
+        {
+            base.SetDefaults(npc);
 
-			npc.lavaImmune = true;
-		}
+            npc.lavaImmune = true;
+        }
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(BuffID.Rabies, 3600);
-			target.AddBuff(ModContent.BuffType<MutantNibbleBuff>(), 600);
-		}
-	}
+            target.AddBuff(BuffID.Rabies, 3600);
+            target.AddBuff(ModContent.BuffType<MutantNibbleBuff>(), 600);
+        }
+    }
 }

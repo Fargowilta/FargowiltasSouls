@@ -7,25 +7,25 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.AbomBoss
 {
-	public class AbomSickleSplit1 : AbomSickle
-	{
-		public override string Texture => "FargowiltasSouls/Content/Bosses/AbomBoss/AbomSickle";
+    public class AbomSickleSplit1 : AbomSickle
+    {
+        public override string Texture => "FargowiltasSouls/Content/Bosses/AbomBoss/AbomSickle";
 
-		public override void SetDefaults()
-		{
-			base.SetDefaults();
-			Projectile.timeLeft = 90;
-		}
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.timeLeft = 90;
+        }
 
-		public override void AI()
-		{
-			if (Projectile.localAI[0] == 0)
-			{
-				Projectile.localAI[0] = 1;
-				SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
-			}
-			Projectile.rotation += 0.8f;
-			/*for (int i = 0; i < 6; i++)
+        public override void AI()
+        {
+            if (Projectile.localAI[0] == 0)
+            {
+                Projectile.localAI[0] = 1;
+                SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+            }
+            Projectile.rotation += 0.8f;
+            /*for (int i = 0; i < 6; i++)
             {
                 Vector2 offset = new Vector2(0, -20).RotatedBy(Projectile.rotation);
                 offset = offset.RotatedByRandom(MathHelper.Pi / 6);
@@ -35,18 +35,18 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
                 Main.dust[d].velocity = Projectile.velocity / velrando;
                 Main.dust[d].noGravity = true;
             }*/
-		}
+        }
 
-		public override void OnKill(int timeLeft)
-		{
-			if (FargoSoulsUtil.HostCheck)
-			{
-				for (int i = 0; i < 8; i++)
-				{
-					Vector2 vel = Vector2.Normalize(Projectile.velocity).RotatedBy(Math.PI / 4 * i);
-					Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, vel, ModContent.ProjectileType<AbomSickleSplit2>(), Projectile.damage, 0f, Projectile.owner);
-				}
-			}
-		}
-	}
+        public override void OnKill(int timeLeft)
+        {
+            if (FargoSoulsUtil.HostCheck)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Vector2 vel = Vector2.Normalize(Projectile.velocity).RotatedBy(Math.PI / 4 * i);
+                    Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, vel, ModContent.ProjectileType<AbomSickleSplit2>(), Projectile.damage, 0f, Projectile.owner);
+                }
+            }
+        }
+    }
 }

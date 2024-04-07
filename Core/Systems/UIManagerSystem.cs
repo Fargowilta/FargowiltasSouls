@@ -6,16 +6,16 @@ using Terraria.UI;
 
 namespace FargowiltasSouls.Core.Systems
 {
-	public class UIManagerSystem : ModSystem
-	{
-		public override void UpdateUI(GameTime gameTime)
-		{
-			FargoUIManager.UpdateUI(gameTime);
-		}
+    public class UIManagerSystem : ModSystem
+    {
+        public override void UpdateUI(GameTime gameTime)
+        {
+            FargoUIManager.UpdateUI(gameTime);
+        }
 
-		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-		{
-			FargoUIManager.ModifyInterfaceLayers(layers);
-		}
-	}
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            FargoUIManager.ModifyInterfaceLayers(layers);
+        }
+    }
 }

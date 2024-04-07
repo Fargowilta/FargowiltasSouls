@@ -7,23 +7,23 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.GoblinInvasion
 {
-	public class ChaosBall : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ChaosBall);
+    public class ChaosBall : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ChaosBall);
 
-		public override void AI(NPC npc)
-		{
-			base.AI(npc);
+        public override void AI(NPC npc)
+        {
+            base.AI(npc);
 
-			if (Main.hardMode)
-				npc.position += npc.velocity;
-		}
+            if (Main.hardMode)
+                npc.position += npc.velocity;
+        }
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<ShadowflameBuff>(), 300);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<ShadowflameBuff>(), 300);
+        }
+    }
 }

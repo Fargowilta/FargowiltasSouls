@@ -7,50 +7,50 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Masomode
 {
-	public class OceanicSealBuff : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Oceanic Seal");
-			base.SetStaticDefaults();
-			// Description.SetDefault("No dodging, no lifesteal, no supersonic, no escape");
-			Main.debuff[Type] = true;
-			Main.buffNoSave[Type] = true;
-			Main.buffNoTimeDisplay[Type] = true;
+    public class OceanicSealBuff : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Oceanic Seal");
+            base.SetStaticDefaults();
+            // Description.SetDefault("No dodging, no lifesteal, no supersonic, no escape");
+            Main.debuff[Type] = true;
+            Main.buffNoSave[Type] = true;
+            Main.buffNoTimeDisplay[Type] = true;
 
-			BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-			//DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋印记");
-			//Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
-		}
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
+            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "海洋印记");
+            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "无法躲避,无法进行生命偷取,无法快速移动,无法逃脱");
+        }
 
-		public override void Update(Player player, ref int buffIndex)
-		{
-			player.FargoSouls().OceanicMaul = true;
-			player.FargoSouls().TinEternityDamage = 0; //fuck it
+        public override void Update(Player player, ref int buffIndex)
+        {
+            player.FargoSouls().OceanicMaul = true;
+            player.FargoSouls().TinEternityDamage = 0; //fuck it
 
-			player.FargoSouls().MutantPresence = true; //LUL
+            player.FargoSouls().MutantPresence = true; //LUL
 
-			player.FargoSouls().noDodge = true;
-			player.FargoSouls().noSupersonic = true;
-			player.moonLeech = true;
+            player.FargoSouls().noDodge = true;
+            player.FargoSouls().noSupersonic = true;
+            player.moonLeech = true;
 
-			if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.fishBoss, NPCID.DukeFishron))
-			{
-				player.buffTime[buffIndex] = 2;
-				if (player.whoAmI == Main.npc[EModeGlobalNPC.fishBoss].target
-					&& player.whoAmI == Main.myPlayer
-					&& player.ownedProjectileCounts[ModContent.ProjectileType<FishronRitual2>()] < 1)
-				{
-					Projectile.NewProjectile(Main.npc[EModeGlobalNPC.fishBoss].GetSource_FromThis(), Main.npc[EModeGlobalNPC.fishBoss].Center, Vector2.Zero,
-						ModContent.ProjectileType<FishronRitual2>(), 0, 0f, player.whoAmI, 0f, EModeGlobalNPC.fishBoss);
-				}
-			}
-			else
-			{
-				return;
-			}
+            if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.fishBoss, NPCID.DukeFishron))
+            {
+                player.buffTime[buffIndex] = 2;
+                if (player.whoAmI == Main.npc[EModeGlobalNPC.fishBoss].target
+                    && player.whoAmI == Main.myPlayer
+                    && player.ownedProjectileCounts[ModContent.ProjectileType<FishronRitual2>()] < 1)
+                {
+                    Projectile.NewProjectile(Main.npc[EModeGlobalNPC.fishBoss].GetSource_FromThis(), Main.npc[EModeGlobalNPC.fishBoss].Center, Vector2.Zero,
+                        ModContent.ProjectileType<FishronRitual2>(), 0, 0f, player.whoAmI, 0f, EModeGlobalNPC.fishBoss);
+                }
+            }
+            else
+            {
+                return;
+            }
 
-			/*float distance = player.Distance(Main.npc[FargoSoulsGlobalNPC.fishBoss].Center);
+            /*float distance = player.Distance(Main.npc[FargoSoulsGlobalNPC.fishBoss].Center);
             const float threshold = 1200f;
             if (distance > threshold)
             {
@@ -85,6 +85,6 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
                     Main.dust[d].velocity *= 5f;
                 }
             }*/
-		}
-	}
+        }
+    }
 }

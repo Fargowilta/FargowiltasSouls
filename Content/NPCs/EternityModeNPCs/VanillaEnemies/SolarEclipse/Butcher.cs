@@ -7,30 +7,30 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.SolarEclipse
 {
-	public class Butcher : EModeNPCBehaviour
-	{
-		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Butcher);
+    public class Butcher : EModeNPCBehaviour
+    {
+        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Butcher);
 
-		public override void SetDefaults(NPC npc)
-		{
-			base.SetDefaults(npc);
+        public override void SetDefaults(NPC npc)
+        {
+            base.SetDefaults(npc);
 
-			npc.knockBackResist = 0;
-		}
+            npc.knockBackResist = 0;
+        }
 
-		public override void AI(NPC npc)
-		{
-			base.AI(npc);
+        public override void AI(NPC npc)
+        {
+            base.AI(npc);
 
-			npc.position.X += npc.velocity.X;
-		}
+            npc.position.X += npc.velocity.X;
+        }
 
-		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-		{
-			base.OnHitPlayer(npc, target, hurtInfo);
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            base.OnHitPlayer(npc, target, hurtInfo);
 
-			target.AddBuff(ModContent.BuffType<BerserkedBuff>(), 600);
-			target.AddBuff(BuffID.Bleeding, 600);
-		}
-	}
+            target.AddBuff(ModContent.BuffType<BerserkedBuff>(), 600);
+            target.AddBuff(BuffID.Bleeding, 600);
+        }
+    }
 }

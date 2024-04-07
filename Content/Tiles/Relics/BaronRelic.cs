@@ -2,8 +2,8 @@
 
 namespace FargowiltasSouls.Content.Tiles.Relics
 {
-	public class BaronRelic : BaseRelic
-	{
-		protected override int ItemType => ModContent.ItemType<Items.Placables.Relics.BaronRelic>();
-	}
+    public class BaronRelic : BaseRelic
+    {
+        protected override int ItemType => ModContent.ItemType<Items.Placables.Relics.BaronRelic>();
+    }
 }

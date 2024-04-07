@@ -5,12 +5,12 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Core.ItemDropRules.Conditions
 {
-	public class EModeEarlyBirdRewardDropCondition : IItemDropRuleCondition
-	{
-		public bool CanDrop(DropAttemptInfo info) => !info.IsInSimulation && (!Main.hardMode && WorldSavingSystem.EternityMode);
+    public class EModeEarlyBirdRewardDropCondition : IItemDropRuleCondition
+    {
+        public bool CanDrop(DropAttemptInfo info) => !info.IsInSimulation && (!Main.hardMode && WorldSavingSystem.EternityMode);
 
-		public bool CanShowItemDropInUI() => true;
+        public bool CanShowItemDropInUI() => true;
 
-		public string GetConditionDescription() => Language.GetTextValue("Mods.FargowiltasSouls.Conditions.EModeEarlyBirdPHM");
-	}
+        public string GetConditionDescription() => Language.GetTextValue("Mods.FargowiltasSouls.Conditions.EModeEarlyBirdPHM");
+    }
 }

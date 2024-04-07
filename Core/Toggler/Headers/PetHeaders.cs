@@ -2,13 +2,13 @@
 
 namespace FargowiltasSouls.Core.Toggler.Content
 {
-	public class PetHeader : Header
-	{
-		public override int Item => ItemID.ZephyrFish;
-		public override float Priority => 3;
-		public override string SortCategory => "Pets";
-	}
-	/*
+    public class PetHeader : Header
+    {
+        public override int Item => ItemID.ZephyrFish;
+        public override float Priority => 3;
+        public override string SortCategory => "Pets";
+    }
+    /*
     public class PetToggles : ToggleCollection
     {
         public override string Mod => "FargowiltasSouls";

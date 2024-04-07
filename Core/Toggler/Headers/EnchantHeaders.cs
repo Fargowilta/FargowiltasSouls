@@ -3,57 +3,57 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.Toggler.Content
 {
-	public abstract class EnchantHeader : Header
-	{
-		public override float Priority => 0;
-		public override string SortCategory => "Enchantments";
-	}
-	public class TimberHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<TimberForce>();
-		public override float Priority => 0.1f;
-	}
-	public class TerraHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<TerraForce>();
-		public override float Priority => 0.2f;
-	}
-	public class EarthHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<EarthForce>();
-		public override float Priority => 0.3f;
-	}
-	public class NatureHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<NatureForce>();
-		public override float Priority => 0.4f;
-	}
-	public class LifeHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<LifeForce>();
-		public override float Priority => 0.5f;
-	}
-	public class ShadowHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<ShadowForce>();
-		public override float Priority => 0.6f;
-	}
-	public class SpiritHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<SpiritForce>();
-		public override float Priority => 0.7f;
-	}
-	public class WillHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<WillForce>();
-		public override float Priority => 0.8f;
-	}
-	public class CosmoHeader : EnchantHeader
-	{
-		public override int Item => ModContent.ItemType<CosmoForce>();
-		public override float Priority => 0.9f;
-	}
-	/*
+    public abstract class EnchantHeader : Header
+    {
+        public override float Priority => 0;
+        public override string SortCategory => "Enchantments";
+    }
+    public class TimberHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<TimberForce>();
+        public override float Priority => 0.1f;
+    }
+    public class TerraHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<TerraForce>();
+        public override float Priority => 0.2f;
+    }
+    public class EarthHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<EarthForce>();
+        public override float Priority => 0.3f;
+    }
+    public class NatureHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<NatureForce>();
+        public override float Priority => 0.4f;
+    }
+    public class LifeHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<LifeForce>();
+        public override float Priority => 0.5f;
+    }
+    public class ShadowHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<ShadowForce>();
+        public override float Priority => 0.6f;
+    }
+    public class SpiritHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<SpiritForce>();
+        public override float Priority => 0.7f;
+    }
+    public class WillHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<WillForce>();
+        public override float Priority => 0.8f;
+    }
+    public class CosmoHeader : EnchantHeader
+    {
+        public override int Item => ModContent.ItemType<CosmoForce>();
+        public override float Priority => 0.9f;
+    }
+    /*
     public class EnchantToggles : ToggleCollection
     {
         public override string Mod => "FargowiltasSouls";
