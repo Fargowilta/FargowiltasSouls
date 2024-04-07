@@ -195,7 +195,7 @@ namespace FargowiltasSouls.Content.Items
         {
             if (player.Eternity().MythrilHalberdTimer >= 120 && (item.type == ItemID.MythrilSword))
             {
-                damage *= 3;
+                damage *= 8 * player.FargoSouls().AttackSpeed;
             }
         }
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -208,7 +208,7 @@ namespace FargowiltasSouls.Content.Items
                     {
                         for (int i = 0; i < 2; i++)
                         {
-                            int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), position, velocity.RotatedByRandom(MathHelper.Pi / 14), type, damage / 2, knockback / 2, Main.myPlayer);
+                            int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), position, velocity.RotatedByRandom(MathHelper.Pi / 14), type, (int)(damage * 0.75f), knockback / 2, Main.myPlayer);
                             /*
                             if (p != Main.maxProjectiles)
                             {
@@ -235,7 +235,7 @@ namespace FargowiltasSouls.Content.Items
                 case ItemID.CobaltSword:
                     if (ePlayer.CobaltHitCounter < 2) //only twice per swing
                     {
-                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), hit.Damage / 2, 0f, Main.myPlayer);
+                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.Damage * 0.4f), 0f, Main.myPlayer);
                         if (p != null)
                             p.FargoSouls().CanSplit = false;
                         ePlayer.CobaltHitCounter++;
@@ -266,7 +266,7 @@ namespace FargowiltasSouls.Content.Items
 
             if (player.Eternity().MythrilHalberdTimer >= 120 && (item.type == ItemID.MythrilHalberd))
             {
-                damage *= 3;
+                damage = (int)(damage * 8 * player.FargoSouls().AttackSpeed);
                 player.Eternity().MythrilHalberdTimer = 0;
             }
         }

@@ -286,9 +286,17 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+
             Texture2D bodytexture = Terraria.GameContent.TextureAssets.Npc[NPC.type].Value;
             Vector2 drawPos = NPC.Center - screenPos;
             float rot = NPC.rotation + (NPC.direction == 1 ? 0 :MathHelper.Pi);
+            if (NPC.aiStyle != -1 && NPC.ai[0] != 7)
+            {
+                Vector2 dir = NPC.DirectionTo(player.Center);
+                NPC.direction = Math.Sign(dir.X);
+                rot = dir.ToRotation() + (NPC.direction == 1 ? 0 : MathHelper.Pi);
+            }
+                
             int currentFrame = NPC.frame.Y / (bodytexture.Height / Main.npcFrameCount[NPC.type]);
             SpriteEffects flip = NPC.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
@@ -511,6 +519,14 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                         NPC.localAI[2] = 0;
                         NPC.localAI[3] = 0;
                         NPC.netUpdate = true;
+
+                        Projectile arena = Main.projectile[ArenaProjID];
+                        bool arenaReal = arena != null && arena.active && arena.type == ModContent.ProjectileType<BaronArenaWhirlpool>();
+                        if (arenaReal)
+                        {
+                            arena.ai[2] = 0; //deactivate projectile shooting AI of arena
+                            arena.netUpdate = true;
+                        }
                     }
                 }
                 else

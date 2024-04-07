@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
         public bool[] EquippedEffects = Array.Empty<bool>();
         public Item[] EffectItems = Array.Empty<Item>();
 
-        private static readonly Dictionary<MethodInfo, List<AccessoryEffect>> Hooks = new();
+        private static readonly Dictionary<Expression<Func<AccessoryEffect, Delegate>>, List<AccessoryEffect>> Hooks = new();
 
         public bool Active(AccessoryEffect effect) => ActiveEffects[effect.Index];
         public bool Equipped(AccessoryEffect effect) => EquippedEffects[effect.Index];
@@ -82,10 +82,10 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
         }
         #region Overrides
 
-        private static List<AccessoryEffect> AddHook<F>(Expression<Func<AccessoryEffect, F>> expr) where F : Delegate
+        private static List<AccessoryEffect> AddHook<F>(Expression<Func<AccessoryEffect, Delegate>> expr)
         {
             var effectSet = new List<AccessoryEffect>();
-            Hooks.Add(expr.ToMethodInfo(), effectSet);
+            Hooks.Add(expr, effectSet);
             return effectSet;
         }
         public override void ResetEffects()

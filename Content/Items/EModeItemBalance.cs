@@ -270,7 +270,7 @@ namespace FargowiltasSouls.Content.Items
 
                 case ItemID.TitaniumSword:
                 case ItemID.AdamantiteSword:
-                    balanceNumber = 1.35f;
+                    balanceNumber = 1.20f;
                     balanceTextKeys = new string[] { "Speed", "Damage" };
                     return EModeChange.Buff;
 
@@ -289,8 +289,9 @@ namespace FargowiltasSouls.Content.Items
                     return EModeChange.Buff;
 
                 case ItemID.Excalibur:
+                case ItemID.TrueExcalibur:
                 case ItemID.Gungnir:
-                    balanceNumber = 1.25f;
+                    balanceNumber = 1.2f;
                     balanceTextKeys = new string[] { "Speed", "Damage" };
                     return EModeChange.Buff;
 

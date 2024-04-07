@@ -729,3 +729,8 @@ MagicalCurseBuff: {
 	DisplayName: 魔法诅咒
 	// Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
 }
+
+PearlwoodStarBuff: {
+	// DisplayName: Pearlwood Star Buff
+	// Description: Mods.FargowiltasSouls.Buffs.PearlwoodStarBuff.Description
+}

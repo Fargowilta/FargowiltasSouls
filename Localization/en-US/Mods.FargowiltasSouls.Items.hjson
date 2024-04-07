@@ -443,8 +443,8 @@ PearlwoodEnchant: {
 	DisplayName: Pearlwood Enchantment
 	Tooltip:
 		'''
-		Your attacks have an extra chance to crit
-		A damaging star follows your every move
+		Press the Debuff Install key to spawn a damaging star that chases you
+		While the star is active, your attacks can roll an extra chance to crit
 		'You can't outrun your own reflection'
 		'''
 }
@@ -833,7 +833,7 @@ EarthForce: {
 		[i:FargowiltasSouls/CobaltEnchant] Grants an explosion jump and you explode on hit
 		[i:FargowiltasSouls/MythrilEnchant] Stop attacking to gradually increase attack speed for up to 5 seconds
 		[i:FargowiltasSouls/PalladiumEnchant] Grants Rapid Healing after striking an enemy and spawn life orbs based on healing
-		[i:FargowiltasSouls/OrichalcumEnchant] Attacks spawn flower petals and damaging debuffs deal 4x damage
+		[i:FargowiltasSouls/OrichalcumEnchant] Attacks spawn flower petals and damaging debuffs deal 3.5x damage
 		[i:FargowiltasSouls/AdamantiteEnchant] Every weapon shot will split into 3, 50% damage each, with higher spread the longer you fire
 		[i:FargowiltasSouls/TitaniumEnchant] Attacks generate titanium shards, reaching max grants Titanium Shield
 		'Gaia's blessing shines upon you'
@@ -933,7 +933,7 @@ TimberForce: {
 		[i:FargowiltasSouls/RichMahoganyEnchant] All grappling hooks shoot, pull, and retract 2.5x as fast
 		[i:FargowiltasSouls/EbonwoodEnchant][i:FargowiltasSouls/ShadewoodEnchant] You have an aura of Corruption and Bleeding
 		[i:FargowiltasSouls/PalmWoodEnchant] Double tap down to spawn up to 2 palm tree sentries
-		[i:FargowiltasSouls/PearlwoodEnchant] Crits reroll favorably 2 times, and a damaging star follows you
+		[i:FargowiltasSouls/PearlwoodEnchant] Press the Debuff Install key to spawn a damaging star and gain crit reroll
 		'Extremely rigid'
 		'''
 }
@@ -1188,7 +1188,7 @@ FusedLens: {
 		When inflicted with Cursed Inferno, 15% increased attack speed
 		When inflicted with Ichor, 15% increased critical strike chance
 		When losing health to damage over time, you inflict Cursed Inferno and Ichor
-		Press the Debuff Install key to inflict yourself with Cursed Inferno and Ichor for 30 seconds
+		Press the Debuff Install key to inflict yourself with Cursed Inferno and Ichor
 		'Too melted to improve vision'
 		'''
 }

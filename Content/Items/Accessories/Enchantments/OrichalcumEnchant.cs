@@ -66,7 +66,7 @@ Damaging debuffs deal 2.5x damage
 
             if (modPlayer.Player.ForceEffect<OrichalcumEffect>())
             {
-                multiplier = 4f;
+                multiplier = 3.5f;
             }
 
             npc.lifeRegen = (int)(npc.lifeRegen * multiplier);

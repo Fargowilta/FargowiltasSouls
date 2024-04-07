@@ -29,6 +29,11 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
             // DisplayName.SetDefault("Holy Deathray");
         }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.timeLeft *= 10;
+        }
 
         public override void AI()
         {

@@ -240,7 +240,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             CrystalEnchantActive = false;
             IronRecipes = false;
             ChlorophyteEnchantActive = false;
-            PearlwoodEnchantItem = null;
+            PearlwoodStar = false;
 
             if (!MonkEnchantActive)
                 Player.ClearBuff(ModContent.BuffType<MonkBuff>());

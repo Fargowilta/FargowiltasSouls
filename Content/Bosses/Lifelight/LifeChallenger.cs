@@ -1042,7 +1042,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                             if (p.type == ModContent.ProjectileType<LifeBombExplosion>())
                             {
                                 //make them fade
-                                p.ai[0] = Math.Max(p.ai[0], 2400 - 30);
+                                p.ai[0] = Math.Max(p.ai[0], LifeBombExplosion.MaxTime - 30);
                                 p.netUpdate = true;
                             }
                         }
@@ -1069,7 +1069,9 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
                 //for a starting time, make it fade in, then make it spin faster and faster up to a max speed
                 const int fadeintime = 10;
-                const int endTime = 950;
+                int endTime = 950;
+                if (Main.getGoodWorld)
+                    endTime += 4000; // lol
 
                 // WHY IS THIS SO HIGH.
                 //// Screenshake.
@@ -1132,7 +1134,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         if (p.type == ModContent.ProjectileType<LifeBombExplosion>())
                         {
                             //make them fade
-                            p.ai[0] = Math.Max(p.ai[0], 2400 - 30);
+                            p.ai[0] = Math.Max(p.ai[0], LifeBombExplosion.MaxTime - 30);
                             p.netUpdate = true;
                         }
                         //kill deathray, just to be sure

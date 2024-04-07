@@ -34,7 +34,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
             player.AddEffect<ShadewoodEffect>(Item);
             player.AddEffect<PalmwoodEffect>(Item);
             player.AddEffect<PearlwoodEffect>(Item);
-            player.FargoSouls().PearlwoodEnchantItem = Item;
         }
 
         public override void UpdateVanity(Player player)

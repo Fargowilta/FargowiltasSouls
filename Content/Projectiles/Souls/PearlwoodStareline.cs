@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
         {
             Player player = Main.player[projectile.owner];
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            if (player == null || !player.active || player.dead || !(modPlayer.PearlwoodEnchantItem != null && player.HasEffect<PearlwoodEffect>()))
+            if (player == null || !player.active || player.dead || !(modPlayer.PearlwoodStar && player.HasEffect<PearlwoodEffect>()))
                 return;
              int[] pearlwoodItems = new int[] { ModContent.ItemType<PearlwoodEnchant>(), ModContent.ItemType<TimberForce>(), ModContent.ItemType<TerrariaSoul>() };
             if (source is EntitySource_ItemUse itemSource && pearlwoodItems.Contains(itemSource.Item.type))
@@ -80,7 +80,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 return;
             }
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            if (modPlayer.PearlwoodEnchantItem == null || !player.HasEffect<PearlwoodEffect>())
+            if (!modPlayer.PearlwoodStar || !player.HasEffect<PearlwoodEffect>())
             {
                 projectile.Kill();
                 return;

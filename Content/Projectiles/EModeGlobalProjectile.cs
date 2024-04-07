@@ -1330,7 +1330,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.CobaltNaginata:
                     if (projectile.ai[2] < 2) //only twice per swing
                     {
-                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), hit.Damage / 2, 0f, Main.myPlayer);
+                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.Damage * 0.4f), 0f, Main.myPlayer);
                         if (p != null)
                             p.FargoSouls().CanSplit = false;
                         projectile.ai[2]++;
@@ -1378,6 +1378,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.DeerclopsIceSpike:
                 case ProjectileID.DeerclopsRangedProjectile:
                     target.AddBuff(BuffID.Frostburn, 90);
+                    target.AddBuff(BuffID.BrokenArmor, 90);
                     if (WorldSavingSystem.MasochistModeReal)
                         target.AddBuff(ModContent.BuffType<MarkedforDeathBuff>(), 900);
                     target.AddBuff(ModContent.BuffType<HypothermiaBuff>(), 1200);

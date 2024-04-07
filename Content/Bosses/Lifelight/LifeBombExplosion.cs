@@ -29,9 +29,15 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             Projectile.penetrate = 1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
+
+            Projectile.timeLeft = 3600;
+            if (Main.getGoodWorld)
+                Projectile.timeLeft *= 10;
         }
 
         public override bool? CanDamage() => Projectile.alpha < 100;
+
+        public static int MaxTime => Main.getGoodWorld ? 2400 * 10 : 2400;
 
         public override void AI()
         {
@@ -55,14 +61,15 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             if (Projectile.localAI[0] == 0)
                 Projectile.localAI[0] += Main.rand.Next(60);
             Projectile.scale = 1.1f + 0.1f * (float)Math.Sin(MathHelper.TwoPi / 15 * ++Projectile.localAI[1]);
-            if (Projectile.ai[0] > 2400 - 30)
+
+            if (Projectile.ai[0] > MaxTime - 30)
             {
                 Projectile.alpha += 8;
                 if (Projectile.alpha > 255)
                     Projectile.alpha = 255;
             }
 
-            if (Projectile.ai[0] > 2400f || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1)
+            if (Projectile.ai[0] > MaxTime || NPC.CountNPCS(ModContent.NPCType<LifeChallenger>()) < 1)
             {
                 for (int i = 0; i < 20; i++)
                 {

@@ -115,7 +115,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     {
                         if (projectile.ai[1] == duration / 2 || projectile.ai[1] == duration / 2 + WaitTime && FargoSoulsUtil.HostCheck)
                         {
-                            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Normalize(projectile.velocity) * 5, ProjectileID.FlowerPetal, projectile.damage / 2, projectile.knockBack / 2, Main.myPlayer);
+                            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Normalize(projectile.velocity) * 5, ProjectileID.FlowerPetal, (int)(projectile.damage * 0.75f), projectile.knockBack / 2, Main.myPlayer);
                         }
                         break;
                     }

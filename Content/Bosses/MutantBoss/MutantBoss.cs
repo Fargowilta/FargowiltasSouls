@@ -703,6 +703,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                     NPC.velocity.Y -= 1f;
                     if (NPC.timeLeft == 1)
                     {
+                        EdgyBossText(GFBQuote(36));
                         if (NPC.position.Y < 0)
                             NPC.position.Y = 0;
                         if (FargoSoulsUtil.HostCheck && ModContent.TryFind("Fargowiltas", "Mutant", out ModNPC modNPC) && !NPC.AnyNPCs(modNPC.Type))
@@ -2978,7 +2979,10 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 bool shouldAttack = true;
                 if (++NPC.ai[2] > NPC.localAI[1])
                 {
-                    ChooseNextAttack(11, 16, 19, 20, WorldSavingSystem.MasochistModeReal ? 44 : 26, 31, 33, 35, 42, 44, 45/*, 47*/);
+                    if (Main.getGoodWorld) // Can't combo into slime rain in ftw
+                        ChooseNextAttack(11, 16, 19, 20, WorldSavingSystem.MasochistModeReal ? 44 : 26, 31, 33, /*35,*/ 42, 44, 45/*, 47*/);
+                    else
+                        ChooseNextAttack(11, 16, 19, 20, WorldSavingSystem.MasochistModeReal ? 44 : 26, 31, 33, 35, 42, 44, 45/*, 47*/);
                     shouldAttack = false;
                 }
 

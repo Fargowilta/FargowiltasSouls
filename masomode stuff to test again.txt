@@ -1,0 +1,11 @@
+﻿maso cultist pillar spawns just a vision (dragon is gfb)
+gfb mutant says something when he kills you/despawns
+maso ftw fishron is only retro fish ex ai, doesnt also stack modern emode ai
+fixed fish ex actually multiplicatively multiplying his damage by x1.5 every single time he phase changes
+fixed penetrator sword not flipping with you with gravity
+AccessoryEffectPlayer changed MethodInfo to Expression<Func<AccessoryEffect, Delegate>>???????? idfk
+pearlwood ench adjustment
+	you debuff install it
+	you only get crit while the star is actually chasing you
+deerclops inflicts broken armor
+marked for death makes you take x1.5 base damage, not final damage

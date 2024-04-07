@@ -108,9 +108,16 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
         {
             if (NPC.rotation != 0)
             {
-                int center = npcHitbox.Y + npcHitbox.Height / 2;
-                npcHitbox.Height = npcHitbox.Width;
-                npcHitbox.Y = (int)center - npcHitbox.Height / 2;
+				int centerX = npcHitbox.X + (npcHitbox.Width / 2);
+                int centerY = npcHitbox.Y + (npcHitbox.Height / 2);
+
+				float angle = NPC.rotation % MathF.Tau;
+				float incline = MathF.Abs(MathF.Sin(angle));
+				npcHitbox.Height = (int)(MathHelper.Lerp(NPC.height, NPC.width, incline) * NPC.scale);
+                npcHitbox.Width = (int)(MathHelper.Lerp(NPC.width, NPC.height, incline) * NPC.scale);
+
+				npcHitbox.X = (int)(centerX - (npcHitbox.Width / 2));
+                npcHitbox.Y = (int)(centerY - (npcHitbox.Height / 2));
             }
             return base.ModifyCollisionData(victimHitbox, ref immunityCooldownSlot, ref damageMultiplier, ref npcHitbox);
         }

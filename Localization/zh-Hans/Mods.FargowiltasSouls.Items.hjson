@@ -830,7 +830,7 @@ EarthForce: {
 		[i:FargowiltasSouls/CobaltEnchant] 额外获得一次爆炸二段跳，受击时你会剧烈爆炸
 		[i:FargowiltasSouls/MythrilEnchant] 停止攻击以逐渐增加攻击速度，最多持续5秒
 		[i:FargowiltasSouls/PalladiumEnchant] 暴击敌人会快速治疗，基于回复的血量放出生命能量球
-		[i:FargowiltasSouls/OrichalcumEnchant] 攻击生成花瓣，伤害性减益造成4倍伤害
+		[i:FargowiltasSouls/OrichalcumEnchant] 攻击生成花瓣，伤害性减益造成3.5倍伤害
 		[i:FargowiltasSouls/AdamantiteEnchant] 你发射的所有弹幕都会分裂成三个，每个造成50%伤害，并随着武器持续使用弹幕分散角度会逐渐增大
 		[i:FargowiltasSouls/TitaniumEnchant] 攻击生成钛金碎片防御屏障，达到最大个数获得钛金护盾
 		“盖亚的祝福照耀着你”

@@ -426,7 +426,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 ((MutantBoss)Main.npc[EModeGlobalNPC.mutantBoss].ModNPC).playerInvulTriggered = true;
 
             if (DeathMarked)
-                modifiers.FinalDamage *= 1.5f;
+                modifiers.SourceDamage *= 1.5f;
 
             if (Player.whoAmI == Main.myPlayer && !noDodge && Player.HasEffect<SqueakEffect>() && Main.rand.NextBool(10))
             {

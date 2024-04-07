@@ -93,7 +93,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         }
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient<LifelightBag>(2).AddTile(TileID.Solidifier).Register();
+            CreateRecipe().AddIngredient<LifelightBag>(2).AddTile(TileID.Solidifier).DisableDecraft().Register();
         }
     }
 }

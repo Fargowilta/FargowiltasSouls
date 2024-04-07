@@ -47,15 +47,6 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
-                if (EModeGlobalNPC.fishBossEX != fishron.whoAmI)
-                {
-                    //fishron.GetGlobalNPC<DukeFishron>().IsEX = true;
-                    fishron.GivenName = Language.GetTextValue("Mods.FargowiltasSouls.NPCs.DukeFishronEX.DisplayName");
-                    fishron.defDamage = (int)(fishron.defDamage * 1.5);
-                    fishron.defDefense *= 2;
-                    fishron.buffImmune[ModContent.BuffType<FlamesoftheUniverseBuff>()] = true;
-                    fishron.buffImmune[ModContent.BuffType<LightningRodBuff>()] = true;
-                }
                 Projectile.netUpdate = true;
             }
 

@@ -66,7 +66,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         /*
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient<TreasureGuardianBag>(2).AddTile(TileID.Solidifier).Register();
+            CreateRecipe().AddIngredient<TreasureGuardianBag>(2).AddTile(TileID.Solidifier).DisableDecraft().Register();
         }
         */
     }

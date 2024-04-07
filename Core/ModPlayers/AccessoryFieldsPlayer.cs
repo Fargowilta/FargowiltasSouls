@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         public int TinProcCD;
         public bool TinCritBuffered;
         public int TungstenCD;
-        public Item PearlwoodEnchantItem;
+        public bool PearlwoodStar;
         public int AshwoodCD;
 
         //force of cosmos

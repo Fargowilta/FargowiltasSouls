@@ -1,3 +1,4 @@
+using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -12,7 +13,7 @@ namespace FargowiltasSouls.Content.Projectiles.JungleMimic
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 4;
-
+            ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             // DisplayName.SetDefault("Living Leaf Projectile");
         }
 
