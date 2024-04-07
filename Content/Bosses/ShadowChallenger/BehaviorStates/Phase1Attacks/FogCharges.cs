@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Common.StateMachines;
+﻿using Luminance.Common.Reflection;
+using Luminance.Common.StateMachines;
 
 namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 {
@@ -6,13 +7,13 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 	{
 		public const int FogCharges_AttackLength = 360;
 
-		[AutoloadMethod]
+		[AutomatedMethodInvoke]
 		public void LoadTransition_FogCharges()
 		{
 			StateMachine.RegisterTransition(BehaviorStates.FogCharges, BehaviorStates.FogTears, false, () => Timer > FogCharges_AttackLength);
 		}
 
-		[AutoloadAsBehavior<BehaviorStates>(BehaviorStates.FogCharges)]
+		[AutoloadAsBehavior<EntityAIState<BehaviorStates>, BehaviorStates>(BehaviorStates.FogCharges)]
 		public void DoBehavior_FogCharges()
 		{
 			// TODO: Program attack.

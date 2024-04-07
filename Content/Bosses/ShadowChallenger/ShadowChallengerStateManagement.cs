@@ -1,15 +1,16 @@
-﻿using FargowiltasSouls.Common.StateMachines;
+﻿using Luminance.Common.Reflection;
+using Luminance.Common.StateMachines;
 
 namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 {
 	public partial class ShadowChallenger
 	{
-		private FiniteStateMachine<AIState<BehaviorStates>, BehaviorStates> stateMachine;
+		private PushdownAutomata<EntityAIState<BehaviorStates>, BehaviorStates> stateMachine;
 
 		/// <summary>
 		/// The state machine that controls the behavior of this NPC.
 		/// </summary>
-		public FiniteStateMachine<AIState<BehaviorStates>, BehaviorStates> StateMachine
+		public PushdownAutomata<EntityAIState<BehaviorStates>, BehaviorStates> StateMachine
 		{
 			get
 			{
@@ -31,13 +32,13 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 			StateMachine.OnStateTransition += OnAnyStateTransition;
 
 			// This autoloads the behavior states into the machine.
-			AutoloadAsBehavior<BehaviorStates>.FillStateMachineBehaviors(StateMachine, this);
+			AutoloadAsBehavior<EntityAIState<BehaviorStates>, BehaviorStates>.FillStateMachineBehaviors(StateMachine, this);
 
 			// This loads the transitions.
-			AutoloadMethod.LoadMethods(this);
+			AutomatedMethodInvokeAttribute.InvokeWithAttribute(this);
 		}
 
-		private void OnAnyStateTransition(bool stateWasPopped, AIState<BehaviorStates> oldState)
+		private void OnAnyStateTransition(bool stateWasPopped, EntityAIState<BehaviorStates> oldState)
 		{
 			NPC.netUpdate = true;
 			NPC.TargetClosest(false);

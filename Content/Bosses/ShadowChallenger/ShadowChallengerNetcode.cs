@@ -13,8 +13,8 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 			var stackArray = StateMachine.StateStack.ToArray();
 			for (int i = 0; i < StateMachine.StateStack.Count; i++)
 			{
-				writer.Write((int)stackArray[i].ID);
-				writer.Write(stackArray[i].Timer);
+				writer.Write((int)stackArray[i].Identifier);
+				writer.Write(stackArray[i].Time);
 			}
 		}
 
@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 			for (int i = 0; i < stackCount; i++)
 			{
 				var behavior = StateMachine.StateRegistry[(BehaviorStates)reader.ReadInt32()];
-				behavior.Timer = reader.ReadSingle();
+				behavior.Time = reader.ReadInt32();
 				StateMachine.StateStack.Push(behavior);
 			}
 		}

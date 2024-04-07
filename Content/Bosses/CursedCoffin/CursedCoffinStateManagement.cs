@@ -1,6 +1,6 @@
-﻿using FargowiltasSouls.Common.StateMachines;
-using FargowiltasSouls.Content.Buffs.Masomode;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.Systems;
+using Luminance.Common.StateMachines;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +12,12 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 {
 	public partial class CursedCoffin
 	{
-		private FiniteStateMachine<AIState<BehaviorStates>, BehaviorStates> stateMachine;
+		private PushdownAutomata<EntityAIState<BehaviorStates>, BehaviorStates> stateMachine;
 
 		/// <summary>
 		/// The state machine that controls the behavior of this NPC.
 		/// </summary>
-		public FiniteStateMachine<AIState<BehaviorStates>, BehaviorStates> StateMachine
+		public PushdownAutomata<EntityAIState<BehaviorStates>, BehaviorStates> StateMachine
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 			StateMachine.OnStateTransition += OnStateTransition;
 
 			// Autoload the state behaviors.
-			AutoloadAsBehavior<BehaviorStates>.FillStateMachineBehaviors<ModNPC>(StateMachine, this);
+			AutoloadAsBehavior<EntityAIState<BehaviorStates>, BehaviorStates>.FillStateMachineBehaviors<ModNPC>(StateMachine, this);
 
 			// Load the attack cycle resetter and the phase transition.
 			LoadTransition_ResetCycle();
@@ -151,15 +151,15 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 		}
 
 		// This is ran whenever a state transition occures and is very useful for resetting variables.
-		public void OnStateTransition(bool stateWasPopped, AIState<BehaviorStates> oldState)
+		public void OnStateTransition(bool stateWasPopped, EntityAIState<BehaviorStates> oldState)
 		{
 			NPC.netUpdate = true;
 			NPC.TargetClosest(false);
 			AI2 = 0;
 			AI3 = 0;
 
-			if (oldState != null && (P1Attacks.Contains(oldState.ID) || P2Attacks.Contains(oldState.ID)))
-				LastAttackChoice = (int)oldState.ID;
+			if (oldState != null && (P1Attacks.Contains(oldState.Identifier) || P2Attacks.Contains(oldState.Identifier)))
+				LastAttackChoice = (int)oldState.Identifier;
 		}
 
 		public void LoadTransition_ResetCycle()

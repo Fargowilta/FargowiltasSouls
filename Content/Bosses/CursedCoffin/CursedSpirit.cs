@@ -267,9 +267,9 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             if (coffin.StateMachine.CurrentState == null)
                 return;
 
-            bool newState = (float)coffin.StateMachine.CurrentState.ID != State;
+            bool newState = (float)coffin.StateMachine.CurrentState.Identifier != State;
 
-            switch (coffin.StateMachine.CurrentState.ID)
+            switch (coffin.StateMachine.CurrentState.Identifier)
             {
                 case CursedCoffin.BehaviorStates.StunPunish:
                     if (newState)
@@ -304,7 +304,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                     GrabbyHands(owner);
                     break;
                     */
-                case var _ when SlowChargeStates.Contains((float)coffin.StateMachine.CurrentState.ID):
+                case var _ when SlowChargeStates.Contains((float)coffin.StateMachine.CurrentState.Identifier):
                     if (newState)
                     {
                         Timer = 0;
@@ -321,7 +321,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                 default:
                     break;
             }
-            State = (float)coffin.StateMachine.CurrentState.ID;
+            State = (float)coffin.StateMachine.CurrentState.Identifier;
         }
         void SlamSupport(NPC owner)
         {

@@ -178,6 +178,31 @@
             </summary>
             <param name="instance">The object instance to check methods for.</param>
         </member>
+        <member name="T:Luminance.Common.StateMachines.AutoloadAsBehavior`2">
+            <summary>
+            Marks a method as assositated with the provided <typeparamref name="TStateIdentifier"/> for the purpose of automated state machine behavior linking.
+            </summary>
+            <param name="assosiatedState">The state to register this method as behavior for.</param>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.AutoloadAsBehavior`2.#ctor(`1)">
+            <summary>
+            Marks a method as assositated with the provided <typeparamref name="TStateIdentifier"/> for the purpose of automated state machine behavior linking.
+            </summary>
+            <param name="assosiatedState">The state to register this method as behavior for.</param>
+        </member>
+        <member name="F:Luminance.Common.StateMachines.AutoloadAsBehavior`2.AssosiatedState">
+            <summary>
+            The assosiated state of the method.
+            </summary>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.AutoloadAsBehavior`2.FillStateMachineBehaviors``1(Luminance.Common.StateMachines.PushdownAutomata{`0,`1},``0)">
+            <summary>
+            Fills the <paramref name="stateMachine"/>'s behaviors with all methods in the providedinstance that have this attribute.
+            </summary>
+            <typeparam name="TInstanceType">The type of the instance that will access the methods.</typeparam>
+            <param name="stateMachine">The state machine to fill.</param>
+            <param name="instance">The instance to access the methods with.</param>
+        </member>
         <member name="T:Luminance.Common.StateMachines.EntityAIState`1">
             <summary>
             An implementation of <see cref="T:Luminance.Common.StateMachines.IState`1"/> that adds only a simple integer timer.
@@ -240,6 +265,11 @@
                 Represents a framework for a state transition's information.
             </summary>
         </member>
+        <member name="T:Luminance.Common.StateMachines.PushdownAutomata`2.OnStateTransitionDelegate">
+            <summary>
+            Delegate for actions that run when <see cref="E:Luminance.Common.StateMachines.PushdownAutomata`2.OnStateTransition"/> is fired.
+            </summary>
+        </member>
         <member name="F:Luminance.Common.StateMachines.PushdownAutomata`2.StateBehaviors">
             <summary>
                 A collection of custom states that should be performed when a state is ongoing.
@@ -274,6 +304,39 @@
             <summary>
                 The set of actions that should occur when a state transition occurs.
             </summary>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.PushdownAutomata`2.RegisterState(`0)">
+            <summary>
+            Registers a state in the registry.
+            </summary>
+            <param name="state">The state to register.</param>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.PushdownAutomata`2.RegisterStateBehavior(`1,System.Action)">
+            <summary>
+            Links an action to a state identifier as its behavior.
+            </summary>
+            <remarks>
+            Consider using <see cref="T:Luminance.Common.StateMachines.AutoloadAsBehavior`2"/> instead of this method to reduce boilerplate.
+            </remarks>
+            <param name="state"></param>
+            <param name="behavior"></param>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.PushdownAutomata`2.RegisterTransition(`1,System.Nullable{`1},System.Boolean,System.Func{System.Boolean},System.Action)">
+            <summary>
+            Registers a transition between two states.
+            </summary>
+            <param name="initialState">The state to transition from.</param>
+            <param name="newState">The state to transition to.</param>
+            <param name="rememberPreviousState">Whether to pop the initial state or not, useful for states that pause other states instead of replacing them.</param>
+            <param name="transitionCondition">The condition that must be fulfilled for the transition to occur.</param>
+            <param name="transitionCallback">An optional action that runs when the transition occurs.</param>
+        </member>
+        <member name="M:Luminance.Common.StateMachines.PushdownAutomata`2.ApplyToAllStatesExcept(System.Action{`1},`1[])">
+            <summary>
+            Applies an action to every registered state in this machine, barring any provided exceptions. A good use example is for states that interrupt most other states if a certain condition is met.
+            </summary>
+            <param name="action">The action to perform.</param>
+            <param name="exceptions">The list of exceptions.</param>
         </member>
         <member name="M:Luminance.Common.Utilities.Utilities.FindGroundVertical(Microsoft.Xna.Framework.Point)">
             <summary>

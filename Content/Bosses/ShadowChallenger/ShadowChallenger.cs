@@ -28,7 +28,11 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 		/// </summary>
 		public ref float CurrentPhase => ref NPC.ai[0];
 
-		public ref float Timer => ref StateMachine.CurrentState.Timer;
+		public float Timer
+		{
+			get => StateMachine.CurrentState.Time;
+			set => StateMachine.CurrentState.Time = (int)value;
+		}
 
 		/// <summary>
 		/// An auto netsynced variable whos value is reset each state change. Use for per attack information storage.
@@ -60,8 +64,8 @@ namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 			if ((StateMachine?.StateStack?.Count ?? 1) <= 0)
 				StateMachine.StateStack.Push(StateMachine.StateRegistry[BehaviorStates.RefillStates]);
 
-			StateMachine.ProcessBehavior();
-			StateMachine.ProcessTransitions();
+			StateMachine.PerformBehaviors();
+			StateMachine.PerformStateTransitionCheck();
 
 			if (StateMachine.StateStack.Count > 0)
 				Timer++;

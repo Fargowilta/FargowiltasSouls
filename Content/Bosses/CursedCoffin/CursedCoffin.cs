@@ -38,13 +38,18 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
 		private int LastAttackChoice { get; set; }
 
+		public float Timer
+		{
+			get => StateMachine.CurrentState.Time;
+			set => StateMachine.CurrentState.Time = (int)value;
+		}
+
 		//NPC.ai[] overrides
-		public ref float Timer => ref StateMachine.CurrentState.Timer;
-        /// <summary>
-        /// Setting this to a number except 0 immediately forces the SpiritGrabPunish state.
+		/// <summary>
+		/// Setting this to a number except 0 immediately forces the SpiritGrabPunish state.
 		/// This happens when the Spirit grabs a player.
-        /// </summary>
-        public ref float ForceGrabPunish => ref NPC.ai[1];
+		/// </summary>
+		public ref float ForceGrabPunish => ref NPC.ai[1];
         public ref float AI2 => ref NPC.ai[2];
 		public ref float AI3 => ref NPC.ai[3];
 
@@ -179,7 +184,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 			// 2. Write the state IDs as ints to the stack in the order they are on the stack. Also write the timers.
 			var stackArray = StateMachine.StateStack.ToArray();
 			for (int i = 0; i < StateMachine.StateStack.Count; i++)
-				writer.Write((int)stackArray[i].ID);
+				writer.Write((int)stackArray[i].Identifier);
 		}
 
 		public override void ReceiveExtraAI(BinaryReader reader)
@@ -243,7 +248,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 			if (!PhaseTwo)
 			{
 				float shakeFactor = 1;
-				if (StateMachine.CurrentState != null && StateMachine.CurrentState.ID == BehaviorStates.PhaseTransition)
+				if (StateMachine.CurrentState != null && StateMachine.CurrentState.Identifier == BehaviorStates.PhaseTransition)
 					shakeFactor = 3 + 5 * (Timer / 60);
 				Texture2D glowTexture = ModContent.Request<Texture2D>(Texture + "_MaskGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
 				Color glowColor = GlowColor;

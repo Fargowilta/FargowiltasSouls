@@ -1,10 +1,10 @@
-﻿using FargowiltasSouls.Common.StateMachines;
+﻿using Luminance.Common.Reflection;
 
 namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 {
 	public partial class ShadowChallenger
 	{
-		[AutoloadMethod]
+		[AutomatedMethodInvoke]
 		public void LoadTransition_RefillAttacks()
 		{
 			StateMachine.RegisterTransition(BehaviorStates.RefillStates, null, false, () => true, () =>
