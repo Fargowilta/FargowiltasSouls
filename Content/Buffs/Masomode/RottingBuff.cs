@@ -1,29 +1,28 @@
-﻿using FargowiltasSouls.Core.Globals;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Masomode
 {
-    public class RottingBuff : ModBuff
-    {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Rotting");
-            // Description.SetDefault("Your body is wasting away");
-            Main.debuff[Type] = true;
-            Main.pvpBuff[Type] = true;
+	public class RottingBuff : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Rotting");
+			// Description.SetDefault("Your body is wasting away");
+			Main.debuff[Type] = true;
+			Main.pvpBuff[Type] = true;
 
-            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "腐败");
-            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "身体在逐渐衰弱");
-        }
+			//DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "腐败");
+			//Description.AddTranslation((int)GameCulture.CultureName.Chinese, "身体在逐渐衰弱");
+		}
 
-        public override void Update(Player player, ref int buffIndex)
-        {
-            //inflicts DOT (8 per second) and almost every stat reduced (move speed by 25%, use time by 10%)
-            player.FargoSouls().Rotting = true;
-            //player.FargoSouls().AttackSpeed -= .1f;
+		public override void Update(Player player, ref int buffIndex)
+		{
+			//inflicts DOT (8 per second) and almost every stat reduced (move speed by 25%, use time by 10%)
+			player.FargoSouls().Rotting = true;
+			//player.FargoSouls().AttackSpeed -= .1f;
 
-            /*player.statLifeMax2 -= player.statLifeMax / 5;
+			/*player.statLifeMax2 -= player.statLifeMax / 5;
             player.statDefense -= 10;
             //player.endurance -= 0.1f;
             //if (player.statDefense < 0) player.statDefense = 0;
@@ -33,11 +32,11 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
             player.GetDamage(DamageClass.Magic) -= 0.1f;
             player.GetDamage(DamageClass.Ranged) -= 0.1f;
             player.GetDamage(DamageClass.Summon) -= 0.1f;*/
-        }
+		}
 
-        public override void Update(NPC npc, ref int buffIndex)
-        {
-            npc.FargoSouls().Rotting = true;
-        }
-    }
+		public override void Update(NPC npc, ref int buffIndex)
+		{
+			npc.FargoSouls().Rotting = true;
+		}
+	}
 }

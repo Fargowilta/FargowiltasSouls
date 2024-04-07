@@ -5,49 +5,50 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Masomode
 {
-    public class LowGroundBuff : ModBuff
-    {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Low Ground");
-            // Description.SetDefault("No hooks, cannot stand on platforms or liquids");
-            Main.debuff[Type] = true;
-            Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
+	public class LowGroundBuff : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Low Ground");
+			// Description.SetDefault("No hooks, cannot stand on platforms or liquids");
+			Main.debuff[Type] = true;
+			Main.buffNoSave[Type] = true;
+			Main.buffNoTimeDisplay[Type] = true;
 
-            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "低地");
-            //Description.AddTranslation((int)GameCulture.CultureName.Chinese, "不能站在平台或液体上");
-        }
-        public override void Update(Player player, ref int buffIndex)
-        {
-            player.FargoSouls().LowGround = true;
-            if (player.grapCount > 0)
-                player.RemoveAllGrapplingHooks();
+			BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
+			//DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "低地");
+			//Description.AddTranslation((int)GameCulture.CultureName.Chinese, "不能站在平台或液体上");
+		}
+		public override void Update(Player player, ref int buffIndex)
+		{
+			player.FargoSouls().LowGround = true;
+			if (player.grapCount > 0)
+				player.RemoveAllGrapplingHooks();
 
-            if (player.mount.Active)
-                player.mount.Dismount(player);
-            Tile thisTile = Framing.GetTileSafely(player.Bottom);
-            Tile bottomTile = Framing.GetTileSafely(player.Bottom + Vector2.UnitY * 8);
+			if (player.mount.Active)
+				player.mount.Dismount(player);
+			Tile thisTile = Framing.GetTileSafely(player.Bottom);
+			Tile bottomTile = Framing.GetTileSafely(player.Bottom + Vector2.UnitY * 8);
 
-            if (!Collision.SolidCollision(player.BottomLeft, player.width, 16))
-            {
-                if (player.velocity.Y >= 0 && (IsPlatform(thisTile.TileType) || IsPlatform(bottomTile.TileType)))
-                {
-                    player.position.Y += 2;
-                }
-                if (player.velocity.Y == 0)
-                {
-                    player.position.Y += 16;
-                }
+			if (!Collision.SolidCollision(player.BottomLeft, player.width, 16))
+			{
+				if (player.velocity.Y >= 0 && (IsPlatform(thisTile.TileType) || IsPlatform(bottomTile.TileType)))
+				{
+					player.position.Y += 2;
+				}
+				if (player.velocity.Y == 0)
+				{
+					player.position.Y += 16;
+				}
 
-            }
-            bool IsPlatform(int tileType)
-            {
-                return tileType == TileID.Platforms || tileType == TileID.PlanterBox;
-            }
+			}
 
-            /*
+			static bool IsPlatform(int tileType)
+			{
+				return tileType == TileID.Platforms || tileType == TileID.PlanterBox;
+			}
+
+			/*
             for (int i = -2; i <= 2; i++)
             {
                 Vector2 pos = player.Center;
@@ -68,6 +69,6 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
                 }
             }
             */
-        }
-    }
+		}
+	}
 }

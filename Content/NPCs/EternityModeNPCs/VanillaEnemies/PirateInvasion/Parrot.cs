@@ -9,29 +9,29 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PirateInvasion
 {
-    public class Parrot : NoclipFliers
-    {
-        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Parrot);
+	public class Parrot : NoclipFliers
+	{
+		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Parrot);
 
-        public override void AI(NPC npc)
-        {
-            base.AI(npc);
+		public override void AI(NPC npc)
+		{
+			base.AI(npc);
 
-            CanNoclip = true;
-        }
+			CanNoclip = true;
+		}
 
-        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-        {
-            base.OnHitPlayer(npc, target, hurtInfo);
+		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+		{
+			base.OnHitPlayer(npc, target, hurtInfo);
 
-            target.AddBuff(ModContent.BuffType<SqueakyToyBuff>(), 120);
-            target.AddBuff(ModContent.BuffType<MidasBuff>(), 600);
-            //target.AddBuff(ModContent.BuffType<LivingWasteland>(), 600);
+			target.AddBuff(ModContent.BuffType<SqueakyToyBuff>(), 120);
+			target.AddBuff(ModContent.BuffType<MidasBuff>(), 600);
+			//target.AddBuff(ModContent.BuffType<LivingWasteland>(), 600);
 
-            if (WorldSavingSystem.MasochistModeReal && npc.type == NPCID.Parrot && !target.Male)
-            {
-                target.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Parrots", target.name)), 999999, 0);
-            }
-        }
-    }
+			if (WorldSavingSystem.MasochistModeReal && npc.type == NPCID.Parrot && !target.Male)
+			{
+				target.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Parrots", target.name)), 999999, 0);
+			}
+		}
+	}
 }

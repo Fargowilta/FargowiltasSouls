@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Projectiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -7,55 +6,55 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.DeviBoss
 {
-    public class DeviAxe : ModProjectile
-    {
-        public override string Texture => FargoSoulsUtil.EmptyTexture;
+	public class DeviAxe : ModProjectile
+	{
+		public override string Texture => FargoSoulsUtil.EmptyTexture;
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Sparkling Love");
-        }
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Sparkling Love");
+		}
 
-        public override void SetDefaults()
-        {
-            Projectile.width = 46;
-            Projectile.height = 46;
-            Projectile.hostile = true;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
-            Projectile.timeLeft = 180;
-            Projectile.hide = true;
-            Projectile.penetrate = -1;
-            Projectile.FargoSouls().DeletionImmuneRank = 2;
-            CooldownSlot = 1;
-        }
+		public override void SetDefaults()
+		{
+			Projectile.width = 46;
+			Projectile.height = 46;
+			Projectile.hostile = true;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
+			Projectile.timeLeft = 180;
+			Projectile.hide = true;
+			Projectile.penetrate = -1;
+			Projectile.FargoSouls().DeletionImmuneRank = 2;
+			CooldownSlot = 1;
+		}
 
-        public override void AI()
-        {
-            //the important part
-            NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0], ModContent.NPCType<DeviBoss>());
-            if (npc != null)
-            {
-                if (Projectile.localAI[0] == 0)
-                {
-                    Projectile.localAI[0] = 1;
-                    Projectile.localAI[1] = Projectile.DirectionFrom(npc.Center).ToRotation();
-                }
+		public override void AI()
+		{
+			//the important part
+			NPC npc = FargoSoulsUtil.NPCExists(Projectile.ai[0], ModContent.NPCType<DeviBoss>());
+			if (npc != null)
+			{
+				if (Projectile.localAI[0] == 0)
+				{
+					Projectile.localAI[0] = 1;
+					Projectile.localAI[1] = Projectile.DirectionFrom(npc.Center).ToRotation();
+				}
 
-                Vector2 offset = new Vector2(Projectile.ai[1], 0).RotatedBy(npc.ai[3] + Projectile.localAI[1]);
-                Projectile.Center = npc.Center + offset;
-            }
-            else
-            {
-                Projectile.Kill();
-                return;
-            }
-        }
+				Vector2 offset = new Vector2(Projectile.ai[1], 0).RotatedBy(npc.ai[3] + Projectile.localAI[1]);
+				Projectile.Center = npc.Center + offset;
+			}
+			else
+			{
+				Projectile.Kill();
+				return;
+			}
+		}
 
-        public override void OnKill(int timeLeft)
-        {
-            SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
-            /*Projectile.position = Projectile.Center;
+		public override void OnKill(int timeLeft)
+		{
+			SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
+			/*Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 208;
             Projectile.Center = Projectile.position;
             for (int index1 = 0; index1 < 3; ++index1)
@@ -110,13 +109,13 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                 Main.dust[d].velocity *= Main.rand.NextFloat(9f, 12f);
                 Main.dust[d].position = Projectile.Center;
             }*/
-        }
+		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            target.velocity.X = target.Center.X < Main.npc[(int)Projectile.ai[0]].Center.X ? -15f : 15f;
-            target.velocity.Y = -10f;
-            target.AddBuff(ModContent.BuffType<Buffs.Masomode.LovestruckBuff>(), 240);
-        }
-    }
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
+		{
+			target.velocity.X = target.Center.X < Main.npc[(int)Projectile.ai[0]].Center.X ? -15f : 15f;
+			target.velocity.Y = -10f;
+			target.AddBuff(ModContent.BuffType<Buffs.Masomode.LovestruckBuff>(), 240);
+		}
+	}
 }

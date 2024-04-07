@@ -6,24 +6,24 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-    public class MutantSpazmarang : MutantRetirang
-    {
-        public override string Texture => FargoSoulsUtil.AprilFools ?
-            "FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpazmarang_April" :
-            "FargowiltasSouls/Content/Projectiles/BossWeapons/Spazmarang";
+	public class MutantSpazmarang : MutantRetirang
+	{
+		public override string Texture => FargoSoulsUtil.AprilFools ?
+			"FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpazmarang_April" :
+			"FargowiltasSouls/Content/Projectiles/BossWeapons/Spazmarang";
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Spazmarang");
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-        }
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Spazmarang");
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            target.AddBuff(BuffID.CursedInferno, 120);
-            if (WorldSavingSystem.EternityMode)
-                target.AddBuff(ModContent.BuffType<MutantFangBuff>(), 180);
-        }
-    }
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
+		{
+			target.AddBuff(BuffID.CursedInferno, 120);
+			if (WorldSavingSystem.EternityMode)
+				target.AddBuff(ModContent.BuffType<MutantFangBuff>(), 180);
+		}
+	}
 }

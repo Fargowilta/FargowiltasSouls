@@ -1,5 +1,4 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Minions;
 using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Terraria;
@@ -8,15 +7,15 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Masomode
 {
-    [AutoloadEquip(EquipType.Shield)]
-    public class SupremeDeathbringerFairy : SoulsItem
-    {
-        public override bool Eternity => true;
+	[AutoloadEquip(EquipType.Shield)]
+	public class SupremeDeathbringerFairy : SoulsItem
+	{
+		public override bool Eternity => true;
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Supreme Deathbringer Fairy");
-            /* Tooltip.SetDefault(@"Grants immunity to Slimed, Berserked, Lethargic, and Infested
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Supreme Deathbringer Fairy");
+			/* Tooltip.SetDefault(@"Grants immunity to Slimed, Berserked, Lethargic, and Infested
 Honey buff increases your armor penetration by 10
 Increased fall speed
 When you land after a jump, slime will fall from the sky over your cursor
@@ -28,87 +27,87 @@ When dashing, take 75% less contact damage and reflect 100% of contact damage on
 Bees and weak Hornets become friendlier
 Summons 2 Skeletron arms to whack enemies
 'Supremacy not necessarily guaranteed'"); */
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "至高告死精灵");
-            //             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'霸权不一定能得到保证'
-            // 免疫黏糊, 狂暴, 昏昏欲睡和感染
-            // 增加10%伤害, 增加10点护甲穿透
-            // 增加15%掉落速度
-            // 跳跃落地后, 在光标处落下史莱姆
-            // 冲刺或快速奔跑时发射一串血镰
-            // 攻击造成毒液效果
-            // 蜜蜂和虚弱黄蜂变得友好
-            // 永久蜂蜜Buff效果
-            // 召唤2个骷髅王手臂重击敌人");
+			//             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "至高告死精灵");
+			//             Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, @"'霸权不一定能得到保证'
+			// 免疫黏糊, 狂暴, 昏昏欲睡和感染
+			// 增加10%伤害, 增加10点护甲穿透
+			// 增加15%掉落速度
+			// 跳跃落地后, 在光标处落下史莱姆
+			// 冲刺或快速奔跑时发射一串血镰
+			// 攻击造成毒液效果
+			// 蜜蜂和虚弱黄蜂变得友好
+			// 永久蜂蜜Buff效果
+			// 召唤2个骷髅王手臂重击敌人");
 
-            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+		}
 
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            Item.rare = ItemRarityID.LightRed;
-            Item.value = Item.sellPrice(0, 4);
-            Item.defense = 2;
-        }
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.accessory = true;
+			Item.rare = ItemRarityID.LightRed;
+			Item.value = Item.sellPrice(0, 4);
+			Item.defense = 2;
+		}
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            FargoSoulsPlayer fargoPlayer = player.FargoSouls();
-            fargoPlayer.SupremeDeathbringerFairy = true;
+		public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+			FargoSoulsPlayer fargoPlayer = player.FargoSouls();
+			fargoPlayer.SupremeDeathbringerFairy = true;
 
-            //slimy shield
-            player.buffImmune[BuffID.Slimed] = true;
+			//slimy shield
+			player.buffImmune[BuffID.Slimed] = true;
 
-            player.AddEffect<SlimeFallEffect>(Item);
+			player.AddEffect<SlimeFallEffect>(Item);
 
-            if (player.AddEffect<SlimyShieldEffect>(Item))
-            {
-                player.FargoSouls().SlimyShieldItem = Item;
-            }
+			if (player.AddEffect<SlimyShieldEffect>(Item))
+			{
+				player.FargoSouls().SlimyShieldItem = Item;
+			}
 
-            //agitating lens
-            player.buffImmune[ModContent.BuffType<BerserkedBuff>()] = true;
-            //player.GetDamage(DamageClass.Generic) += 0.1f;
-            player.AddEffect<AgitatingLensEffect>(Item);
-            player.AddEffect<AgitatingLensInstall>(Item);
+			//agitating lens
+			player.buffImmune[ModContent.BuffType<BerserkedBuff>()] = true;
+			//player.GetDamage(DamageClass.Generic) += 0.1f;
+			player.AddEffect<AgitatingLensEffect>(Item);
+			player.AddEffect<AgitatingLensInstall>(Item);
 
-            //queen stinger
-            player.buffImmune[ModContent.BuffType<InfestedBuff>()] = true;
-            player.npcTypeNoAggro[210] = true;
-            player.npcTypeNoAggro[211] = true;
-            player.npcTypeNoAggro[42] = true;
-            player.npcTypeNoAggro[231] = true;
-            player.npcTypeNoAggro[232] = true;
-            player.npcTypeNoAggro[233] = true;
-            player.npcTypeNoAggro[234] = true;
-            player.npcTypeNoAggro[235] = true;
-            fargoPlayer.QueenStingerItem = Item;
-            if (player.honey)
-                player.GetArmorPenetration(DamageClass.Generic) += 5;
+			//queen stinger
+			player.buffImmune[ModContent.BuffType<InfestedBuff>()] = true;
+			player.npcTypeNoAggro[210] = true;
+			player.npcTypeNoAggro[211] = true;
+			player.npcTypeNoAggro[42] = true;
+			player.npcTypeNoAggro[231] = true;
+			player.npcTypeNoAggro[232] = true;
+			player.npcTypeNoAggro[233] = true;
+			player.npcTypeNoAggro[234] = true;
+			player.npcTypeNoAggro[235] = true;
+			fargoPlayer.QueenStingerItem = Item;
+			if (player.honey)
+				player.GetArmorPenetration(DamageClass.Generic) += 5;
 
-            //necromantic brew
-            player.buffImmune[ModContent.BuffType<LethargicBuff>()] = true;
-            fargoPlayer.NecromanticBrewItem = Item;
-            player.AddEffect<NecroBrewSpin>(Item);
-            player.AddEffect<SkeleMinionEffect>(Item);
-        }
+			//necromantic brew
+			player.buffImmune[ModContent.BuffType<LethargicBuff>()] = true;
+			fargoPlayer.NecromanticBrewItem = Item;
+			player.AddEffect<NecroBrewSpin>(Item);
+			player.AddEffect<SkeleMinionEffect>(Item);
+		}
 
-        public override void AddRecipes()
-        {
-            CreateRecipe()
+		public override void AddRecipes()
+		{
+			CreateRecipe()
 
-            .AddIngredient(ModContent.ItemType<SlimyShield>())
-            .AddIngredient(ModContent.ItemType<AgitatingLens>())
-            .AddIngredient(ModContent.ItemType<QueenStinger>())
-            .AddIngredient(ModContent.ItemType<NecromanticBrew>())
-            .AddIngredient(ItemID.HellstoneBar, 10)
-            .AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 5)
+			.AddIngredient(ModContent.ItemType<SlimyShield>())
+			.AddIngredient(ModContent.ItemType<AgitatingLens>())
+			.AddIngredient(ModContent.ItemType<QueenStinger>())
+			.AddIngredient(ModContent.ItemType<NecromanticBrew>())
+			.AddIngredient(ItemID.HellstoneBar, 10)
+			.AddIngredient(ModContent.ItemType<DeviatingEnergy>(), 5)
 
-            .AddTile(TileID.DemonAltar)
+			.AddTile(TileID.DemonAltar)
 
-            .Register();
-        }
-    }
+			.Register();
+		}
+	}
 }

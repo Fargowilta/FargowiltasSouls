@@ -7,22 +7,22 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.SolarEclipse
 {
-    public class MothronEgg : EModeNPCBehaviour
-    {
-        public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.MothronEgg);
+	public class MothronEgg : EModeNPCBehaviour
+	{
+		public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.MothronEgg);
 
-        public override void SetDefaults(NPC npc)
-        {
-            base.SetDefaults(npc);
+		public override void SetDefaults(NPC npc)
+		{
+			base.SetDefaults(npc);
 
-            npc.lifeMax *= 3;
-        }
+			npc.lifeMax *= 3;
+		}
 
-        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
-        {
-            base.OnHitPlayer(npc, target, hurtInfo);
+		public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+		{
+			base.OnHitPlayer(npc, target, hurtInfo);
 
-            target.AddBuff(ModContent.BuffType<GuiltyBuff>(), 300);
-        }
-    }
+			target.AddBuff(ModContent.BuffType<GuiltyBuff>(), 300);
+		}
+	}
 }

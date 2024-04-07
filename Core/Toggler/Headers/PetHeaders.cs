@@ -1,17 +1,14 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Items.Materials;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.ID;
 
 namespace FargowiltasSouls.Core.Toggler.Content
 {
-    public class PetHeader : Header
-    {
-        public override int Item => ItemID.ZephyrFish;
-        public override float Priority => 3;
-        public override string SortCategory => "Pets";
-    }
-    /*
+	public class PetHeader : Header
+	{
+		public override int Item => ItemID.ZephyrFish;
+		public override float Priority => 3;
+		public override string SortCategory => "Pets";
+	}
+	/*
     public class PetToggles : ToggleCollection
     {
         public override string Mod => "FargowiltasSouls";

@@ -7,16 +7,16 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-    public class MutantBag : BossBag
-    {
-        protected override bool IsPreHMBag => false;
+	public class MutantBag : BossBag
+	{
+		protected override bool IsPreHMBag => false;
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
-        {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Masochist>()));
-            itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<MutantBoss>()));
-            itemLoot.Add(ItemDropRule.ByCondition(new EModeDropCondition(), ModContent.ItemType<EternalEnergy>(), 1, 15, 20));
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MutantsFury>()));
-        }
-    }
+		public override void ModifyItemLoot(ItemLoot itemLoot)
+		{
+			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Masochist>()));
+			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<MutantBoss>()));
+			itemLoot.Add(ItemDropRule.ByCondition(new EModeDropCondition(), ModContent.ItemType<EternalEnergy>(), 1, 15, 20));
+			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MutantsFury>()));
+		}
+	}
 }

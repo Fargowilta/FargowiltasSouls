@@ -7,42 +7,42 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.PlayerDrawLayers
 {
-    public class MutantArmorDrawLayer : PlayerDrawLayer
-    {
-        public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) =>
-            drawInfo.drawPlayer.active
-            && !drawInfo.drawPlayer.dead
-            && !drawInfo.drawPlayer.ghost
-            && drawInfo.shadow == 0
-            && drawInfo.drawPlayer.FargoSouls().MutantSetBonusItem != null;
+	public class MutantArmorDrawLayer : PlayerDrawLayer
+	{
+		public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) =>
+			drawInfo.drawPlayer.active
+			&& !drawInfo.drawPlayer.dead
+			&& !drawInfo.drawPlayer.ghost
+			&& drawInfo.shadow == 0
+			&& drawInfo.drawPlayer.FargoSouls().MutantSetBonusItem != null;
 
-        public override Position GetDefaultPosition() => new Between();
+		public override Position GetDefaultPosition() => new Between();
 
-        protected override void Draw(ref PlayerDrawSet drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
+		protected override void Draw(ref PlayerDrawSet drawInfo)
+		{
+			if (drawInfo.shadow != 0f)
+			{
+				return;
+			}
 
-            Player drawPlayer = drawInfo.drawPlayer;
-            FargoSoulsPlayer modPlayer = drawPlayer.FargoSouls();
+			Player drawPlayer = drawInfo.drawPlayer;
+			FargoSoulsPlayer modPlayer = drawPlayer.FargoSouls();
 
-            if (modPlayer.MutantSetBonusItem != null)
-            {
-                if (modPlayer.frameCounter % 4 == 0)
-                {
-                    if (++modPlayer.frameMutantAura >= 19)
-                        modPlayer.frameMutantAura = 0;
-                }
+			if (modPlayer.MutantSetBonusItem != null)
+			{
+				if (modPlayer.frameCounter % 4 == 0)
+				{
+					if (++modPlayer.frameMutantAura >= 19)
+						modPlayer.frameMutantAura = 0;
+				}
 
-                Texture2D texture = ModContent.Request<Texture2D>("FargowiltasSouls/Content/Bosses/MutantBoss/MutantAura", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-                int frameSize = texture.Height / 19;
-                int drawX = (int)(drawPlayer.MountedCenter.X - Main.screenPosition.X);
-                int drawY = (int)(drawPlayer.MountedCenter.Y - Main.screenPosition.Y - 16 * drawPlayer.gravDir);
-                DrawData data = new(texture, new Vector2(drawX, drawY), new Rectangle(0, frameSize * modPlayer.frameMutantAura, texture.Width, frameSize), Color.White, drawPlayer.gravDir < 0 ? MathHelper.Pi : 0, new Vector2(texture.Width / 2f, frameSize / 2f), 1f, drawPlayer.direction < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-                drawInfo.DrawDataCache.Add(data);
-            }
-        }
-    }
+				Texture2D texture = ModContent.Request<Texture2D>("FargowiltasSouls/Content/Bosses/MutantBoss/MutantAura", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+				int frameSize = texture.Height / 19;
+				int drawX = (int)(drawPlayer.MountedCenter.X - Main.screenPosition.X);
+				int drawY = (int)(drawPlayer.MountedCenter.Y - Main.screenPosition.Y - 16 * drawPlayer.gravDir);
+				DrawData data = new(texture, new Vector2(drawX, drawY), new Rectangle(0, frameSize * modPlayer.frameMutantAura, texture.Width, frameSize), Color.White, drawPlayer.gravDir < 0 ? MathHelper.Pi : 0, new Vector2(texture.Width / 2f, frameSize / 2f), 1f, drawPlayer.direction < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+				drawInfo.DrawDataCache.Add(data);
+			}
+		}
+	}
 }

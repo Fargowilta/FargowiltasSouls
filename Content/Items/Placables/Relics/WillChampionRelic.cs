@@ -2,8 +2,8 @@
 
 namespace FargowiltasSouls.Content.Items.Placables.Relics
 {
-    public class WillChampionRelic : BaseRelic
-    {
-        protected override int TileType => ModContent.TileType<Tiles.Relics.WillChampionRelic>();
-    }
+	public class WillChampionRelic : BaseRelic
+	{
+		protected override int TileType => ModContent.TileType<Tiles.Relics.WillChampionRelic>();
+	}
 }

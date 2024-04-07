@@ -7,49 +7,49 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.AbomBoss
 {
-    public class AbomRitualFTW : BaseArena
-    {
-        public override string Texture => "Terraria/Images/Projectile_274";
+	public class AbomRitualFTW : BaseArena
+	{
+		public override string Texture => "Terraria/Images/Projectile_274";
 
-        private const float realRotation = MathHelper.Pi / 150f;
+		private const float realRotation = MathHelper.Pi / 150f;
 
-        public AbomRitualFTW() : base(realRotation, 900f, ModContent.NPCType<AbomBoss>(), 87) { }
+		public AbomRitualFTW() : base(realRotation, 900f, ModContent.NPCType<AbomBoss>(), 87) { }
 
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            // DisplayName.SetDefault("Abominationn Seal");
-        }
+		public override void SetStaticDefaults()
+		{
+			base.SetStaticDefaults();
+			// DisplayName.SetDefault("Abominationn Seal");
+		}
 
-        protected override void Movement(NPC npc)
-        {
-            Projectile.velocity = npc.Center - Projectile.Center;
-            if (npc.ai[0] != 8) //snaps directly to abom when preparing for p2 attack
-                Projectile.velocity /= 40f;
+		protected override void Movement(NPC npc)
+		{
+			Projectile.velocity = npc.Center - Projectile.Center;
+			if (npc.ai[0] != 8) //snaps directly to abom when preparing for p2 attack
+				Projectile.velocity /= 40f;
 
-            rotationPerTick = realRotation;
-        }
+			rotationPerTick = realRotation;
+		}
 
-        public override void AI()
-        {
-            base.AI();
-            Projectile.rotation += 1f;
-        }
+		public override void AI()
+		{
+			base.AI();
+			Projectile.rotation += 1f;
+		}
 
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return new Color(255, 255, 0, 0) * Projectile.Opacity * (targetPlayer == Main.myPlayer ? 1f : 0.15f);
-        }
+		public override Color? GetAlpha(Color lightColor)
+		{
+			return new Color(255, 255, 0, 0) * Projectile.Opacity * (targetPlayer == Main.myPlayer ? 1f : 0.15f);
+		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            if (WorldSavingSystem.EternityMode)
-            {
-                target.AddBuff(ModContent.BuffType<Buffs.Boss.AbomFangBuff>(), 300);
-                //player.AddBuff(ModContent.BuffType<Unstable>(), 240);
-                target.AddBuff(ModContent.BuffType<Buffs.Masomode.BerserkedBuff>(), 120);
-            }
-            target.AddBuff(BuffID.Bleeding, 600);
-        }
-    }
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
+		{
+			if (WorldSavingSystem.EternityMode)
+			{
+				target.AddBuff(ModContent.BuffType<Buffs.Boss.AbomFangBuff>(), 300);
+				//player.AddBuff(ModContent.BuffType<Unstable>(), 240);
+				target.AddBuff(ModContent.BuffType<Buffs.Masomode.BerserkedBuff>(), 120);
+			}
+			target.AddBuff(BuffID.Bleeding, 600);
+		}
+	}
 }
