@@ -5,7 +5,7 @@ using Terraria.GameContent.ItemDropRules;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class AbomBag : BossBag
+    public class AbomBag : BossBag
     {
         protected override bool IsPreHMBag => false;
 

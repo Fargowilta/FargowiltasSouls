@@ -8,7 +8,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class AncientCobaltEnchant : BaseEnchant
+    public class AncientCobaltEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

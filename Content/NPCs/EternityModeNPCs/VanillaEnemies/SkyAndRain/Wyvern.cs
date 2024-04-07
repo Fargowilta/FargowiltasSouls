@@ -11,7 +11,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.SkyAndRain
 {
-	public class Wyvern : EModeNPCBehaviour
+    public class Wyvern : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.WyvernHead);
 

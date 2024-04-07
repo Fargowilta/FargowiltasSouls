@@ -63,7 +63,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + offset, Vector2.Zero, ModContent.ProjectileType<DecrepitAirstrikeNuke>(), nukeDamage, 2, Projectile.owner, Projectile.Center.X, Projectile.Center.Y, Projectile.timeLeft);
                 }
             }
-            
+
         }
         public override bool PreDraw(ref Color lightColor)
         {

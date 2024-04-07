@@ -9,7 +9,7 @@ using FargowiltasSouls.Content.Items.Accessories.Souls;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class BeetleEnchant : BaseEnchant
+    public class BeetleEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(109, 92, 133);

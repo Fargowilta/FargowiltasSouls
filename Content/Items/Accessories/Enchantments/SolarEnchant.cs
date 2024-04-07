@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class SolarEnchant : BaseEnchant
+    public class SolarEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ Attacks may inflict the Solar Flare debuff
         }
 
         public override Color nameColor => new(254, 158, 35);
-        
+
 
         public override void SetDefaults()
         {

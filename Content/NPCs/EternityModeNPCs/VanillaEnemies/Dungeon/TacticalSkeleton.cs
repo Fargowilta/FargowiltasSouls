@@ -25,8 +25,8 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Dungeon
                         float num6 = Main.player[npc.target].Center.X - npc.Center.X;
                         float num10 = Main.player[npc.target].Center.Y - npc.Center.Y;
                         float num11 = 11f / (float)Math.Sqrt(num6 * num6 + num10 * num10);
-                        float num18  = num6 + Main.rand.Next(-40, 41);
-                        float num20  = num10 + Main.rand.Next(-40, 41);
+                        float num18 = num6 + Main.rand.Next(-40, 41);
+                        float num20 = num10 + Main.rand.Next(-40, 41);
                         float SpeedX = num18 * num11;
                         float SpeedY = num20 * num11;
                         int damage = Main.expertMode ? 40 : 50;

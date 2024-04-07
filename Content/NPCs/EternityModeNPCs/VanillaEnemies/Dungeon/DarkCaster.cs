@@ -8,7 +8,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Dungeon
 {
-	public class DarkCaster : DungeonTeleporters
+    public class DarkCaster : DungeonTeleporters
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DarkCaster);
 

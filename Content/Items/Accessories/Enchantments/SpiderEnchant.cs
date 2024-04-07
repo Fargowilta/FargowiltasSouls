@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class SpiderEnchant : BaseEnchant
+    public class SpiderEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ Summon crits do x1.5 damage instead of x2
         }
 
         public override Color nameColor => new(109, 78, 69);
-        
+
 
         public override void SetDefaults()
         {

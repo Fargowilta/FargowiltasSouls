@@ -12,7 +12,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Hallow
 {
-	public class RainbowSlime : EModeNPCBehaviour
+    public class RainbowSlime : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.RainbowSlime);
 

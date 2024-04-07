@@ -29,14 +29,14 @@ using FargowiltasSouls.Content.NPCs.Critters;
 
 namespace FargowiltasSouls.Core.Globals
 {
-	public class FargoSoulsGlobalNPC : GlobalNPC
+    public class FargoSoulsGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
 
-        #pragma warning disable CA2211
+#pragma warning disable CA2211
 
         public static int boss = -1;
-        #pragma warning restore CA2211
+#pragma warning restore CA2211
 
         public int originalDefense;
         public bool BrokenArmor;
@@ -150,8 +150,8 @@ namespace FargowiltasSouls.Core.Globals
                     NPCID.Sets.SpecificDebuffImmunity[npc.Type][miracleBlight.Type] = true;
                 }
             }
-            
-            
+
+
         }
         public override void SetDefaults(NPC npc)
         {
@@ -278,7 +278,7 @@ namespace FargowiltasSouls.Core.Globals
             }
             return retval;
         }
-        
+
 
         public override void PostAI(NPC npc)
         {
@@ -626,7 +626,7 @@ namespace FargowiltasSouls.Core.Globals
                 }
             }
 
-            
+
         }
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {

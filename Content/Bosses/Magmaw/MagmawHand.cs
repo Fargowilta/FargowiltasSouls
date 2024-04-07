@@ -96,7 +96,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
             Vector2 offset = dir * length / 2f;
             Vector2 position = Projectile.Center - Main.screenLastPosition + new Vector2(0f, Projectile.gfxOffY) + offset;
             //const float resolutionCompensation = 128f / 24f; //i made the image higher res, this compensates to keep original display size
-            
+
             Rectangle destination = new((int)position.X, (int)position.Y, length, ArmWidth);//(int)(rectangle.Height * Projectile.scale / resolutionCompensation));
 
             Color drawColor = Color.Orange * Projectile.Opacity * (Main.mouseTextColor / 255f) * 0.9f;

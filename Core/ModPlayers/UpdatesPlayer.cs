@@ -26,7 +26,7 @@ using Fargowiltas;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public partial class FargoSoulsPlayer
+    public partial class FargoSoulsPlayer
     {
         public override void PreUpdate()
         {
@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                     Player.velocity *= 0.5f;
 
                     //add hover back
-                   // Player.mount._data.usesHover = BaseSquireMountData.usesHover;
+                    // Player.mount._data.usesHover = BaseSquireMountData.usesHover;
                 }
             }
         }

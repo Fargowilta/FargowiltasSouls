@@ -12,7 +12,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Night
 {
-	public class DemonEyes : EModeNPCBehaviour
+    public class DemonEyes : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() =>
             new NPCMatcher().MatchTypeRange(

@@ -8,7 +8,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.BloodMoon
 {
-	public class WanderingEyeFish : Night.DemonEyes
+    public class WanderingEyeFish : Night.DemonEyes
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.EyeballFlyingFish);
 

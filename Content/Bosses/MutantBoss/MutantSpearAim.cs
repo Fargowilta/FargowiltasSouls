@@ -14,7 +14,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
     public class MutantSpearAim : ModProjectile
     {
         public override string Texture => FargoSoulsUtil.AprilFools ?
-            "FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpear_April" : 
+            "FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpear_April" :
             "FargowiltasSouls/Content/Projectiles/BossWeapons/HentaiSpear";
 
         public override void SetStaticDefaults()

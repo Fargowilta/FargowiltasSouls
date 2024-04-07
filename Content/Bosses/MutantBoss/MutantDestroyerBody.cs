@@ -138,7 +138,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             }
             if (!Main.dedServ)
             {
-                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, 
+                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2,
                     Projectile.ai[2] == 0 ? 156 : 25, Projectile.scale);
                 Main.gore[g].timeLeft = 20;
             }

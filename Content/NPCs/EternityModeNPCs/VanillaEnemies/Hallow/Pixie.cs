@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Hallow
 {
-	public class Pixie : EModeNPCBehaviour
+    public class Pixie : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Pixie);
 
@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Hallow
                         yToPlayer = -300;
                     npc.velocity += Vector2.UnitY * yToPlayer / 1250;
                 }
-                    
+
 
                 if (Vector2.Distance(Main.player[npc.target].Center, npc.Center) < 200)
                     Counter++;

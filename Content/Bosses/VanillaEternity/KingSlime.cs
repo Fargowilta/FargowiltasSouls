@@ -17,7 +17,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class KingSlime : EModeNPCBehaviour
+    public class KingSlime : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.KingSlime);
 
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             npc.color = Main.DiscoColor * 0.3f; // Rainbow colour
 
             ref float teleportTimer = ref npc.ai[2];
-            
+
 
             if (WorldSavingSystem.SwarmActive)
                 return true;
@@ -120,7 +120,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         SpecialJumping = true;
                         CertainAttackCooldown = 240;
                         p.Spawn();
-                        
+
                     }
                     else
                     {
@@ -165,7 +165,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             }
                         }
                     }
-                    
+
                 }
             }
             else if (npc.velocity.Y > 0)
@@ -251,7 +251,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
             if (npc.velocity.Y == 0) //on ground
             {
-                
+
             }
             else //midair
             {

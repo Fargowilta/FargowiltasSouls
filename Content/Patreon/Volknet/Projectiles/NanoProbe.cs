@@ -38,7 +38,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
         {
             Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
             Texture2D tex2 = ModContent.Request<Texture2D>("FargowiltasSouls/Content/Patreon/Volknet/Projectiles/NanoProbeGlow", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-            
+
             Color color = Projectile.GetAlpha(lightColor);
             for (float i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i += 0.2f)
             {

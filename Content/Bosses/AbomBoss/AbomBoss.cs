@@ -330,7 +330,7 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
                             {
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center,
                                     trollSpeedUp * Vector2.UnitX.RotatedBy(Main.rand.NextDouble() * Math.PI) * Main.rand.NextFloat(30f),
-                                    ModContent.ProjectileType<AbomDeathScythe>(), 
+                                    ModContent.ProjectileType<AbomDeathScythe>(),
                                     FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 10),
                                     0f, Main.myPlayer);
                             }

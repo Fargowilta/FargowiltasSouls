@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	public class TimberForce : BaseForce
+    public class TimberForce : BaseForce
     {
 
         public override void SetStaticDefaults()

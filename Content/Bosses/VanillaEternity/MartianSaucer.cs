@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
         }
     }
 
-	public class MartianSaucer : EModeNPCBehaviour
+    public class MartianSaucer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.MartianSaucerCore);
 

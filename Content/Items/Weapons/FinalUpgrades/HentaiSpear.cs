@@ -13,7 +13,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Items.Weapons.FinalUpgrades
 {
-	public class HentaiSpear : SoulsItem
+    public class HentaiSpear : SoulsItem
     {
         public override void SetStaticDefaults()
         {

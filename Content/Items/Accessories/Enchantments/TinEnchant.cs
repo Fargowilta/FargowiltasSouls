@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(162, 139, 78);
-        
+
 
         public override void SetDefaults()
         {
@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class TinEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<TinEnchant>();
         public override bool IgnoresMutantPresence => true;

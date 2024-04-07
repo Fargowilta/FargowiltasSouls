@@ -14,7 +14,7 @@ using static FargowiltasSouls.Content.Bosses.Lifelight.LifeChallenger;
 namespace FargowiltasSouls.Content.Bosses.Lifelight
 {
 
-	public class LifeRuneHitbox : ModProjectile, IPixelatedPrimitiveRenderer
+    public class LifeRuneHitbox : ModProjectile, IPixelatedPrimitiveRenderer
     {
 
         public override string Texture => "FargowiltasSouls/Assets/ExtraTextures/LifelightParts/Rune1";

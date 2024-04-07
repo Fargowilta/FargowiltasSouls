@@ -20,7 +20,7 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class QueenBee : EModeNPCBehaviour
+    public class QueenBee : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.QueenBee);
 

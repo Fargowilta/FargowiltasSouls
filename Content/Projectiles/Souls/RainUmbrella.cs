@@ -173,7 +173,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 }
                 else
                 {
-                    x.FargoSouls().canUmbrellaReflect= false;
+                    x.FargoSouls().canUmbrellaReflect = false;
                 }
             });
         }

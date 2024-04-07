@@ -54,7 +54,7 @@ Attacking a Shadow Orb will cause it to release a burst of homing shadow energy
     }
     public class ShadowBalls : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<ShadowHeader>();
         public override int ToggleItemType => ModContent.ItemType<ShadowEnchant>();
         public override bool MinionEffect => true;

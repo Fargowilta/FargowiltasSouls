@@ -17,7 +17,7 @@ using Terraria.GameContent;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class DungeonGuardian : EModeNPCBehaviour
+    public class DungeonGuardian : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DungeonGuardian);
 

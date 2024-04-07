@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class TrojanSquirrelBag : BossBag
+    public class TrojanSquirrelBag : BossBag
     {
         protected override bool IsPreHMBag => true;
 

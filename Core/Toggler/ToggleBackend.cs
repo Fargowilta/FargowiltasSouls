@@ -135,7 +135,7 @@ namespace FargowiltasSouls.Core.Toggler
             Player player = Main.LocalPlayer;
 
             SetAll(true);
-            
+
             player.SetToggleValue<BorealEffect>(false);
             player.SetToggleValue<ShadewoodEffect>(false);
             player.SetToggleValue<PearlwoodEffect>(false);
@@ -168,7 +168,7 @@ namespace FargowiltasSouls.Core.Toggler
             player.SetToggleValue<SpectreEffect>(false);
             player.SetToggleValue<MeteorEffect>(false);
             player.SetToggleValue<ZephyrJump>(false);
-            player.SetToggleValue<DevianttHearts>(false); 
+            player.SetToggleValue<DevianttHearts>(false);
             player.SetToggleValue<MasoAeolusFlower>(false);
             player.SetToggleValue<SlimyShieldEffect>(false);
             player.SetToggleValue<AgitatingLensEffect>(false);
@@ -204,9 +204,9 @@ namespace FargowiltasSouls.Core.Toggler
 
             player.SetToggleValue<SupersonicClimbing>(false);
             player.SetToggleValue<SupersonicSpeedEffect>(false);
-            
+
             player.SetToggleValue<TrawlerSporeSac>(false);
-            
+
 
             foreach (Toggle toggle in Toggles.Values.Where(toggle => toggle.Effect.Name.Contains("Pet")))
             {
@@ -219,7 +219,7 @@ namespace FargowiltasSouls.Core.Toggler
             Player player = Main.LocalPlayer;
 
             SetAll(false);
-            
+
             player.SetToggleValue<MythrilEffect>(true);
             player.SetToggleValue<PalladiumEffect>(true);
             player.SetToggleValue<IronEffect>(true);
@@ -267,7 +267,7 @@ namespace FargowiltasSouls.Core.Toggler
             player.SetToggleValue<ShimmerImmunityEffect>(true);
             player.SetToggleValue<MasoAeolusFrog>(true);
             player.SetToggleValue<TimsConcoctionEffect>(true);
-            
+
         }
 
         public void SaveCustomPreset(int slot)

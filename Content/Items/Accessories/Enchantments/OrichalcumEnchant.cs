@@ -8,7 +8,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class OrichalcumEnchant : BaseEnchant
+    public class OrichalcumEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -22,7 +22,7 @@ Damaging debuffs deal 2.5x damage
         }
 
         public override Color nameColor => new(235, 50, 145);
-        
+
 
         public override void SetDefaults()
         {

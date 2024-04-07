@@ -14,7 +14,7 @@ using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents
 {
-	public abstract class LunarTowers : PillarBehaviour
+    public abstract class LunarTowers : PillarBehaviour
     {
         public abstract int ShieldStrength { get; set; }
 
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         protected readonly int AuraDust;
         public int AuraSize = 5000;
 
-        public abstract int MaxHP { get;  }
+        public abstract int MaxHP { get; }
         public abstract int Damage { get; }
 
         protected LunarTowers(int debuffNotToInflict, int auraDust)
@@ -101,7 +101,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         public override void AI(NPC npc)
         {
             bool DontRunAI = npc.type == NPCID.LunarTowerSolar && (Attack == 1);//don't run vanilla AI during solar slam attack or fireball spit attack
-            if (!DontRunAI) 
+            if (!DontRunAI)
             {
                 base.AI(npc);
             }
@@ -217,7 +217,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             {
                 if (AuraSize > 1500)
                 {
-                    AuraSize-= 40;
+                    AuraSize -= 40;
                 }
                 else
                 {

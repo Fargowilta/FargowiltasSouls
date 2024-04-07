@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class TikiEnchant : BaseEnchant
+    public class TikiEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -25,7 +25,7 @@ Whip your summons to make them work harder
         }
 
         public override Color nameColor => new(86, 165, 43);
-        
+
 
         public override void SetDefaults()
         {

@@ -145,7 +145,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
         public void SwordClap()
         {
-            
+
         }
         public void SwordClap_Hand(MagmawHand hand)
         {

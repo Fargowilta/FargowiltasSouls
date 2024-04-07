@@ -22,7 +22,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls //lets everything access it without using
 {
-	public static partial class FargoSoulsUtil
+    public static partial class FargoSoulsUtil
     {
         [Obsolete("Use Luminance's Utilities.UniversalBindingFlags instead.", error: false)]
         public static readonly BindingFlags UniversalBindingFlags = LumUtils.UniversalBindingFlags;
@@ -441,7 +441,7 @@ namespace FargowiltasSouls //lets everything access it without using
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), color);
             }
         }
-        
+
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
 
         public static Vector2 ClosestPointInHitbox(Rectangle hitboxOfTarget, Vector2 desiredLocation)
@@ -1074,8 +1074,8 @@ namespace FargowiltasSouls //lets everything access it without using
 
         #endregion
 
-		#region Easings
-		public static float SineInOut(float value) => (0f - (MathF.Cos((value * MathF.PI)) - 1f)) / 2f;
-		#endregion
-	}
+        #region Easings
+        public static float SineInOut(float value) => (0f - (MathF.Cos((value * MathF.PI)) - 1f)) / 2f;
+        #endregion
+    }
 }

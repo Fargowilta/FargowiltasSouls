@@ -16,7 +16,7 @@ using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class QueenSlime : EModeNPCBehaviour
+    public class QueenSlime : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.QueenSlimeBoss);
 

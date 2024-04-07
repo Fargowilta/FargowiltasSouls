@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents
 {
-	public class PillarSpawner : ModProjectile
+    public class PillarSpawner : ModProjectile
     {
 
         public override void SetStaticDefaults()
@@ -74,7 +74,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         break;
                     }
             }
-            
+
         }
     }
 }

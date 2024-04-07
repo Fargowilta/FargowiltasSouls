@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CrystalAssassinEnchant : BaseEnchant
+    public class CrystalAssassinEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

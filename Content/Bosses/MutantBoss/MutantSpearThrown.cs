@@ -127,7 +127,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 target.AddBuff(ModContent.BuffType<MutantFangBuff>(), 180);
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoonBuff>(), 600);
-            
+
             TryLifeSteal(target.Center, target.whoAmI);
         }
 

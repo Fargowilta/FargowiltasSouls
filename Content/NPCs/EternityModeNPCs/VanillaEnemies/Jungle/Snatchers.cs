@@ -13,7 +13,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Jungle
 {
-	public class Snatchers : EModeNPCBehaviour
+    public class Snatchers : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.Snatcher,

@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.Globals
 {
-	public partial class EModeNPCLoot : GlobalNPC
+    public partial class EModeNPCLoot : GlobalNPC
     {
         #region NPC Lists
         static List<int> EvilCritters = new List<int>

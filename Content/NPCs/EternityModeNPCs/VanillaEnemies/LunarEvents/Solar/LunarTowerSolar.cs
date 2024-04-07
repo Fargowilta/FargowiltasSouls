@@ -11,7 +11,7 @@ using FargowiltasSouls.Core.Systems;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Solar
 {
-	public class LunarTowerSolar : LunarTowers
+    public class LunarTowerSolar : LunarTowers
     {
         public override int ShieldStrength
         {
@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             PillarSlam,
             FireballVomit,
             MeteorRain,
-            
+
         }
         public override List<int> RandomAttacks => new List<int>() //these are randomly chosen attacks in p1
         {
@@ -113,7 +113,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                             Vector2 vel = Vector2.UnitY * 16;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarSpawner>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, ai0: 1);
                         }
-                        
+
                     }
                     HitFloorEffect = true;
                 }
@@ -190,7 +190,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     }
                 }
             }
-            
+
             if (AttackTimer <= AttackDuration)
             {
                 Attack();
@@ -274,11 +274,11 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         {
                             Main.npc[n].GivenName = "John Crawltipede";
                             Main.npc[n].life *= 6;
-                            
+
                         }
                     }
                 }
-                
+
             }
             if (AttackTimer > IdleTime)
             {

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	[AutoloadEquip(EquipType.Shield)]
+    [AutoloadEquip(EquipType.Shield)]
     public class TerraForce : BaseForce
     {
 

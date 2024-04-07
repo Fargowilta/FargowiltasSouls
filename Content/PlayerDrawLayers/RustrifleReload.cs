@@ -8,7 +8,7 @@ using FargowiltasSouls.Content.Items.Weapons.Challengers;
 
 namespace FargowiltasSouls.Content.PlayerDrawLayers
 {
-	public class RustrifleReload : PlayerDrawLayer
+    public class RustrifleReload : PlayerDrawLayer
     {
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.FargoSouls().RustRifleReloading && drawInfo.drawPlayer.HeldItem.type == ModContent.ItemType<NavalRustrifle>();
         public override Position GetDefaultPosition() => new Between();

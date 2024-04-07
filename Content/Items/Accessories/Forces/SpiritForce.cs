@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	public class SpiritForce : BaseForce
+    public class SpiritForce : BaseForce
     {
         public override void SetStaticDefaults()
         {

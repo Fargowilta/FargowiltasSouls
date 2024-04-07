@@ -214,7 +214,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             Vector2 offset = Vector2.Zero;
             if (Projectile.timeLeft > 30)
             {
-                float amount = 4f * (1f-(Projectile.timeLeft / 180f));
+                float amount = 4f * (1f - (Projectile.timeLeft / 180f));
                 offset = Main.rand.NextVector2Circular(amount, amount);
             }
             Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;

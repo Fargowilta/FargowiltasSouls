@@ -81,9 +81,9 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             target.AddBuff(BuffID.WitheredArmor, 600);
         }
 
-        public static string DungeonVariant => 
-            GenVars.crackedType == TileID.CrackedBlueDungeonBrick ? "B" : 
-            GenVars.crackedType == TileID.CrackedGreenDungeonBrick ? "G" : 
+        public static string DungeonVariant =>
+            GenVars.crackedType == TileID.CrackedBlueDungeonBrick ? "B" :
+            GenVars.crackedType == TileID.CrackedGreenDungeonBrick ? "G" :
             "P";
 
         public static void LoadGolemSpriteBuffered(bool recolor, int type, Asset<Texture2D>[] vanillaTexture, Dictionary<int, Asset<Texture2D>> fargoBuffer, string texturePrefix)
@@ -110,7 +110,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             base.LoadSprites(npc, recolor);
 
             LoadGolemSpriteBuffered(recolor, npc.type, TextureAssets.Npc, FargowiltasSouls.TextureBuffer.NPC, "NPC_");
-            
+
         }
     }
 

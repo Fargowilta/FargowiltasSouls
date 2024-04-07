@@ -6,7 +6,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	public class EarthForce : BaseForce
+    public class EarthForce : BaseForce
     {
         public override void SetStaticDefaults()
         {

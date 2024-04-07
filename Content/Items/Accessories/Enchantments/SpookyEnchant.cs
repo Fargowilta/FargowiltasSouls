@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class SpookyEnchant : BaseEnchant
+    public class SpookyEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(100, 78, 116);
-        
+
 
         public override void SetDefaults()
         {

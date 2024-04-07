@@ -135,7 +135,7 @@ namespace FargowiltasSouls.Content.Buffs
                                 }
                             }
                         }
-                        
+
                     }
                     break;
 

@@ -27,7 +27,7 @@ using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PirateInvasi
 
 namespace FargowiltasSouls.Content.Bosses.Magmaw
 {
-	[AutoloadBossHead]
+    [AutoloadBossHead]
     public partial class Magmaw : ModNPC
     {
         public override bool IsLoadingEnabled(Mod mod) => false;
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         /// <summary>
         /// Current animation frame
         /// </summary>
-        public int Frame = 0; 
+        public int Frame = 0;
         /// <summary>
         /// Current animation
         /// </summary>
@@ -85,20 +85,20 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         /// <summary>
         /// Contact damage
         /// </summary>
-        public bool HitPlayer = true; 
+        public bool HitPlayer = true;
         public int Phase = 1;
         /// <summary>
         /// Amount of attacks the boss has executed since idling
         /// </summary>
-        public int ChainDepth = 0; 
+        public int ChainDepth = 0;
         /// <summary>
         /// Max attacks the boss can do before idling again
         /// </summary>
-        public int MaxChainDepth = 5; 
+        public int MaxChainDepth = 5;
         /// <summary>
         /// Whether the boss should reposition to the idle spot above the player while idling
         /// </summary>
-        public bool IdleReposition = true; 
+        public bool IdleReposition = true;
 
         public Vector2 LockVector1 = Vector2.Zero;
         public Vector2 LockVector2 = Vector2.Zero;
@@ -187,7 +187,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
             writer.Write(IdleReposition);
             writer.WriteVector2(LockVector1);
             writer.WriteVector2(LockVector2);
-            
+
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -356,7 +356,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
 
         #endregion
-        
+
         #region Help Methods
         bool AliveCheck(Player p, bool forceDespawn = false)
         {

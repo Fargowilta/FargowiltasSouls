@@ -113,7 +113,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             }
             */
 
-            
+
             if (Projectile.owner == Main.myPlayer)
             {
                 int max = 1;
@@ -124,7 +124,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                         Main.projectile[p].DamageType = DamageClass.Ranged;
                 }
             }
-            
+
         }
 
         public override bool PreDraw(ref Color lightColor)

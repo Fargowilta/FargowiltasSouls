@@ -120,7 +120,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                 if (timer == duration / 2)
                 {
                     float pitch = Charged ? -1 : 0;
-                    SoundEngine.PlaySound(SoundID.Item1 with { Pitch = pitch}, player.Center);
+                    SoundEngine.PlaySound(SoundID.Item1 with { Pitch = pitch }, player.Center);
                 }
 
                 timer++;

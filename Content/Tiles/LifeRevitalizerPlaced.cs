@@ -9,7 +9,7 @@ using Terraria.ObjectData;
 
 namespace FargowiltasSouls.Content.Tiles
 {
-	public class LifeRevitalizerPlaced : ModTile
+    public class LifeRevitalizerPlaced : ModTile
     {
         public override void SetStaticDefaults()
         {

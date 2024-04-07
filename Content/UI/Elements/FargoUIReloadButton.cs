@@ -7,12 +7,12 @@ using Terraria.UI;
 
 namespace FargowiltasSouls.Content.UI.Elements
 {
-	public class FargoUIReloadButton : UIElement
+    public class FargoUIReloadButton : UIElement
     {
         public Texture2D Texture;
         public Func<string> Text; //Needs to be a Func<string> to make it work with localization. Language.GetTextValue does not work correctly on initialize.
 
-        public FargoUIReloadButton(Texture2D tex,  Func<string> text)
+        public FargoUIReloadButton(Texture2D tex, Func<string> text)
         {
             Texture = tex;
             Text = text;

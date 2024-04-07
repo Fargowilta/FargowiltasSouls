@@ -56,7 +56,7 @@ You spawn mini eaters to seek out enemies every few attacks
         public override Header ToggleHeader => Header.GetHeader<PureHeartHeader>();
         public override int ToggleItemType => ModContent.ItemType<DarkenedHeart>();
         public override bool ExtraAttackEffect => true;
-        
+
     }
     public class TinyEaterGlobalProjectile : GlobalProjectile
     {
@@ -65,7 +65,7 @@ You spawn mini eaters to seek out enemies every few attacks
         public override bool AppliesToEntity(Projectile entity, bool lateInstantiation)
             => entity.type == ProjectileID.TinyEater;
 
-        
+
         int HeartItemType = -1;
         bool fromEnch => HeartItemType != -1;
 
@@ -75,7 +75,7 @@ You spawn mini eaters to seek out enemies every few attacks
                 return;
             Player player = Main.player[projectile.owner];
             Item heartItem = player.FargoSouls().DarkenedHeartItem;
-            if (player != null && heartItem != null && player.active && source is EntitySource_ItemUse itemSource  && itemSource.Item.type == heartItem.type)
+            if (player != null && heartItem != null && player.active && source is EntitySource_ItemUse itemSource && itemSource.Item.type == heartItem.type)
             {
                 HeartItemType = heartItem.type;
             }
@@ -101,11 +101,12 @@ You spawn mini eaters to seek out enemies every few attacks
                 {
                     target.AddBuff(ModContent.BuffType<SublimationBuff>(), 60 * 2);
                 }
-                else {
+                else
+                {
                     target.AddBuff(BuffID.CursedInferno, 60 * 2);
                 }
 
-                
+
             }
         }
     }

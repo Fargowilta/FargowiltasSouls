@@ -143,7 +143,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             Vector2 gloworigin2 = glowrectangle.Size() / 2f;
             Color glowcolor = Color.Lerp(
                 FargoSoulsUtil.AprilFools ? new Color(255, 0, 0, TrailAdditive) : new Color(31, 187, 192, TrailAdditive),
-                Color.Transparent, 
+                Color.Transparent,
                 0.74f);
             Vector2 drawCenter = Projectile.Center - Projectile.velocity.SafeNormalize(Vector2.UnitX) * 14;
 

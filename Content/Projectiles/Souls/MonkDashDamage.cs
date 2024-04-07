@@ -47,7 +47,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 Projectile.Kill();
             }
             Projectile.Center = player.Center;
-            
+
         }
 
         public override string Texture => FargoSoulsUtil.EmptyTexture;
@@ -61,7 +61,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             }
             return false;
         }*/
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.damage = (int)(Math.Round(Projectile.damage * 0.8));

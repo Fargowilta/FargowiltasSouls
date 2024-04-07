@@ -59,7 +59,7 @@ The crystal skull charges energy to attack as you attack
                 player.npcTypeNoAggro[NPCID.RaggedCasterOpenCoat] = true;
             }*/
             player.AddEffect<PungentMinion>(Item);
-                
+
         }
     }
     public class PungentMinion : AccessoryEffect

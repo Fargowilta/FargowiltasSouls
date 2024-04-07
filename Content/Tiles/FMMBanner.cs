@@ -39,7 +39,7 @@ namespace FargowiltasSouls.Content.Tiles
             int item = /*style == 0 ?*/ ModContent.ItemType<TophatSquirrelBanner>();// : ModContent.ItemType<FezSquirrelBanner>();
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, item);
         }
-        
+
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (!closer) return;

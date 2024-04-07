@@ -28,11 +28,11 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             bool recolor = SoulConfig.Instance.BossRecolors && WorldSavingSystem.EternityMode;
             if (++Projectile.localAI[0] == 0)
             {
-                
+
                 for (int index1 = 0; index1 < 30; ++index1)
                 {
-                    int dustID = recolor ? 
-                        (Main.rand.NextBool() ? DustID.GlowingMushroom : DustID.MushroomTorch) : 
+                    int dustID = recolor ?
+                        (Main.rand.NextBool() ? DustID.GlowingMushroom : DustID.MushroomTorch) :
                         (Main.rand.NextBool() ? DustID.TerraBlade : DustID.ChlorophyteWeapon);
                     Vector2 vel = Main.rand.NextVector2Circular(4, 4);
                     int index2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, vel.X, vel.Y, 0, new Color(), 2f);

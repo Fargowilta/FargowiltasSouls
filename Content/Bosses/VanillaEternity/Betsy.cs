@@ -20,7 +20,7 @@ using System.Linq;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class Betsy : EModeNPCBehaviour
+    public class Betsy : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DD2Betsy);
 

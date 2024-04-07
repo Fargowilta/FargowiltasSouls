@@ -17,7 +17,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class Deerclops : EModeNPCBehaviour
+    public class Deerclops : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Deerclops);
 

@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class AdamantiteEnchant : BaseEnchant
+    public class AdamantiteEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

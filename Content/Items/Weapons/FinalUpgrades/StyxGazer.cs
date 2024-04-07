@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.FinalUpgrades
 {
-	public class StyxGazer : SoulsItem
+    public class StyxGazer : SoulsItem
     {
         public bool flip;
 

@@ -75,8 +75,8 @@ namespace FargowiltasSouls.Core.Systems
             Main.tile[Main.spawnTileX, Main.spawnTileY].slope(0);
             Main.tile[Main.spawnTileX + 1, Main.spawnTileY].slope(0);
             WorldGen.PlaceTile(Main.spawnTileX, Main.spawnTileY - 1, ModContent.Find<ModTile>("Fargowiltas", "RegalStatueSheet"), false, true);*/
-            
-            
+
+
             int positionX = Main.spawnTileX - 1; //offset by dimensions of statue
             int positionY = Main.spawnTileY - 4;
             int checkUp = -30;
@@ -97,7 +97,7 @@ namespace FargowiltasSouls.Core.Systems
                 if (placed)
                     break;
             }
-            
+
         }
     }
 }

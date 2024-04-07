@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Expert
 {
-	public class RustedOxygenTank : SoulsItem
+    public class RustedOxygenTank : SoulsItem
     {
         public override void SetStaticDefaults()
         {
@@ -27,14 +27,14 @@ namespace FargowiltasSouls.Content.Items.Accessories.Expert
         public static void PassiveEffect(Player player)
         {
             player.ignoreWater = true;
-            
+
             if (Collision.WetCollision(player.position, player.width, player.height))
             {
                 player.moveSpeed += 1.25f;
                 player.maxRunSpeed += 1.25f;
                 return;
             }
-            
+
             //ripped from "effects while in water" vanilla code
             if (player.merman)
             {
@@ -60,7 +60,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Expert
                 Player.jumpHeight = 30;
                 Player.jumpSpeed = 6.01f;
             }
-            
+
             if (!player.wet)
             {
                 player.wet = true;

@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class HallowEnchant : BaseEnchant
+    public class HallowEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(150, 133, 100);
-        
+
 
         public override void SetDefaults()
         {
@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class HallowEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<SpiritHeader>();
         public override int ToggleItemType => ModContent.ItemType<HallowEnchant>();
 

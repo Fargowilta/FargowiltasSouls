@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Patreon.Sasha
 {
-	public class MissDrakovisFishingPole : PatreonModItem
+    public class MissDrakovisFishingPole : PatreonModItem
     {
         private int mode = 1;
 

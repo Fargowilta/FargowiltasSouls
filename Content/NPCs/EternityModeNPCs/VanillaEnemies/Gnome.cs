@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies
             base.OnHitPlayer(npc, target, hurtInfo);
 
             target.AddBuff(Terraria.ModLoader.ModContent.BuffType<UnluckyBuff>(), 60 * 30);
-			target.FargoSouls().AddBuffNoStack(BuffID.Stoned, 60);
+            target.FargoSouls().AddBuffNoStack(BuffID.Stoned, 60);
         }
     }
 }

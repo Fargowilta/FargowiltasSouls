@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class LifelightBag : BossBag
+    public class LifelightBag : BossBag
     {
         protected override bool IsPreHMBag => false;
 
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Content.Items.BossBags
         {
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LifeRevitalizer>()));
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<LifeChallenger>()));
-            itemLoot.Add(new OneFromOptionsDropRule(1, 1, new int[] 
+            itemLoot.Add(new OneFromOptionsDropRule(1, 1, new int[]
             {
                 ModContent.ItemType<EnchantedLifeblade>(),
                 ModContent.ItemType<Lightslinger>(),

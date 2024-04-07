@@ -74,7 +74,7 @@ namespace FargowiltasSouls
                             { "spawnItems", spawnItems },
                             // { "collectibles", collectibles }, // it's fetched from npc loot? TODO: refactor method calls below
                             { "availability", available },
-                            { "despawnMessage", hasKilledAllMessage ? new Func<NPC, LocalizedText>(npc => 
+                            { "despawnMessage", hasKilledAllMessage ? new Func<NPC, LocalizedText>(npc =>
                                         AllPlayersAreDead() ? Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.KilledAllMessage") : Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.DespawnMessage")) :
                                     Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.DespawnMessage") },
                             {
@@ -279,7 +279,7 @@ namespace FargowiltasSouls
                     false,
                     "Content/Bosses/Lifelight/LifeChallenger"
                 );
-                
+
                 Add("Boss",
                     "BanishedBaron",
                     new List<int> { ModContent.NPCType<BanishedBaron>() },

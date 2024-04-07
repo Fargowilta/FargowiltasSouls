@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class SpectreEnchant : BaseEnchant
+    public class SpectreEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(172, 205, 252);
-        
+
 
         public override void SetDefaults()
         {
@@ -66,7 +66,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class SpectreEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<SpiritHeader>();
         public override int ToggleItemType => ModContent.ItemType<SpectreEnchant>();
         public override void OnHitNPCEither(Player player, NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, int baseDamage, Projectile projectile, Item item)

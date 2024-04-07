@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                 spawned = true;
                 Projectile.frame = Main.rand.Next(3);
             }
-            
+
         }
         public override void PostAI()
         {

@@ -24,7 +24,7 @@ using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.FrostMoon;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public class EModePlayer : ModPlayer
+    public class EModePlayer : ModPlayer
     {
         public int MasomodeCrystalTimer;
         public int MasomodeFreezeTimer;
@@ -136,7 +136,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             if (Player.active && !Player.dead && !Player.ghost)
             {
-               
+
                 //falling gives you dazed. wings save you
                 /*if (Player.velocity.Y == 0f && Player.wingsLogic == 0 && !Player.noFallDmg && !Player.ghost && !Player.dead)
                 {
@@ -188,7 +188,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                     if (Player.wet && !Player.lavaWet && !Player.honeyWet && !fargoSoulsPlayer.MutantAntibodies)
                         FargoSoulsUtil.AddDebuffFixedDuration(Player, BuffID.Poisoned, 2);
                 }
-                
+
                 if (Player.ZoneSnow)
                 {
                     //if (!fargoSoulsPlayer.PureHeart && !Main.dayTime && Framing.GetTileSafely(Player.Center).WallType == WallID.None)
@@ -216,7 +216,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 {
                     MasomodeFreezeTimer = 0;
                 }
-                
+
                 /*if (Player.wet && !fargoSoulsPlayer.MutantAntibodies)
                 {
                     if (Player.ZoneDesert)
@@ -283,7 +283,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
                 if (!fargoSoulsPlayer.PureHeart && Main.raining && (Player.ZoneOverworldHeight)
                     && Player.HeldItem.type != ItemID.Umbrella && Player.HeldItem.type != ItemID.TragicUmbrella
-                    && Player.armor[0].type != ItemID.UmbrellaHat && Player.armor[0].type != ItemID.Eyebrella 
+                    && Player.armor[0].type != ItemID.UmbrellaHat && Player.armor[0].type != ItemID.Eyebrella
                     && !Player.HasEffect<RainUmbrellaEffect>())
                 {
                     if (currentTile.WallType == WallID.None)
@@ -307,7 +307,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                             bool foundMetal = false;
                             if (WorldSavingSystem.MasochistModeReal)
                                 foundMetal = true;
-                            
+
                             /* TODO: make this work
                             for (int x = -5; x < 5; x++)
                             {
@@ -327,7 +327,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                                 }
                             }
                             */
-                            
+
                             if (LumUtils.AnyBosses() && !WorldSavingSystem.MasochistModeReal)
                             {
                                 LightningCounter = 0;
@@ -373,16 +373,16 @@ namespace FargowiltasSouls.Core.ModPlayers
 
                         if (Player.breath < -10) //don't stack far into negatives
                         {
-                            
+
                             Player.breath = -10;
                         }
-                            
+
                     }
                 }
 
                 if (!fargoSoulsPlayer.PureHeart && !Player.buffImmune[BuffID.Webbed] && Player.stickyBreak > 0)
                 {
-                    
+
                     if (currentTile != null && currentTile.WallType == WallID.SpiderUnsafe)
                     {
                         Player.AddBuff(BuffID.Webbed, 30);
@@ -427,7 +427,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                         damage *= 2;
 
                     if (Player.hurtCooldowns[0] <= 0) //same i-frames as spike tiles
-                        Player.Hurt(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Cactus", Player.name)), damage, 0, false, false,  0, false);
+                        Player.Hurt(PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.Cactus", Player.name)), damage, 0, false, false, 0, false);
                 }
 
                 if (!fargoSoulsPlayer.PureHeart && Main.bloodMoon)
@@ -610,7 +610,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (modifiers.DamageSource.SourceProjectileType == ProjectileID.Explosives)
                 Player.FargoSouls().AddBuffNoStack(ModContent.BuffType<StunnedBuff>(), 120);
 
-            
+
 
             base.ModifyHurt(ref modifiers);
         }
@@ -619,7 +619,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         {
             if (WorldSavingSystem.MasochistModeReal)
             {
-                foreach(NPC npc in Main.npc.Where(npc => npc.active && (npc.boss || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail)))
+                foreach (NPC npc in Main.npc.Where(npc => npc.active && (npc.boss || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail)))
                 {
                     int heal = npc.lifeMax / 10;
                     npc.life += heal;
@@ -638,7 +638,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
                 FargoSoulsUtil.PrintLocalization($"Mods.FargowiltasSouls.Message.MoonsDeathPenalty", new Color(175, 75, 255));
             }
-            
+
         }
 
         public override void ModifyWeaponDamage(Item item, ref StatModifier damage)

@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CopperEnchant : BaseEnchant
+    public class CopperEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,13 +24,13 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(213, 102, 23);
-        
+
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            Item.rare = ItemRarityID.Blue ;
+            Item.rare = ItemRarityID.Blue;
             Item.value = 100000;
         }
 
@@ -55,7 +55,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class CopperEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<CopperEnchant>();
         public override bool ExtraAttackEffect => true;

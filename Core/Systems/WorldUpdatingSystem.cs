@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Core.Systems
         public override void PostUpdateWorld()
         {
             //NPC.LunarShieldPowerMax = NPC.downedMoonlord ? 50 : 100;
-            
+
             if (!PlacedMutantStatue && (Main.zenithWorld || Main.remixWorld))
             {
                 int positionX = Main.spawnTileX; //offset by dimensions of statue
@@ -44,7 +44,7 @@ namespace FargowiltasSouls.Core.Systems
             {
                 if (EternityMode && !FargoSoulsUtil.WorldIsExpertOrHarder())
                 {
-					EternityMode = false;
+                    EternityMode = false;
                     FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.EternityWrongDifficulty", new Color(175, 75, 255));
                     if (Main.netMode == NetmodeID.Server)
                         NetMessage.SendData(MessageID.WorldData);
@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Core.Systems
                 }
                 else if (!EternityMode && FargoSoulsUtil.WorldIsExpertOrHarder() && !LumUtils.AnyBosses())
                 {
-					EternityMode = true;
+                    EternityMode = true;
                     FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.EternityOn", new Color(175, 75, 255));
                     if (Main.masterMode && !CanPlayMaso)
                         FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.EternityMasterWarning", new Color(255, 255, 0));
@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Core.Systems
             }
             else if (EternityMode)
             {
-				EternityMode = false;
+                EternityMode = false;
                 FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.EternityOff", new Color(175, 75, 255));
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData);
@@ -90,7 +90,7 @@ namespace FargowiltasSouls.Core.Systems
                         Sandstorm.TimeLeft = 0;
                         if (Main.bloodMoon)
                         */
-                            FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.BloodMoonCancel", new Color(175, 75, 255));
+                        FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.Message.{Name}.BloodMoonCancel", new Color(175, 75, 255));
                         Main.bloodMoon = false;
                         if (Main.netMode == NetmodeID.Server)
                             NetMessage.SendData(MessageID.WorldData);

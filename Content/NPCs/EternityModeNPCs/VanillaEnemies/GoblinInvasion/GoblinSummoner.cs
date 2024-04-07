@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.GoblinInvasion
 {
-	public class GoblinSummoner : EModeNPCBehaviour
+    public class GoblinSummoner : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.GoblinSummoner);
 

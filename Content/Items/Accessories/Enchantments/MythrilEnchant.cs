@@ -10,7 +10,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MythrilEnchant : BaseEnchant
+    public class MythrilEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +24,7 @@ Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
         }
 
         public override Color nameColor => new(157, 210, 144);
-        
+
 
         public override void SetDefaults()
         {

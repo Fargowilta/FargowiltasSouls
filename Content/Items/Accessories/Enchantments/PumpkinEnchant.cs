@@ -8,7 +8,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PumpkinEnchant : BaseEnchant
+    public class PumpkinEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -30,7 +30,7 @@ Enemies that touch them will destroy them and take damage
         }
 
         public override Color nameColor => new(227, 101, 28);
-        
+
 
         public override void SetDefaults()
         {

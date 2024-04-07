@@ -6,7 +6,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	public class LifeForce : BaseForce
+    public class LifeForce : BaseForce
     {
         public override void SetStaticDefaults()
         {

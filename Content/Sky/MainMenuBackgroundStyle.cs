@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Sky
 {
-	public class MainMenuBackgroundStyle : ModSurfaceBackgroundStyle
+    public class MainMenuBackgroundStyle : ModSurfaceBackgroundStyle
     {
         //theres some unnecessary clutter in here but oh well
 
@@ -90,6 +90,6 @@ namespace FargowiltasSouls.Content.Sky
             return base.PreDrawCloseBackground(spriteBatch);
             */
         }
-        
+
     }
 }

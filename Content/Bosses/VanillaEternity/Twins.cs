@@ -19,7 +19,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class Retinazer : EModeNPCBehaviour
+    public class Retinazer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Retinazer);
 
@@ -641,7 +641,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         rotationInterval *= retinazer.GetGlobalNPC<Retinazer>().StoredDirectionToPlayer ? 1f : -1f;
                         if (WorldSavingSystem.MasochistModeReal)
                             rotationInterval *= -1f;
-                        
+
                         npc.rotation += rotationInterval * ProjectileTimer / 20f;
                         RealRotation += rotationInterval;
 

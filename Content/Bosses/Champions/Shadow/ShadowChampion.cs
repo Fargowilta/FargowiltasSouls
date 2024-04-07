@@ -37,8 +37,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Shadow
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type);
 
             NPC.AddDebuffImmunities(new List<int>
-            { 
-				BuffID.Confused,
+            {
+                BuffID.Confused,
                 BuffID.Chilled,
                 BuffID.OnFire,
                 BuffID.Suffocation,

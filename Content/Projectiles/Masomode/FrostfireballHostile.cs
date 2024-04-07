@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
 {
-	public class FrostfireballHostile : ModProjectile, IPixelatedPrimitiveRenderer
+    public class FrostfireballHostile : ModProjectile, IPixelatedPrimitiveRenderer
     {
         public override string Texture => "Terraria/Images/Projectile_253";
 

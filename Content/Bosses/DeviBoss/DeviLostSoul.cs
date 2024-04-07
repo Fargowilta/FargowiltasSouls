@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.DeviBoss
 {
-	public class DeviLostSoul : ModProjectile, IPixelatedPrimitiveRenderer
+    public class DeviLostSoul : ModProjectile, IPixelatedPrimitiveRenderer
     {
 
         public override void SetStaticDefaults()

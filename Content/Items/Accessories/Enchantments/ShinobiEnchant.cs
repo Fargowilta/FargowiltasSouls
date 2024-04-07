@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ShinobiEnchant : BaseEnchant
+    public class ShinobiEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(147, 91, 24);
-        
+
 
         public override void SetDefaults()
         {

@@ -75,7 +75,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             int dustID = recolor ? DustID.Shadowflame : DustID.Torch;
             if (Projectile.alpha <= 0) //vanilla display code
             {
-                
+
 
                 for (int i = 0; i < 2; ++i)
                 {

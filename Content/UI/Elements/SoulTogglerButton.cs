@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Content.UI.Elements
             Icon.Top.Set(y, 0); //300
             Append(Icon);
 
-            IconHighlight = new FargoUIHoverTextImageButton(FargoUIManager.SoulTogglerButton_MouseOverTexture, Language.GetTextValue("Mods.FargowiltasSouls.UI.SoulTogglerButton") );
+            IconHighlight = new FargoUIHoverTextImageButton(FargoUIManager.SoulTogglerButton_MouseOverTexture, Language.GetTextValue("Mods.FargowiltasSouls.UI.SoulTogglerButton"));
             IconHighlight.Left.Set(0, 0);
             IconHighlight.Top.Set(0, 0);
             IconHighlight.SetVisibility(1f, 0);
@@ -54,13 +54,13 @@ namespace FargowiltasSouls.Content.UI.Elements
             if (!Main.playerInventory)
             {
                 return;
-                
+
             }
-            
+
             FargoUIManager.ToggleSoulToggler();
             Main.LocalPlayer.FargoSouls().HasClickedWrench = true;
         }
-        
+
 
         public override void Draw(SpriteBatch spriteBatch)
         {

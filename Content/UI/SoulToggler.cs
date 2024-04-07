@@ -21,7 +21,7 @@ using Header = FargowiltasSouls.Core.Toggler.Header;
 
 namespace FargowiltasSouls.Content.UI
 {
-	public class SoulToggler : UIState
+    public class SoulToggler : UIState
     {
         public readonly static Regex RemoveItemTags = new(@"\[[^\[\]]*\]");
 
@@ -143,7 +143,7 @@ namespace FargowiltasSouls.Content.UI
             PresetPanel.Append(OnButton);
             PresetPanel.Append(SomeEffectsButton);
             PresetPanel.Append(MinimalButton);
-            
+
             const int xOffset = 74; //ensure this matches the Left.Set of preceding button
             for (int i = 0; i < ToggleBackend.CustomPresetCount; i++)
             {
@@ -155,7 +155,7 @@ namespace FargowiltasSouls.Content.UI
                 CustomButton[i].Top.Set(6, 0);
                 CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
                 PresetPanel.Append(CustomButton[i]);
-                
+
                 if (slot == ToggleBackend.CustomPresetCount) //after last panel is loaded, load reload button
                 {
                     DisplayAllButton = new FargoUIDisplayAllButton(FargoUIManager.DisplayAllButtonTexture.Value,
@@ -166,7 +166,7 @@ namespace FargowiltasSouls.Content.UI
                     DisplayAllButton.Left.Set(xOffset + 22 * (slot + 1), 0);
                     PresetPanel.Append(DisplayAllButton);
                 }
-                
+
             }
 
             base.OnInitialize();

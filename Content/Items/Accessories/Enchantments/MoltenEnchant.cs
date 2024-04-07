@@ -8,11 +8,11 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MoltenEnchant : BaseEnchant
+    public class MoltenEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(193, 43, 43);
-        
+
 
         public override void SetDefaults()
         {

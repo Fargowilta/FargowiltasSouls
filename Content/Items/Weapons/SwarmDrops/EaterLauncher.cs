@@ -58,7 +58,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
             if (player.altFunctionUse == 2)
             {
                 //if (Cooldown > 0)
-                    //return false;
+                //return false;
 
                 Item.useAnimation = 24 * 2;
                 Item.useTime = 24 * 2;
@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
                     dust2.scale = 1f;
                 }
             }
-            
+
         }
 
 

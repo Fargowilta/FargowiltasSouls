@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 {
                     Projectile.Kill();
                     return;
-                } 
+                }
             }
 
             if (Projectile.ai[0] == 0)

@@ -31,7 +31,7 @@ using FargowiltasSouls.Content.Items.Accessories.Masomode;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public partial class FargoSoulsPlayer : ModPlayer
+    public partial class FargoSoulsPlayer : ModPlayer
     {
         public ToggleBackend Toggler = new();
 
@@ -82,7 +82,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (RabiesVaccine) playerData.Add("RabiesVaccine");
             if (DeerSinew) playerData.Add("DeerSinew");
             if (HasClickedWrench) playerData.Add("HasClickedWrench");
-            
+
 
             tag.Add($"{Mod.Name}.{Player.name}.Data", playerData);
 
@@ -174,7 +174,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             }
 
         }
-        
+
         public override void ResetEffects()
         {
             HasDash = false;
@@ -231,7 +231,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             LavaWet = false;
 
             WoodEnchantItem = null;
-			WoodEnchantDiscount = false;
+            WoodEnchantDiscount = false;
             fireNoDamage = false;
 
             SnowVisual = false;
@@ -513,7 +513,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             The22Incident = 0;
         }
 
-        
+
 
         public override void ModifyLuck(ref float luck)
         {
@@ -873,7 +873,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 }
             }
 
-            
+
         }
         public void ConcentratedRainbowMatterTryAutoHeal()
         {
@@ -1361,7 +1361,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 int force = BaseEnchant.Force[type];
                 if (force <= 0)
                     return BaseEnchant.CraftsInto[type] > 0 && CheckForces(BaseEnchant.CraftsInto[type]); //check force of enchant it crafts into, recursively
-                return ForceEffects.Contains(force); 
+                return ForceEffects.Contains(force);
             }
             bool CheckWizard(int type)
             {

@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class GladiatorEnchant : BaseEnchant
+    public class GladiatorEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ Grants knockback immunity when you are facing the attack
         }
 
         public override Color nameColor => new(156, 146, 78);
-        
+
 
         public override void SetDefaults()
         {
@@ -63,7 +63,7 @@ Grants knockback immunity when you are facing the attack
     }
     public class GladiatorBanner : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GladiatorEnchant>();
         public override void PostUpdateEquips(Player player)
@@ -90,7 +90,7 @@ Grants knockback immunity when you are facing the attack
     }
     public class GladiatorSpears : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GladiatorEnchant>();
 

@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ApprenticeEnchant : BaseEnchant
+    public class ApprenticeEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -182,7 +182,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                             if (projToShoot == ProjectileID.RainbowFront || projToShoot == ProjectileID.RainbowBack) // prevent fucked up op interaction
                             {
                                 foreach (Projectile rainbow in Main.projectile.Where(p => (p.TypeAlive(ProjectileID.RainbowFront) || p.TypeAlive(ProjectileID.RainbowBack)) && p.owner == player.whoAmI))
-                                    rainbow.Kill(); 
+                                    rainbow.Kill();
                             }
 
                             int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), pos, Vector2.Normalize(velocity) * speed, projToShoot, damage, KnockBack, player.whoAmI);

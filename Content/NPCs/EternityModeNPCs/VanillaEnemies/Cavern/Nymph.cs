@@ -11,7 +11,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public class Nymph : EModeNPCBehaviour
+    public class Nymph : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.LostGirl, NPCID.Nymph);
 

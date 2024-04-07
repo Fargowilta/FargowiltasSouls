@@ -8,7 +8,7 @@ using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
-	public class TitaniumShard : ModProjectile
+    public class TitaniumShard : ModProjectile
     {
         //private readonly int shrinkTimer = 0;
         public override string Texture => "Terraria/Images/Projectile_908";

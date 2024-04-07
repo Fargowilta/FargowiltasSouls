@@ -9,11 +9,11 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Content.UI
 {
-	public class FargoMenuScreen : ModMenu
+    public class FargoMenuScreen : ModMenu
     {
         bool forgor = false;
-        public override Asset<Texture2D> Logo => forgor ? 
-            ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/ForgorMenuLogo") : 
+        public override Asset<Texture2D> Logo => forgor ?
+            ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/ForgorMenuLogo") :
             ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/MenuLogo");
 
         //public override Asset<Texture2D> SunTexture => ModContent.Request<Texture2D>($"");

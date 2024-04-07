@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            
+
         }
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -81,7 +81,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
             {
                 behindNPCs.Add(index);
             }
-                
+
         }
 
         #region Help Methods

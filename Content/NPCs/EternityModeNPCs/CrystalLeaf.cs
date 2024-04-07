@@ -137,7 +137,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                     }
                 }
             }*/
-            
+
             if (recolor)
                 Lighting.AddLight(NPC.Center, 25f / 255, 47f / 255, 64f / 255);
             else
@@ -157,7 +157,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                     NPC.scale *= 1.5f;
                 phase3 = true;
             }
-            
+
 
             if (!phase3 && plantera.GetGlobalNPC<Plantera>().RingTossTimer > 120 && plantera.GetGlobalNPC<Plantera>().RingTossTimer < 120 + 45 && NPC.ai[1] == 130) //pause before shooting
             {

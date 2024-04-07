@@ -64,8 +64,8 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 if (++Projectile.frame >= Main.projFrames[Projectile.type])
                     Projectile.frame = 3;
             }
-            
-            
+
+
 
             const float speedModifier = 0.3f;
             int npcTarget = (int)Projectile.ai[1];
@@ -186,7 +186,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
 
                 if (++FinalPhaseDashCD == 1)
                 {
-                    
+
 
                     if (!FinalPhaseDashHorizSpeedSet) //only set this on the first dash of each set
                     {
@@ -200,7 +200,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                     //if (WorldSavingSystem.MasochistModeReal)
                     //    SpawnServants();
                     //if (FargoSoulsUtil.HostCheck)
-                        //FargoSoulsUtil.XWay(8, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<BloodScythe>(), 1f, FargoSoulsUtil.ScaledProjectileDamage(Projectile.damage), 0);
+                    //FargoSoulsUtil.XWay(8, Projectile.GetSource_FromThis(), Projectile.Center, ModContent.ProjectileType<BloodScythe>(), 1f, FargoSoulsUtil.ScaledProjectileDamage(Projectile.damage), 0);
 
                     Projectile.netUpdate = true;
                 }

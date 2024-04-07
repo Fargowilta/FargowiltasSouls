@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class StardustEnchant : BaseEnchant
+    public class StardustEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

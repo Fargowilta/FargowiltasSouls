@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.ModPlayers;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CrimsonEnchant : BaseEnchant
+    public class CrimsonEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +24,7 @@ This does not affect hits dealing less than 10 damage
         }
 
         public override Color nameColor => new(200, 54, 75);
-        
+
 
         public override void SetDefaults()
         {
@@ -67,7 +67,7 @@ This does not affect hits dealing less than 10 damage
             else
             {
                 FargoSoulsPlayer modPlayer = player.FargoSouls();
-                if (info.Damage < 10) 
+                if (info.Damage < 10)
                     return; //ignore hits under 10 damage
                 modPlayer.CrimsonRegenTime = 0; //reset timer
                 float returnHeal = 0.5f; //% of damage given back

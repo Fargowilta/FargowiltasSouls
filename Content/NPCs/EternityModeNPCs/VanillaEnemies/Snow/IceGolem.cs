@@ -11,7 +11,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Snow
 {
-	public class IceGolem : EModeNPCBehaviour
+    public class IceGolem : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.IceGolem);
 

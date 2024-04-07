@@ -9,7 +9,7 @@ using FargowiltasSouls.Content.Projectiles.Souls;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CobaltEnchant : BaseEnchant
+    public class CobaltEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

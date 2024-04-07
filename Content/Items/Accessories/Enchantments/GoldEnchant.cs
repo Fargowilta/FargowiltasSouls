@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class GoldEnchant : BaseEnchant
+    public class GoldEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(231, 178, 28);
-        
+
 
         public override void SetDefaults()
         {
@@ -54,7 +54,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class GoldEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GoldEnchant>();
         public override bool IgnoresMutantPresence => true;
@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class GoldToPiggy : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GoldEnchant>();
         public override bool IgnoresMutantPresence => true;

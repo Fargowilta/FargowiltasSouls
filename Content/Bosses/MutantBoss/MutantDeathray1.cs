@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathray1 : MutantSpecialDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathray1 : MutantSpecialDeathray, IPixelatedPrimitiveRenderer
     {
         public MutantDeathray1() : base(60) { }
 

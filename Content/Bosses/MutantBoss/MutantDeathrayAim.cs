@@ -13,7 +13,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathrayAim : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathrayAim : BaseDeathray, IPixelatedPrimitiveRenderer
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/PhantasmalDeathrayML";
         public MutantDeathrayAim() : base(60) { }

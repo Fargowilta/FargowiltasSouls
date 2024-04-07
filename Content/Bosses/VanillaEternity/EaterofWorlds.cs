@@ -18,7 +18,7 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class EaterofWorlds : EModeNPCBehaviour
+    public class EaterofWorlds : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail);
 
@@ -581,7 +581,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
         public override void OnKill(NPC npc)
         {
             base.OnKill(npc);
-            
+
             if (WorldSavingSystem.MasochistModeReal && FargoSoulsUtil.HostCheck)
             {
                 for (int i = 0; i < 8; i++)

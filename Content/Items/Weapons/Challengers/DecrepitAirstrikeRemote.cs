@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 {
-	public class DecrepitAirstrikeRemote : SoulsItem
+    public class DecrepitAirstrikeRemote : SoulsItem
     {
 
         public override void SetStaticDefaults()
@@ -71,7 +71,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         }
         public override bool? UseItem(Player player)
         {
-            
+
             return base.UseItem(player);
         }
         public override void AddRecipes()

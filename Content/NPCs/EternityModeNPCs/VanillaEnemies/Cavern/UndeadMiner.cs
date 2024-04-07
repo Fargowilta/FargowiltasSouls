@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
             target.AddBuff(ModContent.BuffType<LethargicBuff>(), 600);
             target.AddBuff(BuffID.Blackout, 300);
             target.AddBuff(BuffID.NoBuilding, 300);
-            
+
             //if (target.whoAmI == Main.myPlayer && target.HasBuff(ModContent.BuffType<LoosePockets>()))
             //{
             //    bool stolen = false;

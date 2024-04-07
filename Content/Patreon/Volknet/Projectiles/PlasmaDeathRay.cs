@@ -114,7 +114,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
             }
             return false;
         }
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.WitheredArmor, 1800);
@@ -147,13 +147,13 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
             Vector2 unit = Projectile.rotation.ToRotationVector2();
-			Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * LaserLen, (LaserWidth + 16) * Projectile.scale, DelegateMethods.CutTiles);
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * LaserLen, (LaserWidth + 16) * Projectile.scale, DelegateMethods.CutTiles);
         }
 
         private void CastLights()
         {
             DelegateMethods.v3_1 = new Vector3(0.6f, 1f, 0.6f);
-			Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * LaserLen, LaserWidth, DelegateMethods.CastLight);
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * LaserLen, LaserWidth, DelegateMethods.CastLight);
         }
 
     }

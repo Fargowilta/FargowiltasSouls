@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles
 {
-	public class GrazeRing : GlowRingHollow
+    public class GrazeRing : GlowRingHollow
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/GlowRingHollow";
 

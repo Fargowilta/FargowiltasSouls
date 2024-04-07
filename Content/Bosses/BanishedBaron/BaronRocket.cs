@@ -58,8 +58,8 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     Dust.NewDust(backPos, 2, 2, DustID.Water, -Projectile.velocity.X, -Projectile.velocity.Y, 0, default, 1f);
                 }
             }
-            
-            
+
+
             Projectile.rotation = Projectile.velocity.RotatedBy(MathHelper.Pi).ToRotation();
 
             if (++Projectile.localAI[0] > 600f)
@@ -110,7 +110,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                 {
                     Projectile.velocity *= 0.96f;
                 }
-                if (player != null && player.active && !player.ghost && homeTime) 
+                if (player != null && player.active && !player.ghost && homeTime)
                 {
                     Vector2 vectorToIdlePosition = LerpWithoutClamp(HomePos, player.Center, Projectile.ai[2]) - Projectile.Center;
                     float speed = Projectile.ai[0] == 1 ? 24f : 18f;

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class TurtleEnchant : BaseEnchant
+    public class TurtleEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -35,7 +35,7 @@ Enemies will explode into needles on death if they are struck with your needles
         }
 
         public override Color nameColor => new(248, 156, 92);
-        
+
 
         public override void SetDefaults()
         {
@@ -59,7 +59,7 @@ Enemies will explode into needles on death if they are struck with your needles
 
             player.turtleThorns = true;
             player.thorns = 1f;
-            
+
 
             if (player.HasEffect<TurtleEffect>() && !player.HasBuff(ModContent.BuffType<BrokenShellBuff>()) && modPlayer.IsStandingStill && !player.controlUseItem && player.whoAmI == Main.myPlayer && !modPlayer.noDodge)
             {

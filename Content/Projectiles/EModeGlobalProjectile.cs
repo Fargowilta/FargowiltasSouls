@@ -518,7 +518,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     projectile.velocity *= 0.975f;
                 }
             }
-            
+
             counter++;
 
             //delay the very bottom piece of sharknados spawning in, also delays spawning sharkrons

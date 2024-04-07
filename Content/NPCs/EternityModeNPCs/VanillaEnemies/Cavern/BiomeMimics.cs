@@ -14,7 +14,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public abstract class BiomeMimics : EModeNPCBehaviour
+    public abstract class BiomeMimics : EModeNPCBehaviour
     {
         public int AttackCycleTimer;
         public int IndividualAttackTimer;
@@ -279,7 +279,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                 if (IndividualAttackTimer > 10)
                 {
                     IndividualAttackTimer = 0;
-                    
+
                     SoundEngine.PlaySound(SoundID.Grass, npc.Center);
                     float speed = Main.player[npc.target].ZoneRockLayerHeight ? 9f : 14f;
                     if (FargoSoulsUtil.HostCheck)

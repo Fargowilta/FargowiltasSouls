@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ShroomiteEnchant : BaseEnchant
+    public class ShroomiteEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(0, 140, 244);
-        
+
 
         public override void SetDefaults()
         {

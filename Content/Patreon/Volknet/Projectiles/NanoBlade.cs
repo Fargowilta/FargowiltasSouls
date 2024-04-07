@@ -87,7 +87,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
             if (chainsawSoundTimer <= 0)
             {
                 chainsawSoundTimer = 10;
-                
+
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.Item22 with { Pitch = 0.5f }, Main.player[Projectile.owner].Center);
             }
 
@@ -103,7 +103,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
         public override void AI()
         {
             CastLights();
-            
+
             Projectile.timeLeft = 2;
 
             if (Main.player[Projectile.owner].active)
@@ -113,7 +113,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
                 {
                     if (owner.GetModPlayer<NanoPlayer>().NanoCoreMode == 0 && owner.channel)
                     {
-                        Projectile.damage = (int)(Projectile.ai[1]  * owner.GetWeaponDamage(owner.HeldItem));
+                        Projectile.damage = (int)(Projectile.ai[1] * owner.GetWeaponDamage(owner.HeldItem));
                         Projectile.CritChance = owner.GetWeaponCrit(owner.HeldItem);
 
                         Projectile.ai[0] = (Projectile.ai[0] + 1) % 30;
@@ -153,13 +153,13 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
             Vector2 unit = Projectile.rotation.ToRotationVector2();
-			Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * (320 - 24) * Projectile.scale, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * (320 - 24) * Projectile.scale, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
         }
 
         private void CastLights()
         {
             DelegateMethods.v3_1 = new Vector3(0.6f, 1f, 0.6f);
-			Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * (320 - 24) * Projectile.scale, Projectile.width, DelegateMethods.CastLight);
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * (320 - 24) * Projectile.scale, Projectile.width, DelegateMethods.CastLight);
         }
     }
 }

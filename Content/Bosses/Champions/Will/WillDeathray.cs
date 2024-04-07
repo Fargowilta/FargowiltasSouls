@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Will
 {
-	public class WillDeathray : BaseDeathray
+    public class WillDeathray : BaseDeathray
     {
         public WillDeathray() : base(420, sheeting: TextureSheeting.Horizontal) { }
 

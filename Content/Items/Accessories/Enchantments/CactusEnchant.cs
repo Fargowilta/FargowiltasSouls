@@ -10,7 +10,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CactusEnchant : BaseEnchant
+    public class CactusEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -43,7 +43,7 @@ Enemies will explode into needles on death if they are struck with your needles
         {
             player.FargoSouls().CactusImmune = true;
             player.AddEffect<CactusEffect>(Item);
-        }     
+        }
 
         public override void AddRecipes()
         {
@@ -64,7 +64,7 @@ Enemies will explode into needles on death if they are struck with your needles
         public override Header ToggleHeader => Header.GetHeader<LifeHeader>();
         public override int ToggleItemType => ModContent.ItemType<CactusEnchant>();
 
-        public override bool ExtraAttackEffect => true; 
+        public override bool ExtraAttackEffect => true;
 
         public override void PostUpdateEquips(Player player)
         {

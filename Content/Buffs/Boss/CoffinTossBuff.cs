@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Content.Buffs.Boss
                 player.fullRotation = 0;
                 player.DelBuff(buffIndex);
             }
-                
+
 
             if (Collision.SolidCollision(player.position + player.velocity, player.width, player.height))
             {

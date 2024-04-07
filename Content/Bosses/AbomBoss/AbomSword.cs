@@ -1,6 +1,4 @@
-﻿
-
-using FargowiltasSouls.Content.Projectiles;
+﻿using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Deathrays;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
@@ -159,7 +157,7 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
                 }
             }
         }
-        
+
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.velocity.X = target.Center.X < Main.npc[(int)Projectile.ai[1]].Center.X ? -15f : 15f;

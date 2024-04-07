@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
                 player.mount.Dismount(player);
             Tile thisTile = Framing.GetTileSafely(player.Bottom);
             Tile bottomTile = Framing.GetTileSafely(player.Bottom + Vector2.UnitY * 8);
-            
+
             if (!Collision.SolidCollision(player.BottomLeft, player.width, 16))
             {
                 if (player.velocity.Y >= 0 && (IsPlatform(thisTile.TileType) || IsPlatform(bottomTile.TileType)))
@@ -40,7 +40,7 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
                 {
                     player.position.Y += 16;
                 }
-                
+
             }
             bool IsPlatform(int tileType)
             {

@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
-	public class Snowstorm : ModProjectile
+    public class Snowstorm : ModProjectile
     {
         public override void SetStaticDefaults()
         {

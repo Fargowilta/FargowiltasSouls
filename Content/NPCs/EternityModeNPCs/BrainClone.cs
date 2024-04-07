@@ -160,8 +160,8 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                                 ++num7;
                                 int num8 = (int)Main.player[NPC.target].Center.X / 16;
                                 int num9 = (int)Main.player[NPC.target].Center.Y / 16;
-                                int i = !Main.rand.NextBool(2)? num8 - Main.rand.Next(7, 13) : num8 + Main.rand.Next(7, 13);
-                                int j = !Main.rand.NextBool(2)? num9 - Main.rand.Next(7, 13) : num9 + Main.rand.Next(7, 13);
+                                int i = !Main.rand.NextBool(2) ? num8 - Main.rand.Next(7, 13) : num8 + Main.rand.Next(7, 13);
+                                int j = !Main.rand.NextBool(2) ? num9 - Main.rand.Next(7, 13) : num9 + Main.rand.Next(7, 13);
                                 if (!WorldGen.SolidTile(i, j))
                                 {
                                     NPC.ai[3] = 0.0f;

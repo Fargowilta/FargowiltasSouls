@@ -2,8 +2,8 @@
 
 namespace FargowiltasSouls
 {
-	public static partial class FargoSoulsUtil
-	{
-		
-	}
+    public static partial class FargoSoulsUtil
+    {
+
+    }
 }

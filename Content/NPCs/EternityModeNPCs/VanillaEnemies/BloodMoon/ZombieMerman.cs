@@ -11,7 +11,7 @@ using System;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.BloodMoon
 {
-	public class ZombieMerman : EModeNPCBehaviour
+    public class ZombieMerman : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.ZombieMerman);
 

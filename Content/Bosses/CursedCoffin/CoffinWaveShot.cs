@@ -102,7 +102,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             //return Color.Lerp(GlowColor, Color.Transparent, completionRatio) * 0.7f;
         }
 
-        
+
         public void RenderPixelatedPrimitives(SpriteBatch spriteBatch)
         {
             ManagedShader shader = ShaderManager.GetShader("FargowiltasSouls.BlobTrail");

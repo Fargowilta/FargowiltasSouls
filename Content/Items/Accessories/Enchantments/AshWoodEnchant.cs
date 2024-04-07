@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class AshWoodEnchant : BaseEnchant
+    public class AshWoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

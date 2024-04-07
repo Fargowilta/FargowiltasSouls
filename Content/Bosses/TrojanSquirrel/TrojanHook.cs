@@ -152,7 +152,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
         {
             Texture2D lightningTexture = ModContent.Request<Texture2D>("FargowiltasSouls/Content/Bosses/TrojanSquirrel/TrojanHookLightning").Value;
             int lightningFrames = 5;
-            
+
             Rectangle GetRandomLightningFrame()
             {
                 int frameHeight = lightningTexture.Height / lightningFrames;
@@ -211,7 +211,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                         {
                             DrawLightning(position, lightColor, rotation);
                         }
-                        
+
                     }
             }
 

@@ -7,7 +7,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PirateInvasion
 {
-	public class PirateCaptain : EModeNPCBehaviour
+    public class PirateCaptain : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.PirateCaptain);
 

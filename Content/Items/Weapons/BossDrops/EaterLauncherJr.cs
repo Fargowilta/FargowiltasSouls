@@ -41,7 +41,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
             Item.shoot = ModContent.ProjectileType<EaterRocketJr>();
             Item.shootSpeed = 18f;
         }
-        
+
         public const int MaxCharge = 1000;
         public int Charge = 0;
         public override void SaveData(TagCompound tag)

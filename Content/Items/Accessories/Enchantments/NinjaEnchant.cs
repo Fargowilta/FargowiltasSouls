@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class NinjaEnchant : BaseEnchant
+    public class NinjaEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -23,7 +23,7 @@ Increases armor pen by 15
         }
 
         public override Color nameColor => new(48, 49, 52);
-        
+
 
         public override void SetDefaults()
         {

@@ -53,7 +53,7 @@ The saucer's tractor beam slows enemies hit by it
             player.buffImmune[BuffID.Electrified] = true;
             player.buffImmune[BuffID.VortexDebuff] = true;
             player.AddEffect<UfoMinionEffect>(Item);
-                
+
         }
     }
     public class UfoMinionEffect : AccessoryEffect

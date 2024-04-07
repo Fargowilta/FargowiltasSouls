@@ -73,7 +73,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
         public override bool? CanHitNPC(NPC target) => false; //no contact damage
         public override void AI()
         {
-            
+
             Player player = Main.player[Projectile.owner];
             if (player.active && !player.dead && player.HasEffect<PrimeSoulEffect>())
                 Projectile.timeLeft = 2;
@@ -140,7 +140,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                 if (soulColor.HasValue)
                     color = soulColor.Value;
             }
-                 
+
 
             //Color color26 = lightColor;
             //color26 = Projectile.GetAlpha(color26);
@@ -196,7 +196,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             if (ColorTimer >= ColorTime * colorAmt)
                 ColorTimer = 1;
 
-           float lerp = (ColorTimer % ColorTime)  / ColorTime; // Current lerp progress between colors
+            float lerp = (ColorTimer % ColorTime) / ColorTime; // Current lerp progress between colors
 
             int i = (int)Math.Floor(ColorTimer / ColorTime); // Current soul color being lerped from
             if (colorAmt <= 1)

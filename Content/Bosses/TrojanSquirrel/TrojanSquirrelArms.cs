@@ -178,7 +178,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                                 if (FargoSoulsUtil.HostCheck)
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, distance, ModContent.ProjectileType<TrojanSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, gravity);
                             }
-                            NPC.ai[1] += NPC.ai[1] > end / 3 ? NPC.ai[1] > end * (2/3) ? 2 : 0 : 0;
+                            NPC.ai[1] += NPC.ai[1] > end / 3 ? NPC.ai[1] > end * (2 / 3) ? 2 : 0 : 0;
                         }
 
                         if (NPC.ai[1] > end)

@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class EbonwoodEnchant : BaseEnchant
+    public class EbonwoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -29,7 +29,7 @@ Any projectiles that would deal less than 10 damage to you are destroyed
         }
 
         public override Color nameColor => new(100, 90, 141);
-        
+
 
         public override void SetDefaults()
         {

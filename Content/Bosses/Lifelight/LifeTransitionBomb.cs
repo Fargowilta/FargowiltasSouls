@@ -6,7 +6,7 @@ using Terraria.ID;
 namespace FargowiltasSouls.Content.Bosses.Lifelight
 {
 
-	public class LifeTransitionBomb : LifeBomb
+    public class LifeTransitionBomb : LifeBomb
     {
         public override string Texture => "FargowiltasSouls/Content/Bosses/Lifelight/LifeBomb";
 
@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 Projectile.rotation = Projectile.SafeDirectionTo(DesiredPosition).ToRotation() - (float)Math.PI / 2;
             }
             Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemTopaz, Projectile.velocity.X, Projectile.velocity.Y, 0, default, 0.25f);
-            
+
 
             Projectile.ai[0] += 1f;
             Projectile.Center = Vector2.Lerp(OriginalPosition, DesiredPosition, Math.Min(Projectile.ai[0] / 90f, 1));

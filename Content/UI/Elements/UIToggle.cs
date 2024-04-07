@@ -19,7 +19,7 @@ using Terraria.UI.Chat;
 
 namespace FargowiltasSouls.Content.UI.Elements
 {
-	public class UIToggle : UIElement
+    public class UIToggle : UIElement
     {
         public const int CheckboxTextSpace = 4;
 

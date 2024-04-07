@@ -13,9 +13,9 @@ using System.Linq;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Stardust
 {
-	public class StardustMinion : ModNPC
+    public class StardustMinion : ModNPC
     {
-        public enum States 
+        public enum States
         {
             Idle = 1,
             PrepareExpand,
@@ -252,13 +252,13 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     }
             }
         }
-        
+
         public void Scissor(NPC parent, float num, LunarTowerStardust parentModNPC, bool telegraph)
         {
             const float speedFactor = 0.05f;
             int Side = (num >= LunarTowerStardust.CellAmount / 2) ? 1 : -1;
             int x = Side == 1 ? (int)num - LunarTowerStardust.CellAmount / 2 : (int)num;
-            float ScissorSpeed = 1f + (0.08f * (5-x));
+            float ScissorSpeed = 1f + (0.08f * (5 - x));
             int Distance = (x * parentModNPC.AuraSize / (LunarTowerStardust.CellAmount / 2)) + (parent.width / 2);
             if (Side == 1)
             {
@@ -268,7 +268,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             if (telegraph)
             {
                 rotation = parent.SafeDirectionTo(initialLock).ToRotation() + (parentModNPC.CellRotation * Side);
-                
+
             }
             else
             {

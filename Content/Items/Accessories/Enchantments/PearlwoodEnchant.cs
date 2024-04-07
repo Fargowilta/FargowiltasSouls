@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PearlwoodEnchant : BaseEnchant
+    public class PearlwoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
         public override Color nameColor => new(173, 154, 95);
 
-        
+
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class PearlwoodEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
         public override int ToggleItemType => ModContent.ItemType<PearlwoodEnchant>();
         public override void PostUpdateEquips(Player player)

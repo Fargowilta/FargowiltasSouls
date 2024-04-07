@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathray3 : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathray3 : BaseDeathray, IPixelatedPrimitiveRenderer
     {
 
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/PhantasmalDeathray";

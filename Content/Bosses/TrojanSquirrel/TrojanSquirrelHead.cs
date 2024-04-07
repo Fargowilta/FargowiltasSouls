@@ -82,7 +82,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                             Main.dust[d].velocity.X += NPC.direction * Main.rand.NextFloat(6f, 18f);
                         }
                     }
-                    
+
                     if (++NPC.ai[1] % (body.dontTakeDamage || WorldSavingSystem.MasochistModeReal ? 30 : 45) == 0)
                     {
                         bool doAttack = true;

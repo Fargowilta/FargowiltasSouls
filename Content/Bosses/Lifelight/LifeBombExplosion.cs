@@ -90,7 +90,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
         public override bool PreDraw(ref Color lightColor)
         {
-            
+
             Texture2D texture2D13 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
             int num156 = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type]; //ypos of lower right corner of sprite to draw
@@ -100,7 +100,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
             //Main.spriteBatch.End();
             //Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
-            
+
             //draw bloom
             float bloomScale = Projectile.scale * 1.5f;
             float bloomOpacity = 1;

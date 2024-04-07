@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
 {
-	public class BrainIllusionAttack : ModNPC
+    public class BrainIllusionAttack : ModNPC
     {
         public override string Texture => "Terraria/Images/NPC_266";
 

@@ -750,7 +750,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                     {
                         if (Animation != 5 && FargoSoulsUtil.HostCheck)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<GlowRing>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI, -23);
-                        
+
                     }
 
                     if (++NPC.ai[1] > 60)
@@ -1661,7 +1661,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                 NPC.frame.Y += frameHeight;
             }
 
-            if (NPC.frame.Y > frameHeight * HandsBackFrame-1)
+            if (NPC.frame.Y > frameHeight * HandsBackFrame - 1)
             {
                 NPC.frame.Y = 0;
             }

@@ -299,7 +299,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             Attacking = 1;
 
             if (RuneFormationTimer <= FormationTime)
-             RuneFormationTimer++;
+                RuneFormationTimer++;
 
             useDR = false;
 
@@ -326,7 +326,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 {
                     SoundEngine.PlaySound(SoundID.Item53, NPC.Center);
                     NPC.HitSound = SoundID.Item52;
-                    
+
                     NPC.defense = NPC.defDefense + 100;
                     NPC.netUpdate = true;
                 }
@@ -660,7 +660,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
             if (chunklist.Count < ChunkCount)
             {
-                
+
                 //generating an even sphere using cartesian coordinates
                 float phi = MathHelper.Pi * (float)(Math.Sqrt(5) - 1); //golden angle in radians
 
@@ -687,7 +687,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 ChunkDistance = 1000 - ((1000 - DefaultChunkDistance) * ((float)AI_Timer / 180f));
                 NPC.dontTakeDamage = true;
             }
-            
+
             if (AI_Timer >= 240 && chunklist.Count >= ChunkCount)
             {
                 ChunkDistance = DefaultChunkDistance; // for good measure
@@ -830,7 +830,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 oldP1state = P1state;
                 P1stateReset();
             }
-            
+
         }
         public void P1Mines()
         {
@@ -1029,7 +1029,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 }
                 if (AI_Timer == 240 - 60)
                 {
-                    
+
                     SoundEngine.PlaySound(SoundID.Item92 with { Pitch = -0.5f }, NPC.Center);
 
                     if (!Main.dedServ)
@@ -1055,7 +1055,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, -1, LockVector1.ToRotation());
                 }
             }
-            
+
             void LaserSpin()
             {
                 ref float RandomDistance = ref NPC.ai[0];
@@ -1082,10 +1082,10 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 {
                     AttackF1 = false;
 
-                    
+
 
                     //SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
-                    SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f}, NPC.Center);
+                    SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector1,
@@ -1123,7 +1123,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         rotspeed = 0.82f;
                     }
                     rot += RotationDirection * MathHelper.Pi / 180 * rotspeed;
-                    
+
                 }
 
                 LaserTimer++;
@@ -1155,7 +1155,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 if (LaserTimer > endTime && PyramidPhase == 0 && RuneFormationTimer >= FormationTime) //after shell crack animation and rune reformation
                 {
                     P1state = 0;
-                    
+
                     PhaseOne = false;
                     HitPlayer = false;
                     NPC.netUpdate = true;
@@ -1168,9 +1168,9 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     StateReset();
                 }
             }
-            
-            
-            
+
+
+
 
             PhaseTransition();
             //ExpandRunes();
@@ -1178,7 +1178,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 LaserSpin();
             }
-            
+
         }
 
         #endregion
@@ -1442,7 +1442,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 //only do attack when in range
                 //this had bugs and is currently disabled, may be changed in the future
                 //update: this has been replaced with not doing the attack in the first place if too far away (conditional attacks baybeee)
-                
+
                 //Vector2 targetPos = Player.Center;
                 //targetPos.Y -= 16 * 15;
                 //if (NPC.Distance(targetPos) < 18 * 10 || WorldSavingSystem.MasochistModeReal)
@@ -1747,7 +1747,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         RuneFormationTimer = 0;
                     }
                 }
-                
+
             }
             if (AttackCount == 0 && AI_Timer <= 10)
             {
@@ -1762,7 +1762,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
                 SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, NPC.Center);
                 //circle of cum before charge
-                
+
                 if (FargoSoulsUtil.HostCheck)
                 {
                     float ProjectileSpeed = 10f;
@@ -1774,7 +1774,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
                     }
                 }
-                
+
                 //charge
                 NPC.velocity = chargeatPlayer;
                 TeleportAngle = Main.rand.Next(360);
@@ -1954,7 +1954,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 
             Player Player = Main.player[NPC.target];
             int StartTime = (WorldSavingSystem.MasochistModeReal ? 60 : WorldSavingSystem.EternityMode ? 70 : 80);
-            
+
             if (AttackF1)
             {
                 Flying = true;
@@ -2013,7 +2013,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             if (ChargeTimer == ChargeCD) //charge
             {
                 SoundEngine.PlaySound(SoundID.ForceRoarPitched, NPC.Center);
-                
+
                 NPC.velocity = chargeatPlayer;
                 NPC.netUpdate = true;
             }
@@ -2193,12 +2193,12 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             if (AI_Timer == RandomWindup - 20 && FargoSoulsUtil.HostCheck)
             {
                 arcAngle *= 2.3f;
-				int p1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (Player.Center - NPC.Center).RotatedBy(RandomSide * arcRotation), ModContent.ProjectileType<ArcTelegraph>(), 0, 0f, Main.myPlayer, 0, arcAngle, 1000);
+                int p1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (Player.Center - NPC.Center).RotatedBy(RandomSide * arcRotation), ModContent.ProjectileType<ArcTelegraph>(), 0, 0f, Main.myPlayer, 0, arcAngle, 1000);
                 if (p1 != Main.maxProjectiles)
                     Main.projectile[p1].timeLeft = 20;
                 if (!PhaseOne)
                 {
-					arcAngle /= 2;
+                    arcAngle /= 2;
                     int p2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (Player.Center - NPC.Center).RotatedBy(-RandomSide * arcRotation * 2.5f), ModContent.ProjectileType<ArcTelegraph>(), 0, 0f, Main.myPlayer, 0, arcAngle, 1000);
                     if (p2 != Main.maxProjectiles)
                         Main.projectile[p2].timeLeft = 20;
@@ -2673,7 +2673,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             else if (useDR)
                 modifiers.FinalDamage /= 2.5f;
 
-            
+
         }
         public override void ModifyHoverBoundingBox(ref Rectangle boundingBox)
         {
@@ -2693,7 +2693,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 NPC.lifeRegen /= 2;
             }
-                
+
         }
 
         #region Hitbox
@@ -2755,12 +2755,12 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 {
                     Color color = Main.rand.NextFromList(Color.Goldenrod, Color.Pink, Color.Cyan);
                     Particle p = new SmallSparkle(
-                        worldPosition: NPC.Center, 
-                        velocity: (Main.rand.NextFloat(5, 50) * Vector2.UnitX).RotatedByRandom(MathHelper.TwoPi), 
-                        drawColor: color, 
-                        scale: 1f, 
-                        lifetime: Main.rand.Next(20, 80), 
-                        rotation:0, 
+                        worldPosition: NPC.Center,
+                        velocity: (Main.rand.NextFloat(5, 50) * Vector2.UnitX).RotatedByRandom(MathHelper.TwoPi),
+                        drawColor: color,
+                        scale: 1f,
+                        lifetime: Main.rand.Next(20, 80),
+                        rotation: 0,
                         rotationSpeed: Main.rand.NextFloat(-MathHelper.Pi / 8, MathHelper.Pi / 8)
                         );
                     p.Spawn();
@@ -2805,7 +2805,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             public float Rotation;
         }
         List<Rune> PostdrawRunes = new();
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) 
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             const float ChunkRotationSpeed = MathHelper.TwoPi * (1f / 360);
 
@@ -2832,7 +2832,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 if (DrawRunes)
                 {
-                    
+
                     for (int i = 0; i < RuneCount; i++)
                     {
 
@@ -3049,7 +3049,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         progress = Math.Min((float)PyramidTimer * 4 / PyramidAnimationTime, 1f);
                     }
                     float expansion = progress;
-                    byte alpha = (byte)(255 * (1-progress));
+                    byte alpha = (byte)(255 * (1 - progress));
                     offsets[0] = new Vector2(0, -15) * expansion + new Vector2(0, -30); //top
                     offsets[1] = new Vector2(-12.5f, 3) * expansion + new Vector2(-25, 10); //left
                     offsets[2] = new Vector2(12.5f, 3) * expansion + new Vector2(25, 10); //right
@@ -3099,7 +3099,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     glowColor = new Color(1f, 1f, 0f, 0f) * 0.7f;
                 else //pink
                     glowColor = new Color(1, 192 / 255f, 203 / 255f, 0f) * 0.7f;
-                
+
                 Main.spriteBatch.Draw(RuneTexture, drawPos + afterimageOffset, null, glowColor, rune.Rotation, RuneTexture.Size() * 0.5f, rune.Scale, SpriteEffects.None, 0f);
             }
             spriteBatch.Draw(origin: new Vector2(RuneTexture.Width / 2, RuneTexture.Height / 2), texture: RuneTexture, position: drawPos, sourceRectangle: null, color: Color.White, rotation: rune.Rotation, scale: rune.Scale, effects: SpriteEffects.None, layerDepth: 0f);
@@ -3294,7 +3294,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 return doableStates;
             }
             List<int> doableStates = GetDoableStates();
-            
+
 
             if (FargoSoulsUtil.HostCheck)
             {

@@ -50,7 +50,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 {
                     Main.LocalPlayer.AddBuff(BuffID.Honey, 60 * 15);
                     BeeSwarm();
-                    
+
                     Projectile.Kill();
                 }
             }

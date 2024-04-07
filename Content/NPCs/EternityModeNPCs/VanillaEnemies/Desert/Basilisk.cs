@@ -7,7 +7,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
 {
-	public class Basilisk : EModeNPCBehaviour
+    public class Basilisk : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DesertBeast);
 
@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            
+
         }
     }
 }

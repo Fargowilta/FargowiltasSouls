@@ -30,7 +30,7 @@ using FargowiltasSouls.Content.Projectiles.Masomode;
 
 namespace FargowiltasSouls.Content.Projectiles
 {
-	public class FargoSoulsGlobalProjectile : GlobalProjectile
+    public class FargoSoulsGlobalProjectile : GlobalProjectile
     {
         public override bool InstancePerEntity => true;
 
@@ -383,7 +383,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     AdamModifier = modPlayer.ForceEffect<AdamantiteEnchant>() ? 3 : 2;
 
                 }
-                
+
             }
 
             if (projectile.bobber && CanSplit && source is EntitySource_ItemUse)
@@ -421,7 +421,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 projectile.damage = player.GetWeaponDamage(player.HeldItem);
                 projectile.CritChance = player.GetWeaponCrit(player.HeldItem);
             }
-            
+
             if (spookyCD > 0)
             {
                 spookyCD--;
@@ -644,7 +644,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.MonkStaffT2:
                 case ProjectileID.MonkStaffT3_Alt:
                     {
-                        
+
                         Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
                         projectile.direction = player.direction;
                         player.heldProj = projectile.whoAmI;
@@ -672,7 +672,7 @@ namespace FargowiltasSouls.Content.Projectiles
                                 float num = (float)player.itemAnimation / (float)player.itemAnimationMax;
                                 float num2 = 1f - num;
                                 float num3 = projectile.velocity.ToRotation();
-                                float num4 = projectile.velocity.Length() * projectile.scale; 
+                                float num4 = projectile.velocity.Length() * projectile.scale;
                                 float num5 = 22f * projectile.scale;
                                 Vector2 spinningpoint = new Vector2(1f, 0f).RotatedBy((float)Math.PI + num2 * ((float)Math.PI * 2f)) * new Vector2(num4, projectile.ai[0] * projectile.scale);
                                 projectile.position += spinningpoint.RotatedBy(num3) + new Vector2(num4 + num5, 0f).RotatedBy(num3);
@@ -854,7 +854,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         int num = 3;
                         int num2 = 2;
                         Vector2 value = projectile.Center - projectile.rotation.ToRotationVector2() * num2;
-                        
+
                         float num3 = Main.rand.NextFloat();
                         float scale = Utils.GetLerpValue(0f, 0.3f, num3, clamped: true) * Utils.GetLerpValue(1f, 0.5f, num3, clamped: true);
                         Color color = projectile.GetAlpha(Lighting.GetColor(projectile.Center.ToTileCoordinates())) * scale;
@@ -874,7 +874,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         }
 
                         Main.spriteBatch.Draw(value2, position, null, color, num6, origin, swordScaleModifier, spriteEffects, 0f);
-                        
+
 
                         for (int j = 0; j < num; j++)
                         {
@@ -923,7 +923,7 @@ namespace FargowiltasSouls.Content.Projectiles
                             FargoSoulsUtil.GenericProjectileDraw(projectile, lightColor, tex);
                             return false;
                         }
-                        
+
                     }
                     break;
                 default:
@@ -1308,7 +1308,7 @@ namespace FargowiltasSouls.Content.Projectiles
             {
                 float maxDamageIncrease = modPlayer.ForceEffect<NinjaEnchant>() ? 0.3f : 0.2f;
                 modifiers.FinalDamage *= 1f + (maxDamageIncrease * Math.Min((projectile.extraUpdates + 1) * projectile.velocity.Length() / 40f, 1));
-                
+
             }
             /*
             int AccountForDefenseShred(int modifier)

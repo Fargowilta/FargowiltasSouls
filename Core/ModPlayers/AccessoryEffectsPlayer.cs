@@ -31,7 +31,7 @@ using FargowiltasSouls.Content.Items.Accessories.Masomode;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public partial class FargoSoulsPlayer
+    public partial class FargoSoulsPlayer
     {
 
         public void GoldKey()
@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 Projectile.NewProjectile(Player.GetSource_Misc(""), Player.Center.X, Player.Center.Y, 0f, 0f, ModContent.ProjectileType<GoldShellProj>(), 0, 0, Main.myPlayer);
         }
 
-        
+
 
         public bool CanJungleJump = false;
         public bool JungleJumping = false;
@@ -99,7 +99,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             return count;
         }
-       
+
 
         public int[] ApprenticeItemCDs = new int[10];
 
@@ -117,7 +117,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         //        #endregion
 
         //        #region souls
-        
+
 
         public bool extraCarpetDuration = true;
 
@@ -129,7 +129,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public void OnLandingEffects()
         {
-            
+
 
             //Player.justJumped use this tbh
             if (SlimyShieldFalling) //landing
@@ -342,7 +342,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         {
             if (Player.HasBuff(ModContent.BuffType<MagicalCleanseCDBuff>()))
                 return;
-            
+
             if (TryCleanseDebuffs())
             {
                 int cdInSec = 40;
@@ -353,7 +353,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                     {
                         Main.npc[i].AddBuff(ModContent.BuffType<MagicalCurseBuff>(), LumUtils.SecondsToFrames(cdInSec + 5));
                     }
-                }    
+                }
 
                 Player.AddBuff(ModContent.BuffType<MagicalCleanseCDBuff>(), LumUtils.SecondsToFrames(cdInSec));
 
@@ -440,24 +440,24 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (Player.HasEffect<AgitatingLensInstall>()
                 && Player.controlUp && Player.controlDown)
             {
-				if (!Player.HasBuff(ModContent.BuffType<BerserkerInstallBuff>())
-					&& !Player.HasBuff(ModContent.BuffType<BerserkerInstallCDBuff>()))
-				{
-					SoundEngine.PlaySound(SoundID.Item119, Player.Center);
+                if (!Player.HasBuff(ModContent.BuffType<BerserkerInstallBuff>())
+                    && !Player.HasBuff(ModContent.BuffType<BerserkerInstallCDBuff>()))
+                {
+                    SoundEngine.PlaySound(SoundID.Item119, Player.Center);
 
-					Player.AddBuff(ModContent.BuffType<BerserkerInstallBuff>(), LumUtils.SecondsToFrames(7.5f)); //7.5sec
+                    Player.AddBuff(ModContent.BuffType<BerserkerInstallBuff>(), LumUtils.SecondsToFrames(7.5f)); //7.5sec
 
-					for (int i = 0; i < 60; i++)
-					{
-						int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.RedTorch, 0f, 0f, 0, default, 3f);
-						Main.dust[index2].noGravity = true;
-						Main.dust[index2].velocity *= 9;
-					}
-				}
+                    for (int i = 0; i < 60; i++)
+                    {
+                        int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.RedTorch, 0f, 0f, 0, default, 3f);
+                        Main.dust[index2].noGravity = true;
+                        Main.dust[index2].velocity *= 9;
+                    }
+                }
                 return;
             }
 
-			if (Player.HasEffect<FusedLensInstall>())
+            if (Player.HasEffect<FusedLensInstall>())
             {
                 int buffType = ModContent.BuffType<TwinsInstallBuff>();
                 if (Player.HasBuff(buffType))
@@ -1055,7 +1055,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                         dusts.Add(87);
                     if (silverEffect)
                         dusts.Add(66);
-                    
+
                     if (dusts.Count > 0)
                     {
                         for (int i = 0; i < 30; i++)
@@ -1074,6 +1074,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             //Main.NewText($"{ironShieldCD}, {ironShieldTimer}");
         }
 
-        
+
     }
 }

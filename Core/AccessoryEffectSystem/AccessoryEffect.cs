@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
     public abstract class AccessoryEffect : ModType
     {
         public int Index;
-        
+
         public string ToggleDescription
         {
             get

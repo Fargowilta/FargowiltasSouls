@@ -15,7 +15,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class EmpressofLight : EModeNPCBehaviour
+    public class EmpressofLight : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.HallowBoss);
 

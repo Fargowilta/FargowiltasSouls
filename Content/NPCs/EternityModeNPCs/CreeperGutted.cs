@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
 {
-	public class CreeperGutted : ModNPC
+    public class CreeperGutted : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -117,7 +117,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                 n.velocity.X += IdleAccel * (n.Center.X < NPC.Center.X ? -1 : 1);
                 n.velocity.Y += IdleAccel * (n.Center.Y < NPC.Center.Y ? -1 : 1);
             }
-            
+
         }
 
         public override void FindFrame(int frameHeight)

@@ -140,7 +140,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                     Projectile.netUpdate = true;
                 }
             }
-            
+
             if (++Projectile.localAI[0] == theTime)
             {
                 SoundEngine.PlaySound(SoundID.Item29 with { Volume = 1.5f }, Projectile.Center);
@@ -158,8 +158,8 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                 }
 
                 float ratio = Projectile.localAI[0] / (theTime + window);
-                
-                int d = Dust.NewDust(player.Center, 0, 0, 56, 0f, 0f, 200, new Color(0, 255, 255, 100), 0.5f);
+
+                int d = Dust.NewDust(player.Center, 0, 0, DustID.BlueFairy, 0f, 0f, 200, new Color(0, 255, 255, 100), 0.5f);
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 0.75f;
                 Main.dust[d].fadeIn = 1.3f;
@@ -169,7 +169,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                 Main.dust[d].velocity = vector;
                 vector.Normalize();
                 vector *= 34f;
-                
+
                 Main.dust[d].scale *= ratio;
                 vector *= ratio * 5;
                 Main.dust[d].velocity *= ratio * 5;

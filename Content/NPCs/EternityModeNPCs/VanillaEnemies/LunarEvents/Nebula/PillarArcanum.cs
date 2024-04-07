@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Nebula
 {
-	public class PillarArcanum : ModProjectile
+    public class PillarArcanum : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_617";
 
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
 
             if (Projectile.ai[1] == 0)
                 time = 30;
-            
+
 
             Projectile.ai[0]++;
             if (Projectile.ai[0] <= 50)
@@ -109,7 +109,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
 
                         Projectile.localAI[1] += MathHelper.ToRadians(48f / 60f * projTime) * Projectile.ai[1];
                     }
-                   
+
                 }
                 if (Projectile.timeLeft == 29)
                 {

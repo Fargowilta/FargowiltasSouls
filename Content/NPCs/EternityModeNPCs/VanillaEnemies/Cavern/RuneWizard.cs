@@ -9,7 +9,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public class RuneWizard : Teleporters
+    public class RuneWizard : Teleporters
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.RuneWizard);
 

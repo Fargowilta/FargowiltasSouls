@@ -79,7 +79,7 @@ Increases your max number of sentries by 4"); */
             fargoPlayer.EridanusSet = true;
 
             //if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap)
-                //fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
+            //fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
 
             if (fargoPlayer.EridanusEmpower)
             {

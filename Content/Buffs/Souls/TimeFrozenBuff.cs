@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Souls
 {
-	public class TimeFrozenBuff : ModBuff
+    public class TimeFrozenBuff : ModBuff
     {
         public override void SetStaticDefaults()
         {

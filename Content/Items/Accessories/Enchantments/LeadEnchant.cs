@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class LeadEnchant : BaseEnchant
+    public class LeadEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(67, 69, 88);
-        
+
 
         public override void SetDefaults()
         {
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     player.lifeRegen = (int)(player.lifeRegen * 0.6f);
                 }
             }
-            
+
         }
     }
     public class LeadPoisonEffect : AccessoryEffect

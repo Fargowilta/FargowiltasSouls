@@ -11,7 +11,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Vortex
 {
-	public class LightningTelegraph : ModProjectile
+    public class LightningTelegraph : ModProjectile
     {
 
         public override void SetStaticDefaults()

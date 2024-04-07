@@ -10,8 +10,7 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {
-
-	public class MechLure : SoulsItem
+    public class MechLure : SoulsItem
     {
         public override void SetStaticDefaults()
         {
@@ -36,7 +35,7 @@ namespace FargowiltasSouls.Content.Items.Summons
             Item.noUseGraphic = true;
             Item.shoot = ProjectileType<MechLureProjectile>();
             Item.shootSpeed = 10f;
-            Item.UseSound  = SoundID.Item1;
+            Item.UseSound = SoundID.Item1;
             Item.value = Item.sellPrice(0, 2);
         }
 

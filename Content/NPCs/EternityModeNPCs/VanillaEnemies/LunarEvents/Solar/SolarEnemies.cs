@@ -11,7 +11,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Solar
 {
-	public class SolarEnemies : EModeNPCBehaviour
+    public class SolarEnemies : EModeNPCBehaviour
     {
         public static int[] SolarEnemyIDs =
         {

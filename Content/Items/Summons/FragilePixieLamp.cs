@@ -7,8 +7,7 @@ using FargowiltasSouls.Content.Bosses.Lifelight;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {
-
-	public class FragilePixieLamp : SoulsItem
+    public class FragilePixieLamp : SoulsItem
     {
         public override void SetStaticDefaults()
         {

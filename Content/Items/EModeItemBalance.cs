@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items
 {
-	public class EmodeItemBalance : ModSystem
+    public class EmodeItemBalance : ModSystem
     {
         /// <summary>
         /// Applies an Eternity-exclusive balance change to chosen item type. <br />
@@ -96,7 +96,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = new string[] { "CoinGun" };
                     return EModeChange.Nerf;
 
-               case ItemID.StarCannon:
+                case ItemID.StarCannon:
                     balanceTextKeys = new string[] { "Damage" };
                     balanceNumber = 0.6f;
                     return EModeChange.Nerf;
@@ -156,7 +156,7 @@ namespace FargowiltasSouls.Content.Items
                         return EModeChange.None;
                     }
 
-                
+
                 case ItemID.FetidBaghnakhs:
                     balanceTextKeys = new string[] { "Speed" };
                     balanceNumber = 0.75f;
@@ -347,13 +347,13 @@ namespace FargowiltasSouls.Content.Items
                 }
             }
         }
-            public enum EModeChange
-            {
-                None,
-                Nerf,
-                Buff,
-                Neutral
-            }
+        public enum EModeChange
+        {
+            None,
+            Nerf,
+            Buff,
+            Neutral
+        }
 
         static void ItemBalance(List<TooltipLine> tooltips, EModeChange change, string key, int amount = 0)
         {
@@ -373,89 +373,89 @@ namespace FargowiltasSouls.Content.Items
         {
 
             if (!WorldSavingSystem.EternityMode)
-                    return;
+                return;
 
-                //if (item.damage > 0 && (item.ammo == AmmoID.Arrow || item.ammo == AmmoID.Bullet || item.ammo == AmmoID.Dart))
-                //{
-                //    tooltips.Add(new TooltipLine(Mod, "masoAmmoNerf", "[c/ff0000:Eternity Mode:] Contributes 50% less damage to weapons"));
-                //}
-                string extra = string.Empty;
-                float balanceNumber = -1;
-                string[] balanceTextKeys = null;
-                EModeChange balance = EmodeBalance(ref item, ref balanceNumber, ref balanceTextKeys, ref extra);
+            //if (item.damage > 0 && (item.ammo == AmmoID.Arrow || item.ammo == AmmoID.Bullet || item.ammo == AmmoID.Dart))
+            //{
+            //    tooltips.Add(new TooltipLine(Mod, "masoAmmoNerf", "[c/ff0000:Eternity Mode:] Contributes 50% less damage to weapons"));
+            //}
+            string extra = string.Empty;
+            float balanceNumber = -1;
+            string[] balanceTextKeys = null;
+            EModeChange balance = EmodeBalance(ref item, ref balanceNumber, ref balanceTextKeys, ref extra);
 
-                if (balanceTextKeys != null)
+            if (balanceTextKeys != null)
+            {
+                for (int i = 0; i < balanceTextKeys.Length; i++)
                 {
-                    for (int i = 0; i < balanceTextKeys.Length; i++)
+                    switch (balanceTextKeys[i])
                     {
-                        switch (balanceTextKeys[i])
-                        {
-                            case "Damage":
-                                {
+                        case "Damage":
+                            {
 
-                                    EModeChange change = balanceNumber > 1 ? EModeChange.Buff : balanceNumber < 1 ? EModeChange.Nerf : EModeChange.Neutral;
-                                    int amount = change == EModeChange.Buff ? (int)Math.Round((balanceNumber - 1f) * 100f) : (int)Math.Round((1f - balanceNumber) * 100f);
-                                    string key = change == EModeChange.Buff ? "DamagePositive" : "Damage";
-                                    ItemBalance(tooltips, change, key, amount);
-                                    break;
-                                }
-
-                            case "Speed":
-                                {
-                                    EModeChange change = balanceNumber > 1 ? EModeChange.Buff : balanceNumber < 1 ? EModeChange.Nerf : EModeChange.Neutral;
-                                    int amount = change == EModeChange.Buff ? (int)Math.Round((balanceNumber - 1f) * 100f) : (int)Math.Round((1f - balanceNumber) * 100f);
-                                    string key = change == EModeChange.Buff ? "SpeedPositive" : "Speed";
-                                    ItemBalance(tooltips, change, key, amount);
-                                    break;
-                                }
-
-                            case "DamageNoTooltip":
-                            case "SpeedNoTooltip":
+                                EModeChange change = balanceNumber > 1 ? EModeChange.Buff : balanceNumber < 1 ? EModeChange.Nerf : EModeChange.Neutral;
+                                int amount = change == EModeChange.Buff ? (int)Math.Round((balanceNumber - 1f) * 100f) : (int)Math.Round((1f - balanceNumber) * 100f);
+                                string key = change == EModeChange.Buff ? "DamagePositive" : "Damage";
+                                ItemBalance(tooltips, change, key, amount);
                                 break;
+                            }
 
-                            default:
+                        case "Speed":
+                            {
+                                EModeChange change = balanceNumber > 1 ? EModeChange.Buff : balanceNumber < 1 ? EModeChange.Nerf : EModeChange.Neutral;
+                                int amount = change == EModeChange.Buff ? (int)Math.Round((balanceNumber - 1f) * 100f) : (int)Math.Round((1f - balanceNumber) * 100f);
+                                string key = change == EModeChange.Buff ? "SpeedPositive" : "Speed";
+                                ItemBalance(tooltips, change, key, amount);
+                                break;
+                            }
+
+                        case "DamageNoTooltip":
+                        case "SpeedNoTooltip":
+                            break;
+
+                        default:
+                            {
+                                EModeChange change = balance;
+                                if (balanceNumber != -1 && balanceTextKeys != null && i == 0)
                                 {
-                                    EModeChange change = balance;
-                                    if (balanceNumber != -1 && balanceTextKeys != null && i == 0)
-                                    {
-                                        ItemBalance(tooltips, change, balanceTextKeys[i], (int)balanceNumber);
-                                    }
-                                    else if (extra != string.Empty && balanceTextKeys != null && i == 0)
-                                    {
-                                        ItemBalance(tooltips, change, balanceTextKeys[i], extra);
-                                    }
-                                    else
-                                    {
-                                        ItemBalance(tooltips, change, balanceTextKeys[i]);
-                                    }
-                                    break;
+                                    ItemBalance(tooltips, change, balanceTextKeys[i], (int)balanceNumber);
                                 }
-                        }
+                                else if (extra != string.Empty && balanceTextKeys != null && i == 0)
+                                {
+                                    ItemBalance(tooltips, change, balanceTextKeys[i], extra);
+                                }
+                                else
+                                {
+                                    ItemBalance(tooltips, change, balanceTextKeys[i]);
+                                }
+                                break;
+                            }
                     }
                 }
-                //TODO: mana pot rework
-                /*
-                if (item.healMana > 0)
-                {
-                    ItemBalance(tooltips, EModeChange.Neutral, "ManaPots");
-                }
-                */
-                if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
-                {
-                    ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
-                    ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
-                }
-                if (item.prefix >= PrefixID.Hard && item.prefix <= PrefixID.Warding)
-                {
-                    ItemBalance(tooltips, EModeChange.Neutral, "DefensePrefix");
-                }
-                //else if (item.CountsAsClass(DamageClass.Summon))
-                //{
-                //    if (!(EModeGlobalProjectile.IgnoreMinionNerf.TryGetValue(item.shoot, out bool ignoreNerf) && ignoreNerf))
-                //        ItemBalance(tooltips, EModeChange.Nerf, "MinionStack");
-
-                //    ItemBalance(tooltips, EModeChange.Nerf, "SummonMulticlass");
-                //}
             }
+            //TODO: mana pot rework
+            /*
+            if (item.healMana > 0)
+            {
+                ItemBalance(tooltips, EModeChange.Neutral, "ManaPots");
+            }
+            */
+            if (item.shoot > ProjectileID.None && ProjectileID.Sets.IsAWhip[item.shoot])
+            {
+                ItemBalance(tooltips, EModeChange.Nerf, "WhipSpeed");
+                ItemBalance(tooltips, EModeChange.Nerf, "WhipStack");
+            }
+            if (item.prefix >= PrefixID.Hard && item.prefix <= PrefixID.Warding)
+            {
+                ItemBalance(tooltips, EModeChange.Neutral, "DefensePrefix");
+            }
+            //else if (item.CountsAsClass(DamageClass.Summon))
+            //{
+            //    if (!(EModeGlobalProjectile.IgnoreMinionNerf.TryGetValue(item.shoot, out bool ignoreNerf) && ignoreNerf))
+            //        ItemBalance(tooltips, EModeChange.Nerf, "MinionStack");
+
+            //    ItemBalance(tooltips, EModeChange.Nerf, "SummonMulticlass");
+            //}
+        }
     }
 }

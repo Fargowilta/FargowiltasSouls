@@ -12,7 +12,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 {
 
-	public class BaronEyeFlash : ModProjectile
+    public class BaronEyeFlash : ModProjectile
     {
         public override string Texture => FargoSoulsUtil.EmptyTexture;
         public override void SetStaticDefaults()
@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             {
                 Projectile.Kill();
             }
-            
+
         }
         public override void OnKill(int timeLeft)
         {

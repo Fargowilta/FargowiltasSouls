@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
         {
             Timer = reader.ReadSingle();
         }
-        
+
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             if (target.HasBuff<GrabbedBuff>())
@@ -92,7 +92,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                 Projectile.scale = 0.2f;
                 Projectile.localAI[0] = 1;
             }
-                
+
             if (State != 1 && State != 2)
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
@@ -124,7 +124,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
                         Projectile.rotation = Projectile.SafeDirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
                     }
-                    break;  
+                    break;
                 case 2:
                     {
                         float divisor = WorldSavingSystem.MasochistModeReal ? 2f : 3f;
@@ -151,7 +151,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                             Projectile.velocity.X = -0.15f;
                             Projectile.velocity.Y = -0.05f;
                         }
-                        
+
                     }
                     break;
                 case 100: //grabbed player, toss
@@ -192,7 +192,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                                 victim.Center = Projectile.Center;
                                 victim.fullRotation = Projectile.DirectionFrom(owner.Center).ToRotation() + MathHelper.PiOver2;
                                 victim.fullRotationOrigin = victim.Center - victim.position;
-                                
+
                             }
                             else // escaped
                             {
@@ -208,7 +208,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                                     NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, Projectile.whoAmI);
                             }
                         }
-                        
+
                         Timer++;
                     }
                     break;

@@ -16,7 +16,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantTrueEyeDeathray : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class MutantTrueEyeDeathray : BaseDeathray, IPixelatedPrimitiveRenderer
     {
 
         public override string Texture => $"FargowiltasSouls/Content/Projectiles/Deathrays/{(FargoSoulsUtil.AprilFools ? "PhantasmalDeathray" : "PhantasmalDeathrayML")}";

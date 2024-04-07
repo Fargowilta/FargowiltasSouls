@@ -26,7 +26,7 @@ using Terraria.Localization;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public partial class FargoSoulsPlayer
+    public partial class FargoSoulsPlayer
     {
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
         {
@@ -79,11 +79,11 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public void ModifyHitNPCBoth(NPC target, ref NPC.HitModifiers modifiers, DamageClass damageClass)
         {
-            
-            
+
+
             modifiers.ModifyHitInfo += (ref NPC.HitInfo hitInfo) =>
             {
-                
+
                 if (hitInfo.Crit)
                 {
                     if (Eternity)
@@ -440,8 +440,8 @@ namespace FargowiltasSouls.Core.ModPlayers
             {
                 modifiers.ModifyHurtInfo += (ref Player.HurtInfo hurtInfo) =>
                 {
-                    if(hurtInfo.Damage <= 1) return;
-                    
+                    if (hurtInfo.Damage <= 1) return;
+
                     int scythesSacrificed = 0;
                     const int maxSacrifice = 4;
                     const double maxDR = 0.20;

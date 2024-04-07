@@ -7,7 +7,7 @@ using Terraria.DataStructures;
 
 namespace FargowiltasSouls.Content.Tiles.MusicBoxes
 {
-	public class StoriaMusicBoxSheet : ModTile
+    public class StoriaMusicBoxSheet : ModTile
     {
         public override void SetStaticDefaults()
         {

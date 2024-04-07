@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 {
 
-	public class BaronWhirlpool : ModProjectile
+    public class BaronWhirlpool : ModProjectile
     {
         public override void SetStaticDefaults()
         {

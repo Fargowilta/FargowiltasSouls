@@ -16,7 +16,7 @@ using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class LunaticCultist : EModeNPCBehaviour
+    public class LunaticCultist : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.CultistBoss);
 

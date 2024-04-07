@@ -45,7 +45,7 @@ namespace FargowiltasSouls.Content.Buffs.Minions
                         FargoSoulsUtil.NewSummonProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<PungentEyeballMinion>(), damage, 0f, player.whoAmI);
                 }
 
-                
+
                 if (player.AddEffect<RainbowSlimeMinion>(item))
                 {
                     fargoPlayer.RainbowSlime = true;

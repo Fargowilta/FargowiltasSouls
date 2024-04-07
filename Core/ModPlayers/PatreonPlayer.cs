@@ -330,7 +330,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             }
 
-            
+
         }
     }
 }

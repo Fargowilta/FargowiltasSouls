@@ -85,7 +85,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                     NPC.active = false;
                 }
             }
-            
+
         }
 
 

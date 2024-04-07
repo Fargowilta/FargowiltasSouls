@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Will
 {
-	public class WillDeathraySmall : BaseDeathray
+    public class WillDeathraySmall : BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/AbomDeathray";
 

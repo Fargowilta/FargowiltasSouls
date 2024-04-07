@@ -22,7 +22,7 @@ using FargowiltasSouls.Content.Bosses.MutantBoss;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public abstract class MoonLord : EModeNPCBehaviour
+    public abstract class MoonLord : EModeNPCBehaviour
     {
         public abstract int GetVulnerabilityState(NPC npc);
 
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     default: break;
                 }
             }
-            
+
 
             return base.CanBeHitByProjectile(npc, projectile);
         }

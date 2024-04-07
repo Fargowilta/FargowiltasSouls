@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             if (recolor)
                 Lighting.AddLight(Projectile.Center, 25f / 255, 47f / 255, 64f / 255);
             else
-                Lighting.AddLight(Projectile.Center, .4f, 1.2f, .4f); 
+                Lighting.AddLight(Projectile.Center, .4f, 1.2f, .4f);
 
 
             if (Projectile.localAI[0] == 0) //random rotation direction
@@ -89,7 +89,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                             }
                         }
                     }
-                    
+
                     for (int index1 = 0; index1 < 20; ++index1)
                     {
                         int dustID = recolor ?

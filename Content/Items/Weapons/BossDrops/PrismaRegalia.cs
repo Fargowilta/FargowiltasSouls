@@ -7,16 +7,12 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
 {
-	public class PrismaRegalia : SoulsItem
+    public class PrismaRegalia : SoulsItem
     {
 
         public override void SetStaticDefaults()
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            //DisplayName.SetDefault("Prisma Regalia");
-            //Tooltip.SetDefault("Hitting with the tip of the spear releases homing stars\nHold to charge for more damage \nWhile fully charged, tip hits release twice as many stars\n'The radiant power of a foe's pure essence...'");
-            //DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "");
-            //Tooltip.AddTranslation((int)GameCulture.CultureName.Chinese, "");
         }
 
         public override void SetDefaults()
@@ -43,7 +39,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
         public override bool CanUseItem(Player player)
         {
             return player.ownedProjectileCounts[Item.shoot] < 1;
-            
+
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

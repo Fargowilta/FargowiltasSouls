@@ -36,7 +36,8 @@ namespace FargowiltasSouls.Core.Globals
         // a global is to return base.NewInstance() and that can't fit into the
         // old API. In the interest of making literally half the mod work, this
         // is just a bandaid fix.
-        public override GlobalNPC NewInstance(NPC target) {
+        public override GlobalNPC NewInstance(NPC target)
+        {
             TryLoadSprites(target);
             if (!WorldSavingSystem.EternityVanillaBehaviour && target.ModNPC == null)
             {

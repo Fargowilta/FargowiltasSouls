@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                         p.friendly = false;
                         p.hostile = true;
                     }
-                        
+
                 }
 
                 int max = WorldSavingSystem.MasochistModeReal ? 18 : 6;

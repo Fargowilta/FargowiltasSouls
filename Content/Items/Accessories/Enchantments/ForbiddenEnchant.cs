@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ForbiddenEnchant : BaseEnchant
+    public class ForbiddenEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(231, 178, 28);
-        
+
 
         public override void SetDefaults()
         {

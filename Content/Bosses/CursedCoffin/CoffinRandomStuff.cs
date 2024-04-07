@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
         }
         public ref float ObjectType => ref Projectile.ai[0];
         public ref float StartHeight => ref Projectile.ai[1];
-        public static float Gravity(float objectType) => 
+        public static float Gravity(float objectType) =>
             objectType switch
             {
                 5 => 0.15f, // vase

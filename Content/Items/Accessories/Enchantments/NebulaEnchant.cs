@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class NebulaEnchant : BaseEnchant
+    public class NebulaEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -28,7 +28,7 @@ Buff booster stacking capped at 2
         }
 
         public override Color nameColor => new(254, 126, 229);
-        
+
 
         public override void SetDefaults()
         {

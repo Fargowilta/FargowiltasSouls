@@ -8,7 +8,7 @@ using FargowiltasSouls.Content.Items.Weapons.Challengers;
 
 namespace FargowiltasSouls.Content.PlayerDrawLayers
 {
-	public class RoseTintedVisorDrawLayer : PlayerDrawLayer
+    public class RoseTintedVisorDrawLayer : PlayerDrawLayer
     {
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.HeldItem.type == ModContent.ItemType<RoseTintedVisor>() && !drawInfo.drawPlayer.dead;
         public override Position GetDefaultPosition() => new Between();

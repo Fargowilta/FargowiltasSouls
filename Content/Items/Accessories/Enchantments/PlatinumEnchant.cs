@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PlatinumEnchant : BaseEnchant
+    public class PlatinumEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(83, 103, 143);
-        
+
 
         public override void SetDefaults()
         {

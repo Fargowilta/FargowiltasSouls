@@ -19,7 +19,7 @@ using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class BrainofCthulhu : EModeNPCBehaviour
+    public class BrainofCthulhu : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.BrainofCthulhu);
 

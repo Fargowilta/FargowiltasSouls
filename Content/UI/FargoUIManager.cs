@@ -115,7 +115,7 @@ namespace FargowiltasSouls.Content.UI
             if (SoulConfig.Instance.ToggleSearchReset)
             {
                 SoulToggler.SearchBar.Input = "";
-                
+
             }
             SoulToggler.NeedsToggleListBuilding = true;
         }

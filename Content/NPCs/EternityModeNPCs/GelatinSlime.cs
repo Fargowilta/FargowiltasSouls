@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
 {
-	public class GelatinSlime : ModNPC
+    public class GelatinSlime : ModNPC
     {
         public override string Texture => "Terraria/Images/NPC_658";
 

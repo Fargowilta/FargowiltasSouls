@@ -320,7 +320,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                             Vector2 vel = pos.SafeDirectionTo(player.Center) * speed;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, 0.03f, ai2: npc.whoAmI);
                         }
-                        
+
                     }
                 }
             }

@@ -7,7 +7,7 @@ using Terraria;
 
 namespace FargowiltasSouls.Content.Projectiles.Deathrays
 {
-	public class DeviDeathraySmall : BaseDeathray
+    public class DeviDeathraySmall : BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/DeviDeathray";
 
@@ -114,8 +114,8 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
             for (int i = 0; i < baseDrawPoints.Length; i++)
                 baseDrawPoints[i] = Vector2.Lerp(initialDrawPoint, laserEnd, i / (float)(baseDrawPoints.Length - 1f));
 
-			// Set shader parameters.
-			shader.TrySetParameter("mainColor", new Color(240, 220, 240, 100));
+            // Set shader parameters.
+            shader.TrySetParameter("mainColor", new Color(240, 220, 240, 100));
             FargoSoulsUtil.SetTexture1(FargosTextureRegistry.MutantStreak.Value);
             shader.TrySetParameter("stretchAmount", 3);
             shader.TrySetParameter("scrollSpeed", 1f);

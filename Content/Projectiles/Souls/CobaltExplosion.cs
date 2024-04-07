@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 Projectile.frameCounter = 0;
                 Projectile.frame++;
             }
-            
+
             if (Projectile.frame >= Main.projFrames[Type])
             {
                 Projectile.Kill();

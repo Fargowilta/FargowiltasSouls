@@ -81,7 +81,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         maxTime = 60;
                         NPC lifelight = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<LifeChallenger>());
                         Player target = Main.player[lifelight.target];
-                        if (lifelight != null && lifelight.active && target != null && target.active )
+                        if (lifelight != null && lifelight.active && target != null && target.active)
                         {
                             Projectile.rotation = lifelight.SafeDirectionTo(target.Center).ToRotation();
                             Projectile.Center = lifelight.Center;
@@ -90,7 +90,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     break;
                 case -1: //lifelight line telegraphs, YELLOW
                     {
-                        color = Color.Goldenrod; 
+                        color = Color.Goldenrod;
                         alphaModifier = 1;
                         Projectile.scale = 0.6f;
                         maxTime = 60;
@@ -115,7 +115,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         Projectile.rotation = Projectile.ai[1];
                     }
                     break;
-                
+
                 case 2: //banished baron dash telegraph
                     {
                         NPC baron = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<BanishedBaron>());
@@ -158,7 +158,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         maxTime = 29;
                     }
                     break;
-                
+
                 case 5: //nebula pillar shot telegraph
                     {
                         Projectile.rotation = Projectile.ai[1];
@@ -179,7 +179,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         Projectile.rotation = (-Vector2.UnitY).RotatedBy(startRot).RotatedBy(direction * maxRot * ratio).ToRotation();
                         color = Color.DeepPink;
                         Projectile.scale = 1f;
-                        
+
                         break;
                     }
                 case 7: //sweeping nebula pillar shot telegraph

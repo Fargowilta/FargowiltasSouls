@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Nebula
 {
-	public class NebulaPillarProj : ModProjectile
+    public class NebulaPillarProj : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Masomode/CelestialPillar";
 
@@ -84,7 +84,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                 return;
             }
             //startup
-            
+
             if (Timer <= StartTime)
             {
                 if (Projectile.alpha > 105)
@@ -98,7 +98,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                 }
                 float rotation = (Timer / 60f) * MathHelper.PiOver2 + (MathHelper.PiOver2 * num);
                 Vector2 pos = player.Center + rotation.ToRotationVector2() * Distance;
-                
+
                 Projectile.Center = pos;
                 if (Timer == 0)
                 {

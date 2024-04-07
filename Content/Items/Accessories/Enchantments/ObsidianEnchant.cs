@@ -12,7 +12,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ObsidianEnchant : BaseEnchant
+    public class ObsidianEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -83,7 +83,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class ObsidianEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => null;
     }
     public class ObsidianProcEffect : AccessoryEffect

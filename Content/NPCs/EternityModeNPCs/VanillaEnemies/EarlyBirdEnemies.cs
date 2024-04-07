@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies
 {
-	public class EarlyBirdEnemies : EModeNPCBehaviour
+    public class EarlyBirdEnemies : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.WyvernHead,

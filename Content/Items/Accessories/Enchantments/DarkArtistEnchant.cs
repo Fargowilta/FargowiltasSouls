@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class DarkArtistEnchant : BaseEnchant
+    public class DarkArtistEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -17,7 +17,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(155, 92, 176);
-        
+
 
         public override void SetDefaults()
         {

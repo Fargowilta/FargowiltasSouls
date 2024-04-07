@@ -36,7 +36,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
 
             if (effect.MinionEffect || effect.ExtraAttackEffect)
             {
-                
+
                 if (modPlayer.PrimeSoulActive)
                 {
                     if (!player.HasEffect(effect)) // Don't stack per item
@@ -63,7 +63,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
 
             if (!effectPlayer.ActiveEffects[effect.Index])
             {
-                
+
                 effectPlayer.ActiveEffects[effect.Index] = true;
                 return true;
             }
@@ -74,6 +74,6 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
         public static Item EffectItem<T>(this Player player) where T : AccessoryEffect => player.AccessoryEffects().EffectItems[ModContent.GetInstance<T>().Index];
         public static IEntitySource GetSource_EffectItem<T>(this Player player) where T : AccessoryEffect => ModContent.GetInstance<T>().GetSource_EffectItem(player);
         public static T EffectType<T>() where T : AccessoryEffect => ModContent.GetInstance<T>();
-        public static AccessoryEffect EffectType(string internalName)  => ModContent.Find<AccessoryEffect>(internalName);
+        public static AccessoryEffect EffectType(string internalName) => ModContent.Find<AccessoryEffect>(internalName);
     }
 }

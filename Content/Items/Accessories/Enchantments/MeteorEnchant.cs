@@ -14,11 +14,11 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MeteorEnchant : BaseEnchant
+    public class MeteorEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(95, 71, 82);
-        
+
 
         public override void SetDefaults()
         {

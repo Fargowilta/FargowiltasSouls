@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class RainEnchant : BaseEnchant
+    public class RainEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +27,7 @@ Effects of Inner Tube
         }
 
         public override Color nameColor => new(255, 236, 0);
-        
+
 
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class AncientShadowEnchant : BaseEnchant
+    public class AncientShadowEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
         public static void AddEffects(Player player, Item item)
         {
-            
+
             FargoSoulsPlayer modPlayer = player.FargoSouls();
             modPlayer.MonkEnchantActive = true;
             player.AddEffect<MonkDashEffect>(item);
@@ -157,7 +157,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                         break;
                     }
                 }
-                
+
                 if (tryGoThroughWalls && player.HasEffect<ShinobiThroughWalls>()) //go through walls
                 {
                     while (Collision.SolidCollision(teleportPos, player.width, player.height))
@@ -172,7 +172,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                         }
                     }
                 }
-                
+
                 if (teleportPos.X > 50 && teleportPos.X < (double)(Main.maxTilesX * 16 - 50) && teleportPos.Y > 50 && teleportPos.Y < (double)(Main.maxTilesY * 16 - 50))
                 {
                     FargoSoulsUtil.GrossVanillaDodgeDust(player);

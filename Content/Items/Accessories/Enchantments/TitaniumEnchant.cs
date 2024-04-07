@@ -12,7 +12,7 @@ using Terraria.Graphics.Shaders;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class TitaniumEnchant : BaseEnchant
+    public class TitaniumEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +27,7 @@ This has a cooldown of 10 seconds during which you cannot gain shards
         }
 
         public override Color nameColor => new(130, 140, 136);
-        
+
 
         public override void SetDefaults()
         {

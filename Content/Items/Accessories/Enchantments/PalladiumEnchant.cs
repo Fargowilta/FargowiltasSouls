@@ -9,11 +9,11 @@ using System;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PalladiumEnchant : BaseEnchant
+    public class PalladiumEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(245, 172, 40);
-        
+
 
         public override void SetDefaults()
         {
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             {
                 player.AddBuff(BuffID.RapidHealing, Math.Min(LumUtils.SecondsToFrames(5), hitInfo.Damage / 3)); //heal time based on damage dealt, capped at 5sec
             }
-        } 
+        }
     }
     public class PalladiumEffect : AccessoryEffect
     {

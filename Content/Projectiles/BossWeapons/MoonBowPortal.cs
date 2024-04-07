@@ -46,7 +46,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            
+
             if (!player.active)
             {
                 Projectile.Kill();

@@ -16,7 +16,7 @@ using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathray2 : MutantSpecialDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathray2 : MutantSpecialDeathray, IPixelatedPrimitiveRenderer
     {
         public MutantDeathray2() : base(180) { }
 

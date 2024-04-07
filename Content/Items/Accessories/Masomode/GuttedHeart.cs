@@ -133,7 +133,7 @@ Creeper respawn speed increases when not moving
                 }
             }
         }
-        
+
     }
     public class GuttedHeartMinions : AccessoryEffect
     {

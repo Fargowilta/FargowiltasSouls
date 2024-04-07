@@ -235,5 +235,5 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             return false;
         }
     }
-    
+
 }

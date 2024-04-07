@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Core.Globals
             {
                 return false;
             }
-            return lateInstantiation &&  Matcher.Satisfies(entity.type);
+            return lateInstantiation && Matcher.Satisfies(entity.type);
         }
 
         public override void Load()
@@ -34,7 +34,8 @@ namespace FargowiltasSouls.Core.Globals
         public abstract NPCMatcher CreateMatcher();
 
         // This entire file is a bandaid fix for the new AppliesToEntity and NewInstance system. Put an Eternity Mode check in every overriden method instead.
-        public override GlobalNPC NewInstance(NPC target) {
+        public override GlobalNPC NewInstance(NPC target)
+        {
             TryLoadSprites(target);
             return Matcher.Satisfies(target.type) ? base.NewInstance(target) : null;
         }

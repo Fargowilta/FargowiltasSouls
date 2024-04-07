@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ValhallaKnightEnchant : BaseEnchant
+    public class ValhallaKnightEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(147, 101, 30);
-        
+
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -47,7 +47,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class ValhallaDash : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<ValhallaKnightEnchant>();
     }

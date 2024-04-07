@@ -22,7 +22,7 @@ using FargowiltasSouls.Core;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class Destroyer : EModeNPCBehaviour
+    public class Destroyer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.TheDestroyer);
 
@@ -751,7 +751,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             target.AddBuff(BuffID.Electrified, 60);
             target.AddBuff(ModContent.BuffType<LightningRodBuff>(), 600);
         }
-        
+
 
         public override void LoadSprites(NPC npc, bool recolor)
         {
@@ -982,7 +982,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 modifiers.Null();
             }
         }
-        
+
 
         public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {

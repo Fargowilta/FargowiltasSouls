@@ -18,10 +18,10 @@ using Terraria.UI;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Souls
 {
-	[AutoloadEquip(EquipType.Wings)]
+    [AutoloadEquip(EquipType.Wings)]
     public class EternitySoul : FlightMasteryWings
     {
-        
+
         public override bool HasSupersonicSpeed => true;
 
         public override bool Eternity => true;
@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 10));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         }
-        
+
         public override void SafeModifyTooltips(List<TooltipLine> tooltips)
         {
             if (Item.social)
@@ -54,7 +54,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
 
             string description = Language.GetTextValue("Mods.FargowiltasSouls.Items.EternitySoul.Extra.Additional");
             description += "                                                                                                                                               "; // blankspaces for consistent box size lmao
-            
+
             if (Main.GameUpdateCount % 5 == 0 || EternitySoulSystem.TooltipLines == null)
             {
                 EternitySoulSystem.TooltipLines = new();

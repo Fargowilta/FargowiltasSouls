@@ -110,7 +110,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
             {
                 if (Active(effect))
                     effect.PostUpdateEquips(Player);
-                
+
             }
         }
         private static List<AccessoryEffect> HookUpdateBadLifeRegen = AddHook<Action<Player>>(p => p.UpdateBadLifeRegen);

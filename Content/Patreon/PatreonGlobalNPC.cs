@@ -32,12 +32,12 @@ namespace FargowiltasSouls.Content.Patreon
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             base.ModifyNPCLoot(npc, npcLoot);
-            
+
             void AddPatreonDrop(Func<bool> condition, int item, int chanceDenominator = 1, string extraKey = default)
             {
                 string description = Language.GetTextValue("Mods.FargowiltasSouls.Conditions.Patreon");
                 if (extraKey != default)
-                     description = Language.GetTextValue($"Mods.FargowiltasSouls.Conditions.{extraKey}");
+                    description = Language.GetTextValue($"Mods.FargowiltasSouls.Conditions.{extraKey}");
                 RuntimeDropCondition dropCondition = new(condition, description);
                 npcLoot.Add(ItemDropRule.ByCondition(dropCondition, item, chanceDenominator));
             }
@@ -96,7 +96,7 @@ namespace FargowiltasSouls.Content.Patreon
 
                 default:
                     break;
-                
+
             }
             if (npc.type == ModContent.NPCType<AbomBoss>())
             {

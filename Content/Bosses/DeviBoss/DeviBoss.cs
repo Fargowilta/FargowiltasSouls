@@ -123,7 +123,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             NPC.lifeMax = 6000;
             if (WorldSavingSystem.EternityMode)
             {
-                NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5f); 
+                NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5f);
 
                 if (!Main.masterMode) //master mode is already long enough
                     NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.4f);
@@ -594,12 +594,12 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i + angleOffset) * speed, ModContent.ProjectileType<DeviHammer>(), projectileDamage, 0f, Main.myPlayer, acc, time);
                         };
 
-                        SpawnHammers(100,  MathHelper.PiOver4);
-                        SpawnHammers(150,  0);
+                        SpawnHammers(100, MathHelper.PiOver4);
+                        SpawnHammers(150, 0);
                         if (WorldSavingSystem.EternityMode)
-                            SpawnHammers(200,  MathHelper.PiOver4);
+                            SpawnHammers(200, MathHelper.PiOver4);
                         if (WorldSavingSystem.MasochistModeReal)
-                            SpawnHammers(300,  0);
+                            SpawnHammers(300, 0);
                     }
                 }
                 else if (Timer > 90)
