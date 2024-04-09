@@ -347,7 +347,7 @@ namespace FargowiltasSouls
                 netMessage.Send();
             }
             Main.npcChatText = Language.GetTextValue("Mods.Fargowiltas.NPCs.Deviantt.Chat.GiveGifts"); // mutant mod entry
-            return default;
+            return ModCallManager.DefaultObject;
         }
     }
     internal sealed class SummonCritCall : ModCall
