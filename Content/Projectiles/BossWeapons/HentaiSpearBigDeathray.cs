@@ -65,7 +65,8 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             Player player = Main.player[Projectile.owner];
 
             if (!Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                    ScreenShakeSystem.SetUniversalRumble(7);
 
             Vector2? vector78 = null;
             if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
@@ -244,7 +245,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             if (!Main.dedServ)
             {
                 ManagedScreenFilter filter = ShaderManager.GetFilter("FargowiltasSouls.FinalSpark");
-                spark.Activate();
+                filter.Activate();
                 if (SoulConfig.Instance.ForcedFilters && Main.WaveQuality == 0)
                     Main.WaveQuality = 1;
             }

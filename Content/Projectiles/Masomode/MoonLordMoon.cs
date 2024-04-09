@@ -1,6 +1,7 @@
 using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Core.Globals;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -44,7 +45,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
 
                 if (!Main.dedServ && Main.LocalPlayer.active)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 30;
+                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
 
                 for (int num615 = 0; num615 < 20; num615++)
                 {

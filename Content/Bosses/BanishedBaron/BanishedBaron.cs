@@ -432,7 +432,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             }
             if (NPC.life <= 0)
             {
-                Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
                 for (int i = 1; i <= 4; i++)
                 {
                     Vector2 pos = NPC.position + new Vector2(Main.rand.NextFloat(NPC.width), Main.rand.NextFloat(NPC.height));
@@ -780,11 +780,10 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                 RotateTowards(up, 15);
             }
 
+
             if (Timer == 1)
             {
                 SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/BaronHit"), NPC.Center);
-                if (!Main.dedServ)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 100;
 
                 HitPlayer = false;
                 LockVector1 = Vector2.UnitX * Math.Sign(player.Center.X - NPC.Center.X); //register for rotation animation
@@ -816,6 +815,8 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             }
             if (Timer < transTime)
             {
+                if (!Main.dedServ)
+                    ScreenShakeSystem.SetUniversalRumble(6);
                 if (Main.LocalPlayer.wet)
                 {
                     Main.LocalPlayer.velocity.Y -= 0.05f;

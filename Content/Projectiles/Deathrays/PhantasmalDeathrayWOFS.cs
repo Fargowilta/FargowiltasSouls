@@ -40,6 +40,7 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
+
             /*if (Projectile.localAI[0] == 0f)
             {
                 SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);

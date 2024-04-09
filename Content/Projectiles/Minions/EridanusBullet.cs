@@ -99,8 +99,6 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                 Projectile.Damage();
             }
 
-            //if (!Main.dedServ && Main.LocalPlayer.active) Main.LocalPlayer.FargoSouls().Screenshake = 30;
-
             SoundEngine.PlaySound(SoundID.NPCDeath6, Projectile.Center);
             SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);

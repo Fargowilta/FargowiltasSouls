@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Content.Buffs.Masomode;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -97,7 +98,7 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
 
                 if (Projectile.localAI[0] == descendTime && !Main.dedServ && Main.LocalPlayer.active)
                 {
-                    Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
                     for (int i = -1; i <= 1; i += 2)
                     {
                         for (int j = 0; j < 50; j++)

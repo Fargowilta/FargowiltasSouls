@@ -1456,7 +1456,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             if (NPC.ai[1] == 20)
             {
                 if (!Main.dedServ && Main.LocalPlayer.active)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 30;
+                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
 
                 //moon chain explosions
                 if (WorldSavingSystem.EternityMode && AttackChoice != 9 || WorldSavingSystem.MasochistModeReal)
@@ -1525,7 +1525,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             if (NPC.ai[2] == 0)
             {
                 if (NPC.ai[1] < 60 && !Main.dedServ && Main.LocalPlayer.active)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                    if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                        ScreenShakeSystem.SetUniversalRumble(7);
             }
             else
             {
@@ -2530,7 +2531,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             if (NPC.ai[1] > (WorldSavingSystem.MasochistModeReal ? 120 : 180))
             {
                 if (!Main.dedServ && Main.LocalPlayer.active)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                    if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                        ScreenShakeSystem.SetUniversalRumble(7);
 
                 if (FargoSoulsUtil.HostCheck)
                 {
@@ -3362,7 +3364,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             }
 
             if (NPC.ai[1] < 60 && !Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                    ScreenShakeSystem.SetUniversalRumble(7);
 
             if (NPC.ai[1] == 360)
             {

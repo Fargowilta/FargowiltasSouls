@@ -47,7 +47,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public float WingTimeModifier = 1f;
 
         public bool FreeEaterSummon = true;
-        public int Screenshake;
 
         public bool RustRifleReloading = false;
         public float RustRifleReloadZonePos = 0;
@@ -181,8 +180,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             FargoDash = DashType.None;
 
             AttackSpeed = 1f;
-            if (Screenshake > 0)
-                Screenshake--;
 
             if (NoUsingItems > 0)
                 NoUsingItems--;
@@ -1271,12 +1268,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (Player.statLife > Player.statLifeMax2)
                 Player.statLife = Player.statLifeMax2;
             Player.HealEffect(amount);
-        }
-
-        public override void ModifyScreenPosition()
-        {
-            if (Screenshake > 0)
-                Main.screenPosition += Main.rand.NextVector2Circular(7, 7);
         }
 
         public override void CopyClientState(ModPlayer clientClone)

@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Core.Systems;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -53,8 +54,8 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
             if (WorldSavingSystem.MasochistModeReal)
             {
                 maxScale = Main.rand.NextFloat(2.5f, 5f);
-                if (!Main.dedServ && Main.LocalPlayer.FargoSouls().Screenshake < 2)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                if (!Main.dedServ && ScreenShakeSystem.OverallShakeIntensity < 7)
+                    ScreenShakeSystem.SetUniversalRumble(7);
             }
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] >= maxTime)

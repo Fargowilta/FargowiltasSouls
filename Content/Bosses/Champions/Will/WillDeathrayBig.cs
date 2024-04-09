@@ -123,7 +123,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Will
 
             if (Main.LocalPlayer.active && !Main.dedServ)
             {
-                Main.LocalPlayer.FargoSouls().Screenshake = 10;
+                if (ScreenShakeSystem.OverallShakeIntensity < 5)
+                    ScreenShakeSystem.SetUniversalRumble(5);
 
                 if (Projectile.localAI[0] < maxTime / 2)
                 {

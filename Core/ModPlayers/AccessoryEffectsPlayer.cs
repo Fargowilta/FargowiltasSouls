@@ -28,6 +28,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
@@ -375,7 +376,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 MutantEyeCD = 3600;
 
                 if (!Main.dedServ && Main.LocalPlayer.active)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 30;
+                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
 
                 const int invulTime = 90;
                 Player.immune = true;
@@ -601,7 +602,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                             if (Player.HasEffect<LihzahrdBoulders>())
                             {
                                 if (!Main.dedServ)
-                                    Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
 
                                 if (Player.whoAmI == Main.myPlayer)
                                 {

@@ -640,7 +640,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 }
 
                 if (!Main.dedServ)
-                    Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                    ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
 
                 if (WorldSavingSystem.EternityMode && !WorldSavingSystem.DownedBoss[(int)WorldSavingSystem.Downed.Lifelight] && FargoSoulsUtil.HostCheck)
                     Item.NewItem(NPC.GetSource_Loot(), Main.player[NPC.target].Hitbox, ModContent.ItemType<FragilePixieLamp>());
@@ -1033,7 +1033,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     SoundEngine.PlaySound(SoundID.Item92 with { Pitch = -0.5f }, NPC.Center);
 
                     if (!Main.dedServ)
-                        Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                        ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
 
                     if (FargoSoulsUtil.HostCheck)
                     {
@@ -2374,9 +2374,9 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), ShootPlayer, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
                 }
             }
-            if (AI_Timer >= endtime)
+            if (AI_Timer >= endtime) 
             {
-                if (RuneFormation != Formations.Circle)
+                if (RuneFormation != Formations.Circle) 
                 {
                     RuneFormation = Formations.Circle;
                     RuneFormationTimer = 0;
@@ -2425,6 +2425,12 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             if (AI_Timer <= StartTime)
                 LockVector2 = NPC.SafeDirectionTo(Player.Center);
 
+            if (AI_Timer >= StartTime && ShotCount < 6) // screenshake
+            {
+                if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                    ScreenShakeSystem.SetUniversalRumble(7);
+            }
+
             if (AI_Timer == StartTime) //teleport and first shots
             {
                 NPC.Center = LockVector1;
@@ -2435,7 +2441,6 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     if (FargoSoulsUtil.HostCheck)
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 8 * i) * 24f, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
                 }
-                Main.LocalPlayer.FargoSouls().Screenshake = 90;
 
                 //telegraph nukes
                 for (int i = 0; i < 6; i++)

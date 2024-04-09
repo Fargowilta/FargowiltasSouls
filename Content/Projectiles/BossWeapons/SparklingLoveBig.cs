@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Luminance.Core.Graphics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
@@ -145,7 +146,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
         public override void OnKill(int timeleft)
         {
             if (!Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.FargoSouls().Screenshake = 60;
+                ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 60);
 
             MakeDust();
 

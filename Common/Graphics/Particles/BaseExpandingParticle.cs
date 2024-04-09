@@ -46,10 +46,10 @@ namespace FargowiltasSouls.Common.Graphics.Particles
 
 		public sealed override void Draw(SpriteBatch spriteBatch)
 		{
-            spriteBatch.Draw(Texture, Position - Main.screenPosition, Frame, DrawColor with { A = 0 } * Opacity, Rotation, null, Scale, Direction.ToSpriteDirection());
+            spriteBatch.Draw(Texture, Position - Main.screenPosition, Frame, DrawColor with { A = 0 } * Opacity, Rotation, null, DrawScale, Direction.ToSpriteDirection());
 
 			if (UseBloom)
-				spriteBatch.Draw(Texture, Position - Main.screenPosition, null, BloomColor with { A = 0 } * 0.4f * Opacity, Rotation, null, Scale * 0.66f, Direction.ToSpriteDirection());
+				spriteBatch.Draw(Texture, Position - Main.screenPosition, null, BloomColor with { A = 0 } * 0.4f * Opacity, Rotation, null, DrawScale * 0.66f, Direction.ToSpriteDirection());
 		}
 	}
 }

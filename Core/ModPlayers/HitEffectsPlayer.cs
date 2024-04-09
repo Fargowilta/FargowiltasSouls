@@ -23,6 +23,7 @@ using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Terraria.Localization;
+using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
@@ -547,7 +548,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                         {
                             Player.KillMe(Terraria.DataStructures.PlayerDeathReason.ByCustomReason(Language.GetTextValue("Mods.FargowiltasSouls.DeathMessage.TwentyTwo", Player.name)), 22222222, 0);
                             Projectile.NewProjectile(Player.GetSource_Death(), Player.Center, Vector2.Zero, ModContent.ProjectileType<TwentyTwo>(), 0, 0f, Main.myPlayer);
-                            Screenshake = 120;
+                            ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 120);
                         }
                     }
                 }

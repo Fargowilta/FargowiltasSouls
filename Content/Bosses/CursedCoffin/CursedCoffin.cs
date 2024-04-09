@@ -119,7 +119,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 				npcHitbox.X = (int)(centerX - (npcHitbox.Width / 2));
                 npcHitbox.Y = (int)(centerY - (npcHitbox.Height / 2));
             }
-            return base.ModifyCollisionData(victimHitbox, ref immunityCooldownSlot, ref damageMultiplier, ref npcHitbox);
+			return true;
         }
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {

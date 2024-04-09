@@ -1,3 +1,4 @@
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -90,8 +91,8 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                     if (FargoSoulsUtil.HostCheck)
                         Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), spawnPos, vel, ModContent.ProjectileType<WOFChain>(), Projectile.damage, 0f, Main.myPlayer);
 
-                    if (Main.LocalPlayer.FargoSouls().Screenshake < 10)
-                        Main.LocalPlayer.FargoSouls().Screenshake = 10;
+                    if (ScreenShakeSystem.OverallShakeIntensity < 4)
+                        ScreenShakeSystem.SetUniversalRumble(4);
 
                     SoundEngine.PlaySound(SoundID.NPCDeath13 with { Volume = 0.5f }, Projectile.Center);
 

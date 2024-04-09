@@ -1,5 +1,6 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -163,7 +164,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                     Vector2 spawnPos = target.Center;
 
                     if (!Main.dedServ && Main.LocalPlayer.active)
-                        Main.LocalPlayer.FargoSouls().Screenshake = 30;
+                        ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
 
                     if (!Main.dedServ)
                         SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/Thunder"), spawnPos);

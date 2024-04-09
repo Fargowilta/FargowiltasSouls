@@ -15,6 +15,7 @@ using FargowiltasSouls.Content.Bosses.AbomBoss;
 using FargowiltasSouls.Content.Bosses.DeviBoss;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Core;
+using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Projectiles
 {
@@ -229,7 +230,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         Projectile.rotation = Projectile.velocity.ToRotation();
 
                         if (Main.LocalPlayer.active && !Main.dedServ)
-                            Main.LocalPlayer.FargoSouls().Screenshake = 30;
+                            ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
 
                         if (counter == maxTime)
                         {

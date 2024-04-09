@@ -1,5 +1,6 @@
 using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
 using FargowiltasSouls.Content.Projectiles.Minions;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -103,7 +104,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
 
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.FargoSouls().Screenshake = 30;
+            ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
             void EchsplodeMinion(Projectile p, ref int hitsLeft)
             {
                 if (hitsLeft <= 0)

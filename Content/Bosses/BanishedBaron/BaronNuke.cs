@@ -181,8 +181,8 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
         }
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.FargoSouls().Screenshake = 30;
-            
+            ScreenShakeSystem.StartShake(15, shakeStrengthDissipationIncrement: 15f / 30);
+
             for (int i = 0; i < 200; i++)
             {
                 Vector2 pos = Projectile.Center + new Vector2(0, Main.rand.NextFloat(ExplosionDiameter * 0.8f)).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)); //circle with highest density in middle

@@ -14,6 +14,7 @@ using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Common.Utilities;
 using FargowiltasSouls.Core.NPCMatching;
+using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
@@ -282,7 +283,8 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     if (EnteredPhase3)
                     {
                         if (!Main.dedServ)
-                            Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                            if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                                ScreenShakeSystem.SetUniversalRumble(7);
 
                         if (npc.ai[1] > 30) //roaring
                         {

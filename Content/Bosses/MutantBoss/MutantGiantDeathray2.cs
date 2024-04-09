@@ -74,7 +74,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             base.AI();
 
             if (!Main.dedServ && Main.LocalPlayer.active)
-                Main.LocalPlayer.FargoSouls().Screenshake = 2;
+                if (ScreenShakeSystem.OverallShakeIntensity < 7)
+                    ScreenShakeSystem.SetUniversalRumble(7);
 
             Projectile.timeLeft = 2;
 
