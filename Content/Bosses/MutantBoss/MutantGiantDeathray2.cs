@@ -4,7 +4,6 @@
 using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Deathrays;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
@@ -19,7 +18,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantGiantDeathray2 : MutantSpecialDeathray
+    public class MutantGiantDeathray2 : MutantSpecialDeathray
     {
         public MutantGiantDeathray2() : base(600) { }
 
@@ -310,8 +309,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
 
         public static Color ColorFunction(float trailInterpolant) =>
             Color.Lerp(
-                FargoSoulsUtil.AprilFools ? new Color(255, 0, 0, 100) : new(31, 187, 192, 100), 
-                FargoSoulsUtil.AprilFools ? new Color(255, 191, 51, 100) : new(51, 255, 191, 100), 
+                FargoSoulsUtil.AprilFools ? new Color(255, 0, 0, 100) : new(31, 187, 192, 100),
+                FargoSoulsUtil.AprilFools ? new Color(255, 191, 51, 100) : new(51, 255, 191, 100),
                 trailInterpolant);
         public override bool PreDraw(ref Color lightColor)
         {

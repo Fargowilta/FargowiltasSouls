@@ -1,10 +1,10 @@
 
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
-using Terraria.Audio;
 using FargowiltasSouls.Content.Bosses.CursedCoffin;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {

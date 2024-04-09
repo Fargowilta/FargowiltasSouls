@@ -1,10 +1,10 @@
+using FargowiltasSouls.Content.Items.Placables.MusicBoxes;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using FargowiltasSouls.Content.Items.Placables.MusicBoxes;
 
 namespace FargowiltasSouls.Content.Tiles.MusicBoxes
 {

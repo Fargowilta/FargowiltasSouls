@@ -32,15 +32,15 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Nature
         public int[] heads = { -1, -1, -1, -1, -1, -1 };
         public int lastSet = 0;
         public static readonly KeyValuePair<int, int>[] configurations = {
-            new KeyValuePair<int, int>(0, 1),
-            new KeyValuePair<int, int>(1, 3),
-            new KeyValuePair<int, int>(3, 5),
-            new KeyValuePair<int, int>(3, 4),
-            new KeyValuePair<int, int>(2, 4),
-            new KeyValuePair<int, int>(0, 5),
-            new KeyValuePair<int, int>(1, 2),
-            new KeyValuePair<int, int>(2, 5),
-            new KeyValuePair<int, int>(0, 4)
+            new(0, 1),
+            new(1, 3),
+            new(3, 5),
+            new(3, 4),
+            new(2, 4),
+            new(0, 5),
+            new(1, 2),
+            new(2, 5),
+            new(0, 4)
         };
 
         public override void SetStaticDefaults()

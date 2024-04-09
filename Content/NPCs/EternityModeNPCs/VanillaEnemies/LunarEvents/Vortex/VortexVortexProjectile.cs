@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Vortex
 {
-	public class VortexVortexProjectile : ModProjectile
+    public class VortexVortexProjectile : ModProjectile
     {
 
         public override void SetStaticDefaults()

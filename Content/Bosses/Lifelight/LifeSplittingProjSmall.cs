@@ -1,7 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Lifelight

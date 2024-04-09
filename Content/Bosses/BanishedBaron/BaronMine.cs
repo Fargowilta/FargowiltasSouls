@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -99,7 +99,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             }
             if (Floating) //floating
             {
-                if (Collision.WetCollision(Projectile.position,  Projectile.width, Projectile.height) || Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
+                if (Collision.WetCollision(Projectile.position, Projectile.width, Projectile.height) || Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
                 {
                     if (Projectile.velocity.Y > 0)
                         Projectile.velocity.Y *= 0.94f;

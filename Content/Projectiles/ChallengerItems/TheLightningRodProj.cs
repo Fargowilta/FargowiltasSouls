@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             player.heldProj = Projectile.whoAmI;
             player.itemTime = 2; //15;
             player.itemAnimation = 2; //15;
-            //player.itemAnimationMax = 15;
+                                      //player.itemAnimationMax = 15;
 
             const float maxRotation = MathHelper.Pi / 6.85f / 1.5f; //spin up to full speed
             float modifier = maxRotation * (Projectile.ai[0] == 0 ? Math.Min(1f, Projectile.localAI[0] / 80f) : 1f);

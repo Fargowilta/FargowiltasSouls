@@ -1,16 +1,15 @@
 ﻿using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
-using FargowiltasSouls.Core.ModPlayers;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class NecroEnchant : BaseEnchant
+    public class NecroEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +33,7 @@ Effects of Bone Glove
         }
 
         public override Color nameColor => new(86, 86, 67);
-        
+
 
         public override void SetDefaults()
         {
@@ -66,7 +65,7 @@ Effects of Bone Glove
     }
     public class NecroEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<ShadowHeader>();
         public override int ToggleItemType => ModContent.ItemType<NecroEnchant>();
         public override bool ExtraAttackEffect => true;

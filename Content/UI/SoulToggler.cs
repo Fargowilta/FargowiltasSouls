@@ -1,7 +1,5 @@
 ﻿using FargowiltasSouls.Content.UI.Elements;
-using FargowiltasSouls.Core;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -13,15 +11,11 @@ using Terraria.GameInput;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
-using Terraria.UI.Chat;
-using XPT.Core.Audio.MP3Sharp.Decoding;
-using static System.Net.Mime.MediaTypeNames;
-using static Terraria.GameContent.UI.EmoteID;
 using Header = FargowiltasSouls.Core.Toggler.Header;
 
 namespace FargowiltasSouls.Content.UI
 {
-	public class SoulToggler : UIState
+    public class SoulToggler : UIState
     {
         public readonly static Regex RemoveItemTags = new(@"\[[^\[\]]*\]");
 
@@ -143,7 +137,7 @@ namespace FargowiltasSouls.Content.UI
             PresetPanel.Append(OnButton);
             PresetPanel.Append(SomeEffectsButton);
             PresetPanel.Append(MinimalButton);
-            
+
             const int xOffset = 74; //ensure this matches the Left.Set of preceding button
             for (int i = 0; i < ToggleBackend.CustomPresetCount; i++)
             {
@@ -155,7 +149,7 @@ namespace FargowiltasSouls.Content.UI
                 CustomButton[i].Top.Set(6, 0);
                 CustomButton[i].Left.Set(xOffset + 22 * slot, 0);
                 PresetPanel.Append(CustomButton[i]);
-                
+
                 if (slot == ToggleBackend.CustomPresetCount) //after last panel is loaded, load reload button
                 {
                     DisplayAllButton = new FargoUIDisplayAllButton(FargoUIManager.DisplayAllButtonTexture.Value,
@@ -166,7 +160,7 @@ namespace FargowiltasSouls.Content.UI
                     DisplayAllButton.Left.Set(xOffset + 22 * (slot + 1), 0);
                     PresetPanel.Append(DisplayAllButton);
                 }
-                
+
             }
 
             base.OnInitialize();

@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
@@ -54,7 +53,7 @@ Attacking a Shadow Orb will cause it to release a burst of homing shadow energy
     }
     public class ShadowBalls : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<ShadowHeader>();
         public override int ToggleItemType => ModContent.ItemType<ShadowEnchant>();
         public override bool MinionEffect => true;

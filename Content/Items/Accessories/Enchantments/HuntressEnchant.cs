@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class HuntressEnchant : BaseEnchant
+    public class HuntressEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -42,7 +41,7 @@ Missing any attack will reset these bonuses
 
         public static void HuntressBonus(FargoSoulsPlayer modPlayer, Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
         {
-            
+
         }
 
         public override void AddRecipes()
@@ -62,7 +61,7 @@ Missing any attack will reset these bonuses
     }
     public class HuntressEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<HuntressEnchant>();
         public override void PostUpdateEquips(Player player)
@@ -76,7 +75,7 @@ Missing any attack will reset these bonuses
         public override void ModifyHitNPCWithProj(Player player, Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
         {
             FargoSoulsGlobalProjectile soulsProj = proj.FargoSouls();
-            
+
             if (soulsProj.HuntressProj == 1 && target.type != NPCID.TargetDummy)
             {
                 FargoSoulsPlayer modPlayer = player.FargoSouls();

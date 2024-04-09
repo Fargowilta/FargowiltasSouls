@@ -61,7 +61,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
             }
             return false;
         }
-        
+
         public override void OnKill(int timeLeft)
         {
             for (int i = 0; i < 10; i++)

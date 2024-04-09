@@ -1,15 +1,11 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ID;
 using Terraria;
-using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Masomode;
 using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 {
@@ -38,7 +34,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
         public override void AI()
         {
-            
+
             int frameCounterMax = (int)Math.Round(12 - MathHelper.Clamp(6 * Projectile.velocity.X / 60f, 0, 6));
             Projectile.Animate(frameCounterMax);
 
@@ -62,7 +58,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             {
                 i++;
                 Point tilePos = Projectile.Bottom.ToTileCoordinates();
-                Tile tile = Main.tile[tilePos.X, tilePos.Y-1];
+                Tile tile = Main.tile[tilePos.X, tilePos.Y - 1];
                 Tile tileBelow = Main.tile[tilePos.X, tilePos.Y];
                 bool tileSolid = tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);
                 bool tileBelowSolid = tileBelow.HasUnactuatedTile && (Main.tileSolid[tileBelow.TileType] || Main.tileSolidTop[tileBelow.TileType]);
@@ -74,7 +70,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                     Projectile.Center += Vector2.UnitY * 16;
             }
             while (i < maxIter);
-            
+
             if (i >= maxIter - 1)
                 Projectile.Kill();
             /*

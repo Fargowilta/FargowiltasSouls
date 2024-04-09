@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {
-	public class MechLureProjectile : ModProjectile
+    public class MechLureProjectile : ModProjectile
     {
 
         public override void SetStaticDefaults()
@@ -63,8 +63,8 @@ namespace FargowiltasSouls.Content.Items.Summons
                 Projectile.rotation = 0f + MathHelper.Pi * Projectile.velocity.X / 25;
             }
 
-            
-            
+
+
             if (baronID >= 0 && baronID < Main.maxNPCs)
             {
                 NPC baron = Main.npc[baronID];
@@ -77,7 +77,7 @@ namespace FargowiltasSouls.Content.Items.Summons
                     }
                 }
             }
-            
+
             Projectile.ai[0]++;
         }
     }

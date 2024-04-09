@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
 {
-	public class DecrepitAirstrikeNuke : TrojanAcorn
+    public class DecrepitAirstrikeNuke : TrojanAcorn
     {
         public static readonly int ExplosionDiameter = 450;
         public override string Texture => "FargowiltasSouls/Content/Bosses/BanishedBaron/BaronNuke";
@@ -84,7 +84,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             }
             Vector2 target = TargetX * Vector2.UnitX + TargetY * Vector2.UnitY;
             Projectile.rotation = (-Projectile.SafeDirectionTo(target)).ToRotation();
-            
+
             if (Projectile.timeLeft <= 3)
             {
                 Projectile.width = ExplosionDiameter;
@@ -125,29 +125,29 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             int hitsLeft = Main.player[Projectile.owner].maxMinions;
 
             //prioritize squirrels first because funny
-            foreach (Projectile p in Main.projectile.Where(p => 
-            p.type == ModContent.ProjectileType<KamikazeSquirrel>() && 
-            p.active && 
-            !p.hostile && 
-            p.owner == Main.myPlayer && 
-            p.minion && FargoSoulsUtil.IsSummonDamage(p, false, false) && 
+            foreach (Projectile p in Main.projectile.Where(p =>
+            p.type == ModContent.ProjectileType<KamikazeSquirrel>() &&
+            p.active &&
+            !p.hostile &&
+            p.owner == Main.myPlayer &&
+            p.minion && FargoSoulsUtil.IsSummonDamage(p, false, false) &&
             Projectile.Colliding(Projectile.Hitbox, p.Hitbox)))
             {
                 EchsplodeMinion(p, ref hitsLeft);
             }
             //rest of minions
-            foreach (Projectile p in Main.projectile.Where(p => 
-            p.type != ModContent.ProjectileType<KamikazeSquirrel>() && 
-            p.active && 
-            !p.hostile && 
-            p.owner == Main.myPlayer && 
-            p.minion && 
-            FargoSoulsUtil.IsSummonDamage(p, false, false) && 
+            foreach (Projectile p in Main.projectile.Where(p =>
+            p.type != ModContent.ProjectileType<KamikazeSquirrel>() &&
+            p.active &&
+            !p.hostile &&
+            p.owner == Main.myPlayer &&
+            p.minion &&
+            FargoSoulsUtil.IsSummonDamage(p, false, false) &&
             Projectile.Colliding(Projectile.Hitbox, p.Hitbox)))
             {
                 EchsplodeMinion(p, ref hitsLeft);
             }
-            
+
 
             for (int i = 0; i < 100; i++)
             {

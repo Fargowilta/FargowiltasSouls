@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MinerEnchant : BaseEnchant
+    public class MinerEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -28,7 +28,7 @@ Effects of Night Owl, Spelunker, Hunter, Shine, and Dangersense Potions
         }
 
         public override Color nameColor => new(95, 117, 151);
-        
+
 
         public override void SetDefaults()
         {

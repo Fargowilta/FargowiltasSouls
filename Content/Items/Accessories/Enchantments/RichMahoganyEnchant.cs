@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class RichMahoganyEnchant : BaseEnchant
+    public class RichMahoganyEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +24,7 @@ While grappling you gain 10% damage resistance for one hit and a 50% thorns effe
         }
 
         public override Color nameColor => new(181, 108, 100);
-        
+
 
         public override void SetDefaults()
         {
@@ -56,7 +56,7 @@ While grappling you gain 10% damage resistance for one hit and a 50% thorns effe
     }
     public class MahoganyEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
         public override int ToggleItemType => ModContent.ItemType<RichMahoganyEnchant>();
         public override bool IgnoresMutantPresence => true;

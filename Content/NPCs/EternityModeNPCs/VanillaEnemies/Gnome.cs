@@ -1,8 +1,8 @@
-﻿using Terraria;
-using Terraria.ID;
-using FargowiltasSouls.Content.Buffs.Masomode;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.NPCMatching;
+using Terraria;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies
 {
@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies
             base.OnHitPlayer(npc, target, hurtInfo);
 
             target.AddBuff(Terraria.ModLoader.ModContent.BuffType<UnluckyBuff>(), 60 * 30);
-			target.FargoSouls().AddBuffNoStack(BuffID.Stoned, 60);
+            target.FargoSouls().AddBuffNoStack(BuffID.Stoned, 60);
         }
     }
 }

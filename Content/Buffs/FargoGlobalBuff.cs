@@ -1,4 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.Systems;
+using Microsoft.Xna.Framework;
 using System;
 using System.Linq;
 using Terraria;
@@ -6,12 +12,6 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Content.Buffs
 {
@@ -135,7 +135,7 @@ namespace FargowiltasSouls.Content.Buffs
                                 }
                             }
                         }
-                        
+
                     }
                     break;
 

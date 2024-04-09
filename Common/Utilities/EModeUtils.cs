@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Core.Systems;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Common.Utilities

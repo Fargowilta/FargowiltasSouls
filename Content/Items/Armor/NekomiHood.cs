@@ -1,16 +1,15 @@
-﻿using FargowiltasSouls.Content.Projectiles.Masomode;
+﻿using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Content.Projectiles.Masomode;
 using FargowiltasSouls.Content.Projectiles.Minions;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
-using System;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
 
 namespace FargowiltasSouls.Content.Items.Armor
 {

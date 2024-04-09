@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Graphics.PackedVector;
+using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,7 +41,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 Projectile.Kill();
             }
             Projectile.Center = player.Center;
-            
+
         }
 
         public override string Texture => FargoSoulsUtil.EmptyTexture;
@@ -61,7 +55,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             }
             return false;
         }*/
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.damage = (int)(Math.Round(Projectile.damage * 0.8));

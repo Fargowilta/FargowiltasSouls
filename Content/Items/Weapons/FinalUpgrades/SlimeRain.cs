@@ -1,12 +1,12 @@
-﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
+﻿using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
+using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 
 namespace FargowiltasSouls.Content.Items.Weapons.FinalUpgrades
 {

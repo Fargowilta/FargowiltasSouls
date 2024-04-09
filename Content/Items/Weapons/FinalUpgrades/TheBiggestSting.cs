@@ -1,7 +1,5 @@
-﻿using Fargowiltas.Items.Summons.SwarmSummons.Energizers;
-using Fargowiltas.Items.Tiles;
+﻿using Fargowiltas.Items.Tiles;
 using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Weapons.BossDrops;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;

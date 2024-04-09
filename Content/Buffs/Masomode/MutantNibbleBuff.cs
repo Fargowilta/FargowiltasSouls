@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Core.Systems;
 using Terraria;
 using Terraria.ModLoader;
 

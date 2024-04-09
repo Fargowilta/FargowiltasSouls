@@ -1,17 +1,17 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Content.Bosses.Champions.Spirit;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
 using Microsoft.Xna.Framework;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Content.Bosses.Champions.Spirit;
-using FargowiltasSouls.Core.NPCMatching;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
 {
-	public class SandElemental : EModeNPCBehaviour
+    public class SandElemental : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.SandElemental);
 

@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using System;
@@ -10,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class BorealWoodEnchant : BaseEnchant
+    public class BorealWoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -48,7 +47,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class BorealEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
         public override int ToggleItemType => ModContent.ItemType<BorealWoodEnchant>();
         public override bool ExtraAttackEffect => true;

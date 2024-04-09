@@ -3,15 +3,12 @@ using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Placables;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using FargowiltasSouls.Content.Projectiles.Souls;
-using FargowiltasSouls.Content.UI.Elements;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using Microsoft.CodeAnalysis;
 //using FargowiltasSouls.Content.Buffs.Souls;
 //using FargowiltasSouls.Content.Projectiles.Critters;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -21,7 +18,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items
 {
-	public class FargoGlobalItem : GlobalItem
+    public class FargoGlobalItem : GlobalItem
     {
         public override void SetDefaults(Item item)
         {
@@ -38,7 +35,7 @@ namespace FargowiltasSouls.Content.Items
         public override void ModifyManaCost(Item item, Player player, ref float reduce, ref float mult)
         {
         }
-        
+
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
             FargoSoulsPlayer p = player.FargoSouls();
@@ -55,7 +52,7 @@ namespace FargowiltasSouls.Content.Items
                 grabRange += rangeBonus;
             }
         }
-        
+
         public override bool OnPickup(Item item, Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
@@ -123,7 +120,7 @@ namespace FargowiltasSouls.Content.Items
             return base.ConsumeItem(item, player);
         }
 
-        public static List<int> TungstenAlwaysAffects = new List<int>
+        public static List<int> TungstenAlwaysAffects = new()
         {
             ItemID.TerraBlade,
             ItemID.NightsEdge,
@@ -137,7 +134,7 @@ namespace FargowiltasSouls.Content.Items
         public override void ModifyItemScale(Item item, Player player, ref float scale)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            
+
 
             if (player.HasEffect<TungstenEffect>()
                 && !item.IsAir && item.IsWeapon() && (!item.noMelee || TungstenAlwaysAffects.Contains(item.type)))
@@ -496,7 +493,7 @@ namespace FargowiltasSouls.Content.Items
         {
             if (item.type == ItemID.PiercingStarlight)
                 tooltips.Add(new TooltipLine(Mod, "StarlightTungsten", Language.GetTextValue("Mods.FargowiltasSouls.Items.Extra.StarlightTungsten")));
-            
+
             /*if (Array.IndexOf(Summon, item.type) > -1)
             {
                 TooltipLine helperLine = new TooltipLine(mod, "help", "Right click to convert");

@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Content.Patreon.Volknet.Projectiles;
+using FargowiltasSouls.Core;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core;
-using FargowiltasSouls.Content.Items.Materials;
 using Terraria.Utilities;
 
 namespace FargowiltasSouls.Content.Patreon.Volknet

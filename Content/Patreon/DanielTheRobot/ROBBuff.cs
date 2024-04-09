@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Projectiles.Pets;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;

@@ -1,18 +1,11 @@
-﻿using FargowiltasSouls.Core.Systems;
-using Microsoft.Xna.Framework.Graphics;
+﻿using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.Audio;
-using Terraria.ID;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.GameContent;
-using FargowiltasSouls.Core;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
 {

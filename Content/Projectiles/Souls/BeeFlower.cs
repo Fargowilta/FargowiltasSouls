@@ -1,15 +1,8 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Core.ModPlayers;
-using Microsoft.CodeAnalysis;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
@@ -50,7 +43,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 {
                     Main.LocalPlayer.AddBuff(BuffID.Honey, 60 * 15);
                     BeeSwarm();
-                    
+
                     Projectile.Kill();
                 }
             }

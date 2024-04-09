@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Expert;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

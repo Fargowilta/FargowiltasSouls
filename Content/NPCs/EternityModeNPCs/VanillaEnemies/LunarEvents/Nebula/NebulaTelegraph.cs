@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Nebula
 {
-	public class NebulaTelegraph : ModProjectile
+    public class NebulaTelegraph : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Masomode/CelestialPillar";
 

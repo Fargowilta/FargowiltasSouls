@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class DeviBag : BossBag
+    public class DeviBag : BossBag
     {
         protected override bool IsPreHMBag => true;
         public override void RightClick(Player player)

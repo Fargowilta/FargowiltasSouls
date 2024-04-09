@@ -1,33 +1,24 @@
 ﻿
-using System;
-using System.IO;
+using FargowiltasSouls.Content.Buffs;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent.Bestiary;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.DataStructures;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using Terraria.GameContent.Bestiary;
-using Terraria.Audio;
-using FargowiltasSouls.Content.Items.BossBags;
-using FargowiltasSouls.Content.Items.Weapons.Challengers;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.Graphics.Shaders;
-using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Projectiles;
 using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Buffs;
-using System.Linq;
-using Microsoft.CodeAnalysis;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PirateInvasion;
 
 namespace FargowiltasSouls.Content.Bosses.Magmaw
 {
-	[AutoloadBossHead]
+    [AutoloadBossHead]
     public partial class Magmaw : ModNPC
     {
         public override bool IsLoadingEnabled(Mod mod) => false;
@@ -43,7 +34,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         /// <summary>
         /// Current animation frame
         /// </summary>
-        public int Frame = 0; 
+        public int Frame = 0;
         /// <summary>
         /// Current animation
         /// </summary>
@@ -85,20 +76,20 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         /// <summary>
         /// Contact damage
         /// </summary>
-        public bool HitPlayer = true; 
+        public bool HitPlayer = true;
         public int Phase = 1;
         /// <summary>
         /// Amount of attacks the boss has executed since idling
         /// </summary>
-        public int ChainDepth = 0; 
+        public int ChainDepth = 0;
         /// <summary>
         /// Max attacks the boss can do before idling again
         /// </summary>
-        public int MaxChainDepth = 5; 
+        public int MaxChainDepth = 5;
         /// <summary>
         /// Whether the boss should reposition to the idle spot above the player while idling
         /// </summary>
-        public bool IdleReposition = true; 
+        public bool IdleReposition = true;
 
         public Vector2 LockVector1 = Vector2.Zero;
         public Vector2 LockVector2 = Vector2.Zero;
@@ -187,7 +178,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
             writer.Write(IdleReposition);
             writer.WriteVector2(LockVector1);
             writer.WriteVector2(LockVector2);
-            
+
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -284,8 +275,8 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
                 float oldrot = NPC.oldRot[i] + (NPC.direction == 1 ? 0 : MathHelper.Pi);
                 Vector2 value4 = NPC.oldPos[i];
                 int oldFrame = Frame;
-                Rectangle oldRectangle = new Rectangle(0, oldFrame * bodytexture.Height / Main.npcFrameCount[NPC.type], bodytexture.Width, bodytexture.Height / Main.npcFrameCount[NPC.type]);
-                DrawData oldGlow = new DrawData(bodytexture, value4 + NPC.Size / 2f - screenPos + new Vector2(0, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(oldRectangle), NPC.GetAlpha(drawColor) * (0.5f / i), oldrot, new Vector2(bodytexture.Width / 2, bodytexture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, flip, 0);
+                Rectangle oldRectangle = new(0, oldFrame * bodytexture.Height / Main.npcFrameCount[NPC.type], bodytexture.Width, bodytexture.Height / Main.npcFrameCount[NPC.type]);
+                DrawData oldGlow = new(bodytexture, value4 + NPC.Size / 2f - screenPos + new Vector2(0, NPC.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(oldRectangle), NPC.GetAlpha(drawColor) * (0.5f / i), oldrot, new Vector2(bodytexture.Width / 2, bodytexture.Height / 2 / Main.npcFrameCount[NPC.type]), NPC.scale, flip, 0);
                 GameShaders.Misc["LCWingShader"].UseColor(Color.Blue).UseSecondaryColor(Color.Black);
                 GameShaders.Misc["LCWingShader"].Apply(oldGlow);
                 oldGlow.Draw(spriteBatch);
@@ -356,7 +347,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
 
         #endregion
-        
+
         #region Help Methods
         bool AliveCheck(Player p, bool forceDespawn = false)
         {

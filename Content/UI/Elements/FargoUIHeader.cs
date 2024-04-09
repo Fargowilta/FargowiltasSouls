@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.Localization;
 using Terraria.UI;
 
 namespace FargowiltasSouls.Content.UI.Elements

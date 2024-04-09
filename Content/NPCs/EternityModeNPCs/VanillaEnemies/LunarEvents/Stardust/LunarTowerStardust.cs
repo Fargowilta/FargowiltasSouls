@@ -1,20 +1,20 @@
-﻿using FargowiltasSouls.Content.Buffs.Masomode;
+﻿using FargowiltasSouls.Content.BossBars;
+using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Content.BossBars;
-using static FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Stardust.StardustMinion;
 using Terraria.Audio;
-using FargowiltasSouls.Core.Systems;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using static FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Stardust.StardustMinion;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Stardust
 {
-	public class LunarTowerStardust : LunarTowers
+    public class LunarTowerStardust : LunarTowers
     {
         public override int ShieldStrength
         {
@@ -29,8 +29,8 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         public override int MaxHP => 20000;
         public override int Damage => 0;
 
-        List<int> DragonParts = new List<int>
-                {
+        List<int> DragonParts = new()
+        {
                     NPCID.CultistDragonHead,
                     NPCID.CultistDragonBody1,
                     NPCID.CultistDragonBody2,
@@ -58,7 +58,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             CellCurves,
             CellScissor
         }
-        public override List<int> RandomAttacks => new List<int>() //these are randomly chosen attacks in p1
+        public override List<int> RandomAttacks => new() //these are randomly chosen attacks in p1
         {
             (int)Attacks.CellExpandContract,
             (int)Attacks.CellRush,
@@ -78,7 +78,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             }
             int cells = 0;
             int bigCells = 0;
-            foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<StardustMinion>() && n.ai[2] == npc.whoAmI)) 
+            foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<StardustMinion>() && n.ai[2] == npc.whoAmI))
             {
                 if (n.frame.Y == 0) //frame check is to check if big
                 {
@@ -109,13 +109,13 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         bigCells++;
                     }
                 }
-                
+
             }
             if (NPC.CountNPCS(NPCID.CultistDragonHead) <= 0 && WorldSavingSystem.MasochistModeReal && DragonTimer <= 0) //spawn james in maso
             {
                 if (FargoSoulsUtil.HostCheck)
                 {
-                    
+
                     int n = NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)(npc.Center.Y - npc.height * 0.45f), NPCID.CultistDragonHead);
                     if (Main.npc[n].active)
                     {
@@ -274,7 +274,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                 if (AttackTimer % AttackCD == AttackCD - 1)
                 {
                     SoundEngine.PlaySound(SoundID.Item115, npc.Center);
-                    foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<StardustMinion>() && n.ai[2] == npc.whoAmI && n.ai[1] != (float)States.Curve)) 
+                    foreach (NPC n in Main.npc.Where(n => n.active && n.type == ModContent.NPCType<StardustMinion>() && n.ai[2] == npc.whoAmI && n.ai[1] != (float)States.Curve))
                     {
                         n.ai[1] = (float)States.Curve;
                         break;
@@ -380,7 +380,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             {
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
-                    
+
                 }
                 RandomAttack(npc);
             }

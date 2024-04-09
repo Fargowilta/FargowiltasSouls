@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public abstract class BossBag : SoulsItem
+    public abstract class BossBag : SoulsItem
     {
         protected abstract bool IsPreHMBag { get; }
 

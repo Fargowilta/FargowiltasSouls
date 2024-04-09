@@ -1,7 +1,7 @@
-﻿using Terraria;
-using Terraria.ID;
-using FargowiltasSouls.Core.Globals;
+﻿using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.NPCMatching;
+using Terraria;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Night
 {

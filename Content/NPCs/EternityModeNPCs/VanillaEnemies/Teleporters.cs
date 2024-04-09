@@ -1,9 +1,9 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Core.Globals;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.Globals;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies
 {

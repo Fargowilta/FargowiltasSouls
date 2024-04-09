@@ -1,9 +1,9 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Expert;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using FargowiltasSouls.Content.Items.Armor;
+using FargowiltasSouls.Content.Items.Consumables;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
@@ -11,22 +11,17 @@ using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using FargowiltasSouls.Content.Items.Consumables;
-using FargowiltasSouls.Content.UI;
-using Fargowiltas;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
-	public partial class FargoSoulsPlayer
+    public partial class FargoSoulsPlayer
     {
         public override void PreUpdate()
         {
@@ -121,7 +116,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                     Player.velocity *= 0.5f;
 
                     //add hover back
-                   // Player.mount._data.usesHover = BaseSquireMountData.usesHover;
+                    // Player.mount._data.usesHover = BaseSquireMountData.usesHover;
                 }
             }
         }

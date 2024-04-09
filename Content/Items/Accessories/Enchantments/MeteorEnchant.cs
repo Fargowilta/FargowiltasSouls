@@ -1,6 +1,4 @@
 using FargowiltasSouls.Content.Items.Accessories.Forces;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
@@ -14,11 +12,11 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MeteorEnchant : BaseEnchant
+    public class MeteorEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(95, 71, 82);
-        
+
 
         public override void SetDefaults()
         {

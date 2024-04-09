@@ -1,6 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Expert;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using System.Linq;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -27,7 +25,7 @@ namespace FargowiltasSouls.Core.Toggler
                     if (modPlayer.PrimeSoulActive)
                     {
                         //if (!player.HasEffect(effect)) // Don't stack per item
-                            //modPlayer.PrimeSoulItemCount++;
+                        //modPlayer.PrimeSoulItemCount++;
                         return false;
                     }
                 }

@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
     {
         PixelationPrimitiveLayer LayerToRenderTo => PixelationPrimitiveLayer.AfterProjectiles;
 
-		public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/AbomDeathray";
+        public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/AbomDeathray";
 
         public LifeChalDeathray() : base(3600) { }
 
@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             }
 
             SpawnSparks();
-		}
+        }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -140,25 +140,25 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 Vector2 position = Projectile.Center + Projectile.velocity * 30f + Main.rand.NextVector2Circular(10f, 10f);
 
-				Vector2 velocity = Main.rand.NextFloat(MathF.Tau).ToRotationVector2() * Main.rand.NextFloat(7f, 15f);
+                Vector2 velocity = Main.rand.NextFloat(MathF.Tau).ToRotationVector2() * Main.rand.NextFloat(7f, 15f);
 
                 Color color = Color.Lerp(Color.Gold, Color.OrangeRed, Main.rand.NextFloat(0f, 0.5f));
                 if (Main.rand.NextBool(3))
                     color = Color.Lerp(color, Color.Pink, Main.rand.NextFloat(0f, 0.6f));
 
-				new SparkParticle(position, velocity, color, Main.rand.NextFloat(1.5f, 1.9f), Main.rand.Next(25, 45),
+                new SparkParticle(position, velocity, color, Main.rand.NextFloat(1.5f, 1.9f), Main.rand.Next(25, 45),
                     true, Color.PaleGoldenrod).Spawn();
             }
         }
 
         public override bool PreDraw(ref Color lightColor) => false;
 
-		public float WidthFunction(float completionRatio) => Projectile.scale * Projectile.width;
+        public float WidthFunction(float completionRatio) => Projectile.scale * Projectile.width;
 
         public Color ColorFunction(float completionRatio)
         {
-			float colorInterpolant = MathF.Sin(Main.GlobalTimeWrappedHourly * -3.2f + completionRatio * 23f) * 0.5f + 0.5f;
-			return Color.Lerp(Color.Lerp(Color.Gold, Color.PaleGoldenrod, colorInterpolant * 0.67f), Color.White, 0.1f);
+            float colorInterpolant = MathF.Sin(Main.GlobalTimeWrappedHourly * -3.2f + completionRatio * 23f) * 0.5f + 0.5f;
+            return Color.Lerp(Color.Lerp(Color.Gold, Color.PaleGoldenrod, colorInterpolant * 0.67f), Color.White, 0.1f);
         }
         public void RenderPixelatedPrimitives(SpriteBatch spriteBatch)
         {
@@ -200,8 +200,8 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
         }
         public void DrawPixelPrimitives(SpriteBatch spriteBatch)
         {
-            
 
-		}
-	}
+
+        }
+    }
 }

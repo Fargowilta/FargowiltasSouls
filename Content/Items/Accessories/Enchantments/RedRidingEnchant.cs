@@ -1,6 +1,5 @@
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class RedRidingEnchant : BaseEnchant
+    public class RedRidingEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +26,7 @@ Missing any attack will reset these bonuses
         }
 
         public override Color nameColor => new(192, 27, 60);
-        
+
 
         public override void SetDefaults()
         {
@@ -59,7 +58,7 @@ Missing any attack will reset these bonuses
     }
     public class RedRidingEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override bool ExtraAttackEffect => true;
         public override int ToggleItemType => ModContent.ItemType<RedRidingEnchant>();

@@ -1,23 +1,22 @@
-﻿using FargowiltasSouls.Core;
-using FargowiltasSouls.Core.ItemDropRules.Conditions;
-using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Content.Bosses.AbomBoss;
 using FargowiltasSouls.Content.Patreon.Catsounds;
 using FargowiltasSouls.Content.Patreon.Daawnz;
+using FargowiltasSouls.Content.Patreon.DemonKing;
 using FargowiltasSouls.Content.Patreon.DevAesthetic;
 using FargowiltasSouls.Content.Patreon.Gittle;
 using FargowiltasSouls.Content.Patreon.LaBonez;
 using FargowiltasSouls.Content.Patreon.Purified;
 using FargowiltasSouls.Content.Patreon.Sam;
 using FargowiltasSouls.Content.Patreon.Shucks;
+using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.ItemDropRules.Conditions;
+using FargowiltasSouls.Core.Systems;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Content.Bosses.AbomBoss;
-using FargowiltasSouls.Content.Patreon.DemonKing;
-using FargowiltasSouls.Content.Patreon.DanielTheRobot;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Patreon
 {
@@ -32,12 +31,12 @@ namespace FargowiltasSouls.Content.Patreon
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             base.ModifyNPCLoot(npc, npcLoot);
-            
+
             void AddPatreonDrop(Func<bool> condition, int item, int chanceDenominator = 1, string extraKey = default)
             {
                 string description = Language.GetTextValue("Mods.FargowiltasSouls.Conditions.Patreon");
                 if (extraKey != default)
-                     description = Language.GetTextValue($"Mods.FargowiltasSouls.Conditions.{extraKey}");
+                    description = Language.GetTextValue($"Mods.FargowiltasSouls.Conditions.{extraKey}");
                 RuntimeDropCondition dropCondition = new(condition, description);
                 npcLoot.Add(ItemDropRule.ByCondition(dropCondition, item, chanceDenominator));
             }
@@ -96,7 +95,7 @@ namespace FargowiltasSouls.Content.Patreon
 
                 default:
                     break;
-                
+
             }
             if (npc.type == ModContent.NPCType<AbomBoss>())
             {

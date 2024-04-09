@@ -1,6 +1,4 @@
-﻿using FargowiltasSouls.Core.Globals;
-using System;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,7 +23,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 10;
             Projectile.FargoSouls().noInteractionWithNPCImmunityFrames = true;
-            
+
         }
 
         public override void AI()
@@ -35,7 +33,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y);
                 Main.dust[d].noGravity = true;
             }
-            
+
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

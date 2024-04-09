@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Projectiles.Deathrays;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Content.Projectiles.Deathrays;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.AbomBoss
 {

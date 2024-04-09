@@ -5,7 +5,6 @@ using FargowiltasSouls.Content.Items.Pets;
 using FargowiltasSouls.Core.ItemDropRules.Conditions;
 using FargowiltasSouls.Core.Systems;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -16,11 +15,11 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.Globals
 {
-	public partial class EModeNPCLoot : GlobalNPC
+    public partial class EModeNPCLoot : GlobalNPC
     {
         #region NPC Lists
-        static List<int> EvilCritters = new List<int>
-            {
+        static List<int> EvilCritters = new()
+        {
                 NPCID.CorruptBunny,
                 NPCID.CrimsonBunny,
                 NPCID.CorruptGoldfish,
@@ -28,8 +27,8 @@ namespace FargowiltasSouls.Core.Globals
                 NPCID.CorruptPenguin,
                 NPCID.CrimsonPenguin
             };
-        static List<int> Mimics = new List<int>
-            {
+        static List<int> Mimics = new()
+        {
                 NPCID.Mimic,
                 NPCID.PresentMimic,
                 NPCID.IceMimic,
@@ -38,8 +37,8 @@ namespace FargowiltasSouls.Core.Globals
                 NPCID.BigMimicHallow,
                 NPCID.BigMimicJungle
             };
-        static List<int> HardmodeDesertEnemies = new List<int>
-            {
+        static List<int> HardmodeDesertEnemies = new()
+        {
                 NPCID.DesertBeast,
                 NPCID.DesertScorpionWalk,
                 NPCID.DesertScorpionWall,
@@ -51,7 +50,7 @@ namespace FargowiltasSouls.Core.Globals
                 NPCID.DesertGhoulHallow,
                 NPCID.DesertDjinn
             };
-        static List<int> EarlyBirdEnemies = new List<int>
+        static List<int> EarlyBirdEnemies = new()
         {
             NPCID.WyvernHead,
             NPCID.WyvernBody,
@@ -76,7 +75,7 @@ namespace FargowiltasSouls.Core.Globals
             NPCID.IceGolem,
             NPCID.SandElemental
         };
-        static List<int> Hornets = new List<int>
+        static List<int> Hornets = new()
         {
             NPCID.Hornet,
             NPCID.HornetFatty,
@@ -100,7 +99,7 @@ namespace FargowiltasSouls.Core.Globals
             NPCID.MossHornet,
             NPCID.TinyMossHornet
         };
-        static List<int> MushroomEnemies = new List<int>
+        static List<int> MushroomEnemies = new()
         {
             NPCID.FungiBulb,
             NPCID.GiantFungiBulb,

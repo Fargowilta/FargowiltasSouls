@@ -1,19 +1,19 @@
-﻿using Terraria;
+﻿using FargowiltasSouls.Content.Sky;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria.ModLoader;
+using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Content.Sky;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.UI
 {
-	public class FargoMenuScreen : ModMenu
+    public class FargoMenuScreen : ModMenu
     {
         bool forgor = false;
-        public override Asset<Texture2D> Logo => forgor ? 
-            ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/ForgorMenuLogo") : 
+        public override Asset<Texture2D> Logo => forgor ?
+            ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/ForgorMenuLogo") :
             ModContent.Request<Texture2D>("FargowiltasSouls/Assets/UI/MenuLogo");
 
         //public override Asset<Texture2D> SunTexture => ModContent.Request<Texture2D>($"");

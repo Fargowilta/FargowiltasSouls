@@ -1,15 +1,13 @@
 ﻿using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
 using FargowiltasSouls.Content.Items.Accessories.Expert;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
-using FargowiltasSouls.Core.Globals;
-using System.Data;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class TrojanSquirrelBag : BossBag
+    public class TrojanSquirrelBag : BossBag
     {
         protected override bool IsPreHMBag => true;
 

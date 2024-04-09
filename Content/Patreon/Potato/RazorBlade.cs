@@ -4,7 +4,6 @@ using ReLogic.Content;
 using System;
 
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Patreon.Potato
@@ -92,7 +91,7 @@ namespace FargowiltasSouls.Content.Patreon.Potato
 
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
-            Vector2 origin = new Vector2(ChainTexture.Width() * 0.5f, ChainTexture.Height() * 0.5f);
+            Vector2 origin = new(ChainTexture.Width() * 0.5f, ChainTexture.Height() * 0.5f);
             float textureHeight = ChainTexture.Height();
             Vector2 mountedPosition = mountedCenter - position;
             float rotation = (float)Math.Atan2(mountedPosition.Y, mountedPosition.X) - 1.57f;

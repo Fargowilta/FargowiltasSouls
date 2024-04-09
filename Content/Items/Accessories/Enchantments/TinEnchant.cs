@@ -1,7 +1,5 @@
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using System;
@@ -20,7 +18,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(162, 139, 78);
-        
+
 
         public override void SetDefaults()
         {
@@ -50,7 +48,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class TinEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<TinEnchant>();
         public override bool IgnoresMutantPresence => true;

@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core.Toggler.Content;

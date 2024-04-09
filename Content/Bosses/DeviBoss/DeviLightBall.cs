@@ -15,7 +15,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.DeviBoss
 {
-	public class DeviLightBall : LightBall, IPixelatedPrimitiveRenderer
+    public class DeviLightBall : LightBall, IPixelatedPrimitiveRenderer
     {
         public override bool DoNotSpawnDust => true;
 

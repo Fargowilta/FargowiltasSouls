@@ -1,15 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
 using Terraria.ModLoader;
-using System;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class BeetleEnchant : BaseEnchant
+    public class BeetleEnchant : BaseEnchant
     {
 
         public override Color nameColor => new(109, 92, 133);

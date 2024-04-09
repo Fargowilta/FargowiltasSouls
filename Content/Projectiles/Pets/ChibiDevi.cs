@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -11,7 +12,6 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.Globals;
 
 namespace FargowiltasSouls.Content.Projectiles.Pets
 {

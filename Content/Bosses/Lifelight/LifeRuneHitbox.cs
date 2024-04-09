@@ -1,20 +1,17 @@
-﻿using System;
-using FargowiltasSouls.Assets.ExtraTextures;
-
-
+﻿using FargowiltasSouls.Assets.ExtraTextures;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static FargowiltasSouls.Content.Bosses.Lifelight.LifeChallenger;
 
 namespace FargowiltasSouls.Content.Bosses.Lifelight
 {
 
-	public class LifeRuneHitbox : ModProjectile, IPixelatedPrimitiveRenderer
+    public class LifeRuneHitbox : ModProjectile, IPixelatedPrimitiveRenderer
     {
 
         public override string Texture => "FargowiltasSouls/Assets/ExtraTextures/LifelightParts/Rune1";

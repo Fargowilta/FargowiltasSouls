@@ -1,14 +1,14 @@
+using FargowiltasSouls.Core.NPCMatching;
 using System.IO;
-using Terraria.ModLoader.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
-using FargowiltasSouls.Core.NPCMatching;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Dungeon
 {
-	public class DarkCaster : DungeonTeleporters
+    public class DarkCaster : DungeonTeleporters
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DarkCaster);
 

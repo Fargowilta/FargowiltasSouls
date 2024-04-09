@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
 {
-	public class QueenFlocko : AbomFlocko
+    public class QueenFlocko : AbomFlocko
     {
         public override void SetDefaults()
         {

@@ -1,7 +1,4 @@
-﻿using Fargowiltas.Common.Configs;
-using FargowiltasSouls.Core.Globals;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -45,7 +42,7 @@ namespace FargowiltasSouls.Content.Buffs.Boss
                 player.fullRotation = 0;
                 player.DelBuff(buffIndex);
             }
-                
+
 
             if (Collision.SolidCollision(player.position + player.velocity, player.width, player.height))
             {

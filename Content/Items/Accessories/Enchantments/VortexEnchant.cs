@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class VortexEnchant : BaseEnchant
+    public class VortexEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -30,7 +30,7 @@ While in stealth, your own projectiles will not be sucked in
         }
 
         public override Color nameColor => new(0, 242, 170);
-        
+
 
         public override void SetDefaults()
         {

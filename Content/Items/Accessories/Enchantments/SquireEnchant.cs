@@ -1,9 +1,7 @@
 ﻿using Fargowiltas.Common.Configs;
-using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -90,8 +88,8 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     accelBoost = 1.25f;
                     speedBoost = 1.25f;
                 }
-                
-                
+
+
                 if (!player.HasEffect<SquireMountSpeed>())
                 {
                     accelBoost = 1;
@@ -165,14 +163,14 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                         }
                     }
                 }
-                
+
                 if (player.HasEffect<SquireMountJump>())
                 {
                     player.GetJumpState(ExtraJump.FartInAJar).Enable();
                 }
 
                 player.statDefense += defenseBoost;
-                
+
                 mount._data.acceleration = modPlayer.BaseSquireMountData.acceleration * accelBoost;
                 mount._data.dashSpeed = modPlayer.BaseSquireMountData.dashSpeed * speedBoost;
                 mount._data.jumpSpeed = modPlayer.BaseSquireMountData.jumpSpeed * speedBoost;
@@ -185,7 +183,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     //mount._data.usesHover = modPlayer.BaseSquireMountData.usesHover;
                 }
                 */
-                
+
 
                 //Main.NewText(mount.DashSpeed);
             }
@@ -280,7 +278,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class SquireMountSpeed : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
 
         public override int ToggleItemType => ModContent.ItemType<SquireEnchant>();

@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Masomode;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;

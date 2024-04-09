@@ -1,12 +1,11 @@
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using Microsoft.Xna.Framework;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Core.Globals;
 
 namespace FargowiltasSouls.Content.Projectiles
 {

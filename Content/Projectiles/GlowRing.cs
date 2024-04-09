@@ -1,3 +1,8 @@
+using FargowiltasSouls.Common.Graphics.Particles;
+using FargowiltasSouls.Content.Bosses.VanillaEternity;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -5,11 +10,6 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Common.Graphics.Particles;
-using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Projectiles
 {
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         {
                             Projectile.Kill();
                         }
-                        
+
                     }
                     break;
                 case -24: //baron debuff apply at opening
@@ -91,7 +91,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         color = new Color(255, 105, 180);
                         //color = new Color(51, 255, 191) * modifier; OLD BLUE
                         //if (maxTime - Projectile.localAI[0] < 10)
-                            //color = Color.White;
+                        //color = Color.White;
                         Projectile.alpha = (int)(255f * (progress));
                         //Projectile.scale = 3f * 9f * (1f - modifier);
                         Projectile.scale = 0.2f + 0.8f * modifier;
@@ -152,7 +152,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         color = new Color(255, 105, 180);
                         //color = new Color(51, 255, 191) * modifier; OLD BLUE
                         //if (maxTime - Projectile.localAI[0] < 10)
-                            //color = Color.White;
+                        //color = Color.White;
                         Projectile.alpha = (int)(255f * (progress));
                         //Projectile.scale = 3f * 6f * (1f - modifier);
 

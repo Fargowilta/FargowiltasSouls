@@ -1,22 +1,14 @@
-﻿using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Content.Projectiles.Masomode;
-using FargowiltasSouls.Core.Globals;
+﻿using FargowiltasSouls.Content.Items.Accessories.Expert;
+using FargowiltasSouls.Content.Items.Accessories.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.Audio;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Content.Items.Accessories.Expert;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
-using Terraria.WorldBuilding;
 
 namespace FargowiltasSouls.Content.Projectiles.Minions
 {
@@ -73,7 +65,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
         public override bool? CanHitNPC(NPC target) => false; //no contact damage
         public override void AI()
         {
-            
+
             Player player = Main.player[Projectile.owner];
             if (player.active && !player.dead && player.HasEffect<PrimeSoulEffect>())
                 Projectile.timeLeft = 2;
@@ -140,7 +132,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                 if (soulColor.HasValue)
                     color = soulColor.Value;
             }
-                 
+
 
             //Color color26 = lightColor;
             //color26 = Projectile.GetAlpha(color26);
@@ -196,7 +188,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             if (ColorTimer >= ColorTime * colorAmt)
                 ColorTimer = 1;
 
-           float lerp = (ColorTimer % ColorTime)  / ColorTime; // Current lerp progress between colors
+            float lerp = (ColorTimer % ColorTime) / ColorTime; // Current lerp progress between colors
 
             int i = (int)Math.Floor(ColorTimer / ColorTime); // Current soul color being lerped from
             if (colorAmt <= 1)

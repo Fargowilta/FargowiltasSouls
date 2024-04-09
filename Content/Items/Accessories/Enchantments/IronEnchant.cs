@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class IronEnchant : BaseEnchant
+    public class IronEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(152, 142, 131);
-        
+
 
         public override void SetDefaults()
         {

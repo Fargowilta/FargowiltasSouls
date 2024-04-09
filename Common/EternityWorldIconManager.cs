@@ -2,11 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
@@ -88,10 +83,10 @@ namespace FargowiltasSouls.Common
 
                 //return emodeIcon;
             }
-            
+
             return worldIcon;
         }
-        
+
         private void EternityDifficultyFix(On_AWorldListItem.orig_GetDifficulty orig, AWorldListItem self, out string expertText, out Color gameModeColor)
         {
             orig.Invoke(self, out string origText, out Color origColor);
@@ -100,13 +95,13 @@ namespace FargowiltasSouls.Common
             expertText = origText;
             gameModeColor = origColor;
         }
-        
+
 
         public override void SaveWorldHeader(TagCompound tag)
         {
             tag["EternityWorld"] = WorldSavingSystem.EternityMode;
             tag["MasochistWorld"] = WorldSavingSystem.MasochistModeReal;
         }
-        
+
     }
 }

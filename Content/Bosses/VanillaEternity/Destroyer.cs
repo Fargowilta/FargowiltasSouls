@@ -1,28 +1,28 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Common.Utilities;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Core.NPCMatching;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
-using Terraria.GameContent;
-using FargowiltasSouls.Core;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class Destroyer : EModeNPCBehaviour
+    public class Destroyer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.TheDestroyer);
 
@@ -751,7 +751,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             target.AddBuff(BuffID.Electrified, 60);
             target.AddBuff(ModContent.BuffType<LightningRodBuff>(), 600);
         }
-        
+
 
         public override void LoadSprites(NPC npc, bool recolor)
         {
@@ -982,7 +982,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 modifiers.Null();
             }
         }
-        
+
 
         public override void SafeModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {

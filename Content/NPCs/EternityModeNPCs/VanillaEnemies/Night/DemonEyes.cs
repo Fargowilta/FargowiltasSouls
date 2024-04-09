@@ -1,18 +1,18 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.NPCMatching;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Night
 {
-	public class DemonEyes : EModeNPCBehaviour
+    public class DemonEyes : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() =>
             new NPCMatcher().MatchTypeRange(

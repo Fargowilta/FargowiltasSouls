@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Common.Utilities;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -55,8 +54,8 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                         tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{enchant.Item.type}] " + enchant.wizardEffect()));
                         tooltips[tooltips.Count - 1].OverrideColor = Color.Gray;
                     }
-                        
-                    
+
+
                 }
             }
         }

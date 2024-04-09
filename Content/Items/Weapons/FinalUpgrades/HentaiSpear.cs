@@ -1,4 +1,7 @@
-﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
+﻿using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Projectiles.BossWeapons;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,14 +9,10 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-
-using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Items.Weapons.FinalUpgrades
 {
-	public class HentaiSpear : SoulsItem
+    public class HentaiSpear : SoulsItem
     {
         public override void SetStaticDefaults()
         {

@@ -1,20 +1,20 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Projectiles.Souls;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.NPCMatching;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public abstract class BiomeMimics : EModeNPCBehaviour
+    public abstract class BiomeMimics : EModeNPCBehaviour
     {
         public int AttackCycleTimer;
         public int IndividualAttackTimer;
@@ -279,7 +279,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                 if (IndividualAttackTimer > 10)
                 {
                     IndividualAttackTimer = 0;
-                    
+
                     SoundEngine.PlaySound(SoundID.Grass, npc.Center);
                     float speed = Main.player[npc.target].ZoneRockLayerHeight ? 9f : 14f;
                     if (FargoSoulsUtil.HostCheck)

@@ -1,8 +1,7 @@
-﻿using System;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -14,7 +13,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 {
 
-	public class BaronArenaWhirlpool : ModProjectile
+    public class BaronArenaWhirlpool : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Content/Bosses/BanishedBaron/BaronWhirlpool";
         public override void SetStaticDefaults()
@@ -71,7 +70,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             }
 
             Player player = baron.target.IsWithinBounds(Main.maxPlayers) ? Main.player[baron.target] : null;
-            
+
             if (player != null && player.active && !player.dead && !player.ghost)
             {
                 if (Timer == 0) //done this way to work with world borders
@@ -80,7 +79,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     const int WorldEdgeExtraWidth = 200; //extra width for projectile attack to be visible
                     int worldSide = Math.Sign(Main.maxTilesX * 8 - Projectile.Center.X); //half world width minus pos of this
                     Projectile.Center = Main.screenPosition + new Vector2(WorldEdgeExtraWidth * worldSide + Main.screenWidth / 2, Main.screenHeight / 2); //not player center to work with map borders
-                    
+
                 }
                 Projectile.Center = Projectile.Center.X * Vector2.UnitX + player.Center.Y * Vector2.UnitY;
 
@@ -96,7 +95,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                         }
                         FireBolts(player, side);
                     }
-                    
+
                 }
             }
             if (Projectile.alpha > 0)
@@ -157,7 +156,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     {
                         continue;
                     }
-                    
+
                     Main.EntitySpriteDraw(texture, center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle?(rectangle), color, Projectile.rotation, origin2, Projectile.scale, effects, 0);
                 }
             }
@@ -197,7 +196,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                             player.FargoSouls().NoUsingItems = 2;
                         }
 
-                        Vector2 movement = new Vector2(location.X - player.Center.X, 0);
+                        Vector2 movement = new(location.X - player.Center.X, 0);
                         float difference = movement.Length() - threshold;
                         movement.Normalize();
                         movement *= difference < 17f ? difference : 17f;
@@ -225,7 +224,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 
         private void FireBolts(Player player, int side)
         {
-            
+
             for (int i = -10; i <= 10; i++)
             {
                 const int speed = 7;

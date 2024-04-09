@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Bosses.MutantBoss;
+using FargowiltasSouls.Content.Items.Materials;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {

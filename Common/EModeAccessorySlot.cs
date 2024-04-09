@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Common
 {
-	public abstract class EModeAccessorySlot : ModAccessorySlot
+    public abstract class EModeAccessorySlot : ModAccessorySlot
     {
         int[] AllowedItemExceptions = new int[] //technically these are souls so should legally go in the slot that allows souls
         {
@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Common
             ItemID.SoulofFlight,
             ItemID.SoulofFright,
             ItemID.SoulofSight,
-            ItemID.SoulofMight, 
+            ItemID.SoulofMight,
         };
         public abstract int Loadout { get; }
         public override bool CanAcceptItem(Item checkItem, AccessorySlotType context)
@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Common
             {
                 if ((checkItem.ModItem != null && (checkItem.ModItem is BaseEnchant || checkItem.ModItem is BaseForce || checkItem.ModItem is BaseSoul)) || AllowedItemExceptions.Contains(checkItem.type))
                 {
-                    
+
                     return true;
                 }
                 return false;
@@ -64,7 +64,7 @@ namespace FargowiltasSouls.Common
             {
                 Player.FargoSouls().WizardedItem = FunctionalItem;
             }
-            
+
             base.ApplyEquipEffects();
         }
         public override void OnMouseHover(AccessorySlotType context)

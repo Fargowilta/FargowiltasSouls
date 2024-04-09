@@ -1,14 +1,13 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using Terraria.GameContent.Drawing;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
 {
@@ -83,7 +82,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                     Lighting.AddLight(Projectile.Center + Projectile.velocity, 0.1f, 0.4f, 0.2f);
 
             }
-                
+
             if (Projectile.timeLeft < 900 - 120)
                 Projectile.tileCollide = true;
 
@@ -101,7 +100,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                         Vector2 PV = Projectile.SafeDirectionTo(player.Center);
                         float anglediff = FargoSoulsUtil.RotationDifference(LV, PV);
                         //change rotation towards target
-                        Projectile.velocity = Projectile.velocity.RotatedBy(Math.Sign(anglediff) * Math.Min(Math.Abs(anglediff),  MathHelper.Pi / redirectTime));
+                        Projectile.velocity = Projectile.velocity.RotatedBy(Math.Sign(anglediff) * Math.Min(Math.Abs(anglediff), MathHelper.Pi / redirectTime));
                         Projectile.rotation = Projectile.velocity.ToRotation();
 
                         /*
@@ -111,7 +110,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                         Projectile.velocity = Projectile.rotation.ToRotationVector2() * Projectile.velocity
                         */
                     }
-                    
+
                 }
                 Projectile.position -= Projectile.velocity * 0.9f;
                 Projectile.ai[1]++;

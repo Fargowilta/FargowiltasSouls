@@ -1,10 +1,8 @@
-﻿using FargowiltasSouls.Common.Utilities;
-using Terraria;
-using Terraria.GameContent.Events;
-using Terraria.ID;
-using FargowiltasSouls.Core.Globals;
+﻿using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.NPCMatching;
 using System.Linq;
+using Terraria;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.OOA
 {
@@ -39,7 +37,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.OOA
             {
                 npc.chaseable = true;
             }
-                
+
         }
         public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)
         {

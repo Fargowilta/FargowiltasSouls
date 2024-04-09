@@ -1,5 +1,22 @@
+using Fargowiltas.NPCs;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Misc;
+using FargowiltasSouls.Content.Items.Summons;
+using FargowiltasSouls.Content.Items.Weapons.BossDrops;
+using FargowiltasSouls.Content.Items.Weapons.Misc;
+using FargowiltasSouls.Content.NPCs.Critters;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
+using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.ItemDropRules;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,35 +25,17 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Items.Weapons.Misc;
-using FargowiltasSouls.Content.Items.Weapons.BossDrops;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.ItemDropRules;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using FargowiltasSouls.Content.Items.Summons;
-using Fargowiltas.NPCs;
-using FargowiltasSouls.Content.Items.Misc;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using Terraria.GameContent.Events;
-using FargowiltasSouls.Content.NPCs.Critters;
 
 namespace FargowiltasSouls.Core.Globals
 {
-	public class FargoSoulsGlobalNPC : GlobalNPC
+    public class FargoSoulsGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
 
-        #pragma warning disable CA2211
+#pragma warning disable CA2211
 
         public static int boss = -1;
-        #pragma warning restore CA2211
+#pragma warning restore CA2211
 
         public int originalDefense;
         public bool BrokenArmor;
@@ -150,8 +149,8 @@ namespace FargowiltasSouls.Core.Globals
                     NPCID.Sets.SpecificDebuffImmunity[npc.Type][miracleBlight.Type] = true;
                 }
             }
-            
-            
+
+
         }
         public override void SetDefaults(NPC npc)
         {
@@ -278,7 +277,7 @@ namespace FargowiltasSouls.Core.Globals
             }
             return retval;
         }
-        
+
 
         public override void PostAI(NPC npc)
         {
@@ -626,7 +625,7 @@ namespace FargowiltasSouls.Core.Globals
                 }
             }
 
-            
+
         }
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {

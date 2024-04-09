@@ -1,4 +1,6 @@
+using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,8 +9,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Core.Globals;
 
 namespace FargowiltasSouls.Content.Projectiles.Minions
 {

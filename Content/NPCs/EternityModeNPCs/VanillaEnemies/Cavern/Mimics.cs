@@ -1,19 +1,19 @@
-using System.IO;
-using Terraria.ModLoader.IO;
-using FargowiltasSouls.Content.Projectiles.Masomode;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
-using System;
 using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Projectiles.Masomode;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.NPCMatching;
+using Microsoft.Xna.Framework;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public class Mimics : EModeNPCBehaviour
+    public class Mimics : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.Mimic,
@@ -115,8 +115,8 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                         npc.noGravity = false;
                         //npc.noTileCollide = false;
                     }
-                    
-                    
+
+
                     if (Timer >= 160)
                     {
                         AttackTimer = 0;
@@ -169,7 +169,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                 {
 
                     //if (Math.Abs(npc.velocity.ToRotation() - npc.SafeDirectionTo(player.Center).ToRotation()) > Math.PI) //if velociting in the wrong direction, change direction toward player
-                        //npc.velocity = npc.SafeDirectionTo(player.Center);
+                    //npc.velocity = npc.SafeDirectionTo(player.Center);
 
                     //npc.velocity += npc.SafeDirectionTo(player.Center) * 0.5f;
                     FlyToward(player.Center);

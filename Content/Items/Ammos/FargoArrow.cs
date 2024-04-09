@@ -1,7 +1,7 @@
-﻿using FargowiltasSouls.Content.Projectiles.Ammos;
+﻿using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Projectiles.Ammos;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
 
 namespace FargowiltasSouls.Content.Items.Ammos
 {

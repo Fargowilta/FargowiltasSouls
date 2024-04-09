@@ -1,7 +1,5 @@
-﻿using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
+﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
-using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

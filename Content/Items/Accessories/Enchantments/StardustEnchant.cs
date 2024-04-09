@@ -1,6 +1,5 @@
 ﻿
 using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
@@ -8,13 +7,12 @@ using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class StardustEnchant : BaseEnchant
+    public class StardustEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

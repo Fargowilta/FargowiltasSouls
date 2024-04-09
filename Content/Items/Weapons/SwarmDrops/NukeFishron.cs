@@ -1,11 +1,11 @@
-﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
+﻿using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Weapons.BossDrops;
+using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Weapons.BossDrops;
 
 namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
 {

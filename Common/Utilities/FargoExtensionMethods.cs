@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls //lets everything access it without using
 {
-	public static partial class FargoExtensionMethods
+    public static partial class FargoExtensionMethods
     {
         /// <summary>
         /// Adjusts a TooltipLine to account for prefixes. <br />
@@ -63,7 +63,7 @@ namespace FargowiltasSouls //lets everything access it without using
         public static void Null(ref this NPC.HitInfo hitInfo)
         {
             // hitInfo.Damage = 0;
-            
+
             // https://stackoverflow.com/questions/27226731/getfield-setvalue-doesnt-work
             object unboxedHitInfo = hitInfo;
             _damageFieldHitInfo.SetValue(unboxedHitInfo, 0);
@@ -79,7 +79,7 @@ namespace FargowiltasSouls //lets everything access it without using
         {
             // doesn't work because tModLoader maxes it with 1
             // statModifier = statModifier.Scale(0f);
-            
+
             // will break if basically any mod registers this hook as well
             hitModifiers.ModifyHitInfo += (ref NPC.HitInfo hitInfo) => hitInfo.Null();
         }
@@ -122,7 +122,7 @@ namespace FargowiltasSouls //lets everything access it without using
             => player.GetModPlayer<FargoSoulsPlayer>();
         public static EModePlayer Eternity(this Player player)
             => player.GetModPlayer<EModePlayer>();
-        public static AccessoryEffectPlayer AccessoryEffects(this Player player) 
+        public static AccessoryEffectPlayer AccessoryEffects(this Player player)
             => player.GetModPlayer<AccessoryEffectPlayer>();
         public static bool ForceEffect<T>(this Player player) where T : AccessoryEffect
         {
@@ -131,7 +131,7 @@ namespace FargowiltasSouls //lets everything access it without using
                 return false;
             return player.FargoSouls().ForceEffect(item.ModItem);
         }
-            
+
         public static bool Alive(this Player player) => player != null && player.active && !player.dead && !player.ghost;
         public static bool Alive(this Projectile projectile) => projectile != null && projectile.active;
         public static bool Alive(this NPC npc) => npc != null && npc.active;
@@ -147,7 +147,7 @@ namespace FargowiltasSouls //lets everything access it without using
 
         public static float ActualClassDamage(this Player player, DamageClass damageClass)
             => player.GetTotalDamage(damageClass).Additive * player.GetTotalDamage(damageClass).Multiplicative;
-        public static bool IsWeapon(this Item item) 
+        public static bool IsWeapon(this Item item)
         {
             return (item.damage > 0 && item.pick == 0 && item.axe == 0 && item.hammer == 0) || item.type == ItemID.CoinGun; // I HATE COIN GUN GRAAAAAAAAAAAAAAAAGHHHHHHHHHHHH
         }

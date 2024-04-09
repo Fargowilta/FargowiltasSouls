@@ -1,15 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
-
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class CrystalAssassinEnchant : BaseEnchant
+    public class CrystalAssassinEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

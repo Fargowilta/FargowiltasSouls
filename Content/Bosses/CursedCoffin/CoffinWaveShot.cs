@@ -1,19 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ID;
-using Terraria;
-using Terraria.ModLoader;
+﻿using FargowiltasSouls.Assets.ExtraTextures;
 using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.Systems;
-
-using FargowiltasSouls.Assets.ExtraTextures;
-
 using Luminance.Core.Graphics;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 {
@@ -102,7 +96,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             //return Color.Lerp(GlowColor, Color.Transparent, completionRatio) * 0.7f;
         }
 
-        
+
         public void RenderPixelatedPrimitives(SpriteBatch spriteBatch)
         {
             ManagedShader shader = ShaderManager.GetShader("FargowiltasSouls.BlobTrail");

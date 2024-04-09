@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Pets
 {
-	public class Nibble : ModProjectile
+    public class Nibble : ModProjectile
     {
         public override void SetStaticDefaults()
         {

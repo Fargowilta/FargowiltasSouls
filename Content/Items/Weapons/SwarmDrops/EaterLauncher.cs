@@ -1,13 +1,12 @@
-﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
+﻿using Fargowiltas.Items.Summons.SwarmSummons.Energizers;
+using FargowiltasSouls.Content.Items.Weapons.BossDrops;
+using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Weapons.BossDrops;
-using Terraria.DataStructures;
-using Fargowiltas.Items.Summons.SwarmSummons.Energizers;
-using Fargowiltas.Items.Tiles;
 
 namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
 {
@@ -58,7 +57,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
             if (player.altFunctionUse == 2)
             {
                 //if (Cooldown > 0)
-                    //return false;
+                //return false;
 
                 Item.useAnimation = 24 * 2;
                 Item.useTime = 24 * 2;
@@ -123,7 +122,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
                     dust2.scale = 1f;
                 }
             }
-            
+
         }
 
 

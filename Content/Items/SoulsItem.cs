@@ -1,14 +1,8 @@
-﻿using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Content.UI.Elements;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
+﻿using FargowiltasSouls.Content.UI.Elements;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Intrinsics.Arm;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;

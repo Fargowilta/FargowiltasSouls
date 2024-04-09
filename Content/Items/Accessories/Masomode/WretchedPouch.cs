@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Content.Buffs;
 using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Projectiles.Masomode;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
@@ -48,7 +47,7 @@ Attack speed bonuses are half as effective
         {
             player.buffImmune[BuffID.ShadowFlame] = true;
             player.buffImmune[ModContent.BuffType<ShadowflameBuff>()] = true;
-            
+
             player.AddEffect<WretchedPouchEffect>(Item);
         }
     }
@@ -62,7 +61,7 @@ Attack speed bonuses are half as effective
         {
             Player Player = player;
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            
+
             if (!Player.controlUseItem && !Player.controlUseTile && modPlayer.WeaponUseTimer <= 6) //remove extra 6 added to the timer, makes it a lot less awkward
                 return;
 

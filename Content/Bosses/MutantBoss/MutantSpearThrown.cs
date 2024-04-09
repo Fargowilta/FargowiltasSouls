@@ -1,7 +1,5 @@
 ﻿using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -127,7 +125,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 target.AddBuff(ModContent.BuffType<MutantFangBuff>(), 180);
             }
             target.AddBuff(ModContent.BuffType<CurseoftheMoonBuff>(), 600);
-            
+
             TryLifeSteal(target.Center, target.whoAmI);
         }
 

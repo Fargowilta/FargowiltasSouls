@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	[AutoloadEquip(EquipType.Shield)]
+    [AutoloadEquip(EquipType.Shield)]
     public class SilverEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(180, 180, 204);
-        
+
 
         public override void SetDefaults()
         {
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class SilverEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<SilverEnchant>();
     }

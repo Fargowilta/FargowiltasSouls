@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.NPCMatching;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Jungle
 {
-	public class Derpling : EModeNPCBehaviour
+    public class Derpling : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Derpling);
 

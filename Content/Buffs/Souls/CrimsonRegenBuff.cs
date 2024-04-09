@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Souls
 {
@@ -27,7 +26,8 @@ namespace FargowiltasSouls.Content.Buffs.Souls
                 player.statLife += modPlayer.CrimsonRegenAmount;
                 player.HealEffect(modPlayer.CrimsonRegenAmount);
             }
-            if (modPlayer.CrimsonRegenTime > (modPlayer.ForceEffect<CrimsonEnchant>() ? 420*2 : 420)) { //if its force effect, end at 14 seconds instead of 7
+            if (modPlayer.CrimsonRegenTime > (modPlayer.ForceEffect<CrimsonEnchant>() ? 420 * 2 : 420))
+            { //if its force effect, end at 14 seconds instead of 7
                 player.DelBuff(buffIndex);
             }
 

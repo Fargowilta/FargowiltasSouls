@@ -1,19 +1,17 @@
 ﻿using FargowiltasSouls.Assets.ExtraTextures;
-
+using FargowiltasSouls.Content.Projectiles.Deathrays;
+using FargowiltasSouls.Core.Systems;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Projectiles.Deathrays;
-
-using Luminance.Core.Graphics;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathrayAim : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathrayAim : BaseDeathray, IPixelatedPrimitiveRenderer
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/PhantasmalDeathrayML";
         public MutantDeathrayAim() : base(60) { }

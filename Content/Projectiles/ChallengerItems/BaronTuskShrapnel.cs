@@ -8,7 +8,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
 {
-	public class BaronTuskShrapnel : ModProjectile
+    public class BaronTuskShrapnel : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Content/Bosses/BanishedBaron/BaronShrapnel";
         public override void SetStaticDefaults()
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
                 Projectile.velocity = Vector2.Zero;
                 State = 1;
             }
-            
+
         }
         public override void AI()
         {

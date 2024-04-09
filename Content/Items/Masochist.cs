@@ -15,7 +15,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items
 {
-	public class Masochist : SoulsItem
+    public class Masochist : SoulsItem
     {
         public override string Texture => "FargowiltasSouls/Content/Items/Placeholder";
 

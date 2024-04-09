@@ -1,16 +1,16 @@
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Audio;
 using FargowiltasSouls.Content.Items.Weapons.BossDrops;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class MythrilEnchant : BaseEnchant
+    public class MythrilEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +24,7 @@ Bonus ends after attacking for 3 seconds and rebuilds over 5 seconds
         }
 
         public override Color nameColor => new(157, 210, 144);
-        
+
 
         public override void SetDefaults()
         {

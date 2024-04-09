@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.BossBars
 {
-	public class CompositeBossBar : ModBossBar
+    public class CompositeBossBar : ModBossBar
     {
         private int bossHeadIndex = -1;
 

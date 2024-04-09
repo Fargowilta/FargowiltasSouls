@@ -1,26 +1,25 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Common.Utilities;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Projectiles.Souls;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Core.NPCMatching;
-using Terraria.Localization;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class SkeletronPrime : EModeNPCBehaviour
+    public class SkeletronPrime : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.SkeletronPrime);
 
@@ -217,7 +216,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     {
                         npc.rotation += MathHelper.Pi / 6;
                     }
-                    
+
                     if (!Main.dayTime && !WorldSavingSystem.MasochistModeReal)
                     {
                         npc.position -= npc.velocity * 0.1f;
@@ -266,7 +265,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
                         FargoSoulsUtil.PrintLocalization($"Mods.{Mod.Name}.NPCs.EMode.RegrowArms", new Color(175, 75, 255), npc.FullName);
 
-                        foreach (NPC l in Main.npc.Where(l => l.active && l.ai[1] == npc.whoAmI )) // 2 seconds of no contact damage on phase transition
+                        foreach (NPC l in Main.npc.Where(l => l.active && l.ai[1] == npc.whoAmI)) // 2 seconds of no contact damage on phase transition
                         {
                             if (l.TryGetGlobalNPC(out PrimeLimb limb) && limb.NoContactDamageTimer < 60 * 3)
                                 limb.NoContactDamageTimer = 60 * 3;
@@ -1001,7 +1000,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
         public override bool CanHitPlayer(NPC npc, Player target, ref int CooldownSlot) => NoContactDamageTimer <= 0;
         public override bool? CanBeHitByItem(NPC npc, Player player, Item item) => NoContactDamageTimer <= 0 ? null : false;
         public override bool? CanBeHitByProjectile(NPC npc, Projectile projectile) => NoContactDamageTimer <= 0 ? null : false;
-        public override bool CanBeHitByNPC(NPC npc, NPC attacker)  => NoContactDamageTimer <= 0;
+        public override bool CanBeHitByNPC(NPC npc, NPC attacker) => NoContactDamageTimer <= 0;
         public override bool ModifyCollisionData(NPC npc, Rectangle victimHitbox, ref int immunityCooldownSlot, ref MultipliableFloat damageMultiplier, ref Rectangle npcHitbox)
         {
             if (NoContactDamageTimer > 0)
@@ -1014,7 +1013,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 drawColor *= 0.5f;
             return base.GetAlpha(npc, drawColor);
         }
-        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo) 
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
         {
             base.OnHitPlayer(npc, target, hurtInfo);
 

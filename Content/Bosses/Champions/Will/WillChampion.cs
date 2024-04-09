@@ -1,6 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
+using FargowiltasSouls.Content.Items.Pets;
+using FargowiltasSouls.Content.Items.Placables.Relics;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.ItemDropRules;
+using FargowiltasSouls.Core.Systems;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -9,14 +17,6 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Pets;
-using FargowiltasSouls.Content.Items.Placables.Relics;
-using FargowiltasSouls.Content.Items.Accessories.Forces;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.ItemDropRules;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using System.Collections.Generic;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Will
 {

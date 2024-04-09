@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Lifelight
 {
-	public class LifeTpTelegraph : ModProjectile
+    public class LifeTpTelegraph : ModProjectile
     {
         // Kills the projectile above 0, so set it to a negative value.
         public ref float Timer => ref Projectile.ai[0];
@@ -72,7 +72,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
         // Telegraphs should not deal damage.
         public override bool? CanDamage() => false;
 
-		public override Color? GetAlpha(Color lightColor)
+        public override Color? GetAlpha(Color lightColor)
         {
             Color color = Color.HotPink;
             color.A = 50;

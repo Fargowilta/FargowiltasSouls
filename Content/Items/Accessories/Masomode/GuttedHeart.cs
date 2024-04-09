@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Souls;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
+﻿using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
@@ -133,7 +132,7 @@ Creeper respawn speed increases when not moving
                 }
             }
         }
-        
+
     }
     public class GuttedHeartMinions : AccessoryEffect
     {

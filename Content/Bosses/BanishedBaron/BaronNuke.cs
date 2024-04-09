@@ -1,10 +1,10 @@
-﻿using System;
-using FargowiltasSouls.Common.Graphics.Particles;
+﻿using FargowiltasSouls.Common.Graphics.Particles;
 using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -15,7 +15,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 {
 
-	public class BaronNuke : ModProjectile
+    public class BaronNuke : ModProjectile
     {
 
         private readonly int ExplosionDiameter = WorldSavingSystem.MasochistModeReal ? 500 : 500;
@@ -104,7 +104,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     Dust.NewDust(backPos, 2, 2, DustID.Water, -Projectile.velocity.X, -Projectile.velocity.Y, 0, default, 1f);
                 }
             }
-            
+
 
             Projectile.rotation = Projectile.velocity.RotatedBy(MathHelper.Pi).ToRotation();
 
@@ -130,7 +130,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             if (Timer < 60)
             {
                 Projectile.velocity *= 0.965f;
-                
+
             }
             else if (player != null && player.active && !player.ghost) //homing
             {
@@ -193,7 +193,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                 //int d = Dust.NewDust(pos, 0, 0, DustID.Fireworks, 0f, 0f, 0, default, 1.5f);
                 //Main.dust[d].noGravity = true;
             }
-            
+
             float scaleFactor9 = 2;
             for (int j = 0; j < 20; j++)
             {

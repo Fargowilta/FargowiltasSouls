@@ -135,7 +135,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
 
             const int blockTrackDownAllowanceRange = 4;
 
-            bool IsInTile(Vector2 pos)
+            static bool IsInTile(Vector2 pos)
             {
                 Tile tile = Framing.GetTileSafely(pos);
                 return tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);

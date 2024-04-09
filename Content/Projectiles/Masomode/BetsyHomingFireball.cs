@@ -1,10 +1,8 @@
-using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Graphics.PackedVector;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -47,7 +45,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Will
                 Projectile.ai[1] = 1f;
                 SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
             }
-            else if (Projectile.ai[1] == 1f && Main.netMode != 1)
+            else if (Projectile.ai[1] == 1f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int num2 = -1;
                 float num3 = 2000f;

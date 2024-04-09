@@ -1,10 +1,10 @@
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using FargowiltasSouls.Core.Systems;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Lifelight
 {

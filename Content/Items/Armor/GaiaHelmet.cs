@@ -1,6 +1,4 @@
-﻿using FargowiltasSouls.Content.Projectiles.Minions;
-using FargowiltasSouls.Core.ModPlayers;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;

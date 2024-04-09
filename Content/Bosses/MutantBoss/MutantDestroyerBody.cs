@@ -1,14 +1,14 @@
 ﻿using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Core.Systems;
-using ReLogic.Content;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
@@ -138,7 +138,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             }
             if (!Main.dedServ)
             {
-                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, 
+                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2,
                     Projectile.ai[2] == 0 ? 156 : 25, Projectile.scale);
                 Main.gore[g].timeLeft = 20;
             }

@@ -1,14 +1,13 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Core.NPCMatching;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Core.Systems;
-using Terraria.Audio;
-using System.Linq;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Vortex
 {
@@ -36,13 +35,13 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             VortexShield
 
         }
-        public override List<int> RandomAttacks => new List<int>() //these are randomly chosen attacks in p1
+        public override List<int> RandomAttacks => new() //these are randomly chosen attacks in p1
         {
             (int)Attacks.LightningBall,
             (int)Attacks.SkyLightning,
             (int)Attacks.LightningElderHu,
             (int)Attacks.VortexShield
-            
+
         };
         public override void ShieldsDownAI(NPC npc)
         {
@@ -74,7 +73,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             }
             else
             {
-                
+
                 if (Attack == (int)Attacks.VortexVortex)
                 {
                     EndAttack(npc);
@@ -83,7 +82,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         projectile.Kill();
                     }
                 }
-                    
+
             }
         }
         #region Attacks
@@ -93,7 +92,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             //no end
             void Attack()
             {
-                    
+
 
                 if (FargoSoulsUtil.HostCheck && AttackTimer % 20 == 1) //anti lag
                 {
@@ -111,7 +110,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         Vector2 pos = npc.Center - Vector2.UnitY * npc.height * 0.8f;
                         Vortex = Projectile.NewProjectile(npc.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<VortexVortex>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 0f, 1);
                     }
-                        
+
                 }
                 if (Vortex.IsWithinBounds(Main.maxProjectiles))
                 {
@@ -261,7 +260,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         SoundEngine.PlaySound(NukeBeep, pos);
                         if (FargoSoulsUtil.HostCheck)
                         {
-                            
+
                             SpawnLightning(npc, pos);
                         }
                     }
@@ -334,7 +333,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         private readonly SoundStyle NukeBeep = new("FargowiltasSouls/Assets/Sounds/NukeBeep");
         private void SpawnLightning(NPC parent, Vector2 position)
         {
-            
+
             if (FargoSoulsUtil.HostCheck)
             {
                 Vector2 posOrig = position;

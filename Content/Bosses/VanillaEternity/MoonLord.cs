@@ -1,9 +1,15 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Common.Utilities;
+using FargowiltasSouls.Content.Bosses.MutantBoss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Deathrays;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
@@ -11,18 +17,11 @@ using Terraria.GameContent.Creative;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Core.NPCMatching;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public abstract class MoonLord : EModeNPCBehaviour
+    public abstract class MoonLord : EModeNPCBehaviour
     {
         public abstract int GetVulnerabilityState(NPC npc);
 
@@ -63,7 +62,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     default: break;
                 }
             }
-            
+
 
             return base.CanBeHitByProjectile(npc, projectile);
         }
@@ -557,7 +556,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 if (!SkyManager.Instance["FargowiltasSouls:MoonLordSky"].IsActive())
                     SkyManager.Instance.Activate("FargowiltasSouls:MoonLordSky");
 
-                void HandleScene(string name)
+                static void HandleScene(string name)
                 {
                     if (!Filters.Scene[$"FargowiltasSouls:{name}"].IsActive())
                         Filters.Scene.Activate($"FargowiltasSouls:{name}");

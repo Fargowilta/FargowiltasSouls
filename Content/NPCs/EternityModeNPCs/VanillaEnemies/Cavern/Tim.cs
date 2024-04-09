@@ -1,11 +1,11 @@
-﻿using Terraria;
-using Terraria.ID;
-using FargowiltasSouls.Core.Globals;
+﻿using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.NPCMatching;
+using Terraria;
+using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
 {
-	public class Tim : Teleporters
+    public class Tim : Teleporters
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Tim);
 

@@ -1,7 +1,5 @@
-﻿using Fargowiltas;
-using Fargowiltas.Items.Tiles;
+﻿using Fargowiltas.Items.Tiles;
 using FargowiltasSouls.Content.Buffs.Minions;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Content.Projectiles.Minions;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
@@ -126,6 +124,6 @@ Increases max number of minions and sentries by 10
             if (player.ownedProjectileCounts[ModContent.ProjectileType<PhantasmalRing>()] < 1)
                 FargoSoulsUtil.NewSummonProjectile(player.GetSource_Misc(""), player.Center, Vector2.Zero, ModContent.ProjectileType<PhantasmalRing>(), 1700, 0f, player.whoAmI);
         }
-        
+
     }
 }

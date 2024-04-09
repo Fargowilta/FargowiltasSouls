@@ -1,14 +1,13 @@
 using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Projectiles;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Timber
 {

@@ -24,7 +24,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             Projectile.width = 8;
             Projectile.height = 8;
             Projectile.aiStyle = -1;//1;
-            //AIType = ProjectileID.SaucerLaser;
+                                    //AIType = ProjectileID.SaucerLaser;
             Projectile.friendly = true;
             //Projectile.alpha = 255;
             Projectile.extraUpdates = 1;

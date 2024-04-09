@@ -1,10 +1,9 @@
-﻿using Terraria.Localization;
-using Terraria.ID;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria;
+﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
 {

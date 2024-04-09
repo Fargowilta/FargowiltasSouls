@@ -1,6 +1,4 @@
 ﻿using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -65,7 +63,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
 
                 float rotation = drawOffset.ToRotation() + MathHelper.PiOver2;
 
-                
+
                 const int max = 4;
                 for (int i = 0; i < max; i++)
                 {

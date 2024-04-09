@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
@@ -113,7 +112,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             }
             */
 
-            
+
             if (Projectile.owner == Main.myPlayer)
             {
                 int max = 1;
@@ -124,7 +123,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                         Main.projectile[p].DamageType = DamageClass.Ranged;
                 }
             }
-            
+
         }
 
         public override bool PreDraw(ref Color lightColor)

@@ -1,14 +1,13 @@
+using FargowiltasSouls.Content.Bosses.Lifelight;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
-using Terraria.Audio;
-using Microsoft.Xna.Framework;
-using FargowiltasSouls.Content.Bosses.Lifelight;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {
-
-	public class FragilePixieLamp : SoulsItem
+    public class FragilePixieLamp : SoulsItem
     {
         public override void SetStaticDefaults()
         {

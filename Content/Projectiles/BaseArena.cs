@@ -134,7 +134,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         }
                         if (speed <= 60f)
                         {
-                            speed += 3/60f;
+                            speed += 3 / 60f;
                         }
                     }
                     else

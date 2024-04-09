@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace FargowiltasSouls.Content.Patreon.Sam
 {
-	public class SquidwardDoorOpen : ModTile
+    public class SquidwardDoorOpen : ModTile
     {
         public override void SetStaticDefaults()
         {

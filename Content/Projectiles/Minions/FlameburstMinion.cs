@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Minions
 {
-	public class FlameburstMinion : ModProjectile
+    public class FlameburstMinion : ModProjectile
     {
         public override void SetStaticDefaults()
         {

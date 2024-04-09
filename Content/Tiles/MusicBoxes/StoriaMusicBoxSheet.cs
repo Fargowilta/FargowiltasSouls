@@ -1,13 +1,13 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
 
 namespace FargowiltasSouls.Content.Tiles.MusicBoxes
 {
-	public class StoriaMusicBoxSheet : ModTile
+    public class StoriaMusicBoxSheet : ModTile
     {
         public override void SetStaticDefaults()
         {

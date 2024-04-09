@@ -1,7 +1,5 @@
 ﻿using FargowiltasSouls.Content.Projectiles.Minions;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -10,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PalmWoodEnchant : BaseEnchant
+    public class PalmWoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -25,7 +23,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
 
         public override Color nameColor => new(183, 141, 86);
-        
+
 
         public override void SetDefaults()
         {
@@ -56,7 +54,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class PalmwoodEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
         public override int ToggleItemType => ModContent.ItemType<PalmWoodEnchant>();
         public override bool MinionEffect => true;

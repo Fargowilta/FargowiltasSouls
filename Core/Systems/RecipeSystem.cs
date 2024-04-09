@@ -1,20 +1,17 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
-using FargowiltasSouls.Content.Items.BossBags;
 using FargowiltasSouls.Content.Items.Misc;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using System;
 using System.Linq;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.Systems
 {
-	public class RecipeSystem : ModSystem
+    public class RecipeSystem : ModSystem
     {
         public readonly static Recipe.ConsumeItemCallback IronBonusBars = (Recipe recipe, int type, ref int amount) =>
         {
@@ -34,7 +31,7 @@ namespace FargowiltasSouls.Core.Systems
                 }
 
                 WorldSavingSystem.IronUsedList.Add(type);
-                
+
                 int amountUsed = 0;
                 for (int i = 0; i < amount; i++)
                 {

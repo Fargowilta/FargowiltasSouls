@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
 {
-	public class AntlionCharger : EModeNPCBehaviour
+    public class AntlionCharger : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.WalkingAntlion);
 
@@ -29,7 +29,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            
+
         }
     }
 }

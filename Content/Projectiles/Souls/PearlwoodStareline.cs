@@ -2,18 +2,11 @@
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +23,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             FargoSoulsPlayer modPlayer = player.FargoSouls();
             if (player == null || !player.active || player.dead || !(modPlayer.PearlwoodStar && player.HasEffect<PearlwoodEffect>()))
                 return;
-             int[] pearlwoodItems = new int[] { ModContent.ItemType<PearlwoodEnchant>(), ModContent.ItemType<TimberForce>(), ModContent.ItemType<TerrariaSoul>() };
+            int[] pearlwoodItems = new int[] { ModContent.ItemType<PearlwoodEnchant>(), ModContent.ItemType<TimberForce>(), ModContent.ItemType<TerrariaSoul>() };
             if (source is EntitySource_ItemUse itemSource && pearlwoodItems.Contains(itemSource.Item.type))
             {
                 SoundEngine.PlaySound(SoundID.Item84, projectile.Center);
@@ -42,9 +35,9 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 projectile.timeLeft = 22;
                 //projectile.aiStyle = -1;
                 projectile.tileCollide = false;
-                
+
             }
-            
+
         }
         /*
         public override void SetStaticDefaults()

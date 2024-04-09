@@ -5,14 +5,13 @@ using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Projectiles.Deathrays
 {
-	public class NebulaDeathray : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class NebulaDeathray : BaseDeathray, IPixelatedPrimitiveRenderer
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/DeviDeathray";
 
@@ -89,7 +88,7 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
             Vector2 vector79 = Projectile.Center + Projectile.velocity * (Projectile.localAI[1] - 14f);
             for (int num809 = 0; num809 < 1; num809 = num3 + 1)
             {
-                float num810 = Projectile.velocity.ToRotation() + (Main.rand.NextBool(2)? -1f : 1f) * 1.57079637f;
+                float num810 = Projectile.velocity.ToRotation() + (Main.rand.NextBool(2) ? -1f : 1f) * 1.57079637f;
                 float num811 = (float)Main.rand.NextDouble() * 2f + 2f;
                 Vector2 vector80 = new((float)Math.Cos((double)num810) * num811, (float)Math.Sin((double)num810) * num811);
                 int num812 = Dust.NewDust(vector79, 0, 0, DustID.GemAmethyst, vector80.X, vector80.Y, 0, default, 1f);

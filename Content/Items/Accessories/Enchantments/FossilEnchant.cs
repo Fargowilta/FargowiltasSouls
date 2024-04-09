@@ -1,7 +1,6 @@
 ﻿using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -12,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class FossilEnchant : BaseEnchant
+    public class FossilEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +32,7 @@ Collect the bones to heal for 20 HP each
         }
 
         public override Color nameColor => new(140, 92, 59);
-        
+
 
         public override void SetDefaults()
         {
@@ -65,7 +64,7 @@ Collect the bones to heal for 20 HP each
     }
     public class FossilEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => null;
         public override bool IgnoresMutantPresence => true;
         public override void OnHurt(Player player, Player.HurtInfo info)
@@ -146,7 +145,7 @@ Collect the bones to heal for 20 HP each
     }
     public class FossilBones : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<SpiritHeader>();
         public override int ToggleItemType => ModContent.ItemType<FossilEnchant>();
         public override void OnHurt(Player player, Player.HurtInfo info)

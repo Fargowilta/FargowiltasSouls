@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Nebula
 {
-	public class PillarNebulaBlaze : CosmosNebulaBlaze
+    public class PillarNebulaBlaze : CosmosNebulaBlaze
     {
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {

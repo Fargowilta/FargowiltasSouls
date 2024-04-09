@@ -1,14 +1,14 @@
 ﻿using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class PumpkinEnchant : BaseEnchant
+    public class PumpkinEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -30,7 +30,7 @@ Enemies that touch them will destroy them and take damage
         }
 
         public override Color nameColor => new(227, 101, 28);
-        
+
 
         public override void SetDefaults()
         {

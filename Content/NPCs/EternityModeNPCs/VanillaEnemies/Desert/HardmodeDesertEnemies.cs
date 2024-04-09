@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
 {
-	public class HardmodeDesertEnemies : EModeNPCBehaviour
+    public class HardmodeDesertEnemies : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.DesertBeast,

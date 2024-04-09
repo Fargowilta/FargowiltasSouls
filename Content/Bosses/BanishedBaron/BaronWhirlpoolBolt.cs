@@ -1,9 +1,6 @@
 ﻿using FargowiltasSouls.Core.Systems;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
@@ -11,7 +8,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 namespace FargowiltasSouls.Content.Bosses.BanishedBaron
 {
 
-	public class BaronWhirlpoolBolt : ModProjectile
+    public class BaronWhirlpoolBolt : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_385";
         public override void SetStaticDefaults()
@@ -41,7 +38,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             {
                 return;
             }
-            
+
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
             => Projectile.Distance(FargoSoulsUtil.ClosestPointInHitbox(targetHitbox, Projectile.Center)) < projHitbox.Width / 2;

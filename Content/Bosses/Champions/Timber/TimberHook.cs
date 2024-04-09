@@ -1,5 +1,4 @@
 using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
-using FargowiltasSouls.Content.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

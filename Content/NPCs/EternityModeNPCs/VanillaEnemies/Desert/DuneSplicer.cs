@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
 {
-	public class DuneSplicer : EModeNPCBehaviour
+    public class DuneSplicer : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(
             NPCID.DuneSplicerBody,
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            
+
         }
     }
 }

@@ -1,4 +1,3 @@
-using FargowiltasSouls.Core.Globals;
 using Terraria;
 using Terraria.ModLoader;
 

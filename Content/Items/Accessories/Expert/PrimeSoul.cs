@@ -1,10 +1,7 @@
 ﻿using Fargowiltas.Items.Tiles;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Content.Items.Placables;
 using FargowiltasSouls.Content.Projectiles.Minions;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -21,7 +18,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Expert
 
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
-        
+
         public override void SetDefaults()
         {
             Item.width = 20;

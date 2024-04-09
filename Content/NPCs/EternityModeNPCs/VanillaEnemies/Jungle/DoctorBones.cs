@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Jungle
 {
-	public class DoctorBones : Shooters
+    public class DoctorBones : Shooters
     {
         public DoctorBones() : base(480, ProjectileID.Boulder, 14, 4) { }
 

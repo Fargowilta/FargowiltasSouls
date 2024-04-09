@@ -1,4 +1,3 @@
-using FargowiltasSouls.Common.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

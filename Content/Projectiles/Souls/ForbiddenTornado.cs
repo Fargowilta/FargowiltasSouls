@@ -55,7 +55,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                     Main.LocalPlayer.wingTime = Main.LocalPlayer.wingTimeMax;
                 }
             }
-            
+
             Projectile.velocity = Vector2.UnitY;
             Projectile.position -= Projectile.velocity;
 

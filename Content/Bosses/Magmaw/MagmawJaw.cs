@@ -1,14 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -37,7 +30,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            
+
         }
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -81,7 +74,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
             {
                 behindNPCs.Add(index);
             }
-                
+
         }
 
         #region Help Methods

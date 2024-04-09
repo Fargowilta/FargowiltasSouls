@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PumpkinMoon
 {
-	public class PumpkinMoonBosses : EModeNPCBehaviour
+    public class PumpkinMoonBosses : EModeNPCBehaviour
     {
         public const int WAVELOCK = 15;
 
@@ -19,7 +19,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PumpkinM
         {
             base.ModifyNPCLoot(npc, npcLoot);
 
-            
+
         }
 
         public override bool PreKill(NPC npc)

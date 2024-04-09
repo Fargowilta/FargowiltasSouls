@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.Globals;
 using Microsoft.Xna.Framework;
 using System;

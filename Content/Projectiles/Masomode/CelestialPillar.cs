@@ -196,7 +196,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 }
 
                 if (WorldSavingSystem.MasochistModeReal)
-                    FargoSoulsUtil.NewNPCEasy(Projectile.GetSource_FromThis(), Projectile.Center, Main.zenithWorld ? NPCID.CultistDragonHead : NPCID.AncientCultistSquidhead);
+                    FargoSoulsUtil.NewNPCEasy(Projectile.GetSource_FromThis(), Projectile.Center, NPCID.CultistDragonHead);
             }
         }
 

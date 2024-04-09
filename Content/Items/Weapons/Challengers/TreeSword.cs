@@ -37,7 +37,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         }
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient<TrojanSquirrelBag>(2).AddTile(TileID.Solidifier).DisableDecraft().Register();
+            CreateRecipe().AddIngredient<TrojanSquirrelBag>(2).AddTile(TileID.Solidifier).Register();
         }
     }
 }

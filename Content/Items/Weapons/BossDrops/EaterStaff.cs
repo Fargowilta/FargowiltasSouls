@@ -9,7 +9,6 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
 {
-    
     public class EaterStaff : SoulsItem
     {
         public override bool IsLoadingEnabled(Mod mod) => false;

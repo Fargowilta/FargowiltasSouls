@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Patreon.DemonKing
 {
-	public class StaffOfUnleashedOcean : PatreonModItem
+    public class StaffOfUnleashedOcean : PatreonModItem
     {
         public override void SetStaticDefaults()
         {

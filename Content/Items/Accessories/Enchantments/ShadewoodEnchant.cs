@@ -1,17 +1,16 @@
-﻿using FargowiltasSouls.Content.Projectiles.Souls;
+﻿using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
-using FargowiltasSouls.Core.Toggler;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ShadewoodEnchant : BaseEnchant
+    public class ShadewoodEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -25,7 +24,7 @@ Enemies struck while Bleeding spew damaging blood
         }
 
         public override Color nameColor => new(88, 104, 118);
-        
+
 
         public override void SetDefaults()
         {
@@ -56,7 +55,7 @@ Enemies struck while Bleeding spew damaging blood
     }
     public class ShadewoodEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
         public override int ToggleItemType => ModContent.ItemType<ShadewoodEnchant>();
         public override void PostUpdateEquips(Player player)

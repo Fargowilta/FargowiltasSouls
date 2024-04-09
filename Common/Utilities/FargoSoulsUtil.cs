@@ -1,10 +1,12 @@
-﻿using FargowiltasSouls.Core.ItemDropRules.Conditions;
-using FargowiltasSouls.Content.Projectiles;
+﻿using FargowiltasSouls.Common.Graphics.Particles;
+using FargowiltasSouls.Core.ItemDropRules.Conditions;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -15,14 +17,10 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Common.Graphics.Particles;
-using System.Reflection;
-using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls //lets everything access it without using
 {
-	public static partial class FargoSoulsUtil
+    public static partial class FargoSoulsUtil
     {
         [Obsolete("Use Luminance's Utilities.UniversalBindingFlags instead.", error: false)]
         public static readonly BindingFlags UniversalBindingFlags = LumUtils.UniversalBindingFlags;
@@ -272,7 +270,7 @@ namespace FargowiltasSouls //lets everything access it without using
             {
                 if (player.inventory[i] == itemToReplace)
                 {
-                    Item newItem = new Item(itemIDtoReplaceWith, itemToReplace.stack, itemToReplace.prefix);
+                    Item newItem = new(itemIDtoReplaceWith, itemToReplace.stack, itemToReplace.prefix);
                     newItem.active = true;
                     newItem.favorited = itemToReplace.favorited;
                     player.inventory[i] = newItem;
@@ -441,7 +439,7 @@ namespace FargowiltasSouls //lets everything access it without using
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), color);
             }
         }
-        
+
         public static void PrintText(string text, int r, int g, int b) => PrintText(text, new Color(r, g, b));
 
         public static Vector2 ClosestPointInHitbox(Rectangle hitboxOfTarget, Vector2 desiredLocation)
@@ -1074,8 +1072,8 @@ namespace FargowiltasSouls //lets everything access it without using
 
         #endregion
 
-		#region Easings
-		public static float SineInOut(float value) => (0f - (MathF.Cos((value * MathF.PI)) - 1f)) / 2f;
-		#endregion
-	}
+        #region Easings
+        public static float SineInOut(float value) => (0f - (MathF.Cos((value * MathF.PI)) - 1f)) / 2f;
+        #endregion
+    }
 }

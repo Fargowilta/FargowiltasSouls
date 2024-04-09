@@ -5,7 +5,6 @@ using FargowiltasSouls.Core.Toggler.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.WorldBuilding;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Masomode
 {
@@ -45,7 +44,7 @@ Summons 2 Skeletron arms to whack enemies
             player.FargoSouls().NecromanticBrewItem = Item;
             player.AddEffect<NecroBrewSpin>(Item);
             player.AddEffect<SkeleMinionEffect>(Item);
-                
+
         }
 
         public static float NecroBrewDashDR(Player player)
@@ -56,7 +55,7 @@ Summons 2 Skeletron arms to whack enemies
             {
                 dr += 0.15f;
             }
-            
+
             return dr;
         }
     }

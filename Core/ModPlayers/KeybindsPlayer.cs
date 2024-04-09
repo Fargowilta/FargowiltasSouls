@@ -1,12 +1,10 @@
-﻿using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Buffs.Souls;
+﻿using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.UI;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.ModPlayers

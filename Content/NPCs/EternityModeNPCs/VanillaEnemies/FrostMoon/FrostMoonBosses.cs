@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.FrostMoon
 {
-	public class FrostMoonBosses : EModeNPCBehaviour
+    public class FrostMoonBosses : EModeNPCBehaviour
     {
         public const int WAVELOCK = 15;
 

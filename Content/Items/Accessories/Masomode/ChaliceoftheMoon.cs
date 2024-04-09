@@ -6,7 +6,6 @@ using FargowiltasSouls.Core.Toggler.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static FargowiltasSouls.Content.Items.Accessories.Masomode.CelestialRune;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Masomode
 {

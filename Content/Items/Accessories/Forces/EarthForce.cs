@@ -1,12 +1,11 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Forces
 {
-	public class EarthForce : BaseForce
+    public class EarthForce : BaseForce
     {
         public override void SetStaticDefaults()
         {

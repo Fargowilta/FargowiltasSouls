@@ -103,7 +103,7 @@ i forgor"); */
                 for (int i = 0; i < WorldSavingSystem.DownedBoss.Length; i++)
                     WorldSavingSystem.DownedBoss[i] = false;
             }
-            
+
             FargoSoulsUtil.PrintLocalization("Mods.FargowiltasSouls.Items.ForgorGift.Message", Color.White);
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.WorldData); //sync world

@@ -53,7 +53,7 @@ namespace FargowiltasSouls.Content.Items.Misc
                 {
                     text += $"[i:{itemType}]";
                 }
-                
+
             }
             return text;
         }
@@ -86,7 +86,7 @@ namespace FargowiltasSouls.Content.Items.Misc
             int summonType = -1;
             string other = string.Empty;
             int[] meleeSpecific = null, rangerSpecific = null, mageSpecific = null, summonerSpecific = null;
-            
+
 
             if (!WorldSavingSystem.DownedBoss[(int)WorldSavingSystem.Downed.TrojanSquirrel])
             {
@@ -189,7 +189,7 @@ namespace FargowiltasSouls.Content.Items.Misc
             {
                 summonType = ModContent.TryFind("Fargowiltas", "DeerThing2", out ModItem modItem) ? modItem.Type : ItemID.DeerThing;
                 build += GetBuildText(
-                    Main.rand.Next(new int[] { ItemID.FrostsparkBoots, ItemID.TerrasparkBoots,  }),
+                    Main.rand.Next(new int[] { ItemID.FrostsparkBoots, ItemID.TerrasparkBoots }),
                     Main.rand.Next(new int[] { ItemID.EoCShield, ModContent.ItemType<JungleEnchant>(), ModContent.ItemType<QueenStinger>(), ModContent.ItemType<MeteorEnchant>() }),
                     Main.rand.Next(new int[] { ItemID.BundleofBalloons, ItemID.HorseshoeBundle, ModContent.ItemType<BeeEnchant>() })
                     ) + GetBuildTextRandom(
@@ -206,7 +206,7 @@ namespace FargowiltasSouls.Content.Items.Misc
             {
                 summonType = ModContent.ItemType<DevisCurse>();
                 build += GetBuildText(
-                    Main.rand.Next(new int[] { ItemID.FrostsparkBoots, ItemID.TerrasparkBoots, }),
+                    Main.rand.Next(new int[] { ItemID.FrostsparkBoots, ItemID.TerrasparkBoots }),
                     Main.rand.Next(new int[] { ItemID.EoCShield, ModContent.ItemType<JungleEnchant>(), ModContent.ItemType<QueenStinger>(), ModContent.ItemType<MeteorEnchant>() }),
                     Main.rand.Next(new int[] { ItemID.BundleofBalloons, ItemID.HorseshoeBundle, ModContent.ItemType<BeeEnchant>() }),
                     Main.rand.Next(new int[] { ModContent.ItemType<NymphsPerfume>(), ModContent.ItemType<ShadowEnchant>() }),
@@ -583,7 +583,7 @@ namespace FargowiltasSouls.Content.Items.Misc
                 summonerSpecific = new int[] { ModContent.ItemType<ConjuristsSoul>() };
             }
 
-            
+
             if (Main.hardMode)
             {
                 if (NPC.downedMechBossAny)

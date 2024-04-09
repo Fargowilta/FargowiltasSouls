@@ -1,10 +1,10 @@
+using FargowiltasSouls.Content.Bosses.VanillaEternity;
+using FargowiltasSouls.Core.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
-using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Core.Globals;
 
 namespace FargowiltasSouls.Content.Sky
 {

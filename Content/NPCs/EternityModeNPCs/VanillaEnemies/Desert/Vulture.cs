@@ -1,9 +1,9 @@
 ﻿using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.NPCMatching;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.NPCMatching;
-using System.IO;
 using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Desert

@@ -1,10 +1,7 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -53,7 +50,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 Projectile.frameCounter = 0;
                 Projectile.frame++;
             }
-            
+
             if (Projectile.frame >= Main.projFrames[Type])
             {
                 Projectile.Kill();

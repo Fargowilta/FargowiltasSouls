@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.PlayerDrawLayers
 {
-	public class NinjaSpeedDrawLayer : PlayerDrawLayer
+    public class NinjaSpeedDrawLayer : PlayerDrawLayer
     {
         public override bool IsHeadLayer => false;
         public int DrawTime = 0;

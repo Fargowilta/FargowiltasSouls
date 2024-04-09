@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Content.PlayerDrawLayers
 
             Vector2 drawPos = (drawPlayer.gravDir > 0 ? drawPlayer.Top : drawPlayer.Bottom) - Main.screenPosition;
             drawPos.Y -= 16 * drawPlayer.gravDir;
-            DrawData data = new (texture, drawPos, rectangle, Color.White, drawPlayer.gravDir < 0 ? MathHelper.Pi : 0f, rectangle.Size() / 2, 1f, SpriteEffects.None, 0);
+            DrawData data = new(texture, drawPos, rectangle, Color.White, drawPlayer.gravDir < 0 ? MathHelper.Pi : 0f, rectangle.Size() / 2, 1f, SpriteEffects.None, 0);
             drawInfo.DrawDataCache.Add(data);
         }
     }

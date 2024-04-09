@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
-	public class TitaniumShard : ModProjectile
+    public class TitaniumShard : ModProjectile
     {
         //private readonly int shrinkTimer = 0;
         public override string Texture => "Terraria/Images/Projectile_908";

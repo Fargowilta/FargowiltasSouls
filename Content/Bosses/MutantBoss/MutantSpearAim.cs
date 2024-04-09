@@ -1,7 +1,5 @@
 ﻿using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +12,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
     public class MutantSpearAim : ModProjectile
     {
         public override string Texture => FargoSoulsUtil.AprilFools ?
-            "FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpear_April" : 
+            "FargowiltasSouls/Content/Bosses/MutantBoss/MutantSpear_April" :
             "FargowiltasSouls/Content/Projectiles/BossWeapons/HentaiSpear";
 
         public override void SetStaticDefaults()

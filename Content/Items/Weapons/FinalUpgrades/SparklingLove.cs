@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.FinalUpgrades
 {
-	public class SparklingLove : SoulsItem
+    public class SparklingLove : SoulsItem
     {
         public override void SetStaticDefaults()
         {

@@ -1,12 +1,10 @@
-﻿using FargowiltasSouls.Content.Bosses.MutantBoss;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Humanizer.On;
 
 namespace FargowiltasSouls.Content.Projectiles.BossWeapons
 {
@@ -55,7 +53,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             player.heldProj = Projectile.whoAmI;
             player.itemTime = 2; //15;
             player.itemAnimation = 2; //15;
-            //player.itemAnimationMax = 15;
+                                      //player.itemAnimationMax = 15;
             Projectile.Center = ownerMountedCenter;
             Projectile.timeLeft = 2;
 

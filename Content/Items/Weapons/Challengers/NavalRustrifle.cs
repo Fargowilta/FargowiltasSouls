@@ -1,5 +1,4 @@
 using FargowiltasSouls.Content.Items.BossBags;
-using FargowiltasSouls.Core.ModPlayers;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 {
-	public class NavalRustrifle : SoulsItem
+    public class NavalRustrifle : SoulsItem
     {
 
         public override void SetStaticDefaults()
@@ -52,7 +51,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
             {
                 player.itemRotation = (-Vector2.UnitY * player.direction).RotatedBy(player.direction * MathHelper.Pi / 4f).ToRotation();
 
-                player.itemLocation = (Vector2)player.HandPosition - (Item.Size / 2) - 
+                player.itemLocation = (Vector2)player.HandPosition - (Item.Size / 2) -
                     player.itemRotation.ToRotationVector2() * player.direction * (float)Math.Sin(MathHelper.Pi * player.itemAnimation / (float)player.itemAnimationMax) * Item.Size.Length() / 2f;
             }
         }

@@ -1,19 +1,18 @@
+using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Content.Projectiles.BossWeapons;
+using FargowiltasSouls.Content.Projectiles.ChallengerItems;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Projectiles.BossWeapons;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
-using System.Collections.Generic;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class TungstenEnchant : BaseEnchant
+    public class TungstenEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -21,16 +20,16 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
             // DisplayName.SetDefault("Tungsten Enchantment");
 
-           /* string tooltip =
-@"150% increased weapon size but reduces melee speed
-Every half second a projectile will be doubled in size
-Enlarged projectiles and non-projectile swords deal 10% more damage and have an additional chance to crit
-'Bigger is always better'";*/
+            /* string tooltip =
+ @"150% increased weapon size but reduces melee speed
+ Every half second a projectile will be doubled in size
+ Enlarged projectiles and non-projectile swords deal 10% more damage and have an additional chance to crit
+ 'Bigger is always better'";*/
             // Tooltip.SetDefault(tooltip);
         }
 
         public override Color nameColor => new(176, 210, 178);
-        
+
 
         public override void SetDefaults()
         {
@@ -62,7 +61,7 @@ Enlarged projectiles and non-projectile swords deal 10% more damage and have an 
 
     public class TungstenEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<TungstenEnchant>();
         public override void ModifyHitNPCWithItem(Player player, Item item, NPC target, ref NPC.HitModifiers modifiers)

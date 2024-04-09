@@ -1,18 +1,16 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using System;
-using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ObsidianEnchant : BaseEnchant
+    public class ObsidianEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -74,7 +72,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             .AddIngredient(ItemID.ObsidianShirt)
             .AddIngredient(ItemID.ObsidianPants)
             .AddIngredient(ItemID.MoltenSkullRose) //molten skull rose
-            //.AddIngredient(ItemID.Cascade)
+                                                   //.AddIngredient(ItemID.Cascade)
             .AddIngredient(null, "AshWoodEnchant")
 
             .AddTile(TileID.DemonAltar)
@@ -83,7 +81,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     }
     public class ObsidianEffect : AccessoryEffect
     {
-        
+
         public override Header ToggleHeader => null;
     }
     public class ObsidianProcEffect : AccessoryEffect

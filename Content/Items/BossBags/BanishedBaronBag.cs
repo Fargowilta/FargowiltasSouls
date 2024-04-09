@@ -1,14 +1,13 @@
 ﻿using FargowiltasSouls.Content.Bosses.Lifelight;
 using FargowiltasSouls.Content.Items.Accessories.Expert;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
-using System.Data;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.BossBags
 {
-	public class BanishedBaronBag : BossBag
+    public class BanishedBaronBag : BossBag
     {
         protected override bool IsPreHMBag => true; //so it doesn't drop dev sets
         public override void ModifyItemLoot(ItemLoot itemLoot)

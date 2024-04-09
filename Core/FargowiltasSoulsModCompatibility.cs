@@ -1,41 +1,41 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria;
-using Terraria.ModLoader;
+﻿using FargowiltasSouls.Content.Bosses.AbomBoss;
+using FargowiltasSouls.Content.Bosses.BanishedBaron;
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
+using FargowiltasSouls.Content.Bosses.Champions.Earth;
+using FargowiltasSouls.Content.Bosses.Champions.Life;
+using FargowiltasSouls.Content.Bosses.Champions.Nature;
+using FargowiltasSouls.Content.Bosses.Champions.Shadow;
+using FargowiltasSouls.Content.Bosses.Champions.Spirit;
+using FargowiltasSouls.Content.Bosses.Champions.Terra;
+using FargowiltasSouls.Content.Bosses.Champions.Timber;
+using FargowiltasSouls.Content.Bosses.Champions.Will;
+using FargowiltasSouls.Content.Bosses.CursedCoffin;
+using FargowiltasSouls.Content.Bosses.DeviBoss;
+using FargowiltasSouls.Content.Bosses.Lifelight;
+using FargowiltasSouls.Content.Bosses.MutantBoss;
+using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Content.Items.Pets;
 using FargowiltasSouls.Content.Items.Placables.MusicBoxes;
 using FargowiltasSouls.Content.Items.Placables.Trophies;
 using FargowiltasSouls.Content.Items.Summons;
-using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Bosses.Lifelight;
-using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
-using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
-using FargowiltasSouls.Content.Bosses.Champions.Will;
-using FargowiltasSouls.Content.Bosses.Champions.Spirit;
-using FargowiltasSouls.Content.Bosses.Champions.Shadow;
-using FargowiltasSouls.Content.Bosses.Champions.Life;
-using FargowiltasSouls.Content.Bosses.Champions.Nature;
-using FargowiltasSouls.Content.Bosses.Champions.Earth;
-using FargowiltasSouls.Content.Bosses.Champions.Terra;
-using FargowiltasSouls.Content.Bosses.Champions.Timber;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
-using FargowiltasSouls.Content.Bosses.AbomBoss;
-using FargowiltasSouls.Content.Bosses.DeviBoss;
-using FargowiltasSouls.Content.Bosses.BanishedBaron;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria;
 using Terraria.Localization;
-using FargowiltasSouls.Content.Bosses.CursedCoffin;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls
 {
     public partial class FargowiltasSouls
     {
-        public Dictionary<string, float> BossChecklistValues = new Dictionary<string, float>
+        public Dictionary<string, float> BossChecklistValues = new()
         {
             {"DeviBoss", 6.9f},
             {"AbomBoss", 20f},
@@ -74,7 +74,7 @@ namespace FargowiltasSouls
                             { "spawnItems", spawnItems },
                             // { "collectibles", collectibles }, // it's fetched from npc loot? TODO: refactor method calls below
                             { "availability", available },
-                            { "despawnMessage", hasKilledAllMessage ? new Func<NPC, LocalizedText>(npc => 
+                            { "despawnMessage", hasKilledAllMessage ? new Func<NPC, LocalizedText>(npc =>
                                         AllPlayersAreDead() ? Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.KilledAllMessage") : Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.DespawnMessage")) :
                                     Language.GetText($"Mods.{Name}.NPCs.{bossName}.BossChecklistIntegration.DespawnMessage") },
                             {
@@ -88,17 +88,17 @@ namespace FargowiltasSouls
                                 })
                             }
                         }
-                        // available,
-                        // collectibles,
-                        // spawnItems,
-                        // hasKilledAllMessage ? new Func<NPC, string>(npc => AllPlayersAreDead() ? $"Mods.{Name}.BossChecklist.{bossName}KilledAll" : $"Mods.{Name}.BossChecklist.{bossName}Despawn") : $"Mods.{Name}.BossChecklist.{bossName}Despawn",
-                        // portrait == null ? null : new Action<SpriteBatch, Rectangle, Color>((spriteBatch, rect, color) =>
-                        // {
-                        //     Texture2D tex = Assets.Request<Texture2D>(portrait, ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
-                        //     Rectangle sourceRect = tex.Bounds;
-                        //     float scale = Math.Min(1f, (float)rect.Width / sourceRect.Width);
-                        //     spriteBatch.Draw(tex, rect.Center.ToVector2(), sourceRect, color, 0f, sourceRect.Size() / 2, scale, SpriteEffects.None, 0);
-                        // })
+                    // available,
+                    // collectibles,
+                    // spawnItems,
+                    // hasKilledAllMessage ? new Func<NPC, string>(npc => AllPlayersAreDead() ? $"Mods.{Name}.BossChecklist.{bossName}KilledAll" : $"Mods.{Name}.BossChecklist.{bossName}Despawn") : $"Mods.{Name}.BossChecklist.{bossName}Despawn",
+                    // portrait == null ? null : new Action<SpriteBatch, Rectangle, Color>((spriteBatch, rect, color) =>
+                    // {
+                    //     Texture2D tex = Assets.Request<Texture2D>(portrait, ReLogic.Content.AssetRequestMode.ImmediateLoad).Value;
+                    //     Rectangle sourceRect = tex.Bounds;
+                    //     float scale = Math.Min(1f, (float)rect.Width / sourceRect.Width);
+                    //     spriteBatch.Draw(tex, rect.Center.ToVector2(), sourceRect, color, 0f, sourceRect.Size() / 2, scale, SpriteEffects.None, 0);
+                    // })
                     );
                 }
                 bool calamity = ModLoader.HasMod("CalamityMod");
@@ -279,7 +279,7 @@ namespace FargowiltasSouls
                     false,
                     "Content/Bosses/Lifelight/LifeChallenger"
                 );
-                
+
                 Add("Boss",
                     "BanishedBaron",
                     new List<int> { ModContent.NPCType<BanishedBaron>() },
@@ -309,7 +309,7 @@ namespace FargowiltasSouls
                     },
                     new List<int> { ModContent.ItemType<CoffinSummon>() },
                     false
-                    //"Content/NPCs/Challengers/CursedCoffin"
+                //"Content/NPCs/Challengers/CursedCoffin"
                 );
                 }
 

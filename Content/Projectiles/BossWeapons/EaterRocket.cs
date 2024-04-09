@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;

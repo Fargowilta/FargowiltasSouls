@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Projectiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -59,7 +58,7 @@ namespace FargowiltasSouls.Content.Patreon.Volknet.Projectiles
                     Vector2 TM = Projectile.rotation.ToRotationVector2();
                     Vector2 begin = owner.Center + TM * 40 + (TM.ToRotation() + MathHelper.Pi / 2).ToRotationVector2() * 30 + (TM.ToRotation() + MathHelper.Pi / 4 * 3).ToRotationVector2() * 60;
                     Vector2 end = owner.Center + TM * 40 + (TM.ToRotation() - MathHelper.Pi / 2).ToRotationVector2() * 30 + (TM.ToRotation() - MathHelper.Pi / 4 * 3).ToRotationVector2() * 60;
-					Utils.DrawLine(Main.spriteBatch, begin, end, Color.LightGreen, Color.DarkGreen, 3);
+                    Utils.DrawLine(Main.spriteBatch, begin, end, Color.LightGreen, Color.DarkGreen, 3);
                 }
             }
             return false;

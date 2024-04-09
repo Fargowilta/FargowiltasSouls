@@ -1,24 +1,24 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Corruption;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Core.NPCMatching;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Corruption;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class EaterofWorlds : EModeNPCBehaviour
+    public class EaterofWorlds : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchTypeRange(NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail);
 
@@ -581,7 +581,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
         public override void OnKill(NPC npc)
         {
             base.OnKill(npc);
-            
+
             if (WorldSavingSystem.MasochistModeReal && FargoSoulsUtil.HostCheck)
             {
                 for (int i = 0; i < 8; i++)

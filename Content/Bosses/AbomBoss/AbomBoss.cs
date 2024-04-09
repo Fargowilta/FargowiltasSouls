@@ -1,8 +1,21 @@
+using FargowiltasSouls.Content.Buffs.Boss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.BossBags;
+using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Pets;
+using FargowiltasSouls.Content.Items.Placables.Relics;
+using FargowiltasSouls.Content.Items.Placables.Trophies;
+using FargowiltasSouls.Content.Items.Summons;
 using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.ItemDropRules.Conditions;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -12,21 +25,8 @@ using Terraria.GameContent.Creative;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.BossBags;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Pets;
-using FargowiltasSouls.Content.Items.Placables.Relics;
-using FargowiltasSouls.Content.Items.Placables.Trophies;
-using FargowiltasSouls.Content.Items.Summons;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using System.Collections.Generic;
-using FargowiltasSouls.Content.Buffs.Souls;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.AbomBoss
 {
@@ -330,7 +330,7 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
                             {
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center,
                                     trollSpeedUp * Vector2.UnitX.RotatedBy(Main.rand.NextDouble() * Math.PI) * Main.rand.NextFloat(30f),
-                                    ModContent.ProjectileType<AbomDeathScythe>(), 
+                                    ModContent.ProjectileType<AbomDeathScythe>(),
                                     FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 10),
                                     0f, Main.myPlayer);
                             }

@@ -5,7 +5,6 @@ using FargowiltasSouls.Content.Items.Placables.Relics;
 using FargowiltasSouls.Content.Items.Placables.Trophies;
 using FargowiltasSouls.Content.Items.Summons;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
-using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -207,13 +206,13 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                 {
                     float oldrot = NPC.oldRot[i];
                     Vector2 oldCenter = body.oldPos[i] + body.Size / 2;
-                    DrawData oldGlow = new DrawData(texture2D13, oldCenter - screenPos + new Vector2(0f, NPC.gfxOffY - 53 * body.scale), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26 * (0.5f / i), oldrot, origin2, NPC.scale, effects, 0);
+                    DrawData oldGlow = new(texture2D13, oldCenter - screenPos + new Vector2(0f, NPC.gfxOffY - 53 * body.scale), new Microsoft.Xna.Framework.Rectangle?(rectangle), color26 * (0.5f / i), oldrot, origin2, NPC.scale, effects, 0);
                     GameShaders.Misc["LCWingShader"].UseColor(Color.Blue).UseSecondaryColor(Color.Black);
                     GameShaders.Misc["LCWingShader"].Apply(oldGlow);
                     oldGlow.Draw(spriteBatch);
                 }
             }
-            
+
 
             Vector2 center = body.Center;
 
@@ -329,15 +328,15 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
             if (p.IsWithinBounds(Main.maxPlayers))
             {
                 Player player = Main.player[p];
-                if (player != null && player.active && !player.dead) 
-                { 
+                if (player != null && player.active && !player.dead)
+                {
                     if (NPC.Distance(player.Center) < 400)
                     {
                         NPC.Center = player.Center - Vector2.UnitX * 1000 * player.direction;
                     }
                 };
             }
-            
+
         }
 
         private void TileCollision(bool fallthrough = false, bool dropDown = false)
@@ -876,7 +875,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                             WorldGen.KillTile(xCoord, yCoord, noItem: true);
                             if (Main.netMode == NetmodeID.Server)
                                 NetMessage.SendTileSquare(-1, xCoord, yCoord, 1);
-                            
+
                             NPC.scale += 0.01f;
                             NPC.netUpdate = true;
                             if (head is NPC)
@@ -1030,7 +1029,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrojanSquirrelTrophy>(), 10));
 
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<TrojanSquirrelRelic>()));
-            
+
             LeadingConditionRule rule = new(new Conditions.NotExpert());
             rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<TreeSword>(), ModContent.ItemType<MountedAcornGun>(), ModContent.ItemType<SnowballStaff>(), ModContent.ItemType<KamikazeSquirrelStaff>()));
             rule.OnSuccess(ItemDropRule.OneFromOptions(1,

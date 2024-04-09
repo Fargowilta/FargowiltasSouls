@@ -1,13 +1,12 @@
-﻿using FargowiltasSouls.Content.Projectiles.Souls;
+﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Projectiles.Souls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using static FargowiltasSouls.Core.Systems.DashManager;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using System.Collections.Generic;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
@@ -60,7 +59,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         public int PearlwoodGrace = 0;
         public Vector2 PStarelinePos;
 
-        public bool PStarelineActive => Main.projectile.Any(p => p.active && p.owner == Player.whoAmI && p.type == ProjectileID.FairyQueenMagicItemShot &&p.TryGetGlobalProjectile(out PearlwoodStareline gp) &&  gp.Pearlwood);
+        public bool PStarelineActive => Main.projectile.Any(p => p.active && p.owner == Player.whoAmI && p.type == ProjectileID.FairyQueenMagicItemShot && p.TryGetGlobalProjectile(out PearlwoodStareline gp) && gp.Pearlwood);
 
         public int ShadewoodCD;
         public Item WoodEnchantItem;
@@ -292,7 +291,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool PrecisionSealNoDashNoJump;
         public Item GelicWingsItem;
         public bool ConcentratedRainbowMatter;
-        
+
 
         //debuffs
         public bool Hexed;
@@ -378,13 +377,14 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public bool HasDash;
         private DashType fargoDash;
-        public DashType FargoDash {
+        public DashType FargoDash
+        {
             get => fargoDash;
-            set 
-            { 
+            set
+            {
                 fargoDash = value;
                 if (value != DashType.None)
-                    HasDash = true; 
+                    HasDash = true;
             }
         }
         public bool CanShinobiTeleport;

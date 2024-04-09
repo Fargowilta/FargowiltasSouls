@@ -1,26 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class SpiderEnchant : BaseEnchant
+    public class SpiderEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-
-            // DisplayName.SetDefault("Spider Enchantment");
-
-            //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "蜘蛛魔石");
-
-            string tooltip =
-@"Your minions and sentries can crit
-Summon crits do x1.5 damage instead of x2
-'Arachnophobia is punishable by arachnid induced death'";
             // Tooltip.SetDefault(tooltip);
 
             //             string tooltip_ch =
@@ -31,7 +22,7 @@ Summon crits do x1.5 damage instead of x2
         }
 
         public override Color nameColor => new(109, 78, 69);
-        
+
 
         public override void SetDefaults()
         {

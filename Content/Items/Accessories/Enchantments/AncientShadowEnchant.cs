@@ -1,5 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Souls;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class AncientShadowEnchant : BaseEnchant
+    public class AncientShadowEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

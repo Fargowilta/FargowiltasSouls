@@ -1,4 +1,3 @@
-using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using FargowiltasSouls.Content.Bosses.Champions.Will;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +10,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Vortex
 {
-	public class LightningTelegraph : ModProjectile
+    public class LightningTelegraph : ModProjectile
     {
 
         public override void SetStaticDefaults()
@@ -38,7 +37,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         {
 
         }
-        private static readonly SoundStyle LightningSound = new SoundStyle("FargowiltasSouls/Assets/Sounds/LightningStrike");
+        private static readonly SoundStyle LightningSound = new("FargowiltasSouls/Assets/Sounds/LightningStrike");
         public override void OnKill(int timeLeft)
         {
             if (Projectile.ai[0] == 13) //if its the top one

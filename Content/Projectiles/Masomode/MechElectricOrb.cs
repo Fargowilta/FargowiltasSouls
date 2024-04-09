@@ -4,7 +4,6 @@ using FargowiltasSouls.Core;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
-using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -69,13 +68,13 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
 
         public override void AI()
         {
-            
+
             if (Projectile.soundDelay == 0)
             {
                 Projectile.soundDelay = 60 + 54;
                 SoundEngine.PlaySound(HumSound with { PitchVariance = 0.3f, Volume = 0.2f, MaxInstances = 0 }, Projectile.position);
             }
-            
+
             if (++Projectile.frameCounter > 6)
             {
                 if (++Projectile.frame >= Main.projFrames[Type])
@@ -123,7 +122,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             {
                 Vector2 dir = Vector2.Normalize(-Projectile.velocity.RotatedByRandom(MathF.PI * 0.2f));
                 float spd = Math.Max(4, Projectile.velocity.Length() / 2);
-                Particle p = new ElectricSpark(Projectile.Center,  dir * spd, color * 0.7f, Main.rand.NextFloat(0.7f, 1f), 20);
+                Particle p = new ElectricSpark(Projectile.Center, dir * spd, color * 0.7f, Main.rand.NextFloat(0.7f, 1f), 20);
                 p.Spawn();
             }
 
@@ -219,7 +218,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             }
             //Main.spriteBatch.End();
             //Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
-            
+
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), rectangle, Color.White,
                     Projectile.rotation, origin, Projectile.scale, spriteEffects, 0);
 

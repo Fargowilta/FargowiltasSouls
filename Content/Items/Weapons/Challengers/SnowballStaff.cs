@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         public override bool CanShoot(Player player) => player.ownedProjectileCounts[Item.shoot] < 1;
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient<TrojanSquirrelBag>(2).AddTile(TileID.Solidifier).DisableDecraft().Register();
+            CreateRecipe().AddIngredient<TrojanSquirrelBag>(2).AddTile(TileID.Solidifier).Register();
         }
     }
 }

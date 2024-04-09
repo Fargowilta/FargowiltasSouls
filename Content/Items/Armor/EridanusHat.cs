@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Content.Projectiles.Minions;
-using FargowiltasSouls.Core.ModPlayers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -79,7 +78,7 @@ Increases your max number of sentries by 4"); */
             fargoPlayer.EridanusSet = true;
 
             //if (player.whoAmI == Main.myPlayer && fargoPlayer.DoubleTap)
-                //fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
+            //fargoPlayer.EridanusEmpower = !fargoPlayer.EridanusEmpower;
 
             if (fargoPlayer.EridanusEmpower)
             {

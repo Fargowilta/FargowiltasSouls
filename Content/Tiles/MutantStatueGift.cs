@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 
 namespace FargowiltasSouls.Content.Tiles
 {
-	public class MutantStatueGift : ModTile
+    public class MutantStatueGift : ModTile
     {
         public override void SetStaticDefaults()
         {

@@ -1,21 +1,17 @@
-﻿using System;
-using System.IO;
+﻿using FargowiltasSouls.Content.Buffs.Boss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.DataStructures;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using Terraria.GameContent.Bestiary;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Graphics.Shaders;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Buffs;
-using FargowiltasSouls.Common.Graphics.Particles;
-using Terraria.Audio;
-using FargowiltasSouls.Content.Buffs.Boss;
-using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 {
@@ -27,7 +23,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
         #region Variables
 
-        
+
         private int Frame = 0;
 
         //NPC.ai[] overrides
@@ -85,7 +81,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             NPC.Opacity = 0;
 
         }
-        
+
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
         {
             NPC.lifeMax = (int)(NPC.lifeMax * balance);
@@ -184,7 +180,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
         }
 
         #endregion
-        readonly List<float> SlowChargeStates = new List<float>
+        readonly List<float> SlowChargeStates = new()
         {
             (float)CursedCoffin.BehaviorStates.PhaseTransition,
             (float)CursedCoffin.BehaviorStates.WavyShotCircle,
@@ -223,7 +219,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                 NPC.Opacity = 1;
                 StartupFadein++;
             }
-                
+
             // share healthbar
             NPC.lifeMax = owner.lifeMax = Math.Min(NPC.lifeMax, owner.lifeMax);
             NPC.life = owner.life = Math.Min(NPC.life, owner.life);
@@ -267,9 +263,9 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             if (coffin.StateMachine.CurrentState == null)
                 return;
 
-            bool newState = (float)coffin.StateMachine.CurrentState.ID != State;
+            bool newState = (float)coffin.StateMachine.CurrentState.Identifier != State;
 
-            switch (coffin.StateMachine.CurrentState.ID)
+            switch (coffin.StateMachine.CurrentState.Identifier)
             {
                 case CursedCoffin.BehaviorStates.StunPunish:
                     if (newState)
@@ -295,16 +291,16 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                     }
                     SlamSupport(owner);
                     break;
-                    /*
-                case CursedCoffin.StateEnum.GrabbyHands:
-                    {
-                        Timer = 0;
-                        AI3 = 0;
-                    }
-                    GrabbyHands(owner);
-                    break;
-                    */
-                case var _ when SlowChargeStates.Contains((float)coffin.StateMachine.CurrentState.ID):
+                /*
+            case CursedCoffin.StateEnum.GrabbyHands:
+                {
+                    Timer = 0;
+                    AI3 = 0;
+                }
+                GrabbyHands(owner);
+                break;
+                */
+                case var _ when SlowChargeStates.Contains((float)coffin.StateMachine.CurrentState.Identifier):
                     if (newState)
                     {
                         Timer = 0;
@@ -321,7 +317,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                 default:
                     break;
             }
-            State = (float)coffin.StateMachine.CurrentState.ID;
+            State = (float)coffin.StateMachine.CurrentState.Identifier;
         }
         void SlamSupport(NPC owner)
         {
@@ -495,7 +491,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                     //Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.rotation - MathHelper.PiOver2).ToRotationVector2() * 4, ModContent.ProjectileType<CoffinHand>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 0.1f), 1f, Main.myPlayer, owner.whoAmI, 1, -1);
                 }
             }
-            
+
         }
         void Movement(Vector2 pos, float accel = 0.03f, float maxSpeed = 20, float lowspeed = 5, float decel = 0.03f, float slowdown = 30)
         {

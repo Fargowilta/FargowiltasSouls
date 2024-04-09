@@ -37,8 +37,6 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
         {
             //vanilla code echprimebegone
             float num1 = 5f;
-            //float num2 = 250f;
-            float num3 = 6f;
             Vector2 vector2_1 = new(8f, 10f);
             float num4 = 1.2f;
             Vector3 rgb = new(0.7f, 0.1f, 0.5f);

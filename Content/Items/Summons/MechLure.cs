@@ -1,17 +1,16 @@
 ﻿
 
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
 using FargowiltasSouls.Content.Bosses.BanishedBaron;
 using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace FargowiltasSouls.Content.Items.Summons
 {
-
-	public class MechLure : SoulsItem
+    public class MechLure : SoulsItem
     {
         public override void SetStaticDefaults()
         {
@@ -36,7 +35,7 @@ namespace FargowiltasSouls.Content.Items.Summons
             Item.noUseGraphic = true;
             Item.shoot = ProjectileType<MechLureProjectile>();
             Item.shootSpeed = 10f;
-            Item.UseSound  = SoundID.Item1;
+            Item.UseSound = SoundID.Item1;
             Item.value = Item.sellPrice(0, 2);
         }
 

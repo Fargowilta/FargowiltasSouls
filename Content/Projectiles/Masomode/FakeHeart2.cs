@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             base.SetStaticDefaults();
             ProjectileID.Sets.TrailCacheLength[Type] = 7;
             ProjectileID.Sets.TrailingMode[Type] = 2;
-            
+
         }
         public override void SetDefaults()
         {

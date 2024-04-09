@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 {
-	public class TheBaronsTusk : SoulsItem
+    public class TheBaronsTusk : SoulsItem
     {
         public override void SetStaticDefaults()
         {
@@ -67,7 +67,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
                     Vector2 vel = (Item.shootSpeed + Main.rand.Next(-2, 2)) * Vector2.Normalize(Main.MouseWorld - player.itemLocation).RotatedByRandom(MathHelper.Pi / 14);
                     int p = Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.itemLocation, vel, Item.shoot, (int)(player.ActualClassDamage(DamageClass.Melee) * Item.damage / 3f), Item.knockBack, player.whoAmI);
                 }
-                
+
             }
             if (Timer > 2 * player.itemAnimationMax / 3)
             {
@@ -80,7 +80,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
                 float prog = (float)Timer / (2 * player.itemAnimationMax / 3);
                 player.itemAnimation = (int)(player.itemAnimationMax * Math.Pow(MomentumProgress(prog), 2));
             }
-            
+
         }
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {

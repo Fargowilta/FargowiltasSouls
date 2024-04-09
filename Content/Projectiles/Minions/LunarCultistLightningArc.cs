@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                     return;
                 for (int index1 = 0; index1 < 2; ++index1)
                 {
-                    float num1 = Projectile.rotation + (float)((Main.rand.NextBool(2)? -1.0 : 1.0) * (float)Math.PI / 2);
+                    float num1 = Projectile.rotation + (float)((Main.rand.NextBool(2) ? -1.0 : 1.0) * (float)Math.PI / 2);
                     float num2 = (float)(Main.rand.NextDouble() * 0.800000011920929 + 1.0);
                     Vector2 vector2 = new((float)Math.Cos((double)num1) * num2, (float)Math.Sin((double)num1) * num2);
                     int index2 = Dust.NewDust(Projectile.Center, 0, 0, DustID.Electric, vector2.X, vector2.Y, 0, new Color(), 1f);
@@ -171,7 +171,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
 
         public override void OnKill(int timeLeft)
         {
-            float num2 = (float)(Projectile.rotation + (float)Math.PI / 2 + (Main.rand.NextBool(2)? -1.0 : 1.0) * (float)Math.PI / 2);
+            float num2 = (float)(Projectile.rotation + (float)Math.PI / 2 + (Main.rand.NextBool(2) ? -1.0 : 1.0) * (float)Math.PI / 2);
             float num3 = (float)(Main.rand.NextDouble() * 2.0 + 2.0);
             Vector2 vector2 = new((float)Math.Cos(num2) * num3, (float)Math.Sin(num2) * num3);
             for (int i = 0; i < Projectile.oldPos.Length; i++)

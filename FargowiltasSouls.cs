@@ -2,7 +2,24 @@
 global using FargowiltasSouls.Core.Toggler;
 global using Luminance.Common.Utilities;
 global using LumUtils = Luminance.Common.Utilities.Utilities;
+using FargowiltasSouls.Content.Bosses.AbomBoss;
+using FargowiltasSouls.Content.Bosses.DeviBoss;
+using FargowiltasSouls.Content.Bosses.MutantBoss;
+using FargowiltasSouls.Content.Bosses.VanillaEternity;
+using FargowiltasSouls.Content.Buffs.Boss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.Dyes;
+using FargowiltasSouls.Content.Items.Misc;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
+using FargowiltasSouls.Content.Patreon.Volknet;
 using FargowiltasSouls.Content.Sky;
+using FargowiltasSouls.Content.Tiles;
+using FargowiltasSouls.Content.UI;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -19,25 +36,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
-using FargowiltasSouls.Content.Items.Dyes;
-using FargowiltasSouls.Content.Items.Misc;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Tiles;
-using FargowiltasSouls.Content.UI;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Bosses.VanillaEternity;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Content.Bosses.AbomBoss;
-using FargowiltasSouls.Content.Bosses.DeviBoss;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
-using FargowiltasSouls.Content.Patreon.Volknet;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Content.Items.Accessories.Forces;
 
 
 namespace FargowiltasSouls
@@ -176,7 +174,7 @@ namespace FargowiltasSouls
             //On.Terraria.GameContent.ItemDropRules.DropBasedOnMasterMode.CanDrop += DropBasedOnMasterOrEMode_CanDrop;
             //On.Terraria.GameContent.ItemDropRules.DropBasedOnMasterMode.TryDroppingItem_DropAttemptInfo_ItemDropRuleResolveAction += DropBasedOnMasterOrEMode_TryDroppingItem_DropAttemptInfo_ItemDropRuleResolveAction;
 
-            
+
             On_Player.CheckSpawn_Internal += LifeRevitalizer_CheckSpawn_Internal;
             On_Player.AddBuff += AddBuff;
         }
@@ -196,7 +194,7 @@ namespace FargowiltasSouls
                 {
                     int newX = x + i;
                     int newY = y + j;
-                    
+
                     if (!WorldGen.InWorld(newX, newY))
                         return false;
 
@@ -208,7 +206,7 @@ namespace FargowiltasSouls
 
             return true;
         }
-        
+
         private void AddBuff(
             Terraria.On_Player.orig_AddBuff orig,
             Player self, int type, int timeToAdd, bool quiet, bool foodHack)
@@ -219,10 +217,10 @@ namespace FargowiltasSouls
                 && !Main.buffNoTimeDisplay[type] //dont affect hidden time debuffs
                 && !BuffID.Sets.NurseCannotRemoveDebuff[type] //only affect debuffs that nurse can cleanse
                 && (modPlayer.ParryDebuffImmuneTime > 0
-                    || modPlayer.BetsyDashing 
-                    || modPlayer.GoldShell 
-                    || modPlayer.ShellHide 
-                    || modPlayer.MonkDashing > 0 
+                    || modPlayer.BetsyDashing
+                    || modPlayer.GoldShell
+                    || modPlayer.ShellHide
+                    || modPlayer.MonkDashing > 0
                     || modPlayer.CobaltImmuneTimer > 0
                     || modPlayer.TitaniumDRBuff)
                 && DebuffIDs.Contains(type))
@@ -792,7 +790,7 @@ namespace FargowiltasSouls
             else
                 return Color.Lerp(deviColor, mutantColor, (ColorTimer - 200) / 100);
         }
-        
+
         internal enum PacketID : byte
         {
             RequestGuttedCreeper,

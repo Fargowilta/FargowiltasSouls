@@ -1,7 +1,4 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Items.Materials;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.ID;
 
 namespace FargowiltasSouls.Core.Toggler.Content
 {

@@ -12,7 +12,7 @@ using Terraria.ID;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
-	public class MutantDeathraySmall : BaseDeathray, IPixelatedPrimitiveRenderer
+    public class MutantDeathraySmall : BaseDeathray, IPixelatedPrimitiveRenderer
     {
 
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/PhantasmalDeathrayML";

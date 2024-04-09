@@ -1,14 +1,12 @@
 ﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using System.Linq;
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
 using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
@@ -41,7 +39,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
             Item.shoot = ModContent.ProjectileType<EaterRocketJr>();
             Item.shootSpeed = 18f;
         }
-        
+
         public const int MaxCharge = 1000;
         public int Charge = 0;
         public override void SaveData(TagCompound tag)

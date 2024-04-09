@@ -1,8 +1,6 @@
 ﻿using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -11,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class RainEnchant : BaseEnchant
+    public class RainEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +25,7 @@ Effects of Inner Tube
         }
 
         public override Color nameColor => new(255, 236, 0);
-        
+
 
         public override void SetDefaults()
         {

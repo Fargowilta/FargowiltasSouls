@@ -1,8 +1,6 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
-using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.ItemDropRules.Conditions
 {

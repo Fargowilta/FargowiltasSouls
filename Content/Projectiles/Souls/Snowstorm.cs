@@ -1,15 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Souls
 {
-	public class Snowstorm : ModProjectile
+    public class Snowstorm : ModProjectile
     {
         public override void SetStaticDefaults()
         {

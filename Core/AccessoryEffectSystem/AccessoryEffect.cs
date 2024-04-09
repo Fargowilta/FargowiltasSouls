@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.AccessoryEffectSystem
 {
@@ -23,7 +17,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
     public abstract class AccessoryEffect : ModType
     {
         public int Index;
-        
+
         public string ToggleDescription
         {
             get

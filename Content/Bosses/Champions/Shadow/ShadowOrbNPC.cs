@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using FargowiltasSouls.Common.Utilities;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -10,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Shadow
 {
-	public class ShadowOrbNPC : ModNPC
+    public class ShadowOrbNPC : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -124,7 +123,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Shadow
                 NPC.dontTakeDamage = true;
                 NPC.netUpdate = true;
             }
-                
+
         }
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)

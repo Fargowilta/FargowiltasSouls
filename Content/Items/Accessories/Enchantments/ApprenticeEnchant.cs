@@ -1,17 +1,14 @@
 ﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
-using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using System.Linq;
-using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ApprenticeEnchant : BaseEnchant
+    public class ApprenticeEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -152,7 +149,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                                 continue;
                             }
 
-                            Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(-50, 50), player.Center.Y + Main.rand.Next(-50, 50));
+                            Vector2 pos = new(player.Center.X + Main.rand.Next(-50, 50), player.Center.Y + Main.rand.Next(-50, 50));
                             Vector2 velocity = Vector2.Normalize(Main.MouseWorld - pos);
 
                             //ApprenticeShoot(player, player.whoAmI, item2, item2.damage / 2);
@@ -182,7 +179,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                             if (projToShoot == ProjectileID.RainbowFront || projToShoot == ProjectileID.RainbowBack) // prevent fucked up op interaction
                             {
                                 foreach (Projectile rainbow in Main.projectile.Where(p => (p.TypeAlive(ProjectileID.RainbowFront) || p.TypeAlive(ProjectileID.RainbowBack)) && p.owner == player.whoAmI))
-                                    rainbow.Kill(); 
+                                    rainbow.Kill();
                             }
 
                             int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), pos, Vector2.Normalize(velocity) * speed, projToShoot, damage, KnockBack, player.whoAmI);

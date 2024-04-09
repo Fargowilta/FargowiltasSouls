@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Fargowiltas.Common.Configs;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Fargowiltas.Common.Configs;
 
 namespace FargowiltasSouls.Content.Patreon.ParadoxWolf
 {

@@ -1,15 +1,12 @@
-﻿using FargowiltasSouls.Content.Projectiles.Souls;
-using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Toggler.Content;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class FrostEnchant : BaseEnchant
+    public class FrostEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {
@@ -19,13 +16,13 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
             //             DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "冰霜魔石");
 
-/*            string tooltip =
-@"Icicles will start to appear around you
-Attacking will launch them towards the cursor
-When they hit an enemy they are inflicted with Frostbite and frozen solid
-Press the Freeze Key to chill everything for 20 seconds
-There is a 60 second cooldown for this effect
-'Let's coat the world in a deep freeze'";*/
+            /*            string tooltip =
+            @"Icicles will start to appear around you
+            Attacking will launch them towards the cursor
+            When they hit an enemy they are inflicted with Frostbite and frozen solid
+            Press the Freeze Key to chill everything for 20 seconds
+            There is a 60 second cooldown for this effect
+            'Let's coat the world in a deep freeze'";*/
             // Tooltip.SetDefault(tooltip);
 
             //             string tooltip_ch =
@@ -38,7 +35,7 @@ There is a 60 second cooldown for this effect
         }
 
         public override Color nameColor => new(122, 189, 185);
-        
+
 
         public override void SetDefaults()
         {

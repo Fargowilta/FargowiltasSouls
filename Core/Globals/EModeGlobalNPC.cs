@@ -1,11 +1,9 @@
 ﻿using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using FargowiltasSouls.Content.Items.Placables;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.ItemDropRules.Conditions;
-using FargowiltasSouls.Core.ModPlayers;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
@@ -37,7 +35,7 @@ namespace FargowiltasSouls.Core.Globals
         public bool HasWhipDebuff;
 
         //public List<int> auraDebuffs = new List<int>();
-        #pragma warning disable CA2211
+#pragma warning disable CA2211
         public static int slimeBoss = -1;
         public static int eyeBoss = -1;
         public static int eaterBoss = -1;
@@ -66,7 +64,7 @@ namespace FargowiltasSouls.Core.Globals
 
         public static int eaterTimer;
         //public static int eaterResist;
-        #pragma warning restore CA2211
+#pragma warning restore CA2211
 
         public override void ResetEffects(NPC npc)
         {
@@ -1179,7 +1177,7 @@ namespace FargowiltasSouls.Core.Globals
                                 CheckMasterDropRule(chain.RuleToChain);
                         }
                     }
-                    
+
 
                     if (dropRule is DropBasedOnMasterMode dropBasedOnMasterMode)
                     {

@@ -7,14 +7,13 @@ using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Will
 {
-	public class WillDeathraySmall : BaseDeathray
+    public class WillDeathraySmall : BaseDeathray
     {
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/AbomDeathray";
 
@@ -69,7 +68,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Will
             //num804 += Projectile.ai[0];
             //Projectile.rotation = num804 - 1.57079637f;
             float num804 = Projectile.velocity.ToRotation() - 1.57079637f; //npc.ai[3] - 1.57079637f + Projectile.ai[0];
-            //if (Projectile.ai[0] != 0f) num804 -= (float)Math.PI;
+                                                                           //if (Projectile.ai[0] != 0f) num804 -= (float)Math.PI;
             Projectile.rotation = num804;
             num804 += 1.57079637f;
             Projectile.velocity = num804.ToRotationVector2();

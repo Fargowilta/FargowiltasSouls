@@ -1,15 +1,10 @@
-﻿using FargowiltasSouls.Content.Buffs.Masomode;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ID;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 {
@@ -37,7 +32,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
         }
         public ref float ObjectType => ref Projectile.ai[0];
         public ref float StartHeight => ref Projectile.ai[1];
-        public static float Gravity(float objectType) => 
+        public static float Gravity(float objectType) =>
             objectType switch
             {
                 5 => 0.15f, // vase

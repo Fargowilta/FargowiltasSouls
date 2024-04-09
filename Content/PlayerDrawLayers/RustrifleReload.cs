@@ -1,14 +1,14 @@
+using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using ReLogic.Content;
-using Microsoft.Xna.Framework.Graphics;
-using FargowiltasSouls.Content.Items.Weapons.Challengers;
 
 namespace FargowiltasSouls.Content.PlayerDrawLayers
 {
-	public class RustrifleReload : PlayerDrawLayer
+    public class RustrifleReload : PlayerDrawLayer
     {
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.FargoSouls().RustRifleReloading && drawInfo.drawPlayer.HeldItem.type == ModContent.ItemType<NavalRustrifle>();
         public override Position GetDefaultPosition() => new Between();

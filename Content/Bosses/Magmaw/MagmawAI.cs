@@ -1,10 +1,5 @@
-﻿using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.PirateInvasion;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -145,7 +140,7 @@ namespace FargowiltasSouls.Content.Bosses.Magmaw
         }
         public void SwordClap()
         {
-            
+
         }
         public void SwordClap_Hand(MagmawHand hand)
         {

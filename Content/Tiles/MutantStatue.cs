@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace FargowiltasSouls.Content.Tiles
 {
-	public class MutantStatue : ModTile
+    public class MutantStatue : ModTile
     {
         public override void SetStaticDefaults()
         {

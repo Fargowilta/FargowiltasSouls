@@ -1,26 +1,25 @@
-using System.IO;
-using Terraria.ModLoader.IO;
+using FargowiltasSouls.Common.Utilities;
+using FargowiltasSouls.Content.Buffs.Boss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.NPCMatching;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.ModLoader;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
-using FargowiltasSouls.Core.NPCMatching;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 {
-	public class DukeFishron : EModeNPCBehaviour
+    public class DukeFishron : EModeNPCBehaviour
     {
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.DukeFishron);
 
@@ -254,7 +253,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         if (!RemovedInvincibility)
                             npc.dontTakeDamage = false;
                         TakeNoDamageOnHit = false;
-                        if (IsEX) 
+                        if (IsEX)
                             npc.ai[2]++;
                         break;
 
@@ -632,24 +631,24 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             EnrageDust();
                         }
 
-                    /*if (npc.ai[0] == 10)
-                    {
-                        if (++Counter1 == 15)
+                        /*if (npc.ai[0] == 10)
                         {
-                            if (FargoSoulsUtil.HostCheck)
+                            if (++Counter1 == 15)
                             {
-                                const float delay = 15;
-                                Vector2 baseVel = 100f / delay * npc.SafeDirectionTo(Main.player[npc.target].Center);
+                                if (FargoSoulsUtil.HostCheck)
+                                {
+                                    const float delay = 15;
+                                    Vector2 baseVel = 100f / delay * npc.SafeDirectionTo(Main.player[npc.target].Center);
 
-                                    const int max = 10;
-                                    for (int i = 0; i < max; i++)
-                                    {
-                                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, baseVel.RotatedBy(2 * Math.PI / max * i),
-                                            ModContent.ProjectileType<FishronBubble>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, delay);
+                                        const int max = 10;
+                                        for (int i = 0; i < max; i++)
+                                        {
+                                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, baseVel.RotatedBy(2 * Math.PI / max * i),
+                                                ModContent.ProjectileType<FishronBubble>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, delay);
+                                        }
                                     }
                                 }
-                            }
-                        }*/
+                            }*/
                         break;
 
                     case 11: //p3 dash
@@ -694,16 +693,16 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     }
                                 }
 
-                            if (!Main.player[npc.target].ZoneBeach) //enraged, spawn bubbles
-                            {
-                                float range = MathHelper.ToRadians(Main.rand.NextFloat(1f, 15f));
-                                for (int i = -1; i <= 1; i++)
+                                if (!Main.player[npc.target].ZoneBeach) //enraged, spawn bubbles
                                 {
-                                    int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 8f * npc.SafeDirectionTo(Main.player[npc.target].Center).RotatedBy(range * i),
-                                        ModContent.ProjectileType<FishronBubble>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
-                                    if (p != Main.maxProjectiles)
-                                        Main.projectile[p].timeLeft = 90;
-                                }
+                                    float range = MathHelper.ToRadians(Main.rand.NextFloat(1f, 15f));
+                                    for (int i = -1; i <= 1; i++)
+                                    {
+                                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 8f * npc.SafeDirectionTo(Main.player[npc.target].Center).RotatedBy(range * i),
+                                            ModContent.ProjectileType<FishronBubble>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                        if (p != Main.maxProjectiles)
+                                            Main.projectile[p].timeLeft = 90;
+                                    }
 
                                     for (int i = -1; i <= 1; i += 2)
                                     {

@@ -1,4 +1,20 @@
+using Fargowiltas.NPCs;
+using FargowiltasSouls.Assets.ExtraTextures;
+using FargowiltasSouls.Content.Buffs.Boss;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.BossBags;
+using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Pets;
+using FargowiltasSouls.Content.Items.Placables.Relics;
+using FargowiltasSouls.Content.Items.Placables.Trophies;
+using FargowiltasSouls.Content.Items.Summons;
+using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core;
+using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.ItemDropRules.Conditions;
+using FargowiltasSouls.Core.Systems;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,23 +30,6 @@ using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.BossBags;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Pets;
-using FargowiltasSouls.Content.Items.Placables.Relics;
-using FargowiltasSouls.Content.Items.Placables.Trophies;
-using FargowiltasSouls.Content.Items.Summons;
-using FargowiltasSouls.Content.Buffs.Souls;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Content.Buffs.Boss;
-using FargowiltasSouls.Assets.ExtraTextures;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-
-using Fargowiltas.NPCs;
-using FargowiltasSouls.Content.Projectiles.Masomode;
-using FargowiltasSouls.Core;
-using Luminance.Core.Graphics;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
 {
@@ -87,9 +86,9 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 ModContent.BuffType<GodEaterBuff>(),
                 ModContent.BuffType<TimeFrozenBuff>(),
                 ModContent.BuffType<LeadPoisonBuff>(),
-                
+
             });
-            
+
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -907,7 +906,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
         }
         const int ObnoxiousQuoteCount = 71;
         const string GFBLocPath = $"Mods.FargowiltasSouls.NPCs.MutantBoss.GFBText.";
-        private string RandomObnoxiousQuote() => Language.GetTextValue($"{GFBLocPath}Random{Main.rand.Next(ObnoxiousQuoteCount)}"); 
+        private string RandomObnoxiousQuote() => Language.GetTextValue($"{GFBLocPath}Random{Main.rand.Next(ObnoxiousQuoteCount)}");
         private string GFBQuote(int num) => Language.GetTextValue($"{GFBLocPath}Quote{num}");
 
         #endregion
@@ -1010,7 +1009,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                     }
                 }
 
-                
+
 
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.SafeDirectionTo(player.Center + player.velocity * 30f), ModContent.ProjectileType<MutantDeathrayAim>(), 0, 0f, Main.myPlayer, 85f, NPC.whoAmI);
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<MutantSpearAim>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI, 3);
@@ -1589,7 +1588,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                     Main.dust[d].noLight = true;
                     Main.dust[d].velocity *= 9f;
                 }
-                if (player.FargoSouls().TerrariaSoul) 
+                if (player.FargoSouls().TerrariaSoul)
                     EdgyBossText(GFBQuote(1));
             }
             else if (NPC.ai[1] > 150)
@@ -2707,7 +2706,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
 
                     EdgyBossText(GFBQuote(21));
                 }
-                    
+
 
                 if (NPC.ai[2] > masoMovingRainAttackTime + 30)
                 {
@@ -2900,7 +2899,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 SpawnSphereRing(max, speed, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), -1f, rotation);
                 SpawnSphereRing(max, speed, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 1f, rotation);
 
-                
+
             }
 
             if (NPC.ai[2] == 0)
@@ -3290,8 +3289,8 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                         if (FargoSoulsUtil.HostCheck)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel,
-                                ModContent.ProjectileType<MutantSansHead>(), 
-                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 
+                                ModContent.ProjectileType<MutantSansHead>(),
+                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer,
                                 travelTime, xSpeedWhenAttacking * -i, j);
                         }
                     }
@@ -3795,7 +3794,7 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 {
                     int damage = WorldSavingSystem.MasochistModeReal ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 0.5f) : 0;
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * -1,
-                        ModContent.ProjectileType<MutantGiantDeathray2>(), 
+                        ModContent.ProjectileType<MutantGiantDeathray2>(),
                         damage, 0f, Main.myPlayer, 1, NPC.whoAmI);
                 }
                 EdgyBossText(GFBQuote(32));

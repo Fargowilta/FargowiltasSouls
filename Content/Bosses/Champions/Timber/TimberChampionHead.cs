@@ -1,21 +1,21 @@
-﻿using FargowiltasSouls.Content.Projectiles;
+﻿using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
+using FargowiltasSouls.Content.Items.Placables.Relics;
+using FargowiltasSouls.Content.Projectiles;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.ItemDropRules;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.Placables.Relics;
-using FargowiltasSouls.Content.Items.Accessories.Forces;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Core.ItemDropRules;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
-using FargowiltasSouls.Core.Globals;
-using System.Collections.Generic;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Timber
 {

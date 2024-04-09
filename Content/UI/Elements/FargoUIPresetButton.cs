@@ -6,7 +6,7 @@ using Terraria.UI;
 
 namespace FargowiltasSouls.Content.UI.Elements
 {
-	public class FargoUIPresetButton : UIElement
+    public class FargoUIPresetButton : UIElement
     {
         public Texture2D Texture;
         public Action<ToggleBackend> ApplyPreset;

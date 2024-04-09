@@ -1,10 +1,10 @@
 using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using FargowiltasSouls.Core.Systems;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Terra
 {

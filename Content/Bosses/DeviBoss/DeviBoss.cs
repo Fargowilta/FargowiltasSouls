@@ -1,10 +1,25 @@
+using Fargowiltas.NPCs;
+using FargowiltasSouls.Assets.ExtraTextures;
+using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.Items.BossBags;
+using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Pets;
+using FargowiltasSouls.Content.Items.Placables.Relics;
+using FargowiltasSouls.Content.Items.Placables.Trophies;
+using FargowiltasSouls.Content.Items.Summons;
+using FargowiltasSouls.Content.Patreon.Phupperbat;
 using FargowiltasSouls.Content.Projectiles;
-using FargowiltasSouls.Core.ItemDropRules.Conditions;
 using FargowiltasSouls.Content.Projectiles.Deathrays;
 using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Core.Globals;
+using FargowiltasSouls.Core.ItemDropRules.Conditions;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -14,23 +29,6 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using FargowiltasSouls.Content.Items.BossBags;
-using FargowiltasSouls.Content.Items.Materials;
-using FargowiltasSouls.Content.Items.Pets;
-using FargowiltasSouls.Content.Items.Placables.Relics;
-using FargowiltasSouls.Content.Items.Placables.Trophies;
-using FargowiltasSouls.Content.Items.Summons;
-using FargowiltasSouls.Content.Items.Accessories.Masomode;
-using FargowiltasSouls.Content.Buffs.Masomode;
-using FargowiltasSouls.Assets.ExtraTextures;
-using FargowiltasSouls.Common.Utilities;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Core.Globals;
-using FargowiltasSouls.Content.Patreon.Phupperbat;
-using System.Collections.Generic;
-using Fargowiltas.Projectiles;
-using Fargowiltas.NPCs;
-using ReLogic.Content;
 
 namespace FargowiltasSouls.Content.Bosses.DeviBoss
 {
@@ -123,7 +121,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             NPC.lifeMax = 6000;
             if (WorldSavingSystem.EternityMode)
             {
-                NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5f); 
+                NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.5f);
 
                 if (!Main.masterMode) //master mode is already long enough
                     NPC.lifeMax = (int)Math.Round(NPC.lifeMax * 1.4f);
@@ -594,12 +592,12 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(Math.PI / 2 * i + angleOffset) * speed, ModContent.ProjectileType<DeviHammer>(), projectileDamage, 0f, Main.myPlayer, acc, time);
                         };
 
-                        SpawnHammers(100,  MathHelper.PiOver4);
-                        SpawnHammers(150,  0);
+                        SpawnHammers(100, MathHelper.PiOver4);
+                        SpawnHammers(150, 0);
                         if (WorldSavingSystem.EternityMode)
-                            SpawnHammers(200,  MathHelper.PiOver4);
+                            SpawnHammers(200, MathHelper.PiOver4);
                         if (WorldSavingSystem.MasochistModeReal)
-                            SpawnHammers(300,  0);
+                            SpawnHammers(300, 0);
                     }
                 }
                 else if (Timer > 90)

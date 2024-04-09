@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 {
-	public class ChlorophyteEnchant : BaseEnchant
+    public class ChlorophyteEnchant : BaseEnchant
     {
         public override void SetStaticDefaults()
         {

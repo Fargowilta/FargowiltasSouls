@@ -1,5 +1,5 @@
-﻿using Terraria.ModLoader;
-using Terraria.ID;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Patreon.Sam
 {

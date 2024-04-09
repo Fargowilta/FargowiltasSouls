@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEvents.Solar
 {
-	public class SolarFlamePillar : ModProjectile
+    public class SolarFlamePillar : ModProjectile
     {
 
         public override void SetStaticDefaults()
@@ -71,7 +71,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             {
                 Main.npc[child].velocity.Y = -30;
             }
-            
+
             if (Timer > 60 * 2 + 30)
             {
                 Projectile.Kill();

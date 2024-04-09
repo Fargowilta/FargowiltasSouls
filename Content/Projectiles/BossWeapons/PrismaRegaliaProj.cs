@@ -71,8 +71,8 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                     SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ChargeSound"), Projectile.Center + Projectile.velocity * Projectile.Size.Length() / 2);
                 }
                 Projectile.localAI[1] = chargeLevel; //store the charge amount
-                //int d = Dust.NewDust(player.MountedCenter + Projectile.velocity * Projectile.Size.Length() * 0.95f, 0, 0, DustID.CrystalPulse);
-                //Main.dust[d].noGravity = true;
+                                                     //int d = Dust.NewDust(player.MountedCenter + Projectile.velocity * Projectile.Size.Length() * 0.95f, 0, 0, DustID.CrystalPulse);
+                                                     //Main.dust[d].noGravity = true;
                 bool charged = chargeLevel >= maxCharge - 1;
                 FargoSoulsUtil.AuraParticles(player, Projectile.Size.Length() * 0.95f, color: charged ? Color.HotPink : Color.DeepPink, particleType: charged ? 1 : 0);
             }
@@ -120,7 +120,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                 if (timer == duration / 2)
                 {
                     float pitch = Charged ? -1 : 0;
-                    SoundEngine.PlaySound(SoundID.Item1 with { Pitch = pitch}, player.Center);
+                    SoundEngine.PlaySound(SoundID.Item1 with { Pitch = pitch }, player.Center);
                 }
 
                 timer++;

@@ -1,5 +1,4 @@
 ﻿using FargowiltasSouls.Common.Graphics.Particles;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
@@ -39,7 +38,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                     Particle spark = new SparkParticle(Projectile.Center + Vector2.UnitY * (900 - Main.rand.Next(30, 300)), -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver2 * 0.2f) * Main.rand.NextFloat(3, 13), Color.Cyan, Main.rand.NextFloat(0.3f, 0.7f), Main.rand.Next(10, 25));
                     spark.Spawn();
                 }
-                
+
                 return false;
             }
             if (telegraphTimer >= TelegraphTime)
@@ -56,7 +55,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 Projectile.tileCollide = true;
                 return false;
             }
-            
+
 
             return base.PreAI();
         }

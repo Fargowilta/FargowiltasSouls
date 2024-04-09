@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Core.Systems;
+using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
 
 namespace FargowiltasSouls.Core.ItemDropRules

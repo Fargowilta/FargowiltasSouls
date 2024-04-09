@@ -1,6 +1,5 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.Globals;
 using System.Linq;
 using Terraria;
 using Terraria.ModLoader;

@@ -1,5 +1,4 @@
 ﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
-using FargowiltasSouls.Core.ModPlayers;
 using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
