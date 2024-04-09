@@ -26,7 +26,7 @@ namespace FargowiltasSouls.Content.PlayerDrawLayers
             }
 
             Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("FargowiltasSouls");
+            Mod mod = FargowiltasSouls.Instance;
             FargoSoulsPlayer modPlayer = drawPlayer.FargoSouls();
 
             if (modPlayer.SnowVisual)
