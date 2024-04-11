@@ -51,21 +51,7 @@ There is a 60 second cooldown for this effect
             .AddIngredient(ItemID.EskimoPants)
             //hand warmer
             //fruitcake chakram
-            .AddIngredient(ItemID.IceBoomerang)
-            .AddIngredient(ItemID.FrostMinnow)
-            .AddIngredient(ItemID.AtlanticCod)
-
-            .AddTile(TileID.DemonAltar)
-            .Register();
-
-            CreateRecipe()
-
-            .AddIngredient(ItemID.EskimoHood)
-            .AddIngredient(ItemID.EskimoCoat)
-            .AddIngredient(ItemID.EskimoPants)
-            //hand warmer
-            //fruitcake chakram
-            .AddIngredient(ItemID.IceBlade)
+            .AddRecipeGroup("FargowiltasSouls:IceBladeOrBoomerang")
             .AddIngredient(ItemID.FrostMinnow)
             .AddIngredient(ItemID.AtlanticCod)
 

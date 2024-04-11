@@ -206,6 +206,10 @@ namespace FargowiltasSouls.Core.Systems
             group = new RecipeGroup(() => AnyItem(ItemID.Shellphone), ItemID.Shellphone, ItemID.ShellphoneDummy, ItemID.ShellphoneHell, ItemID.ShellphoneOcean, ItemID.ShellphoneSpawn);
             RecipeGroup.RegisterGroup("FargowiltasSouls:AnyShellphone", group);
 
+            //ice blade or ice boomerang
+            group = new RecipeGroup(() => ItemXOrY(ItemID.IceBlade, ItemID.IceBoomerang), ItemID.IceBlade, ItemID.IceBoomerang);
+            RecipeGroup.RegisterGroup("FargowiltasSouls:IceBladeOrBoomerang", group);
+
 
         }
         public override void PostAddRecipes()
