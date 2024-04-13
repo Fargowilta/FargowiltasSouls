@@ -1,5 +1,4 @@
-﻿using Luminance.Common.Reflection;
-using Luminance.Common.StateMachines;
+﻿using Luminance.Common.StateMachines;
 
 namespace FargowiltasSouls.Content.Bosses.ShadowChallenger
 {
