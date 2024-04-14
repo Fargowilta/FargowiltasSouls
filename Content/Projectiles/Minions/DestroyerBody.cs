@@ -171,7 +171,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             }
             if (!Main.dedServ)
             {
-                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, ModContent.Find<ModGore>("FargowiltasSouls/DestroyerBody").Type, Projectile.scale);
+                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, ModContent.Find<ModGore>("FargowiltasSouls/DestroyerBodyGore").Type, Projectile.scale);
                 Main.gore[g].timeLeft = 20;
             }
         }
