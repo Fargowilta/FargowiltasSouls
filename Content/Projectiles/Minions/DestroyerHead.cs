@@ -167,8 +167,11 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                     -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[dust].velocity *= 2f;
             }
-            int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, ModContent.Find<ModGore>("FargowiltasSouls/DestroyerHeadGore").Type, Projectile.scale);
-            Main.gore[g].timeLeft = 20;
+            if (!Main.dedServ)
+            {
+                int g = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity / 2, ModContent.Find<ModGore>("FargowiltasSouls/DestroyerHeadGore").Type, Projectile.scale);
+                Main.gore[g].timeLeft = 20;
+            }
             SoundEngine.PlaySound(SoundID.NPCDeath14, Projectile.Center);
         }
     }
