@@ -425,7 +425,7 @@ ShadowflameBuff: {
 
 SmiteBuff: {
 	DisplayName: 惩戒
-	Description: 降低生命恢复速度，受到的伤害增加10%
+	Description: 无法恢复生命，受到的伤害增加20%
 }
 
 SqueakyToyBuff: {
@@ -727,10 +727,10 @@ HellFireMarkedBuff: {
 
 MagicalCurseBuff: {
 	DisplayName: 魔法诅咒
-	// Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
+	Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
 }
 
 PearlwoodStarBuff: {
-	// DisplayName: Pearlwood Star Buff
-	// Description: Mods.FargowiltasSouls.Buffs.PearlwoodStarBuff.Description
+	DisplayName: 破坏之星
+	Description: 破坏之星将会跟随你
 }

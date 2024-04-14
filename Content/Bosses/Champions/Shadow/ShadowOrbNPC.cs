@@ -60,7 +60,9 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Shadow
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            NPC.localAI[3] = reader.ReadSingle();
+            float temp = reader.ReadSingle();
+            if (NPC.localAI[3] != 1)
+                NPC.localAI[3] = temp;
         }
 
         public override bool CanHitPlayer(Player target, ref int CooldownSlot)

@@ -61,6 +61,9 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
             NPC.knockBackResist = 0f;
             NPC.lavaImmune = true;
             NPC.aiStyle = -1;
+
+            if (Main.getGoodWorld)
+                NPC.scale += 1;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)

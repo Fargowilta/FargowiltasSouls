@@ -33,11 +33,11 @@ IceBarrier: 永恒模式：你造成的伤害减少10%
 SpearRework: 重做长矛挥舞动画
 PalladiumPikeRework: 击中敌人后大幅增加生命恢复速度
 CobaltNaginataRework: 击中敌人会造成小范围爆炸
-MythrilHalberdRework: 不攻击持续2秒后下一击造成三倍伤害
+MythrilHalberdRework: 不攻击持续2秒后下一击造成八倍伤害，受攻击速度加成
 OrichalcumHalberdRework: 挥舞时矛的顶端会释放花瓣
 SuperStarCannon: 最大穿透次数降低为7次
 WarmthPotionNerf: 伤害减免效果减半
 CrossNecklaceNerf: 连续受击不会触发延长无敌时间的效果
 IceBladeFrostburn: 射弹击中敌人造成霜冻减益
 JungleRose: 增加抓人草类敌怪掉落世纪之果的几率
-// StarCloak: -50% star damage before Hardmode
+StarCloak: 困难模式前星星伤害减半

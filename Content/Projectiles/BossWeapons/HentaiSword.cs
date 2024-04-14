@@ -175,11 +175,8 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
                     {
                         Vector2 angle = baseDirection.RotatedBy(MathHelper.TwoPi / max * i);
                         float ai1 = 30; //number of chains
-                        if (FargoSoulsUtil.HostCheck)
-                        {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnPos + Main.rand.NextVector2Circular(Projectile.width, Projectile.height), Vector2.Zero, ModContent.ProjectileType<HentaiSwordBlast>(),
-                                Projectile.damage, Projectile.knockBack * 3, Projectile.owner, MathHelper.WrapAngle(angle.ToRotation()), ai1);
-                        }
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawnPos + Main.rand.NextVector2Circular(Projectile.width, Projectile.height), Vector2.Zero, ModContent.ProjectileType<HentaiSwordBlast>(),
+                            Projectile.damage, Projectile.knockBack * 3, Projectile.owner, MathHelper.WrapAngle(angle.ToRotation()), ai1);
                     }
                 }
             }

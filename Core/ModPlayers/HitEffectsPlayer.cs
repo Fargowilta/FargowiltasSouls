@@ -540,7 +540,7 @@ namespace FargowiltasSouls.Core.ModPlayers
                 {
                     if (!Player.HasBuff(ModContent.BuffType<TimeFrozenBuff>()))
                     {
-                        The22Incident++;
+                        The22Incident += Main.getGoodWorld ? 2 : 1;
                         Rectangle rect = new Rectangle((int)Player.Center.X - 111, (int)Player.Center.Y, 222, 222);
                         for (int i = 0; i < The22Incident; i++)
                             CombatText.NewText(rect, Color.DarkOrange, The22Incident, true);

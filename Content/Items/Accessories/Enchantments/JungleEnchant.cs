@@ -130,14 +130,17 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
                     SoundEngine.PlaySound(SoundID.Item62 with { Volume = 0.5f }, player.Center);
 
-                    foreach (Projectile p in FargoSoulsUtil.XWay(10, GetSource_EffectItem(player), player.Bottom, ProjectileID.SporeCloud, 4f, FargoSoulsUtil.HighestDamageTypeScaling(player, dmg), 0f))
+                    if (player.whoAmI == Main.myPlayer)
                     {
-                        if (p == null)
-                            continue;
-                        p.usesIDStaticNPCImmunity = true;
-                        p.idStaticNPCHitCooldown = 10;
-                        p.FargoSouls().noInteractionWithNPCImmunityFrames = true;
-                        p.extraUpdates += 1;
+                        foreach (Projectile p in FargoSoulsUtil.XWay(10, GetSource_EffectItem(player), player.Bottom, ProjectileID.SporeCloud, 4f, FargoSoulsUtil.HighestDamageTypeScaling(player, dmg), 0f))
+                        {
+                            if (p == null)
+                                continue;
+                            p.usesIDStaticNPCImmunity = true;
+                            p.idStaticNPCHitCooldown = 10;
+                            p.FargoSouls().noInteractionWithNPCImmunityFrames = true;
+                            p.extraUpdates += 1;
+                        }
                     }
                 }
 

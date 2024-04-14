@@ -57,6 +57,15 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 return;
             }
 
+            if (WorldSavingSystem.MasochistModeReal && Main.getGoodWorld)
+            {
+                if (++Projectile.localAI[2] > MutantBoss.HyperMax + 1)
+                {
+                    Projectile.localAI[2] = 0;
+                    Projectile.AI();
+                }
+            }
+
             Projectile.velocity.Y += Projectile.ai[0];
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
 

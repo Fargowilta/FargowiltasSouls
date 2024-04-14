@@ -9,3 +9,14 @@ pearlwood ench adjustment
 	you only get crit while the star is actually chasing you
 deerclops inflicts broken armor
 marked for death makes you take x1.5 base damage, not final damage
+
+ftw fishron buffed, faster p1/p2 dashes
+ftw trojan squrrel starts at x2 size
+fixed? shadow champ orbs being impossible to pop in mp
+maso reti aura is god eater
+fixed a render issue with mutant spear spin in ftw
+fixed ftw mutant nuke not syncing up with the actual explosions
+ftw mutant counts to 22 twice as fast
+maso eow uses group attacks more often
+maso eow group attacks only use every other head
+fixed spore dash and ash fireballs ignoring toggle in mp

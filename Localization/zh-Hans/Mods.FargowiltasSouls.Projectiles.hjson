@@ -701,18 +701,18 @@ CoffinRandomStuff.DisplayName: 杂物
 FishStickWhirlpool.DisplayName: 鱼杖
 BetsyHomingFireball.DisplayName: 火光球
 HellGuardian.DisplayName: 地狱守卫者
-// RazorBlade.DisplayName: Razor Blade
+RazorBlade.DisplayName: 利刃刀片
 MutantShadowHand.DisplayName: 暗影之手
 TwentyTwo.DisplayName: "22"
 MutantSlimeSpike.DisplayName: 史莱姆尖刺
 MutantSansBeam.DisplayName: Sans死亡射线
 MutantSansHead.DisplayName: Sans头
-// MoonBowHeld.DisplayName: Moon Bow Held
-// MoonBowPortal.DisplayName: Moon Bow Portal
+MoonBowHeld.DisplayName: Moon Bow Held
+MoonBowPortal.DisplayName: Moon Bow Portal
 FlightBall.DisplayName: 飞行光球
 AbomPhoenix.DisplayName: 幽灵凤凰
-// FrostShardFriendly.DisplayName: Frost Shard Friendly
-// HentaiSword.DisplayName: Hentai Sword
-// HentaiSwordBlast.DisplayName: Hentai Sword Blast
-// HentaiSphereOkuu.DisplayName: Hentai Sphere Okuu
-// AbomRitualFTW.DisplayName: Abom Ritual F T W
+FrostShardFriendly.DisplayName: 寒霜碎块
+HentaiSword.DisplayName: 洞察者
+HentaiSwordBlast.DisplayName: 洞察者爆炸
+HentaiSphereOkuu.DisplayName: 洞察者幻影球
+AbomRitualFTW.DisplayName: 憎恶结界FTW

@@ -307,6 +307,10 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
                 if (npc.whoAmI == firstEater)
                 {
+                    //faster countup in maso
+                    if (UTurnCountdownTimer < 700 - 900 - 6 && WorldSavingSystem.MasochistModeReal)
+                        UTurnCountdownTimer++;
+
                     if (UTurnCountdownTimer == 700 - 90) //roar telegraph
                         SoundEngine.PlaySound(SoundID.Roar, Main.player[npc.target].Center);
 
@@ -318,12 +322,23 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             UTurn = true;
                             DoTheWave = !DoTheWave;
                             UTurnTotalSpacingDistance = NPC.CountNPCS(npc.type) / 2;
+                            if (WorldSavingSystem.MasochistModeReal)
+                                UTurnTotalSpacingDistance /= 2;
 
                             int headCounter = 0; //determine position of this head in the group
+                            bool actuallyDoTheThing = true;
                             for (int i = 0; i < Main.maxNPCs; i++) //synchronize
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == npc.type)
                                 {
+                                    //in maso, only have every other head participate in group attacks
+                                    if (WorldSavingSystem.MasochistModeReal && i != npc.whoAmI)
+                                    {
+                                        actuallyDoTheThing = !actuallyDoTheThing;
+                                        if (!actuallyDoTheThing)
+                                            continue;
+                                    }
+
                                     Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnAITimer = DoTheWave && UTurnTotalSpacingDistance != 0 ? headCounter * 90 / UTurnTotalSpacingDistance / 2 - 60 : 0;
                                     if (WorldSavingSystem.MasochistModeReal)
                                         Main.npc[i].GetGlobalNPC<EaterofWorldsHead>().UTurnAITimer += 60;

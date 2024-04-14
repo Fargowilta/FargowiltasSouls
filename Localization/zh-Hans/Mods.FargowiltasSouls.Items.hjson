@@ -141,7 +141,7 @@ CopperEnchant: {
 		'''
 		暴击释放闪电攻击敌人，此效果有5秒冷却
 		命中有潮湿减益的敌人时不暴击也可能会释放闪电
-		“它们的音乐充满电击感”
+		“他们的音乐还是电音”
 		'''
 }
 
@@ -233,7 +233,7 @@ GladiatorEnchant: {
 		靠近旗子会增强长矛雨
 		靠近旗子时可免疫击退，获得5%伤害减免和5%伤害加成
 		旗子同时只能存在一个
-		“难道你不高兴吗？”
+		“你不觉得刺激吗？！”
 		'''
 }
 
@@ -242,7 +242,7 @@ GoldEnchant: {
 	Tooltip:
 		'''
 		攻击会造成迈达斯减益
-		捡起钱币时，自动将它们存进猪猪存钱罐中
+		捡起钱币时，自动将它们存进猪猪存钱罐中（这个效果放在在物品栏中也能生效）
 		按下“金身”键会将你包裹在一个黄金壳中
 		被包裹时你无法移动或攻击，但你免疫所有伤害
 		再次按下“金身”键会使你提前离开黄金壳
@@ -313,6 +313,7 @@ MeteorEnchant: {
 		'''
 		大幅增加移动速度和加速度并降低动量影响
 		移动时会产生火焰尾迹
+		攻击时偶尔落下一阵流星雨
 		《Drop a draco on 'em》
 		'''
 }
@@ -401,7 +402,7 @@ ObsidianEnchant: {
 		免疫火块与熔岩
 		你可以在熔岩中正常移动和游泳
 		在熔岩中会获得“熔岩之润”增益
-		拥有该增益时，你的攻击会引发爆炸并施加鞭炮效果，且会附带火球
+		拥有该增益时，你的攻击会引发爆炸且会附带火球
 		获得灰烬木魔石的全部效果
 		“大地在呼唤”
 		'''
@@ -440,8 +441,8 @@ PearlwoodEnchant: {
 	DisplayName: 珍珠木魔石
 	Tooltip:
 		'''
-		攻击有额外一次暴击机会
-		移动时一颗破坏之星会跟随玩家并试图对玩家造成伤害
+		按下“减益负载”键会召唤一颗破坏之星，它会跟随玩家并试图对玩家造成伤害
+		破坏之星存活时，你的攻击有额外一次暴击机会
 		“直面你自己吧……”
 		'''
 }
@@ -630,7 +631,7 @@ StardustEnchant: {
 	Tooltip:
 		'''
 		星尘守卫将保护你不受附近敌人的伤害
-		按下“冻结”键后会冻结时间，持续5秒
+		按下“冻结”键后会冻结时间，持续9秒
 		你的召唤物不受时间冻结影响
 		此效果有60秒冷却时间
 		“你成为了替身使者”
@@ -652,7 +653,7 @@ TinEnchant: {
 		'''
 		将你的基础暴击率设为5%
 		每次暴击时都会增加5%暴击率，暴击率的最大值为你当前最大暴击率数值×2，至少为15%
-		被击中会使暴击率恢复为5%
+		受伤会使暴击率恢复为5%
 		“暴击回归”
 		'''
 	CritUp: +5%暴击率
@@ -858,9 +859,9 @@ NatureForce: {
 		'''
 		[i:FargowiltasSouls/CrimsonEnchant] 受击后7秒内未再次受击则恢复损失的一半生命值，计算两次
 		[i:FargowiltasSouls/MoltenEnchant] 引燃你附近较大范围内的敌人
-		[i:FargowiltasSouls/MoltenEnchant] 所有敌怪在狱火圈内时多受到50%伤害
+		[i:FargowiltasSouls/MoltenEnchant] 狱火圈的伤害增加，所有敌怪在狱火圈内会额外受到25%伤害
 		[i:FargowiltasSouls/RainEnchant] 召唤一把可反射上方弹幕的雨伞
-		[i:FargowiltasSouls/SnowEnchant] 你的周围会出现冰锥，按下“冻结”键后将一切冻结20秒，并造成霜冻减益
+		[i:FargowiltasSouls/SnowEnchant] 你的周围会出现冰锥，攻击敌人会造成霜冻减益
 		[i:FargowiltasSouls/ChlorophyteEnchant] 召唤一圈叶绿水晶攻击附近的敌人
 		[i:FargowiltasSouls/JungleEnchant] 使你获得孢子二段跳和孢子冲刺的能力
 		[i:FargowiltasSouls/ShroomiteEnchant] 站定不动时使你进入隐身状态
@@ -931,7 +932,7 @@ TimberForce: {
 		[i:FargowiltasSouls/RichMahoganyEnchant] 所有钩爪的抛出速度×2，牵引速度×2.5，回收速度×3
 		[i:FargowiltasSouls/EbonwoodEnchant][i:FargowiltasSouls/ShadewoodEnchant] 暗影焰、诅咒焰和鲜血光环环绕着你
 		[i:FargowiltasSouls/PalmWoodEnchant] 双击“下”键召唤两个会向敌人扔橡实的棕榈树哨兵
-		[i:FargowiltasSouls/PearlwoodEnchant] 攻击有额外两次暴击机会，你的倒影会跟着你并试图对你造成伤害
+		[i:FargowiltasSouls/PearlwoodEnchant] 按下“减益负载”键召唤试图伤害你的破坏之星，其存活时你的攻击有额外两次暴击机会
 		“很硬”
 		'''
 }
@@ -941,8 +942,8 @@ WillForce: {
 	Tooltip:
 		'''
 		[i:FargowiltasSouls/GoldEnchant] 按下“金身”键会将你包裹在一个黄金壳中
-		[i:FargowiltasSouls/GoldEnchant] 捡起钱币时，自动将它们存进猪猪存钱罐中
-		[i:FargowiltasSouls/PlatinumEnchant] 敌人死亡时有20%的几率获得五倍的战利品
+		[i:FargowiltasSouls/GoldEnchant] 捡起钱币时，自动将它们存进猪猪存钱罐中（这个效果放在物品栏中也能生效）
+		[i:FargowiltasSouls/PlatinumEnchant] 敌人死亡时有33%的几率获得五倍的战利品
 		[i:FargowiltasSouls/GladiatorEnchant] 双击下键召唤一个旗子，靠近旗子时获得增益
 		[i:FargowiltasSouls/GladiatorEnchant] 长矛将倾泄在被攻击的敌人身上
 		[i:FargowiltasSouls/RedRidingEnchant] 连续攻击命中会获得额外伤害加成
@@ -1934,7 +1935,7 @@ EridanusHat: {
 		增加5%伤害
 		增加5%暴击率
 		增加4个召唤栏位
-		增加2个哨兵栏位
+		增加1个哨兵栏位
 		'''
 }
 
@@ -1952,7 +1953,7 @@ GaiaGreaves: {
 	DisplayName: 盖亚护胫
 	Tooltip:
 		'''
-		增加10%你手持武器职业的伤害
+		增加10%伤害
 		增加5%暴击率
 		增加10%移动速度
 		'''
@@ -3407,10 +3408,10 @@ TogglerIconItem: {
 }
 
 RazorContainer: {
-	// DisplayName: Razor Container
-	/* Tooltip:
+	DisplayName: 利刃收纳盒
+	Tooltip:
 		'''
-		Spawns a razor blade that hovers around your cursor. Hit it with a melee attack to send it flying dealing extra damage and armor pen
-		'Some yellow fur is still stuck at the bottom' 
-		''' */
+		生成一个悬停在你的光标周围的伤害性刀片。使用近战武器会使其飞出去，具有额外护甲穿透且必定暴击。
+		“底部还粘着一些黄色皮毛”
+		'''
 }

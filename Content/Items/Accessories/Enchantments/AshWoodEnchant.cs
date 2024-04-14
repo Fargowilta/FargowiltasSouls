@@ -92,7 +92,8 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 if (burning)
                     fireballDamage = (int)(fireballDamage * 1.3f);
 
-                Projectile.NewProjectile(GetSource_EffectItem(player), player.Center, vel, ProjectileID.BallofFire, fireballDamage, 1, Main.myPlayer);
+                if (player.whoAmI == Main.myPlayer)
+                    Projectile.NewProjectile(GetSource_EffectItem(player), player.Center, vel, ProjectileID.BallofFire, fireballDamage, 1, Main.myPlayer);
             }
         }
     }

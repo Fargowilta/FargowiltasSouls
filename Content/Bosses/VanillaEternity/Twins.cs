@@ -224,7 +224,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 if (WorldSavingSystem.MasochistModeReal)
                     auraDistance *= 0.75f;
                 if (auraDistance < 2000 - 1)
-                    EModeGlobalNPC.Aura(npc, auraDistance, true, DustID.Torch, default, ModContent.BuffType<OiledBuff>(), BuffID.OnFire, BuffID.Burning);
+                    EModeGlobalNPC.Aura(npc, auraDistance, true, DustID.Torch, default, ModContent.BuffType<OiledBuff>(), WorldSavingSystem.MasochistModeReal ? ModContent.BuffType<GodEaterBuff>() : BuffID.OnFire, BuffID.Burning);
 
                 //2*pi * (# of full circles) / (seconds to finish rotation) / (ticks per sec)
                 float rotationInterval = 2f * (float)Math.PI * 1.2f / 4f / 60f;

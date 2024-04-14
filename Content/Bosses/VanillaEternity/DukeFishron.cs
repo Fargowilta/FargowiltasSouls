@@ -186,8 +186,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         if (!RemovedInvincibility)
                             npc.dontTakeDamage = false;
                         TakeNoDamageOnHit = false;
-                        if (IsEX)
-                            npc.ai[2]++;
+                        npc.ai[2]++;
                         break;
 
                     case 1: //p1 dash
@@ -253,8 +252,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         if (!RemovedInvincibility)
                             npc.dontTakeDamage = false;
                         TakeNoDamageOnHit = false;
-                        if (IsEX)
-                            npc.ai[2]++;
+                        npc.ai[2]++;
                         break;
 
                     case 6: //p2 dash
