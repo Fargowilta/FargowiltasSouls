@@ -465,7 +465,6 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             LoadNPCSprite(recolor, npc.type);
             LoadBossHeadSprite(recolor, 39);
             LoadGore(recolor, 1270);
-            LoadGore(recolor, 1271);
             LoadGore(recolor, 1272);
             LoadGore(recolor, 1273);
             LoadGore(recolor, 1274);
