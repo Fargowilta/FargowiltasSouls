@@ -346,38 +346,7 @@ namespace FargowiltasSouls.Content.Items
         //            }*/
         //            return true;
         //        }
-
-        public override void HoldItem(Item item, Player player)
-        {
-            if (item.type == ItemID.Binoculars) //the amount of nesting here exists to prevent excessive lag
-            {
-                if (NPC.AnyNPCs(NPCID.TownCat))
-                {
-                    for (int j = 0; j < Main.maxNPCs; j++)
-                    {
-                        if (Main.npc[j].active && Main.npc[j].type == NPCID.TownCat)
-                        {
-                            NPC cat = Main.npc[j];
-                            for (int i = 0; i < Main.maxItems; i++)
-                            {
-                                if (Main.item[i].active && Main.item[i].type == ItemID.CellPhone)
-                                {
-                                    if (cat.Distance(Main.item[i].Center) < cat.Size.Length() && Main.MouseWorld.Distance(cat.Center) < cat.Size.Length())
-                                    {
-                                        Item.NewItem(player.GetSource_ItemUse(item), cat.Center, ModContent.ItemType<WiresPainting>());
-                                        Main.item[i].active = false;
-                                        cat.active = false;
-                                        return;
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                }
-            }
-            base.HoldItem(item, player);
-        }
+        
         public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
