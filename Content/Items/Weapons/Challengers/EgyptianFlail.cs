@@ -17,26 +17,18 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         }
 
         public int maxCooldown = 60 * 7;
-        public int charged = 0;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            
-            if (modPlayer.EgyptianFlailCD <= 0)
-            {
-                charged = 1;
-                modPlayer.EgyptianFlailCD = maxCooldown;
-            }
-            else
-            {
-                charged = 0;
-            }
-
             if (Main.myPlayer == player.whoAmI) {
                 for (float i = -3.6f; i <= 3.6f; i += 3.6f)
                 {
-                    Projectile.NewProjectile(source, player.Center, velocity, ModContent.ProjectileType<EgyptianFlailProjectile>(), 16, 2, player.whoAmI, i, charged);
+                    Projectile.NewProjectile(source, player.Center, velocity, ModContent.ProjectileType<EgyptianFlailProjectile>(), 16, 2, player.whoAmI, i, modPlayer.EgyptianFlailCD);
                 }
+            }
+            if (modPlayer.EgyptianFlailCD <= 0)
+            {
+                modPlayer.EgyptianFlailCD = maxCooldown;
             }
             return false;
         }

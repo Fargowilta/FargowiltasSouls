@@ -51,10 +51,10 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (Projectile.ai[1] == 1)
+            if (Projectile.ai[1] <= 0)
             {
                 WhipExplosion(target);
-                Projectile.ai[1] = 0;
+                Projectile.ai[1] = 1;
             }
         }
 
