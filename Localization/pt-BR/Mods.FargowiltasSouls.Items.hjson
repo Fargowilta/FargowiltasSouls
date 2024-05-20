@@ -3385,3 +3385,12 @@ AccursedAnkh: {
 	// DisplayName: Accursed Ankh
 	// Tooltip: While held out, increases life regeneration and debuff depletion, but decreases defense by 10
 }
+
+EgyptianFlail: {
+	// DisplayName: Egyptian Flail
+	/* Tooltip:
+		'''
+		Your summons will focus struck enemies
+		Whip your summons to make them erupt into shadowflame
+		''' */
+}

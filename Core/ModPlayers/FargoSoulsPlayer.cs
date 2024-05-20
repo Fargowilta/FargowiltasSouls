@@ -46,6 +46,8 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public bool FreeEaterSummon = true;
 
+        public int EgyptianFlailCD = 0;
+
         public bool RustRifleReloading = false;
         public float RustRifleReloadZonePos = 0;
         public float RustRifleTimer = 0;
