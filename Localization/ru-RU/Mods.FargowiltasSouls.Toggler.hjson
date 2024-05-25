@@ -1,0 +1,253 @@
+TimberHeader: "{$Mods.FargowiltasSouls.Items.TimberForce.DisplayName}"
+BorealEffect: Boreal Snowballs
+MahoganyEffect: Mahogany Hook Speed
+EbonwoodEffect: Ebonwood Shadowflame
+ShadewoodEffect: Blood Geyser On Hit
+PalmwoodEffect: Palmwood Sentry
+PearlwoodEffect: Pearlwood Star
+EarthHeader: "{$Mods.FargowiltasSouls.Items.EarthForce.DisplayName}"
+AdamantiteEffect: Adamantite Projectile Splitting
+CobaltEffect: Cobalt Hit Explosion
+AncientCobaltEffect: Ancient Cobalt Explosion Jump
+MythrilEffect: Mythril Weapon Speed
+OrichalcumEffect: Orichalcum Petals
+PalladiumHealing: Palladium Healing
+PalladiumEffect: Palladium Orbs
+TitaniumEffect: Titanium Shards
+TerraHeader: "{$Mods.FargowiltasSouls.Items.TerraForce.DisplayName}"
+CopperEffect: Copper Lightning
+IronEffect: Iron Magnet
+LeadPoisonEffect: Lead Poison
+SilverEffect: Silver Parry
+TinEffect: Tin Crits
+TungstenEffect: Tungsten Effect
+ObsidianProcEffect: Obsidian Explosions
+AshWoodFireballs: Ash Fireballs
+WillHeader: "{$Mods.FargowiltasSouls.Items.WillForce.DisplayName}"
+GladiatorSpears: Gladiator Spears
+GladiatorBanner: Gladiator Banner
+GoldEffect: Gold Lucky Coin
+GoldToPiggy: Gold To Piggy Bank
+HuntressEffect: Huntress Ability
+RedRidingEffect: Red Riding Arrow Rain
+ValhallaDash: Valhalla Mount Dash
+SquireMountJump: Squire Mount Jump
+SquireMountSpeed: Squire Mount Speed
+LifeHeader: "{$Mods.FargowiltasSouls.Items.LifeForce.DisplayName}"
+BeeEffect: Bee Flowers
+BeetleEffect: Beetles
+CactusEffect: Cactus Needles
+PumpkinEffect: Grow Pumpkins
+SpiderEffect: Spider Crits
+TurtleEffect: Turtle Shell Buff
+NatureHeader: "{$Mods.FargowiltasSouls.Items.NatureForce.DisplayName}"
+ChloroMinion: Chlorophyte Leaf Crystal
+CrimsonEffect: Crimson Healing
+RainUmbrellaEffect: Rain Umbrella
+RainInnerTubeEffect: Inner Tube
+FrostEffect: Frost Icicles
+JungleJump: Jungle Jump and Spores
+JungleDashEffect: Jungle Dash
+MoltenEffect: Molten Inferno Buff
+ShroomiteStealthEffect: Shroomite Stealth
+ShroomiteShroomEffect: Shroomite Mushrooms
+ShadowHeader: "{$Mods.FargowiltasSouls.Items.ShadowForce.DisplayName}"
+DarkArtistMinion: Flameburst Minion
+ApprenticeSupport: Apprentice Effect
+NecroEffect: Necro Graves
+ShadowBalls: Shadow Orbs
+AncientShadowDarkness: Ancient Shadow Darkness
+MonkDashEffect: Monk Dash
+ShinobiDashEffect: Shinobi Monk Dash Upgrade
+ShinobiThroughWalls: Shinobi Through Walls
+SpookyEffect: Spooky Scythes
+NinjaEffect: Ninja Speed
+CrystalAssassinDash: Crystal Assassin Dash
+SpiritHeader: "{$Mods.FargowiltasSouls.Items.SpiritForce.DisplayName}"
+FossilBones: Fossil Bones On Hit
+HallowEffect: Hallowed Healing Potions
+AncientHallowMinion: Ancient Hallowed Blade
+SpectreEffect: Spectre Orbs
+TikiEffect: Tiki Minions
+CosmoHeader: "{$Mods.FargowiltasSouls.Items.CosmoForce.DisplayName}"
+MeteorMomentumEffect: Meteor Speed
+MeteorEffect: Meteor Shower
+NebulaEffect: Nebula Boosters
+SolarEffect: Solar Shield
+SolarFlareEffect: Inflict Solar Flare
+StardustMinionEffect: Stardust Guardian
+VortexStealthEffect: Vortex Stealth
+VortexVortexEffect: Vortex Voids
+DeviEnergyHeader: Eternity Mode Accessories
+DeerSinewEffect: Deer Sinew Dash
+ZephyrJump: Fart Jump
+MasoAeolusFlower: Flower Boots
+MasoAeolusFrog: Frog Jump
+SinisterIconEffect: Sinister Icon Spawn Rates
+SinisterIconDropsEffect: Sinister Icon Drops
+MasoGraze: Graze
+MasoGrazeRing: Graze Radius Visual
+DevianttHearts: Homing Hearts On Hit
+AbomWandCrit: Spectral Abominationn Support
+SupremeFairyHeader: "{$Mods.FargowiltasSouls.Items.SupremeDeathbringerFairy.DisplayName}"
+SlimyShieldEffect: Slimy Balls
+SlimeFallEffect: Increased Fall Speed
+AgitatingLensEffect: Scythes When Dashing
+AgitatingLensInstall: Berserker Install
+SkeleMinionEffect: Skeletron Arms Minion
+NecroBrewSpin: Skeletron Spin Dash
+BionomicHeader: "{$Mods.FargowiltasSouls.Items.BionomicCluster.DisplayName}"
+TimsConcoctionEffect: Tim's Concoction
+MasoCarrotEffect: Carrot Zoom
+RainbowSlimeMinion: Rainbow Slime Minion
+RainbowHealEffect: Auto-Use Healing Potions
+NymphPerfumeEffect: Attacks Spawn Hearts
+SqueakEffect: Squeaky Toy On Hit
+WretchedPouchEffect: Wretched Pouch Slowdown Attack
+ClippedEffect: Inflict Clipped Wings
+TribalCharmClickBonus: Tribal Charm Click Bonus
+StabilizedGravity: Stabilized Gravity
+DubiousHeader: "{$Mods.FargowiltasSouls.Items.DubiousCircuitry.DisplayName}"
+FusedLensInstall: Twins Install
+GroundStickDR: Supercharge When Hit
+ProbeMinionEffect: Probes Minion
+PureHeartHeader: "{$Mods.FargowiltasSouls.Items.PureHeart.DisplayName}"
+DarkenedHeartEaters: Tiny Eaters
+GuttedHeartMinions: Creeper Shield
+GelicWingSpikes: Gelic Spikes
+GelicWingJump: Gelic Jump
+LumpofFleshHeader: "{$Mods.FargowiltasSouls.Items.LumpOfFlesh.DisplayName}"
+PungentEyeballCursor: Pungent Eye Cursor
+PungentMinion: Lump of Flesh Minion
+DeerclawpsEffect: Deerclawps Spike Dash Trail
+DreadShellEffect: Dread Shell Parry
+ChaliceHeader: "{$Mods.FargowiltasSouls.Items.ChaliceoftheMoon.DisplayName}"
+CultistMinionEffect: Cultist Minion
+PlantMinionEffect: Plantera Minion
+LihzahrdGroundPound: Lihzahrd Fastfall
+LihzahrdBoulders: Ground Pound Spray
+CelestialRuneAttacks: Celestial Rune Support
+HeartHeader: "{$Mods.FargowiltasSouls.Items.HeartoftheMasochist.DisplayName}"
+PrecisionSealHurtbox: Reduced Hurtbox Size
+PumpkingsCapeEffect: Pumpking's Cape Parry
+IceQueenGraze: Graze
+UfoMinionEffect: Saucer Minion
+MasoGravEffect: Gravity Control
+MasoTrueEyeMinion: True Eyes Minion
+MutantArmorHeader: True Mutant Armor
+MasoAbom: Abominationn Minion
+MasoRing: Phantasmal Ring Minion
+UniverseHeader: "{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}"
+MeleeSpeedEffect: Melee Speed
+MagmaStoneEffect: Magma Stone
+SniperScopeEffect: Sniper Scope
+UniverseSpeedEffect: Universe Attack Speed
+WorldShaperHeader: "{$Mods.FargowiltasSouls.Items.WorldShaperSoul.DisplayName}"
+MiningHunt: Mining Hunter Buff
+MiningDanger: Mining Dangersense Buff
+MiningSpelunk: Mining Spelunker Buff
+MiningShine: Mining Shine Buff
+BuilderEffect: Builder Mode
+ColossusHeader: "{$Mods.FargowiltasSouls.Items.ColossusSoul.DisplayName}"
+DefenseStarEffect: Stars On Hit
+DefenseBrainEffect: Brain of Confusion
+DefenseBeeEffect: Bees On Hit
+FleshKnuckleEffect: Flesh Knuckles Aggro
+PaladinShieldEffect: Paladin's Shield
+FrozenTurtleEffect: Frozen Turtle Shell
+ShimmerImmunityEffect: Shimmer Immunity
+FlightMasteryHeader: "{$Mods.FargowiltasSouls.Items.FlightMasterySoul.DisplayName}"
+FlightMasteryInsignia: Soaring Insignia Acceleration
+FlightMasteryGravity: Amplified Gravity
+SupersonicHeader: "{$Mods.FargowiltasSouls.Items.SupersonicSoul.DisplayName}"
+RunSpeed: Higher Base Run Speed
+NoMomentum: No Momentum
+SupersonicTabi: Tabi Dash
+SupersonicClimbing: Tiger Climbing Gear
+SupersonicSpeedEffect: Supersonic Speed Boosts
+SupersonicJumps: Supersonic Jumps
+SupersonicRocketBoots: Supersonic Rocket Boots
+SupersonicCarpet: Supersonic Carpet
+CthulhuShield: Shield of Cthulhu
+BlackBelt: Black Belt
+SupersonicPanic: Panic On Hit
+TrawlerHeader: "{$Mods.FargowiltasSouls.Items.TrawlerSoul.DisplayName}"
+TrawlerSporeSac: Spore Sac
+TrawlerJump: Trawler Jump
+TrawlerGel: Volatile Gelatin
+EternityHeader: "{$Mods.FargowiltasSouls.Items.EternitySoul.DisplayName}"
+EternityTin: Eternity Crit Effect Stacking
+// the pets are no longer existing in game
+PetHeader: Pets
+PetDinoConfig: Dino Pet
+PetEaterConfig: Eater Pet
+PetFaceMonsterConfig: Face Monster Pet
+PetGrinchConfig: Grinch Pet
+PetHornetConfig: Hornet Pet
+PetImpConfig: Imp Pet
+PetPenguinConfig: Penguin Pet
+PetPandaConfig: Pet Red Panda
+PetDGConfig: Dungeon Guardian Pet
+PetSnowmanConfig: Snowman Pet
+PetShroomConfig: Truffle Pet
+PetWerewolfConfig: Pet Werewolf
+PetBernieConfig: Pet Bernie
+PetBlackCatConfig: Black Cat Pet
+PetChesterConfig: Chester Pet
+PetCompanionCubeConfig: Companion Cube Pet
+PetCursedSaplingConfig: Cursed Sapling Pet
+PetKittenConfig: Kitten Pet
+PetEsteeConfig: Estee Pet
+PetEyeSpringConfig: Eye Spring Pet
+PetFoxConfig: Fennec Fox Pet
+PetButterflyConfig: Butterfly Pet
+PetGlommerConfig: Glommer Pet
+PetDragonConfig: Dragon Pet
+PetHarpyConfig: Harpy Pet
+PetLizardConfig: Lizard Pet
+PetMinitaurConfig: Mini Minotaur Pet
+PetParrotConfig: Parrot Pet
+PetPigmanConfig: Pigman Pet
+PetPlanteroConfig: Plantero Pet
+PetGatoConfig: Gato Pet
+PetPupConfig: Puppy Pet
+PetSeedConfig: Seedling Pet
+PetSpiderConfig: Spider Pet
+PetMimicConfig: Mimic Pet
+PetSharkConfig: Shark Pet
+PetSquashConfig: Squashling Pet
+PetGliderConfig: Sugar Glider Pet
+PetTikiConfig: Tiki Pet
+PetTurtleConfig: Turtle Pet
+PetVoltConfig: Volt Bunny Pet
+PetZephyrConfig: Zephyr Fish Pet
+PetHeartConfig: Crimson Heart Pet
+PetNaviConfig: Fairy Pet
+PetFlickerConfig: Flickerwick Pet
+PetLanternConfig: Magic Lantern Pet
+PetOrbConfig: Shadow Orb Pet
+PetSuspEyeConfig: Suspicious Eye Pet
+PetWispConfig: Wisp Pet
+PetKSConfig: King Slime Pet
+PetEoCConfig: Eye of Cthulhu Pet
+PetEoWConfig: Eater of World Pet
+PetBoCConfig: Brain of Cthulhu Pet
+PetDeerConfig: Deerclops Pet
+PetQBConfig: Queen Bee Pet
+PetSkeleConfig: Skeletron Pet
+PetQSConfig: Queen Slime Pet
+PetDestroyerConfig: Destroyer Pet
+PetTwinsConfig: Twins Pet
+PetSkelePrimeConfig: Skeletron Prime Pet
+PetOgreConfig: Ogre Pet
+PetPlanteraConfig: Plantera Pet
+PetPumpkingConfig: Pumpking Pet
+PetEverscreamConfig: Everscream Pet
+PetIceQueenConfig: Ice Queen Pet
+PetDukeConfig: Duke Fishron Pet
+PetGolemConfig: Golem Pet
+PetEoLConfig: Empress of Light Pet
+PetBetsyConfig: Besty Pet
+PetMartianConfig: Martian Pet
+PetLCConfig: Phantasmal Dragon Pet
+PetMLConfig: Moonling Pet

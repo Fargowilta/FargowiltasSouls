@@ -1,0 +1,711 @@
+TrojanSquirrelMountBuff: {
+	DisplayName: Trojan Squirrel
+	Description: You are riding a squirrel mech
+}
+
+AccursedSarcophagusBuff: {
+	DisplayName: Accursed Sarcophagus
+	Description: It'll keep its hands off
+}
+
+BabyAbomBuff: {
+	DisplayName: Baby Abom
+	Description: Kickflipping on a scythe
+}
+
+BabySilhouetteBuff: {
+	DisplayName: Baby Silhouette
+	Description: Won't see the light until it's already grown up
+}
+
+BiteSizeBaronBuff: {
+	DisplayName: Bite-size Baron
+	Description: EX form not included
+}
+
+ChibiDeviBuff: {
+	DisplayName: Chibi Devi
+	Description: She's interested in 'you'
+}
+
+MutantSpawnBuff: {
+	DisplayName: Mutant Spawn
+	Description: Mutant Spawn
+}
+
+SeekerOfTreasuresBuff: {
+	DisplayName: Seeker of Treasures
+	Description: Give it a few thousand years to grow up
+}
+
+NibbleBuff: {
+	DisplayName: Nibble
+	Description: Just one tiny bite (please)
+}
+
+MonkBuff: {
+	DisplayName: Meditation
+	Description: Your Monk Dash is ready
+}
+
+ObsidianLavaWetBuff: {
+	DisplayName: Lava Wet
+	Description: You are dripping lava
+}
+
+TitaniumDRBuff: {
+	DisplayName: Titanium Shield
+	Description: You have extra damage resistance in close range and resist most debuffs
+}
+
+KingSlimeMinionBuff: {
+	DisplayName: Mini King Slime
+	Description: This Mini King Slime will protect you
+}
+
+DukeFishronBuff: {
+	DisplayName: Duke Fishron
+	Description: Duke Fishron will fight for you
+}
+
+RoombaPetBuff: {
+	DisplayName: Roomba
+	Description: This Roomba is following you
+}
+
+DoveBuff: {
+	DisplayName: Dove
+	Description: A Dove is following you
+}
+
+ChibiiRemiiBuff: {
+	DisplayName: Chibii Remii
+	Description: Devil 'Remilia Stretch'
+}
+
+PrimeMinionBuff: {
+	DisplayName: Mini Prime
+	Description: Skeletron Prime will fight for you
+}
+
+FishMinionBuff: {
+	DisplayName: Fish
+	Description: This fish will fight for you
+}
+
+CrimetroidBuff: {
+	DisplayName: Baby Crimetroid
+	Description: The Baby is following you
+}
+
+BerserkerInstallBuff: {
+	DisplayName: Berserker Install
+	Description: "'Get them! Berserker!'"
+}
+
+BerserkerInstallCDBuff: {
+	DisplayName: Berserker Cooldown
+	Description: You cannot go berserk yet
+}
+
+BetsyDashBuff: {
+	DisplayName: Dash
+	Description: You're moving at high speed!
+}
+
+AbomFangBuff: {
+	DisplayName: Abominable Fang
+	Description: The power of Eternity Mode compels you
+}
+
+AbomPresenceBuff: {
+	DisplayName: Abominable Presence
+	Description: Defense, damage reduction, and life regen reduced; Moon Leech effect
+}
+
+BaronsBurdenBuff: {
+	DisplayName: Baron's Burden
+	Description:
+		'''
+		Gravity heavily increased outside water
+		Breathe water but cannot breathe air
+		Improved underwater movement
+		'''
+}
+
+DeviPresenceBuff: {
+	DisplayName: Deviant Presence
+	Description: Friendly NPCs take massively increased damage
+}
+
+GrabbedBuff: {
+	DisplayName: Grabbed
+	Description: Mash movement keys to escape!
+}
+
+MutantFangBuff: {
+	DisplayName: Mutant Fang
+	Description: The power of Eternity Mode compels you
+}
+
+MutantPresenceBuff: {
+	DisplayName: Mutant Presence
+	Description: Defense, damage reduction, and life regen reduced; almost all effect toggles disabled; reduced graze radius
+}
+
+HellFireBuff: {
+	DisplayName: Hell Fire
+	Description: Mods.FargowiltasSouls.BuffDescription.HellFireBuff
+}
+
+MagicalCleanseCDBuff: {
+	DisplayName: Magical Cleanse Cooldown
+	Description: You cannot cleanse debuffs yet
+}
+
+AbomCooldownBuff: {
+	DisplayName: Abominable Cooldown
+	Description: Cannot endure another attack yet
+}
+
+AbomRebirthBuff: {
+	DisplayName: Abominable Rebirth
+	Description: You cannot die unless struck
+}
+
+AnticoagulationBuff: {
+	DisplayName: Anticoagulation
+	Description: Losing life, shed blood when hurt, enemies will drink it and grow stronger
+}
+
+AntisocialBuff: {
+	DisplayName: Antisocial
+	Description: You have no friends and no summon damage
+}
+
+AtrophiedBuff: {
+	DisplayName: Atrophied
+	Description: Your muscles are deteriorating
+}
+
+BerserkedBuff: {
+	DisplayName: Berserked
+	Description: Increased offense, decreased defense, and you cannot control yourself
+}
+
+BloodDrinkerBuff: {
+	DisplayName: Blood Drinker
+	Description: 30% increased damage
+}
+
+BloodthirstyBuff: {
+	DisplayName: Bloodthirsty
+	Description: Hugely increased enemy spawn rate
+}
+
+BrainOfConfusionBuff: {
+	DisplayName: Cerebral Mindbreak
+	Description: 30% decreased damage dealt
+}
+
+ClippedWingsBuff: {
+	DisplayName: Clipped Wings
+	Description: You cannot fly or use rocket boots
+}
+
+CrippledBuff: {
+	DisplayName: Crippled
+	Description: You cannot run
+}
+
+CurseoftheMoonBuff: {
+	DisplayName: Curse of the Moon
+	Description: The moon's wrath consumes you
+}
+
+DefenselessBuff: {
+	DisplayName: Defenseless
+	Description: Your guard is completely broken
+}
+
+FlamesoftheUniverseBuff: {
+	DisplayName: Flames of the Universe
+	Description: The heavens themselves have judged you
+}
+
+FlippedBuff: {
+	DisplayName: Flipped
+	Description: Your gravity is reversed
+}
+
+FlippedHallowBuff: {
+	DisplayName: Flipped
+	Description: Your gravity is reversed
+}
+
+FusedBuff: {
+	DisplayName: Fused
+	Description: You're going out with a bang
+}
+
+GodEaterBuff: {
+	DisplayName: God Eater
+	Description: Your soul is cursed by divine wrath
+}
+
+GuiltyBuff: {
+	DisplayName: Guilty
+	Description: Weapons dulled by the guilt of slaying innocent critters
+}
+
+HexedBuff: {
+	DisplayName: Hexed
+	Description: Your attacks heal enemies
+}
+
+HolyPriceBuff: {
+	DisplayName: Holy Price
+	Description: 30% decreased attack speed
+}
+
+HypothermiaBuff: {
+	DisplayName: Hypothermia
+	Description: Friendly projectiles are slowed down and you take increased damage from cold attacks
+}
+
+InfestedBuff: {
+	DisplayName: Infested
+	Description: This can only get worse
+}
+
+IvyVenomBuff: {
+	DisplayName: Ivy Venom
+	Description: Losing life, will become Neurotoxin at 20 seconds
+	Transform: Your Ivy Venom has become Neurotoxin!!
+}
+
+JammedBuff: {
+	DisplayName: Jammed
+	Description: Your ranged weapons are faulty
+}
+
+LethargicBuff: {
+	DisplayName: Lethargic
+	Description: Your weapons feel sluggish
+}
+
+LightningRodBuff: {
+	DisplayName: Lightning Rod
+	Description: You attract thunderbolts
+}
+
+LihzahrdBlessingBuff: {
+	DisplayName: Lihzahrd Blessing
+	Description: Wires enabled and reduced spawn rates in Jungle Temple
+	Message: The altar's light shines on you!
+}
+
+LihzahrdCurseBuff: {
+	DisplayName: Lihzahrd Curse
+	Description: Wires disabled in Jungle Temple
+}
+
+LivingWastelandBuff: {
+	DisplayName: Living Wasteland
+	Description: Everyone around you turns to rot
+}
+
+LoosePocketsBuff: {
+	DisplayName: Loose Pockets
+	Description: An item might be taken from you
+}
+
+LovestruckBuff: {
+	DisplayName: Lovestruck
+	Description: You are in love!
+}
+
+LowGroundBuff: {
+	DisplayName: Low Ground
+	Description: No hooks, cannot stand on platforms or liquids
+}
+
+MarkedforDeathBuff: {
+	DisplayName: Marked for Death
+	Description: Just don't get hit
+}
+
+MidasBuff: {
+	DisplayName: Midas
+	Description: Drop money on hit
+}
+
+MutantNibbleBuff: {
+	DisplayName: Mutant Nibble
+	Description: You cannot heal at all
+}
+
+NanoInjectionBuff: {
+	DisplayName: Nano Injection
+	Description: Life regeneration and stats reduced
+}
+
+NeurotoxinBuff: {
+	DisplayName: Neurotoxin
+	Description: Your body is shutting down
+}
+
+NullificationCurseBuff: {
+	DisplayName: Nullification Curse
+	Description: Moon Lord has cycling damage type immunities!
+}
+
+OceanicMaulBuff: {
+	DisplayName: Oceanic Maul
+	Description: Defensive stats and max life are savaged
+	LifeUp: +5 max life
+	LifeDown: -5 max life
+}
+
+OceanicSealBuff: {
+	DisplayName: Oceanic Seal
+	Description: No dodging, no lifesteal, no supersonic, no escape
+}
+
+OiledBuff: {
+	DisplayName: Oiled
+	Description: Taking more damage from being on fire
+}
+
+PungentGazeBuff: {
+	DisplayName: Pungent Gaze
+	Description: Mods.FargowiltasSouls.BuffDescription.PungentGazeBuff
+}
+
+PurgedBuff: {
+	DisplayName: Purged
+	Description: Dodge effects don't work
+}
+
+PurifiedBuff: {
+	DisplayName: Purified
+	Description: You are cleansed
+}
+
+RefreshedBuff: {
+	DisplayName: Refreshed
+	Description: Increased mobility and flight time
+}
+
+ReverseManaFlowBuff: {
+	DisplayName: Reverse Mana Flow
+	Description: Your magic weapons cost life instead of mana
+}
+
+RottingBuff: {
+	DisplayName: Rotting
+	Description: Your body is wasting away
+}
+
+RushJobBuff: {
+	DisplayName: Rush Job
+	Description: The Nurse cannot heal you again yet
+	NurseChat: I've done all I can in the time I have!
+}
+
+SadismBuff: {
+	DisplayName: Eternity
+	Description: The power of Eternity Mode is with you
+}
+
+ShadowflameBuff: {
+	DisplayName: Shadowflame
+	Description: Losing life
+}
+
+SmiteBuff: {
+	DisplayName: Smite
+	Description: Life regen reduced and 20% more damage taken
+}
+
+SqueakyToyBuff: {
+	DisplayName: Squeaky Toy
+	Description: Your attacks are squeaky toys!
+}
+
+StunnedBuff: {
+	DisplayName: Stunned
+	Description: You're too dizzy to move
+}
+
+SwarmingBuff: {
+	DisplayName: Swarming
+	Description: Hornets are attacking from every direction!
+}
+
+ThiefCDBuff: {
+	DisplayName: Thief Cooldown
+	Description: Your items cannot be stolen again yet
+}
+
+UnluckyBuff: {
+	DisplayName: Unlucky
+	Description: You are feeling pretty unlucky
+}
+
+UnstableBuff: {
+	DisplayName: Unstable
+	Description: You don't quite fit into reality
+}
+
+BigBrainMinionBuff: {
+	DisplayName: Big Brain of Cthulhu
+	Description: The Brain of Cthulhu will fight for you
+}
+
+BrainMinionBuff: {
+	DisplayName: Brain of Cthulhu
+	Description: The mini Brain of Cthulhu will fight for you
+}
+
+CrystalSkullBuff: {
+	DisplayName: Crystal Skull
+	Description: The crystal skull will protect you
+}
+
+EaterMinionBuff: {
+	DisplayName: Eater of Worlds
+	Description: The mini Eater of Worlds will fight for you
+}
+
+LunarCultistBuff: {
+	DisplayName: Lunar Cultist
+	Description: The Lunar Cultist will protect you
+}
+
+MutantPowerBuff: {
+	DisplayName: Mutant Power
+	Description: The power of Mutant is with you
+}
+
+PlanterasChildBuff: {
+	DisplayName: Plantera's Child
+	Description: The child of Plantera will protect you
+}
+
+ProbesBuff: {
+	DisplayName: Probes
+	Description: The probes will protect you
+}
+
+PungentEyeballBuff: {
+	DisplayName: Pungent Eyeball
+	Description: The pungent eyeball will protect you
+}
+
+RainbowSlimeBuff: {
+	DisplayName: Rainbow Slime
+	Description: The Rainbow Slime will protect you
+}
+
+SaucerMinionBuff: {
+	DisplayName: Mini Saucer
+	Description: The Mini Saucer will protect you
+}
+
+SkeletronArmsBuff: {
+	DisplayName: Skeletron Arms
+	Description: The Skeletron arms will protect you
+}
+
+SouloftheMasochistBuff: {
+	DisplayName: Soul of the Master
+	Description: The power of Eternity Mode is with you
+}
+
+TrueEyesBuff: {
+	DisplayName: True Eyes of Cthulhu
+	Description: The eyes of Cthulhu will protect you
+}
+
+TwinsEXBuff: {
+	DisplayName: Twins EX
+	Description: The real Twins will fight for you
+}
+
+MutantRebirthBuff: {
+	DisplayName: Mutant Rebirth
+	Description: Deathray revive is recharging
+}
+
+BabyLifelightBuff: {
+	DisplayName: Petlight
+	Description: Behold, the light of an angel
+}
+
+BrokenShellBuff: {
+	DisplayName: Broken Shell
+	Description: You cannot enter your shell yet
+}
+
+CrimsonRegenBuff: {
+	DisplayName: Crimson Healing
+	Description: Your lifeforce is building up
+}
+
+FirstStrikeBuff: {
+	DisplayName: First Strike
+	Description: Your next attack will be enhanced
+}
+
+FossilReviveCDBuff: {
+	DisplayName: Revived
+	Description: You cannot revive again
+}
+
+FrozenBuff: {
+	DisplayName: Frozen
+	Description: You cannot move
+}
+
+GoldenStasisBuff: {
+	DisplayName: Golden Stasis
+	Description: You are immune to all damage, but cannot move
+}
+
+GoldenStasisCDBuff: {
+	DisplayName: Golden Stasis Cooldown
+	Description: You cannot turn gold yet
+}
+
+HallowCooldownBuff: {
+	DisplayName: Hallowed Sword Cooldown
+	Description: Your sword cannot reflect projectiles yet
+}
+
+HuntressBleedBuff: {
+	DisplayName: Huntress Bleed
+	Description: Mods.FargowiltasSouls.BuffDescription.HuntressBleedBuff
+}
+
+HuntressCDBuff: {
+	DisplayName: Arrow Rain Cooldown
+	Description: You cannot trigger another rain of arrows yet
+}
+
+LeadPoisonBuff: {
+	DisplayName: Lead Poison
+	Description: Mods.FargowiltasSouls.BuffDescription.LeadPoisonBuff
+}
+
+MoltenAmplifyBuff: {
+	DisplayName: Molten Amplify
+	Description: Mods.FargowiltasSouls.BuffDescription.MoltenAmplifyBuff
+}
+
+OriPoisonBuff: {
+	DisplayName: Orichalcum Poison
+	Description: Mods.FargowiltasSouls.BuffDescription.OriPoisonBuff
+}
+
+ShellHideBuff: {
+	DisplayName: Shell Hide
+	Description: Projectiles are being blocked
+}
+
+SnowstormCDBuff: {
+	DisplayName: Snowstorm Cooldown
+	Description: You cannot chill yet
+}
+
+SolarFlareBuff: {
+	DisplayName: Solar Flare
+	Description: Mods.FargowiltasSouls.BuffDescription.SolarFlareBuff
+}
+
+SuperBleedBuff: {
+	DisplayName: Blood Geyser
+	Description: Mods.FargowiltasSouls.BuffDescription.SuperBleedBuff
+}
+
+CorruptingBuff: {
+	DisplayName: Corrupting
+	Description: You are becoming corrupted
+}
+
+TimeFrozenBuff: {
+	DisplayName: Time Frozen
+	Description: You are stopped in time
+}
+
+TimeStopCDBuff: {
+	DisplayName: Time Stop Cooldown
+	Description: You cannot stop time yet
+}
+
+TitaniumCDBuff: {
+	DisplayName: Titanium Shield Cooldown
+	Description: You are charging up Titanium Shield
+}
+
+VortexCDBuff: {
+	DisplayName: Vortex Cooldown
+	Description: You cannot spawn another vortex yet
+}
+
+SuperchargedBuff: {
+	DisplayName: Supercharged
+	Description: 20% increased move speed, 10% increased attack speed, your attacks electrify
+}
+
+TribalCharmClickBuff: {
+	DisplayName: Tribal Charm
+	Description: Gain an instant of increased damage when you click to attack
+}
+
+TwinsInstallBuff: {
+	DisplayName: Twins Install
+	Description: Effects of Cursed Inferno and Ichor
+}
+
+WretchedHexBuff: {
+	DisplayName: Wretched Hex
+	Description: Shadowflame tentacles and vastly increased damage, but vastly decreased speed and defenses
+}
+
+CorruptedBuff: {
+	DisplayName: Corrupted Buff
+	Description: Mods.FargowiltasSouls.Buffs.CorruptedBuff.Description
+}
+
+CorruptedBuffForce: {
+	DisplayName: Corrupted Buff Force
+	Description: Mods.FargowiltasSouls.Buffs.CorruptedBuffForce.Description
+}
+
+JungleMimicSummonBuff: {
+	DisplayName: Jungle Mimic Summon Buff
+	Description: The Jungle Mimic will fight for you
+}
+
+GladiatorBuff: {
+	DisplayName: Gladiator Strength
+	Description: +5% damage reduction, +5% damage, knockback immunity, improved spear rain
+}
+
+ROBBuff: {
+	DisplayName: R.O.B
+	DescPatreon: The friend you've never left since Brawl
+	DescNonPatreon: He's finally a top tier!
+	Description: Mods.FargowiltasSouls.Buffs.ROBBuff.Description
+}
+
+RainCDBuff: {
+	DisplayName: Rain Umbrella Cooldown
+	Description: Your umbrella isn't ready yet
+}
+
+SublimationBuff: {
+	Description: Mods.FargowiltasSouls.Buffs.SublimationBuff.Description
+	DisplayName: Sublimation Buff
+}

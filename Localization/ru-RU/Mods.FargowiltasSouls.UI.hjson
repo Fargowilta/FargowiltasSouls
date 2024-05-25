@@ -1,0 +1,16 @@
+SoulTogglerButton: Configure Accessory Effects
+EternityEnabled: Eternity Mode is enabled
+MasochistEnabled: Masochist Mode is enabled
+SavedToSlot: Toggles saved to custom set {0}!
+NoTogglesFound: No toggles found in custom set {0}.
+TurnAllTogglesOff: Turn all toggles off
+TurnAllTogglesOn: Turn all toggles on
+SomeEffectsPreset: Some effects preset
+MinimalEffectsPreset: Minimal effects preset
+CustomPreset: Custom preset {0} (right click to save)
+// Reload button is currently removed
+ReloadToggles: Reload Toggles (right click to reset)
+DisplayAll: Display All
+DisplayEquipped: Display Equipped
+SearchText: Search...
+MainMenu: Fargo's
