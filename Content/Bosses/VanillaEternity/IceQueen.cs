@@ -90,16 +90,16 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center,
                                 8f * npc.SafeDirectionTo(Main.player[npc.target].Center).RotatedBy(MathHelper.Pi / 8 * i),
-                                ProjectileID.FrostWave, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                                ProjectileID.FrostWave, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                         }
                     }
                     else
                     {
                         Vector2 speed = new(Main.rand.NextFloat(40f), Main.rand.NextFloat(-20f, 20f));
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed,
-                            ModContent.ProjectileType<QueenFlocko>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, npc.whoAmI, -1);
+                            ModContent.ProjectileType<QueenFlocko>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, npc.whoAmI, -1);
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, -speed,
-                            ModContent.ProjectileType<QueenFlocko>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, npc.whoAmI, 1);
+                            ModContent.ProjectileType<QueenFlocko>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, npc.whoAmI, 1);
                     }
                 }
             }

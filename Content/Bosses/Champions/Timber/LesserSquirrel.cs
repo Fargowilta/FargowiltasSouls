@@ -120,7 +120,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                     if (canAttack)
                     {
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4),
-                            ProjectileID.HallowBossRainbowStreak, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer, npc.target, Main.rand.NextFloat());
+                            ProjectileID.HallowBossRainbowStreak, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0, Main.myPlayer, npc.target, Main.rand.NextFloat());
                     }
                 }
             }

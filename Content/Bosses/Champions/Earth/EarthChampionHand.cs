@@ -228,7 +228,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                                 //NPC.ai[1] -= 30;
 
                                 if (FargoSoulsUtil.HostCheck)
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.Normalize(NPC.velocity) * 100, Vector2.Zero, ModContent.ProjectileType<EarthChainBlast>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.velocity.ToRotation(), 7);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.Normalize(NPC.velocity) * 100, Vector2.Zero, ModContent.ProjectileType<EarthChainBlast>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.velocity.ToRotation(), 7);
                             }
 
                             NPC.velocity = Vector2.Normalize(NPC.velocity) * 0.1f;
@@ -272,7 +272,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                         if (FargoSoulsUtil.HostCheck)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX * NPC.ai[3], ModContent.ProjectileType<FlowerPetal>(),
-                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, head.localAI[2] == 1 && WorldSavingSystem.EternityMode ? 0 : 1);
+                                FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, head.localAI[2] == 1 && WorldSavingSystem.EternityMode ? 0 : 1);
                         }
                     }
 
@@ -339,14 +339,14 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                                 if (FargoSoulsUtil.HostCheck) //spawn geysers and bombs
                                 {
                                     Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ProjectileID.DD2ExplosiveTrapT3Explosion, 0, 0f, Main.myPlayer);
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<FuseBomb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<FuseBomb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
 
                                     if (head.localAI[2] == 1 && WorldSavingSystem.EternityMode)
                                     {
                                         for (int i = 0; i < 4; i++)
                                         {
                                             Vector2 vel = Vector2.Normalize(NPC.oldVelocity).RotatedBy(Math.PI * 2 / 4 * (NPC.ai[3] < 0 ? i : i + 0.5));
-                                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 1.5f * vel, ModContent.ProjectileType<EarthPalladOrb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 1.5f * vel, ModContent.ProjectileType<EarthPalladOrb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                                         }
                                     }
                                     else
@@ -357,7 +357,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                                             int tilePosX = (int)spawnPos.X / 16 + 250 * i / 16 * (int)-NPC.ai[3];
                                             int tilePosY = (int)spawnPos.Y / 16;// + 1;
 
-                                            Projectile.NewProjectile(NPC.GetSource_FromThis(), tilePosX * 16 + 8, tilePosY * 16 + 8, 0f, 0f, ModContent.ProjectileType<EarthGeyser>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
+                                            Projectile.NewProjectile(NPC.GetSource_FromThis(), tilePosX * 16 + 8, tilePosY * 16 + 8, 0f, 0f, ModContent.ProjectileType<EarthGeyser>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI);
                                         }
                                     }
                                 }
@@ -418,7 +418,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                     {
                         if (FargoSoulsUtil.HostCheck)
                         {
-                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.UnitY * Main.rand.NextFloat(50, 100), Vector2.Zero, ModContent.ProjectileType<MoonLordSunBlast>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, Vector2.UnitY.ToRotation(), 16);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.UnitY * Main.rand.NextFloat(50, 100), Vector2.Zero, ModContent.ProjectileType<MoonLordSunBlast>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, Vector2.UnitY.ToRotation(), 16);
                             if (p != Main.maxProjectiles)
                                 Main.projectile[p].localAI[0] = 2f;
                         }
@@ -484,7 +484,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Earth
                         if (FargoSoulsUtil.HostCheck)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * 2f, ModContent.ProjectileType<CrystalBomb>(),
-                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, player.position.Y);
+                                FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, player.position.Y);
                         }
                     }
 

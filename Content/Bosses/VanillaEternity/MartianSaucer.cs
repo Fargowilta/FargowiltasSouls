@@ -82,7 +82,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         for (int i = 0; i < max; i++)
                         {
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center,
-                                baseVel.RotatedBy(MathHelper.TwoPi / max * i), ProjectileID.SaucerLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                baseVel.RotatedBy(MathHelper.TwoPi / max * i), ProjectileID.SaucerLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                         }
                     }
                 }
@@ -127,7 +127,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     Vector2 speed = 14f * npc.SafeDirectionTo(Main.player[npc.target].Center).RotatedBy((Main.rand.NextDouble() - 0.5) * 0.785398185253143 / 5.0);
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ProjectileID.SaucerLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 6), 0f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ProjectileID.SaucerLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 6), 0f, Main.myPlayer);
                 }
             }
         }

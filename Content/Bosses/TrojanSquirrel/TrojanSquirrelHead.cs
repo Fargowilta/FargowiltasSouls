@@ -112,7 +112,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                                 if (FargoSoulsUtil.HostCheck)
                                 {
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, distance + Main.rand.NextVector2Square(-0.5f, 0.5f),
-                                        ModContent.ProjectileType<TrojanAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                        ModContent.ProjectileType<TrojanAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                                 }
                             }
                         }
@@ -201,7 +201,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
             {
                 float ai1 = time + Main.rand.Next(-10, 11) - 1;
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, distance,
-                    ModContent.ProjectileType<TrojanSquirrelProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, gravity, ai1);
+                    ModContent.ProjectileType<TrojanSquirrelProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, gravity, ai1);
             }
         }
 

@@ -74,6 +74,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
         }
         private Vector2 initialLock = Vector2.Zero;
         private Vector2 LockPos = Vector2.Zero;
+        int HealCounter = 0;
         public void StardustMinionAI()
         {
             ref float Timer = ref NPC.ai[0];
@@ -92,6 +93,27 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             LunarTowerStardust parentModNPC = parent.GetGlobalNPC<LunarTowerStardust>();
             float NearParent = parent.height * 0.8f;
 
+            if (++HealCounter > 60)
+            {
+                HealCounter = 0;
+                if (!parent.HasValidTarget || parent.Distance(Main.player[parent.target].Center) > parentModNPC.AuraSize)
+                {
+                    const int heal = 500;
+                    NPC.life += heal;
+                    if (NPC.life > NPC.lifeMax)
+                        NPC.life = NPC.lifeMax;
+                    if (NPC.life >= NPC.lifeMax)
+                    {
+                        NPC.dontTakeDamage = false;
+                        NPC.position = NPC.Center;
+                        NPC.width = 48;
+                        NPC.height = 48;
+                        NPC.Center = NPC.position;
+                    }
+                    NPC.netUpdate = true;
+                    CombatText.NewText(NPC.Hitbox, CombatText.HealLife, heal);
+                }
+            }
 
             switch (State)
             {

@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -74,37 +76,10 @@ Discount effect works in vanity slots"); */
 
         public static void WoodEffect(Player player, Item item)
         {
-            player.FargoSouls().WoodEnchantItem = item;
+            player.AddEffect<WoodCompletionEffect>(item);
             player.FargoSouls().WoodEnchantDiscount = true;
         }
 
-        public static void WoodCheckDead(FargoSoulsPlayer modPlayer, NPC npc)
-        {
-            if (npc.ExcludedFromDeathTally())
-                return;
-            int banner = Item.NPCtoBanner(npc.BannerID());
-            if (banner <= 0)
-                return;
-
-            //register extra kill per kill
-            int addedKillBonus = 1;
-            if (modPlayer.ForceEffect<WoodEnchant>())
-                addedKillBonus = 4;
-
-            //for nonstandard banner thresholds, e.g. some ooa npcs at 100 or 200
-            int bannerThreshold = ItemID.Sets.KillsToBanner[Item.BannerToItem(banner)];
-
-            for (int i = 0; i < addedKillBonus; i++)
-            {
-                //stop at 49, 99, 149, etc. so that game will increment on its own
-                //not doing this causes it to skip the banner
-                if (NPC.killCount[banner] % bannerThreshold != bannerThreshold - 1)
-                {
-                    NPC.killCount[banner]++;
-                    Main.BestiaryTracker.Kills.RegisterKill(npc);
-                }
-            }
-        }
 
         public static void WoodDiscount(Item[] items)
         {
@@ -132,6 +107,39 @@ Discount effect works in vanity slots"); */
             .AddTile(TileID.DemonAltar)
             .Register();
 
+        }
+    }
+    public class WoodCompletionEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
+        public override int ToggleItemType => ModContent.ItemType<WoodEnchant>();
+
+        public static void WoodCheckDead(FargoSoulsPlayer modPlayer, NPC npc)
+        {
+            if (npc.ExcludedFromDeathTally())
+                return;
+            int banner = Item.NPCtoBanner(npc.BannerID());
+            if (banner <= 0)
+                return;
+
+            //register extra kill per kill
+            int addedKillBonus = 1;
+            if (modPlayer.ForceEffect<WoodEnchant>())
+                addedKillBonus = 4;
+
+            //for nonstandard banner thresholds, e.g. some ooa npcs at 100 or 200
+            int bannerThreshold = ItemID.Sets.KillsToBanner[Item.BannerToItem(banner)];
+
+            for (int i = 0; i < addedKillBonus; i++)
+            {
+                //stop at 49, 99, 149, etc. so that game will increment on its own
+                //not doing this causes it to skip the banner
+                if (NPC.killCount[banner] % bannerThreshold != bannerThreshold - 1)
+                {
+                    NPC.killCount[banner]++;
+                    Main.BestiaryTracker.Kills.RegisterKill(npc);
+                }
+            }
         }
     }
 }

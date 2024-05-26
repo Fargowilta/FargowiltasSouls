@@ -258,7 +258,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
                                     Vector2 vel = (Main.player[npc.target].Center - Main.npc[i].Center) / 45;
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), Main.npc[i].Center, vel,
-                                        ModContent.ProjectileType<CursedFireballHoming>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, npc.target, delay);
+                                        ModContent.ProjectileType<CursedFireballHoming>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, npc.target, delay);
 
                                     delay += WorldSavingSystem.MasochistModeReal ? 4 : 10;
                                 }
@@ -270,7 +270,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     {
                         Vector2 vel = (Main.player[npc.target].Center - npc.Center) / 45;
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel,
-                            ModContent.ProjectileType<CursedFireballHoming>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, npc.target, delay);
+                            ModContent.ProjectileType<CursedFireballHoming>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, npc.target, delay);
                         delay += WorldSavingSystem.MasochistModeReal ? 4 : 8;
                     }
                 }
@@ -310,7 +310,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     if (WorldSavingSystem.MasochistModeReal && FargoSoulsUtil.HostCheck) //cursed flamethrower, roughly same direction as head
                     {
                         Vector2 velocity = new Vector2(5f, 0f).RotatedBy(npc.rotation - Math.PI / 2.0 + MathHelper.ToRadians(Main.rand.Next(-15, 16)));
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ProjectileID.EyeFire, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ProjectileID.EyeFire, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                     }
                 }
 

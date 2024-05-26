@@ -108,7 +108,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
                                 NPC.Center,
                                 new Vector2(Main.rand.NextFloat(-0.5f, 0.5f), Main.rand.NextFloat(-maxSpeed, -4)),
                                 ProjectileID.QueenSlimeMinionBlueSpike,
-                                FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.5f),
+                                FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 1.5f),
                                 0f,
                                 Main.myPlayer);
                         }

@@ -86,7 +86,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             npc.buffImmune[ModContent.BuffType<TimeFrozenBuff>()] = false;
         }
 
-        private static int ProjectileDamage(NPC npc) => FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 9);
+        private static int ProjectileDamage(NPC npc) => FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 9);
 
         private void CoilAI(NPC npc)
         {
@@ -887,7 +887,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         float speed = 2f + npc.Distance(Main.player[npc.target].Center) / 360;
                         if (speed > 16f)
                             speed = 16f;
-                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.DeathLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.DeathLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = Math.Min((int)(npc.Distance(Main.player[npc.target].Center) / speed) + 180, 600);
                     }
@@ -917,7 +917,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             delay = 0;
 
                         int type = ModContent.ProjectileType<MechElectricOrbHoming>();
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(distance) * modifier, type, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.target, -delay, ai2: MechElectricOrb.Blue);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(distance) * modifier, type, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, npc.target, -delay, ai2: MechElectricOrb.Blue);
                     }
                 }
             }
@@ -1136,7 +1136,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     if (++AttackTimer > attackTime)
                     {
                         if (FargoSoulsUtil.HostCheck)
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, towardsPlayer, ProjectileID.DeathLaser, (int)(1.1 * FargoSoulsUtil.ScaledProjectileDamage(npc.damage)), 0f, Main.myPlayer);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, towardsPlayer, ProjectileID.DeathLaser, (int)(1.1 * FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage)), 0f, Main.myPlayer);
 
                         AttackTimer = 0;
                         ShootLaser = false;

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -68,13 +69,6 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
 
         public override void AI()
         {
-
-            if (Projectile.soundDelay == 0)
-            {
-                Projectile.soundDelay = 60 + 54;
-                SoundEngine.PlaySound(HumSound with { PitchVariance = 0.3f, Volume = 0.2f, MaxInstances = 0 }, Projectile.position);
-            }
-
             if (++Projectile.frameCounter > 6)
             {
                 if (++Projectile.frame >= Main.projFrames[Type])
@@ -83,9 +77,15 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             }
             if (Projectile.localAI[1] == 0)
             {
+                SoundEngine.PlaySound(ShotSound with { Volume = 0.5f }, Projectile.position);
                 Projectile.localAI[1] = 1f;
 
-                SoundEngine.PlaySound(ShotSound with { Volume = 0.5f }, Projectile.position);
+                SoundEngine.PlaySound(HumSound with { 
+                    PitchVariance = 0.3f, 
+                    Volume = 0.2f, 
+                    MaxInstances = 5, 
+                    SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest 
+                }, Projectile.position);
 
                 //doing it this way so projs that inherit from Electric Orb dont inherit the accel
                 lastSecondAccel = Projectile.type == ModContent.ProjectileType<MechElectricOrb>();

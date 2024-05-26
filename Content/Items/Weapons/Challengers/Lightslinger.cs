@@ -3,6 +3,7 @@ using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -79,14 +80,27 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
         }
         public override bool? UseItem(Player player)
         {
+            FargoSoulsPlayer soulsPlayer = player.FargoSouls();
             if (player.altFunctionUse == 2)
             {
-                player.FargoSouls().LightslingerHitShots = 0;
+                soulsPlayer.LightslingerHitShots = 0;
             }
             else
             {
-                if (++player.FargoSouls().LightslingerHitShots >= ReqShots && player.whoAmI == Main.myPlayer)
-                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ChargeSound"), player.Center);
+                if (++soulsPlayer.LightslingerHitShots >= ReqShots && player.whoAmI == Main.myPlayer)
+                {
+                    if (soulsPlayer.ChargeSoundDelay <= 0)
+                    {
+                        soulsPlayer.ChargeSoundDelay = 120;
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ChargeSound"), player.Center);
+                    }
+                    Vector2 direction = player.itemRotation.ToRotationVector2() * player.direction;
+                    Vector2 perpDirection = direction.RotatedBy(MathHelper.PiOver2) * player.direction;
+                    for (int i = 0; i < 7; i++)
+                    {
+                        Dust.NewDust(player.itemLocation + direction * Item.width * 0.5f + perpDirection * Item.height * 0.3f, 15, 15, DustID.PinkTorch, direction.X * Main.rand.NextFloat(2, 5), direction.Y * Main.rand.NextFloat(2, 5));
+                    }
+                }
             }
 
             return base.UseItem(player);

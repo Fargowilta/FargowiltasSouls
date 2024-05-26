@@ -86,7 +86,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
             if (++Counter >= 300)
             {
                 if (npc.ai[0] != 5f && npc.HasValidTarget && FargoSoulsUtil.HostCheck) //if not latched on player
-                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 6 * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.NebulaLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer);
+                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 6 * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.NebulaLaser, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0, Main.myPlayer);
                 Counter = (short)Main.rand.Next(120);
             }
         }

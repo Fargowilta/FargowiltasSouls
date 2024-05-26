@@ -180,7 +180,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         if (FargoSoulsUtil.HostCheck)
                         {
                             int smashDamage = WorldSavingSystem.MasochistModeReal && Main.getGoodWorld
-                                ? FargoSoulsUtil.ScaledProjectileDamage(npc.damage) : 0;
+                                ? FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage) : 0;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ProjectileID.QueenSlimeSmash, smashDamage, 0f, Main.myPlayer);
 
                             for (int j = -1; j <= 1; j += 2) //spray spikes
@@ -191,7 +191,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                 {
                                     Vector2 vel = Main.rand.NextFloat(5f, 15f) * j * baseVel.RotatedBy(MathHelper.PiOver4 * 0.8f / max * i * -j);
                                     vel *= WorldSavingSystem.MasochistModeReal ? 2f : 1.5f;
-                                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ProjectileID.QueenSlimeMinionBlueSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ProjectileID.QueenSlimeMinionBlueSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                                 }
                             }
                         }
@@ -373,7 +373,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                 if (FargoSoulsUtil.HostCheck)
                                 {
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, 8f * Vector2.UnitY,
-                                      ProjectileID.QueenSlimeMinionBlueSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                      ProjectileID.QueenSlimeMinionBlueSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                                 }
                             }
                         }

@@ -64,7 +64,10 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/Zombie_104") { Volume = 0.6f }, Projectile.Center);
+                {
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/StyxGazer") with { Volume = 1.5f }, Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/RetinazerDeathray"), Projectile.Center);
+                }
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

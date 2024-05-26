@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
@@ -66,6 +67,9 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
                 Projectile.alpha -= 4;
                 if (Projectile.alpha < 0) //fade in
                     Projectile.alpha = 0;
+
+                if (Projectile.timeLeft % 15 == 0 && !Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleBeep"), Projectile.Center);
             }
         }
 

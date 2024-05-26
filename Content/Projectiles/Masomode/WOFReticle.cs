@@ -55,6 +55,12 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 Projectile.velocity = Main.player[Main.npc[ai0].target].Center - Projectile.Center;
                 Projectile.velocity = Projectile.velocity / 60 * modifier; //move from npc to player*/
                 Projectile.rotation = (float)Math.PI * 2f / 55 * modifier * Projectile.localAI[0];
+
+                if (Projectile.ai[0] % 30 == 0)
+                {
+                    if (!Main.dedServ)
+                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleBeep"), Projectile.Center);
+                }
             }
             else //if (Projectile.ai[0] < 145)
             {

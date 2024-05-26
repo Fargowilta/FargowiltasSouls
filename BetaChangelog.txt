@@ -1,15 +1,23 @@
-﻿halved molten ench dot (doesnt effect force upgrade)
-maso ftw prime swipe limbs use vanilla ai instead
-improved mutant sword/devi axe hitbox, you can no longer dodge devi axe by standing still
-maso wof eye lasers inflict burning
-parrot can also spawn in ug jungle in hm
-maso parrot can spawn in jungle phm (no loot until hm)
-dg doesnt spawn from ancient seal
-nurse heal during boss fight message is more clear that she cant heal because boss alive
-ACTUALLY fixed maso ftw fishron gaining several thousand damage/defense on phase transition
-agi lens buff, install is 8s duration 2s stun, was 7.5/2.5
-fixed timestopping yourself by using certain penetrator attacks during maso mutant desperation
-maso wof ichor also falls up
-reduced wof ichor lag
+﻿fixed a wof divide by zero error
+wof growls when starts telegraphing world evil attack
+fixed multiplayer maso boss healing not actually working in multiplayer
+fixed deerclops ai breaking if you tp away then tp back before he despawns
+fixed true mutant armor revive ray not having updated visuals
+updated sounds
+	styx gazer
+	abom big ray
+	devi big ray
+	final spark (also true mutant revive ray, hentai spear final spark)
+	reti ray
+	targeting reticles (skeletrons, dutchman)
+	eri meteor reticle
+	wof reticle
+	abom reticle
+	mutant reticles
+	all revives
+	fully charging nekomi/styx
 
-maso qb deathray replacement is an actual swarm of bees
+changed magic dagger phm from x0.5 dmg to x0.66 dmg/spd
+fixed gaia set bonus secretly giving a sentry slot it shouldnt
+hopefully fixed sound engine completely breaking during destroyer light show
+fixed qb ai breaking and doing nothing forever if you make her circle

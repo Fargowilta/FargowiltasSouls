@@ -109,13 +109,13 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     if (IsInFinalPhase && !WorldSavingSystem.MasochistModeReal)
                     {
-                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
+                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 1f, Main.myPlayer);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = 75;
                     }
                     else
                     {
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(npc.velocity), ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(npc.velocity), ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 1f, Main.myPlayer);
                     }
                 }
                 ScytheSpawnTimer--;
@@ -166,7 +166,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     ScytheRingIsOnCD = true;
                     if (FargoSoulsUtil.HostCheck)
-                        FargoSoulsUtil.XWay(8, npc.GetSource_FromThis(), npc.Center, ModContent.ProjectileType<BloodScythe>(), 1.5f, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0);
+                        FargoSoulsUtil.XWay(8, npc.GetSource_FromThis(), npc.Center, ModContent.ProjectileType<BloodScythe>(), 1.5f, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0);
                 }
             }
             else
@@ -333,7 +333,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             //if (WorldSavingSystem.MasochistModeReal)
                             //    SpawnServants();
                             if (FargoSoulsUtil.HostCheck)
-                                FargoSoulsUtil.XWay(8, npc.GetSource_FromThis(), npc.Center, ModContent.ProjectileType<BloodScythe>(), 1f, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0);
+                                FargoSoulsUtil.XWay(8, npc.GetSource_FromThis(), npc.Center, ModContent.ProjectileType<BloodScythe>(), 1f, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0);
 
                             npc.netUpdate = true;
                         }
@@ -571,7 +571,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             if (npc.alpha % (aDif * 10) <= aDif && FargoSoulsUtil.HostCheck)
                             {
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(npc.velocity), ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Normalize(npc.velocity), ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 1f, Main.myPlayer);
                             }
                         }
                         if (npc.alpha < 245 - delay && npc.alpha > 30) //curve towards player
@@ -622,7 +622,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             Vector2 speed = Vector2.UnitY;
                             for (int i = 0; i < 30; i++)
                             {
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, speed, ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, speed, ModContent.ProjectileType<BloodScythe>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 1f, Main.myPlayer);
                                 spawnPos.X += 72 * direction;
                                 speed.Y += 0.15f;
                             }

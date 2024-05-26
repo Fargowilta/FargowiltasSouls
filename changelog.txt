@@ -1,2 +1,2 @@
 NEW UPDATE - V {ModVersion}
--Fixed Eternity Advisor bug
+-Fixed Fossil Enchant revive being able to trigger without having the item

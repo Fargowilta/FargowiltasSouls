@@ -602,7 +602,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     int type = ModContent.ProjectileType<BaronArenaWhirlpool>();
                     if (ArenaProjID == -1 && FargoSoulsUtil.HostCheck)
                     {
-                        ArenaProjID = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center, Vector2.Zero, type, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, NPC.whoAmI, 0);
+                        ArenaProjID = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center, Vector2.Zero, type, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, NPC.whoAmI, 0);
 
                     }
                     NPC.netUpdate = true;
@@ -1027,7 +1027,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             if (Timer == 1)
             {
                 if (FargoSoulsUtil.HostCheck)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 3, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 3, NPC.whoAmI);
             }
             */
 
@@ -1044,7 +1044,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     Vector2 vel = NPC.rotation.ToRotationVector2() * 10f;
                     AI2 = Main.rand.NextFloat(190, 220); //nuke duration
                     NPC.netUpdate = true;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, AI2, player.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, AI2, player.whoAmI);
                 }
             }
             if (Timer > AI2 + 10 && AI2 > 0)
@@ -1067,7 +1067,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     float rotation = progress * (MathHelper.Pi / 6);
                     Vector2 vel = (NPC.rotation + ((MathHelper.PiOver2 + rotation) * -NPC.direction)).ToRotationVector2() * (10 * progress + 10);
                     float trackingPower = WorldSavingSystem.MasochistModeReal ? 1.2f : 1f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 3, player.whoAmI, trackingPower); //ai2 is tracking power, above 1 is pseudo-predictive
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 3, player.whoAmI, trackingPower); //ai2 is tracking power, above 1 is pseudo-predictive
                 }
             }
             if (Timer > StartupTime + 50)
@@ -1123,11 +1123,11 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     Vector2 dir = NPC.rotation.ToRotationVector2();
                     float extraY = Math.Max(player.velocity.Y, 0);
                     Vector2 vel = Vector2.UnitX * Math.Sign(dir.X) * AI3 * 8 + Vector2.UnitY * dir.Y * (8 + extraY);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, player.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, player.whoAmI);
                     if (WorldSavingSystem.MasochistModeReal)
                     {
                         Vector2 vel2 = Vector2.UnitX * Math.Sign(-dir.X) * (AI3 - 1) * 8 + Vector2.UnitY * dir.Y * (8 + extraY);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel2, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, player.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel2, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, player.whoAmI);
                     }
 
                 }
@@ -1278,7 +1278,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                             for (int i = 0; i < 6; i++)
                             {
                                 Vector2 v = Vector2.Normalize(NPC.velocity.RotatedByRandom(MathHelper.Pi * 0.2f)) * Main.rand.NextFloat(7, 10);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + v, v, ModContent.ProjectileType<BaronScrap>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + v, v, ModContent.ProjectileType<BaronScrap>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -1297,7 +1297,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                             if (FargoSoulsUtil.HostCheck)
                             {
                                 Vector2 v = NPC.rotation.ToRotationVector2().RotatedBy(MathHelper.PiOver2 * i) * 1f;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (v * 20), v * 0.3f, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 4, player.whoAmI);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (v * 20), v * 0.3f, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 4, player.whoAmI);
                             }
                         }
                     }
@@ -1310,7 +1310,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                 {
                     Vector2 vel = NPC.velocity * 1.2f;
                     float trackingPower = WorldSavingSystem.MasochistModeReal ? 1.5f : 1f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 3, player.whoAmI, trackingPower); //ai2 is tracking power, above 1 is pseudo-predictive
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 3, player.whoAmI, trackingPower); //ai2 is tracking power, above 1 is pseudo-predictive
                 }
             }
             if (Timer > 90 + ReactionTime + 30 && NPC.velocity.Length() < 1.5f)
@@ -1353,7 +1353,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Vector2 vel = (-NPC.rotation).ToRotationVector2() * 5;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 2, player.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 2, player.whoAmI);
                     }
                 }
                 if (prog > 1)
@@ -1439,7 +1439,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             {
                 AnimationSpeed = 2f;
                 int variant = Main.rand.Next(2);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.UnitY * ((NPC.height / 2) + 24), Vector2.Zero, ModContent.ProjectileType<BaronWhirlpool>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI, MaxWhirlpools, variant);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + Vector2.UnitY * ((NPC.height / 2) + 24), Vector2.Zero, ModContent.ProjectileType<BaronWhirlpool>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI, MaxWhirlpools, variant);
             }
             if (Timer >= 60 * 8)
             {
@@ -1458,7 +1458,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
             if (Timer == 1)
             {
                 if (FargoSoulsUtil.HostCheck)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 2, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 2, NPC.whoAmI);
             }
             if (Timer == ReactTime - 5) //slight telegraph sound to be cute
             {
@@ -1536,7 +1536,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                         if (FargoSoulsUtil.HostCheck)
                         {
                             Vector2 v = NPC.rotation.ToRotationVector2().RotatedBy(MathHelper.PiOver2 * i) * 1f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (v * 20), v * 0.3f, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 2, player.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (v * 20), v * 0.3f, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 2, player.whoAmI);
                         }
                     }
                 }
@@ -1619,7 +1619,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Vector2 vel = new(0, Main.rand.Next(15, 20));
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 2, player.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 2, player.whoAmI);
                     }
                 }
 
@@ -1728,7 +1728,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                             float speed = Main.rand.NextFloat(10, 25);
                             Vector2 vel = NPC.rotation.ToRotationVector2().RotatedBy(MathHelper.PiOver2 * side).RotatedByRandom(MathHelper.Pi / 8) * speed;
                             float trackingPower = WorldSavingSystem.MasochistModeReal ? 1 : 1;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (Vector2.Normalize(vel) * 20), vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, player.whoAmI, trackingPower); //ai2 is tracking power
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + (Vector2.Normalize(vel) * 20), vel, ModContent.ProjectileType<BaronRocket>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, player.whoAmI, trackingPower); //ai2 is tracking power
                         }
                     }
                 }
@@ -1859,7 +1859,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     {
                         float speed = Main.rand.NextFloat(8, 13);
                         Vector2 v = Main.rand.NextFloat(MathHelper.TwoPi).ToRotationVector2();
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + v, v * speed, ModContent.ProjectileType<BaronScrap>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + v, v * speed, ModContent.ProjectileType<BaronScrap>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                     }
                 }
             }
@@ -1951,7 +1951,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     if (FargoSoulsUtil.HostCheck)
                     {
                         float speed = Main.rand.Next(10, 38);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed * NPC.rotation.ToRotationVector2(), ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 2, player.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed * NPC.rotation.ToRotationVector2(), ModContent.ProjectileType<BaronMine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 2, player.whoAmI);
                     }
                 }
             }
@@ -2089,7 +2089,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                         Vector2 vel = NPC.rotation.ToRotationVector2() * 10f;
                         int nukeDur = Main.rand.Next(160, 160); //nuke duration
                         NPC.netUpdate = true;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, nukeDur, player.whoAmI, 1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, nukeDur, player.whoAmI, 1);
                     }
                 }
             }
@@ -2118,7 +2118,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     LockVector1 = (player.Center - NPC.Center).RotatedBy(AI3 * MaxRot);
                     if (FargoSoulsUtil.HostCheck)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 7, NPC.whoAmI, WindupTime + 20);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 7, NPC.whoAmI, WindupTime + 20);
                     }
                     NPC.netUpdate = true;
                 }
@@ -2139,7 +2139,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                             Vector2 vel = NPC.rotation.ToRotationVector2() * 10f;
                             int nukeDur = Main.rand.Next(160, 160); //nuke duration
                             NPC.netUpdate = true;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, nukeDur, player.whoAmI, 1);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<BaronNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, nukeDur, player.whoAmI, 1);
                         }
                     }
                     */
@@ -2151,7 +2151,7 @@ namespace FargowiltasSouls.Content.Bosses.BanishedBaron
                     SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/LaserSound_Slow") with { Pitch = -0.2f }, NPC.Center);
                     if (FargoSoulsUtil.HostCheck)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.rotation.ToRotationVector2(), ModContent.ProjectileType<BaronDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, ai0: NPC.whoAmI, ai2: AttackTime);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.rotation.ToRotationVector2(), ModContent.ProjectileType<BaronDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, ai0: NPC.whoAmI, ai2: AttackTime);
                     }
                     NPC.netUpdate = true;
                 }

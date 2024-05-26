@@ -140,14 +140,14 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                                 {
                                     NPC.localAI[1] = 1;
                                     if (FargoSoulsUtil.HostCheck)
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TimberPalmTree>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TimberPalmTree>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI);
                                 }
 
                                 if (NPC.localAI[2] == 0 && NPC.life < NPC.lifeMax * .33f) //spawn palm tree supports
                                 {
                                     NPC.localAI[2] = 1;
                                     if (FargoSoulsUtil.HostCheck)
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TimberPalmTree>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TimberPalmTree>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI);
                                 }
                             }
 
@@ -164,7 +164,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
 
                             if (FargoSoulsUtil.HostCheck) //ogre smash jump
                             {
-                                int dam = WorldSavingSystem.MasochistModeReal ? FargoSoulsUtil.ScaledProjectileDamage(NPC.damage) : 0;
+                                int dam = WorldSavingSystem.MasochistModeReal ? FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage) : 0;
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ProjectileID.DD2OgreSmash, dam, 0, Main.myPlayer);
                             }
 
@@ -207,7 +207,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                             if (WorldSavingSystem.EternityMode)
                             {
                                 if (FargoSoulsUtil.HostCheck)
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom - 65 * Vector2.UnitY, Vector2.Zero, ModContent.ProjectileType<TimberJumpMark>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI, NPC.width);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom - 65 * Vector2.UnitY, Vector2.Zero, ModContent.ProjectileType<TimberJumpMark>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI, NPC.width);
                             }
                         }
                         else if (NPC.ai[1] > JumpTreshold)
@@ -276,7 +276,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                         for (int i = 0; i < 15; i++)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, distance + Main.rand.NextVector2Square(-0.5f, 0.5f) * 3,
-                                ModContent.ProjectileType<TimberAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 0.8f), 0f, Main.myPlayer);
+                                ModContent.ProjectileType<TimberAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 0.8f), 0f, Main.myPlayer);
                         }
                     }
 
@@ -314,7 +314,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                             for (int i = 0; i < 30; i++)
                             {
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, distance + Main.rand.NextVector2Square(-0.5f, 0.5f) * 4.5f,
-                                    ModContent.ProjectileType<TimberAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                    ModContent.ProjectileType<TimberAcorn>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -374,7 +374,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                             for (int i = -max; i <= max; i++)
                             {
                                 if (FargoSoulsUtil.HostCheck)
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, vel.RotatedBy(MathHelper.ToRadians(60) / max * i), ModContent.ProjectileType<TimberSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1f);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, vel.RotatedBy(MathHelper.ToRadians(60) / max * i), ModContent.ProjectileType<TimberSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1f);
                             }
                         }
                     }
@@ -387,7 +387,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Timber
                             offset.X = Main.rand.NextFloat(0, NPC.width / 2) * NPC.direction;
                             offset.Y = 16;
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + offset,
-                                Vector2.UnitY * -12f, ModContent.ProjectileType<TimberSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                Vector2.UnitY * -12f, ModContent.ProjectileType<TimberSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                         }
                     }
 

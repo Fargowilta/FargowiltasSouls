@@ -98,7 +98,10 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             if (Projectile.localAI[0] == 0f)
             {
                 if (!Main.dedServ)
-                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/Zombie_104"), Projectile.Center);
+                {
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/DeviBigDeathray") with { Volume = 1.5f }, Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/FinalSpark") with { Volume = 1.5f }, Projectile.Center);
+                }
             }
             float num801 = 10f;
 
@@ -277,8 +280,8 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
 
         public static Color ColorFunction(float trailInterpolant) =>
             Color.Lerp(
-                FargoSoulsUtil.AprilFools ? new Color(255, 0, 0, 100) : new(31, 187, 192, 100),
-                FargoSoulsUtil.AprilFools ? new Color(255, 191, 51, 100) : new(51, 255, 191, 100),
+                new(31, 187, 192, 100),
+                new(51, 255, 191, 100),
                 trailInterpolant);
 
         public override bool PreDraw(ref Color lightColor)

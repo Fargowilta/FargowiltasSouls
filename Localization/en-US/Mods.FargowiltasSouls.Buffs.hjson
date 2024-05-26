@@ -734,3 +734,8 @@ PearlwoodStarBuff: {
 	DisplayName: Pearlwood Star Buff
 	Description: Mods.FargowiltasSouls.Buffs.PearlwoodStarBuff.Description
 }
+
+MoonFangBuff: {
+	DisplayName: Moon Fang
+	Description: Cannot regenerate life
+}

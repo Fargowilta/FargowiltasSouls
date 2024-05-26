@@ -43,6 +43,8 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
         public bool DroppedSummon;
 
+        public bool DidGrowl;
+
 
         public override void SendExtraAI(NPC npc, BitWriter bitWriter, BinaryWriter binaryWriter)
         {
@@ -87,7 +89,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
             npc.buffImmune[BuffID.OnFire3] = true;
 
             if (FargoSoulsUtil.HostCheck)
-                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 13, npc.whoAmI);
+                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<GlowRingHollow>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, 13, npc.whoAmI);
         }
 
         public override bool SafePreAI(NPC npc)
@@ -123,12 +125,23 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     WorldEvilAttackCycleTimer = 0;
                     UseCorruptAttack = !UseCorruptAttack;
+                    DidGrowl = false;
 
                     npc.netUpdate = true;
                     NetSync(npc);
                 }
                 else if (WorldEvilAttackCycleTimer > (InDesperationPhase ? 300 : 600 - 120)) //telegraph for special attacks
                 {
+                    if (!DidGrowl)
+                    {
+                        DidGrowl = true;
+                        if (!Main.dedServ)
+                        {
+                            SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/Monster119"),
+                                npc.HasValidTarget && Main.player[npc.target].ZoneUnderworldHeight ? Main.player[npc.target].Center : npc.Center);
+                        }
+                    }
+
                     for (int i = 0; i < 2; i++)
                     {
                         int type = !UseCorruptAttack ? 75 : 170; //corruption dust, then crimson dust
@@ -170,10 +183,10 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             const int speed = 14;
                             if (FargoSoulsUtil.HostCheck)
                             {
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * offsetY, Vector2.UnitY * -speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * offsetY / 2, Vector2.UnitY * speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * -offsetY / 2, Vector2.UnitY * -speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * -offsetY, Vector2.UnitY * speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * offsetY, Vector2.UnitY * -speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * offsetY / 2, Vector2.UnitY * speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * -offsetY / 2, Vector2.UnitY * -speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos + Vector2.UnitY * -offsetY, Vector2.UnitY * speed, ModContent.ProjectileType<CursedFlamethrower>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -202,7 +215,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     distance.Y *= flip;
 
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + Vector2.UnitX * Math.Sign(npc.velocity.X) * 32f, distance,
-                                        ModContent.ProjectileType<GoldenShowerWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.75f), 0f, Main.myPlayer, time, 0f, flip);
+                                        ModContent.ProjectileType<GoldenShowerWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.75f), 0f, Main.myPlayer, time, 0f, flip);
                                 }
                             }
                         }
@@ -257,7 +270,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     spawnPos.Y = (Main.maxTilesY - 200) * 16;
                                 if (spawnPos.Y / 16 >= Main.maxTilesY)
                                     spawnPos.Y = Main.maxTilesY * 16 - 16;
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero, ModContent.ProjectileType<WOFReticle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 6), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero, ModContent.ProjectileType<WOFReticle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 6), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -501,6 +514,8 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 Color color = new Color(255, 0, 255, 100) * ((1f - progress) / 4 + 0.75f);
                 //float alpha = (int)(255f * progress);
                 int frequency = 2 + (int)Math.Ceiling(progress * 6);
+                if (frequency <= 0)
+                    frequency = 1;
                 float coneHalfWidth = MathHelper.PiOver2 * 0.8f * progress;
                 float speed = 6 + (1 - progress) * 6;
                 Vector2 vel = direction.RotatedByRandom(coneHalfWidth);
@@ -545,7 +560,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     Vector2 speed = Vector2.UnitX.RotatedBy(npc.ai[3]);
                     if (FargoSoulsUtil.HostCheck && PreventAttacks <= 0)
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<PhantasmalDeathrayWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 0, npc.whoAmI);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<PhantasmalDeathrayWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, 0, npc.whoAmI);
                 }
                 /*
                 else //ring dust to denote i am vulnerable now

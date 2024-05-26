@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.AbomBoss
@@ -52,6 +53,12 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
 
                 if (++Projectile.localAI[1] < 15)
                     Projectile.rotation += MathHelper.ToRadians(12) * Projectile.localAI[0];
+            }
+
+            if (Projectile.timeLeft % 20 == 0)
+            {
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleBeep"), Projectile.Center);
             }
 
             if (Projectile.timeLeft < 10) //fade in and out

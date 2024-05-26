@@ -18,7 +18,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
         public override void SetDefaults()
         {
             Item.mana = 0;
-            Item.damage = 160;
+            Item.damage = 185;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.width = 64;
             Item.height = 64;

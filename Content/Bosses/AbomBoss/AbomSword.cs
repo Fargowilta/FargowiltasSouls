@@ -59,7 +59,11 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);
+                if (!Main.dedServ)
+                {
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/StyxGazer") with { Volume = 1.5f }, Projectile.Center);
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/RetinazerDeathray"), Projectile.Center);
+                }
             }
             float num801 = 1f;
             Projectile.localAI[0] += 1f;

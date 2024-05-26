@@ -126,7 +126,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.BloodMoo
                         for (int i = 0; i <= 3; i++)
                         {
                             Vector2 vel = 16f * j * Vector2.UnitX.RotatedBy(MathHelper.PiOver4 / 3 * i * -j);
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ProjectileID.SharpTears, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 0f, Main.rand.NextFloat(0.5f, 1f));
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ProjectileID.SharpTears, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, 0f, Main.rand.NextFloat(0.5f, 1f));
                         }
                     }
                 }

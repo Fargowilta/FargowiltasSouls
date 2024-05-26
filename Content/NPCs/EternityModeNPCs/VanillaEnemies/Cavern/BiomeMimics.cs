@@ -64,7 +64,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                     {
                         for (int i = -1; i <= 1; i++)
                         {
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Bottom + new Vector2(i * 16 * 4, -48), Vector2.Zero, ModContent.ProjectileType<BigMimicExplosion>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Bottom + new Vector2(i * 16 * 4, -48), Vector2.Zero, ModContent.ProjectileType<BigMimicExplosion>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0, Main.myPlayer);
                         }
                     }
                 }
@@ -109,7 +109,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                     {
                         Vector2 spawnPos = Main.player[npc.target].Bottom + new Vector2(i * distance, -100 - 8);
                         if (FargoSoulsUtil.HostCheck)
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.UnitY, ModContent.ProjectileType<ClingerFlame>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.UnitY, ModContent.ProjectileType<ClingerFlame>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                     }
                 }
             }
@@ -153,7 +153,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                             distance.Y = distance.Y / time - 0.5f * gravity * time;
                             if (FargoSoulsUtil.HostCheck)
                             {
-                                int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance, ModContent.ProjectileType<GoldenShowerWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, time);
+                                int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance, ModContent.ProjectileType<GoldenShowerWOF>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, time);
                                 if (p != Main.maxProjectiles)
                                     Main.projectile[p].timeLeft = Main.rand.Next(60, 75) * 3;
                             }
@@ -186,7 +186,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                 if (IndividualAttackTimer == 10)
                 {
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 9f * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.JestersArrow, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, 9f * npc.SafeDirectionTo(Main.player[npc.target].Center), ProjectileID.JestersArrow, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                 }
 
                 if (IndividualAttackTimer % 10 == 0 && !Main.player[npc.target].ZoneRockLayerHeight)
@@ -197,7 +197,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                     Vector2 speed = 10f * Vector2.Normalize(Main.player[npc.target].Center + Main.rand.NextVector2Square(-100, 100) - spawn);
                     if (FargoSoulsUtil.HostCheck)
                     {
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, speed, ProjectileID.JestersArrow, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, speed, ProjectileID.JestersArrow, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                     }
 
                     for (int i = 0; i < 40; i++)
@@ -285,7 +285,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Vector2 vel = speed * npc.SafeDirectionTo(Main.player[npc.target].Center).RotatedByRandom(MathHelper.ToRadians(5));
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<JungleTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, npc.whoAmI);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<JungleTentacle>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, npc.whoAmI);
                     }
                 }
 

@@ -739,7 +739,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     for (int i = -1; i <= 1; i++)
                     {
                         if (FargoSoulsUtil.HostCheck)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0), vel.RotatedBy(rotationToUse * i), projType, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0), vel.RotatedBy(rotationToUse * i), projType, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                     }
                 }
             }
@@ -781,7 +781,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     float ProjectileSpeed3 = 12f;
                     Vector2 shootatPlayer3 = NPC.SafeDirectionTo(Player.Center) * ProjectileSpeed3;
                     float ai1 = WorldSavingSystem.EternityMode ? 1 : 0;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootatPlayer3, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 32f, ai1);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootatPlayer3, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 32f, ai1);
                 }
             }
             if (AI_Timer >= 120f)
@@ -819,7 +819,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         ai0 = -10;
                     }
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset4, ModContent.ProjectileType<LifeHomingProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack10, Main.myPlayer, ai0, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset4, ModContent.ProjectileType<LifeHomingProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack10, Main.myPlayer, ai0, NPC.whoAmI);
                 }
             }
             P1AI_Timer += 1f;
@@ -876,7 +876,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         int maxDegreeRand = 40;// Main.expertMode ? 60 : 40;
                         double rotationrad = MathHelper.ToRadians(Main.rand.NextFloat(-maxDegreeRand, maxDegreeRand));
                         Vector2 shootrandom = (NPC.SafeDirectionTo(Player.Center) * (bigSpeed / 6f)).RotatedBy(rotationrad);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), shootrandom, ModContent.ProjectileType<LifeBomb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), shootrandom, ModContent.ProjectileType<LifeBomb>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                     }
                 }
                 NPC.netUpdate = true;
@@ -903,7 +903,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     float knockBack = 300f;
                     Vector2 shootatPlayer = NPC.SafeDirectionTo(Player.Center) * ProjectileSpeed;
                     float ai1 = WorldSavingSystem.EternityMode ? 1 : 0;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero - shootatPlayer, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack, Main.myPlayer, 32f, ai1);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero - shootatPlayer, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack, Main.myPlayer, 32f, ai1);
                     PeriodicNukeTimer = 0f;
                 }
                 NPC.netUpdate = true;
@@ -1017,7 +1017,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                                 break;
                             }
                         }
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, bombType, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 0, pos.X, pos.Y);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, bombType, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 0, pos.X, pos.Y);
                         //}
                     }
                 }
@@ -1051,7 +1051,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 if (AI_Timer == 240f)
                 {
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, -1, LockVector1.ToRotation());
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, -1, LockVector1.ToRotation());
                 }
             }
 
@@ -1085,7 +1085,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector1,
-                                        ModContent.ProjectileType<LifeChalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage, 1.2f), 3f, Main.myPlayer, 0, NPC.whoAmI, endTime);
+                                        ModContent.ProjectileType<LifeChalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 1.2f), 3f, Main.myPlayer, 0, NPC.whoAmI, endTime);
                     }
                     NPC.velocity.X = 0;
                     NPC.velocity.Y = 0;
@@ -1301,8 +1301,8 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         if (FargoSoulsUtil.HostCheck)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(Player.Center.X - 300 + 600 * j, Player.Center.Y - 300 + 24 * i), Vector2.Zero, ModContent.ProjectileType<LifeCageProjectile>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, j);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(Player.Center.X - 300 + 24 * i, Player.Center.Y - 300 + 600 * j), Vector2.Zero, ModContent.ProjectileType<LifeCageProjectile>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 2 + j);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(Player.Center.X - 300 + 600 * j, Player.Center.Y - 300 + 24 * i), Vector2.Zero, ModContent.ProjectileType<LifeCageProjectile>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, j);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(Player.Center.X - 300 + 24 * i, Player.Center.Y - 300 + 600 * j), Vector2.Zero, ModContent.ProjectileType<LifeCageProjectile>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 2 + j);
                         }
                     }
                 }
@@ -1336,13 +1336,13 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 if (FargoSoulsUtil.HostCheck)
                     for (int i = 0; i < 2; i++)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4 + 8 * i, -2f), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 24f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4 + 8 * i, -2f), ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 24f);
             }
             if (AI_Timer > Attack2Start && time2 % (Attack2Time * 2) + 1 == 1 && AI_Timer < Attack2End) //fire shots down
             {
                 SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, NPC.Center);
                 if (FargoSoulsUtil.HostCheck)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 2.5f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 2.5f), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
             }
             #endregion
 
@@ -1368,7 +1368,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         Vector2 vel = -Vector2.Normalize(aim).RotatedBy(i * MathHelper.Pi / 6 + MathHelper.ToRadians(NPC.ai[0]));
                         float ai0 = vel.ToRotation();
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + aim.RotatedBy(i * MathHelper.Pi / 6 + MathHelper.ToRadians(NPC.ai[0])), Vector2.Zero, ModContent.ProjectileType<LifeBlaster>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, ai0, firstblaster);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + aim.RotatedBy(i * MathHelper.Pi / 6 + MathHelper.ToRadians(NPC.ai[0])), Vector2.Zero, ModContent.ProjectileType<LifeBlaster>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, ai0, firstblaster);
                     }
                 }
                 if (firstblaster > 0)
@@ -1398,7 +1398,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 {
                     Vector2 vel = -Vector2.Normalize(aim).RotatedBy(RandomFloat * MathHelper.Pi / 18);
                     float ai0 = vel.ToRotation();
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + aim.RotatedBy(RandomFloat * MathHelper.Pi / 18), Vector2.Zero, ModContent.ProjectileType<LifeBlaster>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, ai0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1 + aim.RotatedBy(RandomFloat * MathHelper.Pi / 18), Vector2.Zero, ModContent.ProjectileType<LifeBlaster>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, ai0);
                 }
                 NPC.netUpdate = true;
                 RandomFloat += 1;
@@ -1480,7 +1480,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             {
                 if (FargoSoulsUtil.HostCheck)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), DustV, Vector2.Zero, ModContent.ProjectileType<LifeSlurp>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack, Main.myPlayer, 0, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), DustV, Vector2.Zero, ModContent.ProjectileType<LifeSlurp>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack, Main.myPlayer, 0, NPC.whoAmI);
                 }
 
                 SlurpTimer = 0f;
@@ -1500,12 +1500,12 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         float knockBack2 = 3f;
                         Vector2 shootatPlayer = NPC.SafeDirectionTo(Player.Center) * ProjectileSpeed;
                         if (FargoSoulsUtil.HostCheck)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootatPlayer, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack2, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootatPlayer, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack2, Main.myPlayer);
 
                         //for (int i = -2; i <= 2; i++)
                         //{
                         //    if (FargoSoulsUtil.HostCheck)
-                        //        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 0.9f * NPC.SafeDirectionTo(Player.Center).RotatedBy(MathHelper.ToRadians(3) * i), ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, -60, 2f);
+                        //        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 0.9f * NPC.SafeDirectionTo(Player.Center).RotatedBy(MathHelper.ToRadians(3) * i), ModContent.ProjectileType<LifeSplittingProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, -60, 2f);
                         //}
 
                         shoot = false;
@@ -1607,7 +1607,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         double rotationrad = MathHelper.ToRadians(0f - ShotCount * spread / 2 + i * spread);
                         Vector2 shootoffset = shootatPlayer.RotatedBy(rotationrad);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(1), shootoffset, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack2, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(1), shootoffset, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack2, Main.myPlayer);
                     }
                 }
                 ShotCount += 1f;
@@ -1633,7 +1633,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         for (int i = 0; (float)i <= NPC.ai[3]; i++)
                         {
                             double rotationrad = MathHelper.ToRadians(0f - NPC.ai[3] * spread / 2 + (float)(i * spread));
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0, LockVector2.RotatedBy(rotationrad).ToRotation());
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 0, LockVector2.RotatedBy(rotationrad).ToRotation());
                         }
                     }
                     NPC.netUpdate = true;
@@ -1647,7 +1647,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         {
                             double rotationrad = MathHelper.ToRadians(0f - NPC.ai[3] * spread / 2 + (float)(i * spread));
                             Vector2 shootoffset = LockVector2.RotatedBy(rotationrad);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, shootoffset, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack2, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, shootoffset, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack2, Main.myPlayer);
                         }
                     }
                     NPC.ai[3] += 1f;
@@ -1774,7 +1774,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     for (int i = 0; i < amount; i++)
                     {
                         Vector2 shootoffset = shootatPlayer.RotatedBy(i * (MathHelper.Pi / (amount / 2)));
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                     }
                 }
 
@@ -1849,7 +1849,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     //below wall telegraph
                     for (int i = 0; i < 60; i++)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X - 1500, LockVector2.Y + 400 + 500 + 60 * i), Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X - 1500, LockVector2.Y + 400 + 500 + 60 * i), Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 0, 0);
                     }
                 }
             }
@@ -1879,11 +1879,11 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         for (int i = 0; i < 120; i++)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X - 1200, LockVector2.Y + 600 + 500 + 30 * i), new Vector2(60, 0), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X - 1200, LockVector2.Y + 600 + 500 + 30 * i), new Vector2(60, 0), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                         }
                         for (int i = 0; i < 120; i++)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X + 1200, LockVector2.Y + 600 + 500 + 30 * i), new Vector2(-60, 0), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(LockVector2.X + 1200, LockVector2.Y + 600 + 500 + 30 * i), new Vector2(-60, 0), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                         }
                     }
                 }
@@ -1904,7 +1904,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     Vector2 shootoffset3 = shootdown2.RotatedBy(rotationrad3);
                     if (!WorldSavingSystem.MasochistModeReal)
                         shootoffset3.X *= 2f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset3, ModContent.ProjectileType<LifeNeggravProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack4, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset3, ModContent.ProjectileType<LifeNeggravProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack4, Main.myPlayer);
                 }
             }
             if (AI_Timer == StartTime + 45 && FargoSoulsUtil.HostCheck)
@@ -1918,7 +1918,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     Vector2 shootoffset2 = shootdown.RotatedBy(rotationrad2);
                     if (!WorldSavingSystem.MasochistModeReal)
                         shootoffset2.X *= 2f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset2, ModContent.ProjectileType<LifeNeggravProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack3, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset2, ModContent.ProjectileType<LifeNeggravProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack3, Main.myPlayer);
                 }
             }
             if (AI_Timer == StartTime + 50 && PlungeCount < 1f)
@@ -2034,7 +2034,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         ai0 = -30;
                         shootoffset4 /= 2;
                     }
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset4, ModContent.ProjectileType<LifeHomingProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack10, Main.myPlayer, ai0, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, shootoffset4, ModContent.ProjectileType<LifeHomingProj>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack10, Main.myPlayer, ai0, NPC.whoAmI);
                 }
             }
             if (ChargeTimer >= ChargeCD + ChargeCD)
@@ -2107,8 +2107,8 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 */
 
                 TeleportY++;
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset1, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, 0, 3);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset2, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, 0, 4);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset1, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0, Main.myPlayer, 0, 3);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, offset2, ModContent.ProjectileType<LifeProjSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0, Main.myPlayer, 0, 4);
             }
 
 
@@ -2121,7 +2121,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 float randRot = Main.rand.NextFloat(-MathHelper.Pi / 8, MathHelper.Pi / 8);
                 Vector2 offset1 = (NPC.SafeDirectionTo(Player.Center) * 8f).RotatedBy(MathHelper.PiOver2 * randSide + randRot);
                 if (FargoSoulsUtil.HostCheck)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -offset1, ModContent.ProjectileType<JevilScar>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, 0f, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -offset1, ModContent.ProjectileType<JevilScar>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 0f, NPC.whoAmI);
             }
             if (AI_Timer > 480 + 100/*rework*/)
             {
@@ -2246,7 +2246,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     for (int i = -10; i <= 10; i++)
                     {
                         Vector2 vel = LockVector2.RotatedBy(side * (arcAngle * 0.8f * i / 10 + arcRotation));
-                        int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = 120;
                     }
@@ -2259,7 +2259,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     for (int i = -10; i <= 10; i++)
                     {
                         Vector2 vel = LockVector2.RotatedBy(side * (arcAngle * 0.5f * 0.8f * i / 10 + arcRotation * 2.5f));
-                        int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = 120;
                     }
@@ -2279,7 +2279,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         int x = WorldSavingSystem.MasochistModeReal ? 1 : 0; //1 shot below maso, 3 shots in maso
                         for (int i = -x; i <= x; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, LockVector1.RotatedBy(MathHelper.Pi / 32 * i).ToRotation());
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, LockVector1.RotatedBy(MathHelper.Pi / 32 * i).ToRotation());
                         //Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + LockVector1 * 600f, Vector2.Zero, ModContent.ProjectileType<LifeCrosshair>(), 0, 0f, Main.myPlayer, -55);
                     }
                 }
@@ -2290,7 +2290,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     {
                         int x = WorldSavingSystem.MasochistModeReal ? 1 : 0; //1 shot below maso, 3 shots in maso
                         for (int i = -x; i <= x; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30f * LockVector1.RotatedBy(MathHelper.Pi / 32 * i), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30f * LockVector1.RotatedBy(MathHelper.Pi / 32 * i), ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                     }
                 }
 
@@ -2373,7 +2373,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     if (FargoSoulsUtil.HostCheck)
                     {
                         Vector2 ShootPlayer = (NPC.SafeDirectionTo(Player.Center) * 12f).RotatedBy(i * rot * MathHelper.Pi / 180);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), ShootPlayer, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), ShootPlayer, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                     }
                 }
                 if (rot >= 0)
@@ -2387,7 +2387,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 if (FargoSoulsUtil.HostCheck)
                 {
                     Vector2 ShootPlayer = NPC.SafeDirectionTo(Player.Center) * 12f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), ShootPlayer, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), GunCircleCenter(0.8f), ShootPlayer, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                 }
             }
             if (AI_Timer >= endtime) 
@@ -2435,7 +2435,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<LifeTpTelegraph>(), 0, 0f, Main.myPlayer, -60, NPC.whoAmI);
                 for (int i = 0; i < 16; i++)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, MathHelper.Pi / 8 * i);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, MathHelper.Pi / 8 * i);
                 }
             }
             if (AI_Timer <= StartTime)
@@ -2454,12 +2454,12 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 for (int i = 0; i < 16; i++)
                 {
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 8 * i) * 24f, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 8 * i) * 24f, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                 }
 
                 //telegraph nukes
                 for (int i = 0; i < 6; i++)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 1, LockVector2.ToRotation() + MathHelper.Pi / 3 * i);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, LockVector2.ToRotation() + MathHelper.Pi / 3 * i);
             }
             if (AI_Timer < StartTime + 60)
                 GunRotation = LockVector2.ToRotation();
@@ -2480,7 +2480,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     float ai1 = 0;
                     float ai2 = 0.6f; // split proj speed mult
                     float speed = 16;
-                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 3 * ShotCount) * speed, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, ai0, ai1, ai2);
+                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 3 * ShotCount) * speed, ModContent.ProjectileType<LifeNuke>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, ai0, ai1, ai2);
                     if (p != Main.maxProjectiles)
                         Main.projectile[p].timeLeft = 60;
                 }
@@ -2543,7 +2543,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     NPC.netUpdate = true;
 
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), runePos, Vector2.Zero, ModContent.ProjectileType<LifeRuneHitbox>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 3f, Main.myPlayer, NPC.whoAmI, i);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), runePos, Vector2.Zero, ModContent.ProjectileType<LifeRuneHitbox>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, NPC.whoAmI, i);
                 }
                 if (!PhaseOne)
                 {
@@ -2600,7 +2600,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         for (int i = 0; (float)i < Shots; i++)
                         {
                             double rotationrad = MathHelper.TwoPi / Shots * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, 0, LockVector2.RotatedBy(rotationrad).ToRotation());
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 0, LockVector2.RotatedBy(rotationrad).ToRotation());
                         }
                     }
                     NPC.netUpdate = true;
@@ -2613,7 +2613,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         for (int i = 0; (float)i < Shots; i++)
                         {
                             double rotationrad = MathHelper.TwoPi / Shots * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, LockVector2.RotatedBy(rotationrad), ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), knockBack2, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, LockVector2.RotatedBy(rotationrad), ModContent.ProjectileType<LifeWave>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), knockBack2, Main.myPlayer);
                         }
                     }
                     ExtraShots += 1f;

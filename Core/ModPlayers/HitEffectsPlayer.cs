@@ -24,6 +24,7 @@ using FargowiltasSouls.Core.Systems;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Terraria.Localization;
 using Luminance.Core.Graphics;
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {

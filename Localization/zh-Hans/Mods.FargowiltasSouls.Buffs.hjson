@@ -734,3 +734,8 @@ PearlwoodStarBuff: {
 	DisplayName: 破坏之星
 	Description: 破坏之星将会跟随你
 }
+
+MoonFangBuff: {
+	// DisplayName: Moon Fang
+	// Description: Cannot regenerate life
+}

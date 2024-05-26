@@ -1076,7 +1076,7 @@ ChaliceoftheMoon: {
 	/* Tooltip:
 		'''
 		[i:FargowiltasSouls/ChaliceoftheMoon] Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
-		Grants immunity to [i:FargowiltasSouls/MagicalBulb] Venom, Ivy Venom, [i:FargowiltasSouls/LihzahrdTreasureBox] Burning, Fused, Low Ground, [i:FargowiltasSouls/CelestialRune] and Marked for Death
+		Grants immunity to [i:FargowiltasSouls/MagicalBulb] Venom, Ivy Venom, [i:FargowiltasSouls/LihzahrdTreasureBox] Burning, Fused, Lihzahrd Curse, Low Ground, [i:FargowiltasSouls/CelestialRune] and Marked for Death
 		[i:FargowiltasSouls/MagicalBulb] Press the Magical Cleanse key to cure yourself of most debuffs
 		[i:FargowiltasSouls/MagicalBulb] Increases life regeneration based on how much light you receive
 		[i:FargowiltasSouls/LihzahrdTreasureBox] Double tap DOWN in the air to fastfall, creating an explosion on landing after falling a certain distance
@@ -1280,7 +1280,7 @@ LihzahrdTreasureBox: {
 	// DisplayName: Lihzahrd Treasure Box
 	/* Tooltip:
 		'''
-		Grants immunity to Burning, Fused, and Low Ground
+		Grants immunity to Burning, Fused, Lihzahrd Curse and Low Ground
 		Double tap DOWN in the air to fastfall
 		Fastfall will create a fiery eruption on impact after falling a certain distance
 		'Too many booby traps to open'
@@ -1311,7 +1311,7 @@ MagicalBulb: {
 		'''
 		Grants immunity to Acid Venom, Ivy Venom, and Swarming
 		Press the Magical Cleanse key to cure yourself of most debuffs on a cooldown
-		Magical Cleanse also causes nearby enemies to take increased damage over time from debuffs
+		Magical Cleanse also amplifies damage over time effects for nearby enemies
 		Cleanse cooldown is faster when not attacking
 		Increases life regeneration based on how much light you receive
 		Attracts a legendary plant's offspring which flourishes in combat
@@ -1378,7 +1378,7 @@ NecromanticBrew: {
 		'''
 		Grants immunity to Lethargic
 		Increases speed when dashing by 50%
-		When dashing, take 75% less contact damage and reflect 100% of contact damage on attacker
+		When dashing, take 15% less damage and reflect 100% of contact damage on attacker
 		Summons 2 Skeletron arms to whack enemies
 		'The bone-growing solution of a defeated foe'
 		''' */
@@ -1675,8 +1675,7 @@ ColossusSoul: {
 	// DisplayName: Colossus Soul
 	/* Tooltip:
 		'''
-		Increases HP by 100
-		15% damage reduction
+		10% damage reduction
 		Increases life regeneration by 5
 		Grants immunity to knockback, several debuffs, Shimmering, and fall damage
 		Enemies are more likely to target you

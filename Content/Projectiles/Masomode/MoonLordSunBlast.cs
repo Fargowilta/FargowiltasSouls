@@ -1,3 +1,4 @@
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using FargowiltasSouls.Content.Bosses.Champions.Earth;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Buffs.Boss;
@@ -101,6 +102,14 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                     if (p != Main.maxProjectiles)
                         Main.projectile[p].localAI[0] = Projectile.localAI[0];
                 }
+            }
+        }
+
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+        {
+            if (NPC.AnyNPCs(ModContent.NPCType<CosmosChampion>()))
+            {
+                modifiers.ScalingArmorPenetration += 0.25f;
             }
         }
 

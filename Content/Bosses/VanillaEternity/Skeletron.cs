@@ -285,7 +285,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                 {
                                     float velModifier = 1f + 9f * k / max;
                                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velModifier * baseVel.RotatedBy(MathHelper.ToRadians(10) * j * k),
-                                        ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                                        ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                                 }
                             }
                         }
@@ -294,7 +294,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             float velModifier = 10f;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velModifier * npc.DirectionFrom(Main.player[npc.target].Center),
-                                ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer);
+                                ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer);
                         }
                     }
                 }
@@ -361,7 +361,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         spawnPos = Main.player[npc.target].Center + spawnPos.RotatedBy(Math.PI / 2 * (i + 0.5));
                         vel = vel.RotatedBy(Math.PI / 2 * (i + 0.5));
                         int p = Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, vel, ModContent.ProjectileType<ShadowGuardian>(),
-                            FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                            FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                         if (p != Main.maxProjectiles)
                             Main.projectile[p].timeLeft = 1200 / 8 + 1;
                     }
@@ -382,7 +382,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 float speed = Main.rand.NextFloat(3f, 9f);
                 Vector2 velocity = speed * npc.DirectionFrom(Main.player[npc.target].Center).RotatedBy(Math.PI * (Main.rand.NextDouble() - 0.5));
                 float ai1 = speed / (60f + Main.rand.NextFloat(actualNumberToSpawn * 2));
-                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ModContent.ProjectileType<SkeletronGuardian>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, 0f, ai1);
+                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ModContent.ProjectileType<SkeletronGuardian>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, 0f, ai1);
             }
         }
 
@@ -400,7 +400,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             spawnPos = Main.player[npc.target].Center + spawnPos.RotatedBy(Math.PI / 2 * i);
                             vel = vel.RotatedBy(Math.PI / 2 * i);
                             Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, vel, ModContent.ProjectileType<ShadowGuardian>(),
-                                FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                         }
                     }
                     break;
@@ -413,7 +413,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             int p = Projectile.NewProjectile(npc.GetSource_FromThis(), Main.player[npc.target].Center + 1000 * baseOffset.RotatedBy(2 * Math.PI / max * i),
                                 -8f * baseOffset.RotatedBy(2 * Math.PI / max * i), ModContent.ProjectileType<DeviGuardian>(),
-                                FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                             if (p != Main.maxProjectiles)
                             {
                                 Main.projectile[p].light = 1;
@@ -432,7 +432,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         for (int i = 0; i < 6; i++)
                         {
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed.RotatedBy(Math.PI / 3 * i),
-                                ProjectileID.Skull, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0, Main.myPlayer, -1f, 0);
+                                ProjectileID.Skull, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0, Main.myPlayer, -1f, 0);
                         }
                     }
                     break;
@@ -616,7 +616,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             {
                                 vel = head.SafeDirectionTo(npc.Center);
                             }
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                         }
                     }
                 }
@@ -739,7 +739,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     {
                                         Vector2 vel = head.SafeDirectionTo(npc.Center) * 10;
                                         vel = vel.RotatedBy(i * rotDir * MathHelper.Pi / 22); //curve second slightly inward so you can't blindspot in center
-                                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<SkeletronGuardian2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                                     }
                                     
                                 }

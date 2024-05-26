@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -50,6 +51,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                 {
                     float dragSpeed = Projectile.Distance(player.Center) / 60;
                     player.position += Projectile.DirectionFrom(player.Center) * dragSpeed;
+                    player.AddBuff(ModContent.BuffType<LowGroundBuff>(), 2);
+                    player.wingTime = 60;
                 }
             };
 

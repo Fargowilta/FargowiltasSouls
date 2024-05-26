@@ -121,7 +121,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     {
                         float num = i + rand;
                         int fake = randReal == i ? 0 : 1;
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<NebulaPillarProj>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage * 2), 3f, Main.myPlayer, num, fake, npc.whoAmI);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<NebulaPillarProj>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage * 2), 3f, Main.myPlayer, num, fake, npc.whoAmI);
                     }
                 }
             }
@@ -206,7 +206,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                             Vector2 angle = (Vector2.UnitY).RotatedBy(i * ratio * MathHelper.ToRadians(150));
                             float speed = 16;
                             Vector2 vel = angle * speed;
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, 0.02f, ai2: npc.whoAmI);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 3f, Main.myPlayer, 0.02f, ai2: npc.whoAmI);
                         }
                     }
                 }
@@ -247,7 +247,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     {
                         Vector2 offset = -(Vector2.UnitY * npc.height / 2);
                         Vector2 vel = Vector2.Normalize(offset);
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + offset, vel, ModContent.ProjectileType<PillarArcanum>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, 0f, 1);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + offset, vel, ModContent.ProjectileType<PillarArcanum>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 3f, Main.myPlayer, 0f, 1);
                     }
                 }
             }
@@ -293,7 +293,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                         int speed = Main.rand.Next(6, 8);
                         Vector2 pos = npc.Center - (0.65f * npc.height * Vector2.UnitY) + Vector2.UnitX * Main.rand.NextFloat(-npc.width / 3, npc.width / 3);
                         Vector2 vel = Vector2.Normalize(pos - npc.Center) * speed;
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, 0.03f, ai2: npc.whoAmI);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer, 0.03f, ai2: npc.whoAmI);
                     }
                     
                 }
@@ -317,7 +317,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                             speed *= 0.9f;
                             Vector2 pos = player.Center + posOffset;
                             Vector2 vel = pos.SafeDirectionTo(player.Center) * speed;
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer, 0.03f, ai2: npc.whoAmI);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel, ModContent.ProjectileType<PillarNebulaBlaze>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 3f, Main.myPlayer, 0.03f, ai2: npc.whoAmI);
                         }
 
                     }

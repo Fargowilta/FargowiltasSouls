@@ -6,6 +6,19 @@ If you intend to use this mod with the Calamity Mod, use the official Fargo's So
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://fargosmods.wiki.gg
 
+NEW UPDATE - v1.6.10.3
+-Fixed a WOF divide by zero error
+-WOF growls when starts telegraphing world evil attack
+-Fixed multiplayer Masochist boss healing not actually working in multiplayer
+-Fixed Deerclops AI breaking if you teleport away then teleport back before he despawns
+-Fixed True Mutant armor revive ray not having updated visuals
+-Updated sounds
+-Changed Magic Dagger pre-hardmode nerf from x0.5 damage to x0.66 damage/speed
+-Changed Star Cloak pre-hardmode nerf from x0.5 damage to x0.33 damage and fixed not working
+-Fixed Gaia set bonus secretly giving a sentry slot it shouldn't
+-Fixed sound engine completely breaking during Destroyer light show attack
+-Fixed Queen Bee AI breaking and doing nothing forever if you make her circle
+
 NEW UPDATE - v1.6.10
 -Eternity world icon now uses the new Luminance icon tray
 -Resprited Eternity Deerclops

@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Cavern
             if (npc.ai[0] == 3f)
             {
                 Vector2 velocity = Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 4;
-                int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ProjectileID.Stinger, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 1, Main.myPlayer);
+                int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, velocity, ProjectileID.Stinger, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 1, Main.myPlayer);
                 FargoSoulsGlobalProjectile.SplitProj(Main.projectile[p], 12, MathHelper.Pi / 12, 1);
             }
         }

@@ -25,7 +25,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Hallow
                     Counter = 0;
 
                     int direction = npc.velocity.X > 0 ? 1 : -1;
-                    int p = Projectile.NewProjectile(npc.GetSource_FromThis(), new Vector2(npc.Center.X - direction * (npc.width / 2), npc.Center.Y), npc.velocity, ProjectileID.RainbowBack, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 1);
+                    int p = Projectile.NewProjectile(npc.GetSource_FromThis(), new Vector2(npc.Center.X - direction * (npc.width / 2), npc.Center.Y), npc.velocity, ProjectileID.RainbowBack, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 3), 1);
                     if (p != Main.maxProjectiles)
                     {
                         Main.projectile[p].friendly = false;
@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Hallow
                  if (npc.velocity.Length() > 3)
                  {
                      int direction = npc.velocity.X > 0 ? 1 : -1;
-                     int p = Projectile.NewProjectile(new Vector2(npc.Center.X - direction * (npc.width / 2), npc.Center.Y), npc.velocity, ProjectileID.RainbowBack, FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 1);
+                     int p = Projectile.NewProjectile(new Vector2(npc.Center.X - direction * (npc.width / 2), npc.Center.Y), npc.velocity, ProjectileID.RainbowBack, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 4f / 3), 1);
                      if (p < 1000)
                      {
                          Main.projectile[p].friendly = false;

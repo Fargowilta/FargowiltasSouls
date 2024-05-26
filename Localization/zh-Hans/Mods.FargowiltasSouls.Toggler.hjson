@@ -1,4 +1,5 @@
 TimberHeader: "{$Mods.FargowiltasSouls.Items.TimberForce.DisplayName}"
+// WoodCompletionEffect: Wood Completion Speedup
 BorealEffect: 针叶木 雪球
 MahoganyEffect: 红木 钩爪加成
 EbonwoodEffect: 乌木 暗影焰光环

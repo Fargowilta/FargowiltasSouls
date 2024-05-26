@@ -12,7 +12,7 @@ WaterBolt: Cannot be used until Skeletron is defeated
 DemonScythe: Reduced damage and speed by 40% until an evil boss is defeated
 HolyDodge: Holy Dodge activation will temporarily reduce your attack speed
 FrozenTurtleShell: Frozen barrier slightly reduces your damage dealt
-BrainOfConfusion: Lowers your damage output on successful dodge
+BrainOfConfusion: Halved dodge chance
 ZenithNone: No nerfs in effect
 ZenithHitRate: "Vastly reduced hit rate, improves by defeating: "
 VampireKnives: Reduced lifesteal rate when above 50% life
@@ -37,10 +37,10 @@ CobaltNaginataRework: Causes a small explosion on striking enemies
 MythrilHalberdRework: After not attacking for 2 seconds, your next attack deals 8x damage, scaling with attack speed
 OrichalcumHalberdRework: Releases flower petals on swing
 SuperStarCannon: Decreased maximum pierce to 7
-WarmthPotionNerf: Halved damage reduction effect
+WarmthPotionNerf: Halved damage reduction effect and now applies post-mitigation
 CrossNecklaceNerf: Longer invincibility doesn't trigger on rapid successive hits
 IceBladeFrostburn: Projectile inflicts Frostburn on-hit
 JungleRose: Increases Plantera's Fruit drop rate from Snatcher-type enemies
-StarCloak: -50% star damage before Hardmode
+StarCloak: 33% star damage before Hardmode
 WeatherPain: Increased hit frequency and pierce
 HoundiusShootius: Increased fireball velocity

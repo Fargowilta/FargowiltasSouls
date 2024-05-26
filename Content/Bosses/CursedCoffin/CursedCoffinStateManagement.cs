@@ -212,6 +212,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
         public void IncrementAttackCounter()
         {
+            /*
             // Normal mode doesn't do the spirit mechanic
             if (Main.expertMode)
                 AttackCounter++;
@@ -230,6 +231,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                 else
                     AttackCounter = 0;
             }
+            */
         }
 	}
 }

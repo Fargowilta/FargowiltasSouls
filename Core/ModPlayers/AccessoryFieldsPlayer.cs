@@ -62,7 +62,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool PStarelineActive => Main.projectile.Any(p => p.active && p.owner == Player.whoAmI && p.type == ProjectileID.FairyQueenMagicItemShot && p.TryGetGlobalProjectile(out PearlwoodStareline gp) && gp.Pearlwood);
 
         public int ShadewoodCD;
-        public Item WoodEnchantItem;
         public bool WoodEnchantDiscount;
         //force of terra
         public int CopperProcCD;
@@ -373,6 +372,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         public int shieldHeldTime;
         public bool wasHoldingShield;
         public int LightslingerHitShots;
+        public int ChargeSoundDelay = 0;
 
         public int NoUsingItems;
 

@@ -109,7 +109,7 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     if (!vortexAlive)
                     {
                         Vector2 pos = npc.Center - Vector2.UnitY * npc.height * 0.8f;
-                        Vortex = Projectile.NewProjectile(npc.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<VortexVortex>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, 0f, 1);
+                        Vortex = Projectile.NewProjectile(npc.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<VortexVortex>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, 0f, 1);
                     }
 
                 }
@@ -146,10 +146,10 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.LunarEve
                     {
                         Vector2 pos = npc.Center - Vector2.UnitY * npc.height * 0.8f;
                         Vector2 vel = second ? pos.SafeDirectionTo(player.Center) * 6 : Vector2.Zero;
-                        Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel.RotatedBy(Math.PI / 2), ProjectileID.CultistBossLightningOrb, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel.RotatedBy(Math.PI / 2), ProjectileID.CultistBossLightningOrb, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 3f, Main.myPlayer);
                         if (second)
                         {
-                            Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel.RotatedBy(-Math.PI / 2), ProjectileID.CultistBossLightningOrb, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 3f, Main.myPlayer);
+                            Projectile.NewProjectile(npc.GetSource_FromThis(), pos, vel.RotatedBy(-Math.PI / 2), ProjectileID.CultistBossLightningOrb, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 3f, Main.myPlayer);
                         }
                     }
                 }

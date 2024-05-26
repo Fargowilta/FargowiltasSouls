@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.MutantBoss
@@ -51,6 +52,18 @@ namespace FargowiltasSouls.Content.Bosses.MutantBoss
             else
             {
                 Projectile.Kill();
+            }
+
+            if (Projectile.timeLeft % 15 == 0)
+            {
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleBeep"), Projectile.Center);
+            }
+
+            if (Projectile.timeLeft == 10)
+            {
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleLockOn"), Projectile.Center);
             }
 
             if (Projectile.timeLeft < 10)

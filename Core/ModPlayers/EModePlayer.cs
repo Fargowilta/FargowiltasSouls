@@ -1,3 +1,5 @@
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
+using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
@@ -453,6 +455,14 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         }
 
+        public override void UpdateBadLifeRegen()
+        {
+            float regenReductionTime = LumUtils.SecondsToFrames(5);
+            
+            if (Player.lifeRegen > 0 && Player.lifeRegenTime < regenReductionTime)
+                Player.lifeRegen = (int)(Player.lifeRegen * Player.lifeRegenTime / regenReductionTime);
+        }
+
         public override void PostUpdateEquips()
         {
             if (!WorldSavingSystem.EternityMode)
@@ -567,7 +577,8 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             if (Player.resistCold && npc.coldDamage) //warmth potion nerf
             {
-                modifiers.FinalDamage *= 1.15f;
+                modifiers.SourceDamage *= 1f / 0.7f; // warmth potion modifies source damage (pre defense) for some fucking reason. anti-30% 
+                modifiers.FinalDamage *= 0.85f;
             }
         }
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
@@ -579,8 +590,15 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             if (Player.resistCold && proj.coldDamage) //warmth potion nerf
             {
-                modifiers.SourceDamage *= 1.15f; // warmth potion modifies source damage (pre defense) for some fucking reason
+                modifiers.SourceDamage *= 1f / 0.7f; // warmth potion modifies source damage (pre defense) for some fucking reason. anti-30%
+                modifiers.FinalDamage *= 0.85f;
             }
+            /*
+            if (NPC.AnyNPCs(ModContent.NPCType<CosmosChampion>()))
+            {
+                Player.AddBuff(ModContent.BuffType<MoonFangBuff>(), LumUtils.SecondsToFrames(5));
+            }
+            */
         }
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
@@ -596,7 +614,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                 return;
             //ShadowDodgeNerf();
         }
-
         public override void ModifyHurt(ref Player.HurtModifiers modifiers)
         {
             ShorterDebuffsTimer = MaxShorterDebuffsTimer;
@@ -608,6 +625,13 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (modifiers.DamageSource.SourceProjectileType == ProjectileID.Explosives)
                 Player.FargoSouls().AddBuffNoStack(ModContent.BuffType<StunnedBuff>(), 120);
 
+            if (Player.brainOfConfusionItem != null && !Player.brainOfConfusionItem.IsAir)
+            {
+                if (Main.rand.NextBool(2)) // 50% chance to not work
+                {
+                    Player.brainOfConfusionItem = null;
+                }
+            }
 
 
             base.ModifyHurt(ref modifiers);
@@ -615,16 +639,27 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
         {
-            if (WorldSavingSystem.MasochistModeReal)
+            if (WorldSavingSystem.MasochistModeReal && Player.whoAmI == Main.myPlayer)
             {
                 foreach (NPC npc in Main.npc.Where(npc => npc.active && (npc.boss || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail)))
                 {
                     int heal = npc.lifeMax / 10;
-                    npc.life += heal;
-                    if (npc.life > npc.lifeMax)
-                        npc.life = npc.lifeMax;
-                    npc.HealEffect(heal);
-                    npc.netUpdate = true;
+                    if (Main.netMode == NetmodeID.SinglePlayer)
+                    {
+                        npc.life += heal;
+                        if (npc.life > npc.lifeMax)
+                            npc.life = npc.lifeMax;
+                        npc.HealEffect(heal);
+                        npc.netUpdate = true;
+                    }
+                    else
+                    {
+                        var netMessage = Mod.GetPacket();
+                        netMessage.Write((byte)FargowiltasSouls.PacketID.HealNPC);
+                        netMessage.Write((byte)npc.whoAmI);
+                        netMessage.Write(heal);
+                        netMessage.Send();
+                    }
                 }
             }
 

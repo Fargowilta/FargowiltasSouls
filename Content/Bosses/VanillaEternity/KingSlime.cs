@@ -148,7 +148,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     {
                                         Projectile.NewProjectile(npc.GetSource_FromThis(), new Vector2(npc.Center.X + Main.rand.Next(-5, 5), npc.Center.Y - 15),
                                             new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-8, -5)),
-                                            ProjectileID.SpikedSlimeSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                            ProjectileID.SpikedSlimeSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                                     }
                                 }
 
@@ -166,7 +166,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                             speed.Normalize();
                                             speed *= IsBerserk ? 10f : 5f;
                                             speed = speed.RotatedByRandom(MathHelper.ToRadians(4));
-                                            Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, speed, ModContent.ProjectileType<SlimeBallHostile>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 6), 0f, Main.myPlayer);
+                                            Projectile.NewProjectile(npc.GetSource_FromThis(), spawn, speed, ModContent.ProjectileType<SlimeBallHostile>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 6), 0f, Main.myPlayer);
                                         }
                                     }
                                 }
@@ -246,7 +246,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             for (int i = 0; i < 15; i++)
                             {
                                 Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance + Main.rand.NextVector2Square(-1f, 1f),
-                                    ModContent.ProjectileType<SlimeSpike>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                    ModContent.ProjectileType<SlimeSpike>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -275,7 +275,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             Vector2 spawnPos = npc.Bottom;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), spawnPos, Vector2.Zero,
-                                ModContent.ProjectileType<SlimeSpike2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 6), 0f, Main.myPlayer);
+                                ModContent.ProjectileType<SlimeSpike2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 6), 0f, Main.myPlayer);
                         }
                     }
                 }
@@ -298,7 +298,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             spikePos.X += Gap * i;
                             spikePos.Y -= 500;
                             Projectile.NewProjectile(npc.GetSource_FromThis(), spikePos, (IsBerserk ? 6f : 0f) * Vector2.UnitY,
-                                ModContent.ProjectileType<SlimeSpike2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 6), 0f, Main.myPlayer);
+                                ModContent.ProjectileType<SlimeSpike2>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 6), 0f, Main.myPlayer);
                         }
                     }
                 }
@@ -355,7 +355,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                     for (int i = 0; i < 15; i++)
                     {
                         Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance + Main.rand.NextVector2Square(-1f, 1f) * 2f,
-                            ModContent.ProjectileType<SlimeSpike>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                            ModContent.ProjectileType<SlimeSpike>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                     }
                 }
 

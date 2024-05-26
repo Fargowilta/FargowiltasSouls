@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
@@ -54,6 +55,18 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             {
                 Projectile.Kill();
             }
+
+            if (Projectile.timeLeft % 20 == 0)
+            {
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleBeep"), Projectile.Center);
+            }
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+            if (!Main.dedServ)
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ReticleLockOn"), Projectile.Center);
         }
 
         public override Color? GetAlpha(Color lightColor)

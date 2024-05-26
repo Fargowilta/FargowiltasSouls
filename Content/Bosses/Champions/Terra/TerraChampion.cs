@@ -208,7 +208,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
                                 float ai1New = Main.rand.NextBool() ? 1 : -1; //randomize starting direction
                                 Vector2 vel = Vector2.Normalize(dir) * 22f;
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<HostileLightning>(),
-                                    FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, dir.ToRotation(), ai1New);
+                                    FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0, Main.myPlayer, dir.ToRotation(), ai1New);
                             }
                         }
                     }
@@ -219,7 +219,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
 
                         if (FargoSoulsUtil.HostCheck) //shoot orb
                         {
-                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TerraLightningOrb2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TerraLightningOrb2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI);
                             Main.projectile[p].localAI[0] += 1f + Main.rand.NextFloatDirection(); //random starting rotation
                             Main.projectile[p].localAI[1] = Main.rand.NextBool() ? 1 : -1;
                             Main.projectile[p].netUpdate = true;
@@ -303,12 +303,12 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
                             if (FargoSoulsUtil.HostCheck)
                             {
                                 Vector2 vel = NPC.SafeDirectionTo(player.Center) * 12;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
 
                                 float offset = NPC.velocity.ToRotation() - vel.ToRotation();
 
                                 vel = Vector2.Normalize(NPC.velocity).RotatedBy(offset) * 12;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                             }
                         }
 
@@ -390,7 +390,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
                                     rotationOffset *= Math.Sign(-sinModifier);
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center,
                                         6f * Vector2.UnitX.RotatedBy(NPC.localAI[1] + rotationOffset),
-                                        ProjectileID.CultistBossFireBall, FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                        ProjectileID.CultistBossFireBall, FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                                 }
 
                                 for (int i = -5; i <= 5; i++)
@@ -400,7 +400,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
                                     Vector2 vel2 = Vector2.UnitX.RotatedBy(Math.PI / 4 * (Main.rand.NextDouble() - 0.5)) * 36f;
                                     float ai1New = Main.rand.NextBool() ? 1 : -1; //randomize starting direction
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel2.RotatedBy(NPC.localAI[1] + rotationOffset), ModContent.ProjectileType<HostileLightning>(),
-                                        FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0, Main.myPlayer, NPC.localAI[1] + rotationOffset, ai1New);
+                                        FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0, Main.myPlayer, NPC.localAI[1] + rotationOffset, ai1New);
                                 }
                             }
                         }
@@ -455,8 +455,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
                             if (FargoSoulsUtil.HostCheck)
                             {
                                 Vector2 vel = 12f * Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -vel, ModContent.ProjectileType<TerraFireball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer);
                             }
                         }
 
@@ -527,7 +527,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Terra
 
                         if (NPC.localAI[0] == 0 && FargoSoulsUtil.HostCheck) //shoot orb
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TerraLightningOrb2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.damage), 0f, Main.myPlayer, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<TerraLightningOrb2>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI);
                         }
 
                         if (++NPC.localAI[0] > 420)

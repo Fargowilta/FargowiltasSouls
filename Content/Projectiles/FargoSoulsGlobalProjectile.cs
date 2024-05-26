@@ -325,7 +325,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.DesertDjinnCurse:
                     {
                         if (projectile.damage > 0 && source is EntitySource_Parent parent && parent.Entity is NPC npc && npc.active && npc.type == ModContent.NPCType<ShadowChampion>())
-                            projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.damage);
+                            projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage);
                     }
                     break;
 
@@ -335,7 +335,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         {
                             if (npc.type == ModContent.NPCType<DeviBoss>())
                             {
-                                projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.damage);
+                                projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage);
                                 if (npc.ai[0] == 5)
                                     projectile.timeLeft = Math.Min(projectile.timeLeft, 360 + 90 - (int)npc.ai[1]);
                                 else
@@ -343,7 +343,7 @@ namespace FargowiltasSouls.Content.Projectiles
                             }
                             else if (npc.type == ModContent.NPCType<ShadowChampion>())
                             {
-                                projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.damage);
+                                projectile.damage = FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage);
                             }
                         }
                     }

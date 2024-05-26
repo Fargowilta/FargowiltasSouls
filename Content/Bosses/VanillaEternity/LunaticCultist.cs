@@ -155,7 +155,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 }
 
                 //necessary because calameme
-                int damage = Math.Max(75, FargoSoulsUtil.ScaledProjectileDamage(npc.damage));
+                int damage = Math.Max(75, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage));
 
                 switch ((int)npc.ai[0])
                 {

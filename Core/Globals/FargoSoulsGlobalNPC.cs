@@ -1152,9 +1152,9 @@ namespace FargowiltasSouls.Core.Globals
             //                return false;
             //            }*/
 
-            if (modPlayer.WoodEnchantItem != null)
+            if (player.HasEffect<WoodCompletionEffect>())
             {
-                WoodEnchant.WoodCheckDead(modPlayer, npc);
+                WoodCompletionEffect.WoodCheckDead(modPlayer, npc);
             }
 
             if (Needled && npc.lifeMax > 1 && npc.lifeMax != int.MaxValue) //super dummy

@@ -48,7 +48,8 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/RetinazerDeathray") with { Volume = 1.5f }, Projectile.Center);
             }
             float maxScale = 1f;
             if (WorldSavingSystem.MasochistModeReal)

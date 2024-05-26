@@ -181,7 +181,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         distance *= 10f;
                         for (int i = 0; i < 12; i++)
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance.RotatedBy(2 * Math.PI / 12 * i),
-                                ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, ai2: MechElectricOrb.Yellow);
+                                ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, ai2: MechElectricOrb.Yellow);
                     }
                 }
 
@@ -204,7 +204,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     npc.localAI[1] = 0;
                     Vector2 vel = npc.SafeDirectionTo(Main.player[npc.target].Center);
-                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + (npc.width - 24) * vel, vel, ModContent.ProjectileType<MechElectricOrbTwins>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, npc.target, ai2: MechElectricOrb.Yellow);
+                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + (npc.width - 24) * vel, vel, ModContent.ProjectileType<MechElectricOrbTwins>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, npc.target, ai2: MechElectricOrb.Yellow);
                 }
 
                 if (DeathrayState == 0 || DeathrayState == 3) //not doing deathray, grow arena
@@ -287,7 +287,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             if (FargoSoulsUtil.HostCheck)
                             {
                                 Vector2 speed = Vector2.UnitX.RotatedBy(npc.rotation);
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<RetinazerDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 3), 0f, Main.myPlayer, 0f, npc.whoAmI);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed, ModContent.ProjectileType<RetinazerDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 4f / 3), 0f, Main.myPlayer, 0f, npc.whoAmI);
                             }
                             DeathrayState++;
                             npc.ai[0] = 4f;
@@ -360,7 +360,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 //        num1225 = 1f;
                 //    }
                 //    vector200 = vector200.RotatedBy(-num1225 * 1.04719755f, default(Vector2));
-                //    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vector200, ModContent.ProjectileType<PhantasmalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 4f / 2), 0f, Main.myPlayer, num1225 * 0.0104719755f, npc.whoAmI);
+                //    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, vector200, ModContent.ProjectileType<PhantasmalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 4f / 2), 0f, Main.myPlayer, num1225 * 0.0104719755f, npc.whoAmI);
                 //    npc.netUpdate = true;
                 //}
             }
@@ -677,7 +677,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                     for (int i = 0; i < FlameWheelCount; i++)
                                     {
                                         int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed * (baseRotation + MathHelper.TwoPi / FlameWheelCount * i).ToRotationVector2(),
-                                            ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer, ai2: MechElectricOrb.Green);
+                                            ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer, ai2: MechElectricOrb.Green);
                                         if (p != Main.maxProjectiles)
                                             Main.projectile[p].timeLeft = timeLeft;
                                     }
@@ -753,7 +753,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                             {
                                 float speed = (1f - modifier) * 0.8f;
                                 float rotationVariance = 9f * modifier * 2;
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed * npc.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-rotationVariance, rotationVariance))), ProjectileID.EyeFire, FargoSoulsUtil.ScaledProjectileDamage(npc.damage), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, speed * npc.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-rotationVariance, rotationVariance))), ProjectileID.EyeFire, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                             }
                         }
                     }
@@ -769,7 +769,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         distance *= 14f;
                         for (int i = 0; i < 8; i++)
                             Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, distance.RotatedBy(2 * Math.PI / 8 * i),
-                                ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.damage, 0.8f), 0f, Main.myPlayer, ai2: MechElectricOrb.Green);
+                                ModContent.ProjectileType<MechElectricOrb>(), FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage, 0.8f), 0f, Main.myPlayer, ai2: MechElectricOrb.Green);
                     }
                 }
             }
