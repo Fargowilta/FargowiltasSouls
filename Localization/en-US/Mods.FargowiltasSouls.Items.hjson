@@ -1009,7 +1009,8 @@ BetsysHeart: {
 
 BionomicCluster: {
 	DisplayName: Bionomic Cluster
-	Tooltip:
+	Tooltip: "'The amalgamate born of a thousand common enemies'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FrigidGemstone] Frostburn, [i:FargowiltasSouls/WretchedPouch] Shadowflame, [i:FargowiltasSouls/SqueakyToy] Squeaky Toy, [i:FargowiltasSouls/ConcentratedRainbowMatter] Flames of the Universe, 
 		[i:FargowiltasSouls/WyvernFeather] Clipped Wings, Crippled, [i:FargowiltasSouls/TribalCharm] Webbed, Purified, [i:FargowiltasSouls/NymphsPerfume] Lovestruck, Stinky, Hexed, and [i:FargowiltasSouls/SecurityWallet] Midas
@@ -1028,14 +1029,14 @@ BionomicCluster: {
 		    [i:FargowiltasSouls/ConcentratedRainbowMatter] Automatically uses healing & [i:FargowiltasSouls/MysticSkull] mana potions when needed and increases pickup range for mana stars
 		    [i:FargowiltasSouls/NymphsPerfume] You respawn with more life [i:FargowiltasSouls/SandsofTime] and when no boss is alive, respawn faster
 		    [i:FargowiltasSouls/FrigidGemstone] Press the Frigid Spell key to cast Ice Rod
-		    [i:FargowiltasSouls/OrdinaryCarrot] Press right click to zoom in
-		'The amalgamate born of a thousand common enemies'
+		    [i:FargowiltasSouls/OrdinaryCarrot] Press right click to zoom in		
 		'''
 }
 
 BionomicClusterInactive: {
 	DisplayName: Bionomic Cluster (Inactive)
-	Tooltip:
+	Tooltip: "'The amalgamate born of a thousand common enemies'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FrigidGemstone] Frostburn, [i:FargowiltasSouls/WretchedPouch] Shadowflame, [i:FargowiltasSouls/SqueakyToy] Squeaky Toy, [i:FargowiltasSouls/ConcentratedRainbowMatter] Flames of the Universe, 
 		[i:FargowiltasSouls/WyvernFeather] Clipped Wings, Crippled, [i:FargowiltasSouls/TribalCharm] Webbed, Purified, [i:FargowiltasSouls/NymphsPerfume] Lovestruck, Stinky, Hexed, and [i:FargowiltasSouls/SecurityWallet] Midas
@@ -1055,7 +1056,6 @@ BionomicClusterInactive: {
 		    [i:FargowiltasSouls/NymphsPerfume] You respawn with more life [i:FargowiltasSouls/SandsofTime] and when no boss is alive, respawn faster
 		    [i:FargowiltasSouls/FrigidGemstone] Press the Frigid Spell key to cast Ice Rod
 		    [i:FargowiltasSouls/OrdinaryCarrot] Press right click to zoom in
-		'The amalgamate born of a thousand common enemies'
 		'''
 }
 
@@ -1072,7 +1072,8 @@ CelestialRune: {
 
 ChaliceoftheMoon: {
 	DisplayName: Chalice of the Moon
-	Tooltip:
+	Tooltip: "'Consume it'"
+	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/ChaliceoftheMoon] Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
 		Grants immunity to [i:FargowiltasSouls/MagicalBulb] Venom, Ivy Venom, [i:FargowiltasSouls/LihzahrdTreasureBox] Burning, Fused, Lihzahrd Curse, Low Ground, [i:FargowiltasSouls/CelestialRune] and Marked for Death
@@ -1080,8 +1081,7 @@ ChaliceoftheMoon: {
 		[i:FargowiltasSouls/MagicalBulb] Increases life regeneration based on how much light you receive
 		[i:FargowiltasSouls/LihzahrdTreasureBox] Double tap DOWN in the air to fastfall, creating an explosion on landing after falling a certain distance
 		[i:FargowiltasSouls/CelestialRune] You fire additional attacks depending on weapon type and erupt into Ancient Visions when injured
-		Summons a friendly [i:FargowiltasSouls/ChaliceoftheMoon] Cultist and [i:FargowiltasSouls/MagicalBulb] plant to fight at your side
-		'Consume it'
+		Summons a friendly [i:FargowiltasSouls/ChaliceoftheMoon] Cultist and [i:FargowiltasSouls/MagicalBulb] plant to fight at your side		
 		'''
 }
 
@@ -1137,7 +1137,8 @@ DreadShell: {
 
 DubiousCircuitry: {
 	DisplayName: Dubious Circuitry
-	Tooltip:
+	Tooltip: "'Malware probably not included'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FusedLens] Cursed Inferno, Ichor, [i:FargowiltasSouls/GroundStick] Lightning Rod, [i:FargowiltasSouls/ReinforcedPlating] Defenseless, Nano Injection, and knockback
 		[i:FargowiltasSouls/FusedLens] Press Debuff Install key to toggle being debuffed with Ichor and Cursed Inferno
@@ -1145,7 +1146,6 @@ DubiousCircuitry: {
 		[i:FargowiltasSouls/GroundStick] Your attacks have a small chance to inflict Lightning Rod and get supercharged on electric attacks
 		[i:FargowiltasSouls/GroundStick] Two friendly probes fight by your side and will supercharge with you
 		[i:FargowiltasSouls/ReinforcedPlating] Reduces damage taken by 5%
-		'Malware probably not included'
 		'''
 }
 
@@ -1244,7 +1244,8 @@ GuttedHeart: {
 
 HeartoftheMasochist: {
 	DisplayName: Heart of the Master
-	Tooltip:
+	Tooltip: "'Warm, beating, and no body needed'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/PumpkingsCape] Living Wasteland, [i:FargowiltasSouls/IceQueensCrown] Hypothermia, [i:FargowiltasSouls/SaucerControlConsole] Electrified, Distorted, [i:FargowiltasSouls/BetsysHeart] Oozed, Withered Weapon, Withered Armor
 		[i:FargowiltasSouls/MutantAntibodies] Wet, Feral Bite, Mutant Nibble, Oceanic Maul, water debuffs, [i:FargowiltasSouls/PrecisionSeal] Smite, [i:FargowiltasSouls/GalacticGlobe] Nullification Curse, Flipped, Unstable, and Curse of the Moon	
@@ -1259,7 +1260,6 @@ HeartoftheMasochist: {
 		[i:FargowiltasSouls/PrecisionSeal] Decreases hurtbox for projectiles, even when it isn't shown
 		[i:FargowiltasSouls/GalacticGlobe] Allows you to control gravity, increases flight time, and summons mini True Eyes of Cthulhu
 		[i:FargowiltasSouls/SaucerControlConsole] Press Ammo Cycle key to cycle ammos (works passively in inventory)
-		'Warm, beating, and no body needed'
 		'''
 }
 
@@ -1288,7 +1288,8 @@ LihzahrdTreasureBox: {
 
 LumpOfFlesh: {
 	DisplayName: Lump of Flesh
-	Tooltip:
+	Tooltip: "'It's growing'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/DreadShell] knockback, Anticoagulation, [i:FargowiltasSouls/PungentEyeball] Blackout, Obstructed, [i:FargowiltasSouls/SkullCharm] Dazed, [i:FargowiltasSouls/Deerclawps] Slow, and Frozen
 		[i:FargowiltasSouls/PungentEyeball] Your cursor causes nearby enemies to take up to 15% increased damage
@@ -1300,7 +1301,6 @@ LumpOfFlesh: {
 		[i:FargowiltasSouls/Deerclawps] Dashing leaves a trail of blood spikes
 		[i:FargowiltasSouls/Deerclawps] Double tap DOWN in the air to fastfall
 		[i:FargowiltasSouls/Deerclawps] Fastfall will create a glacial eruption on impact after falling a certain distance
-		'It's growing'
 		'''
 }
 
@@ -1440,7 +1440,8 @@ PungentEyeball: {
 
 PureHeart: {
 	DisplayName: Pure Heart
-	Tooltip:
+	Tooltip: "'It pulses with vitality'"
+	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/PureHeart] Grants immunity to biome debuffs
 		Grants immunity to [i:FargowiltasSouls/DarkenedHeart] Rotting and [i:FargowiltasSouls/GuttedHeart] Bloodthirsty
@@ -1450,8 +1451,7 @@ PureHeart: {
 		[i:FargowiltasSouls/GuttedHeart] Gives 10% increased max life
 		[i:FargowiltasSouls/GelicWings] Allows the wearer to double jump
 		[i:FargowiltasSouls/GelicWings] When you land after a jump, slime spikes shoot out to the sides
-		[i:FargowiltasSouls/GelicWings] Increases wing time by 30%
-		'It pulses with vitality'
+		[i:FargowiltasSouls/GelicWings] Increases wing time by 30%		
 		'''
 }
 
@@ -1571,7 +1571,8 @@ SqueakyToy: {
 
 SupremeDeathbringerFairy: {
 	DisplayName: Supreme Deathbringer Fairy
-	Tooltip:
+	Tooltip: "'Supremacy not necessarily guaranteed'"
+	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/SlimyShield] Slimed, [i:FargowiltasSouls/AgitatingLens] Berserked, [i:FargowiltasSouls/QueenStinger] Infested, and [i:FargowiltasSouls/NecromanticBrew] Lethargic
 		[i:FargowiltasSouls/SlimyShield] Increases fall speed and landing spawns slime over your cursor
@@ -1581,7 +1582,6 @@ SupremeDeathbringerFairy: {
 		[i:FargowiltasSouls/QueenStinger] Press the Special Dash key to perform a short quick bee dash
 		[i:FargowiltasSouls/NecromanticBrew] Massively increases dash speed, take less contact damage while dashing, and reflect all damage back to attacker while dashing
 		[i:FargowiltasSouls/NecromanticBrew] Summons 2 Skeletron arms to whack enemies
-		'Supremacy not necessarily guaranteed'
 		'''
 }
 
@@ -1698,7 +1698,8 @@ ConjuristsSoul: {
 
 DimensionSoul: {
 	DisplayName: Soul of Dimensions
-	Tooltip:
+	Tooltip: "'The dimensions of Terraria at your fingertips'"
+	ExtTooltip:
 		'''
 		Increases HP by 300
 		20% damage reduction
@@ -1715,8 +1716,7 @@ DimensionSoul: {
 		Effects of the Brain of Confusion, Star Veil, Sweetheart Necklace, Bee Cloak, Spore Sac, and Shiny Stone
 		Effects of Paladin's Shield, Frozen Turtle Shell, Arctic Diving Gear, Frog Legs, and Flying Carpet
 		Effects of Lava Waders, Angler Tackle Bag, Paint Sprayer, Presserator, Cell Phone, and Gravity Globe
-		Effects of Shield of Cthulhu and Master Ninja Gear
-		'The dimensions of Terraria at your fingertips'
+		Effects of Shield of Cthulhu and Master Ninja Gear		
 		'''
 }
 
@@ -1757,7 +1757,8 @@ FlightMasterySoul: {
 
 MasochistSoul: {
 	DisplayName: Soul of the Master
-	Tooltip:
+	Tooltip: "'Embrace mastery, embrace eternity'"
+	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/GalacticGlobe] Increases wing time by 200%, [i:FargowiltasSouls/QueenStinger] armor penetration by 50, [i:FargowiltasSouls/GalacticGlobe] and movement speed by 20%
 		[i:FargowiltasSouls/GuttedHeart] Increases max life by 100%, [i:FargowiltasSouls/MagicalBulb] life regen, [i:FargowiltasSouls/MutantAntibodies][i:FargowiltasSouls/SkullCharm][i:FargowiltasSouls/PumpkingsCape] damage for your current weapon class by 50%, [i:FargowiltasSouls/ReinforcedPlating] and damage reduction by 10%
@@ -1771,8 +1772,7 @@ MasochistSoul: {
 		On hit, [i:FargowiltasSouls/SqueakyToy] have a chance to only take 1 damage, [i:FargowiltasSouls/CelestialRune] erupt into Ancient Visions, [i:FargowiltasSouls/NecromanticBrew] and reflect all damage while dashing
 		Your attacks [i:FargowiltasSouls/NymphsPerfume] produce hearts, [i:FargowiltasSouls/WretchedPouch] summon shadowflame tentacles, [i:FargowiltasSouls/DarkenedHeart] spawn mini eaters, [i:FargowiltasSouls/CelestialRune] fire additional attacks, and inflict a cocktail of Eternity Mode debuffs
 		Summons [i:FargowiltasSouls/NecromanticBrew] Skeletron arms, [i:FargowiltasSouls/GuttedHeart] creepers, [i:FargowiltasSouls/ConcentratedRainbowMatter] a rainbow slime, [i:FargowiltasSouls/GroundStick] two friendly probes, [i:FargowiltasSouls/SkullCharm] an eyeball minion, [i:FargowiltasSouls/SaucerControlConsole] a mini saucer, [i:FargowiltasSouls/MagicalBulb] a plant, [i:FargowiltasSouls/CelestialRune] a cultist, [i:FargowiltasSouls/GalacticGlobe] and True Eyes of Cthulhu by your side
-		[i:FargowiltasSouls/SandsofTime] Use to teleport to your last death point
-		'Embrace mastery, embrace eternity'
+		[i:FargowiltasSouls/SandsofTime] Use to teleport to your last death point	
 		'''
 }
 
@@ -1807,7 +1807,8 @@ SupersonicSoul: {
 
 TerrariaSoul: {
 	DisplayName: Soul of Terraria
-	Tooltip:
+	Tooltip: "'A true master of Terraria'"
+	ExtTooltip:
 		'''
 		Summons fireballs, shadow orbs, icicles, leaf crystals, flameburst minion, hallowed sword and shield, and beetles
 		Right Click to Guard
@@ -1827,8 +1828,7 @@ TerrariaSoul: {
 		All grappling hooks are more effective and fire homing shots, Greatly enhances all DD2 sentries
 		Your attacks inflict Midas, Enemies explode into needles
 		You violently explode to damage nearby enemies when hurt and revive with 200 HP when killed
-		Effects of Flower Boots
-		'A true master of Terraria'
+		Effects of Flower Boots		
 		'''
 }
 
@@ -1848,7 +1848,8 @@ TrawlerSoul: {
 
 UniverseSoul: {
 	DisplayName: Soul of the Universe
-	Tooltip:
+	Tooltip: "'The heavens themselves bow to you'"
+	ExtTooltip:
 		'''
 		66% increased all damage for your current weapon class
 		25% increased critical chance for your current weapon class
@@ -1860,8 +1861,7 @@ UniverseSoul: {
 		Increases your max number of minions by 2
 		Increases your max number of sentries by 1
 		Effects of the Fire Gauntlet, Yoyo Bag, and Celestial Shell
-		Effects of Sniper Scope, Celestial Cuffs and Mana Flower
-		'The heavens themselves bow to you'
+		Effects of Sniper Scope, Celestial Cuffs and Mana Flower		
 		'''
 }
 
@@ -3374,6 +3374,7 @@ Extra: {
 	PatreonItem: >> Patreon Item <<
 	// stealing items texts are currently not displayed
 	ItemStolen: An item was stolen from you!
+	PressShift: "[c/ADD8E6:< Hold Left Shift to see all effects >]"
 }
 
 GravityTestItem: {

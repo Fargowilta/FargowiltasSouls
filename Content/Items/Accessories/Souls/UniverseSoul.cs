@@ -7,6 +7,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework.Input;
+using Terraria.Localization;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Souls
 {
@@ -24,6 +27,23 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 7));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         }
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.SafeModifyTooltips(tooltips);
+
+            if (Main.keyState.IsKeyDown(Keys.LeftShift))
+            {
+                TooltipLine line = new(Mod, "tooltip", Language.GetTextValue($"Mods.{Mod.Name}.Items.{Name}.ExtTooltip"));
+                tooltips.Add(line);
+            }
+
+            else {
+                TooltipLine line = new(Mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Items.Extra.PressShift"));
+                tooltips.Add(line);
+            }
+        
+        }
+        
         public override int NumFrames => 7;
 
         public override void SetDefaults()
