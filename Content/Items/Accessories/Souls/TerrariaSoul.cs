@@ -3,10 +3,13 @@ using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Items.Accessories.Souls
@@ -41,6 +44,23 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             return true;
         }
 
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.SafeModifyTooltips(tooltips);
+
+            if (Main.keyState.IsKeyDown(Keys.LeftShift))
+            {
+                TooltipLine line = new(Mod, "tooltip", Language.GetTextValue($"Mods.{Mod.Name}.Items.{Name}.ExtTooltip"));
+                tooltips.Add(line);
+            }
+
+            else
+            {
+                TooltipLine line = new(Mod, "tooltip", Language.GetTextValue("Mods.FargowiltasSouls.Items.Extra.PressShift"));
+                tooltips.Add(line);
+            }
+
+        }
         public override void SetDefaults()
         {
             base.SetDefaults();
