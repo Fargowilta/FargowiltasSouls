@@ -1757,7 +1757,12 @@ FlightMasterySoul: {
 
 MasochistSoul: {
 	DisplayName: Soul of the Master
-	Tooltip: "'Embrace mastery, embrace eternity'"
+	Tooltip:
+		'''
+		Massively increases most of your stats, and gives you a plethora of stat bonuses,
+		projectiles, minions, and keybinds for you to use
+		'A step away from having embraced Eternity'
+		'''
 	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/GalacticGlobe] Increases wing time by 200%, [i:FargowiltasSouls/QueenStinger] armor penetration by 50, [i:FargowiltasSouls/GalacticGlobe] and movement speed by 20%
@@ -1807,7 +1812,11 @@ SupersonicSoul: {
 
 TerrariaSoul: {
 	DisplayName: Soul of Terraria
-	Tooltip: "'A true master of Terraria'"
+	Tooltip:
+		'''
+		Gives you the massively boosted power of every enchantment
+		'A true master of Terraria'
+		'''
 	ExtTooltip:
 		'''
 		Summons fireballs, shadow orbs, icicles, leaf crystals, flameburst minion, hallowed sword and shield, and beetles
