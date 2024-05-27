@@ -182,7 +182,7 @@ namespace FargowiltasSouls.Core.Toggler
             //player.SetToggleValue<PungentEyeballCursor>(false);
             player.SetToggleValue<PungentMinion>(false);
             player.SetToggleValue<DeerclawpsEffect>(false);
-            player.SetToggleValue<CultistMinionEffect>(false);
+            //player.SetToggleValue<CultistMinionEffect>(false);
             player.SetToggleValue<LihzahrdBoulders>(false);
             player.SetToggleValue<PlantMinionEffect>(false);
             player.SetToggleValue<CelestialRuneAttacks>(false);
