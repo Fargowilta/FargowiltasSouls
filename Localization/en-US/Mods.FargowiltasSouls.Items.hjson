@@ -1009,7 +1009,12 @@ BetsysHeart: {
 
 BionomicCluster: {
 	DisplayName: Bionomic Cluster
-	Tooltip: "'The amalgamate born of a thousand common enemies'"
+	Tooltip: 
+		'''
+		The elements of the world. Grants useful effects while in your inventory,
+		and even more combat-focused effects when equipped.
+		'The amalgamate born of a thousand common enemies'
+		'''
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FrigidGemstone] Frostburn, [i:FargowiltasSouls/WretchedPouch] Shadowflame, [i:FargowiltasSouls/SqueakyToy] Squeaky Toy, [i:FargowiltasSouls/ConcentratedRainbowMatter] Flames of the Universe, 
@@ -1035,7 +1040,12 @@ BionomicCluster: {
 
 BionomicClusterInactive: {
 	DisplayName: Bionomic Cluster (Inactive)
-	Tooltip: "'The amalgamate born of a thousand common enemies'"
+	Tooltip:
+		'''
+		The disabled elements of the world. When enabled, it grants useful effects while in your inventory,
+		and even more combat-focused effects when equipped.
+		'The disabled amalgamate born of a thousand common enemies'
+		'''
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FrigidGemstone] Frostburn, [i:FargowiltasSouls/WretchedPouch] Shadowflame, [i:FargowiltasSouls/SqueakyToy] Squeaky Toy, [i:FargowiltasSouls/ConcentratedRainbowMatter] Flames of the Universe, 
@@ -1137,7 +1147,13 @@ DreadShell: {
 
 DubiousCircuitry: {
 	DisplayName: Dubious Circuitry
-	Tooltip: "'Malware probably not included'"
+	Tooltip:
+		'''
+		Mechanical remains forged into a powerful circuit. Energize yourself with thunder, dual probe minions,
+		and a risky yet rewarding offensive install. Grants increased defensive stats and anti-knockback.
+		'Malware probably not included'
+		'''
+
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FusedLens] Cursed Inferno, Ichor, [i:FargowiltasSouls/GroundStick] Lightning Rod, [i:FargowiltasSouls/ReinforcedPlating] Defenseless, Nano Injection, and knockback
@@ -1573,8 +1589,8 @@ SupremeDeathbringerFairy: {
 	DisplayName: Supreme Deathbringer Fairy
 	Tooltip:
 		'''
-		An all in one package of a few slain foes, grants immunities to certain debuffs,
-		gives you an omni-directional dash and beserked install.
+		An all in one package of slain foes. Grants immunities to certain debuffs,
+		an omni-directional dash, and a Beserked install.
 		'Supremacy not necessarily guaranteed'
 		'''
 	ExtTooltip:
