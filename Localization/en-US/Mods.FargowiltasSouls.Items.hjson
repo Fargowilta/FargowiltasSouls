@@ -1009,7 +1009,7 @@ BetsysHeart: {
 
 BionomicCluster: {
 	DisplayName: Bionomic Cluster
-	Tooltip: 
+	Tooltip:
 		'''
 		The elements of the world. Grants useful effects while in your inventory,
 		and even more combat-focused effects when equipped.
@@ -1082,13 +1082,12 @@ CelestialRune: {
 
 ChaliceoftheMoon: {
 	DisplayName: Chalice of the Moon
-	Tooltip: 
+	Tooltip:
 		'''
 		A strange Chalice molded out of pillar fragments. Provides immunities to certain debuffs,
 		grants multiple utility effects, and shoots supportive projectiles depending on your class. 
 		'Consume it'
 		'''
-
 	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/ChaliceoftheMoon] Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
@@ -1159,7 +1158,6 @@ DubiousCircuitry: {
 		and a risky yet rewarding offensive install. Grants increased defensive stats and anti-knockback.
 		'Malware probably not included'
 		'''
-
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/FusedLens] Cursed Inferno, Ichor, [i:FargowiltasSouls/GroundStick] Lightning Rod, [i:FargowiltasSouls/ReinforcedPlating] Defenseless, Nano Injection, and knockback
@@ -1266,7 +1264,13 @@ GuttedHeart: {
 
 HeartoftheMasochist: {
 	DisplayName: Heart of the Master
-	Tooltip: "'Warm, beating, and no body needed'"
+	Tooltip: 
+		'''
+		Harness the combined determination of your toughest foes yet. Grants a parry, graze,
+		and invincible dash, with a reduced hitbox size and several debuff immunities to spare.
+		'Warm, beating, and no body needed'
+		'''
+
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/PumpkingsCape] Living Wasteland, [i:FargowiltasSouls/IceQueensCrown] Hypothermia, [i:FargowiltasSouls/SaucerControlConsole] Electrified, Distorted, [i:FargowiltasSouls/BetsysHeart] Oozed, Withered Weapon, Withered Armor
@@ -1310,13 +1314,12 @@ LihzahrdTreasureBox: {
 
 LumpOfFlesh: {
 	DisplayName: Lump of Flesh
-	Tooltip: 
+	Tooltip:
 		'''
 		An amalgamation of flesh. Provides immunities to certain debuffs and attracts rare enemies.
 		Gives a retaliative parry and a debuffing cursor aura.
 		'It's growing'
 		'''
-
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/DreadShell] knockback, Anticoagulation, [i:FargowiltasSouls/PungentEyeball] Blackout, Obstructed, [i:FargowiltasSouls/SkullCharm] Dazed, [i:FargowiltasSouls/Deerclawps] Slow, and Frozen
@@ -1468,15 +1471,12 @@ PungentEyeball: {
 
 PureHeart: {
 	DisplayName: Pure Heart
-	Tooltip: 
+	Tooltip:
 		'''
 		Defiled hearts now pure. Grants immunities to biome debuffs and boosts your movement capability.
 		Comes with mini eaters and creepers to aids you in combat.
 		'It pulses with vitality'
 		'''
-	
-	
-	
 	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/PureHeart] Grants immunity to biome debuffs
@@ -1739,7 +1739,13 @@ ConjuristsSoul: {
 
 DimensionSoul: {
 	DisplayName: Soul of Dimensions
-	Tooltip: "'The dimensions of Terraria at your fingertips'"
+	Tooltip: 
+		'''
+		The universe's utilitarian facets under your belt. Improves defensive capabilities and mobility,
+		including infinite flight, along with greatly enhancing your fishing and building abilities.
+		'The dimensions of Terraria at your fingertips'
+		'''
+
 	ExtTooltip:
 		'''
 		Increases HP by 300
@@ -1898,7 +1904,14 @@ TrawlerSoul: {
 
 UniverseSoul: {
 	DisplayName: Soul of the Universe
-	Tooltip: "'The heavens themselves bow to you'"
+	Tooltip: 
+		'''
+		The universe's power at your utter control. Massively improves offensive capabilities
+		and increases the effectiveness of your critical strikes.
+		'The heavens themselves bow to you'
+		'''
+	
+		
 	ExtTooltip:
 		'''
 		66% increased all damage for your current weapon class
