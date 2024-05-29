@@ -1082,7 +1082,13 @@ CelestialRune: {
 
 ChaliceoftheMoon: {
 	DisplayName: Chalice of the Moon
-	Tooltip: "'Consume it'"
+	Tooltip: 
+		'''
+		A strange Chalice molded out of pillar fragments. Provides immunities to certain debuffs,
+		grants multiple utility effects, and shoots supportive projectiles depending on your class. 
+		'Consume it'
+		'''
+
 	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/ChaliceoftheMoon] Grants immunity to Swarming, Atrophied, Jammed, Reverse Mana Flow, and Antisocial
@@ -1304,7 +1310,13 @@ LihzahrdTreasureBox: {
 
 LumpOfFlesh: {
 	DisplayName: Lump of Flesh
-	Tooltip: "'It's growing'"
+	Tooltip: 
+		'''
+		An amalgamation of flesh. Provides immunities to certain debuffs and attracts rare enemies.
+		Gives a retaliative parry and a debuffing cursor aura.
+		'It's growing'
+		'''
+
 	ExtTooltip:
 		'''
 		Grants immunity to [i:FargowiltasSouls/DreadShell] knockback, Anticoagulation, [i:FargowiltasSouls/PungentEyeball] Blackout, Obstructed, [i:FargowiltasSouls/SkullCharm] Dazed, [i:FargowiltasSouls/Deerclawps] Slow, and Frozen
@@ -1456,7 +1468,15 @@ PungentEyeball: {
 
 PureHeart: {
 	DisplayName: Pure Heart
-	Tooltip: "'It pulses with vitality'"
+	Tooltip: 
+		'''
+		Defiled hearts now pure. Grants immunities to biome debuffs and boosts your movement capability.
+		Comes with mini eaters and creepers to aids you in combat.
+		'It pulses with vitality'
+		'''
+	
+	
+	
 	ExtTooltip:
 		'''
 		[i:FargowiltasSouls/PureHeart] Grants immunity to biome debuffs
