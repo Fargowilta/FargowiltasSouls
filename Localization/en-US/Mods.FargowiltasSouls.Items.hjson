@@ -813,14 +813,11 @@ CosmoForce: {
 	DisplayName: Force of Cosmos
 	Tooltip:
 		'''
-		[i:FargowiltasSouls/MeteorEnchant] A meteor shower initiates every few seconds while attacking
-		[i:FargowiltasSouls/MeteorEnchant] Running acceleration increased, you have a fire trail
-		[i:FargowiltasSouls/SolarEnchant] Solar shield allows you to dash through enemies
-		[i:FargowiltasSouls/SolarEnchant] Attacks may inflict the Solar Flare debuff
-		[i:FargowiltasSouls/VortexEnchant] Double tap down to toggle stealth and spawn a vortex
-		[i:FargowiltasSouls/NebulaEnchant] Hurting enemies has a chance to spawn buff boosters
-		[i:FargowiltasSouls/StardustEnchant] A stardust guardian will protect you from nearby enemies
-		[i:FargowiltasSouls/StardustEnchant] Press the Freeze Key to freeze time for 9 seconds, 50 second cooldown
+		[i:FargowiltasSouls/MeteorEnchant] [i:FargowiltasSouls/WizardEnchant] [i:FargowiltasSouls/SolarEnchant] [i:FargowiltasSouls/VortexEnchant] [i:FargowiltasSouls/NebulaEnchant] [i:FargowiltasSouls/StardustEnchant]
+		Attacking generates small moons that orbit around you 
+		Stop attacking to launch them towards your cursor, exploding into Lunar Boosters
+		Picking up Lunar Boosters increases your damage, crit, life regen or damage reduction
+		Increases your movement speed and acceleration, and decreases your momentum
 		'Been around since the Big Bang'
 		'''
 }
@@ -910,15 +907,12 @@ TerraForce: {
 	DisplayName: Terra Force
 	Tooltip:
 		'''
-		[i:FargowiltasSouls/CopperEnchant][i:FargowiltasSouls/ObsidianEnchant][i:FargowiltasSouls/LeadEnchant] Attacks spawn lightning, explosions, and inflict Lead Poisoning
-		[i:FargowiltasSouls/TinEnchant] Sets Tin crit chance to 10%, increasing up to double your original crit chance or 50%
-		[i:FargowiltasSouls/IronEnchant] 50% chance to not consume each item on first craft
-		[i:FargowiltasSouls/IronEnchant] You attract items from a larger range
-		[i:FargowiltasSouls/LeadEnchant] You take 60% less from damage over time
-		[i:FargowiltasSouls/SilverEnchant] Right Click to guard with your shield
-		[i:FargowiltasSouls/TungstenEnchant] Weapon size increased to 300% and projectile size every quarter second
-		[i:FargowiltasSouls/ObsidianEnchant] Grants immunity to lava
-		[i:FargowiltasSouls/AshWoodEnchant] Player attacks are accompanied by fireballs
+		[i:FargowiltasSouls/CopperEnchant] [i:FargowiltasSouls/TinEnchant] [i:FargowiltasSouls/IronEnchant] [i:FargowiltasSouls/LeadEnchant] [i:FargowiltasSouls/SilverEnchant] [i:FargowiltasSouls/TungstenEnchant] [i:FargowiltasSouls/ObsidianEnchant]    
+		Right Click to guard with your shield
+		Critical strikes sometimes fire a lightning bolt that explodes on hit and inflicts a stronger Lead Poisoning
+		Successful parries instantly fire a lightning bolt 
+		You take 60% less damage over time
+		50% chance to not consume each item on first craft and you attract items from a larger range (works in vanity and inventory)
 		'The land lends its strength'
 		'''
 }
@@ -3465,4 +3459,32 @@ RazorContainer: {
 		While flying it always critically strikes and has increased armor penetration
 		'Some yellow fur is still stuck at the bottom' 
 		'''
+}
+
+NebulaBooster: {
+	DisplayName: Nebula Booster
+	Tooltip: ""
+	Activate: +{0} life regen
+	Deactivate: -{0} life regen
+}
+
+SolarBooster: {
+	DisplayName: Solar Booster
+	Tooltip: ""
+	Activate: +{0}% DR
+	Deactivate: -{0}% DR
+}
+
+StardustBooster: {
+	DisplayName: Stardust Booster
+	Tooltip: ""
+	Activate: +{0}% damage
+	Deactivate: -{0}% damage
+}
+
+VortexBooster: {
+	DisplayName: Vortex Booster
+	Tooltip: ""
+	Activate: +{0}% crit
+	Deactivate: -{0}% crit
 }
