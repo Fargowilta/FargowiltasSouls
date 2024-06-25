@@ -76,12 +76,12 @@ Any projectiles that would deal less than 10 damage to you are destroyed
                 Vector2 npcComparePoint = FargoSoulsUtil.ClosestPointInHitbox(npc, player.Center);
                 if (player.Distance(npcComparePoint) < dist && (forceEffect || Collision.CanHitLine(player.Center, 0, 0, npcComparePoint, 0, 0)))
                 {
-                    if (!(npc.HasBuff<CorruptedBuffForce>() || npc.HasBuff<CorruptedBuff>()))
+                    if (!(npc.HasBuff<WitheredWizardBuff>() || npc.HasBuff<WitheredBuff>()))
                     {
                         npc.AddBuff(ModContent.BuffType<CorruptingBuff>(), 2);
                     }
                 }
-                if (npc.FargoSouls().EbonCorruptionTimer > 60 * 3 && (!(npc.HasBuff<CorruptedBuffForce>() || npc.HasBuff<CorruptedBuff>())))
+                if (npc.FargoSouls().EbonCorruptionTimer > 60 * 3 && (!(npc.HasBuff<WitheredWizardBuff>() || npc.HasBuff<WitheredBuff>())))
                 {
                     EbonwoodProc(player, npc, dist, forceEffect, 5);
                 }
@@ -113,7 +113,7 @@ Any projectiles that would deal less than 10 damage to you are destroyed
             foreach (NPC npcToProcOn in Main.npc.Where(n => n.active && !n.friendly && n.lifeMax > 5 && !n.dontTakeDamage))
             {
                 Vector2 npcComparePoint = FargoSoulsUtil.ClosestPointInHitbox(npcToProcOn, npc.Center);
-                if (npc.Distance(npcComparePoint) < AoE && !npc.HasBuff<CorruptedBuffForce>() && !npc.HasBuff<CorruptedBuff>() && limit > 0)
+                if (npc.Distance(npcComparePoint) < AoE && !npc.HasBuff<WitheredWizardBuff>() && !npc.HasBuff<WitheredBuff>() && limit > 0)
                 {
                     EbonwoodProc(player, npc, AoE, force, limit - 1); //yes this chains (up to 3 times deep)
                 }
@@ -140,16 +140,16 @@ Any projectiles that would deal less than 10 damage to you are destroyed
         }
         private static void Corrupt(NPC npc, bool force)
         {
-            if (npc.HasBuff<CorruptedBuffForce>() || npc.HasBuff<CorruptedBuff>()) //don't stack the buffs under any circumstances
+            if (npc.HasBuff<WitheredWizardBuff>() || npc.HasBuff<WitheredBuff>()) //don't stack the buffs under any circumstances
             {
                 return;
             }
             if (force)
             {
-                npc.AddBuff(ModContent.BuffType<CorruptedBuffForce>(), 60 * 4);
+                npc.AddBuff(ModContent.BuffType<WitheredWizardBuff>(), 60 * 4);
                 return;
             }
-            npc.AddBuff(ModContent.BuffType<CorruptedBuff>(), 60 * 4);
+            npc.AddBuff(ModContent.BuffType<WitheredBuff>(), 60 * 4);
         }
     }
 }

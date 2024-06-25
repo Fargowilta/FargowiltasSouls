@@ -138,7 +138,6 @@ namespace FargowiltasSouls.Core.Toggler
 
             player.SetToggleValue<BorealEffect>(false);
             player.SetToggleValue<ShadewoodEffect>(false);
-            player.SetToggleValue<PearlwoodEffect>(false);
 
             player.SetToggleValue<CobaltEffect>(false);
             player.SetToggleValue<AncientCobaltEffect>(false);
@@ -182,7 +181,7 @@ namespace FargowiltasSouls.Core.Toggler
             //player.SetToggleValue<PungentEyeballCursor>(false);
             player.SetToggleValue<PungentMinion>(false);
             player.SetToggleValue<DeerclawpsEffect>(false);
-            player.SetToggleValue<CultistMinionEffect>(false);
+            //player.SetToggleValue<CultistMinionEffect>(false);
             player.SetToggleValue<LihzahrdBoulders>(false);
             player.SetToggleValue<PlantMinionEffect>(false);
             player.SetToggleValue<CelestialRuneAttacks>(false);
@@ -194,7 +193,6 @@ namespace FargowiltasSouls.Core.Toggler
 
             player.SetToggleValue<MasoRing>(false);
 
-            player.SetToggleValue<MagmaStoneEffect>(false);
             player.SetToggleValue<SniperScopeEffect>(false);
 
             player.SetToggleValue<BuilderEffect>(false);

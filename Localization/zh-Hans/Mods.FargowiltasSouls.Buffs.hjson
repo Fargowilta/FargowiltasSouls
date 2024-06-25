@@ -55,7 +55,7 @@ ObsidianLavaWetBuff: {
 
 TitaniumDRBuff: {
 	DisplayName: 钛金护盾
-	Description: 你获得了额外的伤害减免
+	Description: 你获得了额外的伤害减免并免疫大多数减益
 }
 
 KingSlimeMinionBuff: {
@@ -129,7 +129,7 @@ BaronsBurdenBuff: {
 		'''
 		处于空气中时重力急剧增加
 		在空气中无法呼吸，在水中时可自由呼吸
-		快回来！
+		提高水下移动力
 		'''
 }
 
@@ -630,7 +630,7 @@ SuperBleedBuff: {
 
 CorruptingBuff: {
 	DisplayName: 腐化之力
-	Description: ""
+	Description: 你正在腐烂
 }
 
 TimeFrozenBuff: {
@@ -678,14 +678,14 @@ WretchedHexBuff: {
 	Description: 暗影焰触手伤害大幅提升，但速度和防御大幅下降
 }
 
-CorruptedBuff: {
-	DisplayName: 腐化之蚀
-	Description: Mods.FargowiltasSouls.Buffs.CorruptedBuff.Description
+WitheredBuff: {
+	// DisplayName: Withered
+	// Description: Mods.FargowiltasSouls.Buffs.WithereddBuff.Description
 }
 
-CorruptedBuffForce: {
-	DisplayName: 腐化之蚀
-	Description: Mods.FargowiltasSouls.Buffs.CorruptedBuffForce.Description
+WitheredWizardBuff: {
+	// DisplayName: Withered
+	// Description: Mods.FargowiltasSouls.Buffs.WitheredWizardBuff.Description
 }
 
 JungleMimicSummonBuff: {
@@ -696,6 +696,11 @@ JungleMimicSummonBuff: {
 GladiatorBuff: {
 	DisplayName: 角斗士之力
 	Description: +5%伤害减免，+5%伤害，免疫击退，增强长矛雨
+}
+
+GladiatorSpiritBuff: {
+	// DisplayName: Gladiator Strength
+	// Description: +15% damage reduction, +30% damage, knockback immunity, improved successive hit damage
 }
 
 ROBBuff: {
@@ -730,12 +735,22 @@ MagicalCurseBuff: {
 	Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
 }
 
-PearlwoodStarBuff: {
-	DisplayName: 破坏之星
-	Description: 破坏之星将会跟随你
+MoonFangBuff: {
+	DisplayName: 月之毒牙
+	Description: 无法恢复生命
 }
 
-MoonFangBuff: {
-	// DisplayName: Moon Fang
-	// Description: Cannot regenerate life
+WitheredForceBuff: {
+	// DisplayName: Withered Force Buff
+	// Description: Mods.FargowiltasSouls.Buffs.WitheredForceBuff.Description
+}
+
+TimberBleedBuff: {
+	// DisplayName: Timber Bleed Buff
+	// Description: Mods.FargowiltasSouls.Buffs.TimberBleedBuff.Description
+}
+
+EarthPoison: {
+	// DisplayName: Earth Poison
+	// Description: Mods.FargowiltasSouls.Buffs.EarthPoison.Description
 }

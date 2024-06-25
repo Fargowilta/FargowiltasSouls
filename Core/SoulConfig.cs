@@ -48,9 +48,6 @@ namespace FargowiltasSouls.Core
         [DefaultValue(true)]
         public bool PrecisionSealIsHold;
 
-        [DefaultValue(true)]
-        public bool PreBossNightGlow;
-
         private const float max4kX = 3840f;
         [Increment(1f)]
         [Range(0f, max4kX)]

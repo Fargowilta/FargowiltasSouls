@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Core.Toggler
             Effect = effect;
             Mod = mod;
 
-            ToggleBool = true;
+            ToggleBool = effect.DefaultToggle;
         }
 
         public override string ToString() => $"Mod: {Mod}, Category: {Category}, Effect: {Effect.Name}, Toggled: {ToggleBool}";

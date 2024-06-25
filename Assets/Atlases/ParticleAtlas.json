@@ -24,58 +24,10 @@
         "y": 0.5
       }
     },
-    "Bloom": {
-      "frame": {
-        "x": 160,
-        "y": 0,
-        "w": 100,
-        "h": 100
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 100,
-        "h": 100
-      },
-      "sourceSize": {
-        "w": 100,
-        "h": 100
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "SparkParticle": {
-      "frame": {
-        "x": 160,
-        "y": 100,
-        "w": 64,
-        "h": 64
-      },
-      "rotated": false,
-      "trimmed": true,
-      "spriteSourceSize": {
-        "x": 4,
-        "y": 4,
-        "w": 64,
-        "h": 64
-      },
-      "sourceSize": {
-        "w": 72,
-        "h": 72
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
     "ElectricSpark": {
       "frame": {
-        "x": 224,
-        "y": 100,
+        "x": 160,
+        "y": 0,
         "w": 22,
         "h": 170
       },
@@ -96,48 +48,96 @@
         "y": 0.5
       }
     },
-    "BigSparkle": {
+    "Bloom": {
       "frame": {
-        "x": 160,
-        "y": 164,
-        "w": 50,
-        "h": 50
+        "x": 182,
+        "y": 0,
+        "w": 100,
+        "h": 100
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 50,
-        "h": 50
+        "w": 100,
+        "h": 100
       },
       "sourceSize": {
-        "w": 50,
-        "h": 50
+        "w": 100,
+        "h": 100
       },
       "pivot": {
         "x": 0.5,
         "y": 0.5
       }
     },
-    "SmallSparkle": {
+    "AlphaBloom": {
+      "frame": {
+        "x": 182,
+        "y": 100,
+        "w": 93,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 93,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 100,
+        "h": 100
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "SparkParticle": {
       "frame": {
         "x": 160,
-        "y": 214,
-        "w": 15,
-        "h": 15
+        "y": 193,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 72,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "BigSparkle": {
+      "frame": {
+        "x": 224,
+        "y": 193,
+        "w": 50,
+        "h": 50
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 15,
-        "h": 15
+        "w": 50,
+        "h": 50
       },
       "sourceSize": {
-        "w": 15,
-        "h": 15
+        "w": 50,
+        "h": 50
       },
       "pivot": {
         "x": 0.5,
@@ -146,8 +146,8 @@
     },
     "Bubble": {
       "frame": {
-        "x": 210,
-        "y": 164,
+        "x": 160,
+        "y": 170,
         "w": 10,
         "h": 19
       },
@@ -167,6 +167,30 @@
         "x": 0.5,
         "y": 0.5
       }
+    },
+    "SmallSparkle": {
+      "frame": {
+        "x": 224,
+        "y": 243,
+        "w": 15,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 15,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 15,
+        "h": 15
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
     }
   },
   "meta": {
@@ -175,7 +199,7 @@
     "image": "ParticleAtlas.png",
     "format": "RGBA8888",
     "size": {
-      "w": 260,
+      "w": 282,
       "h": 636
     },
     "scale": 1

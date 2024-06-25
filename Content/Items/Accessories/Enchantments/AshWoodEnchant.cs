@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         }
         public static void PassiveEffect(Player player)
         {
-            player.FargoSouls().fireNoDamage = true;
+            //player.FargoSouls().fireNoDamage = true;
         }
         public override void UpdateInventory(Player player) => PassiveEffect(player);
         public override void UpdateVanity(Player player) => PassiveEffect(player);

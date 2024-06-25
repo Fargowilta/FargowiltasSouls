@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Projectiles.Masomode;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -24,7 +26,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.height = 300;
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Generic;
             Projectile.penetrate = -1;
             Projectile.timeLeft = Main.projFrames[Type] * fpf;
             Projectile.tileCollide = false;
@@ -38,10 +40,16 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
 
             Projectile.scale = 1f;
         }
+        public bool SourceIsTerra = false;
         public override void OnSpawn(IEntitySource source)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
             Projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
+
+            if (source is EntitySource_Parent parent && parent.Entity is Projectile parentProj && parentProj.type == ModContent.ProjectileType<TerraLightning>())
+            {
+                SourceIsTerra = true;
+            }
         }
         public override void AI()
         {
@@ -56,6 +64,14 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 Projectile.Kill();
             }
             Projectile.velocity = Vector2.Zero;
+        }
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (SourceIsTerra)
+            {
+                target.AddBuff(BuffID.Electrified, 60 * 5);
+                target.AddBuff(ModContent.BuffType<LeadPoisonBuff>(), 60 * 5);
+            }
         }
         public override bool PreDraw(ref Color lightColor)
         {

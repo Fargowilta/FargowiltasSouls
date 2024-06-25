@@ -29,6 +29,7 @@ using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using Luminance.Core.Graphics;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 
 namespace FargowiltasSouls.Core.ModPlayers
 {
@@ -505,30 +506,6 @@ namespace FargowiltasSouls.Core.ModPlayers
                     }
                 }
             }
-
-            if (Player.HasEffect<PearlwoodEffect>())
-            {
-                int buffType = ModContent.BuffType<PearlwoodStarBuff>();
-                if (Player.HasBuff(buffType))
-                {
-                    Player.ClearBuff(buffType);
-                }
-                else
-                {
-                    SoundEngine.PlaySound(SoundID.Item119, Player.Center);
-
-                    Player.AddBuff(buffType, 2);
-
-                    int max = 60;
-                    for (int i = 0; i < max; i++)
-                    {
-                        float scale = 3f;
-                        int index2 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.CrystalSerpent_Pink, 0f, 0f, 0, new Color(), scale);
-                        Main.dust[index2].noGravity = true;
-                        Main.dust[index2].velocity *= scale * 3;
-                    }
-                }
-            }
         }
 
         public void AmmoCycleKey()
@@ -865,6 +842,17 @@ namespace FargowiltasSouls.Core.ModPlayers
                             Main.dust[d].velocity *= 9f;
                         }
                         */
+
+                        if (Player.HasEffect<TerraLightningEffect>())
+                        {
+                            TerraProcCD = 0;
+                            int targetID = FargoSoulsUtil.FindClosestHostileNPC(Player.Center, 1000, true, true);
+                            if (targetID.IsWithinBounds(Main.maxNPCs) && Main.npc[targetID] is NPC target && target.Alive())
+                            {
+                                TerraLightningEffect.LightningProc(Player, target);
+                            }
+                            
+                        }
                     }
                     int sheet = perfectParry ? 1 : 0; // which parry vfx sprite sheet to use
                     Projectile.NewProjectile(Player.GetSource_Misc(""), Player.Center, Vector2.Zero, ModContent.ProjectileType<IronParry>(), 0, 0f, Main.myPlayer, sheet);

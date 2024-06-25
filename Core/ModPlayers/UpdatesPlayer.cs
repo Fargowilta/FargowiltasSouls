@@ -150,8 +150,12 @@ namespace FargowiltasSouls.Core.ModPlayers
         {
             if (Berserked && !Player.CCed)
             {
-                Player.controlUseItem = true;
-                Player.releaseUseItem = true;
+                if (Player.HeldItem != null && Player.HeldItem.IsWeapon())
+                {
+                    Player.controlUseItem = true;
+                    Player.releaseUseItem = true;
+                }
+                
             }
 
             if (LowGround)
@@ -437,6 +441,18 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public override void PostUpdateMiscEffects()
         {
+            if (ToggleRebuildCooldown > 0)
+                ToggleRebuildCooldown--;
+
+            if (CosmosMoonTimer > 0) // naturally degrades
+                CosmosMoonTimer--;
+
+            if (LifeBeetleDuration > 0)
+                LifeBeetleDuration--;
+
+            if (NatureHealCounter > 0 && NatureHealCD <= 0)
+                NatureHealCounter--;
+
             //these are here so that emode minion nerf can properly detect the real set bonuses over in EModePlayer postupdateequips
             if (SquireEnchantActive)
                 Player.setSquireT2 = true;

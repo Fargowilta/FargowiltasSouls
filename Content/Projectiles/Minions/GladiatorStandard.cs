@@ -13,12 +13,12 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 13;
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 32;
+            Projectile.width = 36;
             Projectile.height = 74;
             Projectile.aiStyle = -1;
             Projectile.tileCollide = true;
@@ -52,7 +52,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                 Main.LocalPlayer.AddBuff(ModContent.BuffType<GladiatorBuff>(), 2);
             }
 
-            if (++Projectile.frameCounter > 2)
+            if (++Projectile.frameCounter > 5)
             {
                 Projectile.frameCounter = 0;
                 if (++Projectile.frame >= Main.projFrames[Projectile.type])

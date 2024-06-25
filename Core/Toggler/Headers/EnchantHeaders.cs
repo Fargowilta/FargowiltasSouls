@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Forces;
+using FargowiltasSouls.Content.UI.Elements;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Core.Toggler.Content
@@ -6,6 +7,12 @@ namespace FargowiltasSouls.Core.Toggler.Content
     public abstract class EnchantHeader : Header
     {
         public override float Priority => 0;
+        public override string SortCategory => "Enchantments";
+    }
+    public class DefaultHeader : Header
+    {
+        public override int Item => ModContent.ItemType<TogglerIconItem>();
+        public override float Priority => -1e10f;
         public override string SortCategory => "Enchantments";
     }
     public class TimberHeader : EnchantHeader

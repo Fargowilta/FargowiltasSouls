@@ -61,7 +61,6 @@ AshWoodEnchant: {
 	Tooltip:
 		'''
 		“着火了！”减益不再伤害你与城镇NPC
-		对NPC生效的效果放在背包中也可生效
 		当玩家身上有“着火了！”减益时，攻击会附带有火球
 		免疫浸油减益
 		降低岩浆的接触伤害
@@ -793,6 +792,7 @@ BoxofGizmos: {
 		'''
 		放在物品栏中即可生效
 		静止不动时显露附近的宝藏与敌人
+		敌怪在夜晚会发光
 		使非武器物品获得自动使用的效果
 		'''
 }
@@ -836,6 +836,15 @@ EarthForce: {
 		[i:FargowiltasSouls/TitaniumEnchant] 攻击生成钛金碎片防御屏障，达到最大个数获得钛金护盾
 		“盖亚的祝福照耀着你”
 		'''
+	/* SaveOldTooltip:
+		'''
+		[i:FargowiltasSouls/CobaltEnchant] Grants an explosion jump and you explode on hit
+		[i:FargowiltasSouls/MythrilEnchant] Stop attacking to gradually increase attack speed for up to 5 seconds
+		[i:FargowiltasSouls/PalladiumEnchant] Grants Rapid Healing after striking an enemy and spawn life orbs based on healing
+		[i:FargowiltasSouls/OrichalcumEnchant] Attacks spawn flower petals and damaging debuffs deal 3.5x damage
+		[i:FargowiltasSouls/AdamantiteEnchant] Every weapon shot will split into 3, 50% damage each, with higher spread the longer you fire
+		[i:FargowiltasSouls/TitaniumEnchant] Attacks generate titanium shards, reaching max grants Titanium Shield
+		''' */
 }
 
 LifeForce: {
@@ -859,7 +868,7 @@ NatureForce: {
 		'''
 		[i:FargowiltasSouls/CrimsonEnchant] 受击后7秒内未再次受击则恢复损失的一半生命值，计算两次
 		[i:FargowiltasSouls/MoltenEnchant] 引燃你附近较大范围内的敌人
-		[i:FargowiltasSouls/MoltenEnchant] 狱火圈的伤害增加，所有敌怪在狱火圈内会额外受到25%伤害
+		[i:FargowiltasSouls/MoltenEnchant] 狱火圈的伤害增加，所有敌怪在狱火圈内会额外受到30%伤害
 		[i:FargowiltasSouls/RainEnchant] 召唤一把可反射上方弹幕的雨伞
 		[i:FargowiltasSouls/SnowEnchant] 你的周围会出现冰锥，攻击敌人会造成霜冻减益
 		[i:FargowiltasSouls/ChlorophyteEnchant] 召唤一圈叶绿水晶攻击附近的敌人
@@ -888,6 +897,20 @@ ShadowForce: {
 		[i:FargowiltasSouls/DarkArtistEnchant] 召唤一个爆炸烈焰仆从随玩家的攻击而攻击
 		“黑暗，更黑暗，还是更黑暗”
 		'''
+	/* SavingOldTooltip:
+		'''
+		[i:FargowiltasSouls/ShadowEnchant] Four Shadow Orbs will orbit around you
+		[i:FargowiltasSouls/AncientShadowEnchant] Your attacks may inflict Darkness on enemies
+		[i:FargowiltasSouls/NecroEnchant] Slain enemies may drop a pile of bones
+		[i:FargowiltasSouls/NinjaEnchant] Increases projectile damage based on projectile speed
+		[i:FargowiltasSouls/NinjaEnchant] Increases projectile speed while moving slowly
+		[i:FargowiltasSouls/CrystalAssassinEnchant] Throw a smoke bomb to teleport to it and gain the First Strike Buff
+		[i:FargowiltasSouls/SpookyEnchant] All of your minions gain an extra scythe attack
+		[i:FargowiltasSouls/MonkEnchant] Don't attack to gain a single use monk dash
+		[i:FargowiltasSouls/ShinobiEnchant] Dash into any walls, to teleport through them to the next opening
+		[i:FargowiltasSouls/ApprenticeEnchant] While attacking, fire your next 3 closest weapons' projectiles as support
+		[i:FargowiltasSouls/DarkArtistEnchant] Summons a Flameburst minion that will also fire when you attack
+		''' */
 }
 
 SpiritForce: {
@@ -916,9 +939,9 @@ TerraForce: {
 		[i:FargowiltasSouls/IronEnchant] 物品的吸附范围扩大
 		[i:FargowiltasSouls/LeadEnchant] 受到的持续伤害降低60%
 		[i:FargowiltasSouls/SilverEnchant] 右键进行盾牌格挡
-		[i:FargowiltasSouls/TungstenEnchant] 每过0.25秒剑和弹幕的大小增加300%
+		[i:FargowiltasSouls/TungstenEnchant] 剑的大小增加200%，每过0.33秒弹幕的大小增加200%
 		[i:FargowiltasSouls/ObsidianEnchant] 使你免疫火块与熔岩
-		[i:FargowiltasSouls/AshWoodEnchant] 玩家与城镇NPC攻击时会附带火球
+		[i:FargowiltasSouls/AshWoodEnchant] 玩家攻击时会附带火球
 		“大地赐予它力量”
 		'''
 }
@@ -1079,14 +1102,14 @@ ChaliceoftheMoon: {
 	Tooltip:
 		'''
 		[i:FargowiltasSouls/ChaliceoftheMoon]免疫蜂群、萎缩、卡壳、魔力逆流和社恐减益
-		免疫[i:FargowiltasSouls/MagicalBulb]毒液、常春藤毒素、[i:FargowiltasSouls/LihzahrdTreasureBox]燃烧、导火索、下陷和[i:FargowiltasSouls/CelestialRune]死亡标记减益
+		免疫[i:FargowiltasSouls/MagicalBulb]毒液、常春藤毒素、[i:FargowiltasSouls/LihzahrdTreasureBox]燃烧、导火索、下陷、蜥蜴诅咒和[i:FargowiltasSouls/CelestialRune]死亡标记减益
 		[i:FargowiltasSouls/MagicalBulb]按下“魔法净化”键治愈你
 		[i:FargowiltasSouls/MagicalBulb]根据你受到的光照增加生命恢复速度
 		[i:FargowiltasSouls/LihzahrdTreasureBox]在空中双击“下”键快速下落
 		在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
 		落地时生成一连串巨石
 		[i:FargowiltasSouls/CelestialRune] 根据武器类型，定期发动额外的攻击，受伤时召唤远古幻影妖攻击敌人
-		召唤友善的[i:FargowiltasSouls/CelestialRune]邪教徒和[i:FargowiltasSouls/MagicalBulb]植物幼株为你而战
+		召唤友善的[i:FargowiltasSouls/MagicalBulb]植物幼株为你而战
 		“喝了它”
 		'''
 }
@@ -1284,7 +1307,7 @@ LihzahrdTreasureBox: {
 	DisplayName: 蜥蜴宝藏盒
 	Tooltip:
 		'''
-		免疫燃烧、导火索和下陷减益
+		免疫燃烧、导火索、蜥蜴诅咒和下陷减益
 		在空中双击“下”键快速下落
 		在一定高度使用快速下落，撞击地面时会产生猛烈的火焰喷发
 		“陷阱太多，打不开”
@@ -1316,7 +1339,7 @@ MagicalBulb: {
 		'''
 		免疫毒液、常春藤毒素和蜂群减益
 		按下“魔法净化”键治愈你身上绝大多数的减益，此效果有一定的冷却时间
-		魔法净化还会使附近的敌人因减益受到的伤害随时间推移而增加
+		魔法净化还会使附近的敌人因减益受到的伤害翻倍
 		不攻击时，冷却速度更快
 		根据你受到的光照增加生命恢复速度
 		吸引一株传奇植物的幼株，其会在战斗中茁壮成长
@@ -1383,7 +1406,7 @@ NecromanticBrew: {
 		'''
 		免疫昏昏欲睡减益
 		增加50%冲刺速度
-		冲刺时只会受到25%接触伤害，并且会对攻击者反弹全部接触伤害
+		冲刺时获得额外15%伤害减免，并且会对攻击者反弹4倍接触伤害
 		召唤两个骷髅王手臂重击敌人
 		“这液体来自被你打败的敌人，能促进骨头生长”
 		'''
@@ -1451,7 +1474,7 @@ PureHeart: {
 		[i:FargowiltasSouls/PureHeart]免疫生物群落带来的减益
 		[i:FargowiltasSouls/PureHeart]增加10%最大生命值
 		免疫[i:FargowiltasSouls/DarkenedHeart]腐败和[i:FargowiltasSouls/GuttedHeart]嗜血减益
-		[i:FargowiltasSouls/DarkenedHeart]增加10%移动速度和转向速度
+		[i:FargowiltasSouls/DarkenedHeart]增加10%移动速度
 		[i:FargowiltasSouls/DarkenedHeart]每攻击几次，你就会产生几个追踪敌人的迷你噬魂者
 		[i:FargowiltasSouls/GuttedHeart]召唤阻挡伤害的飞眼怪，不移动时飞眼怪生成速度加快
 		[i:FargowiltasSouls/GuttedHeart]每10-15秒生成一个新的飞眼怪，最多同时存在5个
@@ -1546,7 +1569,7 @@ SlimyShield: {
 	Tooltip:
 		'''
 		免疫史莱姆减益
-		增加下落速度
+		增加50%最大下落速度
 		落地时召唤从天而降的凝胶球，掉落至光标位置
 		凝胶球造成史莱姆和浸油减益
 		“从被打败的敌人的内脏中撕裂而来”
@@ -1580,14 +1603,14 @@ SupremeDeathbringerFairy: {
 	Tooltip:
 		'''
 		免疫[i:FargowiltasSouls/SlimyShield]史莱姆、[i:FargowiltasSouls/AgitatingLens]狂暴、[i:FargowiltasSouls/NecromanticBrew]昏昏欲睡和[i:FargowiltasSouls/QueenStinger]感染减益
-		[i:FargowiltasSouls/SlimyShield]增加下落速度
+		[i:FargowiltasSouls/SlimyShield]增加50%最大下落速度
 		[i:FargowiltasSouls/SlimyShield]落地时召唤从天而降的凝胶球，掉落至光标位置
 		[i:FargowiltasSouls/AgitatingLens]冲刺或奔跑时会在身后留下一串鲜血镰刀
 		[i:FargowiltasSouls/AgitatingLens]按住“上”“下”的同时按下“减益负载”键进入狂暴状态
 		[i:FargowiltasSouls/QueenStinger]蜂蜜增益会增加5点护甲穿透，蜜蜂和较弱的黄蜂变得友好
 		[i:FargowiltasSouls/QueenStinger]按下“特殊冲刺”键后会进行短距离的快速蜜蜂冲刺
 		[i:FargowiltasSouls/NecromanticBrew]增加50%冲刺速度
-		[i:FargowiltasSouls/NecromanticBrew]冲刺时只会受到25%接触伤害，并且会对攻击者反弹全部接触伤害
+		[i:FargowiltasSouls/NecromanticBrew]冲刺时获得额外15%伤害减免，并且会对攻击者反弹4倍接触伤害
 		[i:FargowiltasSouls/NecromanticBrew]召唤两个骷髅王手臂重击敌人
 		“霸权难保”
 		'''
@@ -1682,8 +1705,7 @@ ColossusSoul: {
 	DisplayName: 巨像之魂
 	Tooltip:
 		'''
-		增加100点最大生命值
-		增加15%伤害减免
+		增加10%伤害减免
 		增加5点生命恢复速度
 		免疫击退、一些减益和摔落伤害
 		增加敌人以你为目标的几率
@@ -1783,7 +1805,8 @@ MasochistSoul: {
 		缩小你对于敌对弹幕的碰撞判定，按下“精确模式”键禁用冲刺和二段跳
 		右键以及其严格的时机格挡攻击
 		使用以传送到你上一次死亡的地点
-		召唤所有永恒模式Boss的援助到你身边
+		召唤[i:FargowiltasSouls/NecromanticBrew]骷髅王手臂、[i:FargowiltasSouls/GuttedHeart]飞眼怪、[i:FargowiltasSouls/ConcentratedRainbowMatter]彩虹史莱姆、[i:FargowiltasSouls/GroundStick]两个探测器、[i:FargowiltasSouls/SkullCharm]眼球召唤物、
+		[i:FargowiltasSouls/SaucerControlConsole]迷你飞碟、[i:FargowiltasSouls/MagicalBulb]世纪之花和[i:FargowiltasSouls/GalacticGlobe]克苏鲁真眼为你而战
 		“拥抱精通，拥抱永恒”
 		'''
 }
@@ -1986,7 +2009,7 @@ MutantBody: {
 		'''
 		增加70%伤害和30%暴击率
 		最大生命值和魔力值增加200
-		所受伤害减少50%
+		所受伤害减少30%
 		极大提升生命恢复速度
 		'''
 }
@@ -2046,7 +2069,7 @@ StyxCrown: {
 		'''
 		增加10%伤害
 		增加10%暴击率
-		增加3个召唤栏位、2个哨兵栏位
+		增加3个召唤栏位、1个哨兵栏位
 		'''
 }
 
@@ -3416,4 +3439,32 @@ RazorContainer: {
 		期间刀片具有额外护甲穿透且必定暴击
 		“底部还粘着一些黄色皮毛”
 		'''
+}
+
+NebulaBooster: {
+	// DisplayName: Nebula Booster
+	// Tooltip: ""
+	// Activate: +{0} life regen
+	// Deactivate: -{0} life regen
+}
+
+SolarBooster: {
+	// DisplayName: Solar Booster
+	// Tooltip: ""
+	// Activate: +{0}% DR
+	// Deactivate: -{0}% DR
+}
+
+StardustBooster: {
+	// DisplayName: Stardust Booster
+	// Tooltip: ""
+	// Activate: +{0}% damage
+	// Deactivate: -{0}% damage
+}
+
+VortexBooster: {
+	// DisplayName: Vortex Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit
+	// Deactivate: -{0}% crit
 }

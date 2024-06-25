@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Items;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -18,7 +19,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
         {
             Projectile.width = 34;
             Projectile.height = 34;
-            Projectile.scale = 1f;
+            Projectile.scale = 1;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Generic;
             Projectile.ignoreWater = true;
@@ -43,6 +44,14 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 {
                     Main.LocalPlayer.AddBuff(BuffID.Honey, 60 * 15);
                     BeeSwarm();
+                    if (Projectile.ai[2] == 1) // life force
+                    {
+                        Main.LocalPlayer.FargoSouls().LifeBeetleDuration = 60 * 10;
+                        Main.LocalPlayer.wingTime = Main.LocalPlayer.wingTimeMax;
+                        Main.LocalPlayer.FargoSouls().HealPlayer(10);
+                    }
+
+                    FargoGlobalItem.OnRetrievePickup(Main.LocalPlayer);
 
                     Projectile.Kill();
                 }
@@ -60,13 +69,19 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
 
         public void BeeSwarm()
         {
+            int damage = (int)(Projectile.damage * 0.75f);
             for (int i = 0; i < 7; i++)
             {
                 Vector2 pos = Main.rand.NextVector2FromRectangle(Projectile.Hitbox);
                 int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, (pos - Projectile.Center) / 12,
-                    Main.LocalPlayer.beeType(), Main.LocalPlayer.beeDamage((int)(Projectile.damage * 0.75f)), Main.LocalPlayer.beeKB(Projectile.knockBack), Main.LocalPlayer.whoAmI);
+                    Main.LocalPlayer.beeType(), Main.LocalPlayer.beeDamage(damage), Main.LocalPlayer.beeKB(Projectile.knockBack), Main.LocalPlayer.whoAmI);
                 if (p != Main.maxProjectiles)
+                {
                     Main.projectile[p].DamageType = Projectile.DamageType;
+                    if (Projectile.ai[2] == 1)
+                        Main.projectile[p].extraUpdates = 10;
+                }
+                    
             }
         }
     }

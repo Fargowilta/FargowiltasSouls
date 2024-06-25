@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
             Projectile.width = Projectile.height = 14;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
+            Projectile.scale = 1.5f;
         }
 
         public override void AI()

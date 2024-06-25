@@ -1,4 +1,4 @@
-
+﻿
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\tModLoader.targets" />
   <PropertyGroup>
@@ -15,18 +15,23 @@
     <None Remove="Folders to Port\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Content\Items\Accessories\Forces\LifeForce_Wings.png" />
+    <None Remove="Content\Projectiles\Minions\GladiatorSpirit.png" />
+    <None Remove="Content\Projectiles\Minions\GladiatorStandard.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Atlases\" />
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Assets\ExtraTextures\Noise\" />
     <Folder Include="Content\WorldGen\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Fargowiltas">
-      <HintPath>Fargowiltas.dll</HintPath>
-    </Reference>
     <Reference Include="Luminance">
       <HintPath>Luminance.dll</HintPath>
+    </Reference>
+    <Reference Include="Fargowiltas">
+      <HintPath>Fargowiltas.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

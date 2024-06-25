@@ -55,7 +55,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             player.maxMinions += 2;
             player.maxTurrets += 1;
 
-            player.AddEffect<MagmaStoneEffect>(Item);
             player.kbGlove = true;
             player.autoReuseGlove = true;
             player.meleeScaleGlove = true;

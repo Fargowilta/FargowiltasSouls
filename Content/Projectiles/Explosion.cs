@@ -20,7 +20,7 @@ namespace FargowiltasSouls.Content.Projectiles
             Projectile.height = 500;
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Ranged; //cringe
+            Projectile.DamageType = DamageClass.Generic; //cringe
             Projectile.penetrate = -1;
             Projectile.timeLeft = 2;
             Projectile.tileCollide = false;

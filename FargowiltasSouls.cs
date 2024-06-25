@@ -649,6 +649,7 @@ namespace FargowiltasSouls
         {
             RequestGuttedCreeper,
             RequestPerfumeHeart,
+            RequestPearlwoodStar,
             SyncCultistDamageCounterToServer,
             RequestCreeperHeal,
             RequestDeviGift,
@@ -657,9 +658,10 @@ namespace FargowiltasSouls
             SyncFishronEXLife,
             SyncTogglesOnJoin,
             SyncOneToggle,
+            SyncDefaultToggles,
             SyncCanPlayMaso,
             SyncNanoCoreMode,
-            //SpawnBossTryFromNPC
+            //SpawnBossTryFromNPC,
             HealNPC
         }
 
@@ -691,6 +693,15 @@ namespace FargowiltasSouls
                             int p = reader.ReadByte();
                             int n = reader.ReadByte();
                             Item.NewItem(Main.player[p].GetSource_OnHit(Main.npc[n]), Main.npc[n].Hitbox, ItemID.Heart);
+                        }
+                        break;
+
+                    case PacketID.RequestPearlwoodStar: //client to server
+                        if (Main.netMode == NetmodeID.Server)
+                        {
+                            int p = reader.ReadByte();
+                            int n = reader.ReadByte();
+                            Item.NewItem(Main.player[p].GetSource_OnHit(Main.npc[n]), Main.npc[n].Hitbox, ItemID.Star);
                         }
                         break;
 
@@ -790,6 +801,14 @@ namespace FargowiltasSouls
                         {
                             Player player = Main.player[reader.ReadByte()];
                             player.SetToggleValue(AccessoryEffectLoader.EffectType(reader.ReadString()), reader.ReadBoolean());
+                        }
+                        break;
+                    case PacketID.SyncDefaultToggles:
+                        {
+                            Player player = Main.player[reader.ReadByte()];
+                            FargoSoulsPlayer modPlayer = player.FargoSouls();
+                            modPlayer.Toggler_ExtraAttacksDisabled = reader.ReadBoolean();
+                            modPlayer.Toggler_MinionsDisabled = reader.ReadBoolean();
                         }
                         break;
 

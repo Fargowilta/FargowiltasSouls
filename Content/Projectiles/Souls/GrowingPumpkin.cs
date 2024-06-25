@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+﻿using FargowiltasSouls.Content.Items;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -84,6 +85,8 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                     {
                         heal *= 2;
                     }
+
+                    FargoGlobalItem.OnRetrievePickup(Main.LocalPlayer);
 
                     Main.LocalPlayer.FargoSouls().HealPlayer(heal);
                     SoundEngine.PlaySound(SoundID.Item2, Main.LocalPlayer.Center);

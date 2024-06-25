@@ -61,7 +61,6 @@ AshWoodEnchant: {
 	/* Tooltip:
 		'''
 		Fire debuffs don't damage you
-		Above effect works for town NPCs while equipped or in your inventory
 		While you're burning, attacks are accompanied by balls of fire
 		Grants immunity to Oiled
 		Reduces damage from touching lava
@@ -184,9 +183,9 @@ EbonwoodEnchant: {
 	// DisplayName: Ebonwood Enchantment
 	/* Tooltip:
 		'''
-		You are surrounded by an aura that builds up Corruption on enemies
-		After 3 seconds of buildup they burst, Corrupting all nearby enemies
-		Corrupted enemies have 10 less defense and deal 20% less contact damage
+		You are surrounded by an aura that builds up Withering on enemies
+		After 3 seconds of buildup they burst, Withering all nearby enemies
+		Withered enemies have 10 less defense and deal 20% less contact damage
 		'Untapped potential'
 		''' */
 }
@@ -195,7 +194,7 @@ ForbiddenEnchant: {
 	// DisplayName: Forbidden Enchantment
 	/* Tooltip:
 		'''
-		Double tap down to call an ancient storm to the cursor location
+		Double tap down to call an ancient storm to the cursor location, that scales with magic and summon damage
 		Any projectiles shot through your storm gain 30% damage
 		Touch it yourself to add back missing wing time
 		Storm can be resummoned after touching the ground
@@ -443,9 +442,10 @@ PearlwoodEnchant: {
 	// DisplayName: Pearlwood Enchantment
 	/* Tooltip:
 		'''
-		Press the Debuff Install key to spawn a damaging star that chases you
-		While the star is active, your attacks can roll an extra chance to crit
-		'You can't outrun your own reflection'
+		Retreiving any pickup fires a star at a nearby enemy and empowers you for 5 seconds
+		While empowered, your critical strikes reroll favorably and you have a harmless rainbow trail
+		Your attacks occasionally spawn mana stars on-hit
+		'Too little, too late…'
 		''' */
 }
 
@@ -795,6 +795,7 @@ BoxofGizmos: {
 		'''
 		Works in your inventory
 		Stand still to expose nearby treasure and enemies
+		Enemies emit light at night
 		Grants autofire to non-weapon items
 		''' */
 }
@@ -814,14 +815,11 @@ CosmoForce: {
 	// DisplayName: Force of Cosmos
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/MeteorEnchant] A meteor shower initiates every few seconds while attacking
-		[i:FargowiltasSouls/MeteorEnchant] Running acceleration increased, you have a fire trail
-		[i:FargowiltasSouls/SolarEnchant] Solar shield allows you to dash through enemies
-		[i:FargowiltasSouls/SolarEnchant] Attacks may inflict the Solar Flare debuff
-		[i:FargowiltasSouls/VortexEnchant] Double tap down to toggle stealth and spawn a vortex
-		[i:FargowiltasSouls/NebulaEnchant] Hurting enemies has a chance to spawn buff boosters
-		[i:FargowiltasSouls/StardustEnchant] A stardust guardian will protect you from nearby enemies
-		[i:FargowiltasSouls/StardustEnchant] Press the Freeze Key to freeze time for 9 seconds, 50 second cooldown
+		[i:FargowiltasSouls/MeteorEnchant] [i:FargowiltasSouls/WizardEnchant] [i:FargowiltasSouls/SolarEnchant] [i:FargowiltasSouls/VortexEnchant] [i:FargowiltasSouls/NebulaEnchant] [i:FargowiltasSouls/StardustEnchant]
+		Attacking generates up to 4 moons that orbit around you 
+		Stop attacking to launch them towards your cursor, exploding into Lunar Boosters
+		Picking up Lunar Boosters increases your damage, crit, life regen or damage reduction
+		Increases your movement speed and acceleration, and decreases your momentum
 		'Been around since the Big Bang'
 		''' */
 }
@@ -830,13 +828,23 @@ EarthForce: {
 	// DisplayName: Force of Earth
 	/* Tooltip:
 		'''
+		Not attacking charges up your weapons
+		Increased life regeneration and damage reduction the more charge is stored
+		Attack to consume charge
+		While charged up, projectiles will split into three and weapons will fire faster
+		While charged up you also inflict Earth Poison, which does a percentage of your weapons damage
+
+		Enemies take 4x damage from debuffs
+		'Gaia's blessing shines upon you'
+		''' */
+	/* SaveOldTooltip:
+		'''
 		[i:FargowiltasSouls/CobaltEnchant] Grants an explosion jump and you explode on hit
 		[i:FargowiltasSouls/MythrilEnchant] Stop attacking to gradually increase attack speed for up to 5 seconds
 		[i:FargowiltasSouls/PalladiumEnchant] Grants Rapid Healing after striking an enemy and spawn life orbs based on healing
 		[i:FargowiltasSouls/OrichalcumEnchant] Attacks spawn flower petals and damaging debuffs deal 3.5x damage
 		[i:FargowiltasSouls/AdamantiteEnchant] Every weapon shot will split into 3, 50% damage each, with higher spread the longer you fire
 		[i:FargowiltasSouls/TitaniumEnchant] Attacks generate titanium shards, reaching max grants Titanium Shield
-		'Gaia's blessing shines upon you'
 		''' */
 }
 
@@ -844,14 +852,12 @@ LifeForce: {
 	// DisplayName: Force of Life
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/PumpkinEnchant] You will grow pumpkins while moving
-		[i:FargowiltasSouls/CactusEnchant] Enemies may explode into needles on death
-		[i:FargowiltasSouls/BeeEnchant] Leave behind flowers while flying
-		[i:FargowiltasSouls/BeeEnchant] Effects of Hive Pack
-		[i:FargowiltasSouls/SpiderEnchant] Your minions and sentries can crit
-		[i:FargowiltasSouls/SpiderEnchant] Minion and sentry crits deal 1.5x damage, instead of 2x
-		[i:FargowiltasSouls/TurtleEnchant] When standing still and not attacking, you will enter your shell
-		[i:FargowiltasSouls/BeetleEnchant] Beetles aid both offense and defense
+		[i:FargowiltasSouls/PumpkinEnchant] [i:FargowiltasSouls/BeeEnchant] [i:FargowiltasSouls/SpiderEnchant] [i:FargowiltasSouls/TurtleEnchant] [i:FargowiltasSouls/BeetleEnchant]
+		Grants powerful wings
+		Leave behind powerful flowers while flying
+		The flowers heal you, spawn a burst of bees, grant you full Beetle Might and Honey, and refresh your flight time when touched
+		Your minions and sentries can crit for 1.5x damage
+		Effects of Hive Pack
 		'Rare is a living thing that dare disobey your will'
 		''' */
 }
@@ -860,21 +866,26 @@ NatureForce: {
 	// DisplayName: Force of Nature
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/CrimsonEnchant] Heal back 50% of damage taken after not getting hit for 7 seconds, twice
-		[i:FargowiltasSouls/MoltenEnchant] Nearby enemies are ignited in a great radius
-		[i:FargowiltasSouls/RainEnchant] Spawns an umbrella that blocks projectiles from above
-		[i:FargowiltasSouls/FrostEnchant] Icicles will start to appear around you
-		[i:FargowiltasSouls/ChlorophyteEnchant] Summons a ring of leaf crystals to shoot at nearby enemies
-		[i:FargowiltasSouls/JungleEnchant] Grants a double spore jump and a dash
-		[i:FargowiltasSouls/ShroomiteEnchant] Not moving puts you in stealth
-		[i:FargowiltasSouls/ShroomiteEnchant] All attacks gain trails of mushrooms
+		[i:FargowiltasSouls/CrimsonEnchant] [i:FargowiltasSouls/MoltenEnchant] [i:FargowiltasSouls/RainEnchant] [i:FargowiltasSouls/FrostEnchant] [i:FargowiltasSouls/ChlorophyteEnchant] [i:FargowiltasSouls/ShroomiteEnchant] 
+		Heal back 50% of damage taken after not getting hit for 7 seconds, twice
+		Healing from any source fires nature beams at nearby enemies
+		+4% damage per 50 current life
+		Current damage bonus: +{0}%
 		'Tapped into every secret of the wilds'
 		''' */
 }
 
 ShadowForce: {
-	// DisplayName: Shadow Force
+	// DisplayName: Force of Death
 	/* Tooltip:
+		'''
+		Grants a shadow dash
+		Every 4 seconds, your next dash will envolope you in shade, making you invincible during the dash
+		Dashing through an enemy with the shade dash damages them and inflicts Marked for Death
+		Moving slowly increases your damage, up to 40%
+		'Dark, Darker, Yet Darker'
+		''' */
+	/* SavingOldTooltip:
 		'''
 		[i:FargowiltasSouls/ShadowEnchant] Four Shadow Orbs will orbit around you
 		[i:FargowiltasSouls/AncientShadowEnchant] Your attacks may inflict Darkness on enemies
@@ -887,7 +898,6 @@ ShadowForce: {
 		[i:FargowiltasSouls/ShinobiEnchant] Dash into any walls, to teleport through them to the next opening
 		[i:FargowiltasSouls/ApprenticeEnchant] While attacking, fire your next 3 closest weapons' projectiles as support
 		[i:FargowiltasSouls/DarkArtistEnchant] Summons a Flameburst minion that will also fire when you attack
-		'Dark, Darker, Yet Darker'
 		''' */
 }
 
@@ -895,31 +905,27 @@ SpiritForce: {
 	// DisplayName: Force of Spirit
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/FossilEnchant] If you reach zero HP you will revive with 200 HP, self-cleanse debuffs, and spawn several bones
-		[i:FargowiltasSouls/FossilEnchant] Collect the bones once they stop moving to heal for 20 HP each
-		[i:FargowiltasSouls/ForbiddenEnchant] Double tap down to call an ancient storm to the cursor location
-		[i:FargowiltasSouls/ForbiddenEnchant] Any projectiles shot through your storm gain 60% damage
-		[i:FargowiltasSouls/AncientHallowEnchant] You gain a Terraprisma familiar that can reflect projectiles
-		[i:FargowiltasSouls/HallowEnchant] Healing potions take effect over time and create a projectile-repelling shockwave
-		[i:FargowiltasSouls/TikiEnchant] Whip your summons to make them work harder, whip range increased
-		[i:FargowiltasSouls/SpectreEnchant] Damage has a chance to spawn damaging and healing orbs
+		[i:FargowiltasSouls/FossilEnchant] [i:FargowiltasSouls/ForbiddenEnchant] [i:FargowiltasSouls/HallowEnchant] [i:FargowiltasSouls/AncientHallowEnchant] [i:FargowiltasSouls/TikiEnchant] [i:FargowiltasSouls/SpectreEnchant]
+		Double tap down to call an ancient tornado that scales with magic and summon damage
+		The tornado follows your mouse and releases damaging orbs
+		Any projectiles shot through your tornado gain 60% damage
+		Healing potions restore more health but take effect over time
+		If you reach zero HP you will revive with 200 HP, self-cleanse debuffs, and spawn healing bones
+		Increased whip range, whip your summons to make them work harder
 		'Ascend from this mortal realm'
 		''' */
 }
 
 TerraForce: {
-	// DisplayName: Terra Force
+	// DisplayName: Force of Terra
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/CopperEnchant][i:FargowiltasSouls/ObsidianEnchant][i:FargowiltasSouls/LeadEnchant] Attacks spawn lightning, explosions, and inflict Lead Poisoning
-		[i:FargowiltasSouls/TinEnchant] Sets Tin crit chance to 10%, increasing up to double your original crit chance or 50%
-		[i:FargowiltasSouls/IronEnchant] 50% chance to not consume each item on first craft
-		[i:FargowiltasSouls/IronEnchant] You attract items from a larger range
-		[i:FargowiltasSouls/LeadEnchant] You take 60% less from damage over time
-		[i:FargowiltasSouls/SilverEnchant] Right Click to guard with your shield
-		[i:FargowiltasSouls/TungstenEnchant] Weapon size increased to 300% and projectile size every quarter second
-		[i:FargowiltasSouls/ObsidianEnchant] Grants immunity to lava
-		[i:FargowiltasSouls/AshWoodEnchant] Player and town NPC attacks are accompanied by fireballs
+		[i:FargowiltasSouls/CopperEnchant] [i:FargowiltasSouls/TinEnchant] [i:FargowiltasSouls/IronEnchant] [i:FargowiltasSouls/LeadEnchant] [i:FargowiltasSouls/SilverEnchant] [i:FargowiltasSouls/TungstenEnchant] [i:FargowiltasSouls/ObsidianEnchant]    
+		Right Click to guard with your shield
+		Critical strikes sometimes fire a lightning bolt that explodes on hit and inflicts a stronger Lead Poisoning
+		Successful parries instantly fire a lightning bolt 
+		You take 60% less damage over time
+		50% chance to not consume each item on first craft and you attract items from a larger range (works in vanity and inventory)
 		'The land lends its strength'
 		''' */
 }
@@ -928,12 +934,14 @@ TimberForce: {
 	// DisplayName: Force of Timber
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/WoodEnchant] You gain a shop discount based on bestiary completion
-		[i:FargowiltasSouls/BorealWoodEnchant] Attacks will periodically be accompanied by several snowballs
-		[i:FargowiltasSouls/RichMahoganyEnchant] All grappling hooks shoot, pull, and retract 2.5x as fast
-		[i:FargowiltasSouls/EbonwoodEnchant][i:FargowiltasSouls/ShadewoodEnchant] You have an aura of Corruption and Bleeding
-		[i:FargowiltasSouls/PalmWoodEnchant] Double tap down to spawn up to 2 palm tree sentries
-		[i:FargowiltasSouls/PearlwoodEnchant] Press the Debuff Install key to spawn a damaging star and gain crit reroll
+		[i:FargowiltasSouls/WoodEnchant] [i:FargowiltasSouls/BorealWoodEnchant] [i:FargowiltasSouls/RichMahoganyEnchant] [i:FargowiltasSouls/EbonwoodEnchant] [i:FargowiltasSouls/ShadewoodEnchant] [i:FargowiltasSouls/PalmWoodEnchant] [i:FargowiltasSouls/PearlwoodEnchant]
+		Attacks will periodically be accompanied by a tree crown that always crits
+		The branches inflict Withering and Bleeding, reducing defense and dealing damage over time
+		Attacks slightly reduce the cooldown of the tree crown
+		All grappling hooks shoot, pull, and retract 2.5x as fast
+		Retreiving pickups empowers you, making your crits reroll favorably for 5 seconds
+		Bestiary and banner entries complete faster
+		You gain a shop discount based on bestiary completion (works in vanity and inventory)
 		'Extremely rigid'
 		''' */
 }
@@ -942,15 +950,13 @@ WillForce: {
 	// DisplayName: Force of Will
 	/* Tooltip:
 		'''
-		[i:FargowiltasSouls/GoldEnchant] Press the Gold hotkey to be encased in a Golden Shell
-		[i:FargowiltasSouls/GoldEnchant] Automatically sends coins to your piggy bank when picked up
-		[i:FargowiltasSouls/PlatinumEnchant] 33% chance for enemies to drop 5x loot
-		[i:FargowiltasSouls/GladiatorEnchant] Double tap down to place a banner that buffs you while close
-		[i:FargowiltasSouls/GladiatorEnchant] Spears will rain down on struck enemies
-		[i:FargowiltasSouls/RedRidingEnchant] Successive attacks gain bonus damage 
-		[i:FargowiltasSouls/ValhallaKnightEnchant] Increases the effectiveness of healing sources by 25%
-		[i:FargowiltasSouls/ValhallaKnightEnchant] Improves mounts and stats while mounted, mounts have a dash
-		'A mind of unbreakable determination'
+		[i:FargowiltasSouls/GoldEnchant] [i:FargowiltasSouls/PlatinumEnchant] [i:FargowiltasSouls/GladiatorEnchant] [i:FargowiltasSouls/RedRidingEnchant] [i:FargowiltasSouls/ValhallaKnightEnchant]
+		You are followed by a gladiator spirit with a banner that empowers you while close
+		Successive attacks gain bonus damage, increased when empowered by the banner
+		Increases the effectiveness of healing sources by 25%
+		Improves mounts and stats while mounted, mounts have a dash
+		Automatically sends coins to your piggy bank when picked up (works in vanity and inventory)
+		33% chance for enemies to drop 5x loot
 		''' */
 }
 
@@ -1081,7 +1087,7 @@ ChaliceoftheMoon: {
 		[i:FargowiltasSouls/MagicalBulb] Increases life regeneration based on how much light you receive
 		[i:FargowiltasSouls/LihzahrdTreasureBox] Double tap DOWN in the air to fastfall, creating an explosion on landing after falling a certain distance
 		[i:FargowiltasSouls/CelestialRune] You fire additional attacks depending on weapon type and erupt into Ancient Visions when injured
-		Summons a friendly [i:FargowiltasSouls/ChaliceoftheMoon] Cultist and [i:FargowiltasSouls/MagicalBulb] plant to fight at your side
+		[i:FargowiltasSouls/MagicalBulb] Summons a friendly plant to fight at your side
 		'Consume it'
 		''' */
 }
@@ -1792,7 +1798,7 @@ MasochistSoul: {
 		Improves your [i:FargowiltasSouls/SecurityWallet] reforges, [i:FargowiltasSouls/OrdinaryCarrot] night vision, [i:FargowiltasSouls/NymphsPerfume] respawn hp, [i:FargowiltasSouls/SandsofTime] and respawn time, as well as using [i:FargowiltasSouls/ConcentratedRainbowMatter] healing and [i:FargowiltasSouls/MysticSkull] mana potions as needed.
 		On hit, [i:FargowiltasSouls/SqueakyToy] have a chance to only take 1 damage, [i:FargowiltasSouls/CelestialRune] erupt into Ancient Visions, [i:FargowiltasSouls/NecromanticBrew] and reflect all damage while dashing
 		Your attacks [i:FargowiltasSouls/NymphsPerfume] produce hearts, [i:FargowiltasSouls/WretchedPouch] summon shadowflame tentacles, [i:FargowiltasSouls/DarkenedHeart] spawn mini eaters, [i:FargowiltasSouls/CelestialRune] fire additional attacks, and inflict a cocktail of Eternity Mode debuffs
-		Summons [i:FargowiltasSouls/NecromanticBrew] Skeletron arms, [i:FargowiltasSouls/GuttedHeart] creepers, [i:FargowiltasSouls/ConcentratedRainbowMatter] a rainbow slime, [i:FargowiltasSouls/GroundStick] two friendly probes, [i:FargowiltasSouls/SkullCharm] an eyeball minion, [i:FargowiltasSouls/SaucerControlConsole] a mini saucer, [i:FargowiltasSouls/MagicalBulb] a plant, [i:FargowiltasSouls/CelestialRune] a cultist, [i:FargowiltasSouls/GalacticGlobe] and True Eyes of Cthulhu by your side
+		Summons [i:FargowiltasSouls/NecromanticBrew] Skeletron arms, [i:FargowiltasSouls/GuttedHeart] creepers, [i:FargowiltasSouls/ConcentratedRainbowMatter] a rainbow slime, [i:FargowiltasSouls/GroundStick] two friendly probes, [i:FargowiltasSouls/SkullCharm] an eyeball minion, [i:FargowiltasSouls/SaucerControlConsole] a mini saucer, [i:FargowiltasSouls/MagicalBulb] a plant, [i:FargowiltasSouls/GalacticGlobe] and True Eyes of Cthulhu by your side
 		[i:FargowiltasSouls/SandsofTime] Use to teleport to your last death point
 		'Embrace mastery, embrace eternity'
 		''' */
@@ -1831,25 +1837,15 @@ TerrariaSoul: {
 	// DisplayName: Soul of Terraria
 	/* Tooltip:
 		'''
-		Summons fireballs, shadow orbs, icicles, leaf crystals, flameburst minion, hallowed sword and shield, and beetles
-		Right Click to Guard
-		Double tap down to spawn a sentry, a banner, and a portal, call a storm and arrow rain, toggle stealth, and direct your empowered guardian
-		Gold Key encases you in gold, Freeze Key freezes time for 5 seconds, minions spew scythes
-		Solar shield allows you to dash, Dash into any walls, to teleport through them
-		Throw a smoke bomb to teleport to it and gain the First Strike Buff
-		Attacks may spawn lightning, a storm cloud, flower petals, spectre orbs, a Dungeon Guardian, snowballs, spears, or buff boosters
-		Attacks cause increased life regen, shadow dodge, Flameburst shots, meteor showers, and reduced enemy immune frames
-		Critical chance is set to 25%, Crit to increase it by 5%, At 100% every 10th attack gains 4% life steal
-		Getting hit drops your crit back down, triggers a blood geyser, and reflects damage
-		Projectiles may split or shatter and spawn stars, item and projectile size increased, attract items from further away
-		Nearby enemies are ignited, You leave behind a trail of fire, jump to create a spore explosion
-		Grants Crimson healing, immunity to fire, fall damage, and lava, and doubled herb collection
-		Grants 50% chance for Mega Bees, 15% chance for minion crits, 20% chance for bonus loot
-		Critters have increased defense and their souls will aid you, You may summon temporary minions
-		All grappling hooks are more effective and fire homing shots, Greatly enhances all DD2 sentries
-		Your attacks inflict Midas, Enemies explode into needles
-		You violently explode to damage nearby enemies when hurt and revive with 200 HP when killed
-		Effects of Flower Boots
+		Critical strikes occasionally fire moons that explode into Force Boosters on hit
+		If you reach zero HP you will revive with 300 HP and self-cleanse debuffs
+		Increases your movement speed and acceleration, and decreases your momentum
+		Bestiary and banner entries complete faster
+		33% chance for enemies to drop 5x loot
+		Works in vanity and inventory:
+		You gain a shop discount based on bestiary completion
+		Automatically sends coins to your piggy bank when picked up
+		50% chance to not consume each item on first craft and you attract items from a larger range
 		'A true master of Terraria'
 		''' */
 }
@@ -3423,4 +3419,32 @@ RazorContainer: {
 		While flying it always critically strikes and has increased armor penetration
 		'Some yellow fur is still stuck at the bottom' 
 		''' */
+}
+
+NebulaBooster: {
+	// DisplayName: Nebula Booster
+	// Tooltip: ""
+	// Activate: +{0} life regen
+	// Deactivate: -{0} life regen
+}
+
+SolarBooster: {
+	// DisplayName: Solar Booster
+	// Tooltip: ""
+	// Activate: +{0}% DR
+	// Deactivate: -{0}% DR
+}
+
+StardustBooster: {
+	// DisplayName: Stardust Booster
+	// Tooltip: ""
+	// Activate: +{0}% damage
+	// Deactivate: -{0}% damage
+}
+
+VortexBooster: {
+	// DisplayName: Vortex Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit
+	// Deactivate: -{0}% crit
 }

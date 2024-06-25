@@ -53,7 +53,6 @@ namespace FargowiltasSouls.Core.Toggler.Content
 
         public int UniverseHeader = ModContent.ItemType<UniverseSoul>();
         public string Melee;
-        public string MagmaStone;
         public string YoyoBag;
         public string MoonCharm;
         public string NeptuneShell;

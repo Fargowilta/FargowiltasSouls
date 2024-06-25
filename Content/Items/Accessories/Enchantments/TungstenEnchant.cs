@@ -116,7 +116,8 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         public static List<int> TungstenNeverAffectProjType =
         [
             ModContent.ProjectileType<FishStickProjTornado>(),
-            ModContent.ProjectileType<FishStickWhirlpool>()
+            ModContent.ProjectileType<FishStickWhirlpool>(),
+            ProjectileID.ButchersChainsaw,
         ];
         public static List<int> TungstenNeverAffectProjStyle = [];
         public static bool TungstenNeverAffectsProj(Projectile projectile)

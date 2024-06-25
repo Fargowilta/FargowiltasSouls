@@ -150,7 +150,7 @@ MutantFangBuff: {
 
 MutantPresenceBuff: {
 	// DisplayName: Mutant Presence
-	// Description: Defense, damage reduction, and life regen reduced; almost all effect toggles disabled; reduced graze radius
+	// Description: Defense, damage reduction, and life regen reduced; reduced graze radius
 }
 
 HellFireBuff: {
@@ -678,14 +678,14 @@ WretchedHexBuff: {
 	// Description: Shadowflame tentacles and vastly increased damage, but vastly decreased speed and defenses
 }
 
-CorruptedBuff: {
-	// DisplayName: Corrupted Buff
-	// Description: Mods.FargowiltasSouls.Buffs.CorruptedBuff.Description
+WitheredBuff: {
+	// DisplayName: Withered
+	// Description: Mods.FargowiltasSouls.Buffs.WithereddBuff.Description
 }
 
-CorruptedBuffForce: {
-	// DisplayName: Corrupted Buff Force
-	// Description: Mods.FargowiltasSouls.Buffs.CorruptedBuffForce.Description
+WitheredWizardBuff: {
+	// DisplayName: Withered
+	// Description: Mods.FargowiltasSouls.Buffs.WitheredWizardBuff.Description
 }
 
 JungleMimicSummonBuff: {
@@ -696,6 +696,11 @@ JungleMimicSummonBuff: {
 GladiatorBuff: {
 	// DisplayName: Gladiator Strength
 	// Description: +5% damage reduction, +5% damage, knockback immunity, improved spear rain
+}
+
+GladiatorSpiritBuff: {
+	// DisplayName: Gladiator Strength
+	// Description: +15% damage reduction, +30% damage, knockback immunity, improved successive hit damage
 }
 
 ROBBuff: {
@@ -730,12 +735,22 @@ MagicalCurseBuff: {
 	// Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
 }
 
-PearlwoodStarBuff: {
-	// DisplayName: Pearlwood Star Buff
-	// Description: Mods.FargowiltasSouls.Buffs.PearlwoodStarBuff.Description
-}
-
 MoonFangBuff: {
 	// DisplayName: Moon Fang
 	// Description: Cannot regenerate life
+}
+
+WitheredForceBuff: {
+	// DisplayName: Withered Force Buff
+	// Description: Mods.FargowiltasSouls.Buffs.WitheredForceBuff.Description
+}
+
+TimberBleedBuff: {
+	// DisplayName: Timber Bleed Buff
+	// Description: Mods.FargowiltasSouls.Buffs.TimberBleedBuff.Description
+}
+
+EarthPoison: {
+	// DisplayName: Earth Poison
+	// Description: Mods.FargowiltasSouls.Buffs.EarthPoison.Description
 }

@@ -49,7 +49,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             player.FargoSouls().MeleeSoul = true;
 
             //gauntlet
-            player.AddEffect<MagmaStoneEffect>(Item);
             player.kbGlove = true;
             player.autoReuseGlove = true;
             player.meleeScaleGlove = true;
@@ -103,15 +102,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
         public override void PostUpdateEquips(Player player)
         {
             player.GetAttackSpeed(DamageClass.Melee) += .2f;
-        }
-    }
-    public class MagmaStoneEffect : AccessoryEffect
-    {
-        public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
-        public override int ToggleItemType => ItemID.MagmaStone;
-        public override void PostUpdateEquips(Player player)
-        {
-            player.magmaStone = true;
         }
     }
 }

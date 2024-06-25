@@ -6,6 +6,59 @@ If you intend to use this mod with the Calamity Mod, use the official Fargo's So
 Fargo Discord: https://discord.gg/Rgen4Vv
 Fargo Wiki: https://fargosmods.wiki.gg
 
+
+NEW UPDATE: v1.6.10.5
+Eridanus: Deathray attacks +25% damage. Some attacks ignore 25% of defense.
+Eridanus: Gravity vortex gives you Low Ground and infinite flight during its existence
+Abominationns Presence defense reduction 20 -> 30, DR reduction 20 -> 25%
+Trojan Squirrel: Tweaked snowball attack timing and speed
+
+-Colossus Soul: Damage reduction 15 -> 10%, Extra health 100 -> 0
+-Prisma Regalia base damage 160 -> 185
+-Ashwood Enchant: Removed NPC effect, no longer relevant
+-Removed Lunatic Cultist minion from Chalice of the Moon
+-Celestial Rune attacks base damage 50 -> 65
+-Enemies emitting light at night is now granted by Box of Gizmos, removed Eternity config for it
+
+-Added default toggles to disable all Attack Effects, and all Minions. These only display if you have any of the corresponding ones.
+-Added toggle for Wood Enchantment bestiary/banner completion effect
+-Rebuilding the toggle menu now has a 30 tick cooldown (fixes performance issues when the menu is open)
+-Added sound cooldown for Lightslinger charge sound
+-Firing Lightslinger while the special shot is ready now also fires indicating pink dust
+-Wizard Enchantment now works better with modded accessory slots
+-Wizard Enchantment tooltip now displays "Active" and "Inactive" for effects respectively
+-Rewrote Magical Bulb damage over time tooltip
+-Resprited Barbarians Essence
+
+-Fixed Mechanical Boss orb sounds not playing correctly
+-Fixed outdated Necromantic Brew description
+-Fixed Lihzahrd Treasure Box and Chalice tooltips not stating immunity to Lihzahrd Curse
+
+Eternity Mode changes:
+-ALL life regeneration is decreased for a few seconds after getting hit. Reduction gradually degrades.
+-Berserked debuff now only makes weapons auto-use, not other items
+-Brain of Confusion: Reduced damage after hit -> Halved dodge chance
+-Warmth Potion: Now applies post-mitigation, giving 15% damage reduction.
+-Rain lightning deals more damage to enemies
+-Stardust Pillar minions now heal when the pillar heals, outside of combat
+
+King Slime:
+-Removed passive slime drops on landing
+-Slime globs on special jump and from sky are larger
+-Increased base jump X velocity
+-Special slimes don't deal damage for 1 second after spawning
+-Stops special jumping when sufficiently far past player, to avoid getting too far away for no reason
+
+Plantera:
+-Phase 2:
+--DR 50% -> 40%
+--Reduced outer ring projectile cout from 12 to 9 (unchanged in Masochist)
+-Phase 3:
+--First attack ramps up shot frequency throughout the attack (ramps up faster in Masochist Mode)
+--Second attack starts shooting chakrams a bit later
+--Added rest period to latter part of third attack, where she doesn't fire projectiles
+
+
 NEW UPDATE - v1.6.10.3
 -Fixed a WOF divide by zero error
 -WOF growls when starts telegraphing world evil attack
@@ -18,71 +71,3 @@ NEW UPDATE - v1.6.10.3
 -Fixed Gaia set bonus secretly giving a sentry slot it shouldn't
 -Fixed sound engine completely breaking during Destroyer light show attack
 -Fixed Queen Bee AI breaking and doing nothing forever if you make her circle
-
-NEW UPDATE - v1.6.10
--Eternity world icon now uses the new Luminance icon tray
--Resprited Eternity Deerclops
--Resprited several accessories and items
--New sprite for Hallow Enchant barrier effect
--Decreased the intensity of most screenshakes
--Ancient Seal doesn't spawn Dungeon Guardian
--Nurse Heal during boss fight message is more clear that she cant heal because a boss is alive
--New Banished Baron hit sounds
--New Performance Mode config, that disables the trail on Mutant eyes
-
--Molten Enchant: Decreased DoT damage, Damage bonus 25% -> 20%, Wizard damage bonus 25% -> 30%, Recipe includes Sunfury -> Molten Fury
--Ancient Shadow Enchantment tentacles now have a global half second cooldown
--Razor Container: Improved movement and visuals, new sound effect, rebalanced, network synced
--Agitating Lens lens install duration 7.5s -> 8s, stun 2.5s -> 2s
--Frigid Gemstone hotkey spell only deals damage in Hardmode
--Lucy the Axe can now benefit from Tungsten Enchantment
--Tweaked Eternity Advisor recommendations
-
--If you have several classes with equal highest damage, the Eternity Advisor shows recommendations for all those classes
--Fixed timestopping yourself by using certain penetrator attacks during Masochist Mutant desperation
--Fixed Deviantt's giant deathray rendering incorrectly
--Fixed Eternity Advisor selling for more than it buys
--Fixed Gutted Heart minions unintendedly dying in multiplayer
-
-Lifelight:
--In non-Eternity Mode, the Crystal Congregation attack only congregates, doesn't send the crystals
--In non-Eternity Mode, phase transition only does 1 spin, less orbs
-
-Eternity Mode changes:
--Plantera:
---Max Health 175% -> 165%
---Phase 3 vertical speed is now capped and much slower, while above the player
---Improved behaviour and movement of p3 arena maneaters
--Lunatic Cultist dragon from Pillars is now Zenith seed only
--Eater of Worlds' body now reduces the damage of projectiles that hit it, like Eternity Destroyer
--Masochist FTW Skeletron Prime limbs use Vanilla AI instead
--Masochist WoF eye lasers inflict Burning
--Masochist WoF Ichor attack falls upwards aswell
--Reduced WoF Ichor lag
--Masochist Queen Bee deathrays exchanged for vertically dashing bees
--Parrots can spawn in Underground Jungle in Hardmode (and Prehardmode in Masochist Mode, without loot)
--Improved Mutant Sword/Devi Axe hitboxes, can no longer be clipped through
--Enemies don't burn in the Underworld in the Don't Dig Up seed
--Lucy the Axe: +20% damage
--Pewmatic Horn: +40% damage
--Weather Pain: Increased hit frequency and pierce
--Houndius Shootius: +20% damage and increased fireball velocity
--North Pole: +12% damage
--Elf Melter: +10% damage
--Fixed Masochist FTW Fishron's stats scaling incorrectly
--Fixed some Skeletron projectiles being unaffected by Eternity recolor in multiplayer
-
-NEW UPDATE - v1.6.9
-The mod is now dependent on the Luminance library mod. This mainly matters internally, but will marginally improve performance in some areas.
-
--Masochist Retinazer aura now inflicts God Eater instead
--Masochist EoW uses group attacks more often, and only uses half of his heads for them
--FTW Mutant can't combo direct spear throw into slime rain
--FTW Mutant counts to 22 twice as fast
--Buffed FTW Duke Fishron dashes
--FTW Trojan Squirrel starts at 2x size
--GFB Lifelight phase transition lasts a bit longer
--Tweaked GFB Mutant text
--Some fixes to GFB Banished Baron
--Fixed Shadow Champion orbs being bugged in multiplayer
--Fixed various netcode, visual and other lesser issues 

@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Content.Items;
+using FargowiltasSouls.Content.UI;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -32,7 +33,10 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
 
             if (effect.MinionEffect || effect.ExtraAttackEffect)
             {
-
+                if (effect.MinionEffect && modPlayer.Toggler_MinionsDisabled)
+                    return false;
+                if (effect.ExtraAttackEffect && modPlayer.Toggler_ExtraAttacksDisabled)
+                    return false;
                 if (modPlayer.PrimeSoulActive)
                 {
                     if (!player.HasEffect(effect)) // Don't stack per item
@@ -41,8 +45,10 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
                 }
             }
 
+            /*
             if (!effect.IgnoresMutantPresence && effect.HasToggle && modPlayer.MutantPresence)
                 return false;
+            */
 
             if (effect.HasToggle)
             {

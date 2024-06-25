@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
@@ -77,6 +78,7 @@ Collect the bones to heal for 20 HP each
         public static void FossilRevive(Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
+            bool spiritForce = modPlayer.ForceEffects.Contains(ModContent.ItemType<SpiritForce>());
 
             void Revive(int healAmount, int reviveCooldown)
             {
@@ -120,13 +122,13 @@ Collect the bones to heal for 20 HP each
 
             if (modPlayer.Eternity)
             {
-                Revive(player.statLifeMax2 / 2 > 200 ? player.statLifeMax2 / 2 : 200, 10800);
-                FargoSoulsUtil.XWay(30, player.GetSource_Misc("FossilEnchant"), player.Center, ModContent.ProjectileType<FossilBone>(), 15, 0, 0);
+                Revive(player.statLifeMax2 / 2 > 300 ? player.statLifeMax2 / 2 : 300, 10800);
+                //FargoSoulsUtil.XWay(30, player.GetSource_Misc("FossilEnchant"), player.Center, ModContent.ProjectileType<FossilBone>(), 15, 0, 0);
             }
             else if (modPlayer.TerrariaSoul)
             {
-                Revive(200, 14400);
-                FargoSoulsUtil.XWay(25, player.GetSource_Misc("FossilEnchant"), player.Center, ModContent.ProjectileType<FossilBone>(), 15, 0, 0);
+                Revive(300, 14400);
+                //FargoSoulsUtil.XWay(25, player.GetSource_Misc("FossilEnchant"), player.Center, ModContent.ProjectileType<FossilBone>(), 15, 0, 0);
             }
             else
             {

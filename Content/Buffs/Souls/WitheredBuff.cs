@@ -6,10 +6,10 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Buffs.Souls
 {
-    public class CorruptedBuff : ModBuff
+    public class WitheredBuff : ModBuff
     {
 
-        public override string Texture => "FargowiltasSouls/Content/Buffs/PlaceholderBuff";
+        public override string Texture => "FargowiltasSouls/Content/Buffs/Souls/WitheredBuff";
 
         public override void Update(NPC npc, ref int buffIndex)
         {

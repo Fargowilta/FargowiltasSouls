@@ -1,5 +1,6 @@
 using FargowiltasSouls.Content.Buffs.Souls;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Placables;
 using FargowiltasSouls.Content.Items.Weapons.Challengers;
 using FargowiltasSouls.Content.Projectiles.Souls;
@@ -60,7 +61,16 @@ namespace FargowiltasSouls.Content.Items
             if (player.whoAmI == Main.myPlayer && player.HasEffect<GoldToPiggy>())
                 modPlayer.GoldEnchMoveCoins = true;
 
+            if (ItemID.Sets.IsAPickup[item.type])
+            {
+                OnRetrievePickup(player);
+            }
+
             return base.OnPickup(item, player);
+        }
+        public static void OnRetrievePickup(Player player)
+        {
+            PearlwoodEffect.OnPickup(player);
         }
 
         public override void PickAmmo(Item weapon, Item ammo, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
@@ -163,7 +173,9 @@ namespace FargowiltasSouls.Content.Items
             FargoSoulsPlayer modPlayer = player.FargoSouls();
 
             if (modPlayer.Berserked)
+            {
                 return true;
+            }
             if (modPlayer.BoxofGizmos)
             {
                 if (item.DamageType == DamageClass.Default && item.damage <= 0)
@@ -463,11 +475,18 @@ namespace FargowiltasSouls.Content.Items
 
             if (player.HasEffect<BeeEffect>() && inUse)
             {
+                bool lifeForce = modPlayer.LifeForceActive;
                 if (modPlayer.BeeCD == 0)
                 {
+                    int force = lifeForce ? 1 : 0;
                     int damage = player.ForceEffect<BeeEffect>() ? 88 : 22; //22
-                    Projectile.NewProjectile(player.GetSource_Accessory(player.EffectItem<BeeEffect>()), player.Center, Vector2.Zero, ModContent.ProjectileType<BeeFlower>(), damage, 0.5f, player.whoAmI);
-                    modPlayer.BeeCD = 50;
+                    if (lifeForce)
+                        damage = 222;
+                    Projectile.NewProjectile(player.GetSource_Accessory(player.EffectItem<BeeEffect>()), player.Center, Vector2.Zero, ModContent.ProjectileType<BeeFlower>(), damage, 0.5f, player.whoAmI, ai2: force);
+                    int cd = 50;
+                    if ((lifeForce))
+                        cd = 150;
+                    modPlayer.BeeCD = cd;
                 }
                 if (modPlayer.BeeCD > 0)
                     modPlayer.BeeCD--;

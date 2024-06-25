@@ -22,7 +22,7 @@ Reduces damage taken by 5%"); */
             Item.height = 18;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 1, 50);
-            Item.defense = 11;
+            Item.defense = 10;
         }
 
         public override void UpdateEquip(Player player)

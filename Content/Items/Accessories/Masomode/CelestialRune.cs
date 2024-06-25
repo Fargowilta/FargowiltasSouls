@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Masomode
                     for (int i = 0; i < 3; i++)
                     {
                         Projectile.NewProjectile(GetSource_EffectItem(player), position, velocity.RotatedByRandom(Math.PI / 6) * Main.rand.NextFloat(6f, 10f),
-                            ModContent.ProjectileType<CelestialRuneFireball>(), (int)(50f * player.ActualClassDamage(DamageClass.Melee)), 9f, player.whoAmI);
+                            ModContent.ProjectileType<CelestialRuneFireball>(), (int)(65f * player.ActualClassDamage(DamageClass.Melee)), 9f, player.whoAmI);
                     }
                 }
                 if (damageType.CountsAsClass(DamageClass.Ranged)) //lightning
@@ -78,16 +78,16 @@ namespace FargowiltasSouls.Content.Items.Accessories.Masomode
                         float ai1 = Main.rand.Next(100);
                         Vector2 vel = Vector2.Normalize(velocity.RotatedByRandom(Math.PI / 4)).RotatedBy(MathHelper.ToRadians(5) * i) * 7f;
                         Projectile.NewProjectile(GetSource_EffectItem(player), position, vel, ModContent.ProjectileType<CelestialRuneLightningArc>(),
-                            (int)(50f * player.ActualClassDamage(DamageClass.Ranged)), 1f, player.whoAmI, velocity.ToRotation(), ai1);
+                            (int)(65f * player.ActualClassDamage(DamageClass.Ranged)), 1f, player.whoAmI, velocity.ToRotation(), ai1);
                     }
                 }
                 if (damageType.CountsAsClass(DamageClass.Magic)) //ice mist
                 {
-                    Projectile.NewProjectile(GetSource_EffectItem(player), position, velocity * 4.25f, ModContent.ProjectileType<CelestialRuneIceMist>(), (int)(50f * player.ActualClassDamage(DamageClass.Magic)), 4f, player.whoAmI);
+                    Projectile.NewProjectile(GetSource_EffectItem(player), position, velocity * 4.25f, ModContent.ProjectileType<CelestialRuneIceMist>(), (int)(65f * player.ActualClassDamage(DamageClass.Magic)), 4f, player.whoAmI);
                 }
                 if (damageType.CountsAsClass(DamageClass.Summon)) //ancient vision
                 {
-                    FargoSoulsUtil.NewSummonProjectile(GetSource_EffectItem(player), position, velocity * 16f, ModContent.ProjectileType<CelestialRuneAncientVision>(), 50, 3f, player.whoAmI);
+                    FargoSoulsUtil.NewSummonProjectile(GetSource_EffectItem(player), position, velocity * 16f, ModContent.ProjectileType<CelestialRuneAncientVision>(), 65, 3f, player.whoAmI);
                 }
             }
         }

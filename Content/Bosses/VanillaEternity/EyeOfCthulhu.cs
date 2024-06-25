@@ -249,8 +249,6 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         if (npc.alpha < 0)
                         {
                             npc.alpha = 0;
-                            if (WorldSavingSystem.MasochistModeReal && AITimer < 90)
-                                AITimer = 90;
                         }
 
                         const float PI = (float)Math.PI;

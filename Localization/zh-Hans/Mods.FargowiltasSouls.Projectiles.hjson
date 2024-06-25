@@ -178,6 +178,7 @@ TerraFireball.DisplayName: 火球
 TerraLightningOrb.DisplayName: 闪电珠
 TerraLightningOrb2.DisplayName: 闪电珠
 TerraLightningOrbDeathray.DisplayName: 闪电死亡射线
+// TerraLightning.DisplayName: Terra Lightning
 TimberAcorn.DisplayName: 橡实
 TimberHook.DisplayName: 松鼠钩
 TimberHook2.DisplayName: 松鼠钩
@@ -674,7 +675,6 @@ MeteorFlame.DisplayName: 流星焰
 RainUmbrella.DisplayName: 雨伞
 BeeFlower.DisplayName: 蜜蜂花朵
 MonkDashDamage.DisplayName: 武僧冲刺
-PearlwoodStareline.DisplayName: 珍珠木凝线
 EaterRocketJr.DisplayName: 腐肉
 VortexLightningDeathray.DisplayName: 星旋闪电死亡射线
 SpectralEoC.DisplayName: 克苏鲁幽灵眼
@@ -717,3 +717,8 @@ HentaiSwordBlast.DisplayName: 洞察者爆炸
 HentaiSphereOkuu.DisplayName: 洞察者幻影球
 AbomRitualFTW.DisplayName: 憎恶结界FTW
 // RoyalSubjectProjectile.DisplayName: Royal Subject Projectile
+// TimberBranch.DisplayName: Timber Branch
+// CosmosForceMoon.DisplayName: Cosmos Force Moon
+// GladiatorSpirit.DisplayName: Gladiator Spirit
+// ShadowDash.DisplayName: Shadow Dash
+// SpiritTornado.DisplayName: Spirit Tornado

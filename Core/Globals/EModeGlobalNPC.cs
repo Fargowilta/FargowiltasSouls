@@ -102,7 +102,7 @@ namespace FargowiltasSouls.Core.Globals
                 return base.PreAI(npc);
 
             //in pre-hm, enemies glow slightly at night
-            if (!Main.dayTime && !Main.hardMode && SoulConfig.Instance.PreBossNightGlow)
+            if (!Main.dayTime && !Main.hardMode && Main.player.Any(p => p.Alive() && p.FargoSouls().BoxofGizmos))
             {
                 int x = (int)npc.Center.X / 16;
                 int y = (int)npc.Center.Y / 16;
@@ -385,7 +385,7 @@ namespace FargowiltasSouls.Core.Globals
                     if (jungle)
                     {
                         if (WorldSavingSystem.MasochistModeReal && normalSpawn)
-                            pool[NPCID.Parrot] = .025f;
+                            pool[NPCID.Parrot] = .01f;
                     }
 
                     if (mushroom)
@@ -746,7 +746,7 @@ namespace FargowiltasSouls.Core.Globals
                             pool[NPCID.QueenBee] = .0001f;
 
                         if (normalSpawn)
-                            pool[NPCID.Parrot] = .025f;
+                            pool[NPCID.Parrot] = .01f;
 
                         if (!surface)
                         {

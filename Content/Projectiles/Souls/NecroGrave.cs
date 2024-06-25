@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+﻿using FargowiltasSouls.Content.Items;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -96,6 +97,8 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                     Main.dust[d].velocity *= 2;
                     Main.dust[d].noGravity = Main.rand.NextBool();
                 }
+
+                FargoGlobalItem.OnRetrievePickup(Main.LocalPlayer);
 
                 Projectile.Kill();
             }

@@ -2436,7 +2436,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), LockVector1, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, 1, MathHelper.Pi / 8 * i);
                 }
             }
-            if (AI_Timer <= StartTime)
+            if (AI_Timer < StartTime)
                 LockVector2 = NPC.SafeDirectionTo(Player.Center);
 
             if (AI_Timer >= StartTime && ShotCount < 6) // screenshake
@@ -2452,7 +2452,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 for (int i = 0; i < 16; i++)
                 {
                     if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector2.RotatedBy(MathHelper.Pi / 8 * i) * 24f, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(MathHelper.Pi / 8 * i) * 24f, ModContent.ProjectileType<LifeProjLarge>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 3f, Main.myPlayer);
                 }
 
                 //telegraph nukes

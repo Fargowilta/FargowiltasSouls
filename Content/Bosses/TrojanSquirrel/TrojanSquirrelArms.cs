@@ -128,8 +128,8 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                     {
                         NPC.ai[1]++;
 
-                        int start = 90;
-                        int end = 300;
+                        int start = 70;
+                        int end = 340;
                         if (WorldSavingSystem.EternityMode)
                         {
                             start -= 30;
@@ -178,7 +178,7 @@ namespace FargowiltasSouls.Content.Bosses.TrojanSquirrel
                                 if (FargoSoulsUtil.HostCheck)
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, distance, ModContent.ProjectileType<TrojanSnowball>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, gravity);
                             }
-                            NPC.ai[1] += NPC.ai[1] > end / 3 ? NPC.ai[1] > end * (2 / 3) ? 2 : 0 : 0;
+                            NPC.ai[1] += NPC.ai[1] > end / 3 ? NPC.ai[1] > end * (2 / 3) ? 3 : 1 : 0;
                         }
 
                         if (NPC.ai[1] > end)

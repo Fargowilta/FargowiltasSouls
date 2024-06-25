@@ -740,7 +740,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
 
                 void SpawnOuterLeafRing()
                 {
-                    const int max = 12;
+                    int max = WorldSavingSystem.MasochistModeReal ? 12 : 9;
                     const float distance = 250;
                     float rotation = 2f * (float)Math.PI / max;
                     for (int i = 0; i < max; i++)

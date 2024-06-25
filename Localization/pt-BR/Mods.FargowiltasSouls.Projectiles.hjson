@@ -178,6 +178,7 @@ TerraFireball.DisplayName: Bola de Fogo
 TerraLightningOrb.DisplayName: Esfera Relâmpago
 TerraLightningOrb2.DisplayName: Esfera Relâmpago
 TerraLightningOrbDeathray.DisplayName: Relâmpago da Morte
+// TerraLightning.DisplayName: Terra Lightning
 TimberAcorn.DisplayName: Bolota
 TimberHook.DisplayName: Gancho do Esquilo
 TimberHook2.DisplayName: Gancho do Esquilo
@@ -674,7 +675,6 @@ PlasmaProj.DisplayName: Raio de Plasma
 // RainUmbrella.DisplayName: Rain Umbrella
 // BeeFlower.DisplayName: Bee Flower
 // MonkDashDamage.DisplayName: Monk Dash
-// PearlwoodStareline.DisplayName: Pearlwood Stareline
 // EaterRocketJr.DisplayName: Rotten Chunk
 // VortexLightningDeathray.DisplayName: Vortex Lightning Deathray
 // SpectralEoC.DisplayName: Spectral Eye of Cthulhu
@@ -717,3 +717,8 @@ PlasmaProj.DisplayName: Raio de Plasma
 // HentaiSphereOkuu.DisplayName: Hentai Sphere Okuu
 // AbomRitualFTW.DisplayName: Abom Ritual F T W
 // RoyalSubjectProjectile.DisplayName: Royal Subject Projectile
+// TimberBranch.DisplayName: Timber Branch
+// CosmosForceMoon.DisplayName: Cosmos Force Moon
+// GladiatorSpirit.DisplayName: Gladiator Spirit
+// ShadowDash.DisplayName: Shadow Dash
+// SpiritTornado.DisplayName: Spirit Tornado

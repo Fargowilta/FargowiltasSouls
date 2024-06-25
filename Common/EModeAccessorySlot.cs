@@ -58,16 +58,6 @@ namespace FargowiltasSouls.Common
         //public override string FunctionalBackgroundTexture => "FargowiltasSouls/Assets/UI/EnchantSlotBackground";
         //public override string VanityBackgroundTexture => "FargowiltasSouls/Assets/UI/EnchantSlotBackground";
         //public override string DyeBackgroundTexture => "FargowiltasSouls/Assets/UI/EnchantSlotBackground";
-        public override void ApplyEquipEffects()
-        {
-            int lastAccIndex = 7 + Player.GetAmountOfExtraAccessorySlotsToShow();
-            if (Player.armor[lastAccIndex].type == ModContent.ItemType<WizardEnchant>() || Player.armor[lastAccIndex].type == ModContent.ItemType<CosmoForce>())
-            {
-                Player.FargoSouls().WizardedItem = FunctionalItem;
-            }
-
-            base.ApplyEquipEffects();
-        }
         public override void OnMouseHover(AccessorySlotType context)
         {
             switch (context)

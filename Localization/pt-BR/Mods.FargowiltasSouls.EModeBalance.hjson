@@ -36,7 +36,7 @@ IceBarrier: Modo Eternidade: 10% de redução nos danos
 // MythrilHalberdRework: After not attacking for 2 seconds, your next attack deals 8x damage, scaling with attack speed
 // OrichalcumHalberdRework: Releases flower petals on swing
 // SuperStarCannon: Decreased maximum pierce to 7
-// WarmthPotionNerf: Halved damage reduction effect
+// WarmthPotionNerf: Halved damage reduction effect and now applies post-mitigation
 // CrossNecklaceNerf: Longer invincibility doesn't trigger on rapid successive hits
 // IceBladeFrostburn: Projectile inflicts Frostburn on-hit
 // JungleRose: Increases Plantera's Fruit drop rate from Snatcher-type enemies

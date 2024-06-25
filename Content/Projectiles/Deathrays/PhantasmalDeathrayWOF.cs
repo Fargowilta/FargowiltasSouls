@@ -138,12 +138,20 @@ namespace FargowiltasSouls.Content.Projectiles.Deathrays
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 3f;
             }
+            if (WorldSavingSystem.MasochistModeReal && Projectile.Colliding(Projectile.Hitbox, Main.LocalPlayer.Hitbox))
+            {
+                Main.LocalPlayer.velocity += Projectile.velocity.SafeNormalize(Vector2.Zero) * 1.2f;
+            }
         }
-
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+        {
+            if (WorldSavingSystem.MasochistModeReal)
+                modifiers.Knockback *= 0;
+        }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<SmiteBuff>(), 60 * 30);
-            if (WorldSavingSystem.MasochistModeReal)
+            if (WorldSavingSystem.MasochistModeReal && Main.getGoodWorld)
                 target.AddBuff(ModContent.BuffType<UnstableBuff>(), 300);
         }
     }

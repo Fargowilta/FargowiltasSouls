@@ -3,6 +3,7 @@ using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
@@ -14,6 +15,17 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     [AutoloadEquip(EquipType.Shield)]
     public class TerrariaSoul : BaseSoul
     {
+        public static List<int> Forces = 
+            [
+            ModContent.ItemType<TimberForce>(),
+            ModContent.ItemType<TerraForce>(),
+            ModContent.ItemType<EarthForce>(),
+            ModContent.ItemType<NatureForce>(),
+            ModContent.ItemType<LifeForce>(),
+            ModContent.ItemType<SpiritForce>(),
+            ModContent.ItemType<WillForce>(),
+            ModContent.ItemType<CosmoForce>()
+            ];
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -52,9 +64,31 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
+
+            foreach (int force in Forces)
+                modPlayer.ForceEffects.Add(force);
+
             //includes revive, both spectres, adamantite, and star heal
             modPlayer.TerrariaSoul = true;
+            modPlayer.WizardEnchantActive = true;
 
+            // super moons
+
+            // revive
+            player.AddEffect<FossilEffect>(Item);
+            // meteor movement
+            player.AddEffect<MeteorMomentumEffect>(Item);
+            // coins to piggy
+            player.AddEffect<GoldToPiggy>(Item);
+            // platinum loot
+            modPlayer.PlatinumEffect = Item;
+            // wood discount and completion
+            player.FargoSouls().WoodEnchantDiscount = true;
+            player.AddEffect<WoodCompletionEffect>(Item);
+            // iron items and attraction
+            IronEnchant.AddEffects(player, Item);
+
+            /*
             //TIMBER
             ModContent.GetInstance<TimberForce>().UpdateAccessory(player, hideVisual);
             //TERRA
@@ -73,12 +107,15 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             ModContent.GetInstance<WillForce>().UpdateAccessory(player, hideVisual);
             //COSMOS
             ModContent.GetInstance<CosmoForce>().UpdateAccessory(player, hideVisual);
+            */
         }
 
         public override void UpdateVanity(Player player)
         {
             player.FargoSouls().WoodEnchantDiscount = true;
             player.AddEffect<GoldToPiggy>(Item);
+            AshWoodEnchant.PassiveEffect(player);
+            IronEnchant.AddEffects(player, Item);
         }
 
         public override void UpdateInventory(Player player)
@@ -86,25 +123,17 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             player.FargoSouls().WoodEnchantDiscount = true;
             player.AddEffect<GoldToPiggy>(Item);
             AshWoodEnchant.PassiveEffect(player);
+            IronEnchant.AddEffects(player, Item);
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe()
-            .AddIngredient(null, "TimberForce")
-            .AddIngredient(null, "TerraForce")
-            .AddIngredient(null, "EarthForce")
-            .AddIngredient(null, "NatureForce")
-            .AddIngredient(null, "LifeForce")
-            .AddIngredient(null, "SpiritForce")
-            .AddIngredient(null, "ShadowForce")
-            .AddIngredient(null, "WillForce")
-            .AddIngredient(null, "CosmoForce")
-            .AddIngredient(null, "AbomEnergy", 10)
+            Recipe recipe = CreateRecipe();
+            foreach (int force in Forces)
+                recipe.AddIngredient(force);
 
+            recipe.AddIngredient(null, "AbomEnergy", 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
-
-
             .Register();
         }
     }

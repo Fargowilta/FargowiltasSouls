@@ -31,7 +31,7 @@ Increases max number of minions by 2"); */
             Item.height = 18;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 1, 50);
-            Item.defense = 7;
+            Item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
@@ -68,7 +68,7 @@ Increases max number of minions by 2"); */
                 bool superAttack = modPlayer.NekomiAttackReadyTimer > 0;
                 if (superAttack)
                 {
-                    int baseDamage = 2222 / 3;
+                    int baseDamage = (2222 / 3) - 80;
                     if (!Main.hardMode)
                         baseDamage /= 2;
                     FargoSoulsUtil.NewSummonProjectile(player.GetSource_Misc(""), player.Center, Vector2.Zero, ModContent.ProjectileType<NekomiDevi>(), baseDamage, 16f, player.whoAmI);

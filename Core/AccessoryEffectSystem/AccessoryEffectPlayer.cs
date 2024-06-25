@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.UI;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -12,9 +13,9 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
 {
     public class AccessoryEffectPlayer : ModPlayer
     {
-        public bool[] ActiveEffects = Array.Empty<bool>();
-        public bool[] EquippedEffects = Array.Empty<bool>();
-        public Item[] EffectItems = Array.Empty<Item>();
+        public bool[] ActiveEffects = [];
+        public bool[] EquippedEffects = [];
+        public Item[] EffectItems = [];
 
         private static readonly Dictionary<Expression<Func<AccessoryEffect, Delegate>>, List<AccessoryEffect>> Hooks = [];
 

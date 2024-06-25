@@ -111,8 +111,6 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 if (Projectile.alpha < 0)
                 {
                     Projectile.alpha = 0;
-                    if (WorldSavingSystem.MasochistModeReal && Timer < 90)
-                        Timer = 90;
                 }
 
                 const float PI = (float)Math.PI;

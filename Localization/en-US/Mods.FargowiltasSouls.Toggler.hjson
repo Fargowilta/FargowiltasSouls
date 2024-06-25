@@ -1,3 +1,5 @@
+DisableAllAttackEffects: Disable All Extra Attack Effects
+DisableAllMinionEffects: Disable All Minion Effects
 TimberHeader: "{$Mods.FargowiltasSouls.Items.TimberForce.DisplayName}"
 WoodCompletionEffect: Wood Completion Speedup
 BorealEffect: Boreal Snowballs
@@ -5,7 +7,10 @@ MahoganyEffect: Mahogany Hook Speed
 EbonwoodEffect: Ebonwood Shadowflame
 ShadewoodEffect: Blood Geyser On Hit
 PalmwoodEffect: Palmwood Sentry
-PearlwoodEffect: Pearlwood Star
+PearlwoodStarEffect: Pearlwood Stars
+PearlwoodManaEffect: Pearlwood Mana Pickups
+PearlwoodRainbowEffect: Pearlwood Rainbow Trail
+TimberEffect: Timber Branches
 EarthHeader: "{$Mods.FargowiltasSouls.Items.EarthForce.DisplayName}"
 AdamantiteEffect: Adamantite Projectile Splitting
 CobaltEffect: Cobalt Hit Explosion
@@ -24,6 +29,7 @@ TinEffect: Tin Crits
 TungstenEffect: Tungsten Effect
 ObsidianProcEffect: Obsidian Explosions
 AshWoodFireballs: Ash Fireballs
+TerraLightningEffect: Terra Lightning
 WillHeader: "{$Mods.FargowiltasSouls.Items.WillForce.DisplayName}"
 GladiatorSpears: Gladiator Spears
 GladiatorBanner: Gladiator Banner
@@ -34,6 +40,7 @@ RedRidingEffect: Red Riding Arrow Rain
 ValhallaDash: Valhalla Mount Dash
 SquireMountJump: Squire Mount Jump
 SquireMountSpeed: Squire Mount Speed
+WillGladiatorEffect: Will Gladiator Spirit
 LifeHeader: "{$Mods.FargowiltasSouls.Items.LifeForce.DisplayName}"
 BeeEffect: Bee Flowers
 BeetleEffect: Beetles
@@ -52,6 +59,7 @@ JungleDashEffect: Jungle Dash
 MoltenEffect: Molten Inferno Buff
 ShroomiteStealthEffect: Shroomite Stealth
 ShroomiteShroomEffect: Shroomite Mushrooms
+NatureBeamEffect: Nature Heal Beams
 ShadowHeader: "{$Mods.FargowiltasSouls.Items.ShadowForce.DisplayName}"
 DarkArtistMinion: Flameburst Minion
 ApprenticeSupport: Apprentice Effect
@@ -81,6 +89,7 @@ SolarFlareEffect: Inflict Solar Flare
 StardustMinionEffect: Stardust Guardian
 VortexStealthEffect: Vortex Stealth
 VortexVortexEffect: Vortex Voids
+CosmosMoonEffect: Cosmic Moons
 DeviEnergyHeader: Eternity Mode Accessories
 DeerSinewEffect: Deer Sinew Dash
 ZephyrJump: Fart Jump
@@ -144,7 +153,6 @@ MasoAbom: Abominationn Minion
 MasoRing: Phantasmal Ring Minion
 UniverseHeader: "{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}"
 MeleeSpeedEffect: Melee Speed
-MagmaStoneEffect: Magma Stone
 SniperScopeEffect: Sniper Scope
 UniverseSpeedEffect: Universe Attack Speed
 WorldShaperHeader: "{$Mods.FargowiltasSouls.Items.WorldShaperSoul.DisplayName}"
@@ -182,6 +190,8 @@ TrawlerJump: Trawler Jump
 TrawlerGel: Volatile Gelatin
 EternityHeader: "{$Mods.FargowiltasSouls.Items.EternitySoul.DisplayName}"
 EternityTin: Eternity Crit Effect Stacking
+ShadowForceDashEffect: Shadow Dash
+ShadowForceDamageEffect: Shadow Damage
 // the pets are no longer existing in game
 PetHeader: Pets
 PetDinoConfig: Dino Pet

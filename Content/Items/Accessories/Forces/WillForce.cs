@@ -1,5 +1,8 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Projectiles.Minions;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -30,17 +33,13 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
         {
             SetActive(player);
             FargoSoulsPlayer modPlayer = player.FargoSouls();
-            player.AddEffect<GoldEffect>(Item);
             player.AddEffect<GoldToPiggy>(Item);
             modPlayer.PlatinumEffect = Item;
-            player.AddEffect<GladiatorBanner>(Item);
-            player.AddEffect<GladiatorSpears>(Item);
-            player.AddEffect<RedRidingEffect>(Item);
             player.AddEffect<HuntressEffect>(Item);
             player.FargoSouls().ValhallaEnchantActive = true;
             player.AddEffect<ValhallaDash>(Item);
             SquireEnchant.SquireEffect(player, Item);
-
+            player.AddEffect<WillGladiatorEffect>(Item);
         }
 
         public override void AddRecipes()
@@ -50,6 +49,24 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
                 recipe.AddIngredient(ench);
             recipe.AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"));
             recipe.Register();
+        }
+    }
+    public class WillGladiatorEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<WillHeader>();
+        public override int ToggleItemType => ModContent.ItemType<WillForce>();
+        public override bool MinionEffect => true;
+        public override bool IgnoresMutantPresence => true;
+        public override void PostUpdateEquips(Player player)
+        {
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<GladiatorSpirit>()] == 0)
+            {
+                if (player.whoAmI == Main.myPlayer)
+                {
+                    Projectile proj = Projectile.NewProjectileDirect(GetSource_EffectItem(player), player.Center, Vector2.Zero, ModContent.ProjectileType<GladiatorSpirit>(), 0, 0f, player.whoAmI);
+                    proj.netUpdate = true;
+                }
+            }
         }
     }
 }

@@ -1,18 +1,22 @@
+using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Content.Projectiles.Masomode
 {
     public class WOFChain : ModProjectile
     {
+        public int BittenPlayer = -1;
         public override string Texture => "Terraria/Images/NPC_115";
 
         public override void SetStaticDefaults()
@@ -39,6 +43,14 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
         }
 
         public override bool? CanDamage() => (Projectile.timeLeft <= 30 || Projectile.ai[2] == 1) ? false : base.CanDamage();
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write7BitEncodedInt(BittenPlayer);
+        }
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+                BittenPlayer = reader.Read7BitEncodedInt();
+        }
         public override void AI()
         {
             Lighting.AddLight(Projectile.Center, 0.1f, 0.5f, 0.7f);
@@ -77,6 +89,25 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 Projectile.velocity = Vector2.Zero;
             }
 
+            if (BittenPlayer != -1)
+            {
+
+                Player victim = Main.player[BittenPlayer];
+                if (victim.active && !victim.ghost && !victim.dead
+                    && (Projectile.Distance(victim.Center) < 160 || victim.whoAmI != Main.myPlayer)
+                    && victim.FargoSouls().MashCounter < 20)
+                {
+                    victim.AddBuff(ModContent.BuffType<GrabbedBuff>(), 2);
+                    victim.velocity = Vector2.Zero;
+                    Projectile.Center = victim.Center;
+                }
+                else
+                {
+                    BittenPlayer = -1;
+                    Projectile.netUpdate = true;
+                }
+            }
+
             if (FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.wallBoss, NPCID.WallofFlesh)
                 && Math.Abs(Projectile.Center.X - Main.npc[EModeGlobalNPC.wallBoss].Center.X) < 50)
             {
@@ -95,15 +126,26 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                 }
             }
         }
-
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+        {
+            if (WorldSavingSystem.MasochistModeReal)
+                target.longInvince = true;
+        }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            if (WorldSavingSystem.MasochistModeReal) //if (Fargowiltas.Instance.MasomodeEXLoaded)
+            if (WorldSavingSystem.MasochistModeReal && BittenPlayer == -1)
+            {
+                BittenPlayer = target.whoAmI;
+                Projectile.netUpdate = true;
+            }
+            /*
+            if (WorldSavingSystem.MasochistModeReal && Main.getGoodWorld) //if (Fargowiltas.Instance.MasomodeEXLoaded)
             {
                 if (!target.tongued)
                     SoundEngine.PlaySound(SoundID.ForceRoarPitched, target.Center);
                 target.AddBuff(BuffID.TheTongue, 10);
             }
+            */
             target.AddBuff(BuffID.OnFire, 300);
         }
 

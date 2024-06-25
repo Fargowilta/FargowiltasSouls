@@ -2,6 +2,7 @@
 
 
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Consumables;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using System.Reflection;
@@ -15,6 +16,7 @@ namespace FargowiltasSouls.Core.Systems
         public enum DashType
         {
             None,
+            Shadow,
             Monk,
             Jungle,
             DeerSinew
@@ -28,6 +30,7 @@ namespace FargowiltasSouls.Core.Systems
             // Vanilla dashes are processed before this method
             // Other mods depends on their ordering
 
+            
             if (player.HasEffect<JungleDashEffect>())
             {
                 JungleDashEffect.AddDash(player);
@@ -39,6 +42,10 @@ namespace FargowiltasSouls.Core.Systems
             if (player.HasEffect<SolarEffect>())
             {
                 SolarEffect.AddDash(player);
+            }
+            if (player.HasEffect<ShadowForceDashEffect>())
+            {
+                ShadowForceDashEffect.AddDash(player);
             }
             if (player.HasEffect<DeerSinewEffect>()) // Takes effect last, but doesn't do anything if you have another dash
             {
@@ -63,6 +70,11 @@ namespace FargowiltasSouls.Core.Systems
                 {
                     switch (modPlayer.FargoDash)
                     {
+                        case DashType.Shadow:
+                            {
+                                ShadowForceDashEffect.ShadowDash(Player, dir);
+                            }
+                            break;
                         case DashType.Monk:
                             {
                                 MonkDashEffect.MonkDash(Player, dir);

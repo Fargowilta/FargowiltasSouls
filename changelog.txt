@@ -1,2 +1,3 @@
 NEW UPDATE - V {ModVersion}
--Fixed Fossil Enchant revive being able to trigger without having the item
+
+Updated Chinese localization

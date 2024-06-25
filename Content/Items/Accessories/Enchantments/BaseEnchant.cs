@@ -16,8 +16,8 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         public abstract Color nameColor { get; }
         public string wizardEffect()
         {
-            string text = Language.GetTextValue($"Mods.FargowiltasSouls.WizardEffect.{Name.Replace("Enchantment", "").Replace("Enchant", "")}");
-            if (text.Contains("Mods.FargowiltasSouls.WizardEffect") || text.Length <= 1) //if there's no localization entry or it's empty
+            string text = Language.GetTextValue($"Mods.{Mod.Name}.WizardEffect.{Name.Replace("Enchantment", "").Replace("Enchant", "")}");
+            if (text.Contains($"Mods.{Mod.Name}.WizardEffect") || text.Length <= 1) //if there's no localization entry or it's empty
             {
                 return Language.GetTextValue($"Mods.FargowiltasSouls.WizardEffect.NoUpgrade");
             }
@@ -50,13 +50,13 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 if (localSoulsPlayer.ForceEffect(Type))
                 {
                     if (wizardEffect().Length != 0)
-                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{ModContent.ItemType<WizardEnchant>()}] " + wizardEffect()));
+                        tooltips.Add(new TooltipLine(Mod, "wizard", $"{Language.GetTextValue($"Mods.FargowiltasSouls.WizardEffect.Active")} [i:{ModContent.ItemType<WizardEnchant>()}]: " + wizardEffect()));
                 }
                 else
                 {
                     if (wizardEffect().Length != 0)
                     {
-                        tooltips.Add(new TooltipLine(Mod, "wizard", $"[i:{ModContent.ItemType<WizardEnchant>()}] " + wizardEffect()));
+                        tooltips.Add(new TooltipLine(Mod, "wizard", $"{Language.GetTextValue($"Mods.FargowiltasSouls.WizardEffect.Inactive")} [i:{ModContent.ItemType<WizardEnchant>()}]: " + wizardEffect()));
                         tooltips[tooltips.Count - 1].OverrideColor = Color.Gray;
                     }
                 }
@@ -113,7 +113,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     {
         public override void PostSetupRecipes()
         {
-            SetFactory factory = new(ContentSamples.ItemsByType.Count);
+            SetFactory factory = ItemID.Sets.Factory;
             BaseEnchant.CraftsInto = factory.CreateIntSet();
             foreach (BaseEnchant modItem in ModContent.GetContent<BaseEnchant>())
             {

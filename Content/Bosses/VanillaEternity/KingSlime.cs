@@ -133,6 +133,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         {
                             if (FargoSoulsUtil.HostCheck)
                             {
+                                /*
                                 if (WorldSavingSystem.MasochistModeReal)
                                 {
                                     for (int i = 0; i < 30; i++) //spike spray
@@ -142,7 +143,9 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                             ProjectileID.SpikedSlimeSpike, FargoSoulsUtil.ScaledProjectileDamage(npc.defDamage), 0f, Main.myPlayer);
                                     }
                                 }
+                                */
 
+                                /*
                                 if (npc.HasValidTarget)
                                 {
                                     SoundEngine.PlaySound(SoundID.Item21, player.Center);
@@ -161,6 +164,7 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                         }
                                     }
                                 }
+                                */
                             }
                         }
                     }
@@ -219,9 +223,12 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                                 modifier /= 700f;
                                 modifier *= modifier;
                                 modifier += 1;
-                                modifier = MathHelper.Clamp(modifier, 1, 4);
+                                modifier = MathHelper.Clamp(modifier, 1, 3);
                                 npc.velocity.X *= modifier;
                                 npc.velocity.Y *= Math.Min((float)Math.Cbrt(modifier), 1.5f);
+
+                                // Flat addition
+                                npc.velocity.X += Math.Sign(npc.velocity.X) * 2.25f;
                             }
 
                         }
@@ -258,8 +265,18 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                 {
                     JumpTimer++;
 
+
+
                     const int ProjTime = 5;
-                    if (JumpTimer % ProjTime < 1 && (JumpTimer % (ProjTime * 3) > 1 || WorldSavingSystem.MasochistModeReal))
+                    if (Math.Sign(npc.velocity.X) != Math.Sign(npc.DirectionTo(player.Center).X) && Math.Abs(npc.Center.X - player.Center.X) > 250 && npc.velocity.Y > 0)
+                    {
+                        npc.velocity.X /= 5;
+                        SpecialJumping = false;
+                        JumpTimer = 0;
+                        teleportTimer = 150; //continue teleport timer
+                    }
+
+                    else if (JumpTimer % ProjTime < 1 && (JumpTimer % (ProjTime * 3) > 1 || WorldSavingSystem.MasochistModeReal))
                     {
                         SoundEngine.PlaySound(SoundID.Item17, npc.Center);
                         if (FargoSoulsUtil.HostCheck)

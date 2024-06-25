@@ -28,5 +28,9 @@ namespace FargowiltasSouls.Content.Buffs.Masomode
                     player.Center - 200f * Vector2.UnitY, Vector2.Zero,
                     ModContent.ProjectileType<DeathSkull>(), 0, 0f, player.whoAmI);
         }
+        public override void Update(NPC npc, ref int buffIndex)
+        {
+            npc.FargoSouls().DeathMarked = true;
+        }
     }
 }

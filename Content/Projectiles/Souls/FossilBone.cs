@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Items;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -44,6 +45,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                         {
                             player.FargoSouls().HealPlayer(20);
                             Projectile.Kill();
+                            FargoGlobalItem.OnRetrievePickup(player);
                             return;
                         }
                     }

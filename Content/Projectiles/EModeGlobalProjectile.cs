@@ -1473,7 +1473,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     {
                         target.AddBuff(BuffID.OnFire, 300);
                         if (WorldSavingSystem.MasochistModeReal)
-                            target.AddBuff(BuffID.Burning, 60);
+                            target.AddBuff(BuffID.Burning, 30);
                     }
                     break;
 

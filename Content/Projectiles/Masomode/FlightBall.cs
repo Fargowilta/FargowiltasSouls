@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FargowiltasSouls.Content.Items;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -55,6 +56,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
                         if (Projectile.Colliding(Projectile.Hitbox, Main.player[p].Hitbox))
                         {
                             Main.player[p].wingTime = Main.player[p].wingTimeMax;
+                            FargoGlobalItem.OnRetrievePickup(Main.player[p]);
                             Projectile.Kill();
                             return;
                         }

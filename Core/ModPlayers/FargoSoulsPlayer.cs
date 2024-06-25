@@ -22,6 +22,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Default;
 using Terraria.ModLoader.IO;
 using static FargowiltasSouls.Core.Systems.DashManager;
 
@@ -50,11 +51,13 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public int RockeaterDistance = EaterLauncher.BaseDistance;
 
-        public bool fireNoDamage = false;
-
         public int The22Incident;
 
         public Dictionary<int, bool> KnownBuffsToPurify = [];
+
+        public bool Toggler_ExtraAttacksDisabled = false;
+        public bool Toggler_MinionsDisabled = false;
+        public int ToggleRebuildCooldown = 0;
 
 
         public bool IsStillHoldingInSameDirectionAsMovement
@@ -77,7 +80,8 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (RabiesVaccine) playerData.Add("RabiesVaccine");
             if (DeerSinew) playerData.Add("DeerSinew");
             if (HasClickedWrench) playerData.Add("HasClickedWrench");
-
+            if (Toggler_ExtraAttacksDisabled) playerData.Add("Toggler_ExtraAttacksDisabled");
+            if (Toggler_MinionsDisabled) playerData.Add("Toggler_MinionsDisabled");
 
             tag.Add($"{Mod.Name}.{Player.name}.Data", playerData);
 
@@ -104,6 +108,8 @@ namespace FargowiltasSouls.Core.ModPlayers
             RabiesVaccine = playerData.Contains("RabiesVaccine");
             DeerSinew = playerData.Contains("DeerSinew");
             HasClickedWrench = playerData.Contains("HasClickedWrench");
+            Toggler_ExtraAttacksDisabled = playerData.Contains("Toggler_ExtraAttacksDisabled");
+            Toggler_MinionsDisabled = playerData.Contains("Toggler_MinionsDisabled");
 
             List<string> disabledToggleNames = tag.GetList<string>($"{Mod.Name}.{Player.name}.TogglesOff").ToList();
             disabledToggles = ToggleLoader.LoadedToggles.Keys.Where(x => disabledToggleNames.Contains(x.Name)).ToList();
@@ -217,6 +223,9 @@ namespace FargowiltasSouls.Core.ModPlayers
             //            #region enchantments 
             PetsActive = true;
             //CrimsonRegen = false;
+            if (!LifeForceActive)
+                LifeBeetleDuration = 0;
+            LifeForceActive = false;
             MinionCrits = false;
             FirstStrike = false;
             ShellHide = false;
@@ -224,7 +233,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             LavaWet = false;
 
             WoodEnchantDiscount = false;
-            fireNoDamage = false;
 
             SnowVisual = false;
             ApprenticeEnchantActive = false;
@@ -232,7 +240,6 @@ namespace FargowiltasSouls.Core.ModPlayers
             CrystalEnchantActive = false;
             IronRecipes = false;
             ChlorophyteEnchantActive = false;
-            PearlwoodStar = false;
 
             if (!MonkEnchantActive)
                 Player.ClearBuff(ModContent.BuffType<MonkBuff>());
@@ -402,12 +409,21 @@ namespace FargowiltasSouls.Core.ModPlayers
             if (WizardEnchantActive)
             {
                 WizardEnchantActive = false;
-                for (int i = 3; i <= 9; i++)
+                List<Item> accessories = [];
+                for (int i = 3; i < 10; i++)
+                    if (Player.IsItemSlotUnlockedAndUsable(i))
+                        accessories.Add(Player.armor[i]);
+                AccessorySlotLoader loader = LoaderManager.Get<AccessorySlotLoader>();
+                ModAccessorySlotPlayer modSlotPlayer = Player.GetModPlayer<ModAccessorySlotPlayer>();
+                for (int i = 0; i < modSlotPlayer.SlotCount; i++)
+                    if (loader.ModdedIsItemSlotUnlockedAndUsable(i, Player))
+                        accessories.Add(loader.Get(i, Player).FunctionalItem);
+                for (int i = 0; i < accessories.Count - 1; i++)
                 {
-                    if (!Player.armor[i].IsAir && (Player.armor[i].type == ModContent.ItemType<WizardEnchant>() || Player.armor[i].type == ModContent.ItemType<CosmoForce>()))
+                    if (!accessories[i].IsAir && (accessories[i].type == ModContent.ItemType<WizardEnchant>() || accessories[i].type == ModContent.ItemType<CosmoForce>()))
                     {
                         WizardEnchantActive = true;
-                        Item ench = Player.armor[i + 1];
+                        Item ench = accessories[i + 1];
                         if (ench != null && !ench.IsAir && ench.ModItem != null && ench.ModItem is BaseEnchant)
                         {
                             WizardedItem = ench;
@@ -635,6 +651,7 @@ namespace FargowiltasSouls.Core.ModPlayers
             return AttackSpeed;
         }
 
+        
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
         {
             //            if (squireReduceIframes && (SquireEnchant || ValhallaEnchant))
@@ -1292,6 +1309,13 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
+            ModPacket defaultPacket = Mod.GetPacket();
+            defaultPacket.Write((byte)FargowiltasSouls.PacketID.SyncDefaultToggles);
+            defaultPacket.Write((byte)Player.whoAmI);
+            defaultPacket.Write(Toggler_ExtraAttacksDisabled);
+            defaultPacket.Write(Toggler_MinionsDisabled);
+            defaultPacket.Send(toWho, fromWho);
+
             foreach (KeyValuePair<AccessoryEffect, bool> toggle in TogglesToSync)
             {
                 ModPacket packet = Mod.GetPacket();
@@ -1354,7 +1378,6 @@ namespace FargowiltasSouls.Core.ModPlayers
         }
         public bool ForceEffect(ModItem modItem)
         {
-            //This will probably be made less ugly in a future refactor update.
             bool CheckForces(int type)
             {
                 int force = BaseEnchant.Force[type];

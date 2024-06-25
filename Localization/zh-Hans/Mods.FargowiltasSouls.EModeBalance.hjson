@@ -12,7 +12,7 @@ WaterBolt: 在骷髅王被击败前无法使用
 DemonScythe: 任意邪恶Boss被击败前伤害和攻速会降低40%
 HolyDodge: 神圣防护激活后，一段时间内你的攻击速度会降低
 FrozenTurtleShell: 冰盾会略微降低你的攻击伤害
-BrainOfConfusion: 成功躲避后，你的伤害会降低
+BrainOfConfusion: 躲避几率减半
 ZenithNone: 无削弱
 ZenithHitRate: 造成伤害的频率大幅降低，通过击败下列Boss可提高其输出能力：
 VampireKnives: 生命值高于33%时削弱吸血能力
@@ -36,10 +36,10 @@ CobaltNaginataRework: 击中敌人会造成小范围爆炸
 MythrilHalberdRework: 不攻击持续2秒后下一击造成八倍伤害，受攻击速度加成
 OrichalcumHalberdRework: 挥舞时矛的顶端会释放花瓣
 SuperStarCannon: 最大穿透次数降低为7次
-WarmthPotionNerf: 伤害减免效果减半
+WarmthPotionNerf: 伤害减免效果减半且在防御后计算
 CrossNecklaceNerf: 连续受击不会触发延长无敌时间的效果
 IceBladeFrostburn: 射弹击中敌人造成霜冻减益
 JungleRose: 增加抓人草类敌怪掉落世纪之果的几率
-StarCloak: 困难模式前 33% 星星伤害
+StarCloak: 困难模式前星星伤害降低至33%
 WeatherPain: 伤害频率和最大穿透次数增加
 HoundiusShootius: 提高火球速度

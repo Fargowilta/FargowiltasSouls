@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Content.Items.Armor
             Item.height = 18;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 1, 50);
-            Item.defense = 7;
+            Item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)

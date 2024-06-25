@@ -1,11 +1,16 @@
+DisableAllAttackEffects: 禁用所有额外攻击效果
+DisableAllMinionEffects: 禁用所有召唤物效果
 TimberHeader: "{$Mods.FargowiltasSouls.Items.TimberForce.DisplayName}"
-// WoodCompletionEffect: Wood Completion Speedup
+WoodCompletionEffect: 木 图鉴解锁加快
 BorealEffect: 针叶木 雪球
 MahoganyEffect: 红木 钩爪加成
 EbonwoodEffect: 乌木 暗影焰光环
 ShadewoodEffect: 阴影木 鲜血喷溅
 PalmwoodEffect: 棕榈木 召唤物
-PearlwoodEffect: 珍珠木 星星
+// PearlwoodStarEffect: Pearlwood Stars
+// PearlwoodManaEffect: Pearlwood Mana Pickups
+// PearlwoodRainbowEffect: Pearlwood Rainbow Trail
+// TimberEffect: Timber Branches
 EarthHeader: "{$Mods.FargowiltasSouls.Items.EarthForce.DisplayName}"
 AdamantiteEffect: 精金 弹幕分裂
 CobaltEffect: 钴蓝 受击爆炸
@@ -24,6 +29,7 @@ TinEffect: 锡 暴击
 TungstenEffect: 钨 变大
 ObsidianProcEffect: 黑曜石 爆炸
 AshWoodFireballs: 灰烬木 火球
+// TerraLightningEffect: Terra Lightning
 WillHeader: "{$Mods.FargowiltasSouls.Items.WillForce.DisplayName}"
 GladiatorSpears: 角斗士 长矛雨
 GladiatorBanner: 角斗士 旗帜
@@ -34,6 +40,7 @@ RedRidingEffect: 红色骑术 箭雨
 ValhallaDash: 英灵殿骑士 坐骑冲刺
 SquireMountJump: 侍卫 坐骑跳跃高度
 SquireMountSpeed: 侍卫 坐骑速度
+// WillGladiatorEffect: Will Gladiator Spirit
 LifeHeader: "{$Mods.FargowiltasSouls.Items.LifeForce.DisplayName}"
 BeeEffect: 蜜蜂 花朵
 BeetleEffect: 甲虫 相关效果
@@ -52,6 +59,7 @@ JungleDashEffect: 丛林 冲刺
 MoltenEffect: 熔岩 狱火增益
 ShroomiteStealthEffect: 蘑菇 潜行
 ShroomiteShroomEffect: 蘑菇 蘑菇尾迹
+// NatureBeamEffect: Nature Heal Beams
 ShadowHeader: "{$Mods.FargowiltasSouls.Items.ShadowForce.DisplayName}"
 DarkArtistMinion: 暗黑艺术家 爆炸烈焰召唤物
 ApprenticeSupport: 学徒 相关效果
@@ -81,6 +89,7 @@ SolarFlareEffect: 耀斑 太阳耀斑减益
 StardustMinionEffect: 星尘 星尘守卫
 VortexStealthEffect: 星旋 潜行
 VortexVortexEffect: 星旋 星旋旋涡
+// CosmosMoonEffect: Cosmic Moons
 DeviEnergyHeader: 永恒模式饰品
 DeerSinewEffect: 鹿筋冲刺
 ZephyrJump: 风神跳跃
@@ -144,7 +153,6 @@ MasoAbom: 幽灵憎恶
 MasoRing: 幻影球召唤物
 UniverseHeader: "{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}"
 MeleeSpeedEffect: 近战攻速加成
-MagmaStoneEffect: 岩浆石
 SniperScopeEffect: 狙击镜
 UniverseSpeedEffect: 寰宇之魂攻击速度加成
 WorldShaperHeader: "{$Mods.FargowiltasSouls.Items.WorldShaperSoul.DisplayName}"
@@ -182,6 +190,8 @@ TrawlerJump: 捕鱼之魂跳跃
 TrawlerGel: 挥发明胶
 EternityHeader: "{$Mods.FargowiltasSouls.Items.EternitySoul.DisplayName}"
 EternityTin: 永恒之魂属性叠加
+// ShadowForceDashEffect: Shadow Dash
+// ShadowForceDamageEffect: Shadow Damage
 // the pets are no longer existing in game
 PetHeader: 宠物
 PetDinoConfig: 恐龙宝宝

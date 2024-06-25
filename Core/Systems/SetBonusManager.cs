@@ -1,4 +1,5 @@
 ﻿using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Armor;
 using Terraria;
 using Terraria.ModLoader;
@@ -15,7 +16,7 @@ namespace FargowiltasSouls.Core.Systems
         {
             On_Player.KeyDoubleTap -= new On_Player.hook_KeyDoubleTap(SetBonusKeyEffects);
         }
-        public void SetBonusKeyEffects(On_Player.orig_KeyDoubleTap orig, Player player, int keyDir)
+        public static void SetBonusKeyEffects(On_Player.orig_KeyDoubleTap orig, Player player, int keyDir)
         {
             orig.Invoke(player, keyDir);
             if (keyDir == (Main.ReversedUpDownArmorSetBonuses ? 1 : 0))
@@ -27,6 +28,7 @@ namespace FargowiltasSouls.Core.Systems
                 NekomiHood.NekomiSetBonusKey(player);
                 StyxCrown.StyxSetBonusKey(player);
                 ForbiddenEffect.ActivateForbiddenStorm(player);
+                SpiritTornadoEffect.ActivateSpiritStorm(player);
                 VortexEnchant.ActivateVortex(player);
             }
 

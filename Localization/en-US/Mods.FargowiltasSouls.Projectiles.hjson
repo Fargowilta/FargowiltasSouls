@@ -178,6 +178,7 @@ TerraFireball.DisplayName: Fireball
 TerraLightningOrb.DisplayName: Lightning Orb
 TerraLightningOrb2.DisplayName: Lightning Orb
 TerraLightningOrbDeathray.DisplayName: Lightning Deathray
+TerraLightning.DisplayName: Terra Lightning
 TimberAcorn.DisplayName: Acorn
 TimberHook.DisplayName: Squirrel Hook
 TimberHook2.DisplayName: Squirrel Hook
@@ -674,7 +675,6 @@ MeteorFlame.DisplayName: Meteor Flame
 RainUmbrella.DisplayName: Rain Umbrella
 BeeFlower.DisplayName: Bee Flower
 MonkDashDamage.DisplayName: Monk Dash
-PearlwoodStareline.DisplayName: Pearlwood Stareline
 EaterRocketJr.DisplayName: Rotten Chunk
 VortexLightningDeathray.DisplayName: Vortex Lightning Deathray
 SpectralEoC.DisplayName: Spectral Eye of Cthulhu
@@ -717,3 +717,8 @@ HentaiSwordBlast.DisplayName: Hentai Sword Blast
 HentaiSphereOkuu.DisplayName: Hentai Sphere Okuu
 AbomRitualFTW.DisplayName: Abom Ritual F T W
 RoyalSubjectProjectile.DisplayName: Royal Subject Projectile
+TimberBranch.DisplayName: Timber Branch
+CosmosForceMoon.DisplayName: Cosmos Force Moon
+GladiatorSpirit.DisplayName: Gladiator Spirit
+ShadowDash.DisplayName: Shadow Dash
+SpiritTornado.DisplayName: Spirit Tornado

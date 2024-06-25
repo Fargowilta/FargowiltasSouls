@@ -76,7 +76,7 @@ Summons a friendly Cultist and plant to fight at your side
             player.buffImmune[ModContent.BuffType<ReverseManaFlowBuff>()] = true;
             player.buffImmune[ModContent.BuffType<AntisocialBuff>()] = true;
             fargoPlayer.MoonChalice = true;
-            player.AddEffect<CultistMinionEffect>(Item);
+            //player.AddEffect<CultistMinionEffect>(Item);
 
         }
 
@@ -98,6 +98,7 @@ Summons a friendly Cultist and plant to fight at your side
             .Register();
         }
     }
+    /*
     public class CultistMinionEffect : AccessoryEffect
     {
         public override Header ToggleHeader => Header.GetHeader<ChaliceHeader>();
@@ -109,4 +110,5 @@ Summons a friendly Cultist and plant to fight at your side
                 player.AddBuff(ModContent.BuffType<LunarCultistBuff>(), 2);
         }
     }
+    */
 }

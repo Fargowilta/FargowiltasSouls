@@ -120,7 +120,7 @@ namespace FargowiltasSouls
             {
                 Color oldColor = lightColor * 0.75f;
                 oldColor = (Color)(oldColor * ((float)(trailLength - i) / trailLength));
-                Vector2 oldPos = projectile.oldPos[i] + rectangle.Size() / 2;
+                Vector2 oldPos = projectile.oldPos[i] + projectile.Size / 2;
                 float oldRot = projectile.oldRot[i];
                 Main.spriteBatch.Draw(texture, oldPos - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), rectangle, projectile.GetAlpha(oldColor),
                     oldRot, origin, projectile.scale, spriteEffects, 0);

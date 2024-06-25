@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Content.Projectiles;
+﻿using FargowiltasSouls.Content.Buffs;
+using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
@@ -99,6 +100,8 @@ Missing any attack will reset these bonuses
                     modPlayer.HuntressCD = 30;
                 }
                 int bonus = modPlayer.ForceEffect<HuntressEnchant>() || redRiding ? 5 : 3;
+                if (player.HasBuff<GladiatorSpiritBuff>())
+                    bonus = 15;
                 proj.ArmorPenetration = bonus * 2 * modPlayer.HuntressStage;
                 modifiers.SourceDamage.Flat += bonus * modPlayer.HuntressStage;
             }
