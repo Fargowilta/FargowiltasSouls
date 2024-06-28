@@ -3201,11 +3201,6 @@ Lightslinger: {
 
 MostlyOrdinaryrock.Tooltip: Mods.FargowiltasSouls.ItemTooltip.MostlyOrdinaryrock
 
-WiresPainting: {
-	DisplayName: Wires Painting
-	Tooltip: Look inside
-}
-
 PrismaRegalia: {
 	DisplayName: Prisma Regalia
 	Tooltip:
