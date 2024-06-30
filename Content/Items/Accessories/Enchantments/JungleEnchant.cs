@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     {
         public override Header ToggleHeader => Header.GetHeader<NatureHeader>();
         public override int ToggleItemType => ModContent.ItemType<JungleEnchant>();
-        public override bool IgnoresMutantPresence => true;
+        
         public static void AddDash(Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();

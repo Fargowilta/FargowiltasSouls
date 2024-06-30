@@ -47,7 +47,7 @@ Summons a baby rainbow slime to fight for you
     {
         public override Header ToggleHeader => Header.GetHeader<BionomicHeader>();
         public override int ToggleItemType => ModContent.ItemType<ConcentratedRainbowMatter>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
     public class RainbowSlimeMinion : AccessoryEffect
     {

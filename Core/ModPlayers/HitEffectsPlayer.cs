@@ -477,6 +477,8 @@ namespace FargowiltasSouls.Core.ModPlayers
 
             MahoganyCanUseDR = false;
 
+            TimeSinceHurt = 0;
+
             if (Player.HasBuff(ModContent.BuffType<TitaniumDRBuff>())
                 && !Player.HasBuff(ModContent.BuffType<TitaniumCDBuff>()))
             {

@@ -67,7 +67,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
         public override Header ToggleHeader => Header.GetHeader<CosmoHeader>();
         public override int ToggleItemType => ModContent.ItemType<CosmoForce>();
         public override bool ExtraAttackEffect => true;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();

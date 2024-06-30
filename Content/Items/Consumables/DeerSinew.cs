@@ -57,7 +57,7 @@ All effects negated if toggled off or another dash is already in use
     {
         public override Header ToggleHeader => Header.GetHeader<DeviEnergyHeader>();
         public override int ToggleItemType => ModContent.ItemType<DeerSinew>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();

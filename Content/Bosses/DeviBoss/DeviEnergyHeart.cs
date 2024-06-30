@@ -28,7 +28,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             CooldownSlot = 1;
 
             Projectile.alpha = 150;
-            Projectile.timeLeft = 90;
+            Projectile.timeLeft = 80;
 
             Projectile.FargoSouls().DeletionImmuneRank = 1;
         }

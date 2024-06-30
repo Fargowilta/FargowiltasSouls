@@ -55,13 +55,16 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         // new forces
         public int TimberBranchCD;
+        public int TimberSwingCD;
         public int TerraProcCD;
         public int CosmosMoonTimer;
         public bool LifeForceActive;
         public int LifeBeetleDuration;
         public int NatureHealCounter;
         public int NatureHealCD;
-        
+        public int TerrariaSoulProcCD;
+
+        public int TimeSinceHurt;
 
         //force of timber
         public bool MahoganyCanUseDR;

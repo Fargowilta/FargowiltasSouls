@@ -56,7 +56,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<WillForce>();
         public override bool MinionEffect => true;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (player.ownedProjectileCounts[ModContent.ProjectileType<GladiatorSpirit>()] == 0)

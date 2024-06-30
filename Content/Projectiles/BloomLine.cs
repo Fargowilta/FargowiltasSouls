@@ -88,13 +88,18 @@ namespace FargowiltasSouls.Content.Projectiles
                         }
                     }
                     break;
-                case -1: //lifelight line telegraphs, YELLOW
+                case -1: //lifelight line telegraphs, YELLOW TRACKING
                     {
                         color = Color.Goldenrod;
                         alphaModifier = 1;
                         Projectile.scale = 0.6f;
                         maxTime = 60;
-                        Projectile.rotation = Projectile.ai[1];
+                        NPC lifelight = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<LifeChallenger>());
+                        if (lifelight != null && lifelight.active)
+                        {
+                            Projectile.rotation = lifelight.As<LifeChallenger>().GunRotation;
+                            Projectile.Center = lifelight.Center;
+                        }
                     }
                     break;
                 case 0: //lifelight line telegraphs, CYAN

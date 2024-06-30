@@ -13,7 +13,7 @@ namespace FargowiltasSouls.Content.Buffs.Souls
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            bool check = Main.player.Any(p => p.Alive() && p.HasEffect<EbonwoodEffect>());
+            bool check = Main.player.Any(p => p.Alive() && p.HasEffect<EbonwoodEffect>() && p.ForceEffect<EbonwoodEffect>());
             if (check)
             {
                 npc.buffTime[buffIndex] = 60;

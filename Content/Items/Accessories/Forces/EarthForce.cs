@@ -6,6 +6,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
+using System;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
@@ -117,15 +118,13 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
             float lerper = GetEarthForceLerpValue(player);
             int debuffDamage = (int)(baseDamage * MathHelper.Lerp(1, 0.3f, lerper));
             //divide by 2.3 because want to deal that damage over the course of ~6.6 seconds, deal a bit more than the actual missing damage to compensate for constant re-application of debuff without increasing the duration
-            if (target.FargoSouls().EarthDoTValue < debuffDamage/2.3f)
-            {
-                target.FargoSouls().EarthDoTValue = (int)(debuffDamage/2.3f);
-            }
+            // Change damage to average of old and new damage to make it less affected by random extreme variation in damage
+            target.FargoSouls().EarthDoTValue = (int)MathHelper.Lerp(target.FargoSouls().EarthDoTValue, debuffDamage / 2.3f, 0.5f);
             target.AddBuff(ModContent.BuffType<EarthPoison>(), 400);
             //reduce iframes so that the accessory actually increases dps for real
-            if (projectile != null && !projectile.usesIDStaticNPCImmunity && !projectile.usesLocalNPCImmunity && projectile.penetrate != 1)
+            if (projectile != null && !projectile.usesIDStaticNPCImmunity && !projectile.usesLocalNPCImmunity && projectile.penetrate != 1 && projectile.FargoSouls().AdamModifier == 3)
             {
-                target.immune[player.whoAmI] = (int)(MathHelper.Lerp(10, 3, lerper));
+                target.immune[player.whoAmI] = 3;
             }
         }
         

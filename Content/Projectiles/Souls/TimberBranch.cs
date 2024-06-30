@@ -27,6 +27,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Generic;
+            Projectile.ContinuouslyUpdateDamageStats = true;
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
             Projectile.timeLeft = Duration;
@@ -54,7 +55,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                         for (int i = -1; i <= 1; i += 2)
                         {
                             float rotation = i * Main.rand.NextFloat(MathHelper.PiOver2 * 0.1f, MathHelper.PiOver2 * 0.3f);
-                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center + Projectile.velocity * (Length - Projectile.width), Projectile.velocity.RotatedBy(rotation), Type, Projectile.damage, Projectile.knockBack, Projectile.owner, DepthRemaining - 1);
+                            Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center + Projectile.velocity * (Length - Projectile.width), Projectile.velocity.RotatedBy(rotation), Type, Projectile.originalDamage, Projectile.knockBack, Projectile.owner, DepthRemaining - 1);
                         }
                     }
                 }

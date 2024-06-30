@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
-            Projectile.timeLeft = 180;
+            Projectile.timeLeft = 60 * 10;
             Projectile.hide = true;
             Projectile.penetrate = -1;
             Projectile.FargoSouls().DeletionImmuneRank = 2;

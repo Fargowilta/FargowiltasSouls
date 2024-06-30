@@ -75,13 +75,15 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
 
             player.AddEffect<SlimeFallEffect>(Item);
 
+            /*
             if (player.AddEffect<SlimyShieldEffect>(Item))
             {
                 player.FargoSouls().SlimyShieldItem = Item;
             }
+            */
 
             //agitating lens
-            player.AddEffect<AgitatingLensEffect>(Item);
+            //player.AddEffect<AgitatingLensEffect>(Item);
             player.AddEffect<AgitatingLensInstall>(Item);
 
             //queen stinger
@@ -109,7 +111,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
 
             //corrupt heart
             fargoPlayer.DarkenedHeartItem = Item;
-            player.AddEffect<DarkenedHeartEaters>(Item);
+            //player.AddEffect<DarkenedHeartEaters>(Item);
             player.hasMagiluminescence = true;
             if (fargoPlayer.DarkenedHeartCD > 0)
                 fargoPlayer.DarkenedHeartCD -= 2;
@@ -248,9 +250,11 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             player.AddEffect<PumpkingsCapeEffect>(Item);
 
             //celestial rune
+            /*
             player.AddEffect<CelestialRuneAttacks>(Item);
             if (fargoPlayer.AdditionalAttacksTimer > 0)
                 fargoPlayer.AdditionalAttacksTimer -= 2;
+            */
 
             //chalice
             fargoPlayer.MoonChalice = true;
@@ -272,7 +276,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             //dread shell
             player.AddEffect<DreadShellEffect>(Item);
 
-            //deerclaws
+            //deerclawps
             player.buffImmune[BuffID.Slow] = true;
             player.buffImmune[BuffID.Frozen] = true;
             player.AddEffect<DeerclawpsDive>(Item);

@@ -22,6 +22,8 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.penetrate = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

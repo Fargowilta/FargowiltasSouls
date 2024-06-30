@@ -42,7 +42,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             DamageClass damageClass = player.ProcessDamageTypeFromHeldItem();
-            player.GetDamage(damageClass) += .66f;
+            player.GetDamage(damageClass) += .50f;
             player.GetCritChance(damageClass) += 25;
 
             FargoSoulsPlayer modPlayer = player.FargoSouls();
@@ -75,8 +75,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
 
             player.lifeRegen += 2;
 
-            player.AddEffect<SniperScopeEffect>(Item);
-
             player.manaFlower = true;
             player.manaMagnet = true;
             player.magicCuffs = true;
@@ -96,14 +94,16 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             recipe.Register();
         }
     }
+    
     public class UniverseSpeedEffect : AccessoryEffect
     {
         public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
         public override int ToggleItemType => ModContent.ItemType<UniverseSoul>();
         public override void PostUpdateEquips(Player player)
         {
-            float speed = player.FargoSouls().Eternity ? 2.5f : 0.5f;
+            float speed = player.FargoSouls().Eternity ? 2.5f : 0.25f;
             player.FargoSouls().AttackSpeed += speed;
         }
     }
+    
 }

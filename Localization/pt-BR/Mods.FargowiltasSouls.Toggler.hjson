@@ -20,6 +20,7 @@
 // PalladiumHealing: Palladium Healing
 // PalladiumEffect: Palladium Orbs
 // TitaniumEffect: Titanium Shards
+// EarthForceEffect: Earth Weapon Charge
 // TerraHeader: "{$Mods.FargowiltasSouls.Items.TerraForce.DisplayName}"
 // CopperEffect: Copper Lightning
 // IronEffect: Iron Magnet
@@ -72,6 +73,8 @@
 // SpookyEffect: Spooky Scythes
 // NinjaEffect: Ninja Speed
 // CrystalAssassinDash: Crystal Assassin Dash
+// ShadowForceDashEffect: Shadow Dash
+// ShadowForceDamageEffect: Shadow Dash Damage
 // SpiritHeader: "{$Mods.FargowiltasSouls.Items.SpiritForce.DisplayName}"
 // FossilBones: Fossil Bones On Hit
 // HallowEffect: Hallowed Healing Potions
@@ -79,6 +82,7 @@
 // SpectreEffect: Spectre Orbs
 // ForbiddenEffect: Forbidden Storm
 // TikiEffect: Tiki Minions
+// SpiritTornadoEffect: Spirit Tornado
 // CosmoHeader: "{$Mods.FargowiltasSouls.Items.CosmoForce.DisplayName}"
 // MeteorMomentumEffect: Meteor Speed
 // MeteorEffect: Meteor Shower
@@ -190,8 +194,7 @@ MutantArmorHeader: Verdadeira Armadura do Mutant
 // TrawlerGel: Volatile Gelatin
 // EternityHeader: "{$Mods.FargowiltasSouls.Items.EternitySoul.DisplayName}"
 // EternityTin: Eternity Crit Effect Stacking
-// ShadowForceDashEffect: Shadow Dash
-// ShadowForceDamageEffect: Shadow Damage
+// TerrariaMoonEffect: Terraria Moons
 // the pets are no longer existing in game
 PetHeader: Animais de Estimação
 PetDinoConfig: Dinossauro de Estimação

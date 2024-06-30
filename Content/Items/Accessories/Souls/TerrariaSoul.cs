@@ -1,10 +1,14 @@
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
+using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -22,6 +26,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             ModContent.ItemType<EarthForce>(),
             ModContent.ItemType<NatureForce>(),
             ModContent.ItemType<LifeForce>(),
+            ModContent.ItemType<ShadowForce>(),
             ModContent.ItemType<SpiritForce>(),
             ModContent.ItemType<WillForce>(),
             ModContent.ItemType<CosmoForce>()
@@ -73,7 +78,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             modPlayer.WizardEnchantActive = true;
 
             // super moons
-
+            player.AddEffect<TerrariaMoonEffect>(Item);
             // revive
             player.AddEffect<FossilEffect>(Item);
             // meteor movement
@@ -135,6 +140,59 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             recipe.AddIngredient(null, "AbomEnergy", 10)
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
             .Register();
+        }
+    }
+    public class TerrariaMoonEffect : AccessoryEffect
+    {
+        public override Header ToggleHeader => Header.GetHeader<EternityHeader>();
+        public override int ToggleItemType => ModContent.ItemType<TerrariaSoul>();
+        public override bool ExtraAttackEffect => true;
+        
+
+        public override void PostUpdateEquips(Player player)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            if (modPlayer.TerrariaSoulProcCD > 0)
+                modPlayer.TerrariaSoulProcCD--;
+        }
+        public override void OnHitNPCEither(Player player, NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, int baseDamage, Projectile projectile, Item item)
+        {
+            if (hitInfo.Crit)
+            {
+                MoonProc(player, target);
+            }
+        }
+
+        public static void MoonProc(Player player, NPC target)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            if (modPlayer.TerrariaSoulProcCD == 0)
+            {
+                int dmg = 1222;
+                int cdLength = 160;
+
+                // cooldown scaling from 2x to 1x depending on how recently you got hurt
+                int maxHurtTime = 60 * 30;
+                if (modPlayer.TimeSinceHurt < maxHurtTime)
+                {
+                    float multiplier = 2f - (modPlayer.TimeSinceHurt / maxHurtTime) * 1f;
+                    cdLength = (int)(cdLength * multiplier);
+                }
+
+                Vector2 ai = target.Center - player.Center;
+                Vector2 velocity = Vector2.Normalize(ai) * 0.1f;
+
+                int damage = FargoSoulsUtil.HighestDamageTypeScaling(modPlayer.Player, dmg);
+                SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ThrowShort") with { Volume = 0.5f }, player.Center);
+                FargoSoulsUtil.NewProjectileDirectSafe(modPlayer.Player.GetSource_ItemUse(player.HeldItem), player.Center, velocity, ModContent.ProjectileType<TerrariaSoulMoon>(), damage, 0f, player.whoAmI, ai1: target.whoAmI);
+
+                modPlayer.TerrariaSoulProcCD = cdLength;
+            }
+        }
+        public override void OnHurt(Player player, Player.HurtInfo info)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            modPlayer.TerrariaSoulProcCD = 160 * 2;
         }
     }
 }

@@ -385,10 +385,9 @@ namespace FargowiltasSouls.Content.Projectiles
             //reduce iframes so that the accessory actually increases dps for real
             if (player.HasEffect<EarthForceEffect>())
             {
-                if (projectile.usesIDStaticNPCImmunity)
+                if (projectile.usesIDStaticNPCImmunity && AdamModifier == 3)
                 {
-                    float lerper = EarthForceEffect.GetEarthForceLerpValue(player);
-                    projectile.idStaticNPCHitCooldown = (int)(projectile.idStaticNPCHitCooldown * MathHelper.Lerp(1, 0.3f, lerper));
+                    projectile.idStaticNPCHitCooldown = (int)(projectile.idStaticNPCHitCooldown * 0.3333f);
                 }
             }
             

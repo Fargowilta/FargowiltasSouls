@@ -42,9 +42,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
                 else if (Player.velocity.Y < -0.1f)
                     Player.velocity.Y = -0.1f;
             }
-
-            //grav
-            player.AddEffect<MasoGravEffect>(item);
         }
         public override void AddRecipes()
         {
@@ -78,7 +75,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<FlightMasteryHeader>();
         public override int ToggleItemType => ItemID.EmpressFlightBooster;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.empressBrooch = true;
@@ -88,7 +85,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<FlightMasteryHeader>();
         public override int ToggleItemType => ModContent.ItemType<FlightMasterySoul>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.gravity = Player.defaultGravity * 1.5f;

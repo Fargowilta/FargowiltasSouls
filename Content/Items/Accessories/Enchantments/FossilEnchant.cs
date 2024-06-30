@@ -69,7 +69,7 @@ Collect the bones to heal for 20 HP each
     {
 
         public override Header ToggleHeader => null;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void OnHurt(Player player, Player.HurtInfo info)
         {
             player.immune = true;

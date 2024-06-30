@@ -84,6 +84,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
         public int RuneFormationTimer;
         public const int FormationTime = 60;
         public float GunRotation = 0;
+        public bool Deathraying = false;
         public Vector2 GunCircleCenter(float lerp) => NPC.Center + GunRotation.ToRotationVector2() * DefaultRuneDistance * (CloserGun ? 0.15f : 0.9f) * lerp;
         public bool CloserGun
         {
@@ -294,6 +295,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             phaseProtectionDR = false;
             NPC.dontTakeDamage = false;
             Attacking = 1;
+            Deathraying = false;
 
             if (RuneFormationTimer <= FormationTime)
                 RuneFormationTimer++;
@@ -597,7 +599,8 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         NPC.rotation = MathHelper.Lerp(NPC.rotation, 0, 0.09f);
                 }
             }
-            P1PeriodicNuke();
+            if (P1state != (float)P1States.P1Transition)
+                P1PeriodicNuke();
 
             AI_Timer += 1f;
             P1AI_Timer += 1f;
@@ -920,12 +923,13 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             useDR = true;
             DoAura = true;
             NPC.velocity *= 0.95f;
+            Deathraying = true;
 
             NPC.ai[3] = 0; //no periodic nuke
 
             void PhaseTransition()
             {
-                if (RPS < 0.2f) //speed up rotation up
+                if (RPS < 0.2f) //speed up rotation
                 {
                     RPS += 0.1f / 100;
                 }
@@ -959,7 +963,6 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 if (AI_Timer == 60f)
                 {
                     SoundEngine.PlaySound(SoundID.Item82 with { Pitch = -0.2f }, Main.LocalPlayer.Center);
-                    LockVector1 = -NPC.SafeDirectionTo(Main.player[NPC.target].Center);
                     if (PyramidPhase == 0)
                     {
                         PyramidTimer = 0;
@@ -983,7 +986,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         //p.Position -= p.Velocity * 4; //implosion
                     }
                 }
-                int mineAmount = WorldSavingSystem.EternityMode ? 100 : 60;
+                int mineAmount = WorldSavingSystem.EternityMode ? 45 : 0;
                 if (AI_Timer <= 180 && AI_Timer > 180 - mineAmount)
                 {
                     //mine explosion
@@ -1045,140 +1048,36 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         }
                     }
                 }
-                GunRotation = LockVector1.ToRotation();
-                if (AI_Timer == 240f)
+                if (AI_Timer < 240)
                 {
-                    if (FargoSoulsUtil.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, -1, LockVector1.ToRotation());
+                    LockVector1 = NPC.DirectionTo(player.Center);
+                    GunRotation = LockVector1.ToRotation();
                 }
             }
-
-            void LaserSpin()
-            {
-                ref float RandomDistance = ref NPC.ai[0];
-                ref float LaserTimer = ref NPC.localAI[2];
-                ref float RotationDirection = ref NPC.localAI[0];
-
-                Player Player = Main.player[NPC.target];
-                NPC.velocity *= 0.9f;
-                NPC.dontTakeDamage = true;
-                HitPlayer = true;
-
-                //for a starting time, make it fade in, then make it spin faster and faster up to a max speed
-                const int fadeintime = 10;
-                int endTime = 950;
-                if (Main.getGoodWorld)
-                    endTime += 4000; // lol
-                if (!WorldSavingSystem.EternityMode)
-                    endTime = 500;
-
-                if (AttackF1)
-                {
-                    AttackF1 = false;
-
-
-
-                    //SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
-                    SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
-                    if (FargoSoulsUtil.HostCheck)
-                    {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector1,
-                                        ModContent.ProjectileType<LifeChalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 1.2f), 3f, Main.myPlayer, 0, NPC.whoAmI, endTime);
-                    }
-                    NPC.velocity.X = 0;
-                    NPC.velocity.Y = 0;
-                    Flying = false;
-
-                    float pyramidRot = LockVector1.RotatedBy(rot).ToRotation();
-                    Vector2 PV = NPC.SafeDirectionTo(player.Center);
-                    Vector2 LV = pyramidRot.ToRotationVector2();
-                    float anglediff = (float)(Math.Atan2(PV.Y * LV.X - PV.X * LV.Y, LV.X * PV.X + LV.Y * PV.Y)); //real
-                    RotationDirection = Math.Sign(anglediff);
-
-
-                    NPC.netUpdate = true;
-                    rotspeed = 0;
-                    rot = 0;
-                }
-                GunRotation = LockVector1.RotatedBy(rot).ToRotation();
-                if (RotationDirection == 0)
-                {
-                    RotationDirection = 1;
-                    NPC.netUpdate = true;
-                }
-                if (LaserTimer >= fadeintime && LaserTimer < endTime)
-                {
-                    if (rotspeed < 0.82f)
-                    {
-                        rotspeed += 1.2f / 60 / 4;
-                    }
-                    else
-                    {
-                        rotspeed = 0.82f;
-                    }
-                    rot += RotationDirection * MathHelper.Pi / 180 * rotspeed;
-
-                }
-
-                LaserTimer++;
-                if (LaserTimer == endTime)
-                {
-                    EndTransition();
-                }
-                if (LaserTimer > endTime && PyramidPhase == 0 && RuneFormationTimer >= FormationTime) //after shell crack animation and rune reformation
-                {
-                    GoPhase2();
-                }
-            }
-            void EndTransition()
-            {
-                foreach (Projectile p in Main.projectile)
-                {
-                    if (p.type == ModContent.ProjectileType<LifeBombExplosion>())
-                    {
-                        //make them fade
-                        p.ai[0] = Math.Max(p.ai[0], LifeBombExplosion.MaxTime - 30);
-                        p.netUpdate = true;
-                    }
-                    //kill deathray, just to be sure
-                    if (p.type == ModContent.ProjectileType<LifeChalDeathray>())
-                    {
-                        p.Kill();
-                    }
-                }
-
-                PyramidPhase = -1;
-                PyramidTimer = 0;
-                NPC.netUpdate = true;
-
-                RuneFormation = Formations.Circle;
-                RuneFormationTimer = 0;
-            }
-            void GoPhase2()
-            {
-                P1state = 0;
-
-                PhaseOne = false;
-                HitPlayer = false;
-                NPC.netUpdate = true;
-                NPC.TargetClosest(true);
-                AttackF1 = true;
-                AI_Timer = 0f;
-                NPC.ai[2] = 0f;
-                NPC.ai[3] = 0f;
-                NPC.ai[0] = 0f;
-                StateReset();
-            }
-
-
 
             PhaseTransition();
             //ExpandRunes();
-            if (AI_Timer > 280)
+            if (AI_Timer >= 240f)
             {
-                LaserSpin();
+                LaserSpin(true);
             }
 
+        }
+
+        public void GoPhase2()
+        {
+            P1state = 0;
+
+            PhaseOne = false;
+            HitPlayer = false;
+            NPC.netUpdate = true;
+            NPC.TargetClosest(true);
+            AttackF1 = true;
+            AI_Timer = 0f;
+            NPC.ai[2] = 0f;
+            NPC.ai[3] = 0f;
+            NPC.ai[0] = 0f;
+            StateReset();
         }
 
         #endregion
@@ -1430,6 +1329,153 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 //there was dialogue here before
             }
             #endregion
+        }
+        public void LaserSpin(bool phaseTransition)
+        {
+            ref float RandomDistance = ref NPC.ai[0];
+            ref float LaserTimer = ref NPC.localAI[2];    
+            ref float RotationDirection = ref NPC.localAI[0];
+
+            Player player = Main.player[NPC.target];
+            NPC.velocity *= 0.9f;
+            NPC.dontTakeDamage = true;
+            HitPlayer = true;
+            Deathraying = true;
+
+            //for a starting time, make it fade in, then make it spin faster and faster up to a max speed
+            const int fadeintime = 10;
+            int endTime = 60 * 3;
+
+            if (AI_Timer < 240 - FormationTime)
+                AI_Timer = 240 - FormationTime;
+
+            if (AI_Timer < 280f)
+            {
+                if (AI_Timer < 240f)
+                {
+                    LockVector1 = NPC.DirectionTo(player.Center);
+                    if (PyramidPhase == 0)
+                    {
+                        PyramidTimer = 0;
+                        NPC.netUpdate = true;
+                    }
+                    PyramidPhase = 1;
+
+                    if (RuneFormation != Formations.Gun)
+                    {
+                        RuneFormationTimer = 0;
+                        NPC.netUpdate = true;
+                    }
+                    RuneFormation = Formations.Gun;
+                    
+                }
+                else if (AI_Timer == 240f)
+                {
+                    LockVector1 = NPC.DirectionTo(player.Center);
+                    RotationDirection = Math.Sign(FargoSoulsUtil.RotationDifference(player.Center + player.velocity, player.Center));
+                    if (RotationDirection == 0)
+                        RotationDirection = 1;
+                    NPC.netUpdate = true;
+                    if (FargoSoulsUtil.HostCheck)
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BloomLine>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, -1, NPC.whoAmI);
+                }
+                else
+                {
+                    Vector2 lockon = NPC.DirectionTo(player.Center).RotatedBy(-RotationDirection * MathF.PI * 0.15f);
+                    LockVector1 = Vector2.Lerp(LockVector1, lockon, 0.1f);
+                }
+                GunRotation = LockVector1.RotatedBy(rot).ToRotation();
+                return;
+            }
+                
+
+            if (AttackF1)
+            {
+                AttackF1 = false;
+
+                //SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
+                SoundEngine.PlaySound(SoundID.Zombie104 with { Volume = 0.5f }, NPC.Center);
+                if (FargoSoulsUtil.HostCheck)
+                {
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, LockVector1,
+                                    ModContent.ProjectileType<LifeChalDeathray>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 1.2f), 3f, Main.myPlayer, 0, NPC.whoAmI, endTime);
+                }
+                NPC.velocity.X = 0;
+                NPC.velocity.Y = 0;
+                Flying = false;
+
+                float pyramidRot = LockVector1.RotatedBy(rot).ToRotation();
+                Vector2 PV = NPC.SafeDirectionTo(player.Center);
+                Vector2 LV = pyramidRot.ToRotationVector2();
+                float anglediff = (float)(Math.Atan2(PV.Y * LV.X - PV.X * LV.Y, LV.X * PV.X + LV.Y * PV.Y)); //real
+                RotationDirection = Math.Sign(anglediff);
+
+
+                NPC.netUpdate = true;
+                rotspeed = 0;
+                rot = 0;
+            }
+            GunRotation = LockVector1.RotatedBy(rot).ToRotation();
+            if (RotationDirection == 0)
+            {
+                RotationDirection = 1;
+                NPC.netUpdate = true;
+            }
+            if (LaserTimer >= fadeintime && LaserTimer < endTime)
+            {
+                float maxSpeed = 1.5f;
+                if (rotspeed < maxSpeed)
+                {
+                    rotspeed += maxSpeed / 120;
+                }
+                else
+                {
+                    rotspeed = maxSpeed;
+                }
+                rot += RotationDirection * MathHelper.Pi / 180 * rotspeed;
+
+            }
+
+            LaserTimer++;
+
+            if (LaserTimer == endTime)
+            {
+                foreach (Projectile p in Main.projectile)
+                {
+                    if (p.type == ModContent.ProjectileType<LifeBombExplosion>())
+                    {
+                        //make them fade
+                        p.ai[0] = Math.Max(p.ai[0], LifeBombExplosion.MaxTime - 30);
+                        p.netUpdate = true;
+                    }
+                    //kill deathray, just to be sure
+                    if (p.type == ModContent.ProjectileType<LifeChalDeathray>())
+                    {
+                        p.Kill();
+                    }
+                }
+
+                PyramidPhase = -1;
+                PyramidTimer = 0;
+                NPC.netUpdate = true;
+
+                RuneFormation = Formations.Circle;
+                RuneFormationTimer = 0;
+            }
+            if (LaserTimer > endTime && PyramidPhase == 0 && RuneFormationTimer >= FormationTime) //after shell crack animation and rune reformation
+            {
+                if (phaseTransition)
+                {
+                    GoPhase2();
+                }
+                else
+                {
+                    HitPlayer = false;
+                    oldstate = state;
+                    StateReset();
+                }
+                return;
+            }
         }
         public void AttackSlurpBurp()
         {
@@ -3035,7 +3081,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             if (PyramidPhase != 0) //draw pyramid
             {
                 float pyramidRot = 0;
-                if (P1state == -1) //transition
+                if (Deathraying) //transition
                 {
                     pyramidRot = LockVector1.RotatedBy(rot + MathHelper.PiOver2).ToRotation();
                 }

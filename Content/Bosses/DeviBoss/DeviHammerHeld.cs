@@ -79,7 +79,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                 Main.dust[index3].noLight = true;
             }
         }
-
+        public override bool CanHitPlayer(Player target) => false;
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             if (!target.HasBuff(ModContent.BuffType<Buffs.Masomode.StunnedBuff>()))

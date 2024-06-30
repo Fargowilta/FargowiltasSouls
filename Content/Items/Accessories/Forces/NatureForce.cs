@@ -65,7 +65,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
         public override Header ToggleHeader => Header.GetHeader<NatureHeader>();
         public override int ToggleItemType => ModContent.ItemType<NatureForce>();
         public override bool ExtraAttackEffect => true;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();

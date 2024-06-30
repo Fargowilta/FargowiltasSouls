@@ -61,13 +61,15 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
             public override Header ToggleHeader => Header.GetHeader<TimberHeader>();
             public override int ToggleItemType => ModContent.ItemType<TimberForce>();
             public override bool ExtraAttackEffect => true;
-            public override bool IgnoresMutantPresence => true;
+            
 
             public override void PostUpdateEquips(Player player)
             {
                 FargoSoulsPlayer modPlayer = player.FargoSouls();
                 if (modPlayer.TimberBranchCD > 0)
                     modPlayer.TimberBranchCD--;
+                if (modPlayer.TimberSwingCD > 0)
+                    modPlayer.TimberSwingCD--;
             }
             public override void TryAdditionalAttacks(Player player, int damage, DamageClass damageType)
             {
@@ -91,7 +93,12 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
                     }
                     else // Slightly reduce cooldown on attack
                     {
-                        modPlayer.TimberBranchCD -= 4;
+                        if (modPlayer.TimberSwingCD <= 0)
+                        {
+                            modPlayer.TimberBranchCD -= 4;
+                            modPlayer.TimberSwingCD = 10;
+                        }
+                        
                     }
                 }
             }

@@ -160,7 +160,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
             player.yoyoGlove = true;
             player.yoyoString = true;
 
-            player.AddEffect<SniperScopeEffect>(Item);
             player.manaFlower = true;
             player.manaMagnet = true;
             player.magicCuffs = true;
@@ -230,7 +229,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<EternityHeader>();
         public override int ToggleItemType => ModContent.ItemType<EternitySoul>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 
 }

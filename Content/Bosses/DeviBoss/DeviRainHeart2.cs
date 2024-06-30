@@ -21,29 +21,20 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             {
                 if (FargoSoulsUtil.HostCheck)
                 {
-                    if (WorldSavingSystem.MasochistModeReal)
-                    {
-                        Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, -Vector2.UnitY, ModContent.ProjectileType<DeviDeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-                        if (Main.player[npc.target].Center.Y > Projectile.Center.Y)
-                            Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, Vector2.UnitY, ModContent.ProjectileType<DeviDeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-                    }
-                    else
-                    {
-                        SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item21, Projectile.Center);
 
-                        for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 5; i++)
+                    {
+                        float speed = 4f + i * 8f;
+                        int p = Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, -Vector2.UnitY * speed, ModContent.ProjectileType<DeviHeart>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                        if (p != Main.maxProjectiles)
+                            Main.projectile[p].timeLeft = 20;
+
+                        if (Main.player[npc.target].Center.Y > Projectile.Center.Y)
                         {
-                            float speed = 4f + i * 8f;
-                            int p = Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, -Vector2.UnitY * speed, ModContent.ProjectileType<DeviHeart>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                            p = Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, Vector2.UnitY * speed, ModContent.ProjectileType<DeviHeart>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                             if (p != Main.maxProjectiles)
                                 Main.projectile[p].timeLeft = 20;
-
-                            if (Main.player[npc.target].Center.Y > Projectile.Center.Y)
-                            {
-                                p = Projectile.NewProjectile(Terraria.Entity.InheritSource(Projectile), Projectile.Center, Vector2.UnitY * speed, ModContent.ProjectileType<DeviHeart>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-                                if (p != Main.maxProjectiles)
-                                    Main.projectile[p].timeLeft = 20;
-                            }
                         }
                     }
                 }

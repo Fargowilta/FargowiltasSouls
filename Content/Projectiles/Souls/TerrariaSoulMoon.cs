@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
 {
-    public class CosmosForceMoon : ModProjectile
+    public class TerrariaSoulMoon : ModProjectile
     {
         public override string Texture => "FargowiltasSouls/Content/Bosses/Champions/Cosmos/CosmosMoon";
         public override void SetStaticDefaults()
@@ -48,13 +48,6 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
             Projectile.FargoSouls().DeletionImmuneRank = 2;
         }
 
-        ref float State => ref Projectile.ai[1];
-        public override bool? CanHitNPC(NPC target)
-        {
-            if (State == 0)
-                return false;
-            return base.CanHitNPC(target);
-        }
         public override void AI()
         {
             Projectile.Opacity = MathHelper.Lerp(Projectile.Opacity, 1f, 0.1f);
@@ -66,7 +59,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
             {
                 Projectile.localAI[0] = 1;
 
-                SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item92 with { Volume = 0.5f }, Projectile.Center);
 
                 Projectile.rotation = Main.rand.NextFloat(MathF.Tau);
             }
@@ -87,43 +80,39 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                 return;
             }
 
-            if (State == 0)
-            {
-                Projectile.tileCollide = false;
-                if (player.HeldItem != null && player.HeldItem.damage > 0 && player.controlUseItem) //it's being held
-                {
-                    int distance = 160;
-                    float spinFrames = 90;
-                    var moons = Main.projectile.Where(p => p.TypeAlive(Type) && p.owner == player.whoAmI && p.ai[1] == 0).ToList();
-                    float offset = moons.IndexOf(Projectile) * MathF.Tau / moons.Count;
-                    float rotation = MathF.Tau * (Main.GameUpdateCount % spinFrames) / spinFrames;
+            Projectile.extraUpdates = 1;
+            Projectile.Opacity = 1;
+            Projectile.scale = 0.2f;
+            Projectile.tileCollide = true;
 
-                    Projectile.Center = player.Center + Vector2.UnitX.RotatedBy(offset + rotation) * distance;
-                }
-                else // player stops holding it
-                {
-                    State = 1;
-                    if (Main.myPlayer == player.whoAmI)
-                    {
-                        SoundEngine.PlaySound(new SoundStyle("FargowiltasSouls/Assets/Sounds/ThrowShort"), Projectile.Center);
-                        Projectile.velocity = Projectile.DirectionTo(Main.MouseWorld) * 2;
-                        Projectile.netUpdate = true;
-                        NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, Projectile.whoAmI);
-                    }
-                        
-                    
-                }
-            }
-            else
+            int npcID = (int)Projectile.ai[1];
+            if (!npcID.IsWithinBounds(Main.maxNPCs))
+                return;
+            NPC target = Main.npc[npcID];
+            if (!target.Alive())
+                return;
+
+            Vector2 idlePosition = target.Center;
+            Vector2 toIdlePosition = idlePosition - Projectile.Center;
+            float distance = toIdlePosition.Length();
+            float speed = 25f;
+            float inertia = 15f;
+            toIdlePosition.Normalize();
+            toIdlePosition *= speed;
+            Projectile.velocity = (Projectile.velocity * (inertia - 1f) + toIdlePosition) / inertia;
+            if (distance == 0)
+                Projectile.velocity = Vector2.Zero;
+            if (distance < Projectile.velocity.Length())
+                Projectile.velocity = Vector2.Normalize(Projectile.velocity) * distance;
+            if (Projectile.velocity == Vector2.Zero && distance > 10)
             {
-                Projectile.extraUpdates = 1;
-                Projectile.Opacity = 1;
-                Projectile.scale = 0.2f;
-                Projectile.tileCollide = true;
-                Projectile.velocity *= 1.06f;
-                Projectile.velocity = Projectile.velocity.ClampLength(0, 20f);
+                Projectile.velocity.X = -0.15f;
+                Projectile.velocity.Y = -0.05f;
             }
-            
+            /*
+            Projectile.velocity *= 1.06f;
+            Projectile.velocity = Projectile.velocity.ClampLength(0, 20f);
+            */
 
             Projectile.rotation += 0.04f;
         }
@@ -136,7 +125,7 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
 
         public override void OnKill(int timeLeft) //vanilla explosion code echhhhhhhhhhh
         {
-            SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item89 with { Volume = 0.5f }, Projectile.position);
 
             if (!Main.dedServ && Main.LocalPlayer.active)
                 ScreenShakeSystem.StartShake(4, shakeStrengthDissipationIncrement: 4f / 30);
@@ -147,22 +136,39 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Cosmos
                 if (p != Main.maxProjectiles)
                     Main.projectile[p].FargoSouls().CanSplit = false;
 
-                int solar = ModContent.ItemType<SolarBooster>();
-                int vortex = ModContent.ItemType<VortexBooster>();
-                int nebula = ModContent.ItemType<NebulaBooster>();
-                int stardust = ModContent.ItemType<StardustBooster>();
+                int timber = ModContent.ItemType<TimberBooster>();
+                int terra = ModContent.ItemType<TerraBooster>();
+                int earth = ModContent.ItemType<EarthBooster>();
+                int nature = ModContent.ItemType<NatureBooster>();
+                int life = ModContent.ItemType<LifeBooster>();
+                int death = ModContent.ItemType<DeathBooster>();
+                int spirit = ModContent.ItemType<SpiritBooster>();
+                int will = ModContent.ItemType<WillBooster>();
+                int cosmos = ModContent.ItemType<CosmosBooster>();
 
-                List<int> possibleBoosters = [solar, vortex, nebula, stardust];
-                if (Main.item.Any(i => i.active && i.type == solar) || Main.LocalPlayer.GetModPlayer<BoosterPlayer>().SolarTimer > 0)
-                    possibleBoosters.Remove(solar);
-                if (Main.item.Any(i => i.active && i.type == vortex) || Main.LocalPlayer.GetModPlayer<BoosterPlayer>().VortexTimer > 0)
-                    possibleBoosters.Remove(vortex);
-                if (Main.item.Any(i => i.active && i.type == nebula) || Main.LocalPlayer.GetModPlayer<BoosterPlayer>().NebulaTimer > 0)
-                    possibleBoosters.Remove(nebula);
-                if (Main.item.Any(i => i.active && i.type == stardust) || Main.LocalPlayer.GetModPlayer<BoosterPlayer>().StardustTimer > 0)
-                    possibleBoosters.Remove(stardust);
+                BoosterPlayer boosterPlayer = Main.LocalPlayer.GetModPlayer<BoosterPlayer>();
+
+                List<int> possibleBoosters = [timber, terra, earth, nature, life, death, spirit, will, cosmos];
+                if (Main.item.Any(i => i.active && i.type == timber) || boosterPlayer.TimberTimer > 0)
+                    possibleBoosters.Remove(timber);
+                if (Main.item.Any(i => i.active && i.type == terra) || boosterPlayer.TerraTimer > 0)
+                    possibleBoosters.Remove(terra);
+                if (Main.item.Any(i => i.active && i.type == earth) || boosterPlayer.EarthTimer > 0)
+                    possibleBoosters.Remove(earth);
+                if (Main.item.Any(i => i.active && i.type == nature) || boosterPlayer.NatureTimer > 0)
+                    possibleBoosters.Remove(nature);
+                if (Main.item.Any(i => i.active && i.type == life) || boosterPlayer.LifeTimer > 0)
+                    possibleBoosters.Remove(life);
+                if (Main.item.Any(i => i.active && i.type == death) || boosterPlayer.DeathTimer > 0)
+                    possibleBoosters.Remove(death);
+                if (Main.item.Any(i => i.active && i.type == spirit) || boosterPlayer.SpiritTimer > 0)
+                    possibleBoosters.Remove(spirit);
+                if (Main.item.Any(i => i.active && i.type == will) || boosterPlayer.WillTimer > 0)
+                    possibleBoosters.Remove(will);
+                if (Main.item.Any(i => i.active && i.type == cosmos) || boosterPlayer.CosmosTimer > 0)
+                    possibleBoosters.Remove(cosmos);
                 if (possibleBoosters.Count == 0)
-                    possibleBoosters = [solar, vortex, nebula, stardust];
+                    possibleBoosters = [timber, terra, earth, nature, life, death, spirit, will, cosmos];
                 int itemType = Main.rand.NextFromCollection(possibleBoosters);
                 Item.NewItem(Projectile.GetSource_FromThis(), Projectile.Hitbox, itemType, noGrabDelay: true);
             }

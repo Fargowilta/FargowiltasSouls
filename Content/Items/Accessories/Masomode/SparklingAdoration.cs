@@ -110,6 +110,6 @@ Your attacks periodically summon life-draining hearts
     {
         public override Header ToggleHeader => Header.GetHeader<DeviEnergyHeader>();
         public override int ToggleItemType => ModContent.ItemType<SparklingAdoration>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 }

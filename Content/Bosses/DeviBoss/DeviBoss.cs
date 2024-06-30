@@ -21,6 +21,7 @@ using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -1042,14 +1043,15 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                             ModContent.ProjectileType<DeviSparklingLoveSmall>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage), 0f, Main.myPlayer, NPC.whoAmI, 0.0001f * Math.Sign(player.Center.X - NPC.Center.X));
                     }
                 }
-
-                if (++MothDustTimer > 2)
+                /*
+                if (++MothDustTimer > 20)
                 {
                     MothDustTimer = 0;
 
                     if (FargoSoulsUtil.HostCheck) //make moth dust trail
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Main.rand.NextVector2Unit() * 2f, ModContent.ProjectileType<MothDust>(), projectileDamage, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Main.rand.NextVector2Unit() * 2f, ModContent.ProjectileType<DeviDevilScythe>(), projectileDamage, 0f, Main.myPlayer);
                 }
+                */
 
                 if (Timer == 0 && WorldSavingSystem.EternityMode && ((SubTimer % 2 == 1 && Phase > 1) || WorldSavingSystem.MasochistModeReal))
                 {
@@ -1104,12 +1106,12 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
 
                 ref float MothDustTimer = ref NPC.ai[3];
 
-                if (++MothDustTimer > 2)
+                if (++MothDustTimer > 10)
                 {
                     MothDustTimer = 0;
 
                     if (FargoSoulsUtil.HostCheck) //make moth dust trail
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Main.rand.NextVector2Unit() * 2f, ModContent.ProjectileType<MothDust>(), projectileDamage, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Main.rand.NextVector2Unit() * 2f, ModContent.ProjectileType<DeviDevilScythe>(), projectileDamage, 0f, Main.myPlayer);
                 }
 
                 if (++Timer > 30)
@@ -1793,6 +1795,7 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
             void SparklingLove()
             {
                 ref float FirstFrameCheck = ref NPC.localAI[0];
+                ref float MasoSwingCount = ref NPC.localAI[1];
                 ref float SwingRotation = ref NPC.ai[3];
 
                 if (FirstFrameCheck == 0)
@@ -1809,10 +1812,15 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
 
                 if (++Timer < 150)
                 {
-                    NPC.velocity = Vector2.Zero;
+                    if (MasoSwingCount == 0)
+                        NPC.velocity = Vector2.Zero;
+                    else
+                        NPC.velocity *= 0.95f;
+
 
                     if (SubTimer == 0) //spawn weapon, teleport
                     {
+
                         double angle = NPC.position.X < player.position.X ? -Math.PI / 4 : Math.PI / 4;
                         SubTimer = (float)angle * -4f / 30;
 
@@ -1820,7 +1828,8 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                         const int loveOffset = 90;
                         if (FargoSoulsUtil.HostCheck)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + -Vector2.UnitY.RotatedBy(angle) * loveOffset, Vector2.Zero, ModContent.ProjectileType<DeviSparklingLove>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 4f / 2), 0f, Main.myPlayer, NPC.whoAmI, loveOffset);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + -Vector2.UnitY.RotatedBy(angle) * loveOffset, Vector2.Zero, ModContent.ProjectileType<DeviSparklingLove>(), FargoSoulsUtil.ScaledProjectileDamage(NPC.defDamage, 4f / 2), 0f, Main.myPlayer, NPC.whoAmI, loveOffset);
+                                
                         }
 
                         //spawn hitboxes
@@ -1842,7 +1851,8 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                             }
                         }
 
-                        if (WorldSavingSystem.MasochistModeReal && FargoSoulsUtil.HostCheck)
+                        
+                        if (WorldSavingSystem.MasochistModeReal && FargoSoulsUtil.HostCheck && Main.getGoodWorld)
                         {
                             for (int i = 0; i < 4; i++)
                             {
@@ -1857,6 +1867,9 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                                     damage, 0f, Main.myPlayer, 0, acceleration);
                             }
                         }
+                        
+                        if (WorldSavingSystem.MasochistModeReal)
+                            Timer += 60;
                     }
 
                     //some slight rearing back before swing
@@ -1892,6 +1905,33 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                 }
                 else
                 {
+                    if (WorldSavingSystem.MasochistModeReal )
+                    {
+                        if (MasoSwingCount == 0)
+                        {
+                            if (Timer == 180) // kill axe and do another
+                            {
+                                foreach (Projectile proj in Main.projectile.Where(p => (p.TypeAlive<DeviAxe>() || p.TypeAlive<DeviSparklingLove>()) && p.ai[0] == NPC.whoAmI))
+                                {
+                                    proj.Kill();
+                                }
+                                NPC.velocity = Vector2.UnitX * NPC.HorizontalDirectionTo(player.Center) * 12 + Vector2.UnitY * -12;
+                                
+                            }
+                            if (Timer >= 200) // restart phase
+                            {
+                                Timer = 0;
+                                SubTimer = 0;
+                                NPC.ai[3] = 0;
+                                // NPC.localAI[0] = 0; would make her teleport and re-aura
+                                NPC.netUpdate = true;
+                                MasoSwingCount++;
+                                return;
+                            }
+                        }
+                        
+                    }
+
                     targetPos = player.Center + player.SafeDirectionTo(NPC.Center) * 400;
                     if (NPC.Distance(targetPos) > 50)
                         Movement(targetPos, 0.2f);
@@ -1899,6 +1939,14 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                     if (Timer > 300)
                     {
                         GetNextAttack();
+                    }
+                }
+                bool masoExtend = WorldSavingSystem.MasochistModeReal && MasoSwingCount == 0;
+                if (Timer == 178 && !masoExtend) // kill axe
+                {
+                    foreach (Projectile proj in Main.projectile.Where(p => (p.TypeAlive<DeviAxe>() || p.TypeAlive<DeviSparklingLove>()) && p.ai[0] == NPC.whoAmI))
+                    {
+                        proj.timeLeft = 2;
                     }
                 }
             }
@@ -1947,6 +1995,8 @@ namespace FargowiltasSouls.Content.Bosses.DeviBoss
                             AttackIndex = Phase > 1 ? 1 : 0;
                             RefreshAttackQueue();
                         }
+
+                        //State = 15;
                     }
                 }
             }

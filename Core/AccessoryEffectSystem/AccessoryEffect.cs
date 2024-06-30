@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
 
         public virtual bool MinionEffect => false;
         public virtual bool ExtraAttackEffect => false;
-        public virtual bool IgnoresMutantPresence => false;
+        public virtual bool MutantsPresenceAffects => false;
         public virtual bool DefaultToggle => true;
 
         protected sealed override void Register()

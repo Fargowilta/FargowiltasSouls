@@ -441,6 +441,8 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public override void PostUpdateMiscEffects()
         {
+            TimeSinceHurt++;
+
             if (ToggleRebuildCooldown > 0)
                 ToggleRebuildCooldown--;
 

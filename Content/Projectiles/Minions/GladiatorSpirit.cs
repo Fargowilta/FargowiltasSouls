@@ -29,7 +29,6 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Generic;
             Projectile.timeLeft = 60 * 60;
-            Projectile.minion = true;
 
             Projectile.FargoSouls().DeletionImmuneRank = 2;
         }

@@ -31,27 +31,25 @@ namespace FargowiltasSouls.Core.AccessoryEffectSystem
             effectPlayer.EquippedEffects[effect.Index] = true;
             effectPlayer.EffectItems[effect.Index] = item;
 
-            if (effect.MinionEffect || effect.ExtraAttackEffect)
-            {
-                if (effect.MinionEffect && modPlayer.Toggler_MinionsDisabled)
-                    return false;
-                if (effect.ExtraAttackEffect && modPlayer.Toggler_ExtraAttacksDisabled)
-                    return false;
-                if (modPlayer.PrimeSoulActive)
-                {
-                    if (!player.HasEffect(effect)) // Don't stack per item
-                        modPlayer.PrimeSoulItemCount++;
-                    return false;
-                }
-            }
-
-            /*
-            if (!effect.IgnoresMutantPresence && effect.HasToggle && modPlayer.MutantPresence)
-                return false;
-            */
-
             if (effect.HasToggle)
             {
+                if (effect.MinionEffect || effect.ExtraAttackEffect)
+                {
+                    if (modPlayer.PrimeSoulActive)
+                    {
+                        if (!player.HasEffect(effect)) // Don't stack per item
+                            modPlayer.PrimeSoulItemCount++;
+                        return false;
+                    }
+                    if (effect.MinionEffect && modPlayer.Toggler_MinionsDisabled)
+                        return false;
+                    if (effect.ExtraAttackEffect && modPlayer.Toggler_ExtraAttacksDisabled)
+                        return false;
+                }
+
+                if (modPlayer.MutantPresence && (effect.MutantsPresenceAffects || effect.MinionEffect))
+                    return false;
+
                 SoulsItem soulsItem = item != null && item.ModItem is SoulsItem si ? si : null;
                 if (!player.GetToggleValue(effect, true))
                 {

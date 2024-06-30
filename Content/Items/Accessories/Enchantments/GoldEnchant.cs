@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GoldEnchant>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void OnHitNPCEither(Player player, NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, int baseDamage, Projectile projectile, Item item)
         {
             target.AddBuff(BuffID.Midas, 120, true);
@@ -68,7 +68,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
         public override Header ToggleHeader => Header.GetHeader<WillHeader>();
         public override int ToggleItemType => ModContent.ItemType<GoldEnchant>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             for (int i = 50; i <= 53; i++) //detect coins in coin slots

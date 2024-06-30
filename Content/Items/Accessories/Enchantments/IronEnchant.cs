@@ -51,6 +51,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
     {
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<IronEnchant>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 }

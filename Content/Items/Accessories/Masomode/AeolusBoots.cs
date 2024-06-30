@@ -96,7 +96,7 @@ Increases jump height and negates fall damage
     {
         public override Header ToggleHeader => Header.GetHeader<DeviEnergyHeader>();
         public override int ToggleItemType => ModContent.ItemType<AeolusBoots>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (!player.flowerBoots)

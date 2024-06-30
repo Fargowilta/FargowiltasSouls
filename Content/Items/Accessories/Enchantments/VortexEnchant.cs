@@ -114,7 +114,7 @@ While in stealth, your own projectiles will not be sucked in
     public class VortexProjGravity : AccessoryEffect
     {
         public override Header ToggleHeader => null;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             foreach (Projectile toProj in Main.projectile.Where(p => p != null && p.active && p.friendly && p.owner == player.whoAmI))

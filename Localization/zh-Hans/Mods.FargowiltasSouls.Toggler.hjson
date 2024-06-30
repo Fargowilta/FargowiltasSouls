@@ -20,6 +20,7 @@ OrichalcumEffect: 山铜 花瓣
 PalladiumHealing: 钯金 生命恢复
 PalladiumEffect: 钯金 伤害珠
 TitaniumEffect: 钛金 碎片
+// EarthForceEffect: Earth Weapon Charge
 TerraHeader: "{$Mods.FargowiltasSouls.Items.TerraForce.DisplayName}"
 CopperEffect: 铜 闪电
 IronEffect: 铁 吸引掉落物
@@ -72,6 +73,8 @@ ShinobiThroughWalls: 渗透忍者 穿墙冲刺
 SpookyEffect: 阴森 镰刀攻击
 NinjaEffect: 忍者 弹幕速度
 CrystalAssassinDash: 水晶刺客冲刺
+// ShadowForceDashEffect: Shadow Dash
+// ShadowForceDamageEffect: Shadow Dash Damage
 SpiritHeader: "{$Mods.FargowiltasSouls.Items.SpiritForce.DisplayName}"
 FossilBones: 化石 受击释放骨头
 HallowEffect: 神圣 治疗药水
@@ -79,6 +82,7 @@ AncientHallowMinion: 远古神圣 泰拉棱镜
 SpectreEffect: 幽魂 幽魂珠
 ForbiddenEffect: 禁戒 风暴
 TikiEffect: 提基 鞭打召唤物
+// SpiritTornadoEffect: Spirit Tornado
 CosmoHeader: "{$Mods.FargowiltasSouls.Items.CosmoForce.DisplayName}"
 MeteorMomentumEffect: 流星 速度
 MeteorEffect: 流星 流星雨
@@ -190,8 +194,7 @@ TrawlerJump: 捕鱼之魂跳跃
 TrawlerGel: 挥发明胶
 EternityHeader: "{$Mods.FargowiltasSouls.Items.EternitySoul.DisplayName}"
 EternityTin: 永恒之魂属性叠加
-// ShadowForceDashEffect: Shadow Dash
-// ShadowForceDamageEffect: Shadow Damage
+// TerrariaMoonEffect: Terraria Moons
 // the pets are no longer existing in game
 PetHeader: 宠物
 PetDinoConfig: 恐龙宝宝

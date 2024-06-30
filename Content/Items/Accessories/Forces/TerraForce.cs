@@ -76,7 +76,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
         public override Header ToggleHeader => Header.GetHeader<TerraHeader>();
         public override int ToggleItemType => ModContent.ItemType<TerraForce>();
         public override bool ExtraAttackEffect => true;
-        public override bool IgnoresMutantPresence => true;
+        
 
         public override void PostUpdateEquips(Player player)
         {
@@ -93,13 +93,21 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
             }
         }
 
-        public static void LightningProc(Player player, NPC target)
+        public static void LightningProc(Player player, NPC target, float damageMultiplier = 1f)
         {
             FargoSoulsPlayer modPlayer = player.FargoSouls();
             if (modPlayer.TerraProcCD == 0)
             {
-                int dmg = 3500;
+                int dmg = (int)(3500 * damageMultiplier);
                 int cdLength = 300;
+
+                // cooldown scaling from 2x to 1x depending on how recently you got hurt
+                int maxHurtTime = 60 * 30;
+                if (modPlayer.TimeSinceHurt < maxHurtTime)
+                {
+                    float multiplier = 2f - (modPlayer.TimeSinceHurt / maxHurtTime) * 1f;
+                    cdLength = (int)(cdLength * multiplier);
+                }
 
                 Vector2 ai = target.Center - player.Center;
                 Vector2 velocity = Vector2.Normalize(ai) * 20;
@@ -109,6 +117,11 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
 
                 modPlayer.TerraProcCD = cdLength;
             }
+        }
+        public override void OnHurt(Player player, Player.HurtInfo info)
+        {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+            modPlayer.TerraProcCD = 300 * 2;
         }
     }
 }

@@ -67,6 +67,6 @@ namespace FargowiltasSouls.Content.Projectiles
     {
         public override Header ToggleHeader => Header.GetHeader<DeviEnergyHeader>();
         public override int ToggleItemType => ModContent.ItemType<SparklingAdoration>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 }

@@ -908,7 +908,7 @@ SpiritForce: {
 		[i:FargowiltasSouls/FossilEnchant] [i:FargowiltasSouls/ForbiddenEnchant] [i:FargowiltasSouls/HallowEnchant] [i:FargowiltasSouls/AncientHallowEnchant] [i:FargowiltasSouls/TikiEnchant] [i:FargowiltasSouls/SpectreEnchant]
 		Double tap down to call an ancient tornado that scales with magic and summon damage
 		The tornado follows your mouse and releases damaging orbs
-		Any projectiles shot through your tornado gain 60% damage
+		Any projectiles shot through your tornado gain 30% damage
 		Healing potions restore more health but take effect over time
 		If you reach zero HP you will revive with 200 HP, self-cleanse debuffs, and spawn healing bones
 		Increased whip range, whip your summons to make them work harder
@@ -923,6 +923,7 @@ TerraForce: {
 		[i:FargowiltasSouls/CopperEnchant] [i:FargowiltasSouls/TinEnchant] [i:FargowiltasSouls/IronEnchant] [i:FargowiltasSouls/LeadEnchant] [i:FargowiltasSouls/SilverEnchant] [i:FargowiltasSouls/TungstenEnchant] [i:FargowiltasSouls/ObsidianEnchant]    
 		Right Click to guard with your shield
 		Critical strikes sometimes fire a lightning bolt that explodes on hit and inflicts a stronger Lead Poisoning
+		Lightning bolts are less frequent if you got hit recently
 		Successful parries instantly fire a lightning bolt 
 		You take 60% less damage over time
 		50% chance to not consume each item on first craft and you attract items from a larger range (works in vanity and inventory)
@@ -1778,7 +1779,6 @@ FlightMasterySoul: {
 		Hold DOWN and JUMP to hover
 		Hold UP to boost faster
 		Increases gravity
-		Allows the control of gravity
 		'Pierce the heavens'
 		''' */
 }
@@ -1791,14 +1791,14 @@ MasochistSoul: {
 		[i:FargowiltasSouls/GuttedHeart] Increases max life by 100%, [i:FargowiltasSouls/MagicalBulb] life regen, [i:FargowiltasSouls/MutantAntibodies][i:FargowiltasSouls/SkullCharm][i:FargowiltasSouls/PumpkingsCape] damage for your current weapon class by 50%, [i:FargowiltasSouls/ReinforcedPlating] and damage reduction by 10%
 		[i:FargowiltasSouls/PungentEyeball] Increases spawn chance of rare enemies massively, [i:FargowiltasSouls/SinisterIcon] doubles spawnrates, makes non-boss enemies drop doubled loot, and [i:FargowiltasSouls/TimsConcoction] causes certain enemies to drop potions 
 		Grants [i:FargowiltasSouls/SlimyShield] fastfall, [i:FargowiltasSouls/ReinforcedPlating] knockback immunity, [i:FargowiltasSouls/PureHeart] immunity to biome debuffs, [i:FargowiltasSouls/GalacticGlobe] gravity control, immunity to almost all Eternity Mode debuffs, and more
-		Press [i:FargowiltasSouls/BetsysHeart] the Special Dash key to perform an invincible dash, [i:FargowiltasSouls/PrecisionSeal] the Precision Seal key to prevent dashes and double jumps, [i:FargowiltasSouls/AgitatingLens] [i:FargowiltasSouls/FusedLens] the Debuff Install key to debuff and buff yourself,
-		[i:FargowiltasSouls/FrigidGemstone] the Frigid Spell key to cast Ice Rod, [i:FargowiltasSouls/IceQueensCrown] the bomb key to freeze everything with enough graze, and [i:FargowiltasSouls/OrdinaryCarrot] right click to zoom [i:FargowiltasSouls/DreadShell] [i:FargowiltasSouls/PumpkingsCape] and parry
-		On landing, [i:FargowiltasSouls/SlimyShield] spawn slime balls and [i:FargowiltasSouls/GelicWings] slime spikes.  [i:FargowiltasSouls/Deerclawps] [i:FargowiltasSouls/LihzahrdTreasureBox] Double tap DOWN to fastfall and explode and create ice spikes on landing.
+		Press [i:FargowiltasSouls/BetsysHeart] the Special Dash key to perform an invincible dash, [i:FargowiltasSouls/PrecisionSeal] the Precision Seal key to prevent dashes and double jumps, [i:FargowiltasSouls/AgitatingLens] [i:FargowiltasSouls/FusedLens] the Debuff Install key to debuff and buff yourself
+		Press [i:FargowiltasSouls/FrigidGemstone] the Frigid Spell key to cast Ice Rod, [i:FargowiltasSouls/IceQueensCrown] the bomb key to freeze everything with enough graze, and [i:FargowiltasSouls/OrdinaryCarrot] right click to zoom [i:FargowiltasSouls/DreadShell] [i:FargowiltasSouls/PumpkingsCape] and parry
+		[i:FargowiltasSouls/Deerclawps] [i:FargowiltasSouls/LihzahrdTreasureBox] Double tap DOWN to fastfall and explode and create ice spikes on landing.
 		[i:FargowiltasSouls/PrecisionSeal] Reduces hurtbox size, [i:FargowiltasSouls/NecromanticBrew] increases dash distance, and causes  [i:FargowiltasSouls/PungentEyeball] your cursor to increase damage dealt to nearby enemies
 		Improves your [i:FargowiltasSouls/SecurityWallet] reforges, [i:FargowiltasSouls/OrdinaryCarrot] night vision, [i:FargowiltasSouls/NymphsPerfume] respawn hp, [i:FargowiltasSouls/SandsofTime] and respawn time, as well as using [i:FargowiltasSouls/ConcentratedRainbowMatter] healing and [i:FargowiltasSouls/MysticSkull] mana potions as needed.
-		On hit, [i:FargowiltasSouls/SqueakyToy] have a chance to only take 1 damage, [i:FargowiltasSouls/CelestialRune] erupt into Ancient Visions, [i:FargowiltasSouls/NecromanticBrew] and reflect all damage while dashing
-		Your attacks [i:FargowiltasSouls/NymphsPerfume] produce hearts, [i:FargowiltasSouls/WretchedPouch] summon shadowflame tentacles, [i:FargowiltasSouls/DarkenedHeart] spawn mini eaters, [i:FargowiltasSouls/CelestialRune] fire additional attacks, and inflict a cocktail of Eternity Mode debuffs
-		Summons [i:FargowiltasSouls/NecromanticBrew] Skeletron arms, [i:FargowiltasSouls/GuttedHeart] creepers, [i:FargowiltasSouls/ConcentratedRainbowMatter] a rainbow slime, [i:FargowiltasSouls/GroundStick] two friendly probes, [i:FargowiltasSouls/SkullCharm] an eyeball minion, [i:FargowiltasSouls/SaucerControlConsole] a mini saucer, [i:FargowiltasSouls/MagicalBulb] a plant, [i:FargowiltasSouls/GalacticGlobe] and True Eyes of Cthulhu by your side
+		On hit, [i:FargowiltasSouls/SqueakyToy] have a chance to only take 1 damage, [i:FargowiltasSouls/NecromanticBrew] and reflect damage while dashing
+		Your attacks [i:FargowiltasSouls/NymphsPerfume] produce hearts and inflict a cocktail of Eternity Mode debuffs
+		Summons [i:FargowiltasSouls/GuttedHeart] True-Eye Creepers to defend you
 		[i:FargowiltasSouls/SandsofTime] Use to teleport to your last death point
 		'Embrace mastery, embrace eternity'
 		''' */
@@ -1838,6 +1838,7 @@ TerrariaSoul: {
 	/* Tooltip:
 		'''
 		Critical strikes occasionally fire moons that explode into Force Boosters on hit
+		Moons are less frequent if you got hit recently
 		If you reach zero HP you will revive with 300 HP and self-cleanse debuffs
 		Increases your movement speed and acceleration, and decreases your momentum
 		Bestiary and banner entries complete faster
@@ -1868,10 +1869,10 @@ UniverseSoul: {
 	// DisplayName: Soul of the Universe
 	/* Tooltip:
 		'''
-		66% increased all damage for your current weapon class
+		50% increased damage for your current weapon class
 		25% increased critical chance for your current weapon class
-		50% increased use speed for all weapons
-		50% increased shoot speed
+		25% increased attack speed
+		50% increased shoot velocity
 		Crits deal 4x instead of 2x and inflict Flames of the Universe
 		All weapons have double knockback
 		Increases your maximum mana by 300
@@ -3445,6 +3446,69 @@ StardustBooster: {
 VortexBooster: {
 	// DisplayName: Vortex Booster
 	// Tooltip: ""
-	// Activate: +{0}% crit
-	// Deactivate: -{0}% crit
+	// Activate: +{0}% crit chance
+	// Deactivate: -{0}% crit chance
+}
+
+CosmosBooster: {
+	// DisplayName: Cosmos Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit damage
+	// Deactivate: -{0}% crit damage
+}
+
+DeathBooster: {
+	// DisplayName: Death Booster
+	// Tooltip: ""
+	// Activate: +{0} armor pen
+	// Deactivate: -{0} armor pen
+}
+
+EarthBooster: {
+	// DisplayName: Earth Booster
+	// Tooltip: ""
+	// Activate: +{0}% DR
+	// Deactivate: -{0}% DR
+}
+
+LifeBooster: {
+	// DisplayName: Life Booster
+	// Tooltip: ""
+	// Activate: +{0} life regen
+	// Deactivate: -{0} life regen
+}
+
+NatureBooster: {
+	// DisplayName: Nature Booster
+	// Tooltip: ""
+	// Activate: +{0} defense
+	// Deactivate: -{0} defense
+}
+
+SpiritBooster: {
+	// DisplayName: Spirit Booster
+	// Tooltip: ""
+	// Activate: +{0} mana regen
+	// Deactivate: -{0} mana regen
+}
+
+TerraBooster: {
+	// DisplayName: Terra Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit chance
+	// Deactivate: -{0}% crit chance
+}
+
+TimberBooster: {
+	// DisplayName: Timber Booster
+	// Tooltip: ""
+	// Activate: +{0}% damage
+	// Deactivate: -{0}% damage
+}
+
+WillBooster: {
+	// DisplayName: Will Booster
+	// Tooltip: ""
+	// Activate: +{0} flat damage
+	// Deactivate: -{0} flat damage
 }

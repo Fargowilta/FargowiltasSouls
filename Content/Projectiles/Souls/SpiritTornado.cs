@@ -70,6 +70,8 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 }
             };
 
+            Projectile.damage = (int)(125f * (1f + player.GetDamage(DamageClass.Magic).Additive + player.GetDamage(DamageClass.Summon).Additive - 2f));
+
             // MOVEMENT CODE, HOME ON MOUSE
             SyncMouse(player);
             Movement(player);

@@ -143,6 +143,6 @@ First Strike ensures your next attack hits a vital spot dealing 3x damage and re
     {
         public override Header ToggleHeader => Header.GetHeader<ShadowHeader>();
         public override int ToggleItemType => ModContent.ItemType<CrystalAssassinEnchant>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 }

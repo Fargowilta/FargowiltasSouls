@@ -42,7 +42,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
 
             //add new effects
 
-            player.AddEffect<SniperScopeEffect>(Item);
         }
 
         public override void AddRecipes()
@@ -71,15 +70,6 @@ hive pack*/
             .AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"))
             .Register();
 
-        }
-    }
-    public class SniperScopeEffect : AccessoryEffect
-    {
-        public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
-        public override int ToggleItemType => ItemID.SniperScope;
-        public override void PostUpdateEquips(Player player)
-        {
-            player.scope = true;
         }
     }
 }

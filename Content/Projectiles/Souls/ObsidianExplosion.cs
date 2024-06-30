@@ -39,6 +39,7 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.FargoSouls().DeletionImmuneRank = 2;
 
             Projectile.scale = 1f;
+
         }
         public bool SourceIsTerra = false;
         public override void OnSpawn(IEntitySource source)

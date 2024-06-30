@@ -3413,6 +3413,69 @@ StardustBooster: {
 VortexBooster: {
 	// DisplayName: Vortex Booster
 	// Tooltip: ""
-	// Activate: +{0}% crit
-	// Deactivate: -{0}% crit
+	// Activate: +{0}% crit chance
+	// Deactivate: -{0}% crit chance
+}
+
+CosmosBooster: {
+	// DisplayName: Cosmos Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit damage
+	// Deactivate: -{0}% crit damage
+}
+
+DeathBooster: {
+	// DisplayName: Death Booster
+	// Tooltip: ""
+	// Activate: +{0} armor pen
+	// Deactivate: -{0} armor pen
+}
+
+EarthBooster: {
+	// DisplayName: Earth Booster
+	// Tooltip: ""
+	// Activate: +{0}% DR
+	// Deactivate: -{0}% DR
+}
+
+LifeBooster: {
+	// DisplayName: Life Booster
+	// Tooltip: ""
+	// Activate: +{0} life regen
+	// Deactivate: -{0} life regen
+}
+
+NatureBooster: {
+	// DisplayName: Nature Booster
+	// Tooltip: ""
+	// Activate: +{0} defense
+	// Deactivate: -{0} defense
+}
+
+SpiritBooster: {
+	// DisplayName: Spirit Booster
+	// Tooltip: ""
+	// Activate: +{0} mana regen
+	// Deactivate: -{0} mana regen
+}
+
+TerraBooster: {
+	// DisplayName: Terra Booster
+	// Tooltip: ""
+	// Activate: +{0}% crit chance
+	// Deactivate: -{0}% crit chance
+}
+
+TimberBooster: {
+	// DisplayName: Timber Booster
+	// Tooltip: ""
+	// Activate: +{0}% damage
+	// Deactivate: -{0}% damage
+}
+
+WillBooster: {
+	// DisplayName: Will Booster
+	// Tooltip: ""
+	// Activate: +{0} flat damage
+	// Deactivate: -{0} flat damage
 }

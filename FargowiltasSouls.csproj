@@ -16,6 +16,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Content\Items\Accessories\Forces\LifeForce_Wings.png" />
+    <None Remove="Content\Items\Misc\CosmosBooster.png" />
+    <None Remove="Content\Items\Misc\DeathBooster.png" />
+    <None Remove="Content\Items\Misc\EarthBooster.png" />
+    <None Remove="Content\Items\Misc\LifeBooster.png" />
+    <None Remove="Content\Items\Misc\NatureBooster.png" />
+    <None Remove="Content\Items\Misc\SpiritBooster.png" />
+    <None Remove="Content\Items\Misc\TerraBooster.png" />
+    <None Remove="Content\Items\Misc\TimberBooster.png" />
+    <None Remove="Content\Items\Misc\WillBooster.png" />
     <None Remove="Content\Projectiles\Minions\GladiatorSpirit.png" />
     <None Remove="Content\Projectiles\Minions\GladiatorStandard.png" />
   </ItemGroup>

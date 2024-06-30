@@ -30,6 +30,8 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
             Projectile.scale = 1.5f;
+
+            Projectile.FargoSouls().CanSplit = false;
         }
         public override void AI()
         {
@@ -56,7 +58,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             for (int i = 0; i < amount; i++)
             {
                 double rad = Math.PI / (amount / 2) * i;
-                int damage = Projectile.damage / 3;
+                int damage = (int)(Projectile.damage * 0.28f);
                 int knockBack = 3;
                 float speed = 1.6f;
                 Vector2 vector = Projectile.velocity.RotatedBy(rad) * speed;

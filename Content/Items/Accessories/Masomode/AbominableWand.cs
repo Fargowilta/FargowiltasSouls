@@ -123,6 +123,7 @@ Endurance recovers when you reach full life again
         public override Header ToggleHeader => Header.GetHeader<DeviEnergyHeader>();
         public override int ToggleItemType => ModContent.ItemType<AbominableWand>();
         public override bool ExtraAttackEffect => true;
+        public override bool MinionEffect => true;
         public override void OnHitNPCEither(Player player, NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, int baseDamage, Projectile projectile, Item item)
         {
             Player Player = player;

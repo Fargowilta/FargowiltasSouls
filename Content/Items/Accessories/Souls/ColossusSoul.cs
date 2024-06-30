@@ -85,7 +85,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
         public override int ToggleItemType => ItemID.ShimmerCloak;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.buffImmune[BuffID.Shimmer] = true;
@@ -95,7 +95,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
         public override int ToggleItemType => ItemID.PaladinsShield;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (player.statLife > player.statLifeMax2 * .25)
@@ -114,7 +114,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
         public override int ToggleItemType => ItemID.FrozenTurtleShell;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (player.statLife <= player.statLifeMax2 * 0.5)
@@ -125,7 +125,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
         public override int ToggleItemType => ItemID.FleshKnuckles;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.aggro += 400;
@@ -153,7 +153,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
         public override int ToggleItemType => ItemID.BrainOfConfusion;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.brainOfConfusionItem = EffectItem(player);

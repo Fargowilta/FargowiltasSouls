@@ -62,7 +62,7 @@ Right click to increase view range while in inventory
     {
         public override Header ToggleHeader => Header.GetHeader<BionomicHeader>();
         public override int ToggleItemType => ModContent.ItemType<OrdinaryCarrot>();
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             player.scope = true;

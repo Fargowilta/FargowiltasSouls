@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Core.Toggler
                     }
                 }
                 if (player.FargoSouls().MutantPresence)
-                    if (!effect.IgnoresMutantPresence)
+                    if (effect.MutantsPresenceAffects || effect.MinionEffect)
                         return false;
             }
             return toggle.ToggleBool;

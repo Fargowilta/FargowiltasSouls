@@ -25,7 +25,9 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
             Projectile.tileCollide = false;
             Projectile.width = 38;
             Projectile.height = 54;
-            
+
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

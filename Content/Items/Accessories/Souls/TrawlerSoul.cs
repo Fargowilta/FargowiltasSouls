@@ -95,7 +95,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
     {
         public override Header ToggleHeader => Header.GetHeader<TrawlerHeader>();
         public override int ToggleItemType => ItemID.VolatileGelatin;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (Main.myPlayer != player.whoAmI)
@@ -138,7 +138,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Souls
         public override Header ToggleHeader => Header.GetHeader<TrawlerHeader>();
         public override int ToggleItemType => ItemID.SporeSac;
         public override bool ExtraAttackEffect => true;
-        public override bool IgnoresMutantPresence => true;
+        
         public override void PostUpdateEquips(Player player)
         {
             if (player.whoAmI == Main.myPlayer)

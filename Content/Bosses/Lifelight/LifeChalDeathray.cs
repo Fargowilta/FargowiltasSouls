@@ -51,8 +51,8 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             else
             {
                 Projectile.Center = npc.Center;
-                LifeChallenger lifelight = ((LifeChallenger)npc.ModNPC);
-                Projectile.rotation = lifelight.LockVector1.RotatedBy(lifelight.rot).ToRotation();
+                LifeChallenger lifelight = npc.As<LifeChallenger>();
+                Projectile.rotation = lifelight.GunRotation;
                 Projectile.velocity = Projectile.rotation.ToRotationVector2();
                 maxTime = Projectile.ai[2];
             }

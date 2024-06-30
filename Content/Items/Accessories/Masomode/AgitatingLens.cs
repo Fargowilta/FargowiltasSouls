@@ -77,6 +77,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Masomode
     {
         public override Header ToggleHeader => Header.GetHeader<SupremeFairyHeader>();
         public override int ToggleItemType => ModContent.ItemType<AgitatingLens>();
-        public override bool IgnoresMutantPresence => true;
+        
     }
 }
