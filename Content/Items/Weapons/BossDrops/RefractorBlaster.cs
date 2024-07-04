@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
             Item.CloneDefaults(ItemID.LaserRifle);
             Item.knockBack = 2.5f;
             Item.scale = 0.75f;
-            Item.damage = 15;
+            Item.damage = 30;
             Item.useTime = 2;
             Item.useAnimation = 24;
             Item.shootSpeed = 15f;
