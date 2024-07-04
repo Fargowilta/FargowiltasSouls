@@ -1,14 +1,24 @@
 ﻿using FargowiltasSouls.Content.Projectiles.BossWeapons;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static FargowiltasSouls.FargoSoulsUtil;
+using Microsoft.Xna.Framework.Input;
+using Terraria.Audio;
+using Steamworks;
+using System;
+
 
 namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
 {
     public class RefractorBlaster : SoulsItem
     {
+
         public override void SetStaticDefaults()
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -21,50 +31,51 @@ namespace FargowiltasSouls.Content.Items.Weapons.BossDrops
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.LaserRifle);
-            Item.damage = 30;
-            Item.useTime = 24;
+            Item.knockBack = 2.5f;
+            Item.scale = 0.75f;
+            Item.damage = 15;
+            Item.useTime = 2;
             Item.useAnimation = 24;
             Item.shootSpeed = 15f;
             Item.value = 100000;
             Item.rare = ItemRarityID.Pink;
-            //Item.mana = 10;
+            Item.shoot = ModContent.ProjectileType<PrimeLaser>();
+            Item.UseSound = SoundID.Item12 with { Volume = 0.5f };
+            Item.mana = 10;
+            
+            
         }
-
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-5f, 1f);
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ModContent.ProjectileType<PrimeLaser>();
-
-            int p = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, type, damage, knockback, player.whoAmI);
-
-            if (p < 1000)
+            const int NumProjectiles = 1; // The number of projectiles that this gun will shoot.
+            
+            for (int i = 0; i < NumProjectiles; i++)
             {
-                SplitProj(Main.projectile[p], 21);
+                Vector2 newVelocity = velocity.RotatedBy(MathHelper.ToRadians(28 + Main.rand.NextFloat(1f, 35f)));
+                newVelocity *= 1f - Main.rand.NextFloat(0.3f);
+                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
+            }
+            for (int i = 0; i < NumProjectiles; i++)
+            {
+                Vector2 newVelocity = velocity.RotatedBy(MathHelper.ToRadians(-28 + Main.rand.NextFloat(-1f, -35f)));
+                newVelocity *= 1f - Main.rand.NextFloat(0.3f);
+                Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             }
 
-            return false;
+            return false; // Return false because we don't want tModLoader to shoot projectile
         }
-
-        //cuts out the middle 5: num of 21 means 8 proj on each side
-        public static void SplitProj(Projectile projectile, int number)
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            //if its odd, we just keep the original
-            if (number % 2 != 0)
+            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 20f;
+
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
             {
-                number--;
+                position += muzzleOffset;
             }
-
-            double spread = MathHelper.Pi / 2 / number;
-
-            for (int i = 2; i < number / 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    int factor = j == 0 ? 1 : -1;
-                    Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, projectile.velocity.RotatedBy(factor * spread * (i + 1)), projectile.type, projectile.damage, projectile.knockBack, projectile.owner, projectile.ai[0], projectile.ai[1]);
-                }
-            }
-
-            projectile.active = false;
         }
     }
 }
