@@ -3384,3 +3384,8 @@ AccursedAnkh: {
 	// DisplayName: Accursed Ankh
 	// Tooltip: While held out, increases life regeneration and debuff depletion, but decreases defense by 10
 }
+
+SisypheanFist: {
+	// DisplayName: Sisyphean Fist
+	// Tooltip: ""
+}

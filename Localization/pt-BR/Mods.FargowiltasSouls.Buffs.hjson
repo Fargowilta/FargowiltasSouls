@@ -629,8 +629,8 @@ SuperBleedBuff: {
 }
 
 CorruptingBuff: {
-	// DisplayName: Corrupting
-	// Description: You are becoming corrupted
+	// DisplayName: Withering
+	// Description: You are withering
 }
 
 TimeFrozenBuff: {
@@ -679,13 +679,13 @@ WretchedHexBuff: {
 }
 
 CorruptedBuff: {
-	// DisplayName: Corrupted Buff
-	// Description: Mods.FargowiltasSouls.Buffs.CorruptedBuff.Description
+	// DisplayName: Withered
+	// Description: You have withered
 }
 
 CorruptedBuffForce: {
-	// DisplayName: Corrupted Buff Force
-	// Description: Mods.FargowiltasSouls.Buffs.CorruptedBuffForce.Description
+	// DisplayName: Withered (Force)
+	// Description: You have withered
 }
 
 JungleMimicSummonBuff: {
