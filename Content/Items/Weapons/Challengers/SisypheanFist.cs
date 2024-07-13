@@ -15,7 +15,6 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
     {
         private int delay = 0;
         private bool LastMouse = false;
-        public static readonly SoundStyle ThrowSFX = new("FargowiltasSouls/Assets/Sounds/Throw");
 
         public override void SetDefaults()
         {
@@ -54,9 +53,11 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
             bool grounded = player.velocity.Y == 0 && !player.mount.Active && player.gravDir > 0 && player.grapCount == 0;
 
             Tile tile = Framing.GetTileSafely(player.Bottom);
-            bool notPlatforms = !isPlatform(tile.TileType);
+            Tile tile2 = Framing.GetTileSafely(player.BottomLeft);
+            Tile tile3 = Framing.GetTileSafely(player.BottomRight);
+            bool notPlatforms = !isPlatform(tile.TileType) && !isPlatform(tile2.TileType) && !isPlatform(tile3.TileType);
 
-            return grounded && delay <= 0 && notPlatforms && base.CanUseItem(player);
+            return grounded && notPlatforms && delay <= 0 && base.CanUseItem(player);
 
             static bool isPlatform(int tileType)
             {
@@ -74,7 +75,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
                 dust.velocity.Y = -2 * Main.rand.NextFloat();
             }
             ScreenShakeSystem.StartShake(5);
-            SoundEngine.PlaySound(ThrowSFX, player.Center);
+            SoundEngine.PlaySound(SoundID.Item69, player.Center);
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
