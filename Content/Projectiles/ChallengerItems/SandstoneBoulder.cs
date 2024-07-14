@@ -1,30 +1,25 @@
-﻿using FargowiltasSouls.Content.Patreon.DanielTheRobot;
-using Luminance.Core.Graphics;
+﻿using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
 {
-    public class SisypheanBoulder : ModProjectile
+    public class SandstoneBoulder : ModProjectile
     {
-        public override string Texture => "Terraria/Images/Projectile_99";
         private bool launched = false;
         private int bounceCount = 0;
 
-        public ref float state => ref Projectile.ai[0];
         public override void SetDefaults() 
         {
-            Projectile.width = 34;
-            Projectile.height = 34;
+            Projectile.width = 40;
+            Projectile.height = 40;
             Projectile.friendly = true;
             Projectile.tileCollide = false;
-            Projectile.scale = 1f;
             Projectile.hide = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.ignoreWater = true;
@@ -37,7 +32,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             Vector2 holdOffset = new Vector2(0f, -20f).RotatedBy(rot);
             if (!launched)
             {
-                if (player.channel && !player.CCed && !player.noItems && !launched)
+                if (player.channel && !player.CCed && !player.noItems) // While holding
                 {
                     player.heldProj = Projectile.whoAmI;
                     player.SetDummyItemTime(2);
@@ -51,7 +46,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
                     Projectile.timeLeft++;
                     Projectile.friendly = false;
                 }
-                else
+                else // On release
                 {
                     float angle = Projectile.Center.AngleTo(Main.MouseWorld);
                     Projectile.velocity = new Vector2(20f, 0f).RotatedBy(angle);
@@ -89,10 +84,6 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
                 {
                     Projectile.velocity.X = -oldVelocity.X * 0.9f;
                 }
-
-                for (int i = 0; i < 10; i++) {
-                    Dust.NewDust(Projectile.Center, 10, 10, DustID.Stone);
-                }
             }
             return false;
         }
@@ -102,7 +93,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             SoundEngine.PlaySound(SoundID.Item70, Projectile.position);
             for (int i = 0; i < 30; i++)
             {
-                Dust.NewDust(Projectile.Center, 25, 25, DustID.Stone);
+                Dust.NewDust(Projectile.Center, 25, 25, DustID.t_Honey);
             }
             int shrapnelCount = 8;
             int damage = Projectile.damage / 3;
@@ -110,12 +101,13 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             {
                 float direction = Main.rand.NextFloatDirection();
                 if (Main.myPlayer == Projectile.owner) {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -14f).RotatedBy(direction), ModContent.ProjectileType<SisypheanShrapnel>(), damage, 0.25f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -14f).RotatedBy(direction), ModContent.ProjectileType<SandstoneShrapnel>(), damage, 0.25f, Projectile.owner, ai1: Main.rand.Next(1,5));
                     ScreenShakeSystem.StartShake(3, shakeStrengthDissipationIncrement: 0.1f);
                 } 
             }
             base.OnKill(timeLeft);
         }
+
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;

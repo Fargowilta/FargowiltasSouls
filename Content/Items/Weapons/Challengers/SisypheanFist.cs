@@ -1,8 +1,6 @@
-﻿using Fargowiltas.Utilities.Extensions;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
+﻿using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -26,7 +24,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
             Item.channel = true;
             Item.noMelee = true;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.shoot = ModContent.ProjectileType<SisypheanBoulder>();
+            Item.shoot = ModContent.ProjectileType<SandstoneBoulder>();
             Item.DamageType = DamageClass.Melee;
             Item.rare = ItemRarityID.Blue;
             Item.autoReuse = true;
@@ -50,6 +48,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 
         public override bool CanUseItem(Player player)
         {
+            // Stupid grounded checks
             bool grounded = player.velocity.Y == 0 && !player.mount.Active && player.gravDir > 0 && player.grapCount == 0;
 
             Tile tile = Framing.GetTileSafely(player.Bottom);
@@ -67,12 +66,11 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            int length = 40;
+            // Uplift dust
             for (int i = 0; i < 20; i++) {
-                int dustID = Dust.NewDust(player.direction == 1 ? player.Bottom : player.Bottom + new Vector2(-length, 0f), length, 0, DustID.Stone);
-                Dust dust = Main.dust[dustID];
-                dust.velocity.X = 0;
-                dust.velocity.Y = -2 * Main.rand.NextFloat();
+                float ySpeed = -2 * Main.rand.NextFloat();
+                Vector2 dustPosition = new Vector2(player.Bottom.X + player.direction * Main.rand.Next(0,40), player.Bottom.Y);
+                Dust.NewDustPerfect(dustPosition, DustID.t_Honey, new Vector2(0, ySpeed));
             }
             ScreenShakeSystem.StartShake(5);
             SoundEngine.PlaySound(SoundID.Item69, player.Center);
