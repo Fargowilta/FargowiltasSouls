@@ -7,13 +7,13 @@ SoulConfig: {
 	}
 
 	HideTogglerWhenInventoryIsClosed: {
-		Label: Only show effect toggler when inventory is open
-		Tooltip: If true, the effect toggler is automatically hidden when your inventory is closed.
+		Label: Показывать Переключатель Эффектов только когда инвентарь открыт
+		Tooltip: Если включена, Переключатель Эффектов автоматически закрывается вместе с инвентарём.
 	}
 
 	ItemDisabledTooltip: {
-		Label: Disabled Effect Tooltip
-		Tooltip: If true, items with any effects disabled by the Effect Toggler will have a tooltip line stating this.
+		Label: Описания о Выключенных Эффектах
+		Tooltip: Если включена, у предметов с любыми эффектами, выключенными в Переключателе Эффектов, в описании появится строчка, говорящая об этом.
 	}
 	
 	DeviChatter: {
@@ -22,42 +22,42 @@ SoulConfig: {
 	}
 
 	ToggleSearchReset: {
-		Label: Accessory Effects menu resets search bar when closed
+		Label: Меню Эффектов Аксессуаров выключает строку поиска при закрытии
 		Tooltip: ""
 	}
 
 	BigTossMode: {
-		Label: Big Toss Mode
+		Label: Режим Большого Броска
 		Tooltip: ""
 	}
 
 	ForcedFilters: {
-		Label: Turns on Waves Quality (overrides vanilla setting)
-		Tooltip: Needed for certain visual effects to function
+		Label: Включать настройку Качества волн (игнорирует настройки игры)
+		Tooltip: Необходимо для корректной работы некоторых визуальных эффектов.
 	}
 
 	BossRecolors: {
-		Label: Bosses use alternative sprites
+		Label: Боссы используют другие спрайты
 		Tooltip: ""
 	}
 
 	PrecisionSealIsHold: {
-		Label: Precision Seal Key must be held
-		Tooltip: If false, precision mode is instead toggled with the key.
+		Label: Кнопка Печати Точности удерживается
+		Tooltip: Если выключена, режим точности будет переключаться по нажатию кнопки.
 	}
 
 	PreBossNightGlow: {
-		Label: Pre-Boss Enemy Glow
-		Tooltip: In Eternity Mode, enemies glow at night before any boss has been killed
+		Label: Существа светятся до убийства босса
+		Tooltip: В режиме Вечность, существа светятся ночью, если ещё не был убит какой-либо босс.
 	}
 
 	OncomingMutantX: {
-		Label: Eternity Mode inventory icon X position
+		Label: Позиция иконки режима Вечность в инвентаре по X
 		Tooltip: ""
 	}
 
 	OncomingMutantY: {
-		Label: Eternity Mode inventory icon Y position
+		Label: Позиция иконки режима Вечность в инвентаре по Y
 		Tooltip: ""
 	}
 

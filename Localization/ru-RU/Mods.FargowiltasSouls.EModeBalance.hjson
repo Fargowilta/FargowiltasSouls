@@ -1,40 +1,45 @@
-Nerf: "[c/ff0000:Eternity Mode: ]"
-Buff: "[c/00ff00:Eternity Mode: ]"
-Neutral: "[c/ffff00:Eternity Mode: ]"
-Damage: Reduced damage by {0}%
-DamagePositive: Increased damage by {0}%
-Speed: Reduced speed by {0}%
-SpeedPositive: Increased speed by {0}%
-RodofDiscord: During boss fights, every use takes life
-Split: Reduced split frequency
-ChlorophyteBullet: Reduced speed and duration
-WaterBolt: Cannot be used until Skeletron is defeated
-DemonScythe: Reduced damage and speed by 40% until an evil boss is defeated
-HolyDodge: Holy Dodge activation will temporarily reduce your attack speed
-FrozenTurtleShell: Frozen barrier slightly reduces your damage dealt
-BrainOfConfusion: Lowers your damage output on successful dodge
-ZenithNone: No nerfs in effect
-ZenithHitRate: "Vastly reduced hit rate, improves by defeating: "
-VampireKnives: Reduced lifesteal rate when above 50% life
-Zapinator: Cannot stack damage multipliers
-CoinGun: Damage of Platinum and Gold Coins heavily reduced, damage of Silver Coins slightly reduced, and damage of Copper Coins increased
-OOASet: Set bonus increases minimum summon damage when you attack using other classes
-MiningHelmet: Increases Undead Miner spawn rates
-MoonsDrops: Bosses and minibosses drop no items until wave {0}
-MoonsWaves: Dying decreases wave progress
-WhipSpeed: Does not benefit from melee speed bonuses
-WhipStack: Whip buffs/debuffs can't stack
-DefensePrefix: Adjusted prefix stats: reduced defense before Hardmode, +5 max life
-ManaPots: Cannot be used during Mana Sickness, but 50% increased restoration
-MinionStack: Damage of minions diminishes when summoning over 3 copies (effect caps at 12)
-SummonMulticlass: Summon damage decreases when you attack using other classes (except in OOA)
-ShadowDodge: Eternity Mode: Dodging will reduce your attack speed
-IceBarrier: Eternity Mode: 10% reduced damage
-SpearRework: Reworked spear swing animation
-PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
-CobaltNaginataRework: Causes a small explosion on striking enemies
-MythrilHalberdRework: After not attacking for 2 seconds, your next attack deals triple damage
-OrichalcumHalberdRework: Releases flower petals on swing
-SuperStarCannon: Decreased maximum pierce to 7
-WarmthPotionNerf: Halved damage reduction effect
-IceBladeFrostburn: Projectile inflicts Frostburn on-hit
+Nerf: "[c/ff0000:Режим Вечность: ]"
+Buff: "[c/00ff00:Режим Вечность: ]"
+Neutral: "[c/ffff00:Режим Вечность: ]"
+Damage: Урон снижен на {0}%
+DamagePositive: Урон увеличен на {0}%
+Speed: Скорость снижена на {0}%
+SpeedPositive: Скорость увеличена на {0}%
+RodofDiscord: Во время битвы боссов требует ваше здоровье для использования
+Split: Уменьшена частота разделения
+ChlorophyteBullet: Снижены скорость и длительность
+WaterBolt: Не может быть использовано до победы над Скелетроном
+DemonScythe: Снижены урон и скорость на 40% до победы над боссом зла
+HolyDodge: Активация Святой Защиты временно снижает вашу скорость атаки
+FrozenTurtleShell: Ледяная преграда слегка снижает наносимый урон
+BrainOfConfusion: Снижает ваш исходящий урон при успешном увороте
+ZenithNone: Не изменён
+ZenithHitRate: "Значительно снижена частота ударов. Улучшите, победив: "
+VampireKnives: Снижена скорость кражи здоровья, если ваше здоровье выше 50%
+Zapinator: Не может складывать множители урона
+CoinGun: Урон платиновых и золотых монет сильно снижен, урон серебрянных слегка снижен, а урон медных увеличен
+OOASet: Бонус комплекта увеличивает минимальный урон призывателя, если вы атакуете оружием другого класса
+MiningHelmet: Увеличивает скорость появления Мёртвых Шахтёров
+MoonsDrops: Из боссов и мини-боссов не выпадают предметы до {0} волны
+MoonsWaves: Смерти снижают прогресс события
+WhipSpeed: На хлысты не действуют бонусы к скорости ближнего боя
+WhipStack: Баффы и дебаффы хлыстов не складываются
+DefensePrefix: Скорректированы характеристики префикса: снижена защита до Хардмода, +5 максимального здоровья
+ManaPots: Не может быть использован во время действия Болезни Маны, но восстанавливает на 50% больше
+MinionStack: Урон призываемых существ снижается, если их больше 3 копий (ограничение эффекта - 12)
+SummonMulticlass: Урон призывателя снижается, если вы атакуете оружием другого класса (вне Армии Древних)
+ShadowDodge: Режим Вечность: Увороты снижают вашу скорость атаки
+IceBarrier: Режим Вечность: Снижен урон на 10%
+SpearRework: Переработана анимация копья
+PalladiumPikeRework: Значительно увеличивает регенерацию здоровья после удара по врагу
+CobaltNaginataRework: При попадании во врагов создаёт маленькие взрывы
+MythrilHalberdRework: Не атакуя 2 секунды, ваша следующая атака наносит тройной урон
+OrichalcumHalberdRework: При взмахе выпускает лепестки цветов
+SuperStarCannon: Максимальное прошивание снижено до 7
+WarmthPotionNerf: Эффект сопротивления урону снижен наполовину и теперь накладывается после других уменьшений
+CrossNecklaceNerf: Увеличенная неуязвимость не накладывается при быстрых попаданиях
+IceBladeFrostburn: При попадании снаряды накладывают Ледяной Ожог
+JungleRose: Увеличивает шанс выпадения Фрукта Плантеры из врагов типа Хвататель
+StarCloak: 33% урона звёзд до Хардмода
+WeatherPain: Увеличены частоту попаданий и прошивание
+HoundiusShootius: Увеличена скорость шаров

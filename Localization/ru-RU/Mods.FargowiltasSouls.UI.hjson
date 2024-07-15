@@ -1,16 +1,17 @@
-SoulTogglerButton: Configure Accessory Effects
-EternityEnabled: Eternity Mode is enabled
-MasochistEnabled: Masochist Mode is enabled
-SavedToSlot: Toggles saved to custom set {0}!
-NoTogglesFound: No toggles found in custom set {0}.
-TurnAllTogglesOff: Turn all toggles off
-TurnAllTogglesOn: Turn all toggles on
-SomeEffectsPreset: Some effects preset
-MinimalEffectsPreset: Minimal effects preset
-CustomPreset: Custom preset {0} (right click to save)
-// Reload button is currently removed
-ReloadToggles: Reload Toggles (right click to reset)
-DisplayAll: Display All
-DisplayEquipped: Display Equipped
-SearchText: Search...
+SoulTogglerButton: Переключатель Эффектов Аксессуаров
+EternityEnabled: Включен Режим Вечность
+MasochistEnabled: Включен Режим Мазохиста
+SavedToSlot: Включённые эффекты сохранены в настраиваемый пресет {0}!
+NoTogglesFound: В настраиваемом пресете {0} не найдено включенных эффектов
+TurnAllTogglesOff: Выключить все эффекты
+TurnAllTogglesOn: Включить все эффекты
+SomeEffectsPreset: Пресет с частичными эффектами
+MinimalEffectsPreset: Пресет с минимальными эффектами
+CustomPreset: Настраиваемый пресет {0} (ПКМ для сохранения)
+// Reload button is currently removed (sad)
+ReloadToggles: Перезагрузка включённых эффектов (ПКМ для сброса)
+NoToggles: Не экипирован ни один аксессуар с переключаемыми эффектами!
+DisplayAll: Показать все
+DisplayEquipped: Показать экипированные
+SearchText: Поиск...
 MainMenu: Fargo's

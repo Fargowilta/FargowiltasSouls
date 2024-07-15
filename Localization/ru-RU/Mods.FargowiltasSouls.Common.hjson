@@ -1,4 +1,4 @@
 AccessorySlot: {
-	EModeSlotFunctional: Enchantment, Force or Soul
-	EModeSlotVanity: Social Enchantment, Force or Soul
+	EModeSlotFunctional: Зачарование, Артефакт или Душа
+	EModeSlotVanity: Зачарование-, Артефакт- или Душа-украшение
 }

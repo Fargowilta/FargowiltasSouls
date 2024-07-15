@@ -1,16 +1,16 @@
-Rotting: "{0} rotted away."
-Infested: "{0} could not handle the infection."
-Anticoagulation: "{0} bled out."
-DivineWrath: "{0} was annihilated by divine wrath."
-Shadowflame: "{0} burned up in shadowy flames."
-NanoInjection: "{0} was consumed from within by nanites."
-Fused: "{0} was blown to bits."
-Nutcracker: "{0} had his nuts cracked."
-Derpling: "{0} was sucked dry."
-Snatchers: "{0} became a man eaten by Man Eater."
-Parrots: "{0} was killed by the Trans-Affirming Misogynist Parrot."
-RodOfHarmony: "{0} didn't materialize."
-ReverseManaFlow: "{0} was destroyed by their own magic."
-GiantTortoise: "{0} was impaled by a Giant Tortoise."
-FakeHeart: "{0} was deceived by Fake Heart."
-Cactus: "{0} was pricked by a Cactus."
+Rotting: Игрок {0} сгнил.
+Infested: Игрок {0} не обработал инфекцию вовремя.
+Anticoagulation: Игрок {0} истёк кровью.
+DivineWrath: Игрок {0} был уничтожен божественным гневом.
+Shadowflame: Игрок {0} сгорел в пламени теней.
+NanoInjection: Игрок {0} был поглощён изнутри нанитами.
+Fused: Игрок {0} был взорван на кусочки.
+Nutcracker: Игрок {0} прощёлкал свои орешки.
+Derpling: Игрок {0} был выжат до последней капли.
+Snatchers: Игрок {0} стал людо-едой Людоеда.
+Parrots: Игрок {0} был убит Попугаем-женоненавистником, поддерживающим трансгендеров.
+RodOfHarmony: Игрок {0} не материализовался.
+ReverseManaFlow: Игрок {0} был стёрт в порошок собственной магией.
+GiantTortoise: Игрока {0} пронзило шипами Гигантской Черепахи.
+FakeHeart: Игрок {0} был одурачен Фальшивым Сердцем.
+Cactus: Игрок {0} был заколот Кактусом.

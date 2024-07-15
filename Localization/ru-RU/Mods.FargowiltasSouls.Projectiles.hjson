@@ -19,677 +19,712 @@ AbomSickle2.DisplayName: Серп Выродкка
 AbomSickle3.DisplayName: Серп Выродкка
 AbomSickleSplit1.DisplayName: Серп Выродкка
 AbomSickleSplit2.DisplayName: Серп Выродкка
-AbomStyxGazer.DisplayName: Styx Gazer
-AbomSword.DisplayName: Styx Gazer Blade
-AbomSwordHandle.DisplayName: Styx Gazer Blade
+AbomStyxGazer.DisplayName: Созерцатель Стикс
+AbomSword.DisplayName: Клинок Созерцателя
+AbomSwordHandle.DisplayName: Клинок Созерцателя
 FargoArrowProj.DisplayName: Фарго Стрела
 FargoBulletProj.DisplayName: Фарго Пуля
 BigSting22.DisplayName: "22"
 BigStinger.DisplayName: Большое Жало
 BeeDash.DisplayName: Рывок
-BlenderOrbital.DisplayName: The Blender
-BlenderPetal.DisplayName: The Blender
-BlenderProj3.DisplayName: The Blender
-BlenderSpray.DisplayName: Blender Spray
-BlenderYoyoProj.DisplayName: The Blender
+BlenderOrbital.DisplayName: Блендер
+BlenderPetal.DisplayName: Блендер
+BlenderProj3.DisplayName: Блендер
+BlenderSpray.DisplayName: Распыление Блендера
+BlenderYoyoProj.DisplayName: Блендер
 Bonez.DisplayName: Козте
 DarkStarFriendly.DisplayName: Тёмная Звезда
 Dash.DisplayName: Рывок
 Dash2.DisplayName: Рывок2
-DicerMine.DisplayName: Dicer Mine
-DicerSpray.DisplayName: Dicer Spray
-DicerYoyo.DisplayName: Dicer Yoyo
-DragonBreathProj.DisplayName: Dragon's Breath
+DicerMine.DisplayName: Мина Измельчителя
+DicerSpray.DisplayName: Распыление Измельчителя
+DicerYoyo.DisplayName: Измельчитель Йо-йо
+DragonBreathProj.DisplayName: Дыхание Дракона
 DragonFireball.DisplayName: Огненный Шар
 DragonFireballBoom.DisplayName: Огненный Шар
 DungeonGuardian.DisplayName: Страж Темницы
-EaterRocket.DisplayName: Eater Rocket
-EyeFireFriendly.DisplayName: Eye Fire
-FishNuke.DisplayName: Fish Nuke
-FishNukeExplosion.DisplayName: Fish Nuke
-FishStickProj.DisplayName: Fish Stick
+EaterRocket.DisplayName: Ракета Пожирателя
+EyeFireFriendly.DisplayName: Глазной Огонь
+FishNuke.DisplayName: Ядерыбная Бомба
+FishNukeExplosion.DisplayName: Ядерыбная Бомба
+FishStickProj.DisplayName: Рыбная Палка
 FishStickShark.DisplayName: Акула
-FleshLaser.DisplayName: Red Laser
-GibExplosion.DisplayName: Explosion
-GolemGib.DisplayName: Golem Gibs
-GolemHeadProj.DisplayName: Golem Head
-HellBone.DisplayName: Hell Bone
-HellBonez.DisplayName: Hell Bonez
-HellFlame.DisplayName: Hell Flame
-HellSkeletron.DisplayName: Hell Skeletron
-HellSkull2.DisplayName: Hell Skull
-HentaiNuke.DisplayName: Phantasmal Blast
-HentaiSpear.DisplayName: The Penetrator
-HentaiSpearArc.DisplayName: Lightning Arc
-HentaiSpearBigDeathray.DisplayName: Phantasmal Deathray
-HentaiSpearDeathray.DisplayName: Phantasmal Deathray
-HentaiSpearDeathray2.DisplayName: Phantasmal Deathray
-HentaiSpearDive.DisplayName: The Penetrator
-HentaiSpearHeld.DisplayName: The Penetrator
-HentaiSpearSpin.DisplayName: The Penetrator
-HentaiSpearSpinBoundary.DisplayName: The Penetrator
-HentaiSpearSpinThrown.DisplayName: The Penetrator
-HentaiSpearThrown.DisplayName: The Penetrator
-HentaiSpearWand.DisplayName: The Penetrator
-HentaiSphereRing.DisplayName: Phantasmal Sphere
-Hungry.DisplayName: Hungry
-Hungry2.DisplayName: Hungry
-LeashFlail.DisplayName: Leash Flail
-MechEyeProjectile.DisplayName: MechEyeProjectile
-MechFlail.DisplayName: Mech Flail
-PhantasmalBlast.DisplayName: Phantasmal Blast
-PhantasmalBolt.DisplayName: Phantasmal Bolt
-PhantasmalEyeBoundary.DisplayName: Phantasmal Eye
-PhantasmalEyeHoming.DisplayName: Phantasmal Eye
-PhantasmalEyeLeashProj.DisplayName: Phantasmal Eye
-PhantasmalFlail.DisplayName: Phantasmal Flail
-PhantasmalSphere2.DisplayName: Phantasmal Sphere
-PrimeDeathray.DisplayName: Blazing Deathray
-PrimeLaser.DisplayName: Prime Laser
-RazorbladeTyphoonFriendly.DisplayName: Razorblade Typhoon
-RefractorBlaster2Held.DisplayName: Diffractor Blaster
-RetiDeathray.DisplayName: Blazing Deathray
-Retiglaive.DisplayName: Retiglaive
-Retirang.DisplayName: Retirang
-SlimeBall.DisplayName: Slime Ball
-SlimeBallHoming.DisplayName: Slime Ball
-SlimeRainBall.DisplayName: Slime Rain
-SlimeSpikeFriendly.DisplayName: Slime Spike
-SmallStinger.DisplayName: Small Stinger
-SparklingDevi.DisplayName: Deviantt
-SparklingLove.DisplayName: Sparkling Love
-SparklingLoveBig.DisplayName: Sparkling Love
-SparklingLoveDeathray.DisplayName: Love Ray
-SparklingLoveDeathray2.DisplayName: Love Ray
-SparklingLoveEnergyHeart.DisplayName: Energy Heart
-SparklingLoveHeart.DisplayName: Friend Heart
-SparklingLoveHeart2.DisplayName: Friend Heart
-Spazmaglaive.DisplayName: Spazmaglaive
-SpazmaglaiveExplosion.DisplayName: Cursed Inferno
-Spazmarang.DisplayName: Spazmarang
-Stinger.DisplayName: Stinger
-StyxGazer.DisplayName: Styx Gazer
-StyxGazerHandle.DisplayName: Styx Gazer
-StyxScythe.DisplayName: Styx Scythe
-StyxSickle.DisplayName: Styx Sickle
-Whirlpool.DisplayName: Whirlpool
-WhirlpoolBase.DisplayName: Whirlpool
-Acorn.DisplayName: Acorn
-RollingSnowball.DisplayName: Rolling Snowball
+FleshLaser.DisplayName: Красный Лазер
+GibExplosion.DisplayName: Взрыв
+GolemGib.DisplayName: Части Тела Голема
+GolemHeadProj.DisplayName: Голова Голема
+HellBone.DisplayName: Адская Кость
+HellBonez.DisplayName: Адские Козте
+HellFlame.DisplayName: Адское Пламя
+HellSkeletron.DisplayName: Адский Скелетрон
+HellSkull2.DisplayName: Адский Череп
+HentaiNuke.DisplayName: Фантазматический Взрыв
+HentaiSpear.DisplayName: Проникатель
+HentaiSpearArc.DisplayName: Молния
+HentaiSpearBigDeathray.DisplayName: Фантазматический Луч Смерти
+HentaiSpearDeathray.DisplayName: Фантазматический Луч Смерти
+HentaiSpearDeathray2.DisplayName: Фантазматический Луч Смерти
+HentaiSpearDive.DisplayName: Проникатель
+HentaiSpearHeld.DisplayName: Проникатель
+HentaiSpearSpin.DisplayName: Проникатель
+HentaiSpearSpinBoundary.DisplayName: Проникатель
+HentaiSpearSpinThrown.DisplayName: Проникатель
+HentaiSpearThrown.DisplayName: Проникатель
+HentaiSpearWand.DisplayName: Проникатель
+HentaiSphereRing.DisplayName: Фантазматическая Сфера
+Hungry.DisplayName: Голодный
+Hungry2.DisplayName: Голодный
+LeashFlail.DisplayName: Булава-Привязь
+MechEyeProjectile.DisplayName: МехГлазСнаряд
+MechFlail.DisplayName: Механическая Булава
+PhantasmalBlast.DisplayName: Фантазматический Взрыв
+PhantasmalBolt.DisplayName: Фантазматический Снаряд
+PhantasmalEyeBoundary.DisplayName: Фантазматический Глаз
+PhantasmalEyeHoming.DisplayName: Фантазматический Глаз
+PhantasmalEyeLeashProj.DisplayName: Фантазматический Глаз
+PhantasmalFlail.DisplayName: Фантазматическая Булава
+PhantasmalSphere2.DisplayName: Фантазматическая Сфера
+PrimeDeathray.DisplayName: Блестящий Луч Смерти
+PrimeLaser.DisplayName: Прайм Лазер
+RazorbladeTyphoonFriendly.DisplayName: Бритвенный Тайфун
+RefractorBlaster2Held.DisplayName: Преломляющий Бластер
+RetiDeathray.DisplayName: Блестящий Луч Смерти
+Retiglaive.DisplayName: Ретиглевия
+Retirang.DisplayName: Ретиранг
+SlimeBall.DisplayName: Шар Слизи
+SlimeBallHoming.DisplayName: Шар Слизи
+SlimeRainBall.DisplayName: Дождь Слизней
+SlimeSpikeFriendly.DisplayName: Слизневый Шип
+SmallStinger.DisplayName: Маленькое Жало
+SparklingDevi.DisplayName: Девиантт
+SparklingLove.DisplayName: Сверкающая Любовь
+SparklingLoveBig.DisplayName: Сверкающая Любовь
+SparklingLoveDeathray.DisplayName: Луч Любви
+SparklingLoveDeathray2.DisplayName: Луч Любви
+SparklingLoveEnergyHeart.DisplayName: Энергичное Сердце
+SparklingLoveHeart.DisplayName: Сердце Друг
+SparklingLoveHeart2.DisplayName: Сердце Друг
+Spazmaglaive.DisplayName: Спазмаглевия
+SpazmaglaiveExplosion.DisplayName: Проклятый Огонь
+Spazmarang.DisplayName: Спазмарагн
+Stinger.DisplayName: Жало
+StyxGazer.DisplayName: Созерцатель Стикс
+StyxGazerHandle.DisplayName: Созерцатель Стикс
+StyxScythe.DisplayName: Коса Стикс
+StyxSickle.DisplayName: Серп Стикс
+Whirlpool.DisplayName: Водоворот
+WhirlpoolBase.DisplayName: Водоворот
+Acorn.DisplayName: Жёлудь
+RollingSnowball.DisplayName: Rolling Снежок
 Sprout.DisplayName: Sprout
-SproutingAcorn.DisplayName: Acorn
-TheLightning.DisplayName: Lightning Arc
-TheLightningRodProj.DisplayName: The Lightning Rod
-TrojanAcorn.DisplayName: Acorn
-TrojanHook.DisplayName: Squirrel Hook
-TrojanSnowball.DisplayName: Snowball
-TrojanSquirrelProj.DisplayName: Top Hat Squirrel
-CactusMine.DisplayName: Cactus Mine
-ChampionBee.DisplayName: Bee
-ChampionBeetle.DisplayName: Beetle
-CosmosBolt.DisplayName: Cosmic Bolt
-CosmosDeathray.DisplayName: Cosmic Deathray
-CosmosDeathray2.DisplayName: Cosmic Deathray
-CosmosGlowything.DisplayName: Cosmic Invader
-CosmosInvader.DisplayName: Cosmic Invader
-CosmosInvaderTime.DisplayName: Cosmic Invader
-CosmosLightning.DisplayName: Lightning Arc
-CosmosLightningOrb.DisplayName: Lightning Orb
-CosmosMeteor.DisplayName: Cosmic Meteor
-CosmosMoon.DisplayName: Cosmic Moon
-CosmosNebulaBlaze.DisplayName: Nebula Blaze
-CosmosReticle.DisplayName: Cosmic Reticle
-CosmosRitual.DisplayName: Cosmic Seal
-CosmosSphere.DisplayName: Cosmic Sphere
-CosmosVortex.DisplayName: Vortex
-CrystalBomb.DisplayName: Crystal Bomb
-CrystalBombShard.DisplayName: Crystal Shard
-EarthChainBlast.DisplayName: Chain Blast
-EarthChainBlast2.DisplayName: Chain Blast
-EarthGeyser.DisplayName: Geyser
-EarthPalladOrb.DisplayName: Palladium Life Orb
-FlowerPetal.DisplayName: Flower Petal
-LifeDeathray.DisplayName: Holy Deathray
-LifeDeathray2.DisplayName: Holy Deathray
-LifeDeathraySmall.DisplayName: Holy Deathray
-LifeDeathraySmall2.DisplayName: Holy Deathray
-LifeFireball.DisplayName: Fireball
-LifeRitual.DisplayName: Life Seal
-NatureBullet.DisplayName: Nature Bullet
-NatureCloudMoving.DisplayName: Nature Cloud
-NatureCloudRaining.DisplayName: Nature Cloud
-NatureCrystalLeaf.DisplayName: Crystal Leaf
-NatureDeathray.DisplayName: Nature Deathray
-NatureDeathraySmall.DisplayName: Nature Deathray
-NatureExplosion.DisplayName: Nature Explosion
-NatureFireball.DisplayName: Fireball
-NatureIcicle.DisplayName: Nature Icicle
-NatureRain.DisplayName: Nature Rain
-ShadowClone.DisplayName: Champion of Shadow
-ShadowDeathraySmall.DisplayName: Shadow Deathray
-ShadowGuardian.DisplayName: Dungeon Guardian
-SpiritCrossBone.DisplayName: Cross Bone
-SpiritCrossBoneReverse.DisplayName: Cross Bone
-SpiritHand.DisplayName: Spirit Hand
-SpiritHeal.DisplayName: Spirit
-SpiritSpirit.DisplayName: Spirit
-SpiritSword.DisplayName: Spirit Sword
-TerraFireball.DisplayName: Fireball
-TerraLightningOrb.DisplayName: Lightning Orb
-TerraLightningOrb2.DisplayName: Lightning Orb
-TerraLightningOrbDeathray.DisplayName: Lightning Deathray
-TimberAcorn.DisplayName: Acorn
-TimberHook.DisplayName: Squirrel Hook
-TimberHook2.DisplayName: Squirrel Hook
-TimberJumpMark.DisplayName: Timber Explosion
-TimberLaser.DisplayName: Laser
-TimberLightningOrb.DisplayName: Lightning Orb
-TimberPalmTree.DisplayName: Palm Tree
-TimberSnowball.DisplayName: Snowball
-TimberSnowball2.DisplayName: Snowball
-TimberSquirrel.DisplayName: Timber Squirrel
-TimberTree.DisplayName: Tree
-TimberTreeAcorn.DisplayName: Acorn
-WillBomb.DisplayName: Will Bomb
-WillDeathray.DisplayName: Will Deathray
-WillDeathraySmall.DisplayName: Will Deathray
-WillFireball.DisplayName: Fireball
-WillFireball2.DisplayName: Fireball
-WillJavelin.DisplayName: Javelin
-WillJavelin2.DisplayName: Javelin
-WillJavelin3.DisplayName: Javelin
-WillRitual.DisplayName: Will Seal
-WillShell.DisplayName: Will Shell
-WillTyphoon.DisplayName: Will Typhoon
-TopHatSquirrelLaser.DisplayName: Squirrel's Judgement
-TopHatSquirrelProj.DisplayName: Top Hat Squirrel
-ChainDeathrayWOFS.DisplayName: Divine Deathray
-CursedDeathrayWOFS.DisplayName: Cursed Deathray
-DeerclopsDeathray.DisplayName: Ice Beam
-DeviBigDeathray.DisplayName: Love Ray
-DeviDeathray.DisplayName: Love Ray
-DeviDeathraySmall.DisplayName: Love Ray
-DeviLightBeam.DisplayName: Light Ray
-GolemBeam.DisplayName: Blazing Deathray
-PhantasmalDeathrayML.DisplayName: Phantasmal Deathray II
-PhantasmalDeathrayMLSmall.DisplayName: Phantasmal Deathray II
-PhantasmalDeathrayWOF.DisplayName: Divine Deathray
-PhantasmalDeathrayWOFS.DisplayName: Divine Deathray
-DeviAxe.DisplayName: Sparkling Love
-DeviBigMimic.DisplayName: Biome Mimic
-DeviButterfly.DisplayName: Moth
-DeviEnergyHeart.DisplayName: Energy Heart
-DeviGuardian.DisplayName: Baby Guardian
-DeviHammer.DisplayName: Paladin's Hammer
-DeviHammerHeld.DisplayName: Paladin's Hammer
-DeviHeart.DisplayName: Fake Heart
-DeviLightBall.DisplayName: Light Ball
-DeviLightBall2.DisplayName: Light Ball
-DeviLostSoul.DisplayName: Lost Soul
-DeviMedusa.DisplayName: Medusa Head
-DeviMimic.DisplayName: Mimic
-DeviRainHeart.DisplayName: Fake Heart
-DeviRainHeart2.DisplayName: Fake Heart
-DeviRingHeart.DisplayName: Energy Heart
-DeviRitual.DisplayName: Deviantt Seal
-DeviSparklingLove.DisplayName: Sparkling Love
-DeviSparklingLoveSmall.DisplayName: Sparkling Love
-DeviVisualHeart.DisplayName: Fake Heart
-AcornProjectile.DisplayName: Acorn
-AcornProjectileExplosion.DisplayName: Acorn Explosion
-JungleMimicSummon.DisplayName: Jungle Mimic
-JungleMimicSummonCoin.DisplayName: Coin
-MahogunyLeafProjectile.DisplayName: Mahoguny Leaf Projectile
-VineslingerBall.DisplayName: Vineslinger Ball
-VineslingerProjectileFriendly.DisplayName: Living Leaf Projectile
-AncientVision.DisplayName: Ancient Vision
-AncientVisionLunarCultist.DisplayName: Ancient Vision
-Bee.DisplayName: Bee
-Beehive.DisplayName: Bee Hive
-BetsyElectrosphere.DisplayName: Sky Dragon's Fury
-BetsyElectrosphere2.DisplayName: Sky Dragon's Fury
-BetsyFury.DisplayName: Sky Dragon's Fury
-BetsyFury2.DisplayName: Sky Dragon's Fury
-BetsyPhoenix.DisplayName: Phantom Phoenix
-BigMimicExplosion.DisplayName: Explosion
-BloodFountain.DisplayName: Blood Fountain
-BloodScythe.DisplayName: Moon Sickle
-BloodScytheFriendly.DisplayName: Blood Scythe
-BloodThornMissile.DisplayName: Blood Thorn
-Bloodshed.DisplayName: Bloodshed
-BrainIllusionProj.DisplayName: Brain of Cthulhu
-BrainofConfusion.DisplayName: Brain of Confusion
-BubbleHostile.DisplayName: Bubble
-CelestialFragment.DisplayName: Celestial Fragment
-CelestialPillar.DisplayName: Celestial Pillar
-CelestialRuneAncientVision.DisplayName: Ancient Vision
-CelestialRuneFireball.DisplayName: Fireball
-CelestialRuneIceMist.DisplayName: Ice Mist
-CelestialRuneIceSpike.DisplayName: Ice Spike
-CelestialRuneLightningArc.DisplayName: Lightning Arc
-ClingerFlame.DisplayName: Cursed Flames
-ClownBomb.DisplayName: Clown Bomb
-CrystalLeafShot.DisplayName: Crystal Leaf
-CultistArrow.DisplayName: Cultist Arrow
-CultistFireball.DisplayName: Fireball
-CultistRitual.DisplayName: Cultist Ritual
-CultistVortex.DisplayName: Vortex
-CursedFlamethrower.DisplayName: Eye Fire
-DarkStar.DisplayName: Dark Star
-DarkStarDestroyer.DisplayName: Dark Star
-DarkStarHoming.DisplayName: Dark Star
-DarkStarTwins.DisplayName: Dark Star
-DeathSkull.DisplayName: Death Skull
-DeerclopsHand.DisplayName: Shadow Hand
-DestroyerLaser.DisplayName: Death Laser
-DicerPlantera.DisplayName: Dicer Plantera
-DrakanianDaybreak.DisplayName: Daybreak
-ElfArcherArrow.DisplayName: Frostburn Arrow
-ElfCopterBullet.DisplayName: Explosive Bullet
-EyeBeam2.DisplayName: Eye Beam
-EyeFire2.DisplayName: Eye Fire
-FakeHeart.DisplayName: Fake Heart
-FakeHeart2.DisplayName: Fake Heart
-FishronBubble.DisplayName: Detonating Bubble
-FishronFishron.DisplayName: Spectral Fishron
-FishronRitual.DisplayName: Oceanic Ritual
-FishronRitual2.DisplayName: Oceanic Ritual
-FlamingJack.DisplayName: Flaming Jack
-FragmentRitual.DisplayName: Lunar Ritual
-FriendHeart.DisplayName: Friend Heart
-FrostFireball.DisplayName: Frostfireball
-FrostfireballHostile.DisplayName: Frostfireball
-FuseBomb.DisplayName: Fuse Bomb
-FusedExplosion.DisplayName: Sun Blast
-GelicWingSpike.DisplayName: Crystal Spike
-GoblinSpikyBall.DisplayName: Spiky Ball
-GoldenShowerHoming.DisplayName: Golden Shower
-GoldenShowerWOF.DisplayName: Golden Shower
-GolemBoulder.DisplayName: Boulder
-GolemDeathraySmall.DisplayName: Blazing Deathray
-GolemFireball.DisplayName: Fireball
-GolemGeyser.DisplayName: Geyser
-GolemGeyser2.DisplayName: Geyser
-GolemSpikeBallBig.DisplayName: Spike Ball
-GolemSpikyBall.DisplayName: Spiky Ball
-GuardianDeathraySmall.DisplayName: Shadow Deathray
-HoneyDrop.DisplayName: Honey Drop
-HorsemansBlade.DisplayName: The Horseman's Blade
-HostileHealingHeart.DisplayName: Hostile Healing Heart
-JungleTentacle.DisplayName: Jungle Tentacle
-LightBall.DisplayName: Light Ball
-LihzahrdBoulderFriendly.DisplayName: Boulder
-LunarRitual.DisplayName: Lunar Ritual
-MimicCoin.DisplayName: Coin
-MoonLordFireball.DisplayName: Fireball
-MoonLordMoon.DisplayName: Moon
-MoonLordMoonBlast.DisplayName: Moon Blast
-MoonLordNebulaBlaze.DisplayName: Nebula Blaze
-MoonLordNebulaBlaze2.DisplayName: Nebula Blaze
-MoonLordSun.DisplayName: Sun
-MoonLordSunBlast.DisplayName: Sun Blast
-MoonLordVortex.DisplayName: Vortex
-MothDust.DisplayName: Moth Dust
-MothronZenith.DisplayName: Zenith
-PhantasmalBolt2.DisplayName: Phantasmal Bolt
-PhantasmalSphereDeathray.DisplayName: Phantasmal Deathray
-PhantasmalSphereRing.DisplayName: Phantasmal Sphere
-PlanteraCrystalLeafRing.DisplayName: Crystal Leaf
-PlanteraTentacle.DisplayName: Planty Tentacle
-PrimeGuardian.DisplayName: Dungeon Guardian Prime
-PrimeTrail.DisplayName: Trail
-PumpkingFlamingScythe.DisplayName: Flaming Scythe
-QueenFlocko.DisplayName: Super Flocko
-RainbowSlimeSpike.DisplayName: Rainbow Slime Spike
-RazorbladeTyphoon.DisplayName: Razorblade Typhoon
-ShadowflamePortal.DisplayName: Shadowflame Portal
-ShadowflameTentacle.DisplayName: Shadowflame Tentacle
-SkeletonArcherArrow.DisplayName: Venom Arrow
-SkeletronBone.DisplayName: Bone
-SkeletronGuardian.DisplayName: Baby Guardian
-SkeletronGuardian2.DisplayName: Baby Guardian
-SlimeBallHostile.DisplayName: Slime Ball
-SlimeSpike.DisplayName: Slime Spike
-SlimeSpike2.DisplayName: Slime Spike
-SniperBullet.DisplayName: High Velocity Crystal Bullet
-SniperBulletShard.DisplayName: High Velocity Crystal Bullet
-StardustRain.DisplayName: Cosmic Invader
-TargetingReticle.DisplayName: Targeting Reticle
-TorchGodFlame.DisplayName: Torch God
-VultureFeather.DisplayName: Vulture Feather
-WOFBlast.DisplayName: Divine Blast
-WOFChain.DisplayName: The Hungry
-WOFReticle.DisplayName: Wall of Flesh Reticle
-AbomMinion.DisplayName: Abominationn
-AbomMinionScythe.DisplayName: Abominationn Scythe
-AbomMinionSickle.DisplayName: Abominationn Sickle
-BigBrainIllusion.DisplayName: Big Brain
-BigBrainProj.DisplayName: Big Brain
-BrainMinion.DisplayName: Brain Proj
-CreeperMinion.DisplayName: Brain Proj
-CrystalSkull.DisplayName: Crystal Skull
-DarkStarHomingFriendly.DisplayName: Dark Star
-DestroyerBody.DisplayName: Destroyer Body
-DestroyerBody2.DisplayName: Destroyer Body
-DestroyerHead.DisplayName: Destroyer Head
-DestroyerHead2.DisplayName: Destroyer Head
-DestroyerTail.DisplayName: Destroyer Tail
-DestroyerTail2.DisplayName: Destroyer Tail
-EaterBody.DisplayName: Eater Body
-EaterHead.DisplayName: Eater Head
-EaterTail.DisplayName: Eater Tail
-EridanusBullet.DisplayName: Eridanus Bullet
-EridanusDeathray.DisplayName: Cosmic Deathray
-EridanusFist.DisplayName: Eridanus Fist
-EridanusMinion.DisplayName: Eridanus
-EridanusRitual.DisplayName: Lunar Ritual
-FlameburstMinion.DisplayName: Flameburst Minion
-FriendRay.DisplayName: Love Ray
-HallowSword.DisplayName: HallowSword
-KamikazeSquirrel.DisplayName: Kamikaze Squirrel
-LunarCultist.DisplayName: Lunar Cultist
-LunarCultistFireball.DisplayName: Fireball
-LunarCultistIceMist.DisplayName: Ice Mist
-LunarCultistIceSpike.DisplayName: Ice Spike
-LunarCultistLight.DisplayName: Ancient Light
-LunarCultistLightningArc.DisplayName: Lightning Arc
-LunarCultistLightningOrb.DisplayName: Lightning Orb
-MiniSaucer.DisplayName: Mini Saucer
-NekomiAxe.DisplayName: Sparkling Love
-NekomiDevi.DisplayName: Deviantt
-NekomiRitual.DisplayName: Nekomi Ritual
-OpticFlame.DisplayName: Eye Fire
-OpticLaser.DisplayName: Death Laser
-OpticRetinazer.DisplayName: Retinazer
-OpticSpazmatism.DisplayName: Spazmatism
-PalmTreeSentry.DisplayName: Palm Tree
-PhantasmalBoltTrueEye.DisplayName: Phantasmal Bolt
-PhantasmalDeathrayPungent.DisplayName: Divine Deathray
-PhantasmalDeathrayTrueEye.DisplayName: Phantasmal Deathray
-PhantasmalRing.DisplayName: Phantasmal Ring
-PhantasmalRing2.DisplayName: Phantasmal Ring
-PhantasmalSphereTrueEye.DisplayName: Phantasmal Sphere
-PlanterasChild.DisplayName: Plantera's Child
-PoisonSeedPlanterasChild.DisplayName: Poison Seed
-Probe1.DisplayName: Probe
-Probe2.DisplayName: Probe
-ProbeLaser.DisplayName: Probe Laser
-PungentEyeball.DisplayName: Pungent Eyeball
-RainbowSlime.DisplayName: Rainbow Slime
-RingDeathray.DisplayName: Phantasmal Deathray
-SaucerDeathray.DisplayName: Saucer Beam
-SaucerLaser.DisplayName: Laser
-SaucerRocket.DisplayName: Rocket
-SeedPlanterasChild.DisplayName: Seed
-ShadowflamesFriendly.DisplayName: Shadowflames
-SilverSword.DisplayName: SilverSword
-SkeletronArmL.DisplayName: Skeletron Hand
-SkeletronArmR.DisplayName: Skeletron Hand
-SpikyBallPlanterasChild.DisplayName: Spiky Ball
-TrueEyeL.DisplayName: True Eye of Cthulhu
-TrueEyeR.DisplayName: True Eye of Cthulhu
-TrueEyeS.DisplayName: True Eye of Cthulhu
-BossRush.DisplayName: Mutant Seal
-MutantBomb.DisplayName: Phantasmal Blast
-MutantBombSmall.DisplayName: Phantasmal Blast
-MutantCrystalLeaf.DisplayName: Crystal Leaf
-MutantDeathray1.DisplayName: Phantasmal Deathray
-MutantDeathray2.DisplayName: Phantasmal Deathray
-MutantDeathray3.DisplayName: Blazing Deathray
-MutantDeathrayAim.DisplayName: Phantasmal Deathray
-MutantDeathraySmall.DisplayName: Phantasmal Deathray
-MutantDestroyerBody.DisplayName: The Destroyer
-MutantDestroyerHead.DisplayName: The Destroyer
-MutantDestroyerTail.DisplayName: The Destroyer
-MutantEye.DisplayName: Phantasmal Eye
-MutantEyeHoming.DisplayName: Phantasmal Eye
-MutantEyeOfCthulhu.DisplayName: Eye of Cthulhu
-MutantEyeWavy.DisplayName: Phantasmal Eye
-MutantFishron.DisplayName: Spectral Fishron
-MutantFishronRitual.DisplayName: Fish Nuke
-MutantFragment.DisplayName: Celestial Fragment
-MutantGiantDeathray2.DisplayName: Phantasmal Deathray
-MutantGlowything.DisplayName: Retiray telegraph
-MutantGuardian.DisplayName: Skeletron Prime
-MutantHeal.DisplayName: Mutant Heal
-MutantMark1.DisplayName: Phantasmal Sphere
-MutantMark2.DisplayName: Crystal Leaf
-MutantNuke.DisplayName: Fish Nuke
-MutantPillar.DisplayName: Celestial Pillar
-MutantReticle.DisplayName: Mutant Reticle
-MutantReticle2.DisplayName: Mutant Reticle
-MutantRetirang.DisplayName: Retirang
-MutantRitual.DisplayName: Mutant Seal
-MutantRitual2.DisplayName: Mutant Seal
-MutantRitual3.DisplayName: Mutant Seal
-MutantRitual4.DisplayName: Mutant Seal
-MutantRitual5.DisplayName: Mutant Seal
-MutantScythe1.DisplayName: Mutant Sickle
-MutantScythe2.DisplayName: Mutant Sickle
-MutantSlimeBall.DisplayName: Slime Rain
-MutantSlimeBall2.DisplayName: Slime Rain
-MutantSlimeRain.DisplayName: Slime Rain
-MutantSpazmarang.DisplayName: Spazmarang
-MutantSpearAim.DisplayName: The Penetrator
-MutantSpearDash.DisplayName: The Penetrator
-MutantSpearMagical.DisplayName: The Penetrator
-MutantSpearSpin.DisplayName: The Penetrator
-MutantSpearThrown.DisplayName: The Penetrator
-MutantSpearThrownFriendly.DisplayName: The Penetrator
-MutantSphereRing.DisplayName: Phantasmal Sphere
-MutantSphereSmall.DisplayName: Phantasmal Sphere
-MutantSword.DisplayName: Phantasmal Sphere
-MutantTrueEyeDeathray.DisplayName: Phantasmal Deathray
-MutantTrueEyeL.DisplayName: True Eye of Mutant
-MutantTrueEyeR.DisplayName: True Eye of Mutant
-MutantTrueEyeS.DisplayName: True Eye of Mutant
-MutantTrueEyeSphere.DisplayName: Phantasmal Sphere
-MutantTyphoon.DisplayName: Razorblade Typhoon
-AccursedSarcophagus.DisplayName: Accursed Sarcophagus
-BabyAbom.DisplayName: Baby Abom
-BabySilhouette.DisplayName: Baby Silhouette
-BiteSizeBaron.DisplayName: Bite-size Baron
-ChibiDevi.DisplayName: Chibi Devi
-MutantSpawn.DisplayName: Mutant Spawn
-SeekerOfTreasures.DisplayName: Seeker of Treasures
-ArrowRain.DisplayName: Arrow Rain
-CactusNeedle.DisplayName: Cactus Needle
-Chlorofuck.DisplayName: Chlorofuck
-CobaltExplosion.DisplayName: Explosion
-CopperLightning.DisplayName: Lightning Arc
-DungeonGuardianNecro.DisplayName: Dungeon Guardian
-ForbiddenTornado.DisplayName: Forbidden Tornado
-FossilBone.DisplayName: Fossil Bone
-FrostIcicle.DisplayName: Frost Icicle
-GladiatorJavelin.DisplayName: Javelin
-GoldShellProj.DisplayName: Gold Shell
-GrowingPumpkin.DisplayName: Pumpkin
-IronParry.DisplayName: Iron Parry
-MegaFlameburst.DisplayName: Mega Flameburst
-NecroGrave.DisplayName: Necro Grave
-PalladOrb.DisplayName: Palladium Life Orb
-PumpkinFlame.DisplayName: Flame
-RainCloud.DisplayName: Rain Cloud
-ShadowBall.DisplayName: Shadow Ball
-ShadowEnchantOrb.DisplayName: Shadow Orb
-ShroomiteShroom.DisplayName: Shroom
-Snowstorm.DisplayName: Snowstorm
-SpookyScythe.DisplayName: Scythe
-StardustKnife.DisplayName: Stardust Knife
-SuperBlood.DisplayName: Super Blood
-TitaniumShard.DisplayName: Rain Cloud
-TurtleShield.DisplayName: Turtle Shield
-Void.DisplayName: Void
-AbomScytheFriendly.DisplayName: Abominable Scythe
+SproutingAcorn.DisplayName: Жёлудь
+TheLightning.DisplayName: Молния
+TheLightningRodProj.DisplayName: Посох-Громоотвод
+TrojanAcorn.DisplayName: Жёлудь
+TrojanHook.DisplayName: Крюк-Белка
+TrojanSnowball.DisplayName: Снежок
+TrojanSquirrelProj.DisplayName: Белка в Цилиндре
+CactusMine.DisplayName: Кактусовая Мина
+ChampionBee.DisplayName: Пчела
+ChampionBeetle.DisplayName: Жук
+CosmosBolt.DisplayName: Космический Заряд
+CosmosDeathray.DisplayName: Космический Луч Смерти
+CosmosDeathray2.DisplayName: Космический Луч Смерти
+CosmosGlowything.DisplayName: Космический Вторженец
+CosmosInvader.DisplayName: Космический Вторженец
+CosmosInvaderTime.DisplayName: Космический Вторженец
+CosmosLightning.DisplayName: Молния
+CosmosLightningOrb.DisplayName: Сфера Молний
+CosmosMeteor.DisplayName: Космический Метеор
+CosmosMoon.DisplayName: Космическая Луна
+CosmosNebulaBlaze.DisplayName: Пламя Туманности
+CosmosReticle.DisplayName: Космический Прицел
+CosmosRitual.DisplayName: Космическая Печать
+CosmosSphere.DisplayName: Космическая Сфера
+CosmosVortex.DisplayName: Вихрь
+CrystalBomb.DisplayName: Кристальная Бомба
+CrystalBombShard.DisplayName: Кристальный Осколок
+EarthChainBlast.DisplayName: Цепной Взрыв
+EarthChainBlast2.DisplayName: Цепной Взрыв
+EarthGeyser.DisplayName: Гейзер
+EarthPalladOrb.DisplayName: Палладиевая Сфера Жизни
+FlowerPetal.DisplayName: Лепесток
+LifeDeathray.DisplayName: Святой Луч Смерти
+LifeDeathray2.DisplayName: Святой Луч Смерти
+LifeDeathraySmall.DisplayName: Святой Луч Смерти
+LifeDeathraySmall2.DisplayName: Святой Луч Смерти
+LifeFireball.DisplayName: Огненный Шар
+LifeRitual.DisplayName: Печать Жизни
+NatureBullet.DisplayName: Пуля Природы
+NatureCloudMoving.DisplayName: Облако Природы
+NatureCloudRaining.DisplayName: Облако Природы
+NatureCrystalLeaf.DisplayName: Кристальный Лист
+NatureDeathray.DisplayName: Луч Смерти Природы
+NatureDeathraySmall.DisplayName: Луч Смерти Природы
+NatureExplosion.DisplayName: Взрыв Природы
+NatureFireball.DisplayName: Огненный Шар
+NatureIcicle.DisplayName: Сосулька Природы
+NatureRain.DisplayName: Дождь Природы
+ShadowClone.DisplayName: Чемпион Смерти
+ShadowDeathraySmall.DisplayName: Луч Великой Смерти
+ShadowGuardian.DisplayName: Страж Темницы
+SpiritCrossBone.DisplayName: Крест Костей
+SpiritCrossBoneReverse.DisplayName: Крест Костей
+SpiritHand.DisplayName: Рука Духа
+SpiritHeal.DisplayName: Дух
+SpiritSpirit.DisplayName: Дух
+SpiritSword.DisplayName: Призрачный Меч
+TerraFireball.DisplayName: Огненный Шар
+TerraLightningOrb.DisplayName: Шар Молний
+TerraLightningOrb2.DisplayName: Шар Молний
+TerraLightningOrbDeathray.DisplayName: Луч Смертельной Молнии
+TerraLightning.DisplayName: Молния Терры
+TimberAcorn.DisplayName: Жёлудь
+TimberHook.DisplayName: Крюк-Белка
+TimberHook2.DisplayName: Крюк-Белка
+TimberJumpMark.DisplayName: Лесной Взрыв
+TimberLaser.DisplayName: Лазер
+TimberLightningOrb.DisplayName: Шар Молний
+TimberPalmTree.DisplayName: Пальма
+TimberSnowball.DisplayName: Снежок
+TimberSnowball2.DisplayName: Снежок
+TimberSquirrel.DisplayName: Белка Леса
+TimberTree.DisplayName: Дерево
+TimberTreeAcorn.DisplayName: Жёлудь
+WillBomb.DisplayName: Бомба Воли
+WillDeathray.DisplayName: Луч Смерти Воли
+WillDeathraySmall.DisplayName: Луч Смерти Воли
+WillFireball.DisplayName: Огненный Шар
+WillFireball2.DisplayName: Огненный Шар
+WillJavelin.DisplayName: Копьё
+WillJavelin2.DisplayName: Копьё
+WillJavelin3.DisplayName: Копьё
+WillRitual.DisplayName: Печать Воли
+WillShell.DisplayName: Панцирь Воли
+WillTyphoon.DisplayName: Тайфун Воли
+TopHatSquirrelLaser.DisplayName: Суд Белки
+TopHatSquirrelProj.DisplayName: Белка в Цилиндре
+ChainDeathrayWOFS.DisplayName: Святой Луч Смерти
+CursedDeathrayWOFS.DisplayName: Проклятый Луч Смерти
+DeerclopsDeathray.DisplayName: Ледяной Луч
+DeviBigDeathray.DisplayName: Луч Любви
+DeviDeathray.DisplayName: Луч Любви
+DeviDeathraySmall.DisplayName: Луч Любви
+DeviLightBeam.DisplayName: Луч Света
+GolemBeam.DisplayName: Блестящий Луч Смерти
+PhantasmalDeathrayML.DisplayName: Призрачный Луч Смерти II
+PhantasmalDeathrayMLSmall.DisplayName: Призрачный Луч Смерти II
+PhantasmalDeathrayWOF.DisplayName: Святой Луч Смерти
+PhantasmalDeathrayWOFS.DisplayName: Святой Луч Смерти
+DeviAxe.DisplayName: Сверкающая Любовь
+DeviBigMimic.DisplayName: Биомный Мимик
+DeviButterfly.DisplayName: Моль
+DeviEnergyHeart.DisplayName: Энергичное Сердце
+DeviGuardian.DisplayName: Малыш Страж
+DeviHammer.DisplayName: Молот Паладина
+DeviHammerHeld.DisplayName: Молот Паладина
+DeviHeart.DisplayName: Фальшивое Сердце
+DeviLightBall.DisplayName: Сфера Света
+DeviLightBall2.DisplayName: Сфера Света
+DeviLostSoul.DisplayName: Потерянная Душа
+DeviMedusa.DisplayName: Голова Медузы
+DeviMimic.DisplayName: Мимик
+DeviRainHeart.DisplayName: Фальшивое Сердце
+DeviRainHeart2.DisplayName: Фальшивое Сердце
+DeviRingHeart.DisplayName: Энергичное Сердце
+DeviRitual.DisplayName: Печать Девиантт
+DeviSparklingLove.DisplayName: Сверкающая Любовь
+DeviSparklingLoveSmall.DisplayName: Сверкающая Любовь
+DeviVisualHeart.DisplayName: Фальшивое Сердце
+AcornProjectile.DisplayName: Жёлудь
+AcornProjectileExplosion.DisplayName: Желудёвый Взрыв
+JungleMimicSummon.DisplayName: Мимик Джунглей
+JungleMimicSummonCoin.DisplayName: Монета
+MahogunyLeafProjectile.DisplayName: Листья Махагони Снаряд
+VineslingerBall.DisplayName: Шар Лозовой Пращи
+VineslingerProjectileFriendly.DisplayName: Живые Листья Снаряд
+AncientVision.DisplayName: Древнее Видение
+AncientVisionLunarCultist.DisplayName: Древнее Видение
+Bee.DisplayName: Пчела
+Beehive.DisplayName: Пчелиный Улей
+BetsyElectrosphere.DisplayName: Воздушное Проклятье
+BetsyElectrosphere2.DisplayName: Воздушное Проклятье
+BetsyFury.DisplayName: Воздушное Проклятье
+BetsyFury2.DisplayName: Воздушное Проклятье
+BetsyPhoenix.DisplayName: Призрачный Феникс
+BigMimicExplosion.DisplayName: Взрыв
+BloodFountain.DisplayName: Кровавый Фонтан
+BloodScythe.DisplayName: Лунный Серп
+BloodScytheFriendly.DisplayName: Кровавый Серп
+BloodThornMissile.DisplayName: Кровавый Шип
+Bloodshed.DisplayName: Кровопролитие
+BrainIllusionProj.DisplayName: Мозг Ктулху
+BrainofConfusion.DisplayName: Мозги Запутанности
+BubbleHostile.DisplayName: Пузырь
+CelestialFragment.DisplayName: Небесный Фрагмент
+CelestialPillar.DisplayName: Небесные Башни
+CelestialRuneAncientVision.DisplayName: Древнее Видение
+CelestialRuneFireball.DisplayName: Огненный Шар
+CelestialRuneIceMist.DisplayName: Ледяной Туман
+CelestialRuneIceSpike.DisplayName: Ледяной Шип
+CelestialRuneLightningArc.DisplayName: Молния
+ClingerFlame.DisplayName: Проклятое Пламя
+ClownBomb.DisplayName: Бомба Клоуна
+CrystalLeafShot.DisplayName: Кристальный Лист
+CultistArrow.DisplayName: Стрела Культиста
+CultistFireball.DisplayName: Огненный Шар
+CultistRitual.DisplayName: Ритуал Культиста
+CultistVortex.DisplayName: Вихрь
+CursedFlamethrower.DisplayName: Глазной Огонь
+DarkStar.DisplayName: Тёмная Звезда
+DarkStarDestroyer.DisplayName: Тёмная Звезда
+DarkStarHoming.DisplayName: Тёмная Звезда
+DarkStarTwins.DisplayName: Тёмная Звезда
+DeathSkull.DisplayName: Череп Смерти
+DeerclopsHand.DisplayName: Теневая Рука
+DestroyerLaser.DisplayName: Лазер Смерти
+DicerPlantera.DisplayName: Измельчитель Плантеры
+DrakanianDaybreak.DisplayName: Заря
+ElfArcherArrow.DisplayName: Стрела Ледяного Ожога
+ElfCopterBullet.DisplayName: Разрывная Пуля
+EyeBeam2.DisplayName: Глазной Луч
+EyeFire2.DisplayName: Глазной Огонь
+FakeHeart.DisplayName: Фальшивое Сердце
+FakeHeart2.DisplayName: Фальшивое Сердце
+FishronBubble.DisplayName: Взрывчатый Пузырь
+FishronFishron.DisplayName: Призрачный Рыброн
+FishronRitual.DisplayName: Океанический Ритуал
+FishronRitual2.DisplayName: Океанический Ритуал
+FlamingJack.DisplayName: Пылающий Джек
+FragmentRitual.DisplayName: Лунный Ритуал
+FriendHeart.DisplayName: Сердце Друг
+FrostFireball.DisplayName: Морозно-огненный Шар
+FrostfireballHostile.DisplayName: Морозно-огненный Шар
+FuseBomb.DisplayName: Бомба с Фитилём
+FusedExplosion.DisplayName: Солнечный Взрыв
+GelicWingSpike.DisplayName: Кристальный Шип
+GoblinSpikyBall.DisplayName: Колючий Шар
+GoldenShowerHoming.DisplayName: Золотой Дождь
+GoldenShowerWOF.DisplayName: Золотой Дождь
+GolemBoulder.DisplayName: Валун
+GolemDeathraySmall.DisplayName: Блестящий Луч Смерти
+GolemFireball.DisplayName: Огненный Шар
+GolemGeyser.DisplayName: Гейзер
+GolemGeyser2.DisplayName: Гейзер
+GolemSpikeBallBig.DisplayName: Шипастый Шар
+GolemSpikyBall.DisplayName: Колючий Шар
+GuardianDeathraySmall.DisplayName: Теневой Луч Смерти
+HoneyDrop.DisplayName: Капля Мёда
+HorsemansBlade.DisplayName: Клинок Всадника
+HostileHealingHeart.DisplayName: Лечащее Сердце Вражд.
+JungleTentacle.DisplayName: Щупальце Джунглей
+LightBall.DisplayName: Сфера Света
+LihzahrdBoulderFriendly.DisplayName: Валун
+LunarRitual.DisplayName: Лунный Ритуал
+MimicCoin.DisplayName: Монета
+MoonLordFireball.DisplayName: Огненный Шар
+MoonLordMoon.DisplayName: Луна
+MoonLordMoonBlast.DisplayName: Лунный Взрыв
+MoonLordNebulaBlaze.DisplayName: Пламя Туманности
+MoonLordNebulaBlaze2.DisplayName: Пламя Туманности
+MoonLordSun.DisplayName: Солнце
+MoonLordSunBlast.DisplayName: Солнечный Взрыв
+MoonLordVortex.DisplayName: Вихрь
+MothDust.DisplayName: Пыльца Моли
+MothronZenith.DisplayName: Зенит
+PhantasmalBolt2.DisplayName: Призрачный Снаряд
+PhantasmalSphereDeathray.DisplayName: Призрачный Луч Смерти
+PhantasmalSphereRing.DisplayName: Призрачная Сфера
+PlanteraCrystalLeafRing.DisplayName: Кристальный Лист
+PlanteraTentacle.DisplayName: Цветущее Щупальце
+PrimeGuardian.DisplayName: Страж Темницы Прайм
+PrimeTrail.DisplayName: След
+PumpkingFlamingScythe.DisplayName: Горящая Коса
+QueenFlocko.DisplayName: Супер-Флоко
+RainbowSlimeSpike.DisplayName: Радужный Слизневый Шип
+RazorbladeTyphoon.DisplayName: Бритвенный Тайфун
+ShadowflamePortal.DisplayName: Портал Теневого Пламени
+ShadowflameTentacle.DisplayName: Теневое Щупальце
+SkeletonArcherArrow.DisplayName: Ядовитая Стрела
+SkeletronBone.DisplayName: Кость
+SkeletronGuardian.DisplayName: Малыш Страж
+SkeletronGuardian2.DisplayName: Малыш Страж
+SlimeBallHostile.DisplayName: Шар Слизи
+SlimeSpike.DisplayName: Слизневый Шип
+SlimeSpike2.DisplayName: Слизневый Шип
+SniperBullet.DisplayName: Высокоскоростная Кристальная Пуля
+SniperBulletShard.DisplayName: Высокоскоростная Кристальная Пуля
+StardustRain.DisplayName: Космический Вторженец
+TargetingReticle.DisplayName: Прицел
+TorchGodFlame.DisplayName: Бог Факелов
+VultureFeather.DisplayName: Перо Стервятника
+WOFBlast.DisplayName: Святой Взрыв
+WOFChain.DisplayName: Голодный
+WOFReticle.DisplayName: Прицел Стены Плоти
+AbomMinion.DisplayName: Выродокк
+AbomMinionScythe.DisplayName: Коса Выродкка
+AbomMinionSickle.DisplayName: Серп Выродкка
+BigBrainIllusion.DisplayName: Большой Мозг
+BigBrainProj.DisplayName: Большой Мозг
+BrainMinion.DisplayName: Мозг Снар
+CreeperMinion.DisplayName: Мозг Снар
+CrystalSkull.DisplayName: Кристаллический Череп
+MechElectricOrbHomingFriendly.DisplayName: Электрический Шар
+DestroyerBody.DisplayName: Тело Уничтожителя
+DestroyerBody2.DisplayName: Тело Уничтожителя
+DestroyerHead.DisplayName: Голова Уничтожителя
+DestroyerHead2.DisplayName: Голова Уничтожителя
+DestroyerTail.DisplayName: Хвост Уничтожителя
+DestroyerTail2.DisplayName: Хвост Уничтожителя
+EaterBody.DisplayName: Тело Пожирателя
+EaterHead.DisplayName: Голова Пожирателя
+EaterTail.DisplayName: Хвост Пожирателя
+EridanusBullet.DisplayName: Пуля Эридануса
+EridanusDeathray.DisplayName: Космический Луч Смерти
+EridanusFist.DisplayName: Кулак Эридануса
+EridanusMinion.DisplayName: Эриданус
+EridanusRitual.DisplayName: Лунный Ритуал
+FlameburstMinion.DisplayName: Огнемётный Миньон
+FriendRay.DisplayName: Луч Любви
+HallowSword.DisplayName: СвятойМеч
+KamikazeSquirrel.DisplayName: Белка-камикадзе
+LunarCultist.DisplayName: Культист-Лунатик
+LunarCultistFireball.DisplayName: Огненный Шар
+LunarCultistIceMist.DisplayName: Ледяной Туман
+LunarCultistIceSpike.DisplayName: Ледяной Шип
+LunarCultistLight.DisplayName: Древний Свет
+LunarCultistLightningArc.DisplayName: Молния
+LunarCultistLightningOrb.DisplayName: Шар Молний
+MiniSaucer.DisplayName: Мини-Тарелка
+NekomiAxe.DisplayName: Сверкающая Любовь
+NekomiDevi.DisplayName: Девиантт
+NekomiRitual.DisplayName: Ритуал Некоми
+OpticFlame.DisplayName: Глазной Огонь
+OpticLaser.DisplayName: Лазер Смерти
+OpticРетиназер.DisplayName: Ретиназер
+OpticСпазматизм.DisplayName: Спазматизм
+PalmTreeSentry.DisplayName: Пальма
+PhantasmalBoltTrueEye.DisplayName: Призрачный Снаряд
+PhantasmalDeathrayPungent.DisplayName: Святой Луч Смерти
+PhantasmalDeathrayTrueEye.DisplayName: Призрачный Луч Смерти
+PhantasmalRing.DisplayName: Призрачное Кольцо
+PhantasmalRing2.DisplayName: Призрачное Кольцо
+PhantasmalSphereTrueEye.DisplayName: Призрачная Сфера
+PlanterasChild.DisplayName: Дитя Плантеры
+PoisonSeedPlanterasChild.DisplayName: Ядовитое Семя
+Probe1.DisplayName: Зонд
+Probe2.DisplayName: Зонд
+ProbeLaser.DisplayName: Лазер Зонда
+PungentEyeball.DisplayName: Едкое Глазное Яблоко
+RainbowSlime.DisplayName: Радужный Слизень
+RingDeathray.DisplayName: Призрачный Луч Смерти
+SaucerDeathray.DisplayName: Луч Тарелки
+SaucerLaser.DisplayName: Лазер
+SaucerRocket.DisplayName: Ракета
+SeedPlanterasChild.DisplayName: Семя
+ShadowflamesFriendly.DisplayName: Теневое Пламя
+SilverSword.DisplayName: СеребрМеч
+SkeletronArmL.DisplayName: Рука Скелетрона
+SkeletronArmR.DisplayName: Рука Скелетрона
+SpikyBallPlanterasChild.DisplayName: Колючий Шар
+TrueEyeL.DisplayName: Истинный Глаз Ктулху
+TrueEyeR.DisplayName: Истинный Глаз Ктулху
+TrueEyeS.DisplayName: Истинный Глаз Ктулху
+BossRush.DisplayName: Печать Мутанта
+MutantBomb.DisplayName: Призрачный Взрыв
+MutantBombSmall.DisplayName: Призрачный Взрыв
+MutantCrystalLeaf.DisplayName: Кристальный Лист
+MutantDeathray1.DisplayName: Призрачный Луч Смерти
+MutantDeathray2.DisplayName: Призрачный Луч Смерти
+MutantDeathray3.DisplayName: Блестящий Луч Смерти
+MutantDeathrayAim.DisplayName: Призрачный Луч Смерти
+MutantDeathraySmall.DisplayName: Призрачный Луч Смерти
+MutantDestroyerBody.DisplayName: Уничтожитель
+MutantDestroyerHead.DisplayName: Уничтожитель
+MutantDestroyerTail.DisplayName: Уничтожитель
+MutantEye.DisplayName: Призрачный Глаз
+MutantEyeHoming.DisplayName: Призрачный Глаз
+MutantEyeOfCthulhu.DisplayName: Глаз Ктулху
+MutantEyeWavy.DisplayName: Призрачный Глаз
+MutantFishron.DisplayName: Призрачный Рыброн
+MutantFishronRitual.DisplayName: Ядерыбная Ракета
+MutantFragment.DisplayName: Небесный Фрагмент
+MutantGiantDeathray2.DisplayName: Призрачный Луч Смерти
+MutantGlowything.DisplayName: Ретилуч Телеграф
+MutantGuardian.DisplayName: Скелетрон Прайм
+MutantHeal.DisplayName: Лечение Мутанта
+MutantMark1.DisplayName: Призрачная Сфера
+MutantMark2.DisplayName: Кристальный Лист
+MutantNuke.DisplayName: Ядерыбная Ракета
+MutantPillar.DisplayName: Небесная Башня
+MutantReticle.DisplayName: Прицел Мутанта
+MutantReticle2.DisplayName: Прицел Мутанта
+MutantRetirang.DisplayName: Ретиранг   
+MutantRitual.DisplayName: Печать Мутанта
+MutantRitual2.DisplayName: Печать Мутанта
+MutantRitual3.DisplayName: Печать Мутанта
+MutantRitual4.DisplayName: Печать Мутанта
+MutantRitual5.DisplayName: Печать Мутанта
+MutantScythe1.DisplayName: Серп Мутанта
+MutantScythe2.DisplayName: Серп Мутанта
+MutantSlimeBall.DisplayName: Дождь Слизней
+MutantSlimeBall2.DisplayName: Дождь Слизней
+MutantSlimeRain.DisplayName: Дождь Слизней
+MutantSpazmarang.DisplayName: Спазмарагн
+MutantSpearAim.DisplayName: Проникатель
+MutantSpearDash.DisplayName: Проникатель
+MutantSpearMagical.DisplayName: Проникатель
+MutantSpearSpin.DisplayName: Проникатель
+MutantSpearThrown.DisplayName: Проникатель
+MutantSpearThrownFriendly.DisplayName: Проникатель
+MutantSphereRing.DisplayName: Призрачная Сфера
+MutantSphereSmall.DisplayName: Призрачная Сфера
+MutantSword.DisplayName: Призрачная Сфера
+MutantTrueEyeDeathray.DisplayName: Призрачный Луч Смерти
+MutantTrueEyeL.DisplayName: Истинный Глаз Мутанта
+MutantTrueEyeR.DisplayName: Истинный Глаз Мутанта
+MutantTrueEyeS.DisplayName: Истинный Глаз Мутанта
+MutantTrueEyeSphere.DisplayName: Призрачная Сфера
+MutantTyphoon.DisplayName: Бритвенный Тайфун
+AccursedSarcophagus.DisplayName: Проклятый Саркофаг
+BabyAbom.DisplayName: Малыш Вырод
+BabySilhouette.DisplayName: Малыш Силуэт
+BiteSizeBaron.DisplayName: Барон на Зубок
+ChibiDevi.DisplayName: Чиби Деби
+MutantSpawn.DisplayName: Отпрыск Мутанта
+SeekerOfTreasures.DisplayName: Искатель Сокровищ
+ArrowRain.DisplayName: Дождь Стрел
+CactusNeedle.DisplayName: Кактусовая Игла
+Chlorofuck.DisplayName: Хлороблядство
+CobaltExplosion.DisplayName: Взрыв
+CopperLightning.DisplayName: Молния
+DungeonGuardianNecro.DisplayName: Страж Темницы
+ForbiddenTornado.DisplayName: Запретное Торнадо
+FossilBone.DisplayName: Ископаемая Кость
+FrostIcicle.DisplayName: Морозная Сосулька
+GladiatorJavelin.DisplayName: Копьё
+GoldShellProj.DisplayName: Золотой Панцирь
+GrowingPumpkin.DisplayName: Тыква
+IronParry.DisplayName: Железное Парирование
+MegaFlameburst.DisplayName: Мега Огнемёт
+NecroGrave.DisplayName: Некро-Могила
+PalladOrb.DisplayName: Палладиевая Сфера Жизни
+PumpkinFlame.DisplayName: Пламя
+RainCloud.DisplayName: Дождевое Облако
+ShadowBall.DisplayName: Теневой Шар
+ShadowEnchantOrb.DisplayName: Сфера Тени
+ShroomiteShroom.DisplayName: Гриб
+Snowstorm.DisplayName: Вьюга
+SpookyScythe.DisplayName: Коса
+StardustKnife.DisplayName: Нож Звёздной Пыли
+SuperBlood.DisplayName: Супер Кровь
+TitaniumShard.DisplayName: Титановый Осколок
+TurtleShield.DisplayName: Черепаший Щит
+Void.DisplayName: Пустота
+AbomScytheFriendly.DisplayName: Уродливая Коса
 BetsyDash.DisplayName: Рывок
-CreeperHitbox.DisplayName: Creeper
-Explosion.DisplayName: Explosion
-ExplosionSmall.DisplayName: Explosion
-GalacticReformerProj.DisplayName: Nuke
-GeyserFriendly.DisplayName: Geyser
-GiantDeathray.DisplayName: Phantasmal Deathray
-GlowLine.DisplayName: Glow Line
-GlowRing.DisplayName: Glow Ring
-GlowRingHollow.DisplayName: Glow Ring
-GrazeRing.DisplayName: Glow Ring
-HostileLightning.DisplayName: Lightning Arc
-LightningArc.DisplayName: Lightning Arc
-LightningVortex.DisplayName: Vortex
-LightningVortexHostile.DisplayName: Vortex
-LihzahrdSpikyBallFriendly.DisplayName: Spiky Ball
-PhantasmalSphere.DisplayName: Phantasmal Sphere
-SpectralAbominationn.DisplayName: Spectral Abominationn
-StyxArmorScythe.DisplayName: Styx Scythe
-StyxArmorScythe2.DisplayName: Styx Scythe
-StyxGazerArmor.DisplayName: Styx Gazer
-UniversalCollapseProj.DisplayName: Nuke
-KingSlimeBallPiercing.DisplayName: Slime Ball
-KingSlimeMinion.DisplayName: King Slime
-KingSlimeSpike.DisplayName: Slime Spike
-DukeFishronMinion.DisplayName: Duke Fishron
-RazorbladeTyphoonFriendly2.DisplayName: Razorblade Typhoon
-DevRocket.DisplayName: Dev Rocket
-RailgunBlast.DisplayName: Railgun Blast
-RoombaPetProj.DisplayName: Roomba Pet Proj
-VortexBolt.DisplayName: Lightning Arc
-VortexRitualProj.DisplayName: Vortex Ritual
-DoveProj.DisplayName: Dove Proj
+CreeperHitbox.DisplayName: Ползун
+Explosion.DisplayName: Взрыв
+ExplosionSmall.DisplayName: Взрыв
+GalacticReformerProj.DisplayName: Роберт Дж. Оппенгеймер
+GeyserFriendly.DisplayName: Гейзер
+GiantDeathray.DisplayName: Призрачный Луч Смерти
+GlowLine.DisplayName: Линия Света
+GlowRing.DisplayName: Кольцо Света
+GlowRingHollow.DisplayName: Кольцо Света
+GrazeRing.DisplayName: Кольцо Света
+HostileLightning.DisplayName: Молния
+LightningArc.DisplayName: Молния
+LightningVortex.DisplayName: Вихрь
+LightningVortexHostile.DisplayName: Вихрь
+LihzahrdSpikyBallFriendly.DisplayName: Колючий Шар
+PhantasmalSphere.DisplayName: Призрачная Сфера
+SpectralAbominationn.DisplayName: Призрачный Выродокк
+StyxArmorScythe.DisplayName: Коса Стикс
+StyxArmorScythe2.DisplayName: Коса Стикс
+StyxGazerArmor.DisplayName: Созерцатель Стикс
+UniversalCollapseProj.DisplayName: Атомная Бомба
+KingSlimeBallPiercing.DisplayName: Шар Слизи
+KingSlimeMinion.DisplayName: Король Слизней
+KingSlimeSpike.DisplayName: Слизневый Шип
+DukeFishronMinion.DisplayName: Герцог Рыброн
+RazorbladeTyphoonFriendly2.DisplayName: Бритвенный Тайфун
+DevRocket.DisplayName: Разраб Ракета
+RailgunBlast.DisplayName: Выстрел Рельсотрона
+RoombaPetProj.DisplayName: Румба Питомец Снар
+VortexBolt.DisplayName: Молния
+VortexRitualProj.DisplayName: Вихревой Ритуал
+DoveProj.DisplayName: Голубок Снар
 WolfDashProj.DisplayName: Волчий Рывок
-ChibiiRemii.DisplayName: Chibii Remii
-PrimeMinionCannon.DisplayName: Prime Cannon Arm
-PrimeMinionLaserGun.DisplayName: Prime Laser Arm
-PrimeMinionProj.DisplayName: Micro Prime
-PrimeMinionSaw.DisplayName: Prime Saw
-PrimeMinionVice.DisplayName: Prime Vice
-Bubble.DisplayName: Bubble
-FishMinion.DisplayName: Fish Minion
-PufferRang.DisplayName: PufferRang
-PufferSpray.DisplayName: PufferSpray
-SpikyLure.DisplayName: Spiky Lure
-WaterStream.DisplayName: Water Stream
-Crimetroid.DisplayName: Crimetroid
-NanoBase.DisplayName: Nano Core
-NanoBlade.DisplayName: Plasma Blade
-NanoProbe.DisplayName: Nano Probe
-PlasmaArrow.DisplayName: Plasma Arrow
-PlasmaProj.DisplayName: Plasma Bolt
-AbomBlast.DisplayName: Phantasmal Blast
-AbomFlocko2.DisplayName: Super Flocko
-AbomFlocko3.DisplayName: Super Flocko
-AbomLaser.DisplayName: Laser
-EyeProjectile.DisplayName: EyeProjectile2
-HentaiSpearDash.DisplayName: The Penetrator
-CosmosFireball.DisplayName: Cosmic Fireball
-CosmosFireball2.DisplayName: Cosmic Fireball
-ShadowFlameburst.DisplayName: Flameburst
-ShadowFlamingScythe.DisplayName: Flaming Scythe
-DeviRitual2.DisplayName: Deviantt Seal
-CursedFireballHoming.DisplayName: Cursed Flame
-CursedFlameHostile2.DisplayName: Cursed Flame
-ElfCopterBulletExplosion.DisplayName: Explosive Bullet
-MoonLordVortexOld.DisplayName: Vortex
-RazorbladeTyphoon2.DisplayName: Razorblade Typhoon
-VenomSpit.DisplayName: Venom Spit
-RainbowSlimeSpikeFriendly.DisplayName: Rainbow Slime Spike
-PlasmaDeathRay.DisplayName: Plasma Deathray
-AbomBossProjectile.DisplayName: Abominationn
-BaronMine.DisplayName: Banished Baron's Mine
-BaronNuke.DisplayName: Banished Baron's Spicy Beeping Nuclear Torpedo of Death and Destruction
-BaronRocket.DisplayName: Banished Baron's Rocket
-BaronScrap.DisplayName: Banished Baron Scrap
-BaronShrapnel.DisplayName: Banished Baron Mine Shrapnel
-ShadowOrbProjectile.DisplayName: Shadow Orb
-WillDeathrayBig.DisplayName: Will Deathray
-DeviBossProjectile.DisplayName: Deviantt
-JevilScar.DisplayName: Enchanted Lightblade
-LifeBlaster.DisplayName: Life Blaster
-LifeBomb.DisplayName: Life Mine
-LifeTransitionBomb.DisplayName: Life Mine
-LifeBombExplosion.DisplayName: Life Bomb
-LifeCageExplosion.DisplayName: Cage Explosion
-LifeCageProjectile.DisplayName: Life Cage
-LifeCageTelegraph.DisplayName: Cage Telegraph
-LifeChalBlasterDeathray.DisplayName: Holy Deathray
-LifeChalDeathray.DisplayName: Holy Deathray
-LifeCrosshair.DisplayName: Crosshair
-LifeHomingProj.DisplayName: Lesser Fairy
-LifeNeggravProj.DisplayName: Cross
-LifeNuke.DisplayName: Life Bomb
-LifeProjLarge.DisplayName: Cross
-LifeProjSmall.DisplayName: Life Shot
-LifeRuneHitbox.DisplayName: Life Rune
-LifeScar.DisplayName: Life Mine
-LifeSlurp.DisplayName: Gem
-LifeSplittingProjSmall.DisplayName: Life Shot
-LifeTpTelegraph.DisplayName: Teleport Telegraph
-LifeWave.DisplayName: Life Wave
-MutantBossProjectile.DisplayName: Mutant
-ArcTelegraph.DisplayName: Arc Telegraph
-BloomLine.DisplayName: Bloom Line
-FishStickProjTornado.DisplayName: Fish Stick
-PrismaRegaliaProj.DisplayName: Prisma Regalia
-PrismaRegaliaStar.DisplayName: Star
-CrystallineCongregationProj.DisplayName: Crystal Ball
-EnchantedLifebladeProjectile.DisplayName: Enchanted Lifeblade
-LightslingerBomb.DisplayName: Light Bomb
-LightslingerBombshot.DisplayName: Light Shot
-LightslingerShot.DisplayName: Light Shot
-SpiritArrow.DisplayName: Spirit Arrow
-SpiritArrowFlame.DisplayName: Spirit Flame
-CirnoBomb.DisplayName: Cirno Bomb
-RetinazerDeathray.DisplayName: Blazing Deathray
-MimicDagger.DisplayName: Magic Dagger
-MimicHallowStar.DisplayName: Hallow Star
-MimicTitanGlove.DisplayName: Titan Glove
-KamikazePixie.DisplayName: Pixie
-BabyLifelight.DisplayName: Petlight
-Nibble.DisplayName: Nibble
-SolarMeteor.DisplayName: Solar Meteor
-SolarFlamePillarSpawner.DisplayName: Solar Flame Pillar Spawner
-SolarFlamePillar.DisplayName: Solar Flame Pillar
-LightningTelegraph.DisplayName: Lightning Telegraph
-PillarSpawner.DisplayName: Pillar Spawner
-VortexVortex.DisplayName: Vortex Vortex
-VortexVortexProjectile.DisplayName: Vortex Vortex Projectile
-PillarNebulaBlaze.DisplayName: Pillar Nebula Blaze
-NebulaDeathray.DisplayName: Nebula Deathray
-NebulaPillarProj.DisplayName: Nebula Pillar Proj
-NebulaTelegraph.DisplayName: Nebula Telegraph
-PillarArcanum.DisplayName: Pillar Arcanum
-BaronWhirlpool.DisplayName: Baron Whirlpool
-BaronWhirlpoolBolt.DisplayName: Baron Whirlpool Bolt
-BaronArenaWhirlpool.DisplayName: Baron Arena Whirlpool
-BaronDeathray.DisplayName: Baron's Laser
-BaronEyeFlash.DisplayName: Baron Eye Flash
-BaronTuskShrapnel.DisplayName: Baron's Tusk Shrapnel
-DecrepitAirstrike.DisplayName: Decrepit Airstrike
-DecrepitAirstrikeNuke.DisplayName: Decrepit Airstrike Nuke
-DecrepitAirstrikeNukeSplinter.DisplayName: Decrepit Airstrike Nuke Splinter
-MechLureProjectile.DisplayName: Mechanical Lure
-RoseTintedVisorDeathray.DisplayName: Rose-Tinted Visor Laser
-GladiatorStandard.DisplayName: Gladiator Standard
-HiveSentry.DisplayName: Hive
+ChibiiRemii.DisplayName: Чибии Ремии
+PrimeMinionCannon.DisplayName: Рука Пушки Прайм
+PrimeMinionLaserGun.DisplayName: Рука Лазера Прайм
+PrimeMinionProj.DisplayName: Микро Прайм
+PrimeMinionSaw.DisplayName: Пила Прайм
+PrimeMinionVice.DisplayName: Тиски Прайм
+Bubble.DisplayName: Пузырь
+FishMinion.DisplayName: Рыба Миньок
+PufferRang.DisplayName: ИглоБумеранг
+PufferSpray.DisplayName: ИглобРазброс
+SpikyLure.DisplayName: Шипастая Приманка
+WaterStream.DisplayName: Струя Воды
+Crimetroid.DisplayName: Криметроид
+NanoBase.DisplayName: Нано Ядро
+NanoBlade.DisplayName: Плазменное Лезвие
+NanoProbe.DisplayName: Нано Зонд
+PlasmaArrow.DisplayName: Плазменная Стрела
+PlasmaProj.DisplayName: Плазменный Снаряд
+AbomBlast.DisplayName: Призрачный Взрыв
+AbomFlocko2.DisplayName: Супер Флоко
+AbomFlocko3.DisplayName: Супер Флоко
+AbomLaser.DisplayName: Лазер
+EyeProjectile.DisplayName: ГлазСнаряд2
+HentaiSpearDash.DisplayName: Проникатель
+CosmosFireball.DisplayName: Космический Огненный Шар
+CosmosFireball2.DisplayName: Космический Огненный Шар
+ShadowFlameburst.DisplayName: Огнемёт
+ShadowFlamingScythe.DisplayName: Горящая Коса
+DeviRitual2.DisplayName: Печать Девиантт
+CursedFireballHoming.DisplayName: Проклятое Пламя
+CursedFlameHostile2.DisplayName: Проклятое Пламя
+ElfCopterBulletExplosion.DisplayName: Разрывная Пуля
+MoonLordVortexOld.DisplayName: Вихрь
+RazorbladeTyphoon2.DisplayName: Бритвенный Тайфун
+VenomSpit.DisplayName: Ядовитый Плевок
+RainbowSlimeSpikeFriendly.DisplayName: Радужный Слизневый Шип
+PlasmaDeathRay.DisplayName: Плазменный Луч Смерти
+AbomBossProjectile.DisplayName: Выродокк
+BaronMine.DisplayName: Мина Бранного Барона
+BaronNuke.DisplayName: Острая Пищащая Атомная Торпеда Смерти и Разрушения Бранного Барона
+BaronRocket.DisplayName: Ракета Бранного Барона
+BaronScrap.DisplayName: Лом Бранного Барона
+BaronShrapnel.DisplayName: Шрапнель Мины Бранного Барона
+ShadowOrbProjectile.DisplayName: Сфера Тени
+WillDeathrayBig.DisplayName: Луч Смерти Воли
+DeviBossProjectile.DisplayName: Девиантт
+JevilScar.DisplayName: Зачарованный Клинок Жизни
+LifeBlaster.DisplayName: Бластер Жизни
+LifeBomb.DisplayName: Мина Жизни
+LifeTransitionBomb.DisplayName: Мина Жизни
+LifeBombExplosion.DisplayName: Бомба Жизни
+LifeCageExplosion.DisplayName: Взрыв Клетки
+LifeCageProjectile.DisplayName: Клетка Жизни
+LifeCageTelegraph.DisplayName: Клетка Телеграф
+LifeChalBlasterDeathray.DisplayName: Святой Луч Смерти
+LifeChalDeathray.DisplayName: Святой Луч Смерти
+LifeCrosshair.DisplayName: Прицел
+LifeHomingProj.DisplayName: Малая Фея
+LifeNeggravProj.DisplayName: Крест
+LifeNuke.DisplayName: Бомба Жизни
+LifeProjLarge.DisplayName: Крест
+LifeProjSmall.DisplayName: Выстрел Жизни
+LifeRuneHitbox.DisplayName: Руна Жизни
+LifeScar.DisplayName: Мина Жизни
+LifeSlurp.DisplayName: Самородок
+LifeSplittingProjSmall.DisplayName: Выстрел Жизни
+LifeTpTelegraph.DisplayName: Телепорт Телеграф
+LifeWave.DisplayName: Волна Жизни
+MutantBossProjectile.DisplayName: Мутант
+ArcTelegraph.DisplayName: Арка Телеграф
+BloomLine.DisplayName: Линия Свечения
+FishStickProjTornado.DisplayName: Рыбная Палка
+PrismaRegaliaProj.DisplayName: Призма Регалия
+PrismaRegaliaStar.DisplayName: Звезда
+CrystallineCongregationProj.DisplayName: Хрустальный Шар
+EnchantedLifebladeProjectile.DisplayName: Зачарованный Клинок Жизни
+LightslingerBomb.DisplayName: Бомба Света
+LightslingerBombshot.DisplayName: Выстрел Света
+LightslingerShot.DisplayName: Выстрел Света
+SpiritArrow.DisplayName: Стрела Духа
+SpiritArrowFlame.DisplayName: Пламя Духа
+CirnoBomb.DisplayName: Чирно Бомба
+РетиназерDeathray.DisplayName: Блестящий Луч Смерти
+MimicDagger.DisplayName: Магический Кинжал
+MimicHallowStar.DisplayName: Святая Звезда
+MimicTitanGlove.DisplayName: Перчатка Титана
+KamikazePixie.DisplayName: Фея
+BabyLifelight.DisplayName: Питомесвет
+Nibble.DisplayName: Ниббл
+SolarMeteor.DisplayName: Солнечный Метеор
+SolarFlamePillarSpawner.DisplayName: Столб Солнечного Огня Спавнер
+SolarFlamePillar.DisplayName: Столб Солнечного Огня
+LightningTelegraph.DisplayName: Молния Телеграф
+PillarSpawner.DisplayName: Столб Спавнер
+VortexVortex.DisplayName: Вихрь Вихря
+VortexVortexProjectile.DisplayName: Вихрь Вихря Снаряд
+PillarNebulaBlaze.DisplayName: Пламя Башни Туманности
+NebulaDeathray.DisplayName: Туманный Луч Смерти
+NebulaPillarProj.DisplayName: Башня Туманности Снар
+NebulaTelegraph.DisplayName: Туманность Телеграф
+PillarArcanum.DisplayName: Арканум Башни
+BaronWhirlpool.DisplayName: Водоворот Барона
+BaronWhirlpoolBolt.DisplayName: Снаряд Водоворота Барона
+BaronArenaWhirlpool.DisplayName: Водоворот Арены Барона
+BaronDeathray.DisplayName: Лазер Барона
+BaronEyeFlash.DisplayName: Вспышка Глаза Барона
+BaronTuskShrapnel.DisplayName: Шрапнель Клыка Барона
+DecrepitAirstrike.DisplayName: Дряхлый Авиаудар
+DecrepitAirstrikeNuke.DisplayName: Дряхлый Взрыв Авиаудара
+DecrepitAirstrikeNukeSplinter.DisplayName: Осколок Дряхлого Взрыва Авиаудара
+MechLureProjectile.DisplayName: Механическая Приманка
+RoseTintedVisorDeathray.DisplayName: Лазер Розового Визора
+GladiatorStandard.DisplayName: Гладиатор Обычный
+HiveSentry.DisplayName: Улей
 ROB.DisplayName: R.O.B
-MeteorFlame.DisplayName: Meteor Flame
-RainUmbrella.DisplayName: Rain Umbrella
-BeeFlower.DisplayName: Bee Flower
+MeteorFlame.DisplayName: Пламя Метеора
+RainUmbrella.DisplayName: Зонт от Дождя
+BeeFlower.DisplayName: Цветок Пчелы
 MonkDashDamage.DisplayName: Рывок Монаха
-PearlwoodStareline.DisplayName: Pearlwood Stareline
-EaterRocketJr.DisplayName: Rotten Chunk
-VortexLightningDeathray.DisplayName: Vortex Lightning Deathray
-SpectralEoC.DisplayName: Spectral Eye of Cthulhu
+EaterRocketJr.DisplayName: Гниль
+VortexLightningDeathray.DisplayName: Луч Смерти Вихревой Молнии
+SpectralEoC.DisplayName: Призрачный Глаз Ктулху
 MonkDashSlash.DisplayName: Разрез Рывка Монаха
-ObsidianExplosion.DisplayName: Obsidian Explosion
-DeviGuardianHarmless.DisplayName: Devi Guardian Harmless
-MagmawJaw.DisplayName: Magmaw Jaw
-MagmawHand.DisplayName: Magmaw Hand
-PungentEyeballMinion.DisplayName: Pungent Eyeball Minion
-MinosPrime.DisplayName: Minos Prime
-RainLightning.DisplayName: Rain Lightning
-PlanteraThornChakram.DisplayName: Plantera Thorn Chakram
-PlanteraRitual.DisplayName: Plantera Ritual
-PlanteraManEater.DisplayName: Plantera Man Eater
-PlanteraSnatcher.DisplayName: Plantera Snatcher
-PlanteraTrapper.DisplayName: Plantera Trapper
-PlanteraMushroomThing.DisplayName: Plantera Mushroom Thing
-RainExplosion.DisplayName: Rain Explosion
+ObsidianExplosion.DisplayName: Обсидиановый Взрыв
+DeviGuardianHarmless.DisplayName: Страж Деви Безобидный
+MagmawJaw.DisplayName: Челюсть Магможора
+MagmawHand.DisplayName: Рука Магможора
+PungentEyeballMinion.DisplayName: Едкое Глазное Яблоко Миньон
+MinosPrime.DisplayName: Минос Прайм
+RainLightning.DisplayName: Дождевая Молния
+PlanteraThornChakram.DisplayName: Колючий Чакрам Плантеры
+PlanteraRitual.DisplayName: Ритуал Плантеры
+PlanteraManEater.DisplayName: Людоед Плантеры
+PlanteraSnatcher.DisplayName: Хвататель Плантеры
+PlanteraTrapper.DisplayName: Злой Хвататель Плантеры
+PlanteraMushroomThing.DisplayName: Грибная Штука Плантеры
+RainExplosion.DisplayName: Взрыв Дождя
+CoffinSlamShockwave.DisplayName: Шоковая Волна Топота Саркофага
+CoffinWaveShot.DisplayName: Волна Выстрел Саркофага
+CoffinDarkSouls.DisplayName: Тёмные Души Саркофага
+CoffinHand.DisplayName: Рука Саркофага
+CoffinRandomStuff.DisplayName: Случайные Штуки Саркофага
+FishStickWhirlpool.DisplayName: Водоворот Рыбной Палки
+BetsyHomingFireball.DisplayName: Самонаводящиеся Огненные Шары Бетси
+HellGuardian.DisplayName: Страж Ада
+RazorBlade.DisplayName: Острое Лезвие
+MutantShadowHand.DisplayName: Теневая Рука Мутанта
+TwentyTwo.DisplayName: Двадцать Два
+MutantSlimeSpike.DisplayName: Слизневый Шип Мутанта
+MutantSansBeam.DisplayName: Мутант Санс Луч
+MutantSansHead.DisplayName: Мутант Санс Голова
+MoonBowHeld.DisplayName: Лунный Лук Держ
+MoonBowPortal.DisplayName: Лунный Лук Портал
+FlightBall.DisplayName: Шар Полёта
+AbomPhoenix.DisplayName: Призрачный Феникс
+FrostShardFriendly.DisplayName: Ледяной Осколок Друг
+HentaiSword.DisplayName: Хентай Меч
+HentaiSwordBlast.DisplayName: Хентай Меч Взрыв
+HentaiSphereOkuu.DisplayName: Хентай Сфера Оку
+AbomRitualFTW.DisplayName: Абом Ритуал F T W
+RoyalSubjectProjectile.DisplayName: Королевский Субъект Снаряд
+TimberBranch.DisplayName: Ветвь Леса
+CosmosForceMoon.DisplayName: Луна Артефакта Космоса
+GladiatorSpirit.DisplayName: Дух Гладиатора
+ShadowDash.DisplayName: Теневой Рывок
+SpiritTornado.DisplayName: Торнадо Душ 
+TerrariaSoulMoon.DisplayName: Луны Души Террарии
+DeviDevilScythe.DisplayName: Дьявольская Коса Деви
+LifeHomingProjSmall.DisplayName: Маленький Бла Бла
+LifeRuneExplosion.DisplayName: Life Rune Explosion
+LifeRunespearHitbox.DisplayName: Life Runespear Hitbox
+LifeRunespearExplosion.DisplayName: Life Runespear Explosion

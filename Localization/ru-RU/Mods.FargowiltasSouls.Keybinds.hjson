@@ -1,11 +1,11 @@
-Freeze.DisplayName: Freeze
-Gold.DisplayName: Turn Gold
-SmokeBomb.DisplayName: Throw Smoke Bomb
-SpecialDash.DisplayName: Special Dash
-Bomb.DisplayName: Bomb
-EffectToggle.DisplayName: Open Effect Toggler
-PrecisionSeal.DisplayName: Precision Movement
-MagicalBulb.DisplayName: Magical Cleanse
-FrigidSpell.DisplayName: Frigid Spell
-DebuffInstall.DisplayName: Debuff Install
-AmmoCycle.DisplayName: Ammo Cycle
+Freeze.DisplayName: Заморозка
+Gold.DisplayName: Превратиться в Золото
+SmokeBomb.DisplayName: Кинуть Дымовую Бомбу
+SpecialDash.DisplayName: Особый Рывок
+Bomb.DisplayName: Бомба
+EffectToggle.DisplayName: Открыть Переключатель Эффектов
+PrecisionSeal.DisplayName: Передвижения Точности
+MagicalBulb.DisplayName: Магическое Очищение
+FrigidSpell.DisplayName: Морозное Заклинание
+DebuffInstall.DisplayName: Установка Дебаффа
+AmmoCycle.DisplayName: Смена Боеприпасов

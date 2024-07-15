@@ -1,20 +1,22 @@
-MasochistModeUnlocked: "{$Mods.FargowiltasSouls.Items.Masochist.DisplayName} surges with new power...!"
+MasochistModeUnlocked: "{$Mods.FargowiltasSouls.Items.Masochist.DisplayName} тонет в новых силах...!"
 
 WorldUpdatingSystem: {
-	EternityOn: Eternity Mode activated!
-	EternityOff: Eternity Mode deactivated.
-	EternityWrongDifficulty: Difficulty too low, Eternity Mode deactivated...
-	MasochistOn: Master and Eternity combined: Masochist Mode activated!!
-	MasochistOnZenith: Master and Zenith seed combined: Masochist Mode activated!!
-	MasochistOff: Masochist Mode deactivated.
-	BloodMoonCancel: The Blood Moon changed its mind and left...
+	EternityOn: Режим Вечность активирован!
+	EternityOff: Режим Вечность деактивирован.
+	EternityWrongDifficulty: Слишком низкая сложность, режим Вечность деактивирован...
+	EternityMasterWarning: Внимание! Режим Вечность не предназначена для режима Мастера; режим Эксперта рекомендован!
+	MasochistOn: Мастер и Вечность объединены: режим Мазохиста активирован!!
+	MasochistOnZenith: Режим Мастера и сид Зенит объединены: режим Мазохиста активирован!!
+	MasochistFTWWarning: Мазохист и FTW объединены! Этот режим [c/FF0000:чрезвычайно] сложный!! Продолжайте на свой страх и риск!
+	MasochistOff: Режим Мазохиста деактивирован.
+	BloodMoonCancel: Кровавая луна передумала и ушла...
 }
 
-Revived: You've been revived!
-NoMusic1: Fargo's Music Mod not found!
-NoMusic2: Please install Fargo's Music Mod for the full experience!!
-NoDLC1: We detected that you're playing Fargo's Souls Mod together with {0}.
-NoDLC2: It's recommended to use the "Fargo's Souls DLC" mod for compatibility and content between these mods!
-Wiki: Check out the official Fargo's Wiki at [c/3989FF:https://fargosmods.wiki.gg]!
-PatreonNameEffect: Your special patreon effects are active
-MoonsDeathPenalty: The wave progress has regressed!
+Revived: Вы были возрождены!
+NoMusic1: Мод Fargo's Music не найден!
+NoMusic2: Пожалуйста, установите мод Fargo's Music для полного опыта!!
+NoDLC1: Мы обнаружили, что вы включили мод Fargo's Souls и {0}.
+NoDLC2: Мы рекомендуем использовать мод "Fargo's Souls DLC" для совместимости и контента для этих модов!
+Wiki: Официальная вики Fargo's, теперь на [c/3989FF:https://fargosmods.wiki.gg]!
+PatreonNameEffect: Ваши специальные эффекты Patreon включены
+MoonsDeathPenalty: Прогресс события регрессировала!
