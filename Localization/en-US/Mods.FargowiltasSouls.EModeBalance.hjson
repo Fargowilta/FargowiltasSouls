@@ -34,7 +34,7 @@ SpearRework: Reworked spear swing animation
 PalladiumPikeRework: Greatly increases life regeneration after striking an enemy
 CobaltNaginataRework: Causes a small explosion on striking enemies
 MythrilHalberdRework: After not attacking for 2 seconds, your next attack deals 8x damage, scaling with attack speed
-OrichalcumHalberdRework: Releases flower petals on swing
+OrichalcumHalberdRework: Deals up to double damage to enemies taking damage over time, scaling with amount
 SuperStarCannon: Decreased maximum pierce to 7
 WarmthPotionNerf: Halved damage reduction effect and now applies post-mitigation
 CrossNecklaceNerf: Longer invincibility doesn't trigger on rapid successive hits

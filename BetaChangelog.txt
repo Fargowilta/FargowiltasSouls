@@ -21,3 +21,5 @@ changed magic dagger phm from x0.5 dmg to x0.66 dmg/spd
 fixed gaia set bonus secretly giving a sentry slot it shouldnt
 hopefully fixed sound engine completely breaking during destroyer light show
 fixed qb ai breaking and doing nothing forever if you make her circle
+
+implemented use time debt

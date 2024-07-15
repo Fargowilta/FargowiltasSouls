@@ -57,9 +57,9 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                     Projectile.frame = 0;
             }
 
-            if (ProjTimer > 30f)
+            if (ProjTimer > 15f)
             {
-                if (ProjTimer == 31f)
+                if (ProjTimer == 16f)
                     PlayerIndex = Player.FindClosest(Projectile.Center, 0, 0);
 
                 if (Main.player[(int)PlayerIndex].active && !Main.player[(int)PlayerIndex].dead)
@@ -89,6 +89,9 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                         home = false;
                     }
                 }
+
+                if (ProjTimer > 15 + 15)
+                    home = false;
             }
             if (ProjTimer > 540f)
             {
@@ -96,13 +99,19 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             }
             if (FadeOut == 1)
             {
-                Projectile.Opacity -= (1 / 60f);
+                Projectile.Opacity -= (1 / 120f);
                 if (Projectile.Opacity < 0.05f)
                 {
                     Projectile.Kill();
                 }
             }
             ProjTimer += 1f;
+        }
+        public override bool CanHitPlayer(Player target)
+        {
+            if (Projectile.Opacity < 0.5f)
+                return false;
+            return base.CanHitPlayer(target);
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {

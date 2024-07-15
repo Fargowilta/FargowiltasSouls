@@ -15,6 +15,7 @@
     <None Remove="Folders to Port\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Content\Bosses\Lifelight\LifeRunespearHitbox.png" />
     <None Remove="Content\Items\Accessories\Forces\LifeForce_Wings.png" />
     <None Remove="Content\Items\Misc\CosmosBooster.png" />
     <None Remove="Content\Items\Misc\DeathBooster.png" />

@@ -35,7 +35,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         public static void AddEffects(Player player, Item item)
         {
             player.AddEffect<MeteorMomentumEffect>(item);
-            player.AddEffect<MeteorTrailEffect>(item);
+            //player.AddEffect<MeteorTrailEffect>(item);
             player.AddEffect<MeteorEffect>(item);
         }
 
@@ -69,6 +69,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
 
                 }
                 player.hasMagiluminescence = true;
+                /*
                 if (player.HasEffect<MeteorTrailEffect>())
                 {
                     const int SparkDelay = 2;
@@ -83,28 +84,20 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                             Vector2 offset = Vector2.Normalize(player.velocity).RotatedBy(MathHelper.PiOver2 * -i) * (player.width / 2);
                             Projectile.NewProjectile(GetSource_EffectItem(player), pos + offset, vel, ModContent.ProjectileType<MeteorFlame>(), FargoSoulsUtil.HighestDamageTypeScaling(player, damage), 0.5f, player.whoAmI);
                         }
-
-                        /*
-                        int p = Projectile.NewProjectile(Player.GetSource_Accessory(item), pos, vel, ProjectileID.Flames, FargoSoulsUtil.HighestDamageTypeScaling(Player, damage), 0.5f, Player.whoAmI);
-                        if (p != Main.maxProjectiles)
-                        {
-                            Main.projectile[p].DamageType = DamageClass.Generic;
-                            Main.projectile[p].friendly = true;
-                            Main.projectile[p].hostile = false; //just making sure
-                            Main.projectile[p].scale = 0.05f;
-                        }
-                        */
                     }
                 }
+                */
             }
         }
     }
+    /*
     public class MeteorTrailEffect : AccessoryEffect
     {
         public override Header ToggleHeader => Header.GetHeader<CosmoHeader>();
         public override int ToggleItemType => ModContent.ItemType<MeteorEnchant>();
         public override bool ExtraAttackEffect => true;
     }
+    */
     public class MeteorEffect : AccessoryEffect
     {
         public override Header ToggleHeader => Header.GetHeader<CosmoHeader>();
@@ -116,7 +109,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             if (player.whoAmI == Main.myPlayer)
             {
                 bool forceEffect = player.FargoSouls().ForceEffect<MeteorEnchant>();
-                int damage = forceEffect ? 50 : 20;
+                int damage = forceEffect ? 47 : 20;
                 if (modPlayer.MeteorShower)
                 {
                     if (modPlayer.MeteorTimer % (forceEffect ? 2 : 10) == 0)

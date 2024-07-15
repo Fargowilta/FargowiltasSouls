@@ -18,8 +18,8 @@ namespace FargowiltasSouls.Content.Items.Summons
 
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
+            Item.width = 30;
+            Item.height = 34;
             Item.rare = ItemRarityID.Blue;
             Item.maxStack = 20;
             Item.useAnimation = 30;

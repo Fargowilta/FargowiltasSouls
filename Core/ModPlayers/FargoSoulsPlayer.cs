@@ -41,6 +41,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public bool IsStandingStill;
         public float AttackSpeed;
+        public float UseTimeDebt;
         public float WingTimeModifier = 1f;
 
         public bool FreeEaterSummon = true;
@@ -623,15 +624,26 @@ namespace FargowiltasSouls.Core.ModPlayers
                     AttackSpeed -= diff;
                 }
 
-                //modify attack speed so it rounds up
-                //int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
-                //if (useTimeRoundUp < useTime) //sanity check
-                //{
-                //    while (useTime / AttackSpeed < useTimeRoundUp)
-                //    {
-                //        AttackSpeed -= .01f; //small increments to avoid skipping past any integers
-                //    }
-                //}
+                float originalAttackSpeed = AttackSpeed;
+                float originalUseTime = useTime / AttackSpeed;
+                if (UseTimeDebt > 1f)
+                {
+                    //when accummulated enough debt, pay it off. use time will round down this tick.
+                    UseTimeDebt -= 1f;
+                }
+                else //normally, force use time to round up
+                {
+                    //modify attack speed so it rounds up
+                    int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
+                    //Main.NewText($"pre {useTime / AttackSpeed}, target {useTimeRoundUp}");
+                    while (useTime / AttackSpeed < useTimeRoundUp)
+                        AttackSpeed -= .01f; //small increments to avoid skipping past any integers
+                    //Main.NewText($"result {useTime / AttackSpeed}");
+
+                    float newUseTime = useTime / AttackSpeed;
+                    UseTimeDebt += newUseTime - originalUseTime; //track the sub-1 unit "debt" of shorter useTime
+                }
+                //Main.NewText($"oldASpd: {originalAttackSpeed}, newASpd: {AttackSpeed}, oldUT: {originalUseTime}, newUT: {(useTime / AttackSpeed)}, debt: {UseTimeDebt}");
 
                 //checks so weapons dont break
                 while (useTime / AttackSpeed < 1)

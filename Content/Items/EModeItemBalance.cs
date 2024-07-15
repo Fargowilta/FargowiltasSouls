@@ -263,7 +263,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["SpearRework", "CobaltNaginataRework"];
                     return EModeChange.Buff;
                 case ItemID.CobaltSword:
-                    balanceNumber = 1.5f;
+                    balanceNumber = 1.25f;
                     balanceTextKeys = ["Speed", "CobaltNaginataRework"];
                     return EModeChange.Buff;
                 case ItemID.MythrilHalberd:
@@ -271,7 +271,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["SpearRework", "MythrilHalberdRework"];
                     return EModeChange.Buff;
                 case ItemID.MythrilSword:
-                    balanceNumber = 1.5f;
+                    balanceNumber = 1.25f;
                     balanceTextKeys = ["Speed", "MythrilHalberdRework"];
                     return EModeChange.Buff;
                 case ItemID.OrichalcumHalberd:
@@ -279,7 +279,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["SpearRework", "OrichalcumHalberdRework"];
                     return EModeChange.Buff;
                 case ItemID.OrichalcumSword:
-                    balanceNumber = 1.5f;
+                    balanceNumber = 1.25f;
                     balanceTextKeys = ["Speed", "OrichalcumHalberdRework"];
                     return EModeChange.Buff;
                 case ItemID.PalladiumPike:
@@ -287,7 +287,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["SpearRework", "PalladiumPikeRework"];
                     return EModeChange.Buff;
                 case ItemID.PalladiumSword:
-                    balanceNumber = 1.5f;
+                    balanceNumber = 1.25f;
                     balanceTextKeys = ["Speed", "PalladiumPikeRework"];
                     return EModeChange.Buff;
 
@@ -307,7 +307,7 @@ namespace FargowiltasSouls.Content.Items
 
                 case ItemID.AdamantiteGlaive:
                 case ItemID.TitaniumTrident:
-                    balanceNumber = 1.15f;
+                    balanceNumber = 1.25f;
                     balanceTextKeys = ["Damage", "SpearRework"];
                     return EModeChange.Buff;
 

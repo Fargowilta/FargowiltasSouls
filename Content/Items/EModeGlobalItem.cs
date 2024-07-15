@@ -1,4 +1,5 @@
 using FargowiltasSouls.Content.Buffs.Masomode;
+using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Content.Projectiles.Souls;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
@@ -107,14 +108,6 @@ namespace FargowiltasSouls.Content.Items
         {
             if (!WorldSavingSystem.EternityMode)
             {
-                if (item.type == ItemID.OrichalcumSword) //reset stats to default
-                {
-                    Item dummy = new(ItemID.OrichalcumSword);
-                    item.shoot = dummy.shoot;
-                    item.shootSpeed = dummy.shootSpeed;
-                    dummy.active = false;
-                    dummy = null;
-                }
                 return base.CanUseItem(item, player);
             }
 
@@ -133,11 +126,6 @@ namespace FargowiltasSouls.Content.Items
                 player.chaosState = true;
             }
 
-            if (item.type == ItemID.OrichalcumSword)
-            {
-                item.shoot = ProjectileID.FlowerPetal;
-                item.shootSpeed = 5;
-            }
             if (item.type == ItemID.CobaltSword)
             {
                 ePlayer.CobaltHitCounter = 0;
@@ -201,26 +189,23 @@ namespace FargowiltasSouls.Content.Items
                 return base.Shoot(item, player, source, position, velocity, type, damage, knockback);
             switch (item.type)
             {
-                case ItemID.OrichalcumSword:
-                    {
-                        for (int i = 0; i < 2; i++)
-                        {
-                            int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), position, velocity.RotatedByRandom(MathHelper.Pi / 14), type, (int)(damage * 0.75f), knockback / 2, Main.myPlayer);
-                            /*
-                            if (p != Main.maxProjectiles)
-                            {
-                                Projectile proj = Main.projectile[p];
-                                if (proj != null && proj.active)
-                                {
-                                    proj.scale = item.scale;
-                                }
-                            }
-                            */
-                        }
-                        return false;
-                    }
+
             }
             return base.Shoot(item, player, source, position, velocity, type, damage, knockback);
+        }
+        public override void ModifyHitNPC(Item item, Player player, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            if (!WorldSavingSystem.EternityMode)
+                return;
+            EModePlayer ePlayer = player.Eternity();
+            switch (item.type)
+            {
+                case ItemID.OrichalcumSword:
+                    modifiers.FinalDamage *= SpearRework.OrichalcumDoTDamageModifier(target.lifeRegen);
+                    break;
+                default:
+                    break;
+            }
         }
         public override void OnHitNPC(Item item, Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
@@ -232,7 +217,7 @@ namespace FargowiltasSouls.Content.Items
                 case ItemID.CobaltSword:
                     if (ePlayer.CobaltHitCounter < 2) //only twice per swing
                     {
-                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.Damage * 0.4f), 0f, Main.myPlayer);
+                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.SourceDamage * 0.4f), 0f, Main.myPlayer);
                         if (p != null)
                             p.FargoSouls().CanSplit = false;
                         ePlayer.CobaltHitCounter++;

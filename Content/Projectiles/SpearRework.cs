@@ -1,4 +1,5 @@
-﻿using FargowiltasSouls.Core.Systems;
+﻿using FargowiltasSouls.Common.Utilities;
+using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -110,14 +111,6 @@ namespace FargowiltasSouls.Content.Projectiles
                         break;
                     }
                 */
-                case ProjectileID.OrichalcumHalberd:
-                    {
-                        if (projectile.ai[1] == duration / 2 || projectile.ai[1] == duration / 2 + WaitTime && FargoSoulsUtil.HostCheck)
-                        {
-                            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Normalize(projectile.velocity) * 5, ProjectileID.FlowerPetal, projectile.damage / 2, projectile.knockBack / 2, Main.myPlayer);
-                        }
-                        break;
-                    }
                     /*
                 case ProjectileID.TheRottedFork:
                     {
@@ -125,6 +118,15 @@ namespace FargowiltasSouls.Content.Projectiles
                     }
                     */
             }
+        }
+
+        public static float OrichalcumDoTDamageModifier(float lifeRegen)
+        {
+            if (lifeRegen > 0)
+                return 1f;
+            float result = 1f - lifeRegen * 0.001f;
+            result = MathHelper.Clamp(result, 1f, 2f);
+            return result;
         }
     }
 }

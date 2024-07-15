@@ -56,8 +56,6 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             float ratio = 1f - Math.Abs(Timer) / Projectile.localAI[0];
             float rampupVfx = (float)Math.Sin(MathHelper.PiOver2 * ratio);
             Projectile.scale = 0.1f + 1.4f * rampupVfx;
-            // Jav, this will likely cause mp desyncing? Won't matter too much as scale is for visuals only,
-            // but be careful to not do it with things that affect gameplay on all clients. - Toasty.
             Projectile.scale *= Main.rand.NextFloat(0.8f, 1.2f);
             Projectile.rotation = 2f * MathHelper.TwoPi * rampupVfx;
 

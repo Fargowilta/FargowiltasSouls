@@ -136,7 +136,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     starDamage = 175;
 
                 SoundEngine.PlaySound(SoundID.Item105 with { Pitch = -0.3f }, player.Center);
-                Vector2 vel = Vector2.Zero;
+                Vector2 vel = -Vector2.UnitY * 7;
                 int nearestNPCID = FargoSoulsUtil.FindClosestHostileNPC(player.Center, 1000, true, true);
                 if (nearestNPCID.IsWithinBounds(Main.maxNPCs))
                 {

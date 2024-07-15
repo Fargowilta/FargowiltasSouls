@@ -475,12 +475,6 @@ namespace FargowiltasSouls.Content.Projectiles
                         }
                         break;
 
-                    case var _ when SpearRework.ReworkedSpears.Contains(projectile.type):
-                        {
-                            projectile.damage = (int)(projectile.damage * 1.5f);
-                            break;
-                        }
-
                     default:
                         break;
                 }
@@ -1200,6 +1194,9 @@ namespace FargowiltasSouls.Content.Projectiles
         {
             if (!WorldSavingSystem.EternityMode)
                 return;
+            if (SpearRework.ReworkedSpears.Contains(projectile.type))
+                modifiers.SourceDamage *= 1.5f;
+
             switch (projectile.type)
             {
                 case ProjectileID.CopperCoin:
@@ -1218,6 +1215,10 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.StarCloakStar:
                     if (!Main.hardMode)
                         modifiers.FinalDamage *= 0.33f;
+                    break;
+
+                case ProjectileID.OrichalcumHalberd:
+                    modifiers.FinalDamage *= SpearRework.OrichalcumDoTDamageModifier(target.lifeRegen);
                     break;
             }
             //if (projectile.arrow) //change archery and quiver to additive damage
@@ -1339,7 +1340,7 @@ namespace FargowiltasSouls.Content.Projectiles
                 case ProjectileID.CobaltNaginata:
                     if (projectile.ai[2] < 2) //only twice per swing
                     {
-                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.Damage * 0.4f), 0f, Main.myPlayer);
+                        Projectile p = FargoSoulsUtil.NewProjectileDirectSafe(player.GetSource_OnHit(target), target.position + Vector2.UnitX * Main.rand.Next(target.width) + Vector2.UnitY * Main.rand.Next(target.height), Vector2.Zero, ModContent.ProjectileType<CobaltExplosion>(), (int)(hit.SourceDamage * 0.4f), 0f, Main.myPlayer);
                         if (p != null)
                             p.FargoSouls().CanSplit = false;
                         projectile.ai[2]++;

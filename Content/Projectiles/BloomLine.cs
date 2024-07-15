@@ -93,7 +93,7 @@ namespace FargowiltasSouls.Content.Projectiles
                         color = Color.Goldenrod;
                         alphaModifier = 1;
                         Projectile.scale = 0.6f;
-                        maxTime = 60;
+                        maxTime = 80;
                         NPC lifelight = FargoSoulsUtil.NPCExists(Projectile.ai[1], ModContent.NPCType<LifeChallenger>());
                         if (lifelight != null && lifelight.active)
                         {

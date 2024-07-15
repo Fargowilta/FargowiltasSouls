@@ -188,7 +188,8 @@ namespace FargowiltasSouls.Core.Systems
                 {
                     if (type >= ItemID.Count) // modded item, variable type, add name instead
                     {
-                        ironData += $"_{ItemLoader.GetItem(type).FullName}";
+                        if (ItemLoader.GetItem(type) is ModItem modItem && modItem != null)
+                            ironData += $"_{modItem.FullName}";
                     }
                     else // vanilla item
                     {
@@ -237,7 +238,7 @@ namespace FargowiltasSouls.Core.Systems
                 {
                     if (entry != "IronUsedList")
                     {
-                        if (int.TryParse(entry, out int type))
+                        if (int.TryParse(entry, out int type) && type < ItemID.Count)
                         {
                             IronUsedList.Add(type);
                         }

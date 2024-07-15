@@ -31,7 +31,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
             Projectile.timeLeft = 80;
         }
 
-        public override bool? CanDamage() => WorldSavingSystem.MasochistModeReal;
+        public override bool? CanDamage() => false; // WorldSavingSystem.MasochistModeReal;
 
         public override void AI()
         {

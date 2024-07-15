@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,7 +18,13 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
 {
     public class LifeChalDeathray : BaseDeathray, IPixelatedPrimitiveRenderer
     {
-        PixelationPrimitiveLayer LayerToRenderTo => PixelationPrimitiveLayer.AfterProjectiles;
+        public static readonly SoundStyle ScreechSound1 = new SoundStyle($"FargowiltasSouls/Assets/Sounds/LifelightScreech1") with { Volume = 1.5f };
+        public static readonly SoundStyle DashSound1 = new SoundStyle($"FargowiltasSouls/Assets/Sounds/LifelightDash") with { Volume = 1.5f };
+        public static readonly SoundStyle DashSound2 = new SoundStyle($"FargowiltasSouls/Assets/Sounds/LifelightPixieDash") with { Volume = 1.5f };
+        public static readonly SoundStyle RuneSound1 = new SoundStyle($"FargowiltasSouls/Assets/Sounds/LifelightRuneSound") with { Volume = 1.5f };
+        public static readonly SoundStyle TelegraphSound1 = new SoundStyle($"FargowiltasSouls/Assets/Sounds/LifelightShotPrep") with { Volume = 1.5f };
+
+        public PixelationPrimitiveLayer LayerToRenderTo => PixelationPrimitiveLayer.AfterProjectiles;
 
         public override string Texture => "FargowiltasSouls/Content/Projectiles/Deathrays/AbomDeathray";
 

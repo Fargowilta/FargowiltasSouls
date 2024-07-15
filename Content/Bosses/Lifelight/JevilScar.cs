@@ -112,7 +112,7 @@ namespace FargowiltasSouls.Content.Bosses.Lifelight
                 {
                     Vector2 vectorToIdlePosition = Main.player[(int)Projectile.ai[1]].Center - Projectile.Center;
                     float speed = 18f;
-                    float inertia = 48f;
+                    float inertia = 64f;
                     vectorToIdlePosition.Normalize();
                     vectorToIdlePosition *= speed;
                     Projectile.velocity = (Projectile.velocity * (inertia - 1f) + vectorToIdlePosition) / inertia;
