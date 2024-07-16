@@ -667,8 +667,8 @@ TitaniumEnchant: {
 	Tooltip:
 		'''
 		Attacking generates a defensive barrier of up to 20 titanium shards
-		At 20 shards, you take 25% less contact and projectile damage from enemies in close range and resist most debuffs on hit
-		This has a cooldown of 10 seconds during which you cannot gain shards
+		At 20 shards, you take 25% less contact and projectile damage from enemies in close range and resist most debuffs
+		This has a cooldown of 10 seconds, during which you cannot gain shards
 		'Who needs a dodge when you're indestructible'
 		'''
 }
