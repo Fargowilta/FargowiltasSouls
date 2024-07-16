@@ -41,7 +41,6 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         public bool IsStandingStill;
         public float AttackSpeed;
-        public float UseTimeDebt;
         public float WingTimeModifier = 1f;
 
         public bool FreeEaterSummon = true;
@@ -49,6 +48,8 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool RustRifleReloading = false;
         public float RustRifleReloadZonePos = 0;
         public float RustRifleTimer = 0;
+
+        public float SlimeKingsSlasherSlashTimer = 0;
 
         public int RockeaterDistance = EaterLauncher.BaseDistance;
 
@@ -624,26 +625,15 @@ namespace FargowiltasSouls.Core.ModPlayers
                     AttackSpeed -= diff;
                 }
 
-                float originalAttackSpeed = AttackSpeed;
-                float originalUseTime = useTime / AttackSpeed;
-                if (UseTimeDebt > 1f)
-                {
-                    //when accummulated enough debt, pay it off. use time will round down this tick.
-                    UseTimeDebt -= 1f;
-                }
-                else //normally, force use time to round up
-                {
-                    //modify attack speed so it rounds up
-                    int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
-                    //Main.NewText($"pre {useTime / AttackSpeed}, target {useTimeRoundUp}");
-                    while (useTime / AttackSpeed < useTimeRoundUp)
-                        AttackSpeed -= .01f; //small increments to avoid skipping past any integers
-                    //Main.NewText($"result {useTime / AttackSpeed}");
-
-                    float newUseTime = useTime / AttackSpeed;
-                    UseTimeDebt += newUseTime - originalUseTime; //track the sub-1 unit "debt" of shorter useTime
-                }
-                //Main.NewText($"oldASpd: {originalAttackSpeed}, newASpd: {AttackSpeed}, oldUT: {originalUseTime}, newUT: {(useTime / AttackSpeed)}, debt: {UseTimeDebt}");
+                //modify attack speed so it rounds up
+                //int useTimeRoundUp = (int)Math.Round(useTime / AttackSpeed, MidpointRounding.ToPositiveInfinity);
+                //if (useTimeRoundUp < useTime) //sanity check
+                //{
+                //    while (useTime / AttackSpeed < useTimeRoundUp)
+                //    {
+                //        AttackSpeed -= .01f; //small increments to avoid skipping past any integers
+                //    }
+                //}
 
                 //checks so weapons dont break
                 while (useTime / AttackSpeed < 1)
@@ -1138,7 +1128,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         public static void Squeak(Vector2 center)
         {
             if (!Main.dedServ)
-                SoundEngine.PlaySound(new SoundStyle($"FargowiltasSouls/Assets/Sounds/SqueakyToy/squeak{Main.rand.Next(1, 7)}"), center);
+                SoundEngine.PlaySound(new SoundStyle($"FargowiltasSouls/Assets/Sounds/SqueakyToy/squeak{Main.rand.Next(1, 7)}") with {Volume = 0.7f}, center);
         }
 
         private int InfestedExtraDot()
