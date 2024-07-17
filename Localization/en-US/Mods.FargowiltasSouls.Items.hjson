@@ -602,7 +602,7 @@ SpiderEnchant: {
 	Tooltip:
 		'''
 		Your minions and sentries can crit
-		Minion and sentry crits deal x1.5 damage, instead of 2x
+		Minion and sentry crits deal 1.5x damage, instead of 2x
 		'Arachnophobia is punishable by arachnid induced death'
 		'''
 }
@@ -2078,7 +2078,7 @@ DeerSinew: {
 		Allows the ability to dash without a dash accessory
 		Double tap a direction
 		Taking damage may briefly freeze you
-		Reduces damage when your speed increases, down to 0.85x at max
+		Deal less damage as your speed increases, up to 15% less at max speed
 		All effects negated if toggled off or another dash is already in use
 		'Cold but twitching'
 		'''
@@ -2964,7 +2964,7 @@ ComputationOrb: {
 	DisplayName: Computation Orb
 	Tooltip:
 		'''
-		Non-magic/summon attacks deal x1.25 damage but are affected by Mana Sickness
+		Non-magic/summon attacks deal 25% more damage but are affected by Mana Sickness
 		Non-magic/summon weapons require 10 mana to use
 		'Within the core, a spark of hope remains.'
 		'''
