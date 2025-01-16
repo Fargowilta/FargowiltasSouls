@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             Projectile.timeLeft = 1200;
             Projectile.scale = 1f;
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = -1;
+            Projectile.localNPCHitCooldown = 10;
         }
 
         public override void AI()
