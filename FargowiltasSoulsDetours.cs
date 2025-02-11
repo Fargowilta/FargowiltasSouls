@@ -1,6 +1,7 @@
 ﻿using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.PlayerDrawLayers;
 using FargowiltasSouls.Content.Tiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Systems;
@@ -39,6 +40,7 @@ namespace FargowiltasSouls
             On_NPCUtils.TargetClosestBetsy += TargetClosestBetsy;
             On_Main.MouseText_DrawItemTooltip_GetLinesInfo += MouseText_DrawItemTooltip_GetLinesInfo;
             On_Player.HorsemansBlade_SpawnPumpkin += HorsemansBlade_SpawnPumpkin;
+            On_Player.ItemCheck_Shoot += InterruptShoot;
             On_Main.DrawInterface_35_YouDied += DrawInterface_35_YouDied;
 
 
@@ -52,6 +54,7 @@ namespace FargowiltasSouls
             On_Item.AffixName -= AffixName;
             On_NPCUtils.TargetClosestBetsy -= TargetClosestBetsy;
             On_Main.MouseText_DrawItemTooltip_GetLinesInfo -= MouseText_DrawItemTooltip_GetLinesInfo;
+            On_Player.ItemCheck_Shoot -= InterruptShoot;
             On_Main.DrawInterface_35_YouDied -= DrawInterface_35_YouDied;
         }
 
@@ -182,6 +185,18 @@ namespace FargowiltasSouls
             orig(self, npcIndex, dmg, kb);
         }
 
+        private void InterruptShoot(On_Player.orig_ItemCheck_Shoot orig, Player self, int i, Item sItem, int weaponDamage)
+        {
+
+            if (SwordGlobalItem.IsBroadsword(sItem) && sItem.TryGetGlobalItem<SwordGlobalItem>(out SwordGlobalItem sword) && !sword.VanillaShoot)
+            {
+                FargoSoulsPlayer mplayer = self.FargoSouls();
+
+                mplayer.shouldShoot = true;
+                return;
+            }
+            orig(self, i, sItem, weaponDamage);
+        }
         public static void DrawInterface_35_YouDied(On_Main.orig_DrawInterface_35_YouDied orig)
         {
             orig();
