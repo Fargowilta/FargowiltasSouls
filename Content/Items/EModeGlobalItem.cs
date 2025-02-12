@@ -203,6 +203,8 @@ namespace FargowiltasSouls.Content.Items
                 return;
             if (item.type == ItemID.PalladiumSword)
                 scale += 0.4f;
+            if (item.type == ItemID.Bladetongue)
+                scale += 0.3f;
         }
         public override bool? UseItem(Item item, Player player)
         {

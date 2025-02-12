@@ -30,7 +30,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             Projectile.extraUpdates = 1;
             Projectile.timeLeft = 120;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.tileCollide = false;
+            //Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
         }
 

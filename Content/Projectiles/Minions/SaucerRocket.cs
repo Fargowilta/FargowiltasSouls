@@ -29,6 +29,8 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             Projectile.timeLeft = 600;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
         }
 
         public override void AI()
@@ -103,11 +105,11 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
             }
         }
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        /*public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (Projectile.penetrate < 0)
                 target.immune[Projectile.owner] = 0;
-        }
+        }*/
 
         public override void OnKill(int timeLeft)
         {

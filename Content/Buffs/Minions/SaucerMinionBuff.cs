@@ -22,7 +22,11 @@ namespace FargowiltasSouls.Content.Buffs.Minions
             player.FargoSouls().MiniSaucer = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                const int damage = 50;
+                int damage = 50;
+                if (!NPC.downedGolemBoss)
+                {
+                    damage = 25;
+                }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<MiniSaucer>()] < 1)
                     FargoSoulsUtil.NewSummonProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<MiniSaucer>(), damage, 3f, player.whoAmI);
             }

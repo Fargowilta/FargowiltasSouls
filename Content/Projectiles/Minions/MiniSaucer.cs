@@ -109,7 +109,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                     Projectile.netUpdate = true;
                 }
 
-                if (player.controlUseTile)
+                if ((player.controlUseTile) && !(player.controlUseItem))
                 {
                     if (++rayCounter > 20)
                     {
@@ -127,7 +127,7 @@ namespace FargowiltasSouls.Content.Projectiles.Minions
                     rayCounter = 0;
                 }
 
-                if (player.controlUseItem)
+                if ((player.controlUseItem) && !(player.controlUseTile))
                 {
                     if (++Projectile.localAI[0] > 5f) //shoot laser
                     {
