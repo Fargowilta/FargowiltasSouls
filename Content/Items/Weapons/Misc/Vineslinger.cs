@@ -10,6 +10,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Misc
         public override void SetStaticDefaults()
         {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
             // DisplayName.SetDefault("Vineslinger");
             // Tooltip.SetDefault("Hitting an enemy fires leaves");
         }
@@ -25,7 +26,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.Misc
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 5.5f;
-            Item.damage = 58;
+            Item.damage = 40;
             Item.scale = 1.1f;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<VineslingerBall>();

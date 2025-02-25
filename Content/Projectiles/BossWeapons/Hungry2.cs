@@ -151,7 +151,7 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
 
             Projectile.rotation += (float)Math.PI / 2;
 
-            Projectile.damage = (int)(Projectile.ai[1] * Projectile.scale);
+            Projectile.damage = (int)(Projectile.ai[1] * Projectile.scale * 3);
             if (Projectile.scale < 5f / 2f)
                 Projectile.damage /= 2;
         }

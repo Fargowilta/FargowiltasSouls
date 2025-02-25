@@ -89,7 +89,7 @@ namespace FargowiltasSouls.Content.Patreon
                     AddPatreonDrop(
                         () => SoulConfig.Instance.PatreonPrime && WorldSavingSystem.EternityMode,
                         ModContent.ItemType<PrimeStaff>(),
-                        20,
+                        5,
                         "PatreonEMode");
                     break;
 

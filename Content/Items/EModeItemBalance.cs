@@ -132,7 +132,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.3f;
                     return EModeChange.Buff;
-
+                    /*
                 case ItemID.NorthPole:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.12f;
@@ -142,7 +142,7 @@ namespace FargowiltasSouls.Content.Items
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.1f;
                     return EModeChange.Buff;
-
+                    */
                 case ItemID.Razorpine:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 0.8f;
@@ -161,12 +161,14 @@ namespace FargowiltasSouls.Content.Items
                 case ItemID.TheHorsemansBlade:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.12f;
-                    return EModeChange.Nerf;
+                    return EModeChange.Buff;
 
+                    /*
                 case ItemID.Uzi:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 0.88f;
                     return EModeChange.Nerf;
+                    */
 
                 case ItemID.BeeGun:
                     balanceTextKeys = ["Damage"];
@@ -213,7 +215,7 @@ namespace FargowiltasSouls.Content.Items
                     return EModeChange.Nerf;
 
                 case ItemID.SlimeStaff:
-                case ItemID.ImpStaff:
+                //case ItemID.ImpStaff:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.1f;
                     return EModeChange.Buff;
@@ -372,8 +374,8 @@ namespace FargowiltasSouls.Content.Items
                     return EModeChange.Buff;
 
                 case ItemID.ObsidianSwordfish:
-                    balanceNumber = 0.8f;
-                    balanceTextKeys = ["Damage", "SpearRework"];
+                    balanceNumber = 1;
+                    balanceTextKeys = ["SpearRework"];
                     return EModeChange.Buff;
                 #endregion
 
@@ -440,6 +442,20 @@ namespace FargowiltasSouls.Content.Items
                 case ItemID.TempestStaff:
                     balanceTextKeys = ["Damage"];
                     balanceNumber = 1.2f;
+                    return EModeChange.Buff;
+
+                case ItemID.Bladetongue:
+                    balanceTextKeys = ["Bladetongue"];
+                    return EModeChange.Buff;
+
+                case ItemID.BouncingShield: //sergeant united shield
+                    balanceTextKeys = ["Damage"];
+                    balanceNumber = 1.3f;
+                    return EModeChange.Buff;
+
+                case ItemID.DaedalusStormbow:
+                    balanceTextKeys = ["Speed"];
+                    balanceNumber = 0.7f;
                     return EModeChange.Nerf;
                 default:
                     return EModeChange.None;

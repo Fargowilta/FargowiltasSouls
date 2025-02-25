@@ -26,9 +26,12 @@ namespace FargowiltasSouls.Content.Patreon.Purified
             Projectile.minion = true;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.tileCollide = false;
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 15;
+            //Projectile.usesLocalNPCImmunity = true;
+            //Projectile.localNPCHitCooldown = 15;
         }
+
+        public override bool? CanDamage() => false;
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -129,8 +132,7 @@ namespace FargowiltasSouls.Content.Patreon.Purified
                             {
                                 Main.projectile[p].DamageType = DamageClass.Summon;
                                 Main.projectile[p].usesIDStaticNPCImmunity = false;
-                                Main.projectile[p].usesLocalNPCImmunity = true;
-                                Main.projectile[p].localNPCHitCooldown = 10;
+                                Main.projectile[p].penetrate = 1;
                             }
                         }
                     }

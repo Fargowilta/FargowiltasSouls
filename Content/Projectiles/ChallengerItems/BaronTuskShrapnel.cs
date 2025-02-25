@@ -26,7 +26,8 @@ namespace FargowiltasSouls.Content.Projectiles.ChallengerItems
             Projectile.scale = 1f;
             Projectile.timeLeft = 60 * 40;
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 10;
+            Projectile.localNPCHitCooldown = -1;
+            Projectile.DamageType = DamageClass.Melee;
 
             Projectile.FargoSouls().CanSplit = false;
         }

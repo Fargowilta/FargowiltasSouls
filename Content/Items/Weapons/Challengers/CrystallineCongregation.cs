@@ -26,12 +26,12 @@ namespace FargowiltasSouls.Content.Items.Weapons.Challengers
 
         public override void SetDefaults()
         {
-            Item.damage = 56;
+            Item.damage = 40;
             Item.DamageType = DamageClass.Magic;
             Item.width = 56;
             Item.height = 56;
-            Item.useTime = 5;
-            Item.useAnimation = 5;
+            Item.useTime = 6;
+            Item.useAnimation = 6;
             Item.channel = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 1f;

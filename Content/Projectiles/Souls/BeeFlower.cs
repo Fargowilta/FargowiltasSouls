@@ -79,8 +79,8 @@ namespace FargowiltasSouls.Content.Projectiles.Souls
                 if (p != Main.maxProjectiles)
                 {
                     Main.projectile[p].DamageType = Projectile.DamageType;
-                    Main.projectile[p].usesLocalNPCImmunity = true;
-                    Main.projectile[p].localNPCHitCooldown = 15;
+                    Main.projectile[p].usesIDStaticNPCImmunity = true;
+                    Main.projectile[p].idStaticNPCHitCooldown = 10;
                     if (Projectile.ai[2] == 1)
                         Main.projectile[p].extraUpdates = 10;
                 }

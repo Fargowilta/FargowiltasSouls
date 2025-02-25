@@ -21,7 +21,7 @@ namespace FargowiltasSouls.Content.Patreon.Purified
 
         public override void SetDefaults()
         {
-            Item.damage = 18;
+            Item.damage = 24;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
             Item.width = 26;

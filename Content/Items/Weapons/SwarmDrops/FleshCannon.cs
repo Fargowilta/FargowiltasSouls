@@ -22,7 +22,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
 
         public override void SetDefaults()
         {
-            Item.damage = 390;
+            Item.damage = 90;
             Item.DamageType = DamageClass.Magic;
             Item.channel = true;
             Item.mana = 6;
@@ -43,7 +43,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            const int FACTOR = 14; // (Make sure this is even)
+            const int FACTOR = 10; // (Make sure this is even)
 
             counter++;
             if (player.ownedProjectileCounts[type] < 1 && counter % (FACTOR / 2) == 0)
@@ -52,9 +52,9 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
                 SoundEngine.PlaySound(SoundID.NPCDeath13, position);
             }
 
-            float rotation = MathHelper.ToRadians(10) * (float)Math.Sin((counter + 0.2) * Math.PI / (FACTOR / 2));
-            Projectile.NewProjectile(source, position, velocity.RotatedBy(rotation) * 0.4f, ProjectileID.PurpleLaser, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity.RotatedBy(-rotation) * 0.4f, ModContent.ProjectileType<FleshLaser>(), damage, knockback, player.whoAmI);
+            float rotation = MathHelper.ToRadians(7) * (float)Math.Sin((counter + 0.2) * Math.PI / (FACTOR / 2));
+            Projectile.NewProjectile(source, position, velocity.RotatedBy(rotation) * 0.4f, ModContent.ProjectileType<FleshLaser>(), damage, knockback, player.whoAmI, ai0: 0);
+            Projectile.NewProjectile(source, position, velocity.RotatedBy(-rotation) * 0.4f, ModContent.ProjectileType<FleshLaser>(), damage, knockback, player.whoAmI, ai0: 1);
 
             if (counter >= FACTOR) //reset
                 counter = 0;
