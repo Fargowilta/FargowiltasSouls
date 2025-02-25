@@ -4,6 +4,7 @@ using FargowiltasSouls.Content.Buffs;
 using FargowiltasSouls.Content.Buffs.Boss;
 using FargowiltasSouls.Content.Buffs.Masomode;
 using FargowiltasSouls.Content.Buffs.Souls;
+using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Content.Items.Accessories.Expert;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
@@ -74,6 +75,11 @@ namespace FargowiltasSouls.Core.ModPlayers
         public bool Grappled = false;
 
         public float LockedMana = 0;
+
+        public bool shouldShoot;
+        public int useDirection = -1;
+        public float useRotation = 0;
+        public int swingDirection = 1;
 
         public Dictionary<int, bool> KnownBuffsToPurify = [];
 
@@ -1392,7 +1398,11 @@ namespace FargowiltasSouls.Core.ModPlayers
             //        }
             //    }
             //}
+            if (SwordGlobalItem.IsBroadsword(drawInfo.heldItem) && drawInfo.drawPlayer.ItemAnimationActive)
+            {
 
+                Terraria.DataStructures.PlayerDrawLayers.HeldItem.Hide();
+            }
         }
 
         public int GetHealMultiplier(int heal)
