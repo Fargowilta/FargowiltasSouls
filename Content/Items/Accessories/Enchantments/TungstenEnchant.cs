@@ -48,7 +48,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 .AddIngredient(ItemID.TungstenGreaves)
                 .AddIngredient(ItemID.TungstenBroadsword)
                 .AddIngredient(ItemID.Ruler)
-                if (Main.remixWorld && !Main.getGoodWorld) //gfb should remain as is
+                if (Main.remixWorld && !(Main.getGoodWorld && Main.zenithWorld)) //gfb should remain as is
                 {
                     .AddIngredient(ItemID.Keybrand)
                 }
