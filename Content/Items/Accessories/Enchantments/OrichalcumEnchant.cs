@@ -38,7 +38,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
             .AddRecipeGroup("FargowiltasSouls:AnyOriHead")
             .AddIngredient(ItemID.OrichalcumBreastplate)
             .AddIngredient(ItemID.OrichalcumLeggings)
-            if (Main.remixWorld && !(Main.getGoodWorld && Main.zenithWorld) //gfb should remain as is
+            if (Main.remixWorld && !(Main.getGoodWorld && Main.zenithWorld)) //gfb should remain as is
             {
                 .AddIngredient(ItemID.UnholyTrident)
             }
