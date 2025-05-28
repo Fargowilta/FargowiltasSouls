@@ -48,7 +48,14 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 .AddIngredient(ItemID.TungstenGreaves)
                 .AddIngredient(ItemID.TungstenBroadsword)
                 .AddIngredient(ItemID.Ruler)
+                if (Main.remixWorld && !Main.getGoodWorld) //gfb should remain as is
+                {
+                    .AddIngredient(ItemID.Keybrand)
+                }
+                else
+                {
                 .AddIngredient(ItemID.Katana)
+                }
 
                 .AddTile(TileID.DemonAltar)
                 .Register();
