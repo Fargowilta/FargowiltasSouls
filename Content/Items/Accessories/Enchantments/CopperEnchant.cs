@@ -42,7 +42,14 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                 .AddIngredient(ItemID.CopperChainmail)
                 .AddIngredient(ItemID.CopperGreaves)
                 .AddIngredient(ItemID.CopperShortsword)
-                .AddIngredient(ItemID.WandofSparking)
+                if (main.remixWorld && !(Main.getGoodWorld && Main.zenithWorld) //gfb should remain as is
+                {                    
+                    .AddIngredient(ItemID.MagicDagger)
+                }
+                else
+                {
+                    .AddIngredient(ItemID.WandofSparking)
+                }
                 .AddIngredient(ItemID.ThunderStaff)
 
             .AddTile(TileID.DemonAltar)
